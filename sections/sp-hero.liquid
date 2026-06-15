@@ -1,0 +1,2488 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .section-{{ section.id }}-padding.sp-hero-section--sticky {
+      padding-bottom: calc({{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px + 7rem);
+    }
+  }
+
+  .sp-hero {
+    --sp-hero-gap-xs: 0.6rem;
+    --sp-hero-gap-sm: 0.8rem;
+    --sp-hero-gap-md: 1.6rem;
+    --sp-hero-gap-lg: 2.4rem;
+    --sp-hero-content-max-width: 58rem;
+    --sp-hero-subheadline-max-width: 48rem;
+    --sp-hero-headline-max-width: 12ch;
+    --sp-hero-cta-min-height: 4.8rem;
+    --sp-hero-cta-min-width-desktop: 20rem;
+    --sp-hero-trust-gap-desktop: 1.6rem;
+    --sp-hero-benefit-icon-size: 2rem;
+    --sp-hero-stat-divider: rgba(var(--color-foreground), 0.14);
+    --sp-hero-float-card-radius: 1.4rem;
+    --sp-hero-float-card-shadow: 0 0.8rem 2.4rem rgba(var(--color-shadow), 0.12);
+    --sp-hero-media-scale: 1;
+    --sp-hero-highlight-color: currentColor;
+    display: grid;
+    gap: var(--sp-hero-gap-lg);
+  }
+
+  .sp-hero--layout-classic_split {
+    --sp-hero-content-max-width: 58rem;
+    --sp-hero-gap-lg: 2.4rem;
+  }
+
+  .sp-hero--layout-centered_conversion {
+    --sp-hero-content-max-width: 52rem;
+    --sp-hero-headline-max-width: 14ch;
+    --sp-hero-gap-lg: 2rem;
+  }
+
+  .sp-hero--layout-media_focus {
+    --sp-hero-content-max-width: 48rem;
+    --sp-hero-media-scale: 1.06;
+    --sp-hero-gap-lg: 3.2rem;
+  }
+
+  .sp-hero--layout-minimal {
+    --sp-hero-content-max-width: 50rem;
+    --sp-hero-gap-md: 1.2rem;
+    --sp-hero-gap-lg: 1.6rem;
+  }
+
+  .sp-hero--layout-authority {
+    --sp-hero-content-max-width: 62rem;
+    --sp-hero-subheadline-max-width: 52rem;
+    --sp-hero-gap-lg: 2.8rem;
+  }
+
+  .sp-hero[data-visual='subtle'] {
+    --sp-hero-float-card-shadow: 0 0.6rem 1.8rem rgba(var(--color-shadow), 0.1);
+  }
+
+  .sp-hero[data-visual='premium'] {
+    --sp-hero-float-card-shadow: 0 1.2rem 3.2rem rgba(var(--color-shadow), 0.16);
+  }
+
+  .sp-hero[data-visual='premium'] .sp-hero__media-frame {
+    box-shadow: 0 2rem 5rem rgba(var(--color-shadow), 0.14);
+  }
+
+  .sp-hero[data-visual='premium']::before {
+    content: '';
+    position: absolute;
+    inset: 10% 5% auto;
+    height: 40%;
+    background: radial-gradient(ellipse at center, rgba(var(--color-foreground), 0.06), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .sp-hero {
+    position: relative;
+  }
+
+  .sp-hero > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .sp-hero--image-left .sp-hero__media-wrapper {
+    order: 4;
+  }
+
+  @media screen and (max-width: 749px) {
+    .sp-hero--image-left .sp-hero__media-wrapper {
+      order: 20;
+    }
+  }
+
+  .sp-hero__content {
+    display: grid;
+    gap: var(--sp-hero-gap-md);
+    max-width: var(--sp-hero-content-max-width);
+  }
+
+  .sp-hero__content--center {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .sp-hero__content--left {
+    text-align: left;
+  }
+
+  .sp-hero__announcement {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0;
+    padding: 0.55rem 1rem;
+    border-radius: 99rem;
+    background: rgba(var(--color-foreground), 0.06);
+    border: 0.1rem solid rgba(var(--color-foreground), 0.1);
+    line-height: 1.35;
+  }
+
+  .sp-hero__announcement-icon {
+    flex-shrink: 0;
+    width: 1.4rem;
+    height: 1.4rem;
+    color: rgb(var(--color-foreground));
+  }
+
+  .sp-hero__announcement-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .sp-hero__content--center .sp-hero__announcement {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .sp-hero__social-proof {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.8rem;
+    margin: 0;
+    max-width: 100%;
+  }
+
+  .sp-hero__content--center .sp-hero__social-proof,
+  .sp-hero__content--desktop-center .sp-hero__social-proof {
+    justify-content: center;
+  }
+
+  .sp-hero__social-avatars {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sp-hero__social-avatar {
+    width: 3.2rem;
+    height: 3.2rem;
+    margin-left: -0.8rem;
+    border: 0.15rem solid rgb(var(--color-background));
+  }
+
+  .sp-hero__social-avatar:first-child {
+    margin-left: 0;
+  }
+
+  .sp-hero__social-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem 0.6rem;
+  }
+
+  .sp-hero__social-rating {
+    font-weight: 600;
+  }
+
+  .sp-hero__social-proof-stars {
+    letter-spacing: 0.08rem;
+    color: rgb(var(--color-foreground));
+  }
+
+  .sp-hero__eyebrow {
+    margin: 0;
+  }
+
+  .sp-hero__badge {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    margin: 0;
+    padding: 0.5rem 0.9rem;
+    border-radius: 99rem;
+    background: rgba(var(--color-foreground), 0.08);
+  }
+
+  .sp-hero__content--center .sp-hero__badge {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .sp-hero__headline {
+    margin: 0;
+    max-width: var(--sp-hero-headline-max-width);
+    line-height: 1;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+  }
+
+  .sp-hero__content--center .sp-hero__headline {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .sp-hero__headline--highlight-underline strong,
+  .sp-hero__headline--highlight-underline em,
+  .sp-hero__headline--highlight-underline mark {
+    font-style: inherit;
+    font-weight: inherit;
+    color: var(--sp-hero-highlight-color);
+    background: none;
+    box-shadow: inset 0 -0.35em 0 rgba(var(--color-foreground), 0.14);
+  }
+
+  .sp-hero__headline--highlight-background strong,
+  .sp-hero__headline--highlight-background em,
+  .sp-hero__headline--highlight-background mark {
+    font-style: inherit;
+    font-weight: inherit;
+    color: rgb(var(--color-background));
+    background: var(--sp-hero-highlight-color, rgb(var(--color-foreground)));
+    padding: 0 0.12em;
+    border-radius: 0.12em;
+    box-decoration-break: clone;
+  }
+
+  .sp-hero__headline--highlight-gradient strong,
+  .sp-hero__headline--highlight-gradient em,
+  .sp-hero__headline--highlight-gradient mark {
+    font-style: inherit;
+    font-weight: inherit;
+    background: linear-gradient(120deg, var(--sp-hero-highlight-color), rgba(var(--color-foreground), 0.55));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .sp-hero__subheadline {
+    margin: 0;
+    max-width: var(--sp-hero-subheadline-max-width);
+  }
+
+  .sp-hero__content--center .sp-hero__subheadline {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .sp-hero__benefits {
+    display: grid;
+    gap: var(--sp-hero-gap-sm);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    justify-items: start;
+  }
+
+  .sp-hero__content--center .sp-hero__benefits {
+    justify-items: center;
+  }
+
+  .sp-hero__benefit {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    max-width: 42rem;
+    line-height: 1.45;
+    text-align: left;
+  }
+
+  .sp-hero__benefit-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--sp-hero-benefit-icon-size);
+    height: var(--sp-hero-benefit-icon-size);
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    border-radius: 50%;
+    background: rgba(var(--color-foreground), 0.08);
+    color: rgb(var(--color-foreground));
+  }
+
+  .sp-hero__benefit-icon svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    display: block;
+  }
+
+  .sp-hero__price {
+    margin: 0;
+  }
+
+  .sp-hero__price-compare {
+    margin-right: 0.6rem;
+    opacity: 0.75;
+  }
+
+  .sp-hero__stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-hero-gap-sm);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    max-width: 42rem;
+  }
+
+  .sp-hero__content--center .sp-hero__stats {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .sp-hero__stat {
+    display: grid;
+    gap: 0.2rem;
+    flex: 1 1 9rem;
+    min-width: 0;
+    padding: 0.8rem 0.4rem;
+    text-align: center;
+  }
+
+  @media screen and (min-width: 750px) {
+    .sp-hero__stat:not(:first-child) {
+      border-left: 0.1rem solid var(--sp-hero-stat-divider);
+    }
+  }
+
+  .sp-hero__content--left .sp-hero__stat,
+  .sp-hero__content--desktop-left .sp-hero__stat {
+    text-align: left;
+    padding-left: 0;
+  }
+
+  .sp-hero__content--left .sp-hero__stat:not(:first-child),
+  .sp-hero__content--desktop-left .sp-hero__stat:not(:first-child) {
+    padding-left: 0.8rem;
+  }
+
+  .sp-hero__stat-value {
+    margin: 0;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .sp-hero__stat-label {
+    margin: 0;
+    opacity: 0.72;
+    line-height: 1.3;
+  }
+
+  .sp-hero__cta {
+    display: grid;
+    justify-items: start;
+  }
+
+  .sp-hero__content--center .sp-hero__cta,
+  .sp-hero__content--desktop-center .sp-hero__cta {
+    justify-items: center;
+  }
+
+  .sp-hero__trust-microcopy {
+    display: grid;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    justify-items: start;
+    opacity: 0.82;
+  }
+
+  .sp-hero__content--center .sp-hero__trust-microcopy,
+  .sp-hero__content--desktop-center .sp-hero__trust-microcopy {
+    justify-items: center;
+  }
+
+  .sp-hero__trust-microcopy-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    line-height: 1.35;
+  }
+
+  .sp-hero__trust-microcopy-icon {
+    width: 1.4rem;
+    height: 1.4rem;
+    flex-shrink: 0;
+    color: rgb(var(--color-foreground));
+  }
+
+  .sp-hero__trust-microcopy-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .sp-hero__trust-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    justify-content: flex-start;
+    opacity: 0.88;
+  }
+
+  .sp-hero__content--center .sp-hero__trust-stack,
+  .sp-hero__content--desktop-center .sp-hero__trust-stack {
+    justify-content: center;
+  }
+
+  .sp-hero__trust-stack-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    line-height: 1.35;
+  }
+
+  .sp-hero__trust-stack-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .sp-hero__trust-stack-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .sp-hero__logos {
+    display: grid;
+    gap: 0.8rem;
+  }
+
+  .sp-hero__logos-label {
+    margin: 0;
+    opacity: 0.72;
+  }
+
+  .sp-hero__logos-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.2rem 1.6rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sp-hero__content--center .sp-hero__logos-list,
+  .sp-hero__content--desktop-center .sp-hero__logos-list {
+    justify-content: center;
+  }
+
+  .sp-hero__logo-link {
+    display: block;
+    opacity: 0.72;
+    transition: opacity 0.2s ease;
+  }
+
+  @media (hover: hover) {
+    .sp-hero__logo-link:hover {
+      opacity: 1;
+    }
+  }
+
+  .sp-hero__logo .sp-image {
+    display: block;
+    width: auto;
+    max-width: 9rem;
+    max-height: 2.8rem;
+  }
+
+  .sp-hero__scroll-cue {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: rgb(var(--color-foreground));
+    opacity: 0.72;
+    transition: opacity 0.2s ease;
+  }
+
+  .sp-hero__scroll-cue:focus-visible {
+    outline: 0.2rem solid rgb(var(--color-foreground));
+    outline-offset: 0.3rem;
+    opacity: 1;
+  }
+
+  @media (hover: hover) {
+    .sp-hero__scroll-cue:hover {
+      opacity: 1;
+    }
+  }
+
+  .sp-hero__scroll-cue-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  .sp-hero__scroll-cue-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .sp-hero__content--center .sp-hero__scroll-cue,
+  .sp-hero__content--desktop-center .sp-hero__scroll-cue {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .sp-hero__button {
+    width: 100%;
+    min-height: var(--sp-hero-cta-min-height);
+    transition:
+      transform 0.22s ease,
+      box-shadow 0.22s ease;
+  }
+
+  .sp-hero__button--outline {
+    background: transparent;
+    color: rgb(var(--color-foreground));
+    border: 0.1rem solid rgba(var(--color-foreground), 0.28);
+    box-shadow: none;
+  }
+
+  .sp-hero__product-form,
+  .sp-hero__product-form-inner {
+    width: 100%;
+  }
+
+  .sp-hero__product-form .loading__spinner {
+    position: absolute;
+  }
+
+  .sp-hero__trust-row {
+    display: grid;
+    gap: var(--sp-hero-gap-sm);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    justify-items: start;
+    width: 100%;
+  }
+
+  .sp-hero__content--center .sp-hero__trust-row,
+  .sp-hero__content--desktop-center .sp-hero__trust-row {
+    justify-items: center;
+  }
+
+  .sp-hero__trust-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .sp-hero__trust-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    flex-shrink: 0;
+  }
+
+  .sp-hero__trust-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .sp-hero__media-wrapper {
+    order: 5;
+  }
+
+  .sp-hero__media {
+    position: relative;
+    width: 100%;
+    overflow: visible;
+  }
+
+  .sp-hero__media-inner {
+    position: relative;
+  }
+
+  .sp-hero__media-frame {
+    position: relative;
+  }
+
+  .sp-hero__media-inner:has(.sp-hero__float-cards) .sp-hero__media-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    border-radius: inherit;
+    background: linear-gradient(
+      to top,
+      rgba(var(--color-shadow), 0.3) 0%,
+      rgba(var(--color-shadow), 0.08) 30%,
+      transparent 55%
+    );
+  }
+
+  .sp-hero__media-frame .placeholder-svg {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .sp-hero__float-cards {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .sp-hero__float-card {
+    position: absolute;
+    display: grid;
+    gap: 0.4rem;
+    max-width: min(18rem, 72%);
+    padding: 1rem 1.2rem;
+    border-radius: var(--sp-hero-float-card-radius);
+    background: rgb(var(--color-background));
+    border: 0.1rem solid rgba(var(--color-foreground), 0.1);
+    box-shadow: var(--sp-hero-float-card-shadow);
+    line-height: 1.35;
+  }
+
+  .sp-hero__float-card--review {
+    left: 1.2rem;
+    bottom: 1.2rem;
+    gap: 0.6rem;
+    max-width: min(22rem, 78%);
+  }
+
+  .sp-hero__float-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .sp-hero__float-card-avatar {
+    width: 3.6rem;
+    height: 3.6rem;
+    flex-shrink: 0;
+  }
+
+  .sp-hero__float-card-meta {
+    display: grid;
+    gap: 0.25rem;
+    min-width: 0;
+  }
+
+  .sp-hero__float-card-name-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .sp-hero__float-card-author {
+    margin: 0;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .sp-hero__float-card-verified {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.15rem 0.5rem;
+    border-radius: 99rem;
+    background: rgba(var(--color-foreground), 0.08);
+    font-size: 0.85em;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  .sp-hero__float-card-text {
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .sp-hero__float-card--shipping {
+    top: 1.2rem;
+    right: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.7rem 1rem;
+  }
+
+  .sp-hero__float-card--bestseller {
+    top: 1.2rem;
+    left: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 1rem;
+    border-radius: 99rem;
+    font-weight: 600;
+    background: rgb(var(--color-foreground));
+    color: rgb(var(--color-background));
+    border-color: transparent;
+  }
+
+  .sp-hero__float-card-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    flex-shrink: 0;
+  }
+
+  .sp-hero__float-cards--glass .sp-hero__float-card {
+    background: rgba(var(--color-background), 0.78);
+    backdrop-filter: blur(1.2rem);
+    -webkit-backdrop-filter: blur(1.2rem);
+    border-color: rgba(var(--color-foreground), 0.12);
+  }
+
+  .sp-hero__float-card-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .sp-hero__float-card-stars {
+    display: flex;
+    gap: 0.15rem;
+    color: rgb(var(--color-foreground));
+  }
+
+  .sp-hero__float-card-star {
+    width: 1.2rem;
+    height: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .sp-hero__float-card-star svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  @keyframes sp-hero-float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-0.8rem);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html[data-sp-motion='premium'] .sp-hero__media-inner {
+      animation: sp-hero-float 7s ease-in-out infinite;
+      animation-delay: 0.8s;
+    }
+
+    html[data-sp-motion='premium'] .sp-hero__scroll-cue {
+      animation: sp-hero-float 2.4s ease-in-out infinite;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sp-hero__media-inner,
+    .sp-hero__scroll-cue {
+      animation: none !important;
+    }
+  }
+
+  .sp-hero__sticky {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 4;
+    transform: translateY(110%);
+    transition: transform 0.28s ease;
+    padding: 0.8rem 1.6rem calc(0.8rem + env(safe-area-inset-bottom, 0));
+    border-top: 0.1rem solid rgba(var(--color-foreground), 0.1);
+    box-shadow: 0 -0.6rem 2rem rgba(var(--color-shadow), 0.12);
+  }
+
+  .sp-hero__sticky.is-visible {
+    transform: translateY(0);
+  }
+
+  .sp-hero__sticky--solid {
+    background: rgb(var(--color-background));
+  }
+
+  .sp-hero__sticky--blur {
+    background: rgba(var(--color-background), 0.9);
+    backdrop-filter: blur(1.2rem);
+    -webkit-backdrop-filter: blur(1.2rem);
+  }
+
+  .sp-hero__sticky-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: var(--page-width);
+    margin: 0 auto;
+  }
+
+  .sp-hero__sticky .sp-hero__button,
+  .sp-hero__sticky .sp-hero__product-form {
+    width: 100%;
+    max-width: 42rem;
+  }
+
+  @media screen and (min-width: 750px) {
+    .sp-hero__sticky {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+
+    .sp-hero {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 3.2rem;
+      align-items: center;
+    }
+
+    .sp-hero--layout-centered_conversion {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .sp-hero--layout-centered_conversion .sp-hero__content-wrapper,
+    .sp-hero--layout-centered_conversion .sp-hero__media-wrapper {
+      order: unset;
+    }
+
+    .sp-hero--layout-centered_conversion .sp-hero__content {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .sp-hero--layout-media_focus .sp-hero__media-inner {
+      transform: scale(var(--sp-hero-media-scale));
+      transform-origin: center;
+    }
+
+    .sp-hero--layout-authority .sp-hero__trust-row,
+    .sp-hero--layout-authority .sp-hero__trust-stack {
+      gap: 1rem 2rem;
+    }
+
+    .sp-hero--image-left .sp-hero__content-wrapper {
+      order: 2;
+    }
+
+    .sp-hero--image-left .sp-hero__media-wrapper {
+      order: 1;
+    }
+
+    .sp-hero__content--desktop-left {
+      text-align: left;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .sp-hero__content--desktop-left .sp-hero__subheadline {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .sp-hero__content--desktop-left .sp-hero__announcement,
+    .sp-hero__content--desktop-left .sp-hero__badge,
+    .sp-hero__content--desktop-left .sp-hero__headline {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .sp-hero__content--desktop-center {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .sp-hero__content--desktop-center .sp-hero__benefits {
+      justify-items: center;
+    }
+
+    .sp-hero__content--desktop-left .sp-hero__benefits {
+      justify-items: start;
+    }
+
+    .sp-hero__content > [class*='sp-hero__slot--'] {
+      order: unset;
+    }
+
+    .sp-hero__button {
+      width: auto;
+      min-width: var(--sp-hero-cta-min-width-desktop);
+    }
+
+    .sp-hero__trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-hero-gap-sm) var(--sp-hero-trust-gap-desktop);
+      justify-content: flex-start;
+    }
+
+    .sp-hero__content--desktop-center .sp-hero__trust-row {
+      justify-content: center;
+    }
+
+    .sp-hero__float-card--review {
+      left: 2rem;
+      bottom: 2rem;
+    }
+
+    .sp-hero__float-card--shipping {
+      top: 2rem;
+      right: 2rem;
+    }
+
+    .sp-hero__float-card--bestseller {
+      top: 2rem;
+      left: 2rem;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .sp-hero {
+      gap: 4.8rem;
+    }
+
+    .sp-hero__float-card {
+      max-width: 20rem;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .sp-hero__content-wrapper {
+      order: 1;
+    }
+
+    .sp-hero__media-wrapper {
+      order: 20;
+    }
+
+    .sp-hero__slot--announcement {
+      order: 1;
+    }
+
+    .sp-hero__slot--social-proof {
+      order: 2;
+    }
+
+    .sp-hero__slot--eyebrow {
+      order: 3;
+    }
+
+    .sp-hero__slot--badge {
+      order: 4;
+    }
+
+    .sp-hero__slot--headline {
+      order: 5;
+    }
+
+    .sp-hero__slot--subheadline {
+      order: 6;
+    }
+
+    .sp-hero__slot--benefits {
+      order: 7;
+    }
+
+    .sp-hero__slot--price {
+      order: 8;
+    }
+
+    .sp-hero__slot--stats {
+      order: 9;
+    }
+
+    .sp-hero__slot--cta {
+      order: 10;
+    }
+
+    .sp-hero__slot--trust-stack {
+      order: 11;
+    }
+
+    .sp-hero__slot--trust-microcopy {
+      order: 12;
+    }
+
+    .sp-hero__slot--trust-row {
+      order: 13;
+    }
+
+    .sp-hero__slot--logos {
+      order: 14;
+    }
+
+    .sp-hero__slot--scroll-cue {
+      order: 15;
+    }
+
+    .sp-hero__stats {
+      flex-direction: column;
+      max-width: none;
+    }
+
+    .sp-hero__stat {
+      flex: 1 1 auto;
+    }
+
+    .sp-hero__stat:not(:first-child) {
+      border-left: 0;
+      border-top: 0.1rem solid var(--sp-hero-stat-divider);
+      padding-top: 0.8rem;
+    }
+
+    .sp-hero__content--left .sp-hero__stat,
+    .sp-hero__content--center .sp-hero__stat {
+      text-align: center;
+      padding-left: 0.4rem;
+    }
+
+    .sp-hero__float-card--review {
+      left: 0.8rem;
+      bottom: 0.8rem;
+      max-width: calc(100% - 1.6rem);
+    }
+
+    .sp-hero__float-card--shipping {
+      top: 0.8rem;
+      right: 0.8rem;
+    }
+
+    .sp-hero__float-card--bestseller {
+      top: 0.8rem;
+      left: 0.8rem;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign is_high_priority = false
+  if section.settings.prioritize_lcp or section.index == 1
+    assign is_high_priority = true
+  endif
+
+  assign image_loading = 'lazy'
+  assign image_fetch_priority = 'auto'
+  if is_high_priority
+    assign image_loading = 'eager'
+    assign image_fetch_priority = 'high'
+  endif
+
+  assign desktop_image = section.settings.hero_image_desktop
+  if desktop_image == blank
+    assign desktop_image = section.settings.hero_image
+  endif
+
+  assign mobile_image = section.settings.hero_image_mobile
+  if mobile_image == blank
+    assign mobile_image = desktop_image
+  endif
+
+  assign alt_text = section.settings.image_alt | strip
+  if alt_text == blank and desktop_image != blank
+    assign alt_text = desktop_image.alt | escape
+  endif
+
+  if alt_text == blank
+    assign alt_text = section.settings.headline | strip_html | escape
+  endif
+
+  assign heading_tag = section.settings.heading_tag | default: 'h1'
+  assign pricing_product = section.settings.featured_product
+  if pricing_product == blank and product != blank
+    assign pricing_product = product
+  endif
+
+  assign mobile_ratio = 100
+  if mobile_image != blank and mobile_image.aspect_ratio
+    assign mobile_ratio = 1 | divided_by: mobile_image.aspect_ratio | times: 100
+  elsif desktop_image != blank and desktop_image.aspect_ratio
+    assign mobile_ratio = 1 | divided_by: desktop_image.aspect_ratio | times: 100
+  endif
+
+  assign desktop_ratio = mobile_ratio
+  if desktop_image != blank and desktop_image.aspect_ratio
+    assign desktop_ratio = 1 | divided_by: desktop_image.aspect_ratio | times: 100
+  endif
+
+  assign hero_focal_mobile = 'center'
+  assign hero_focal_desktop = 'center'
+  if mobile_image != blank and mobile_image.presentation.focal_point != blank
+    assign hero_focal_mobile = mobile_image.presentation.focal_point
+  endif
+  if desktop_image != blank and desktop_image.presentation.focal_point != blank
+    assign hero_focal_desktop = desktop_image.presentation.focal_point
+  else
+    assign hero_focal_desktop = hero_focal_mobile
+  endif
+
+  assign show_product_price = false
+  if section.settings.price_source == 'product' and pricing_product != blank
+    assign show_product_price = true
+  endif
+
+  assign benefit_chip_blocks = section.blocks | where: 'type', 'benefit_chip'
+  assign trust_item_blocks = section.blocks | where: 'type', 'trust_item'
+
+  assign show_hero_stats = false
+  if section.settings.show_hero_stats
+    if section.settings.stat_1_value != blank or section.settings.stat_2_value != blank or section.settings.stat_3_value != blank
+      assign show_hero_stats = true
+    endif
+  endif
+
+  assign show_floating_review = false
+  if section.settings.show_floating_review and section.settings.floating_review_text != blank
+    assign show_floating_review = true
+  endif
+
+  assign show_floating_shipping = false
+  if section.settings.show_floating_shipping and section.settings.floating_shipping_text != blank
+    assign show_floating_shipping = true
+  endif
+
+  assign show_floating_bestseller = false
+  if section.settings.show_floating_bestseller and section.settings.floating_bestseller_text != blank
+    assign show_floating_bestseller = true
+  endif
+
+  assign show_floating_cards = false
+  if show_floating_review or show_floating_shipping or show_floating_bestseller
+    assign show_floating_cards = true
+  endif
+
+  assign floating_review_rating = section.settings.floating_review_rating | default: 5 | plus: 0
+  if floating_review_rating > 5
+    assign floating_review_rating = 5
+  elsif floating_review_rating < 1
+    assign floating_review_rating = 1
+  endif
+
+  assign show_trust_microcopy = false
+  if section.settings.show_trust_microcopy
+    if section.settings.trust_microcopy_1 != blank or section.settings.trust_microcopy_2 != blank or section.settings.trust_microcopy_3 != blank
+      assign show_trust_microcopy = true
+    endif
+  endif
+
+  assign show_scroll_cue = false
+  if section.settings.show_scroll_cue and section.settings.scroll_cue_text != blank and section.settings.scroll_cue_link != blank
+    assign show_scroll_cue = true
+  endif
+
+  assign floating_review_image = section.settings.floating_review_image
+  assign show_floating_review_verified = section.settings.show_floating_review_verified
+  assign floating_review_verified_label = section.settings.floating_review_verified_label | default: 'Verified Buyer'
+
+  assign cta_product = pricing_product
+  assign cta_type = section.settings.cta_type | default: 'custom_link'
+  assign layout_preset = section.settings.layout_preset | default: 'classic_split'
+  assign visual_effects = section.settings.visual_effects | default: 'none'
+
+  assign show_mobile_sticky = false
+  if section.settings.enable_mobile_sticky_cta
+    assign show_mobile_sticky = true
+  endif
+
+  assign sticky_cta_label = section.settings.sticky_cta_label | strip
+  if sticky_cta_label == blank
+    assign sticky_cta_label = section.settings.cta_label
+  endif
+
+  assign load_product_form_js = false
+  if cta_type == 'add_to_cart'
+    assign load_product_form_js = true
+  endif
+
+  assign load_sp_hero_js = false
+  if show_mobile_sticky or cta_type == 'buy_now'
+    assign load_sp_hero_js = true
+  endif
+-%}
+
+{% liquid
+  assign sp_hero_extra_class = ''
+  assign sp_hero_extra_attributes = ''
+  if show_mobile_sticky
+    assign sp_hero_extra_class = 'sp-hero-section--sticky'
+    assign sp_hero_extra_attributes = 'data-sp-hero-sticky'
+  endif
+%}
+{% render 'sp-section-hierarchy-open', section: section, extra_class: sp_hero_extra_class, extra_attributes: sp_hero_extra_attributes %}
+    <div
+      class="sp-hero sp-hero--image-{{ section.settings.desktop_image_position }} sp-hero--layout-{{ layout_preset }}"
+      data-visual="{{ visual_effects }}"
+      {% if section.settings.headline != blank %}
+        aria-label="{{ section.settings.headline | strip_html | escape }}"
+      {% else %}
+        aria-label="Hero section"
+      {% endif %}
+    >
+      <div class="sp-hero__content-wrapper">
+        <div class="sp-hero__content sp-hero__content--{{ section.settings.content_alignment }} sp-hero__content--desktop-{{ section.settings.desktop_content_alignment }}{% render 'sp-motion-class', type: 'stagger' %}" data-sp-stagger>
+          {%- if section.settings.show_announcement and section.settings.announcement_text != blank -%}
+            <p class="sp-hero__announcement sp-hero__slot--announcement caption{% render 'sp-motion-class', type: 'stagger-item' %}">
+              <span class="sp-hero__announcement-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M12 3.5 4.5 7v6.2c0 4.5 2.8 8.6 7.5 9.8 4.7-1.2 7.5-5.3 7.5-9.8V7z"></path>
+                  <path d="m8.8 12.1 2.2 2.3 4.3-4.4"></path>
+                </svg>
+              </span>
+              {{ section.settings.announcement_text }}
+            </p>
+          {%- endif -%}
+
+          {%- render 'sp-hero-social-proof', section: section -%}
+
+          {%- if section.settings.eyebrow_text != blank -%}
+            <p class="sp-hero__eyebrow sp-hero__slot--eyebrow caption-with-letter-spacing{% render 'sp-motion-class', type: 'stagger-item' %}">
+              {{ section.settings.eyebrow_text }}
+            </p>
+          {%- endif -%}
+
+          {%- if section.settings.badge_text != blank -%}
+            <p class="sp-hero__badge sp-hero__slot--badge caption{% render 'sp-motion-class', type: 'stagger-item' %}">
+              {{ section.settings.badge_text }}
+            </p>
+          {%- endif -%}
+
+          {%- render 'sp-hero-headline', section: section, heading_tag: heading_tag -%}
+
+          {%- if section.settings.subheadline != blank -%}
+            <p class="sp-hero__subheadline sp-hero__slot--subheadline rte{% render 'sp-motion-class', type: 'stagger-item' %}">
+              {{ section.settings.subheadline }}
+            </p>
+          {%- endif -%}
+
+          {%- if benefit_chip_blocks.size > 0 -%}
+            <ul class="sp-hero__benefits sp-hero__slot--benefits list-unstyled{% render 'sp-motion-class', type: 'stagger-item' %}" role="list">
+              {%- for block in benefit_chip_blocks -%}
+                {%- if block.settings.benefit_text != blank -%}
+                  <li class="sp-hero__benefit caption" {{ block.shopify_attributes }}>
+                    <span class="sp-hero__benefit-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                        <path d="m5.5 12.2 4.1 4.1 9-9"></path>
+                      </svg>
+                    </span>
+                    <span>{{ block.settings.benefit_text }}</span>
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+
+          {%- if show_product_price -%}
+            {%- assign price_variant = pricing_product.selected_or_first_available_variant -%}
+            {%- if price_variant != blank -%}
+              <p class="sp-hero__price sp-hero__slot--price subtitle{% render 'sp-motion-class', type: 'stagger-item' %}">
+                {%- if price_variant.compare_at_price > price_variant.price -%}
+                  <s class="sp-hero__price-compare">
+                    {{ price_variant.compare_at_price | money }}
+                  </s>
+                {%- endif -%}
+
+                <span class="sp-hero__price-current">
+                  {{ price_variant.price | money }}
+                </span>
+              </p>
+            {%- endif -%}
+          {%- elsif section.settings.price_text != blank -%}
+            <p class="sp-hero__price sp-hero__slot--price subtitle{% render 'sp-motion-class', type: 'stagger-item' %}">
+              {{ section.settings.price_text }}
+            </p>
+          {%- endif -%}
+
+          {%- if show_hero_stats -%}
+            <ul class="sp-hero__stats sp-hero__slot--stats list-unstyled{% render 'sp-motion-class', type: 'stagger-item' %}" role="list" aria-label="Highlights">
+              {%- if section.settings.stat_1_value != blank -%}
+                <li class="sp-hero__stat">
+                  <p class="sp-hero__stat-value h4">{{ section.settings.stat_1_value }}</p>
+                  {%- if section.settings.stat_1_label != blank -%}
+                    <p class="sp-hero__stat-label caption">{{ section.settings.stat_1_label }}</p>
+                  {%- endif -%}
+                </li>
+              {%- endif -%}
+
+              {%- if section.settings.stat_2_value != blank -%}
+                <li class="sp-hero__stat">
+                  <p class="sp-hero__stat-value h4">{{ section.settings.stat_2_value }}</p>
+                  {%- if section.settings.stat_2_label != blank -%}
+                    <p class="sp-hero__stat-label caption">{{ section.settings.stat_2_label }}</p>
+                  {%- endif -%}
+                </li>
+              {%- endif -%}
+
+              {%- if section.settings.stat_3_value != blank -%}
+                <li class="sp-hero__stat">
+                  <p class="sp-hero__stat-value h4">{{ section.settings.stat_3_value }}</p>
+                  {%- if section.settings.stat_3_label != blank -%}
+                    <p class="sp-hero__stat-label caption">{{ section.settings.stat_3_label }}</p>
+                  {%- endif -%}
+                </li>
+              {%- endif -%}
+            </ul>
+          {%- endif -%}
+
+          {%- if section.settings.cta_label != blank or cta_type == 'add_to_cart' or cta_type == 'buy_now' -%}
+            <div class="sp-hero__cta sp-hero__slot--cta{% render 'sp-motion-class', type: 'stagger-item' %}" data-sp-hero-cta-anchor>
+              {%- render 'sp-hero-cta',
+                section: section,
+                cta_product: cta_product,
+                cta_label: section.settings.cta_label,
+                cta_type: cta_type,
+                cta_style: section.settings.cta_style,
+                cta_link: section.settings.cta_link,
+                cta_target_section: section.settings.cta_target_section
+              -%}
+            </div>
+          {%- endif -%}
+
+          {%- render 'sp-hero-trust-stack', section: section -%}
+
+          {%- if show_trust_microcopy -%}
+            <ul class="sp-hero__trust-microcopy sp-hero__slot--trust-microcopy list-unstyled{% render 'sp-motion-class', type: 'stagger-item' %}" role="list">
+              {%- if section.settings.trust_microcopy_1 != blank -%}
+                <li class="sp-hero__trust-microcopy-item caption">
+                  <span class="sp-hero__trust-microcopy-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="m5.5 12.2 4.1 4.1 9-9"></path>
+                    </svg>
+                  </span>
+                  {{ section.settings.trust_microcopy_1 | escape }}
+                </li>
+              {%- endif -%}
+              {%- if section.settings.trust_microcopy_2 != blank -%}
+                <li class="sp-hero__trust-microcopy-item caption">
+                  <span class="sp-hero__trust-microcopy-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="m5.5 12.2 4.1 4.1 9-9"></path>
+                    </svg>
+                  </span>
+                  {{ section.settings.trust_microcopy_2 | escape }}
+                </li>
+              {%- endif -%}
+              {%- if section.settings.trust_microcopy_3 != blank -%}
+                <li class="sp-hero__trust-microcopy-item caption">
+                  <span class="sp-hero__trust-microcopy-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="m5.5 12.2 4.1 4.1 9-9"></path>
+                    </svg>
+                  </span>
+                  {{ section.settings.trust_microcopy_3 | escape }}
+                </li>
+              {%- endif -%}
+            </ul>
+          {%- endif -%}
+
+          {%- if section.settings.show_reassurance_row and trust_item_blocks.size > 0 -%}
+            <ul class="sp-hero__trust-row sp-hero__slot--trust-row list-unstyled{% render 'sp-motion-class', type: 'stagger-item' %}" role="list">
+              {%- for block in trust_item_blocks -%}
+                {%- if block.settings.text != blank -%}
+                  <li class="sp-hero__trust-item caption" {{ block.shopify_attributes }}>
+                    <span class="sp-hero__trust-icon" aria-hidden="true">
+                      {%- case block.settings.icon -%}
+                        {%- when 'truck' -%}
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M1.5 4.5h12v9h-12z"></path>
+                            <path d="M13.5 8.5h4l3 3v2h-7z"></path>
+                            <circle cx="6" cy="16.5" r="2"></circle>
+                            <circle cx="17.5" cy="16.5" r="2"></circle>
+                          </svg>
+                        {%- when 'return' -%}
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M7 7H3v4"></path>
+                            <path d="M3 11a8.5 8.5 0 1 1 2.5 6"></path>
+                            <path d="M8.5 20.5l-3 1.5"></path>
+                          </svg>
+                        {%- else -%}
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M12 2.5 4.5 5.5v6.2c0 4.5 2.8 8.6 7.5 9.8 4.7-1.2 7.5-5.3 7.5-9.8V5.5z"></path>
+                            <path d="m8.8 12.1 2.2 2.3 4.3-4.4"></path>
+                          </svg>
+                      {%- endcase -%}
+                    </span>
+                    {{ block.settings.text }}
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+
+          {%- render 'sp-hero-logos', section: section -%}
+
+          {%- if show_scroll_cue -%}
+            <a href="{{ section.settings.scroll_cue_link }}" class="sp-hero__scroll-cue sp-hero__slot--scroll-cue caption{% render 'sp-motion-class', type: 'stagger-item' %}">
+              <span>{{ section.settings.scroll_cue_text | escape }}</span>
+              <span class="sp-hero__scroll-cue-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M12 5v14"></path>
+                  <path d="m6.5 13.5 5.5 5.5 5.5-5.5"></path>
+                </svg>
+              </span>
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <div class="sp-hero__media-wrapper">
+        <div
+          class="sp-hero__media media{% if desktop_image == blank and mobile_image == blank %} placeholder{% endif %}"
+          style="--sp-hero-ratio-mobile: {{ mobile_ratio | round: 2 }}%; --sp-hero-ratio-desktop: {{ desktop_ratio | round: 2 }}%; --sp-hero-focal-mobile: {{ hero_focal_mobile }}; --sp-hero-focal-desktop: {{ hero_focal_desktop }};"
+        >
+          <div class="sp-hero__media-inner">
+            <div class="sp-hero__media-frame sp-media-frame sp-media-frame--custom{% render 'sp-motion-class', type: 'fade-in' %}">
+              {%- if mobile_image != blank -%}
+                {%- liquid
+                  assign hero_image_classes = 'sp-image'
+                  if settings.sp_image_progressive_reveal
+                    assign hero_image_classes = hero_image_classes | append: ' sp-image-reveal'
+                  endif
+                -%}
+                <picture>
+                  {%- if desktop_image != blank -%}
+                    <source
+                      media="(min-width: 750px)"
+                      srcset="
+                        {{ desktop_image | image_url: width: 750 }} 750w,
+                        {{ desktop_image | image_url: width: 1100 }} 1100w,
+                        {{ desktop_image | image_url: width: 1500 }} 1500w,
+                        {{ desktop_image | image_url: width: 2200 }} 2200w
+                      "
+                      sizes="(min-width: 990px) calc((100vw - 10rem) / 2), (min-width: 750px) calc((100vw - 8rem) / 2), 100vw"
+                    >
+                  {%- endif -%}
+
+                  {{
+                    mobile_image
+                    | image_url: width: 1600
+                    | image_tag:
+                      widths: '375,550,750,900,1100,1500,1600',
+                      sizes: '100vw',
+                      alt: alt_text,
+                      loading: image_loading,
+                      fetchpriority: image_fetch_priority,
+                      class: hero_image_classes
+                  }}
+                </picture>
+              {%- else -%}
+                <span class="sp-image-placeholder" aria-hidden="true">
+                  {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                </span>
+              {%- endif -%}
+            </div>
+
+            {%- render 'sp-hero-floating-cards',
+              section: section,
+              show_floating_review: show_floating_review,
+              show_floating_shipping: show_floating_shipping,
+              show_floating_bestseller: show_floating_bestseller,
+              floating_review_rating: floating_review_rating
+            -%}
+          </div>
+        </div>
+      </div>
+    </div>
+
+  {%- if show_mobile_sticky -%}
+    <div
+      class="sp-hero__sticky sp-hero__sticky--{{ section.settings.sticky_background_style | default: 'solid' }} {% render 'sp-section-hierarchy-surface', section: section %}"
+      data-sp-hero-sticky-bar
+      aria-hidden="true"
+    >
+      <div class="sp-hero__sticky-inner">
+        {%- render 'sp-hero-cta',
+          section: section,
+          cta_product: cta_product,
+          cta_label: sticky_cta_label,
+          cta_type: cta_type,
+          cta_style: section.settings.cta_style,
+          cta_link: section.settings.cta_link,
+          cta_target_section: section.settings.cta_target_section,
+          is_sticky: true
+        -%}
+      </div>
+    </div>
+  {%- endif -%}
+{% render 'sp-section-hierarchy-close' %}
+
+{%- if load_product_form_js -%}
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{%- if load_sp_hero_js -%}
+  <script src="{{ 'sp-hero.js' | asset_url }}" defer="defer"></script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "SP Hero",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 20,
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_announcement",
+      "default": false,
+      "label": "Show announcement bar"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "announcement_text",
+      "default": "Limited time: Free shipping on all orders",
+      "label": "Announcement text"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "eyebrow_text",
+      "default": "Backed by 12,000+ customers",
+      "label": "Eyebrow text"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "headline",
+      "default": "The smarter way to improve your daily routine",
+      "label": "Headline"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "options": [
+        {
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        }
+      ],
+      "default": "h1",
+      "label": "Heading tag"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subheadline",
+      "default": "Designed for people who want premium results with less effort.",
+      "label": "Subheadline"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "badge_text",
+      "default": "Best Seller",
+      "label": "Badge text"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" },
+        { "value": "hxl", "label": "XL" }
+      ],
+      "default": "h0",
+      "label": "Headline size"
+    },
+    {
+      "type": "select",
+      "id": "headline_highlight_style",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "underline", "label": "Underline" },
+        { "value": "background", "label": "Background" },
+        { "value": "gradient", "label": "Gradient text" }
+      ],
+      "default": "none",
+      "label": "Headline highlight style",
+      "info": "Bold words in the headline are highlighted."
+    },
+    {
+      "type": "color",
+      "id": "headline_highlight_color",
+      "label": "Headline highlight color"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "price_text",
+      "default": "From $49",
+      "label": "Price text"
+    },
+    {
+      "type": "product",
+      "id": "featured_product",
+      "label": "Featured product",
+      "info": "Used for automatic pricing when price source is set to Product."
+    },
+    {
+      "type": "select",
+      "id": "price_source",
+      "options": [
+        {
+          "value": "product",
+          "label": "Product"
+        },
+        {
+          "value": "custom",
+          "label": "Custom text"
+        }
+      ],
+      "default": "custom",
+      "label": "Price source"
+    },
+    {
+      "type": "header",
+      "content": "Social proof"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social_proof",
+      "default": true,
+      "label": "Show social proof"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "social_proof_text",
+      "default": "4.8★ from 12,000+ verified customers",
+      "label": "Social proof text"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating_stars",
+      "default": true,
+      "label": "Show rating stars"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social_rating",
+      "default": false,
+      "label": "Show rating value"
+    },
+    {
+      "type": "text",
+      "id": "social_rating_value",
+      "default": "4.9/5",
+      "label": "Rating value"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social_review_count",
+      "default": false,
+      "label": "Show review count"
+    },
+    {
+      "type": "text",
+      "id": "social_review_count",
+      "default": "12,000+ reviews",
+      "label": "Review count"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social_customer_count",
+      "default": false,
+      "label": "Show customer count"
+    },
+    {
+      "type": "text",
+      "id": "social_customer_count",
+      "default": "250K+ customers",
+      "label": "Customer count"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social_avatars",
+      "default": false,
+      "label": "Show customer avatars"
+    },
+    {
+      "type": "image_picker",
+      "id": "social_avatar_1",
+      "label": "Avatar 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "social_avatar_2",
+      "label": "Avatar 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "social_avatar_3",
+      "label": "Avatar 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "social_avatar_4",
+      "label": "Avatar 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "social_avatar_5",
+      "label": "Avatar 5"
+    },
+    {
+      "type": "header",
+      "content": "Benefits"
+    },
+    {
+      "type": "paragraph",
+      "content": "Add benefit blocks below."
+    },
+    {
+      "type": "header",
+      "content": "Hero statistics"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_hero_stats",
+      "default": false,
+      "label": "Show hero statistics"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_value",
+      "default": "250K+",
+      "label": "Statistic 1 value"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_label",
+      "default": "Customers",
+      "label": "Statistic 1 label"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_value",
+      "default": "4.9/5",
+      "label": "Statistic 2 value"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_label",
+      "default": "Rating",
+      "label": "Statistic 2 label"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_value",
+      "default": "35+",
+      "label": "Statistic 3 value"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_label",
+      "default": "Countries",
+      "label": "Statistic 3 label"
+    },
+    {
+      "type": "header",
+      "content": "CTA"
+    },
+    {
+      "type": "select",
+      "id": "cta_type",
+      "options": [
+        { "value": "custom_link", "label": "Custom link" },
+        { "value": "shop_now", "label": "Shop now" },
+        { "value": "add_to_cart", "label": "Add to cart" },
+        { "value": "buy_now", "label": "Buy now" },
+        { "value": "scroll_to_section", "label": "Scroll to section" }
+      ],
+      "default": "custom_link",
+      "label": "CTA type"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "default": "Shop now",
+      "label": "CTA label"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA link",
+      "info": "Used for Custom link and Shop now fallback."
+    },
+    {
+      "type": "text",
+      "id": "cta_target_section",
+      "label": "CTA target section",
+      "info": "Anchor link for Scroll to section, for example #shopify-section-template--1234567890__reviews."
+    },
+    {
+      "type": "select",
+      "id": "cta_style",
+      "options": [
+        { "value": "primary", "label": "Primary" },
+        { "value": "secondary", "label": "Secondary" },
+        { "value": "outline", "label": "Outline" }
+      ],
+      "default": "primary",
+      "label": "CTA style"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_mobile_sticky_cta",
+      "default": false,
+      "label": "Enable mobile sticky CTA"
+    },
+    {
+      "type": "text",
+      "id": "sticky_cta_label",
+      "label": "Sticky CTA label",
+      "info": "Leave blank to reuse the main CTA label."
+    },
+    {
+      "type": "select",
+      "id": "sticky_background_style",
+      "options": [
+        { "value": "solid", "label": "Solid" },
+        { "value": "blur", "label": "Blur" }
+      ],
+      "default": "solid",
+      "label": "Sticky background style"
+    },
+    {
+      "type": "header",
+      "content": "Trust"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cta_trust_stack",
+      "default": false,
+      "label": "Show CTA trust stack",
+      "info": "Add CTA trust items as blocks."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_trust_microcopy",
+      "default": true,
+      "label": "Show trust microcopy below CTA"
+    },
+    {
+      "type": "text",
+      "id": "trust_microcopy_1",
+      "default": "30-Day Money Back Guarantee",
+      "label": "Trust line 1"
+    },
+    {
+      "type": "text",
+      "id": "trust_microcopy_2",
+      "default": "Free Shipping Today",
+      "label": "Trust line 2"
+    },
+    {
+      "type": "text",
+      "id": "trust_microcopy_3",
+      "default": "Secure Checkout",
+      "label": "Trust line 3"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_reassurance_row",
+      "default": true,
+      "label": "Show reassurance row"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_logos",
+      "default": false,
+      "label": "Show featured logos"
+    },
+    {
+      "type": "text",
+      "id": "logos_label",
+      "default": "Featured In",
+      "label": "Logos label"
+    },
+    {
+      "type": "header",
+      "content": "Scroll cue"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_scroll_cue",
+      "default": false,
+      "label": "Show scroll cue"
+    },
+    {
+      "type": "text",
+      "id": "scroll_cue_text",
+      "default": "See Why Customers Love It",
+      "label": "Scroll cue text"
+    },
+    {
+      "type": "url",
+      "id": "scroll_cue_link",
+      "label": "Scroll cue link",
+      "info": "Link to the next section on the page, for example a reviews or benefits section."
+    },
+    {
+      "type": "header",
+      "content": "Floating cards"
+    },
+    {
+      "type": "select",
+      "id": "floating_card_style",
+      "options": [
+        { "value": "solid", "label": "Solid" },
+        { "value": "glass", "label": "Glass" }
+      ],
+      "default": "solid",
+      "label": "Floating card style"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_floating_review",
+      "default": false,
+      "label": "Show floating review card"
+    },
+    {
+      "type": "range",
+      "id": "floating_review_rating",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 5,
+      "label": "Floating review rating"
+    },
+    {
+      "type": "text",
+      "id": "floating_review_text",
+      "default": "This changed my routine completely.",
+      "label": "Floating review text"
+    },
+    {
+      "type": "text",
+      "id": "floating_review_author",
+      "default": "Sarah M.",
+      "label": "Floating review author"
+    },
+    {
+      "type": "image_picker",
+      "id": "floating_review_image",
+      "label": "Floating review customer image"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_floating_review_verified",
+      "default": true,
+      "label": "Show verified buyer badge"
+    },
+    {
+      "type": "text",
+      "id": "floating_review_verified_label",
+      "default": "Verified Buyer",
+      "label": "Verified buyer label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_floating_shipping",
+      "default": false,
+      "label": "Show floating shipping badge"
+    },
+    {
+      "type": "text",
+      "id": "floating_shipping_text",
+      "default": "Free Shipping",
+      "label": "Floating shipping text"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_floating_bestseller",
+      "default": false,
+      "label": "Show floating bestseller badge"
+    },
+    {
+      "type": "text",
+      "id": "floating_bestseller_text",
+      "default": "Bestseller",
+      "label": "Floating bestseller text"
+    },
+    {
+      "type": "header",
+      "content": "Media"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero image",
+      "info": "Used as default image when device-specific images are not set."
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image_mobile",
+      "label": "Mobile image"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image_desktop",
+      "label": "Desktop image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text",
+      "info": "Describe the image for screen readers."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "layout_preset",
+      "options": [
+        { "value": "classic_split", "label": "Classic split" },
+        { "value": "centered_conversion", "label": "Centered conversion" },
+        { "value": "media_focus", "label": "Media focus" },
+        { "value": "minimal", "label": "Minimal" },
+        { "value": "authority", "label": "Authority" }
+      ],
+      "default": "classic_split",
+      "label": "Layout preset"
+    },
+    {
+      "type": "select",
+      "id": "desktop_image_position",
+      "options": [
+        { "value": "right", "label": "Right" },
+        { "value": "left", "label": "Left" }
+      ],
+      "default": "right",
+      "label": "Desktop image position"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" }
+      ],
+      "default": "left",
+      "label": "Mobile content alignment"
+    },
+    {
+      "type": "select",
+      "id": "desktop_content_alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" }
+      ],
+      "default": "left",
+      "label": "Desktop content alignment"
+    },
+{
+    "type": "header",
+    "content": "Visual hierarchy"
+  },
+  {
+    "type": "select",
+    "id": "sp_surface_style",
+    "label": "Surface style",
+    "default": "default",
+    "info": "Inverse uses the inverse color scheme from Theme settings → SP Visual hierarchy instead of the section Color scheme below.",
+    "options": [
+      {
+        "value": "default",
+        "label": "Default"
+      },
+      {
+        "value": "alternate",
+        "label": "Alternate"
+      },
+      {
+        "value": "inverse",
+        "label": "Inverse"
+      },
+      {
+        "value": "accent",
+        "label": "Accent"
+      },
+      {
+        "value": "transparent",
+        "label": "Transparent"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_width_mode",
+    "label": "Width mode",
+    "default": "contained",
+    "options": [
+      {
+        "value": "contained",
+        "label": "Contained"
+      },
+      {
+        "value": "wide",
+        "label": "Wide"
+      },
+      {
+        "value": "full",
+        "label": "Full width"
+      },
+      {
+        "value": "bleed",
+        "label": "Bleed"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_section_emphasis",
+    "label": "Section emphasis",
+    "default": "normal",
+    "options": [
+      {
+        "value": "normal",
+        "label": "Normal"
+      },
+      {
+        "value": "elevated",
+        "label": "Elevated"
+      },
+      {
+        "value": "feature",
+        "label": "Feature"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_divider_style",
+    "label": "Divider",
+    "default": "none",
+    "options": [
+      {
+        "value": "none",
+        "label": "None"
+      },
+      {
+        "value": "line",
+        "label": "Line"
+      },
+      {
+        "value": "gradient",
+        "label": "Gradient"
+      },
+      {
+        "value": "fade",
+        "label": "Fade"
+      }
+    ]
+  },
+
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "info": "Not applied when Surface style is set to Inverse.",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Visual effects"
+    },
+    {
+      "type": "select",
+      "id": "visual_effects",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "subtle", "label": "Subtle" },
+        { "value": "premium", "label": "Premium" }
+      ],
+      "default": "none",
+      "label": "Visual enhancement level"
+    },
+    {
+      "type": "paragraph",
+      "content": "Motion is controlled globally under Theme settings → SP Motion. Reveal timing, stagger rhythm, and hover intensity apply to this section automatically."
+    },
+    {
+      "type": "header",
+      "content": "Performance"
+    },
+    {
+      "type": "checkbox",
+      "id": "prioritize_lcp",
+      "default": true,
+      "label": "Prioritize hero image loading",
+      "info": "Enable for above-the-fold hero sections to improve Largest Contentful Paint."
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit_chip",
+      "name": "Benefit chip",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "benefit_text",
+          "default": "Better sleep",
+          "label": "Benefit text"
+        }
+      ]
+    },
+    {
+      "type": "trust_item",
+      "name": "Trust item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "options": [
+            { "value": "shield", "label": "Shield" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "return", "label": "Return" }
+          ],
+          "default": "shield",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Free shipping",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "cta_trust_item",
+      "name": "CTA trust item",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "options": [
+            { "value": "secure", "label": "Secure checkout" },
+            { "value": "guarantee", "label": "Money back guarantee" },
+            { "value": "shipping", "label": "Fast shipping" },
+            { "value": "returns", "label": "Free returns" },
+            { "value": "custom", "label": "Custom" }
+          ],
+          "default": "secure",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Secure Checkout",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "logo",
+      "name": "Logo",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Logo image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Logo link"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_new_tab",
+          "default": false,
+          "label": "Open link in new tab"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SP Hero",
+      "settings": {
+        "show_announcement": true,
+        "show_trust_microcopy": true,
+        "show_floating_review": true,
+        "show_floating_review_verified": true,
+        "show_floating_bestseller": true,
+        "visual_effects": "none"
+      },
+      "blocks": [
+        { "type": "benefit_chip", "settings": { "benefit_text": "Better Sleep" } },
+        { "type": "benefit_chip", "settings": { "benefit_text": "Free Shipping" } },
+        { "type": "benefit_chip", "settings": { "benefit_text": "Lifetime Warranty" } },
+        { "type": "trust_item", "settings": { "icon": "truck", "text": "Free Shipping" } },
+        { "type": "trust_item", "settings": { "icon": "return", "text": "Easy Returns" } },
+        { "type": "trust_item", "settings": { "icon": "shield", "text": "Lifetime Warranty" } }
+      ]
+    },
+    {
+      "name": "Beauty Product",
+      "settings": {
+        "headline": "Glow-worthy skin in <strong>14 days</strong>",
+        "headline_highlight_style": "underline",
+        "subheadline": "Clinically inspired care for visible radiance without the routine overload.",
+        "cta_type": "shop_now",
+        "cta_label": "Shop the Serum",
+        "show_cta_trust_stack": true,
+        "show_social_rating": true,
+        "show_social_review_count": true,
+        "social_rating_value": "4.9/5",
+        "social_review_count": "8,400+ reviews",
+        "show_floating_review": true,
+        "layout_preset": "centered_conversion",
+        "content_alignment": "center",
+        "desktop_content_alignment": "center",
+        "visual_effects": "subtle"
+      },
+      "blocks": [
+        { "type": "benefit_chip", "settings": { "benefit_text": "Dermatologist Tested" } },
+        { "type": "benefit_chip", "settings": { "benefit_text": "Vegan Formula" } },
+        { "type": "cta_trust_item", "settings": { "icon": "guarantee", "text": "30-Day Money Back Guarantee" } },
+        { "type": "cta_trust_item", "settings": { "icon": "secure", "text": "Secure Checkout" } }
+      ]
+    },
+    {
+      "name": "Supplement",
+      "settings": {
+        "headline": "Daily energy backed by <strong>science</strong>",
+        "headline_highlight_style": "background",
+        "cta_type": "add_to_cart",
+        "cta_label": "Add to Cart",
+        "show_cta_trust_stack": true,
+        "show_social_customer_count": true,
+        "social_customer_count": "120K+ customers",
+        "layout_preset": "authority"
+      },
+      "blocks": [
+        { "type": "benefit_chip", "settings": { "benefit_text": "Third-Party Tested" } },
+        { "type": "benefit_chip", "settings": { "benefit_text": "Made in USA" } },
+        { "type": "cta_trust_item", "settings": { "icon": "guarantee", "text": "60-Day Guarantee" } },
+        { "type": "cta_trust_item", "settings": { "icon": "shipping", "text": "Fast Shipping" } }
+      ]
+    },
+    {
+      "name": "Pet Product",
+      "settings": {
+        "headline": "The calm your pet deserves",
+        "cta_type": "buy_now",
+        "cta_label": "Buy Now",
+        "show_floating_review": true,
+        "show_floating_bestseller": true,
+        "layout_preset": "classic_split",
+        "visual_effects": "subtle"
+      },
+      "blocks": [
+        { "type": "benefit_chip", "settings": { "benefit_text": "Vet Recommended" } },
+        { "type": "cta_trust_item", "settings": { "icon": "returns", "text": "Free Returns" } }
+      ]
+    },
+    {
+      "name": "Electronics",
+      "settings": {
+        "headline": "Pro performance. Zero compromise.",
+        "layout_preset": "media_focus",
+        "cta_style": "outline",
+        "show_logos": true,
+        "logos_label": "Trusted By",
+        "visual_effects": "premium"
+      },
+      "blocks": [
+        { "type": "benefit_chip", "settings": { "benefit_text": "2-Year Warranty" } },
+        { "type": "benefit_chip", "settings": { "benefit_text": "Free Express Shipping" } }
+      ]
+    },
+    {
+      "name": "Home Product",
+      "settings": {
+        "headline": "Elevate every room instantly",
+        "layout_preset": "minimal",
+        "cta_type": "scroll_to_section",
+        "cta_label": "See It In Action"
+      },
+      "blocks": [
+        { "type": "benefit_chip", "settings": { "benefit_text": "Easy Setup" } },
+        { "type": "cta_trust_item", "settings": { "icon": "shipping", "text": "Free Shipping Today" } }
+      ]
+    },
+    {
+      "name": "Apparel",
+      "settings": {
+        "headline": "Fit that feels <strong>tailored</strong>",
+        "headline_highlight_style": "gradient",
+        "layout_preset": "centered_conversion",
+        "content_alignment": "center",
+        "desktop_content_alignment": "center",
+        "cta_label": "Shop Collection",
+        "floating_card_style": "glass",
+        "show_floating_review": true
+      },
+      "blocks": [
+        { "type": "benefit_chip", "settings": { "benefit_text": "Free Exchanges" } },
+        { "type": "benefit_chip", "settings": { "benefit_text": "Premium Fabrics" } },
+        { "type": "cta_trust_item", "settings": { "icon": "returns", "text": "Free Returns" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

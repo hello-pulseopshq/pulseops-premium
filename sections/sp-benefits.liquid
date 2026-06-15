@@ -1,0 +1,541 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .sp-benefits {
+    --sp-benefits-gap-sm: 1.2rem;
+    --sp-benefits-gap-md: 1.6rem;
+    --sp-benefits-gap-lg: 2.4rem;
+    --sp-benefits-radius: 1.6rem;
+    --sp-benefits-card-padding: 2rem;
+  }
+
+  .sp-benefits__header {
+    margin-bottom: var(--sp-benefits-gap-lg);
+    max-width: 72rem;
+  }
+
+  .sp-benefits__header--center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .sp-benefits__header--center .sp-benefits__subheading {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .sp-benefits__heading {
+    margin: 0;
+  }
+
+  .sp-benefits__subheading {
+    margin-top: var(--sp-benefits-gap-sm);
+  }
+
+  .sp-benefits__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--sp-benefits-gap-md);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .sp-benefits__item {
+    height: 100%;
+  }
+
+  .sp-benefits__card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-benefits-gap-sm);
+    padding: var(--sp-benefits-card-padding);
+    border-radius: var(--sp-benefits-radius);
+    background: rgba(var(--color-foreground), 0.04);
+  }
+
+  .sp-benefits__card--outlined {
+    border: 0.1rem solid rgba(var(--color-foreground), 0.2);
+    background: transparent;
+  }
+
+  .sp-benefits__card--elevated {
+    background: rgb(var(--color-background));
+    box-shadow: 0 0.6rem 2rem rgba(0, 0, 0, 0.08);
+  }
+
+  .sp-benefits__icon {
+    width: 2.2rem;
+    height: 2.2rem;
+    color: rgb(var(--color-foreground));
+    flex-shrink: 0;
+  }
+
+  .sp-benefits__icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .sp-benefits__title {
+    margin: 0 0 0.4rem;
+  }
+
+  .sp-benefits__description {
+    margin: 0;
+  }
+
+  .sp-benefits__list--swipe {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(84%, 1fr);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.2rem;
+  }
+
+  .sp-benefits__list--swipe .sp-benefits__item {
+    scroll-snap-align: start;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+
+    .sp-benefits__list--2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .sp-benefits__list--3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .sp-benefits__list--4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .sp-benefits__list--swipe {
+      grid-auto-flow: row;
+      grid-auto-columns: initial;
+      overflow-x: visible;
+      scroll-snap-type: none;
+      padding-bottom: 0;
+    }
+  }
+{%- endstyle -%}
+
+{% render 'sp-section-hierarchy-open', section: section %}
+    <div class="sp-benefits" aria-label="{{ section.settings.heading | strip_html | default: 'Benefits' | escape }}">
+      {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
+        <header class="sp-benefits__header sp-benefits__header--{{ section.settings.content_alignment }}">
+          {%- if section.settings.heading != blank -%}
+            <h2 class="sp-benefits__heading inline-richtext h1{% render 'sp-motion-class', type: 'fade-up' %}">
+              {{ section.settings.heading }}
+            </h2>
+          {%- endif -%}
+          {%- if section.settings.subheading != blank -%}
+            <div class="sp-benefits__subheading rte{% render 'sp-motion-class', type: 'fade-up' %}">
+              {{ section.settings.subheading }}
+            </div>
+          {%- endif -%}
+        </header>
+      {%- endif -%}
+
+      <ul
+        class="sp-benefits__list sp-benefits__list--{{ section.settings.desktop_columns }}{% if section.settings.mobile_layout == 'swipe' %} sp-benefits__list--swipe{% endif %}{% render 'sp-motion-class', type: 'stagger' %}"
+        data-sp-stagger
+        role="list"
+      >
+        {%- for block in section.blocks -%}
+          {%- if block.settings.title != blank or block.settings.description != blank -%}
+          <li class="sp-benefits__item{% render 'sp-motion-class', type: 'stagger-item' %}" {{ block.shopify_attributes }}>
+            <article class="sp-benefits__card sp-benefits__card--{{ section.settings.card_style }}{% render 'sp-motion-class', type: 'hover-card-subtle' %}">
+              <span class="sp-benefits__icon" aria-hidden="true">
+                {%- case block.settings.icon -%}
+                  {%- when 'star' -%}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                      <path d="m12 3.5 2.6 5.2 5.7.8-4.1 4 1 5.7L12 16.5 6.8 19.2l1-5.7-4.1-4 5.7-.8z"></path>
+                    </svg>
+                  {%- when 'shield' -%}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                      <path d="M12 2.5 4.5 5.5v6.2c0 4.5 2.8 8.6 7.5 9.8 4.7-1.2 7.5-5.3 7.5-9.8V5.5z"></path>
+                      <path d="m8.8 12.1 2.2 2.3 4.3-4.4"></path>
+                    </svg>
+                  {%- when 'truck' -%}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                      <path d="M1.5 4.5h12v9h-12z"></path>
+                      <path d="M13.5 8.5h4l3 3v2h-7z"></path>
+                      <circle cx="6" cy="16.5" r="2"></circle>
+                      <circle cx="17.5" cy="16.5" r="2"></circle>
+                    </svg>
+                  {%- when 'leaf' -%}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                      <path d="M20 4.5C11 4.5 5 9.4 5 15.8c0 2.4 1.4 4.7 3.8 5.7 5.5 2.2 11.7-2.1 11.7-9.3 0-2.2-.3-5-0.5-7.7z"></path>
+                      <path d="M8 16.5c2.7-.2 5.1-1.7 7.3-4.3"></path>
+                    </svg>
+                  {%- when 'heart' -%}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                      <path d="M12 20.5 4.6 13.8a4.8 4.8 0 0 1 0-6.8 4.9 4.9 0 0 1 7 0L12 8l.4-1a4.9 4.9 0 0 1 7 0 4.8 4.8 0 0 1 0 6.8z"></path>
+                    </svg>
+                  {%- when 'lightning' -%}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                      <path d="M13.5 2.5 5 13h5l-1.5 8.5L19 11h-5z"></path>
+                    </svg>
+                  {%- else -%}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                      <path d="m5.5 12 4 4 9-9"></path>
+                    </svg>
+                {%- endcase -%}
+              </span>
+
+              {%- if block.settings.title != blank -%}
+                <h3 class="sp-benefits__title h4">{{ block.settings.title }}</h3>
+              {%- endif -%}
+
+              {%- if block.settings.description != blank -%}
+                <div class="sp-benefits__description rte">
+                  {{ block.settings.description }}
+                </div>
+              {%- endif -%}
+            </article>
+          </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </div>
+{% render 'sp-section-hierarchy-close' %}
+
+{% schema %}
+{
+  "name": "SP Benefits",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Why customers choose us",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "default": "<p>Designed to deliver better results with less effort.</p>",
+      "label": "Subheading"
+    },
+    {
+      "type": "select",
+      "id": "desktop_columns",
+      "options": [
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        },
+        {
+          "value": "4",
+          "label": "4"
+        }
+      ],
+      "default": "2",
+      "label": "Desktop columns"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ],
+      "default": "left",
+      "label": "Content alignment"
+    },
+    {
+      "type": "select",
+      "id": "card_style",
+      "options": [
+        {
+          "value": "subtle",
+          "label": "Subtle"
+        },
+        {
+          "value": "outlined",
+          "label": "Outlined"
+        },
+        {
+          "value": "elevated",
+          "label": "Elevated"
+        }
+      ],
+      "default": "subtle",
+      "label": "Card style"
+    },
+    {
+      "type": "select",
+      "id": "mobile_layout",
+      "options": [
+        {
+          "value": "stack",
+          "label": "Stack"
+        },
+        {
+          "value": "swipe",
+          "label": "Swipe"
+        }
+      ],
+      "default": "stack",
+      "label": "Mobile layout"
+    },
+{
+    "type": "header",
+    "content": "Visual hierarchy"
+  },
+  {
+    "type": "select",
+    "id": "sp_surface_style",
+    "label": "Surface style",
+    "default": "default",
+    "info": "Inverse uses the inverse color scheme from Theme settings → SP Visual hierarchy instead of the section Color scheme below.",
+    "options": [
+      {
+        "value": "default",
+        "label": "Default"
+      },
+      {
+        "value": "alternate",
+        "label": "Alternate"
+      },
+      {
+        "value": "inverse",
+        "label": "Inverse"
+      },
+      {
+        "value": "accent",
+        "label": "Accent"
+      },
+      {
+        "value": "transparent",
+        "label": "Transparent"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_width_mode",
+    "label": "Width mode",
+    "default": "contained",
+    "options": [
+      {
+        "value": "contained",
+        "label": "Contained"
+      },
+      {
+        "value": "wide",
+        "label": "Wide"
+      },
+      {
+        "value": "full",
+        "label": "Full width"
+      },
+      {
+        "value": "bleed",
+        "label": "Bleed"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_section_emphasis",
+    "label": "Section emphasis",
+    "default": "normal",
+    "options": [
+      {
+        "value": "normal",
+        "label": "Normal"
+      },
+      {
+        "value": "elevated",
+        "label": "Elevated"
+      },
+      {
+        "value": "feature",
+        "label": "Feature"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_divider_style",
+    "label": "Divider",
+    "default": "none",
+    "options": [
+      {
+        "value": "none",
+        "label": "None"
+      },
+      {
+        "value": "line",
+        "label": "Line"
+      },
+      {
+        "value": "gradient",
+        "label": "Gradient"
+      },
+      {
+        "value": "fade",
+        "label": "Fade"
+      }
+    ]
+  },
+
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "info": "Not applied when Surface style is set to Inverse.",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "options": [
+            {
+              "value": "check",
+              "label": "Check"
+            },
+            {
+              "value": "star",
+              "label": "Star"
+            },
+            {
+              "value": "shield",
+              "label": "Shield"
+            },
+            {
+              "value": "truck",
+              "label": "Truck"
+            },
+            {
+              "value": "leaf",
+              "label": "Leaf"
+            },
+            {
+              "value": "heart",
+              "label": "Heart"
+            },
+            {
+              "value": "lightning",
+              "label": "Lightning"
+            }
+          ],
+          "default": "check",
+          "label": "Icon"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "default": "Premium Materials",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "default": "<p>Built to last for years.</p>",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SP Benefits",
+      "blocks": [
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "check",
+            "title": "Premium Materials",
+            "description": "<p>Built to last for years.</p>"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "truck",
+            "title": "Fast Shipping",
+            "description": "<p>Delivered quickly worldwide.</p>"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "shield",
+            "title": "Risk Free Trial",
+            "description": "<p>Try it with confidence.</p>"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "star",
+            "title": "Customer Approved",
+            "description": "<p>Trusted by thousands.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,199 @@
+/**
+ * SP Motion System
+ * Theme-wide reveal, stagger, and hover utilities.
+ *
+ * Progressive enhancement:
+ *   - Default (no-js / motion off): content fully visible
+ *   - html.sp-motion-active: pre-reveal hidden state until .is-revealed
+ *
+ * Usage:
+ *   {% render 'sp-motion-class', type: 'fade-up' %}
+ *   <ul class="{% render 'sp-motion-class', type: 'stagger' %}" data-sp-stagger>
+ *     <li class="{% render 'sp-motion-class', type: 'stagger-item' %}">
+ */
+
+/* --- Non-token defaults (easing, sticky layout) --- */
+
+:root {
+  --sp-motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --sp-motion-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --sp-sticky-offset: 2rem;
+  --sp-sticky-story-gap: 2.4rem;
+}
+
+/* --- Reveal: visible by default (no-js, JS without motion, motion disabled) --- */
+
+.sp-reveal,
+[data-sp-reveal] {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  will-change: auto;
+}
+
+/* --- Reveal: armed when JS enables motion --- */
+
+html.sp-motion-active:not(.shopify-design-mode) .sp-reveal:not(.is-revealed):not(.sp-reveal--static),
+html.sp-motion-active:not(.shopify-design-mode) [data-sp-reveal]:not(.is-revealed):not(.sp-reveal--static) {
+  opacity: 0;
+  transition:
+    opacity var(--sp-motion-duration) var(--sp-motion-ease),
+    transform var(--sp-motion-duration) var(--sp-motion-ease);
+  will-change: opacity, transform;
+}
+
+html.sp-motion-active:not(.shopify-design-mode) .sp-reveal--fade-up:not(.is-revealed):not(.sp-reveal--static),
+html.sp-motion-active:not(.shopify-design-mode) [data-sp-reveal='fade-up']:not(.is-revealed):not(.sp-reveal--static) {
+  transform: translate3d(0, var(--sp-motion-reveal-distance), 0);
+}
+
+html.sp-motion-active:not(.shopify-design-mode) .sp-reveal--fade-in:not(.is-revealed):not(.sp-reveal--static),
+html.sp-motion-active:not(.shopify-design-mode) [data-sp-reveal='fade-in']:not(.is-revealed):not(.sp-reveal--static) {
+  transform: translate3d(0, 0, 0);
+}
+
+.sp-reveal.is-revealed,
+[data-sp-reveal].is-revealed,
+.sp-reveal--static {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  will-change: auto;
+}
+
+/* Stagger children */
+.sp-stagger > .sp-stagger__item,
+[data-sp-stagger] > [data-sp-stagger-item],
+[data-sp-stagger] > .sp-stagger__item {
+  --sp-motion-stagger-index: 0;
+}
+
+html.sp-motion-active .sp-stagger > .sp-stagger__item.sp-reveal,
+html.sp-motion-active .sp-stagger > .sp-stagger__item[data-sp-reveal],
+html.sp-motion-active [data-sp-stagger] > [data-sp-stagger-item].sp-reveal,
+html.sp-motion-active [data-sp-stagger] > [data-sp-stagger-item][data-sp-reveal],
+html.sp-motion-active [data-sp-stagger] > .sp-stagger__item.sp-reveal {
+  transition-delay: calc(var(--sp-motion-stagger-index) * var(--sp-motion-stagger-delay));
+}
+
+/* --- Hover: cards (desktop, fine pointer) --- */
+
+@media (hover: hover) and (min-width: 750px) {
+  html.sp-motion-active:not([data-sp-motion='disabled']) .sp-hover-card,
+  html.sp-motion-active:not([data-sp-motion='disabled']) .sp-hover-card--subtle {
+    transition:
+      transform var(--sp-motion-duration-fast) var(--sp-motion-ease-out),
+      box-shadow var(--sp-motion-duration-fast) var(--sp-motion-ease-out);
+    will-change: transform;
+  }
+
+  html.sp-motion-active:not([data-sp-motion='disabled']) .sp-hover-card:hover {
+    transform: translate3d(0, calc(var(--sp-motion-hover-lift) * -1), 0);
+    box-shadow: 0 0.8rem 2.4rem rgba(var(--color-shadow), var(--sp-motion-hover-shadow));
+  }
+
+  html.sp-motion-active:not([data-sp-motion='disabled']) .sp-hover-card--subtle:hover {
+    transform: translate3d(0, calc(var(--sp-motion-hover-lift) * -0.6), 0);
+    box-shadow: 0 0.4rem 1.6rem rgba(var(--color-shadow), calc(var(--sp-motion-hover-shadow) * 0.75));
+  }
+
+  html.sp-motion-active:not([data-sp-motion='disabled']) .sp-hover-image {
+    overflow: hidden;
+  }
+
+  html.sp-motion-active:not([data-sp-motion='disabled']) .sp-hover-image img,
+  html.sp-motion-active:not([data-sp-motion='disabled']) .sp-hover-image video,
+  html.sp-motion-active:not([data-sp-motion='disabled']) .sp-hover-image .sp-hover-image__target {
+    transition: transform var(--sp-motion-duration-fast) var(--sp-motion-ease-out);
+    will-change: transform;
+  }
+
+  html.sp-motion-active:not([data-sp-motion='disabled']) .sp-hover-image:hover img,
+  html.sp-motion-active:not([data-sp-motion='disabled']) .sp-hover-image:hover video,
+  html.sp-motion-active:not([data-sp-motion='disabled']) .sp-hover-image:hover .sp-hover-image__target {
+    transform: scale3d(var(--sp-motion-image-scale), var(--sp-motion-image-scale), 1);
+  }
+
+  html.sp-motion-active:not([data-sp-motion='disabled']) .sp-hover-button {
+    transition:
+      transform var(--sp-motion-duration-fast) var(--sp-motion-ease-out),
+      box-shadow var(--sp-motion-duration-fast) var(--sp-motion-ease-out);
+  }
+
+  html.sp-motion-active:not([data-sp-motion='disabled']) .sp-hover-button:hover {
+    transform: translate3d(0, calc(var(--sp-motion-button-shift) * -1), 0);
+  }
+
+  html.sp-motion-active:not([data-sp-motion='disabled']) .sp-hover-button:active {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* --- Sticky storytelling utilities --- */
+
+.sp-sticky-story {
+  display: grid;
+  gap: var(--sp-sticky-story-gap);
+  align-items: start;
+}
+
+@media screen and (min-width: 990px) {
+  .sp-sticky-story--split {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(2rem, 4vw, 4.8rem);
+  }
+
+  .sp-sticky-col,
+  .sp-sticky-col--content,
+  .sp-sticky-col--media,
+  .sp-sticky-media {
+    position: sticky;
+    top: var(--sp-sticky-offset);
+    align-self: start;
+  }
+}
+
+/* --- Motion disabled (theme setting) --- */
+
+html[data-sp-motion='disabled'] .sp-reveal,
+html[data-sp-motion='disabled'] [data-sp-reveal] {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+  will-change: auto !important;
+}
+
+/* --- Accessibility: prefers-reduced-motion --- */
+
+@media (prefers-reduced-motion: reduce) {
+  html .sp-reveal,
+  html [data-sp-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    will-change: auto !important;
+  }
+
+  .sp-hover-card,
+  .sp-hover-card--subtle,
+  .sp-hover-image img,
+  .sp-hover-image video,
+  .sp-hover-image .sp-hover-image__target,
+  .sp-hover-button {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+html.sp-motion-reduced .sp-reveal,
+html.sp-motion-reduced [data-sp-reveal] {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+/* --- Shopify theme editor --- */
+
+html.shopify-design-mode .sp-reveal,
+html.shopify-design-mode [data-sp-reveal] {
+  opacity: 1;
+  transform: none;
+}

@@ -1,0 +1,549 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .sp-problem {
+    --sp-problem-gap-sm: 1.2rem;
+    --sp-problem-gap-md: 1.6rem;
+    --sp-problem-gap-lg: 2.4rem;
+    --sp-problem-radius: 1.6rem;
+    --sp-problem-card-padding: 2rem;
+  }
+
+  .sp-problem__header {
+    margin-bottom: var(--sp-problem-gap-lg);
+    max-width: 72rem;
+  }
+
+  .sp-problem__header--center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .sp-problem__header--center .sp-problem__subheading {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .sp-problem__heading {
+    margin: 0;
+  }
+
+  .sp-problem__subheading {
+    margin-top: var(--sp-problem-gap-sm);
+  }
+
+  .sp-problem__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--sp-problem-gap-md);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .sp-problem__item {
+    height: 100%;
+  }
+
+  .sp-problem__card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-problem-gap-sm);
+    padding: var(--sp-problem-card-padding);
+    border-radius: var(--sp-problem-radius);
+
+    background: rgb(var(--color-background));
+
+    border: 0.1rem solid rgba(var(--color-foreground), 0.12);
+  }
+
+  .sp-problem__icon-badge {
+    width: 4rem;
+    height: 4rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 999px;
+
+    background: rgba(var(--color-foreground), 0.15);
+
+    flex-shrink: 0;
+  }
+
+  .sp-problem__icon {
+    width: 2rem;
+    height: 2rem;
+    color: rgb(var(--color-foreground));
+    flex-shrink: 0;
+  }
+
+  .sp-problem__icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .sp-problem__title {
+    margin: 0 0 0.4rem;
+  }
+
+  .sp-problem__description {
+    margin: 0;
+  }
+
+  .sp-problem__list--swipe {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(88%, 1fr);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.2rem;
+
+    scrollbar-width: none;
+  }
+
+  .sp-problem__list--swipe::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sp-problem__list--swipe .sp-problem__item {
+    scroll-snap-align: start;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+
+    .sp-problem__list--2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .sp-problem__list--3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .sp-problem__list--4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .sp-problem__list--swipe {
+      grid-auto-flow: row;
+      grid-auto-columns: initial;
+      overflow-x: visible;
+      scroll-snap-type: none;
+      padding-bottom: 0;
+    }
+  }
+{%- endstyle -%}
+
+{% render 'sp-section-hierarchy-open', section: section %}
+    <div class="sp-problem" aria-label="{{ section.settings.heading | strip_html | default: 'Problems' | escape }}">
+      {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
+        <header class="sp-problem__header sp-problem__header--{{ section.settings.content_alignment }}">
+          {%- if section.settings.heading != blank -%}
+            <h2 class="sp-problem__heading inline-richtext h1{% render 'sp-motion-class', type: 'fade-up' %}">
+              {{ section.settings.heading }}
+            </h2>
+          {%- endif -%}
+          {%- if section.settings.subheading != blank -%}
+            <div class="sp-problem__subheading rte{% render 'sp-motion-class', type: 'fade-up' %}">
+              {{ section.settings.subheading }}
+            </div>
+          {%- endif -%}
+        </header>
+      {%- endif -%}
+
+      <ul
+        class="sp-problem__list sp-problem__list--{{ section.settings.desktop_columns }}{% if section.settings.mobile_layout == 'swipe' %} sp-problem__list--swipe{% endif %}{% render 'sp-motion-class', type: 'stagger' %}"
+        data-sp-stagger
+        role="list"
+      >
+        {%- for block in section.blocks -%}
+          {%- if block.settings.title != blank or block.settings.description != blank -%}
+          <li class="sp-problem__item{% render 'sp-motion-class', type: 'stagger-item' %}" {{ block.shopify_attributes }}>
+            <article class="sp-problem__card{% render 'sp-motion-class', type: 'hover-card-subtle' %}">
+              <span class="sp-problem__icon-badge" aria-hidden="true">
+                <span class="sp-problem__icon">
+                    {%- case block.settings.icon -%}
+
+                        {%- when 'warning' -%}
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M12 3 2.8 19h18.4L12 3z"></path>
+                            <path d="M12 8v5"></path>
+                            <circle cx="12" cy="16.5" r="0.8" fill="currentColor" stroke="none"></circle>
+                            </svg>
+
+                        {%- when 'x' -%}
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <circle cx="12" cy="12" r="9"></circle>
+                            <path d="M8.5 8.5 15.5 15.5"></path>
+                            <path d="M15.5 8.5 8.5 15.5"></path>
+                            </svg>
+
+                        {%- when 'clock' -%}
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <circle cx="12" cy="12" r="9"></circle>
+                            <path d="M12 7v5l3 2"></path>
+                            </svg>
+
+                        {%- when 'dollar' -%}
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M12 3v18"></path>
+                            <path d="M16 7c0-1.7-1.8-3-4-3s-4 1.3-4 3 1.8 3 4 3 4 1.3 4 3-1.8 3-4 3-4-1.3-4-3"></path>
+                            </svg>
+
+                        {%- when 'broken' -%}
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                            <path d="M10 4v6l4-2v6"></path>
+                            <path d="M14 20v-6l-4 2"></path>
+                            </svg>
+
+                        {%- when 'frustration' -%}
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <circle cx="12" cy="12" r="9"></circle>
+                            <path d="M8.5 10h.01"></path>
+                            <path d="M15.5 10h.01"></path>
+                            <path d="M8 17 Q12 14 16 17"></path>
+                            </svg>
+
+                        {%- else -%}
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M12 3 2.8 19h18.4L12 3z"></path>
+                            <path d="M12 8v5"></path>
+                            <circle cx="12" cy="16.5" r="0.8" fill="currentColor" stroke="none"></circle>
+                            </svg>
+
+                        {%- endcase -%}
+                </span>    
+              </span>
+
+              {%- if block.settings.title != blank -%}
+                <h3 class="sp-problem__title h4">{{ block.settings.title }}</h3>
+              {%- endif -%}
+
+              {%- if block.settings.description != blank -%}
+                <div class="sp-problem__description rte">
+                  {{ block.settings.description }}
+                </div>
+              {%- endif -%}
+            </article>
+          </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </div>
+{% render 'sp-section-hierarchy-close' %}
+
+{% schema %}
+{
+  "name": "SP Problem",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Tired of dealing with this?",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "default": "<p>Designed to deliver better results with less effort.</p>",
+      "label": "Subheading"
+    },
+    {
+      "type": "select",
+      "id": "desktop_columns",
+      "options": [
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        },
+        {
+          "value": "4",
+          "label": "4"
+        }
+      ],
+      "default": "2",
+      "label": "Desktop columns"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ],
+      "default": "left",
+      "label": "Content alignment"
+    },
+    {
+      "type": "select",
+      "id": "mobile_layout",
+      "options": [
+        {
+          "value": "stack",
+          "label": "Stack"
+        },
+        {
+          "value": "swipe",
+          "label": "Swipe"
+        }
+      ],
+      "default": "stack",
+      "label": "Mobile layout"
+    },
+{
+    "type": "header",
+    "content": "Visual hierarchy"
+  },
+  {
+    "type": "select",
+    "id": "sp_surface_style",
+    "label": "Surface style",
+    "default": "default",
+    "info": "Inverse uses the inverse color scheme from Theme settings → SP Visual hierarchy instead of the section Color scheme below.",
+    "options": [
+      {
+        "value": "default",
+        "label": "Default"
+      },
+      {
+        "value": "alternate",
+        "label": "Alternate"
+      },
+      {
+        "value": "inverse",
+        "label": "Inverse"
+      },
+      {
+        "value": "accent",
+        "label": "Accent"
+      },
+      {
+        "value": "transparent",
+        "label": "Transparent"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_width_mode",
+    "label": "Width mode",
+    "default": "contained",
+    "options": [
+      {
+        "value": "contained",
+        "label": "Contained"
+      },
+      {
+        "value": "wide",
+        "label": "Wide"
+      },
+      {
+        "value": "full",
+        "label": "Full width"
+      },
+      {
+        "value": "bleed",
+        "label": "Bleed"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_section_emphasis",
+    "label": "Section emphasis",
+    "default": "normal",
+    "options": [
+      {
+        "value": "normal",
+        "label": "Normal"
+      },
+      {
+        "value": "elevated",
+        "label": "Elevated"
+      },
+      {
+        "value": "feature",
+        "label": "Feature"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_divider_style",
+    "label": "Divider",
+    "default": "none",
+    "options": [
+      {
+        "value": "none",
+        "label": "None"
+      },
+      {
+        "value": "line",
+        "label": "Line"
+      },
+      {
+        "value": "gradient",
+        "label": "Gradient"
+      },
+      {
+        "value": "fade",
+        "label": "Fade"
+      }
+    ]
+  },
+
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "info": "Not applied when Surface style is set to Inverse.",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "problem",
+      "name": "Problem",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "options": [
+            {
+              "value": "warning",
+              "label": "Warning"
+            },
+            {
+              "value": "x",
+              "label": "X"
+            },
+            {
+              "value": "clock",
+              "label": "Clock"
+            },
+            {
+              "value": "dollar",
+              "label": "Dollar"
+            },
+            {
+              "value": "broken",
+              "label": "Broken"
+            },
+            {
+              "value": "frustration",
+              "label": "Frustration"
+            }
+          ],
+          "default": "warning",
+          "label": "Icon"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "default": "Wasting time every day",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "default": "<p>Traditional solutions require too many steps.</p>",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SP Problem",
+      "blocks": [
+        {
+          "type": "problem",
+          "settings": {
+            "icon": "warning",
+            "title": "Wasting time every day",
+            "description": "<p>Traditional solutions require too many steps.</p>"
+          }
+        },
+        {
+          "type": "problem",
+          "settings": {
+            "icon": "clock",
+            "title": "Too many manual steps",
+            "description": "<p>Complex workflows slow you down every day.</p>"
+          }
+        },
+        {
+          "type": "problem",
+          "settings": {
+            "icon": "dollar",
+            "title": "Expensive alternatives",
+            "description": "<p>You're paying more without getting better results.</p>"
+          }
+        },
+        {
+          "type": "problem",
+          "settings": {
+            "icon": "frustration",
+            "title": "Inconsistent performance",
+            "description": "<p>Results vary depending on the day or situation.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

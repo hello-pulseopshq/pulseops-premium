@@ -1,0 +1,457 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .sp-featured-in {
+    --sp-featured-in-gap-sm: 1.2rem;
+    --sp-featured-in-gap-md: 1.6rem;
+    --sp-featured-in-gap-lg: 2.4rem;
+    --sp-featured-in-logo-height: 3.2rem;
+    --sp-featured-in-logo-max-width: 14rem;
+  }
+
+  .sp-featured-in__header {
+    margin-bottom: var(--sp-featured-in-gap-lg);
+    max-width: 72rem;
+  }
+
+  .sp-featured-in__header--center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .sp-featured-in__header--center .sp-featured-in__subheading {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .sp-featured-in__heading {
+    margin: 0;
+  }
+
+  .sp-featured-in__subheading {
+    margin-top: var(--sp-featured-in-gap-sm);
+  }
+
+  .sp-featured-in__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--sp-featured-in-gap-md);
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .sp-featured-in__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(var(--sp-featured-in-logo-height) + 1.6rem);
+    width: 100%;
+  }
+
+  .sp-featured-in__logo-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: var(--sp-featured-in-logo-max-width);
+    min-height: var(--sp-featured-in-logo-height);
+    margin: 0 auto;
+  }
+
+  .sp-featured-in__logo-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: rgb(var(--color-foreground));
+    transition: opacity 0.2s ease;
+  }
+
+  .sp-featured-in__logo-link:focus-visible {
+    outline: 0.2rem solid rgb(var(--color-foreground));
+    outline-offset: 0.3rem;
+    border-radius: 0.2rem;
+  }
+
+  .sp-featured-in__logo-frame {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: var(--sp-featured-in-logo-max-width);
+  }
+
+  .sp-featured-in__logo-frame .sp-image {
+    max-height: var(--sp-featured-in-logo-height);
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .sp-featured-in__logo-text {
+    display: block;
+    margin: 0;
+    padding: 0 0.8rem;
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.3;
+    opacity: 0.75;
+  }
+
+  .sp-featured-in--grayscale .sp-featured-in__logo-text {
+    opacity: 0.62;
+  }
+
+  .sp-featured-in--grayscale.sp-featured-in--color-hover .sp-featured-in__logo-link:hover .sp-featured-in__logo-text,
+  .sp-featured-in--grayscale.sp-featured-in--color-hover .sp-featured-in__logo-cell:hover .sp-featured-in__logo-text {
+    opacity: 0.92;
+  }
+
+  .sp-featured-in--grayscale .sp-featured-in__logo-frame .sp-image {
+    filter: grayscale(100%);
+    opacity: 0.68;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+  }
+
+  .sp-featured-in--grayscale.sp-featured-in--color-hover .sp-featured-in__logo-link:hover .sp-image,
+  .sp-featured-in--grayscale.sp-featured-in--color-hover .sp-featured-in__logo-cell:hover .sp-image {
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+
+  .sp-featured-in__list--swipe {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(42%, 1fr);
+    grid-template-columns: unset;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.2rem;
+    padding-right: 6%;
+    scrollbar-width: none;
+  }
+
+  .sp-featured-in__list--swipe::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sp-featured-in__list--swipe .sp-featured-in__item {
+    scroll-snap-align: start;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+
+    .sp-featured-in__list--3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .sp-featured-in__list--4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .sp-featured-in__list--5 {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    .sp-featured-in__list--6 {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    .sp-featured-in__list--swipe {
+      grid-auto-flow: row;
+      grid-auto-columns: initial;
+      overflow-x: visible;
+      scroll-snap-type: none;
+      padding-bottom: 0;
+      padding-right: 0;
+    }
+  }
+{%- endstyle -%}
+
+{% render 'sp-section-hierarchy-open', section: section %}
+  <div
+    class="sp-featured-in{% if section.settings.grayscale_logos %} sp-featured-in--grayscale{% endif %}{% if section.settings.color_on_hover %} sp-featured-in--color-hover{% endif %}"
+    aria-label="{{ section.settings.heading | strip_html | default: 'Featured in' | escape }}"
+  >
+    {%- liquid
+      assign heading_stripped = section.settings.heading | strip_html | strip
+      assign subheading_stripped = section.settings.subheading | strip_html | strip
+    -%}
+
+    {%- if heading_stripped != blank or subheading_stripped != blank -%}
+      <header class="sp-featured-in__header sp-featured-in__header--{{ section.settings.content_alignment }}">
+        {%- if heading_stripped != blank -%}
+          <h2 class="sp-featured-in__heading inline-richtext h2{% render 'sp-motion-class', type: 'fade-up' %}">
+            {{ section.settings.heading }}
+          </h2>
+        {%- endif -%}
+        {%- if subheading_stripped != blank -%}
+          <div class="sp-featured-in__subheading rte{% render 'sp-motion-class', type: 'fade-up' %}">
+            {{ section.settings.subheading }}
+          </div>
+        {%- endif -%}
+      </header>
+    {%- endif -%}
+
+    <ul
+      class="sp-featured-in__list sp-featured-in__list--{{ section.settings.desktop_columns }}{% if section.settings.mobile_layout == 'swipe' %} sp-featured-in__list--swipe{% endif %}{% render 'sp-motion-class', type: 'stagger' %}"
+      data-sp-stagger
+      role="list"
+    >
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign title_stripped = block.settings.title | strip
+        -%}
+        {%- if block.settings.image != blank or title_stripped != blank -%}
+          <li class="sp-featured-in__item{% render 'sp-motion-class', type: 'stagger-item' %}" {{ block.shopify_attributes }}>
+            {%- liquid
+              assign logo_alt = block.settings.image.alt | default: title_stripped | default: 'Publication logo' | escape
+            -%}
+            <div class="sp-featured-in__logo-cell">
+              {%- if block.settings.link != blank -%}
+                <a
+                  href="{{ block.settings.link }}"
+                  class="sp-featured-in__logo-link"
+                  {% if block.settings.open_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}
+                >
+              {%- endif -%}
+              {%- if block.settings.image != blank -%}
+                <span class="sp-featured-in__logo-frame sp-media-frame sp-media-frame--logo">
+                  {%- render 'sp-image',
+                    image: block.settings.image,
+                    ratio: 'logo',
+                    img_only: true,
+                    fit: 'contain',
+                    alt: logo_alt,
+                    widths: '120, 180, 240, 320',
+                    sizes: '(min-width: 750px) 140px, 120px',
+                    image_width: 320,
+                    loading: 'lazy',
+                    reveal: false
+                  -%}
+                </span>
+              {%- elsif title_stripped != blank -%}
+                <span class="sp-featured-in__logo-text caption-with-letter-spacing">{{ title_stripped | escape }}</span>
+              {%- endif -%}
+              {%- if block.settings.link != blank -%}
+                </a>
+              {%- endif -%}
+            </div>
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+{% render 'sp-section-hierarchy-close' %}
+
+{% schema %}
+{
+  "name": "SP Featured In",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Featured in"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Description"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "Content alignment",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "desktop_columns",
+      "label": "Desktop columns",
+      "default": "5",
+      "options": [
+        { "value": "3", "label": "3" },
+        { "value": "4", "label": "4" },
+        { "value": "5", "label": "5" },
+        { "value": "6", "label": "6" }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "grayscale_logos",
+      "label": "Grayscale logos",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "color_on_hover",
+      "label": "Reveal color on hover",
+      "default": true,
+      "info": "Only applies when Grayscale logos is enabled."
+    },
+    {
+      "type": "select",
+      "id": "mobile_layout",
+      "label": "Mobile layout",
+      "default": "swipe",
+      "options": [
+        { "value": "grid", "label": "2-column grid" },
+        { "value": "swipe", "label": "Swipe carousel" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Visual hierarchy"
+    },
+    {
+      "type": "select",
+      "id": "sp_surface_style",
+      "label": "Surface style",
+      "default": "default",
+      "info": "Inverse uses the inverse color scheme from Theme settings → SP Visual hierarchy instead of the section Color scheme below.",
+      "options": [
+        { "value": "default", "label": "Default" },
+        { "value": "alternate", "label": "Alternate" },
+        { "value": "inverse", "label": "Inverse" },
+        { "value": "accent", "label": "Accent" },
+        { "value": "transparent", "label": "Transparent" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "sp_width_mode",
+      "label": "Width mode",
+      "default": "contained",
+      "options": [
+        { "value": "contained", "label": "Contained" },
+        { "value": "wide", "label": "Wide" },
+        { "value": "full", "label": "Full width" },
+        { "value": "bleed", "label": "Bleed" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "sp_section_emphasis",
+      "label": "Section emphasis",
+      "default": "normal",
+      "options": [
+        { "value": "normal", "label": "Normal" },
+        { "value": "elevated", "label": "Elevated" },
+        { "value": "feature", "label": "Feature" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "sp_divider_style",
+      "label": "Divider",
+      "default": "none",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "line", "label": "Line" },
+        { "value": "gradient", "label": "Gradient" },
+        { "value": "fade", "label": "Fade" }
+      ]
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "info": "Not applied when Surface style is set to Inverse.",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 28
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Logo image",
+          "info": "Upload PNG, SVG, or WebP. Use transparent backgrounds for best results."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Logo name",
+          "info": "Used for accessibility when image alt text is empty."
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_new_tab",
+          "label": "Open link in new tab",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SP Featured In",
+      "settings": {
+        "heading": "Featured in"
+      },
+      "blocks": [
+        { "type": "logo", "settings": { "title": "Forbes" } },
+        { "type": "logo", "settings": { "title": "Bloomberg" } },
+        { "type": "logo", "settings": { "title": "TechCrunch" } },
+        { "type": "logo", "settings": { "title": "GQ" } },
+        { "type": "logo", "settings": { "title": "Vogue" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

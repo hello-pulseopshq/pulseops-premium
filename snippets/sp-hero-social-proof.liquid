@@ -1,0 +1,79 @@
+{% comment %}
+  Enhanced SP Hero social proof.
+  Accepts: section
+{% endcomment %}
+
+{%- if section.settings.show_social_proof -%}
+  {%- liquid
+    assign show_enhanced = false
+    if section.settings.show_social_rating or section.settings.show_social_review_count or section.settings.show_social_customer_count or section.settings.show_social_avatars
+      assign show_enhanced = true
+    endif
+
+    assign has_legacy_text = false
+    if section.settings.social_proof_text != blank
+      assign has_legacy_text = true
+    endif
+  -%}
+
+  {%- if show_enhanced or has_legacy_text -%}
+    <div class="sp-hero__social-proof sp-hero__slot--social-proof{% render 'sp-motion-class', type: 'stagger-item' %}">
+      {%- if section.settings.show_social_avatars -%}
+        <ul class="sp-hero__social-avatars list-unstyled" role="list" aria-label="Customer avatars">
+          {%- for i in (1..5) -%}
+            {%- assign avatar_key = 'social_avatar_' | append: i -%}
+            {%- assign avatar_image = section.settings[avatar_key] -%}
+            {%- if avatar_image != blank -%}
+              <li class="sp-hero__social-avatar sp-media-frame sp-media-frame--circle sp-media-frame--intrinsic">
+                {%- render 'sp-image',
+                  image: avatar_image,
+                  img_only: true,
+                  alt: '',
+                  widths: '40, 80',
+                  sizes: '32px',
+                  image_width: 80,
+                  loading: 'lazy'
+                -%}
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+
+      <div class="sp-hero__social-meta caption">
+        {%- if section.settings.show_social_rating and section.settings.show_rating_stars -%}
+          <span class="sp-hero__social-proof-stars" aria-hidden="true">★★★★★</span>
+        {%- endif -%}
+
+        {%- if section.settings.show_social_rating and section.settings.social_rating_value != blank -%}
+          <span class="sp-hero__social-rating">{{ section.settings.social_rating_value | escape }}</span>
+        {%- endif -%}
+
+        {%- if section.settings.show_social_review_count and section.settings.social_review_count != blank -%}
+          <span class="sp-hero__social-reviews">{{ section.settings.social_review_count | escape }}</span>
+        {%- endif -%}
+
+        {%- if section.settings.show_social_customer_count and section.settings.social_customer_count != blank -%}
+          <span class="sp-hero__social-customers">{{ section.settings.social_customer_count | escape }}</span>
+        {%- endif -%}
+
+        {%- if has_legacy_text -%}
+          <span class="sp-hero__social-text">{{ section.settings.social_proof_text }}</span>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.show_rating_stars and has_legacy_text -%}
+        <span class="visually-hidden">
+          Five star rating. {{ section.settings.social_proof_text | strip_html }}
+          {%- if section.settings.social_rating_value != blank -%} Rating {{ section.settings.social_rating_value }}.{% endif %}
+        </span>
+      {%- elsif show_enhanced -%}
+        <span class="visually-hidden">
+          {%- if section.settings.social_rating_value != blank -%}Rating {{ section.settings.social_rating_value }}.{% endif %}
+          {%- if section.settings.social_review_count != blank -%}{{ section.settings.social_review_count | escape }}.{% endif %}
+          {%- if section.settings.social_customer_count != blank -%}{{ section.settings.social_customer_count | escape }}.{% endif %}
+        </span>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+{%- endif -%}

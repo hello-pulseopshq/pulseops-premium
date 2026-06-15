@@ -1,0 +1,245 @@
+/**
+ * SP Image Experience System
+ * Standardized media frames, placeholders, and progressive reveal.
+ * Works without JS — reveal is optional enhancement via sp-image-experience.js.
+ */
+
+/* --------------------------------------------------------------------------
+   Tokens (overridden in layout/theme.liquid)
+   -------------------------------------------------------------------------- */
+:root {
+  --sp-image-radius: var(--media-radius);
+  --sp-image-placeholder-alpha: 0.04;
+  --sp-image-reveal-duration: 320ms;
+  --sp-image-shadow: none;
+  --sp-image-fit: cover;
+}
+
+/* --------------------------------------------------------------------------
+   Media frame — aspect-ratio container, placeholder, overflow
+   -------------------------------------------------------------------------- */
+.sp-media-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--sp-image-radius, var(--media-radius));
+  background: rgba(var(--color-foreground), var(--sp-image-placeholder-alpha, 0.04));
+}
+
+.sp-media-frame:not(.sp-media-frame--adapt):not(.sp-media-frame--intrinsic):not(.sp-media-frame--logo)::before {
+  content: '';
+  display: block;
+  padding-bottom: var(--sp-media-aspect, 100%);
+}
+
+.sp-media-frame:not(.sp-media-frame--intrinsic):not(.sp-media-frame--logo) {
+  box-shadow: var(--sp-image-shadow, none);
+}
+
+/* Aspect presets (padding-bottom = height / width × 100) */
+.sp-media-frame--square {
+  --sp-media-aspect: 100%;
+}
+
+.sp-media-frame--landscape {
+  --sp-media-aspect: 75%;
+}
+
+.sp-media-frame--portrait {
+  --sp-media-aspect: 125%;
+}
+
+.sp-media-frame--wide {
+  --sp-media-aspect: 56.25%;
+}
+
+.sp-media-frame--custom::before {
+  padding-bottom: var(--sp-media-aspect, 100%);
+}
+
+/* Hero — section-owned ratio vars */
+.sp-hero__media-frame.sp-media-frame--custom::before {
+  padding-bottom: var(--sp-hero-ratio-mobile, 100%);
+}
+
+.sp-hero__media-frame .sp-image {
+  object-position: var(--sp-hero-focal-mobile, center);
+}
+
+@media screen and (min-width: 750px) {
+  .sp-hero__media-frame.sp-media-frame--custom::before {
+    padding-bottom: var(--sp-hero-ratio-desktop, var(--sp-hero-ratio-mobile, 100%));
+  }
+
+  .sp-hero__media-frame picture .sp-image {
+    object-position: var(--sp-hero-focal-desktop, var(--sp-hero-focal-mobile, center));
+  }
+}
+
+/* SP Video — aspect frame + poster fill */
+.sp-video__media.sp-media-frame--custom::before {
+  padding-bottom: var(--sp-media-aspect, 56.25%);
+}
+
+.sp-video__media .deferred-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.sp-video__media .deferred-media__poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.sp-video__media .deferred-media__poster img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--sp-video-focal, center);
+}
+
+.sp-video__media > video,
+.sp-video__media > iframe,
+.sp-video__media .deferred-media iframe,
+.sp-video__media .deferred-media video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Adapt — natural image height, no reserved box */
+.sp-media-frame--adapt::before {
+  display: none;
+}
+
+.sp-media-frame--adapt .sp-image {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+/* Intrinsic — parent sets dimensions (avatars, thumbs) */
+.sp-media-frame--intrinsic::before {
+  display: none;
+}
+
+.sp-media-frame--intrinsic .sp-image,
+.sp-media-frame--intrinsic .sp-image-placeholder {
+  position: absolute;
+  inset: 0;
+}
+
+.sp-media-frame--circle {
+  border-radius: 50%;
+}
+
+/* Logo strip — contain, no aspect box */
+.sp-media-frame--logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  box-shadow: none;
+}
+
+.sp-media-frame--logo::before {
+  display: none;
+}
+
+.sp-media-frame--logo .sp-image {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 3.2rem;
+  object-fit: contain;
+}
+
+/* --------------------------------------------------------------------------
+   Image element
+   -------------------------------------------------------------------------- */
+.sp-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: var(--sp-image-fit, cover);
+}
+
+.sp-image--contain {
+  --sp-image-fit: contain;
+}
+
+/* Picture wrapper inside frame (hero) */
+.sp-media-frame picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.sp-media-frame picture .sp-image {
+  position: absolute;
+  inset: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Placeholder
+   -------------------------------------------------------------------------- */
+.sp-image-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(var(--color-foreground), 0.2);
+}
+
+.sp-media-frame--adapt .sp-image-placeholder {
+  position: relative;
+  min-height: 20rem;
+}
+
+.sp-image-placeholder__svg,
+.sp-media-frame .placeholder-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.sp-media-frame--loaded {
+  background-color: transparent;
+}
+
+/* --------------------------------------------------------------------------
+   Progressive reveal (JS optional)
+   -------------------------------------------------------------------------- */
+html.js[data-sp-image-reveal='true'] .sp-image-reveal:not(.sp-image-loaded) {
+  opacity: 0;
+}
+
+html.js[data-sp-image-reveal='true'] .sp-image-reveal {
+  transition: opacity var(--sp-image-reveal-duration, 320ms) ease;
+}
+
+.sp-image-loaded,
+html.no-js .sp-image-reveal,
+html[data-sp-image-reveal='false'] .sp-image-reveal {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js[data-sp-image-reveal='true'] .sp-image-reveal {
+    transition: none;
+  }
+}

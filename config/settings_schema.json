@@ -206,7 +206,8 @@
         "type": "checkbox",
         "id": "animations_reveal_on_scroll",
         "label": "t:settings_schema.animations.settings.animations_reveal_on_scroll.label",
-        "default": true
+        "default": true,
+        "info": "Applies to Dawn sections (blog, collection, footer, etc.). Single Product OS sections use Theme settings → SP Motion instead."
       },
       {
         "type": "select",
@@ -1449,6 +1450,216 @@
         "id": "cart_color_scheme",
         "label": "t:sections.all.colors.label",
         "default": "scheme-1"
+      }
+    ]
+  },
+  {
+    "name": "SP Visual hierarchy",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Global tokens for Single Product OS section surfaces, width, emphasis, and dividers."
+      },
+      {
+        "type": "header",
+        "content": "Surface tokens"
+      },
+      {
+        "type": "color_scheme",
+        "id": "sp_inverse_color_scheme",
+        "label": "Inverse surface color scheme",
+        "default": "scheme-3",
+        "info": "Applied to any section or component when Surface style is set to Inverse."
+      },
+      {
+        "type": "range",
+        "id": "sp_surface_alt_opacity",
+        "min": 2,
+        "max": 16,
+        "step": 1,
+        "unit": "%",
+        "default": 4,
+        "label": "Alternate surface strength"
+      },
+      {
+        "type": "range",
+        "id": "sp_surface_accent_opacity",
+        "min": 4,
+        "max": 24,
+        "step": 1,
+        "unit": "%",
+        "default": 10,
+        "label": "Accent surface strength"
+      },
+      {
+        "type": "header",
+        "content": "Layout tokens"
+      },
+      {
+        "type": "range",
+        "id": "sp_width_wide_offset",
+        "min": 0,
+        "max": 160,
+        "step": 8,
+        "unit": "px",
+        "default": 80,
+        "label": "Wide mode extra width"
+      },
+      {
+        "type": "range",
+        "id": "sp_section_padding_inline",
+        "min": 12,
+        "max": 48,
+        "step": 4,
+        "unit": "px",
+        "default": 16,
+        "label": "Section horizontal padding"
+      },
+      {
+        "type": "range",
+        "id": "sp_section_padding_inline_mobile",
+        "min": 8,
+        "max": 32,
+        "step": 4,
+        "unit": "px",
+        "default": 12,
+        "label": "Mobile horizontal padding"
+      },
+      {
+        "type": "header",
+        "content": "Emphasis and dividers"
+      },
+      {
+        "type": "range",
+        "id": "sp_emphasis_elevated_opacity",
+        "min": 4,
+        "max": 20,
+        "step": 1,
+        "unit": "%",
+        "default": 8,
+        "label": "Elevated shadow strength"
+      },
+      {
+        "type": "range",
+        "id": "sp_divider_opacity",
+        "min": 4,
+        "max": 24,
+        "step": 1,
+        "unit": "%",
+        "default": 12,
+        "label": "Divider strength"
+      },
+      {
+        "type": "range",
+        "id": "sp_section_feature_padding",
+        "min": 0,
+        "max": 48,
+        "step": 4,
+        "unit": "px",
+        "default": 16,
+        "label": "Feature emphasis extra padding"
+      }
+    ]
+  },
+  {
+    "name": "SP Motion",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Controls motion for all Single Product OS (SP) sections — hero, benefits, testimonials, and the rest of the product page pack. Does not affect Dawn catalog sections (use Theme settings → Animations for those)."
+      },
+      {
+        "type": "select",
+        "id": "sp_motion_style",
+        "label": "Motion style",
+        "default": "balanced",
+        "options": [
+          {
+            "value": "disabled",
+            "label": "Disabled"
+          },
+          {
+            "value": "minimal",
+            "label": "Minimal"
+          },
+          {
+            "value": "balanced",
+            "label": "Balanced"
+          },
+          {
+            "value": "premium",
+            "label": "Premium"
+          }
+        ],
+        "info": "Disabled turns off all SP reveals and hovers. Minimal is fast and subtle. Balanced is the recommended default. Premium adds longer reveals, slower stagger, and stronger hover."
+      },
+      {
+        "type": "paragraph",
+        "content": "Disabled — No scroll reveals or SP hover effects. Content is immediately visible. Use for maximum performance or accessibility preference."
+      },
+      {
+        "type": "paragraph",
+        "content": "Minimal — Short reveals (400ms), small movement, 60ms card stagger. Best for dense pages or understated brands."
+      },
+      {
+        "type": "paragraph",
+        "content": "Balanced — Medium reveals (550ms), 80ms stagger, moderate hover lift. Recommended for most stores."
+      },
+      {
+        "type": "paragraph",
+        "content": "Premium — Longer reveals (700ms), 120ms stagger, stronger hover and subtle hero ambient motion. Best for high-end product storytelling."
+      },
+      {
+        "type": "paragraph",
+        "content": "Visitor reduced-motion preferences are always respected automatically, regardless of this setting."
+      }
+    ]
+  },
+  {
+    "name": "SP Image Experience",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Controls image presentation across all Single Product OS (SP) sections — frames, placeholders, shadows, and loading polish. Uses Theme settings → Media for global corner radius."
+      },
+      {
+        "type": "checkbox",
+        "id": "sp_image_progressive_reveal",
+        "label": "Progressive image reveal",
+        "default": true,
+        "info": "Subtle fade when images finish loading. Requires JavaScript. Images remain fully visible without JS."
+      },
+      {
+        "type": "select",
+        "id": "sp_image_shadow",
+        "label": "Media frame shadow",
+        "default": "subtle",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "subtle",
+            "label": "Subtle"
+          },
+          {
+            "value": "elevated",
+            "label": "Elevated (uses Media shadow)"
+          }
+        ],
+        "info": "Applies to SP media frames (hero, features, video). Avatars and logos are excluded."
+      },
+      {
+        "type": "range",
+        "id": "sp_image_placeholder_strength",
+        "min": 2,
+        "max": 12,
+        "step": 1,
+        "unit": "%",
+        "label": "Placeholder tone",
+        "default": 4,
+        "info": "Background tint shown while images load. Lower is subtler."
       }
     ]
   }

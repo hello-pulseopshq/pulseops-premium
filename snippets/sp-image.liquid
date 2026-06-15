@@ -1,0 +1,127 @@
+{%- comment -%}
+  SP Image Experience — standardized frame + image render.
+
+  Parameters:
+    image          — Shopify image (blank → placeholder)
+    alt            — alt text
+    ratio          — square | landscape | portrait | wide | adapt | custom | circle | intrinsic | logo
+    fit            — cover | contain
+    frame_class    — extra classes on .sp-media-frame
+    image_class    — extra classes on img
+    img_only       — true → output img only (for <picture> parents)
+    loading        — lazy | eager (default lazy)
+    fetchpriority  — high | auto | low
+    widths         — srcset widths string
+    sizes          — sizes attribute
+    image_width    — max image_url width (default 1600)
+    reveal         — override theme progressive reveal (true/false)
+    placeholder    — placeholder SVG name (default image)
+{%- endcomment -%}
+{%- liquid
+  assign img_only = img_only | default: false
+  assign fit = fit | default: 'cover'
+  assign ratio = ratio | default: 'square'
+  assign loading_attr = loading | default: 'lazy'
+  assign max_width = image_width | default: 1600
+  assign placeholder_name = placeholder | default: 'image'
+
+  assign use_reveal = settings.sp_image_progressive_reveal
+  if reveal == false
+    assign use_reveal = false
+  elsif reveal == true
+    assign use_reveal = true
+  endif
+
+  assign image_classes = 'sp-image'
+  if fit == 'contain'
+    assign image_classes = image_classes | append: ' sp-image--contain'
+  endif
+  if use_reveal
+    assign image_classes = image_classes | append: ' sp-image-reveal'
+  endif
+  if image_class != blank
+    assign image_classes = image_classes | append: ' ' | append: image_class
+  endif
+
+  assign image_style = ''
+  unless fit == 'contain'
+    if image != blank and image.presentation.focal_point != blank
+      assign image_style = 'object-position: ' | append: image.presentation.focal_point | append: ';'
+    endif
+  endunless
+
+  unless img_only
+    assign frame_classes = 'sp-media-frame'
+    case ratio
+      when 'square'
+        assign frame_classes = frame_classes | append: ' sp-media-frame--square'
+      when 'landscape'
+        assign frame_classes = frame_classes | append: ' sp-media-frame--landscape'
+      when 'portrait'
+        assign frame_classes = frame_classes | append: ' sp-media-frame--portrait'
+      when 'wide'
+        assign frame_classes = frame_classes | append: ' sp-media-frame--wide'
+      when 'adapt'
+        assign frame_classes = frame_classes | append: ' sp-media-frame--adapt'
+      when 'custom'
+        assign frame_classes = frame_classes | append: ' sp-media-frame--custom'
+      when 'circle'
+        assign frame_classes = frame_classes | append: ' sp-media-frame--circle sp-media-frame--intrinsic'
+      when 'intrinsic'
+        assign frame_classes = frame_classes | append: ' sp-media-frame--intrinsic'
+      when 'logo'
+        assign frame_classes = frame_classes | append: ' sp-media-frame--logo sp-media-frame--intrinsic'
+    endcase
+    if frame_class != blank
+      assign frame_classes = frame_classes | append: ' ' | append: frame_class
+    endif
+  endunless
+
+  if widths == blank
+    assign widths = '400, 600, 800, 1200, 1600'
+  endif
+  if sizes == blank
+    assign sizes = '(min-width: 990px) 50vw, 100vw'
+  endif
+-%}
+
+{%- unless img_only -%}
+<div class="{{ frame_classes }}">
+{%- endunless -%}
+
+{%- if image != blank -%}
+  {%- if fetchpriority != blank -%}
+    {{
+      image
+      | image_url: width: max_width
+      | image_tag:
+        widths: widths,
+        sizes: sizes,
+        alt: alt,
+        loading: loading_attr,
+        fetchpriority: fetchpriority,
+        class: image_classes,
+        style: image_style
+    }}
+  {%- else -%}
+    {{
+      image
+      | image_url: width: max_width
+      | image_tag:
+        widths: widths,
+        sizes: sizes,
+        alt: alt,
+        loading: loading_attr,
+        class: image_classes,
+        style: image_style
+    }}
+  {%- endif -%}
+{%- else -%}
+  <span class="sp-image-placeholder" aria-hidden="true">
+    {{ placeholder_name | placeholder_svg_tag: 'sp-image-placeholder__svg' }}
+  </span>
+{%- endif -%}
+
+{%- unless img_only -%}
+</div>
+{%- endunless -%}

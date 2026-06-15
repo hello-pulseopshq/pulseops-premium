@@ -1,0 +1,17 @@
+{%- comment -%}
+  Synchronous no-js → js swap. Does not arm motion (sp-motion-active is set by sp-motion.js).
+{%- endcomment -%}
+<script>
+  document.documentElement.classList.remove('no-js');
+  document.documentElement.classList.add('js');
+</script>
+<noscript>
+  <style>
+    html .sp-reveal,
+    html [data-sp-reveal] {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  </style>
+</noscript>

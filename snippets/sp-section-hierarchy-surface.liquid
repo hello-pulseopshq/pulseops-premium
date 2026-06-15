@@ -1,0 +1,18 @@
+{%- comment -%}
+  Returns hierarchy surface classes for fixed/sticky SP components.
+  Usage: class="my-component {% render 'sp-section-hierarchy-surface', section: section %}"
+{%- endcomment -%}
+{%- liquid
+  assign sp_surface = section.settings.sp_surface_style | default: 'default'
+  assign sp_color_scheme = section.settings.color_scheme | default: 'scheme-1'
+
+  if sp_surface == 'inverse'
+    assign sp_color_scheme = settings.sp_inverse_color_scheme | default: 'scheme-3'
+  endif
+
+  assign sp_use_gradient = true
+  if sp_surface == 'transparent'
+    assign sp_use_gradient = false
+  endif
+-%}
+sp-surface--{{ sp_surface }} color-{{ sp_color_scheme }}{% if sp_use_gradient %} gradient{% endif %}

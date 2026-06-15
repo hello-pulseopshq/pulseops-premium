@@ -205,12 +205,33 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "sp-sticky-atc": {
+      "type": "sp-sticky-atc",
+      "settings": {
+        "enable_sticky_bar": true,
+        "mobile_only": true,
+        "show_mobile_product_image": false,
+        "show_mobile_title": false,
+        "show_mobile_variant_selector": false,
+        "show_product_image": true,
+        "show_variant_selector": true,
+        "show_compare_at_price": true,
+        "button_label": "Add to cart",
+        "show_price_in_button": false,
+        "show_buy_now_button": false,
+        "scroll_threshold": 10,
+        "hide_near_footer": true,
+        "background_style": "blur",
+        "color_scheme": "scheme-1"
+      }
     }
   },
   "order": [
     "main",
     "image-with-text",
     "multicolumn",
-    "related-products"
+    "related-products",
+    "sp-sticky-atc"
   ]
 }

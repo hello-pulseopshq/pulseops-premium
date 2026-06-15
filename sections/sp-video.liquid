@@ -1,0 +1,763 @@
+{{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  /* =========================
+     SECTION PADDING
+  ========================== */
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  /* =========================
+     BASE COMPONENT WRAPPER
+  ========================== */
+  .sp-video {
+    --gap: 2rem;
+    --max: 72rem;
+  }
+
+  .sp-video__empty-state {
+    margin: 0;
+    text-align: center;
+    opacity: 0.72;
+  }
+
+  .sp-video__body {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: grid;
+    gap: var(--gap);
+  }
+
+  .sp-video__body--split {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+  }
+
+  @media (max-width: 749px) {
+    .sp-video__body--split {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* =========================
+     VIDEO
+  ========================== */
+  .sp-video__media {
+    position: relative;
+    border-radius: var(--sp-image-radius, var(--media-radius));
+    overflow: hidden;
+    background: rgba(var(--color-foreground), var(--sp-image-placeholder-alpha, 0.04));
+    box-shadow: var(--sp-image-shadow, none);
+  }
+
+  /* =========================
+     CONTENT
+  ========================== */
+  .sp-video__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .sp-video__hook {
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    opacity: 0.8;
+  }
+
+  /* =========================
+     CTA
+  ========================== */
+  .sp-video__cta {
+    display: inline-flex;
+    justify-content: center;
+    min-height: 4.8rem;
+  }
+
+  .sp-video__cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .sp-video__transcript {
+    margin-top: 1.2rem;
+    font-size: 0.9em;
+  }
+
+  .sp-video__transcript summary {
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  .sp-video__transcript-body {
+    margin-top: 0.8rem;
+    opacity: 0.85;
+  }
+
+  .sp-video__micro {
+    opacity: 0.65;
+    font-size: 0.9em;
+  }
+
+  /* =========================
+     LISTS
+  ========================== */
+  .sp-video__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .sp-video__item {
+    display: flex;
+    gap: 0.8rem;
+    align-items: flex-start;
+  }
+
+  .sp-video__icon {
+    width: 1.4rem;
+    height: 1.4rem;
+    flex-shrink: 0;
+  }
+
+  .sp-video__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .sp-video__badge {
+    border: 0.1rem solid rgba(var(--color-foreground), 0.12);
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.85em;
+  }
+{%- endstyle -%}
+
+{%- liquid
+  # Text normalization
+  assign heading = section.settings.heading | strip_html | strip
+  assign subheading = section.settings.subheading | strip_html | strip
+  assign hook = section.settings.hook_text | strip_html | strip
+
+  assign cta = section.settings.cta_label | strip
+  assign cta2 = section.settings.secondary_cta_label | strip
+
+  assign transcript = section.settings.transcript_text | strip_html | strip
+
+  # Video resolution
+  assign video_type = ''
+  assign video_id = ''
+  assign video_host = ''
+
+  if section.settings.video != blank
+    assign video_type = 'shopify'
+    assign video_id = section.settings.video.id
+  elsif section.settings.video_url.id != blank
+    assign video_type = 'external'
+    assign video_id = section.settings.video_url.id
+    assign video_host = section.settings.video_url.type
+  elsif section.settings.mp4_url != blank
+    assign video_type = 'mp4'
+  endif
+
+  assign has_video = false
+  if video_type != ''
+    assign has_video = true
+  endif
+
+  # Behavior flags
+  assign autoplay = false
+  if section.settings.autoplay_muted and video_type != 'external'
+    assign autoplay = true
+  endif
+
+  assign loop = section.settings.enable_loop
+
+  assign video_aspect_padding = 56.25
+  if section.settings.poster_image != blank and section.settings.poster_image.aspect_ratio
+    assign video_aspect_padding = 1 | divided_by: section.settings.poster_image.aspect_ratio | times: 100
+  endif
+
+  assign poster_focal = 'center'
+  if section.settings.poster_image != blank and section.settings.poster_image.presentation.focal_point != blank
+    assign poster_focal = section.settings.poster_image.presentation.focal_point
+  endif
+
+  assign show_split = false
+  if section.settings.layout == 'split'
+    assign show_split = true
+  endif
+
+  assign deferred_media_id = video_id
+  if deferred_media_id == blank
+    assign deferred_media_id = section.id
+  endif
+
+  assign deferred_poster_id = 'Deferred-Poster-Modal-' | append: section.id | append: '-' | append: deferred_media_id
+  assign video_aria_label = heading | default: subheading | strip_html | strip
+  if video_aria_label == blank
+    assign video_aria_label = 'Video'
+  endif
+-%}
+
+{% render 'sp-section-hierarchy-open', section: section %}
+
+    {% if has_video %}
+
+    <div class="sp-video sp-video--{{ section.settings.layout }}" data-sp-video>
+
+      <!-- =========================
+           HEADER (CENTER MODE ONLY)
+      ========================== -->
+      {% unless show_split %}
+        {% if heading != blank or subheading != blank or hook != blank %}
+          <header class="sp-video__content{% render 'sp-motion-class', type: 'stagger' %}" data-sp-stagger>
+            {% if hook != blank %}
+              <div class="sp-video__hook caption{% render 'sp-motion-class', type: 'stagger-item' %}">{{ section.settings.hook_text }}</div>
+            {% endif %}
+
+            {% if heading != blank %}
+              <h2 class="{% render 'sp-motion-class', type: 'stagger-item' %}">{{ section.settings.heading }}</h2>
+            {% endif %}
+
+            {% if subheading != blank %}
+              <div class="rte{% render 'sp-motion-class', type: 'stagger-item' %}">{{ section.settings.subheading }}</div>
+            {% endif %}
+          </header>
+        {% endif %}
+      {% endunless %}
+
+      <div class="sp-video__body {% if show_split %}sp-video__body--split{% endif %}">
+
+        <!-- =========================
+             VIDEO
+        ========================== -->
+        <div
+          class="sp-video__media sp-media-frame sp-media-frame--custom{% render 'sp-motion-class', type: 'fade-up' %}"
+          data-sp-video-media
+          data-video-state="idle"
+          style="--sp-media-aspect: {{ video_aspect_padding | round: 2 }}%; --sp-video-focal: {{ poster_focal }};"
+        >
+
+          {% if autoplay %}
+
+            {% if video_type == 'shopify' %}
+              {{ section.settings.video | video_tag:
+                autoplay: true,
+                muted: true,
+                loop: loop,
+                controls: true,
+                playsinline: true
+              }}
+
+            {% elsif video_type == 'mp4' %}
+              <video autoplay muted playsinline {% if loop %}loop{% endif %} controls>
+                <source src="{{ section.settings.mp4_url }}">
+              </video>
+            {% endif %}
+
+          {% else %}
+
+            <deferred-media class="deferred-media" data-media-id="{{ deferred_media_id }}">
+
+              <button
+                id="{{ deferred_poster_id }}"
+                type="button"
+                class="deferred-media__poster"
+                aria-label="{{ 'sections.video.load_video' | t: description: video_aria_label | escape }}"
+              >
+                {% if section.settings.poster_image %}
+                  {%- liquid
+                    assign poster_classes = 'sp-image'
+                    if settings.sp_image_progressive_reveal
+                      assign poster_classes = poster_classes | append: ' sp-image-reveal'
+                    endif
+                    assign poster_style = ''
+                    if section.settings.poster_image.presentation.focal_point != blank
+                      assign poster_style = 'object-position: ' | append: section.settings.poster_image.presentation.focal_point | append: ';'
+                    endif
+                  -%}
+                  {{
+                    section.settings.poster_image
+                    | image_url: width: 1500
+                    | image_tag:
+                      alt: video_aria_label,
+                      widths: '550, 750, 1100, 1500',
+                      sizes: '(min-width: 990px) 72rem, 100vw',
+                      loading: 'lazy',
+                      class: poster_classes,
+                      style: poster_style
+                  }}
+                {% endif %}
+
+                <span class="deferred-media__poster-button motion-reduce">
+                  <span class="svg-wrapper">
+                    {{- 'icon-play.svg' | inline_asset_content -}}
+                  </span>
+                </span>
+              </button>
+
+              <template>
+
+                {% if video_type == 'external' and video_host == 'youtube' %}
+                  <iframe src="https://www.youtube.com/embed/{{ video_id }}?autoplay=1"
+                          allow="autoplay; encrypted-media"
+                          allowfullscreen></iframe>
+
+                {% elsif video_type == 'external' and video_host == 'vimeo' %}
+                  <iframe src="https://player.vimeo.com/video/{{ video_id }}?autoplay=1"
+                          allowfullscreen></iframe>
+
+                {% elsif video_type == 'shopify' %}
+                  {{ section.settings.video | video_tag: controls: true }}
+
+                {% elsif video_type == 'mp4' %}
+                  <video controls>
+                    <source src="{{ section.settings.mp4_url }}">
+                  </video>
+                {% endif %}
+
+              </template>
+
+            </deferred-media>
+
+          {% endif %}
+        </div>
+
+        {% if transcript != blank %}
+          <details class="sp-video__transcript">
+            <summary>Transcript</summary>
+            <div class="sp-video__transcript-body rte">
+              {{ transcript | newline_to_br }}
+            </div>
+          </details>
+        {% endif %}
+
+        <!-- =========================
+             CONTENT COLUMN
+        ========================== -->
+        <div class="sp-video__content{% if show_split %}{% render 'sp-motion-class', type: 'stagger' %}{% endif %}"{% if show_split %} data-sp-stagger{% endif %}>
+
+          {% if show_split %}
+
+            {% if hook != blank %}
+              <div class="sp-video__hook caption{% render 'sp-motion-class', type: 'stagger-item' %}">{{ section.settings.hook_text }}</div>
+            {% endif %}
+
+            {% if heading != blank %}
+              <h2 class="{% render 'sp-motion-class', type: 'stagger-item' %}">{{ section.settings.heading }}</h2>
+            {% endif %}
+
+            {% if subheading != blank %}
+              <div class="rte{% render 'sp-motion-class', type: 'stagger-item' %}">{{ section.settings.subheading }}</div>
+            {% endif %}
+
+          {% endif %}
+
+          <!-- Highlights -->
+          {% assign has_highlights = false %}
+          {% for block in section.blocks %}
+            {% if block.type == 'highlight' and block.settings.text != blank %}
+              {% assign has_highlights = true %}
+            {% endif %}
+          {% endfor %}
+
+          {% if has_highlights %}
+            <ul class="sp-video__list{% render 'sp-motion-class', type: 'stagger' %}" data-sp-stagger>
+              {% for block in section.blocks %}
+                {% if block.type == 'highlight' and block.settings.text != blank %}
+                  <li class="sp-video__item{% render 'sp-motion-class', type: 'stagger-item' %}">
+                    <span class="sp-video__icon">✓</span>
+                    <span>{{ block.settings.text }}</span>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          {% endif %}
+
+          <!-- CTA -->
+          {% if cta != blank or cta2 != blank %}
+            <div class="sp-video__cta-row">
+              {% if cta != blank %}
+                <a href="{{ section.settings.cta_link }}" class="sp-video__cta button button--primary{% render 'sp-motion-class', type: 'hover-button' %}">
+                  {{ cta }}
+                </a>
+              {% endif %}
+
+              {% if cta2 != blank %}
+                <a href="{{ section.settings.secondary_cta_link }}" class="sp-video__cta button button--secondary{% render 'sp-motion-class', type: 'hover-button' %}">
+                  {{ cta2 }}
+                </a>
+              {% endif %}
+            </div>
+          {% endif %}
+
+          {% if section.settings.cta_micro_text != blank %}
+            <div class="sp-video__micro">{{ section.settings.cta_micro_text }}</div>
+          {% endif %}
+
+          <!-- Trust badges -->
+          {% assign has_badges = false %}
+          {% for block in section.blocks %}
+            {% if block.type == 'trust_badge' and block.settings.text != blank %}
+              {% assign has_badges = true %}
+            {% endif %}
+          {% endfor %}
+
+          {% if has_badges %}
+            <ul class="sp-video__badges{% render 'sp-motion-class', type: 'stagger' %}" data-sp-stagger>
+              {% for block in section.blocks %}
+                {% if block.type == 'trust_badge' and block.settings.text != blank %}
+                  <li class="sp-video__badge{% render 'sp-motion-class', type: 'stagger-item' %}">
+                    {{ block.settings.text }}
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          {% endif %}
+
+        </div>
+      </div>
+
+    </div>
+
+    {% elsif request.design_mode %}
+      <p class="sp-video__empty-state">Add a video to preview this section.</p>
+    {% endif %}
+
+{% render 'sp-section-hierarchy-close' %}
+
+<script src="{{ 'sp-video.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "SP Video",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "hook_text",
+      "label": "Hook text"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "See it in action",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "default": "<p>Watch how it works in under 60 seconds.</p>",
+      "label": "Subheading"
+    },
+    {
+      "type": "header",
+      "content": "Video"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Shopify-hosted video"
+    },
+    {
+      "type": "video_url",
+      "id": "video_url",
+      "accept": ["youtube", "vimeo"],
+      "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+      "label": "YouTube or Vimeo URL"
+    },
+    {
+      "type": "url",
+      "id": "mp4_url",
+      "label": "MP4 URL"
+    },
+    {
+      "type": "image_picker",
+      "id": "poster_image",
+      "label": "Poster image"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay_muted",
+      "default": false,
+      "label": "Autoplay muted (Shopify/MP4 only)"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_loop",
+      "default": false,
+      "label": "Loop video"
+    },
+    {
+      "type": "textarea",
+      "id": "transcript_text",
+      "label": "Transcript"
+    },
+    {
+      "type": "header",
+      "content": "Call to action"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "default": "Shop now",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_cta_label",
+      "label": "Secondary button label"
+    },
+    {
+      "type": "url",
+      "id": "secondary_cta_link",
+      "label": "Secondary button link"
+    },
+    {
+      "type": "text",
+      "id": "cta_micro_text",
+      "label": "Micro text below button"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "split",
+          "label": "Split"
+        }
+      ],
+      "default": "center",
+      "label": "Layout"
+    },
+{
+    "type": "header",
+    "content": "Visual hierarchy"
+  },
+  {
+    "type": "select",
+    "id": "sp_surface_style",
+    "label": "Surface style",
+    "default": "default",
+    "info": "Inverse uses the inverse color scheme from Theme settings → SP Visual hierarchy instead of the section Color scheme below.",
+    "options": [
+      {
+        "value": "default",
+        "label": "Default"
+      },
+      {
+        "value": "alternate",
+        "label": "Alternate"
+      },
+      {
+        "value": "inverse",
+        "label": "Inverse"
+      },
+      {
+        "value": "accent",
+        "label": "Accent"
+      },
+      {
+        "value": "transparent",
+        "label": "Transparent"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_width_mode",
+    "label": "Width mode",
+    "default": "contained",
+    "options": [
+      {
+        "value": "contained",
+        "label": "Contained"
+      },
+      {
+        "value": "wide",
+        "label": "Wide"
+      },
+      {
+        "value": "full",
+        "label": "Full width"
+      },
+      {
+        "value": "bleed",
+        "label": "Bleed"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_section_emphasis",
+    "label": "Section emphasis",
+    "default": "normal",
+    "options": [
+      {
+        "value": "normal",
+        "label": "Normal"
+      },
+      {
+        "value": "elevated",
+        "label": "Elevated"
+      },
+      {
+        "value": "feature",
+        "label": "Feature"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_divider_style",
+    "label": "Divider",
+    "default": "none",
+    "options": [
+      {
+        "value": "none",
+        "label": "None"
+      },
+      {
+        "value": "line",
+        "label": "Line"
+      },
+      {
+        "value": "gradient",
+        "label": "Gradient"
+      },
+      {
+        "value": "fade",
+        "label": "Fade"
+      }
+    ]
+  },
+
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "info": "Not applied when Surface style is set to Inverse.",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "highlight",
+      "name": "Highlight",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Key benefit or proof point",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "trust_badge",
+      "name": "Trust badge",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "default": "30-day guarantee",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SP Video",
+      "blocks": [
+        {
+          "type": "highlight",
+          "settings": {
+            "text": "Easy to use from day one"
+          }
+        },
+        {
+          "type": "highlight",
+          "settings": {
+            "text": "Trusted by thousands of customers"
+          }
+        },
+        {
+          "type": "trust_badge",
+          "settings": {
+            "text": "Free shipping"
+          }
+        },
+        {
+          "type": "trust_badge",
+          "settings": {
+            "text": "30-day guarantee"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,21 @@
+{% comment %}
+  SP Hero headline with highlight styling.
+  Accepts: section, heading_tag
+{% endcomment %}
+
+{%- liquid
+  assign highlight_style = section.settings.headline_highlight_style | default: 'none'
+  assign highlight_color = section.settings.headline_highlight_color
+  if highlight_color == blank or highlight_color == 'rgba(0,0,0,0)'
+    assign highlight_color = 'currentColor'
+  endif
+-%}
+
+{%- if section.settings.headline != blank -%}
+  <{{ heading_tag }}
+    class="sp-hero__headline sp-hero__slot--headline inline-richtext {{ section.settings.heading_size }} sp-hero__headline--highlight-{{ highlight_style }}{% render 'sp-motion-class', type: 'stagger-item' %}"
+    style="--sp-hero-highlight-color: {{ highlight_color }};"
+  >
+    {{ section.settings.headline }}
+  </{{ heading_tag }}>
+{%- endif -%}

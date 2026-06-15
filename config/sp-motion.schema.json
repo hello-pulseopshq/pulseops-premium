@@ -1,0 +1,40 @@
+{
+  "motion_style": {
+    "type": "select",
+    "id": "sp_motion_style",
+    "label": "Motion style",
+    "default": "balanced",
+    "options": [
+      { "value": "disabled", "label": "Disabled" },
+      { "value": "minimal", "label": "Minimal" },
+      { "value": "balanced", "label": "Balanced" },
+      { "value": "premium", "label": "Premium" }
+    ]
+  },
+  "tokens": {
+    "disabled": {
+      "duration": "0ms",
+      "reveal_distance": "0rem",
+      "stagger_delay": "0ms",
+      "hover_lift": "0rem"
+    },
+    "minimal": {
+      "duration": "400ms",
+      "reveal_distance": "1.2rem",
+      "stagger_delay": "60ms",
+      "hover_lift": "0.2rem"
+    },
+    "balanced": {
+      "duration": "550ms",
+      "reveal_distance": "2rem",
+      "stagger_delay": "80ms",
+      "hover_lift": "0.35rem"
+    },
+    "premium": {
+      "duration": "700ms",
+      "reveal_distance": "2.8rem",
+      "stagger_delay": "120ms",
+      "hover_lift": "0.5rem"
+    }
+  }
+}

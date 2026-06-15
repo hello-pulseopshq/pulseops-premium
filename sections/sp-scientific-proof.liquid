@@ -1,0 +1,647 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .sp-scientific-proof {
+    --sp-scientific-proof-gap-sm: 1.2rem;
+    --sp-scientific-proof-gap-md: 1.6rem;
+    --sp-scientific-proof-gap-lg: 2.4rem;
+    --sp-scientific-proof-card-padding: 2rem;
+    --sp-scientific-proof-logo-height: 2.8rem;
+  }
+
+  .sp-scientific-proof__header {
+    margin-bottom: var(--sp-scientific-proof-gap-lg);
+    max-width: 72rem;
+  }
+
+  .sp-scientific-proof__header--center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .sp-scientific-proof__header--center .sp-scientific-proof__subheading {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .sp-scientific-proof__heading {
+    margin: 0;
+  }
+
+  .sp-scientific-proof__subheading {
+    margin-top: var(--sp-scientific-proof-gap-sm);
+  }
+
+  .sp-scientific-proof__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--sp-scientific-proof-gap-md);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .sp-scientific-proof__item {
+    height: 100%;
+  }
+
+  .sp-scientific-proof__card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-scientific-proof-gap-sm);
+    padding: var(--sp-scientific-proof-card-padding);
+    border-radius: var(--media-radius);
+  }
+
+  .sp-scientific-proof__card--subtle {
+    background: rgba(var(--color-foreground), 0.04);
+    border: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  }
+
+  .sp-scientific-proof__card--outlined {
+    background: transparent;
+    border: 0.1rem solid rgba(var(--color-foreground), 0.14);
+  }
+
+  .sp-scientific-proof__card--elevated {
+    background: rgb(var(--color-background));
+    border: 0.1rem solid rgba(var(--color-foreground), 0.1);
+    box-shadow: var(--sp-image-shadow, 0 0.2rem 1.2rem rgba(var(--color-shadow), calc(var(--media-shadow-opacity, 0.08) * 0.65)));
+  }
+
+  .sp-scientific-proof__card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .sp-scientific-proof__icon {
+    width: 2.4rem;
+    height: 2.4rem;
+    flex-shrink: 0;
+    color: rgb(var(--color-foreground));
+    opacity: 0.88;
+  }
+
+  .sp-scientific-proof__icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .sp-scientific-proof__logo {
+    flex-shrink: 0;
+    max-width: 8rem;
+    margin-left: auto;
+  }
+
+  .sp-scientific-proof__logo .sp-image {
+    max-height: var(--sp-scientific-proof-logo-height);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    object-position: right center;
+  }
+
+  .sp-scientific-proof__stat {
+    margin: 0;
+    font-size: clamp(2.8rem, 4.5vw, 4rem);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .sp-scientific-proof__stat--certification {
+    font-size: clamp(1.7rem, 2.4vw, 2.1rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    font-variant-numeric: normal;
+  }
+
+  .sp-scientific-proof__card--certification {
+    gap: 0.8rem;
+  }
+
+  .sp-scientific-proof__card--certification .sp-scientific-proof__description {
+    opacity: 0.88;
+  }
+
+  .sp-scientific-proof__description {
+    margin: 0;
+    flex: 1;
+    line-height: 1.5;
+  }
+
+  .sp-scientific-proof__description > :first-child {
+    margin-top: 0;
+  }
+
+  .sp-scientific-proof__description > :last-child {
+    margin-bottom: 0;
+  }
+
+  .sp-scientific-proof__card-top + .sp-scientific-proof__stat {
+    margin-top: 0.2rem;
+  }
+
+  .sp-scientific-proof__card:not(.sp-scientific-proof__card--certification) .sp-scientific-proof__description {
+    opacity: 0.88;
+  }
+
+  .sp-scientific-proof__card--certification .sp-scientific-proof__icon {
+    width: 2rem;
+    height: 2rem;
+    opacity: 0.78;
+  }
+
+  .sp-scientific-proof__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-top: auto;
+    padding-top: 0.8rem;
+    border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  }
+
+  .sp-scientific-proof__source {
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    line-height: 1.35;
+  }
+
+  .sp-scientific-proof__footnote {
+    margin: 0;
+    opacity: 0.62;
+    font-size: 0.9em;
+    line-height: 1.4;
+  }
+
+  .sp-scientific-proof__list--swipe {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(85%, 1fr);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.2rem;
+    padding-right: 8%;
+    scrollbar-width: none;
+  }
+
+  .sp-scientific-proof__list--swipe::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sp-scientific-proof__list--swipe .sp-scientific-proof__item {
+    scroll-snap-align: start;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+
+    .sp-scientific-proof__list--2,
+    .sp-scientific-proof__list--3,
+    .sp-scientific-proof__list--4 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .sp-scientific-proof__list--swipe {
+      grid-auto-flow: row;
+      grid-auto-columns: initial;
+      overflow-x: visible;
+      scroll-snap-type: none;
+      padding-bottom: 0;
+      padding-right: 0;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .sp-scientific-proof__list--3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .sp-scientific-proof__list--4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+{%- endstyle -%}
+
+{% render 'sp-section-hierarchy-open', section: section %}
+  <div
+    class="sp-scientific-proof"
+    aria-label="{{ section.settings.heading | strip_html | default: 'Scientific proof' | escape }}"
+  >
+    {%- liquid
+      assign heading_stripped = section.settings.heading | strip_html | strip
+      assign subheading_stripped = section.settings.subheading | strip_html | strip
+    -%}
+
+    {%- if heading_stripped != blank or subheading_stripped != blank -%}
+      <header class="sp-scientific-proof__header sp-scientific-proof__header--{{ section.settings.content_alignment }}">
+        {%- if heading_stripped != blank -%}
+          <h2 class="sp-scientific-proof__heading inline-richtext h1{% render 'sp-motion-class', type: 'fade-up' %}">
+            {{ section.settings.heading }}
+          </h2>
+        {%- endif -%}
+        {%- if subheading_stripped != blank -%}
+          <div class="sp-scientific-proof__subheading rte{% render 'sp-motion-class', type: 'fade-up' %}">
+            {{ section.settings.subheading }}
+          </div>
+        {%- endif -%}
+      </header>
+    {%- endif -%}
+
+    <ul
+      class="sp-scientific-proof__list sp-scientific-proof__list--{{ section.settings.desktop_columns }}{% if section.settings.mobile_layout == 'swipe' %} sp-scientific-proof__list--swipe{% endif %}{% render 'sp-motion-class', type: 'stagger' %}"
+      data-sp-stagger
+      role="list"
+    >
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign stat_stripped = block.settings.statistic | strip
+          assign description_stripped = block.settings.description | strip_html | strip
+          assign source_stripped = block.settings.source | strip
+          assign footnote_stripped = block.settings.footnote | strip
+
+          assign use_statistic_mode = true
+          if block.settings.presentation == 'certification'
+            assign use_statistic_mode = false
+          elsif block.settings.presentation == 'statistic'
+            assign use_statistic_mode = true
+          elsif stat_stripped != blank
+            assign stat_first = stat_stripped | slice: 0, 1
+            if stat_stripped contains '%' or stat_stripped contains '+' or stat_stripped contains '★' or stat_stripped contains '°'
+              assign use_statistic_mode = true
+            elsif stat_first == '0' or stat_first == '1' or stat_first == '2' or stat_first == '3' or stat_first == '4' or stat_first == '5' or stat_first == '6' or stat_first == '7' or stat_first == '8' or stat_first == '9'
+              assign use_statistic_mode = true
+            else
+              assign use_statistic_mode = false
+            endif
+          endif
+        -%}
+        {%- if stat_stripped != blank or description_stripped != blank -%}
+          <li class="sp-scientific-proof__item{% render 'sp-motion-class', type: 'stagger-item' %}" {{ block.shopify_attributes }}>
+            <article class="sp-scientific-proof__card sp-scientific-proof__card--{{ section.settings.card_style }}{% unless use_statistic_mode %} sp-scientific-proof__card--certification{% endunless %}{% render 'sp-motion-class', type: 'hover-card-subtle' %}">
+              {%- if block.settings.icon != 'none' or block.settings.logo != blank -%}
+                <div class="sp-scientific-proof__card-top">
+                  {%- if block.settings.icon != 'none' -%}
+                    <span class="sp-scientific-proof__icon" aria-hidden="true">
+                      {%- case block.settings.icon -%}
+                        {%- when 'lab' -%}
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M9 3h6v4l4.5 9.5a2.5 2.5 0 0 1-2.2 3.5H6.7a2.5 2.5 0 0 1-2.2-3.5L9 7V3z"></path>
+                            <path d="M9 7h6"></path>
+                          </svg>
+                        {%- when 'certificate' -%}
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <circle cx="12" cy="8" r="4"></circle>
+                            <path d="M8.5 14.5 7 21l5-2.5L17 21l-1.5-6.5"></path>
+                          </svg>
+                        {%- when 'chart' -%}
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M4 19h16"></path>
+                            <path d="M7 16V9"></path>
+                            <path d="M12 16V5"></path>
+                            <path d="M17 16v-7"></path>
+                          </svg>
+                        {%- when 'document' -%}
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M8 3h7l4 4v14H8z"></path>
+                            <path d="M15 3v4h4"></path>
+                            <path d="M10 12h6"></path>
+                            <path d="M10 16h6"></path>
+                          </svg>
+                        {%- when 'shield' -%}
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M12 2.5 4.5 5.5v6.2c0 4.5 2.8 8.6 7.5 9.8 4.7-1.2 7.5-5.3 7.5-9.8V5.5z"></path>
+                            <path d="m8.8 12.1 2.2 2.3 4.3-4.4"></path>
+                          </svg>
+                        {%- when 'microscope' -%}
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M6 18h12"></path>
+                            <path d="M9 18v-3"></path>
+                            <path d="M15 18v-3"></path>
+                            <path d="M12 14V6"></path>
+                            <path d="M8 6h8"></path>
+                            <circle cx="12" cy="4" r="2"></circle>
+                          </svg>
+                        {%- else -%}
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="m5.5 12 4 4 9-9"></path>
+                          </svg>
+                      {%- endcase -%}
+                    </span>
+                  {%- endif -%}
+
+                  {%- if block.settings.logo != blank -%}
+                    <div class="sp-scientific-proof__logo sp-media-frame sp-media-frame--logo">
+                      {%- render 'sp-image',
+                        image: block.settings.logo,
+                        ratio: 'logo',
+                        img_only: true,
+                        fit: 'contain',
+                        alt: block.settings.logo.alt | default: source_stripped | default: stat_stripped | escape,
+                        widths: '80, 120, 160',
+                        sizes: '120px',
+                        image_width: 160,
+                        loading: 'lazy',
+                        reveal: false
+                      -%}
+                    </div>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+
+              {%- if stat_stripped != blank -%}
+                <p class="sp-scientific-proof__stat{% unless use_statistic_mode %} sp-scientific-proof__stat--certification{% endunless %}">{{ block.settings.statistic | escape }}</p>
+              {%- endif -%}
+
+              {%- if description_stripped != blank -%}
+                <div class="sp-scientific-proof__description rte">
+                  {{ block.settings.description }}
+                </div>
+              {%- endif -%}
+
+              {%- if source_stripped != blank or footnote_stripped != blank -%}
+                <footer class="sp-scientific-proof__meta">
+                  {%- if source_stripped != blank -%}
+                    <p class="sp-scientific-proof__source caption-with-letter-spacing">{{ block.settings.source | escape }}</p>
+                  {%- endif -%}
+                  {%- if footnote_stripped != blank -%}
+                    <p class="sp-scientific-proof__footnote">{{ block.settings.footnote | escape }}</p>
+                  {%- endif -%}
+                </footer>
+              {%- endif -%}
+            </article>
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  </div>
+{% render 'sp-section-hierarchy-close' %}
+
+{% schema %}
+{
+  "name": "SP Scientific Proof",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Clinically informed results"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "<p>Evidence-backed claims you can stand behind.</p>"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "Content alignment",
+      "default": "left",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "desktop_columns",
+      "label": "Desktop columns",
+      "default": "3",
+      "options": [
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" },
+        { "value": "4", "label": "4" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "card_style",
+      "label": "Card style",
+      "default": "elevated",
+      "options": [
+        { "value": "subtle", "label": "Subtle" },
+        { "value": "outlined", "label": "Outlined" },
+        { "value": "elevated", "label": "Elevated" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "mobile_layout",
+      "label": "Mobile layout",
+      "default": "swipe",
+      "options": [
+        { "value": "stack", "label": "Stack" },
+        { "value": "swipe", "label": "Swipe" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Visual hierarchy"
+    },
+    {
+      "type": "select",
+      "id": "sp_surface_style",
+      "label": "Surface style",
+      "default": "default",
+      "info": "Inverse uses the inverse color scheme from Theme settings → SP Visual hierarchy instead of the section Color scheme below.",
+      "options": [
+        { "value": "default", "label": "Default" },
+        { "value": "alternate", "label": "Alternate" },
+        { "value": "inverse", "label": "Inverse" },
+        { "value": "accent", "label": "Accent" },
+        { "value": "transparent", "label": "Transparent" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "sp_width_mode",
+      "label": "Width mode",
+      "default": "contained",
+      "options": [
+        { "value": "contained", "label": "Contained" },
+        { "value": "wide", "label": "Wide" },
+        { "value": "full", "label": "Full width" },
+        { "value": "bleed", "label": "Bleed" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "sp_section_emphasis",
+      "label": "Section emphasis",
+      "default": "normal",
+      "options": [
+        { "value": "normal", "label": "Normal" },
+        { "value": "elevated", "label": "Elevated" },
+        { "value": "feature", "label": "Feature" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "sp_divider_style",
+      "label": "Divider",
+      "default": "none",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "line", "label": "Line" },
+        { "value": "gradient", "label": "Gradient" },
+        { "value": "fade", "label": "Fade" }
+      ]
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "info": "Not applied when Surface style is set to Inverse.",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "proof",
+      "name": "Proof card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "statistic",
+          "label": "Statistic or result",
+          "default": "92%",
+          "info": "e.g. 92%, 10,000+, Dermatologist Approved"
+        },
+        {
+          "type": "select",
+          "id": "presentation",
+          "label": "Presentation",
+          "default": "auto",
+          "options": [
+            { "value": "auto", "label": "Auto" },
+            { "value": "statistic", "label": "Statistic" },
+            { "value": "certification", "label": "Certification" }
+          ],
+          "info": "Auto uses large display for numbers and percentages. Certification suits labels like Dermatologist Tested."
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Supporting description",
+          "default": "<p>Participants reported visible improvement within 8 weeks of consistent use.</p>"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "lab",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "check", "label": "Checkmark" },
+            { "value": "lab", "label": "Lab" },
+            { "value": "microscope", "label": "Microscope" },
+            { "value": "certificate", "label": "Certificate" },
+            { "value": "chart", "label": "Chart" },
+            { "value": "document", "label": "Document" },
+            { "value": "shield", "label": "Shield" }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Certification logo"
+        },
+        {
+          "type": "text",
+          "id": "source",
+          "label": "Source label",
+          "default": "Independent clinical study"
+        },
+        {
+          "type": "text",
+          "id": "footnote",
+          "label": "Footnote",
+          "info": "Optional disclaimer or methodology note"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SP Scientific Proof",
+      "blocks": [
+        {
+          "type": "proof",
+          "settings": {
+            "statistic": "92%",
+            "presentation": "statistic",
+            "description": "<p>Participants reported visible improvement within 8 weeks.</p>",
+            "icon": "chart",
+            "source": "12-week independent clinical study",
+            "footnote": "Based on self-reported outcomes in a controlled study."
+          }
+        },
+        {
+          "type": "proof",
+          "settings": {
+            "statistic": "Third-party tested",
+            "presentation": "certification",
+            "description": "<p>Every batch is verified for purity, potency, and safety.</p>",
+            "icon": "shield",
+            "source": "ISO-certified laboratory"
+          }
+        },
+        {
+          "type": "proof",
+          "settings": {
+            "statistic": "Dermatologist approved",
+            "presentation": "certification",
+            "description": "<p>Reviewed and recommended by board-certified specialists.</p>",
+            "icon": "certificate",
+            "source": "Expert panel review"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

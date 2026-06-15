@@ -1,0 +1,941 @@
+{%- liquid
+  assign is_product_page = false
+  if request.page_type == 'product'
+    assign is_product_page = true
+  endif
+
+  assign show_bar = false
+  if section.settings.enable_sticky_bar and product != blank and is_product_page
+    assign show_bar = true
+  endif
+
+  assign sticky_form_id = 'sp-sticky-atc-form-' | append: section.id
+  assign current_variant = product.selected_or_first_available_variant
+  assign button_label_stripped = section.settings.button_label | strip
+
+  assign check_against_inventory = true
+  if current_variant.inventory_management != 'shopify' or current_variant.inventory_policy == 'continue'
+    assign check_against_inventory = false
+  endif
+  assign quantity_rule_soldout = false
+  if current_variant.quantity_rule.min > current_variant.inventory_quantity and check_against_inventory
+    assign quantity_rule_soldout = true
+  endif
+
+  assign variant_sold_out = false
+  if current_variant.available == false or quantity_rule_soldout or current_variant == null
+    assign variant_sold_out = true
+  endif
+
+  assign featured_image = current_variant.featured_image
+  if featured_image == blank
+    assign featured_image = product.featured_image
+  endif
+
+  assign show_desktop_image = section.settings.show_product_image
+  assign show_mobile_image = section.settings.show_mobile_product_image
+  assign show_mobile_title = section.settings.show_mobile_title
+  assign show_desktop_variant = section.settings.show_variant_selector
+  assign show_mobile_variant = section.settings.show_mobile_variant_selector
+
+  assign on_sale = false
+  assign savings_percent = 0
+  if current_variant.compare_at_price > current_variant.price
+    assign on_sale = true
+    assign savings_amount = current_variant.compare_at_price | minus: current_variant.price
+    assign savings_percent = savings_amount | times: 100.0 | divided_by: current_variant.compare_at_price | round
+  endif
+
+  assign render_image = false
+  if show_desktop_image or show_mobile_image
+    if featured_image != blank
+      assign render_image = true
+    endif
+  endif
+
+  assign image_visibility = ''
+  if show_desktop_image and show_mobile_image == false
+    assign image_visibility = 'desktop-only'
+  elsif show_mobile_image and show_desktop_image == false
+    assign image_visibility = 'mobile-only'
+  endif
+
+  assign mobile_variant_layout = false
+  if show_mobile_variant and product.has_only_default_variant == false
+    assign mobile_variant_layout = true
+  endif
+
+  assign sp_emphasis_class = ''
+  if section.settings.sp_section_emphasis == 'elevated'
+    assign sp_emphasis_class = ' sp-section--emphasis-elevated'
+  elsif section.settings.sp_section_emphasis == 'feature'
+    assign sp_emphasis_class = ' sp-section--emphasis-feature'
+  endif
+
+  assign sticky_background_class = ''
+  unless section.settings.sp_surface_style == 'transparent'
+    assign sticky_background_class = ' sp-sticky-atc--' | append: section.settings.background_style
+  endunless
+-%}
+
+{%- if show_bar or request.design_mode -%}
+  {{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+  {%- style -%}
+    .sp-sticky-atc-{{ section.id }} {
+      --sp-sticky-atc-radius: 1.6rem;
+      --sp-sticky-atc-gap: 1rem;
+      --sp-sticky-atc-thumb: 4.4rem;
+      --sp-sticky-atc-shadow: 0 -0.8rem 3.2rem rgba(var(--color-shadow), 0.14);
+      --sp-sticky-atc-safe-bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+    }
+
+    .sp-sticky-atc-{{ section.id }} {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 4;
+      opacity: 0;
+      transform: translate3d(0, 100%, 0);
+      pointer-events: none;
+      visibility: hidden;
+      border-top: 0.1rem solid rgba(var(--color-foreground), 0.1);
+      box-shadow: var(--sp-sticky-atc-shadow);
+      padding-bottom: var(--sp-sticky-atc-safe-bottom);
+      isolation: isolate;
+      transition:
+        transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.32s ease,
+        visibility 0.32s ease;
+      will-change: transform, opacity;
+    }
+
+    .sp-sticky-atc-{{ section.id }}.is-visible {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      pointer-events: auto;
+      visibility: visible;
+    }
+
+    .sp-sticky-atc-{{ section.id }}.sp-sticky-atc--solid {
+      background: rgb(var(--color-background));
+    }
+
+    .sp-sticky-atc-{{ section.id }}.sp-sticky-atc--blur {
+      background: rgba(var(--color-background), 0.9);
+      backdrop-filter: blur(1.6rem) saturate(1.08);
+      -webkit-backdrop-filter: blur(1.6rem) saturate(1.08);
+      border-top-color: rgba(var(--color-foreground), 0.12);
+      box-shadow:
+        0 -1.2rem 3.6rem rgba(var(--color-shadow), 0.16),
+        inset 0 0.1rem 0 rgba(var(--color-foreground), 0.06);
+    }
+
+    .sp-sticky-atc-{{ section.id }}.sp-sticky-atc--blur::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: rgba(var(--color-background), 0.55);
+      pointer-events: none;
+    }
+
+    .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--sp-sticky-atc-gap);
+      padding: 1rem 1.6rem calc(1rem + var(--sp-sticky-atc-safe-bottom) * 0.15);
+    }
+
+    .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__left {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      flex: 1 1 12rem;
+      min-width: 0;
+    }
+
+    .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__media {
+      width: var(--sp-sticky-atc-thumb);
+      height: var(--sp-sticky-atc-thumb);
+      flex-shrink: 0;
+      border-radius: calc(var(--sp-sticky-atc-radius) * 0.5);
+      overflow: hidden;
+      border: 0.1rem solid rgba(var(--color-foreground), 0.1);
+    }
+
+    .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__media-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__title {
+      margin: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      line-height: 1.3;
+    }
+
+    .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__product-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      min-width: 0;
+    }
+
+    .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__price-desktop {
+      display: none;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.4rem 0.8rem;
+    }
+
+    .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__price-desktop .price {
+      margin: 0;
+    }
+
+    .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__price-desktop .sp-sticky-atc__savings {
+      flex-shrink: 0;
+    }
+
+    .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__center {
+      display: none;
+    }
+
+    .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__price .price {
+      margin: 0;
+    }
+
+    .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__price-compact {
+      display: none;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.2rem;
+      min-width: 0;
+    }
+
+    .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__price-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.4rem 0.6rem;
+    }
+
+    .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__price-current {
+      margin: 0;
+      font-weight: 600;
+      line-height: 1.1;
+    }
+
+    .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__price-compare {
+      margin: 0;
+      opacity: 0.68;
+      text-decoration: line-through;
+      line-height: 1.1;
+    }
+
+    .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__savings {
+      display: inline-flex;
+      align-items: center;
+      margin: 0;
+      padding: 0.2rem 0.55rem;
+      border-radius: 99rem;
+      background: rgba(var(--color-foreground), 0.08);
+      color: rgb(var(--color-foreground));
+      font-weight: 600;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__variant {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__variant-select {
+      width: 100%;
+      min-height: 3.6rem;
+      padding: 0.6rem 2.4rem 0.6rem 0.8rem;
+      border-radius: calc(var(--sp-sticky-atc-radius) * 0.5);
+      border: 0.1rem solid rgba(var(--color-foreground), 0.16);
+      background: rgb(var(--color-background));
+      color: rgb(var(--color-foreground));
+    }
+
+    .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__right {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: stretch;
+      justify-content: flex-end;
+    }
+
+    .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__submit {
+      min-height: 4.4rem;
+      min-width: 12rem;
+      white-space: nowrap;
+      flex: 1 1 auto;
+    }
+
+    .sp-sticky-atc-{{ section.id }} .shopify-payment-button {
+      flex: 1 1 100%;
+      min-width: 12rem;
+    }
+
+    .sp-sticky-atc-{{ section.id }} .shopify-payment-button__button {
+      min-height: 4.4rem !important;
+      border-radius: var(--buttons-radius-outset) !important;
+    }
+
+    .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__empty-state {
+      margin: 0;
+      padding: 1.6rem;
+      text-align: center;
+      opacity: 0.72;
+    }
+
+    .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__visibility--desktop-only {
+      display: none;
+    }
+
+    .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__visibility--mobile-only {
+      display: block;
+    }
+
+    @media screen and (max-width: 749px) {
+      .sp-sticky-atc-{{ section.id }}[data-mobile-only='true'] {
+        display: block;
+      }
+
+      .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__inner {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 0.8rem 1rem;
+        padding: 0.9rem 1.2rem calc(0.9rem + var(--sp-sticky-atc-safe-bottom) * 0.2);
+      }
+
+      .sp-sticky-atc-{{ section.id }}.has-mobile-variant .sp-sticky-atc__inner {
+        grid-template-columns: 1fr;
+        align-items: stretch;
+        gap: 0.65rem;
+      }
+
+      .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__left {
+        display: none;
+      }
+
+      .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__left.is-mobile-enabled {
+        display: flex;
+        grid-column: 1 / -1;
+      }
+
+      .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__price-compact {
+        display: flex;
+        grid-column: 1;
+      }
+
+      .sp-sticky-atc-{{ section.id }}.has-mobile-variant .sp-sticky-atc__price-compact {
+        grid-column: 1 / -1;
+      }
+
+      .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__right {
+        grid-column: 2;
+        margin-left: 0;
+      }
+
+      .sp-sticky-atc-{{ section.id }}.has-mobile-variant .sp-sticky-atc__right {
+        grid-column: 1 / -1;
+        width: 100%;
+      }
+
+      .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__buttons {
+        flex-direction: column;
+        width: 100%;
+        min-width: 11rem;
+      }
+
+      .sp-sticky-atc-{{ section.id }}.has-mobile-variant .sp-sticky-atc__buttons {
+        min-width: 0;
+      }
+
+      .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__submit {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__variant--mobile {
+        grid-column: 1 / -1;
+      }
+
+      .sp-sticky-atc-{{ section.id }}.has-mobile-variant .sp-sticky-atc__variant-select {
+        min-height: 4rem;
+      }
+
+      .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__visibility--desktop-only {
+        display: none !important;
+      }
+
+      .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__visibility--mobile-only {
+        display: block;
+      }
+
+      .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__title--mobile {
+        display: none;
+      }
+
+      .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__title--mobile.is-enabled {
+        display: block;
+      }
+    }
+
+    @media screen and (min-width: 750px) {
+      .sp-sticky-atc-{{ section.id }}[data-mobile-only='true'] {
+        display: none !important;
+      }
+
+      .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__inner {
+        flex-wrap: nowrap;
+        padding: 1.2rem 2rem calc(1.2rem + var(--sp-sticky-atc-safe-bottom) * 0.15);
+      }
+
+      .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__left {
+        flex: 1 1 auto;
+        min-width: 0;
+        max-width: 55%;
+      }
+
+      .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__price-desktop {
+        display: flex;
+      }
+
+      .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__variant--desktop {
+        flex: 0 0 auto;
+        width: auto;
+        max-width: 20rem;
+      }
+
+      .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__right {
+        flex: 0 0 auto;
+        margin-left: auto;
+      }
+
+      .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__buttons {
+        flex-wrap: nowrap;
+      }
+
+      .sp-sticky-atc-{{ section.id }} .shopify-payment-button {
+        flex: 0 0 auto;
+      }
+
+      .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__visibility--mobile-only {
+        display: none !important;
+      }
+
+      .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__visibility--desktop-only {
+        display: block;
+      }
+
+      .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__title--mobile {
+        display: none !important;
+      }
+    }
+
+    .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__submit:focus-visible,
+    .sp-sticky-atc-{{ section.id }} .sp-sticky-atc__variant-select:focus-visible {
+      outline: 0.2rem solid rgb(var(--color-foreground));
+      outline-offset: 0.2rem;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .sp-sticky-atc-{{ section.id }} {
+        transition: none;
+      }
+    }
+
+    .section-sp-sticky-atc {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      margin: 0 !important;
+    }
+  {%- endstyle -%}
+
+  {%- if show_bar -%}
+    <div
+      id="sp-sticky-atc-{{ section.id }}"
+      class="sp-sticky-atc sp-sticky-atc-{{ section.id }}{{ sticky_background_class }} {% render 'sp-section-hierarchy-surface', section: section %}{{ sp_emphasis_class }}{% if mobile_variant_layout %} has-mobile-variant{% endif %}"
+      data-sp-sticky-atc
+      data-enabled="{{ section.settings.enable_sticky_bar }}"
+      data-scroll-threshold="{{ section.settings.scroll_threshold }}"
+      data-hide-near-footer="{{ section.settings.hide_near_footer }}"
+      data-mobile-only="{{ section.settings.mobile_only }}"
+      data-show-price-in-button="{{ section.settings.show_price_in_button }}"
+      data-show-compare-at-price="{{ section.settings.show_compare_at_price }}"
+      data-money-format="{{ shop.money_format | escape }}"
+      data-currency-code-enabled="{{ settings.currency_code_enabled }}"
+      {% if button_label_stripped != blank %}data-button-label="{{ button_label_stripped | escape }}"{% endif %}
+      aria-hidden="true"
+    >
+      {%- unless section.settings.sp_divider_style == 'none' -%}
+        <div class="sp-section__divider sp-section__divider--{{ section.settings.sp_divider_style }}" aria-hidden="true"></div>
+      {%- endunless -%}
+      <div class="sp-sticky-atc__inner sp-section__inner sp-section__inner--{{ section.settings.sp_width_mode | default: 'contained' }}">
+        <div class="sp-sticky-atc__left sp-sticky-atc__left--desktop{% if show_mobile_image or show_mobile_title %} is-mobile-enabled{% endif %}">
+          {%- if render_image -%}
+            {%- assign sticky_image_url = featured_image | image_url: width: 88 -%}
+            <div class="sp-sticky-atc__media{% if image_visibility != blank %} sp-sticky-atc__visibility--{{ image_visibility }}{% endif %}">
+              <img
+                src="{{ sticky_image_url }}"
+                alt="{{ product.title | escape }}"
+                class="sp-sticky-atc__media-image"
+                width="44"
+                height="44"
+                loading="lazy"
+                data-sp-sticky-image
+                data-fallback-src="{{ sticky_image_url }}"
+              >
+            </div>
+          {%- endif -%}
+
+          <div class="sp-sticky-atc__product-meta">
+            <p class="sp-sticky-atc__title h5 sp-sticky-atc__title--desktop sp-sticky-atc__visibility--desktop-only">
+              {{ product.title | escape | truncate: 48 }}
+            </p>
+
+            <p class="sp-sticky-atc__title h5 sp-sticky-atc__title--mobile{% if show_mobile_title %} is-enabled{% endif %}">
+              {{ product.title | escape | truncate: 48 }}
+            </p>
+
+            <div class="sp-sticky-atc__price-desktop sp-sticky-atc__visibility--desktop-only">
+              <div
+                class="sp-sticky-atc__price"
+                data-sp-sticky-price
+                role="status"
+                aria-live="polite"
+                aria-atomic="true"
+              >
+                {%- render 'price',
+                  product: product,
+                  use_variant: true,
+                  show_badges: false,
+                  show_compare_at_price: section.settings.show_compare_at_price
+                -%}
+              </div>
+              <p
+                class="sp-sticky-atc__savings caption"
+                data-sp-sticky-savings-desktop
+                {% unless on_sale and section.settings.show_compare_at_price %}hidden{% endunless %}
+              >
+                {%- if on_sale -%}Save {{ savings_percent }}%{%- endif -%}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="sp-sticky-atc__price-compact"
+          data-sp-sticky-price-compact
+          aria-hidden="false"
+        >
+          <div class="sp-sticky-atc__price-row">
+            <p class="sp-sticky-atc__price-current h5" data-sp-sticky-price-current>
+              {{ current_variant.price | money }}
+            </p>
+            <p
+              class="sp-sticky-atc__price-compare caption"
+              data-sp-sticky-price-compare
+              {% unless on_sale and section.settings.show_compare_at_price %}hidden{% endunless %}
+            >
+              {%- if on_sale -%}
+                {{ current_variant.compare_at_price | money }}
+              {%- endif -%}
+            </p>
+          </div>
+          <p
+            class="sp-sticky-atc__savings caption"
+            data-sp-sticky-savings
+            {% unless on_sale and section.settings.show_compare_at_price %}hidden{% endunless %}
+          >
+            {%- if on_sale -%}Save {{ savings_percent }}%{%- endif -%}
+          </p>
+        </div>
+
+        {%- if product.has_only_default_variant == false -%}
+          {%- if show_desktop_variant or show_mobile_variant -%}
+            {%- liquid
+              assign variant_visibility = ''
+              if show_desktop_variant and show_mobile_variant == false
+                assign variant_visibility = 'desktop-only'
+              elsif show_mobile_variant and show_desktop_variant == false
+                assign variant_visibility = 'mobile-only'
+              endif
+            -%}
+            <div
+              class="sp-sticky-atc__variant{% if show_mobile_variant %} sp-sticky-atc__variant--mobile{% endif %}{% if show_desktop_variant %} sp-sticky-atc__variant--desktop{% endif %}{% if variant_visibility != blank %} sp-sticky-atc__visibility--{{ variant_visibility }}{% endif %}"
+            >
+              <label class="visually-hidden" for="SpStickyVariant-{{ section.id }}">
+                {{ 'products.product.product_variants' | t | default: 'Product variants' }}
+              </label>
+              <select
+                id="SpStickyVariant-{{ section.id }}"
+                class="sp-sticky-atc__variant-select"
+                data-sp-sticky-variant
+                aria-label="{{ 'products.product.product_variants' | t | default: 'Select variant' }}"
+              >
+                {%- for variant in product.variants -%}
+                  <option
+                    value="{{ variant.id }}"
+                    {% if variant.id == current_variant.id %}selected{% endif %}
+                    {% if variant.available == false %}disabled{% endif %}
+                  >
+                    {{ variant.title | escape -}}
+                    {%- unless variant.available %} — {{ 'products.product.sold_out' | t }}{% endunless %}
+                  </option>
+                {%- endfor -%}
+              </select>
+            </div>
+          {%- endif -%}
+        {%- endif -%}
+
+        <div class="sp-sticky-atc__right">
+          <product-form class="sp-sticky-atc__form" data-section-id="{{ section.id }}" data-hide-errors="true">
+            {%- form 'product',
+              product,
+              id: sticky_form_id,
+              class: 'form sp-sticky-atc__product-form',
+              novalidate: 'novalidate',
+              data-type: 'add-to-cart-form'
+            -%}
+              <input
+                type="hidden"
+                name="id"
+                value="{{ current_variant.id }}"
+                class="product-variant-id"
+                {% if variant_sold_out %}disabled{% endif %}
+              >
+
+              <div class="sp-sticky-atc__buttons product-form__buttons">
+                <button
+                  type="submit"
+                  name="add"
+                  class="sp-sticky-atc__submit button button--primary"
+                  data-sp-sticky-submit
+                  aria-label="{% if button_label_stripped != blank %}{{ button_label_stripped | escape }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}: {{ product.title | escape }}"
+                  {% if variant_sold_out %}disabled{% endif %}
+                >
+                  <span data-sp-sticky-submit-label>
+                    {%- if current_variant == null -%}
+                      {{ 'products.product.unavailable' | t }}
+                    {%- elsif variant_sold_out -%}
+                      {{ 'products.product.sold_out' | t }}
+                    {%- elsif button_label_stripped != blank -%}
+                      {{ button_label_stripped | escape }}
+                    {%- else -%}
+                      {{ 'products.product.add_to_cart' | t }}
+                    {%- endif -%}
+                  </span>
+                  {%- render 'loading-spinner' -%}
+                </button>
+
+                {%- if section.settings.show_buy_now_button -%}
+                  {{ form | payment_button }}
+                {%- endif -%}
+              </div>
+            {%- endform -%}
+          </product-form>
+        </div>
+      </div>
+
+      <span class="visually-hidden" data-sp-sticky-live aria-live="polite" aria-atomic="true"></span>
+
+      <script type="application/json" data-sp-sticky-variants>
+        {{ product.variants | json }}
+      </script>
+    </div>
+
+    <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'sp-sticky-atc.js' | asset_url }}" defer="defer"></script>
+  {%- elsif request.design_mode -%}
+    <div class="sp-sticky-atc sp-sticky-atc-{{ section.id }} {% render 'sp-section-hierarchy-surface', section: section %}">
+      <p class="sp-sticky-atc__empty-state">
+        {%- if section.settings.enable_sticky_bar == false -%}
+          Enable the sticky bar in section settings to preview it on product pages.
+        {%- else -%}
+          Sticky add-to-cart bar appears on product pages when a product is in context.
+        {%- endif -%}
+      </p>
+    </div>
+  {%- endif -%}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "SP Sticky ATC Bar",
+  "tag": "section",
+  "class": "section section-sp-sticky-atc",
+  "enabled_on": {
+    "templates": ["product"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sticky_bar",
+      "default": true,
+      "label": "Enable sticky bar"
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_only",
+      "default": true,
+      "label": "Mobile only",
+      "info": "When enabled, the sticky bar only appears below 750px."
+    },
+    {
+      "type": "header",
+      "content": "Mobile layout"
+    },
+    {
+      "type": "paragraph",
+      "content": "On mobile, price and CTA are shown by default. Image, title, and variant selector are optional."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_mobile_product_image",
+      "default": false,
+      "label": "Show image in mobile sticky bar"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_mobile_title",
+      "default": false,
+      "label": "Show title in mobile sticky bar"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_mobile_variant_selector",
+      "default": false,
+      "label": "Show variant selector in mobile sticky bar"
+    },
+    {
+      "type": "header",
+      "content": "Desktop layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_product_image",
+      "default": true,
+      "label": "Show product image"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_variant_selector",
+      "default": true,
+      "label": "Show variant selector"
+    },
+    {
+      "type": "header",
+      "content": "Pricing"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_compare_at_price",
+      "default": true,
+      "label": "Show compare-at price"
+    },
+    {
+      "type": "header",
+      "content": "CTA"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "Add to cart",
+      "label": "Button label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_price_in_button",
+      "default": false,
+      "label": "Show price in button",
+      "info": "Example: Add to cart • $49.00"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_buy_now_button",
+      "default": false,
+      "label": "Show Buy Now button",
+      "info": "Uses Shopify dynamic checkout when available."
+    },
+    {
+      "type": "header",
+      "content": "Visibility"
+    },
+    {
+      "type": "range",
+      "id": "scroll_threshold",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "%",
+      "default": 10,
+      "label": "Show after scrolling past form",
+      "info": "Viewport offset applied after the main product form leaves view."
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_near_footer",
+      "default": true,
+      "label": "Hide near footer"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "select",
+      "id": "background_style",
+      "label": "Background style",
+      "default": "blur",
+      "info": "Blur or solid bar finish. Not applied when Visual hierarchy Surface style is Transparent.",
+      "options": [
+        {
+          "value": "solid",
+          "label": "Solid"
+        },
+        {
+          "value": "blur",
+          "label": "Blur"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Visual hierarchy"
+    },
+  {
+    "type": "select",
+    "id": "sp_surface_style",
+    "label": "Surface style",
+    "default": "default",
+    "info": "Color scheme and tint overlay. Inverse uses Theme settings → SP Visual hierarchy. Background style above applies unless Surface is Transparent.",
+    "options": [
+      {
+        "value": "default",
+        "label": "Default"
+      },
+      {
+        "value": "alternate",
+        "label": "Alternate"
+      },
+      {
+        "value": "inverse",
+        "label": "Inverse"
+      },
+      {
+        "value": "accent",
+        "label": "Accent"
+      },
+      {
+        "value": "transparent",
+        "label": "Transparent"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_width_mode",
+    "label": "Width mode",
+    "default": "contained",
+    "options": [
+      {
+        "value": "contained",
+        "label": "Contained"
+      },
+      {
+        "value": "wide",
+        "label": "Wide"
+      },
+      {
+        "value": "full",
+        "label": "Full width"
+      },
+      {
+        "value": "bleed",
+        "label": "Bleed"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_section_emphasis",
+    "label": "Section emphasis",
+    "default": "normal",
+    "options": [
+      {
+        "value": "normal",
+        "label": "Normal"
+      },
+      {
+        "value": "elevated",
+        "label": "Elevated"
+      },
+      {
+        "value": "feature",
+        "label": "Feature"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_divider_style",
+    "label": "Divider",
+    "default": "none",
+    "options": [
+      {
+        "value": "none",
+        "label": "None"
+      },
+      {
+        "value": "line",
+        "label": "Line"
+      },
+      {
+        "value": "gradient",
+        "label": "Gradient"
+      },
+      {
+        "value": "fade",
+        "label": "Fade"
+      }
+    ]
+  },
+
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "info": "Not applied when Surface style is set to Inverse.",
+      "default": "scheme-1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "SP Sticky ATC Bar"
+    }
+  ]
+}
+{% endschema %}
