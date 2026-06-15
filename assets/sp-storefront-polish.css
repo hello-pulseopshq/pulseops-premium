@@ -1,0 +1,93 @@
+/* SP Core — storefront shell polish (collection, cart, spacing) */
+
+/* Collection */
+.collection-hero__title {
+  letter-spacing: -0.02em;
+}
+
+.collection-hero--with-image .collection-hero__inner {
+  padding-top: 3.2rem;
+  padding-bottom: 3.2rem;
+}
+
+.product-grid {
+  gap: 2.4rem 1.6rem;
+}
+
+@media screen and (min-width: 750px) {
+  .product-grid {
+    gap: 3.2rem 2rem;
+  }
+}
+
+.product-grid .card {
+  border-radius: var(--media-radius);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-grid .card:hover {
+  transform: translateY(-0.2rem);
+  box-shadow: 0 0.8rem 2.4rem rgba(var(--color-foreground), 0.08);
+}
+
+.product-grid .card__media {
+  border-radius: calc(var(--media-radius) - 0.2rem);
+}
+
+.product-grid .card__badge {
+  border-radius: calc(var(--badge-corner-radius, 0.4rem));
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.product-grid .card__heading {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Cart notification */
+.cart-notification {
+  border-radius: var(--media-radius);
+  box-shadow: 0 1.2rem 4rem rgba(var(--color-foreground), 0.12);
+  border: 0.1rem solid rgba(var(--color-foreground), 0.08);
+}
+
+.cart-notification__heading {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.cart-notification .button--primary {
+  font-weight: 600;
+}
+
+/* Cart page */
+.cart__empty-text {
+  letter-spacing: -0.01em;
+}
+
+.is-empty .cart__warnings {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+/* Product ATF bridge — trust icons below buy box */
+.product .sp-trust-icons {
+  border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
+}
+
+.product .sp-trust-icons__card--minimal {
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+}
+
+/* Mobile touch targets */
+@media screen and (max-width: 749px) {
+  .cart-notification__links .button {
+    min-height: 4.8rem;
+  }
+
+  .product-grid {
+    gap: 2rem 1.2rem;
+  }
+}

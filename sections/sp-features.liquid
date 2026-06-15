@@ -137,10 +137,27 @@
         </header>
       {%- endif -%}
 
+      {%- liquid
+        assign feature_product = product
+        if feature_product == blank
+          assign feature_product = all_products['the-collection-snowboard-liquid']
+        endif
+      -%}
+
       <div class="sp-features__list{% render 'sp-motion-class', type: 'stagger' %}" data-sp-stagger>
         {%- for block in section.blocks -%}
           {%- if block.settings.title != blank or block.settings.description != blank or block.settings.image != blank or block.settings.button_label != blank or block.settings.bullet_1 != blank or block.settings.bullet_2 != blank or block.settings.bullet_3 != blank -%}
           {%- assign is_even = forloop.index | modulo: 2 -%}
+
+          {%- assign feature_image = block.settings.image -%}
+          {%- if feature_image == blank and feature_product != blank -%}
+            {%- assign image_index = forloop.index0 -%}
+            {%- if feature_product.images[image_index] != blank -%}
+              {%- assign feature_image = feature_product.images[image_index] -%}
+            {%- elsif feature_product.featured_image != blank -%}
+              {%- assign feature_image = feature_product.featured_image -%}
+            {%- endif -%}
+          {%- endif -%}
 
           <article
             class="sp-features__feature{% if is_even == 0 %} sp-features__feature--reverse{% endif %}{% render 'sp-motion-class', type: 'stagger-item' %}"
@@ -149,7 +166,7 @@
             <div class="sp-features__media{% render 'sp-motion-class', type: 'fade-up' %}">
               {%- capture features_frame_class -%}sp-features__image-wrapper{% render 'sp-motion-class', type: 'hover-image' %}{%- endcapture -%}
               {%- render 'sp-image',
-                image: block.settings.image,
+                image: feature_image,
                 ratio: section.settings.image_ratio,
                 frame_class: features_frame_class,
                 alt: block.settings.image.alt | default: block.settings.title | strip_html | escape,

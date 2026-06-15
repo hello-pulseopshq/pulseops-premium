@@ -17,8 +17,12 @@
     {%- if section.settings.heading != blank -%}
       <h2 class="sp-section-placeholder__heading h2{% render 'sp-motion-class', type: 'fade-up' %}">{{ section.settings.heading }}</h2>
     {%- endif -%}
+    <p class="sp-section-placeholder__body{% render 'sp-motion-class', type: 'fade-up' %}">
+      Customer media grids are coming in a future SP Core update.
+      For now, use <strong>SP Social Proof</strong> for testimonials or <strong>SP Video</strong> for product demonstrations.
+    </p>
     {%- if request.design_mode -%}
-      <p class="sp-section-placeholder__hint">SP UGC — add customer media blocks in a future update.</p>
+      <p class="sp-section-placeholder__hint">This section is hidden from the Add section menu until it is complete. Remove it from this template or keep it as a roadmap placeholder.</p>
     {%- endif -%}
   </div>
 {% render 'sp-section-hierarchy-close' %}
@@ -120,7 +124,6 @@
       "label": "Bottom padding",
       "default": 36
     }
-  ],
-  "presets": [{ "name": "SP UGC" }]
+  ]
 }
 {% endschema %}

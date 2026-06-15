@@ -314,6 +314,7 @@ class SpStickyAtc {
 
   syncPriceFromMain() {
     if (!this.priceEl || !this.mainSectionId) return;
+    if (this.mobileQuery.matches) return;
     const mainPrice = document.getElementById(`price-${this.mainSectionId}`);
     if (mainPrice) {
       this.priceEl.innerHTML = mainPrice.innerHTML;

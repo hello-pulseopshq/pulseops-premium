@@ -1097,9 +1097,21 @@
     assign desktop_image = section.settings.hero_image
   endif
 
+  assign pricing_product = section.settings.featured_product
+  if pricing_product == blank and product != blank
+    assign pricing_product = product
+  endif
+
+  if desktop_image == blank and pricing_product != blank and pricing_product.featured_image != blank
+    assign desktop_image = pricing_product.featured_image
+  endif
+
   assign mobile_image = section.settings.hero_image_mobile
   if mobile_image == blank
     assign mobile_image = desktop_image
+  endif
+  if mobile_image == blank and pricing_product != blank and pricing_product.featured_image != blank
+    assign mobile_image = pricing_product.featured_image
   endif
 
   assign alt_text = section.settings.image_alt | strip
@@ -1112,10 +1124,6 @@
   endif
 
   assign heading_tag = section.settings.heading_tag | default: 'h1'
-  assign pricing_product = section.settings.featured_product
-  if pricing_product == blank and product != blank
-    assign pricing_product = product
-  endif
 
   assign mobile_ratio = 100
   if mobile_image != blank and mobile_image.aspect_ratio
@@ -1671,13 +1679,14 @@
     {
       "type": "checkbox",
       "id": "show_social_proof",
-      "default": true,
-      "label": "Show social proof"
+      "default": false,
+      "label": "Show social proof",
+      "info": "Legacy text line. Prefer Rating value and Review count below for structured social proof."
     },
     {
       "type": "inline_richtext",
       "id": "social_proof_text",
-      "default": "4.8★ from 12,000+ verified customers",
+      "default": "4.9★ · 12,000+ reviews",
       "label": "Social proof text"
     },
     {

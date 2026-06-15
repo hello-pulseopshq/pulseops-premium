@@ -171,6 +171,14 @@
   margin: 0 0 0.8rem;
 }
 
+.sp-section-placeholder__body {
+  margin: 0 auto;
+  max-width: 52rem;
+  opacity: 0.82;
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
 .sp-section-placeholder__hint {
   margin: 0;
   opacity: 0.72;
