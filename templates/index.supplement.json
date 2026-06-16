@@ -68,23 +68,7 @@
         "show_social_rating": true,
         "social_rating_value": "4.9/5",
         "show_social_review_count": true,
-        "social_review_count": [
-          {
-            "text": "I finally have consistent energy through the afternoon without reaching for extra coffee.",
-            "name": "Sarah M.",
-            "location": "Austin, TX"
-          },
-          {
-            "text": "Easy to take, gentle on my stomach, and I noticed better sleep within two weeks.",
-            "name": "James T.",
-            "location": "Portland, OR"
-          },
-          {
-            "text": "The subscription option makes it effortless. Quality you can feel day after day.",
-            "name": "Emily R.",
-            "location": "Chicago, IL"
-          }
-        ],
+        "social_review_count": "8,400+ reviews",
         "layout_preset": "minimal",
         "show_trust_microcopy": false,
         "padding_top": 0,

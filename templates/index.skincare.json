@@ -68,23 +68,7 @@
         "show_social_rating": true,
         "social_rating_value": "4.9/5",
         "show_social_review_count": true,
-        "social_review_count": [
-          {
-            "text": "My skin looks noticeably brighter. Friends keep asking what I changed in my routine.",
-            "name": "Olivia K.",
-            "location": "Los Angeles, CA"
-          },
-          {
-            "text": "Finally a vitamin C serum that does not sting. Absorbs instantly and layers perfectly.",
-            "name": "Maya P.",
-            "location": "Brooklyn, NY"
-          },
-          {
-            "text": "Fine lines around my eyes look softer after a month. Worth every penny.",
-            "name": "Rachel S.",
-            "location": "Miami, FL"
-          }
-        ],
+        "social_review_count": "6,200+ reviews",
         "layout_preset": "minimal",
         "show_trust_microcopy": false,
         "padding_top": 0,

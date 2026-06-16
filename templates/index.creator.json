@@ -68,23 +68,7 @@
         "show_social_rating": true,
         "social_rating_value": "4.8/5",
         "show_social_review_count": true,
-        "social_review_count": [
-          {
-            "text": "Launched my first product in a weekend. The templates alone paid for the kit ten times over.",
-            "name": "Alex C.",
-            "location": "Nashville, TN"
-          },
-          {
-            "text": "Finally feels like someone gets creator commerce. Practical, not fluffy.",
-            "name": "Jordan L.",
-            "location": "Atlanta, GA"
-          },
-          {
-            "text": "My email list grew 40% in month one using the launch playbook.",
-            "name": "Taylor W.",
-            "location": "Toronto, ON"
-          }
-        ],
+        "social_review_count": "3,100+ reviews",
         "layout_preset": "minimal",
         "show_trust_microcopy": false,
         "padding_top": 0,

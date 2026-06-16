@@ -59,23 +59,7 @@
         "show_social_rating": true,
         "social_rating_value": "4.9/5",
         "show_social_review_count": true,
-        "social_review_count": [
-          {
-            "text": "My skin looks smoother after 6 weeks. Easier than I expected to stick with the routine.",
-            "name": "Sophie L.",
-            "location": "San Diego, CA"
-          },
-          {
-            "text": "The blue light cleared up my breakouts noticeably. Worth the investment.",
-            "name": "Hannah K.",
-            "location": "Chicago, IL"
-          },
-          {
-            "text": "Comfortable, well-built, and the app tracks my sessions. Very impressed.",
-            "name": "Mei T.",
-            "location": "Vancouver, BC"
-          }
-        ],
+        "social_review_count": "7,800+ reviews",
         "layout_preset": "classic_split",
         "show_trust_microcopy": false,
         "padding_top": 0,

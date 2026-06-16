@@ -59,23 +59,7 @@
         "show_social_rating": true,
         "social_rating_value": "4.9/5",
         "show_social_review_count": true,
-        "social_review_count": [
-          {
-            "text": "Best board I have ridden in years. Buttery in the park, stable when charging groomers.",
-            "name": "Ryan P.",
-            "location": "Boulder, CO"
-          },
-          {
-            "text": "Light underfoot with serious edge hold. My go-to board for pipe to powder.",
-            "name": "Mike T.",
-            "location": "Salt Lake City, UT"
-          },
-          {
-            "text": "Worth every penny. Arrived fast and rode it the next morning.",
-            "name": "Anna L.",
-            "location": "Seattle, WA"
-          }
-        ],
+        "social_review_count": "12,000+ reviews",
         "layout_preset": "classic_split",
         "show_trust_microcopy": false,
         "padding_top": 0,

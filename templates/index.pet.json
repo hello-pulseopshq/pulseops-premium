@@ -59,23 +59,7 @@
         "show_social_rating": true,
         "social_rating_value": "4.9/5",
         "show_social_review_count": true,
-        "social_review_count": [
-          {
-            "text": "My rescue finally relaxes during thunderstorms. Game changer for our household.",
-            "name": "Lisa K.",
-            "location": "Phoenix, AZ"
-          },
-          {
-            "text": "He thinks they are treats. I think they are magic. Everyone wins.",
-            "name": "Tom B.",
-            "location": "Dallas, TX"
-          },
-          {
-            "text": "Road trips used to be stressful. Now she sleeps in the back seat peacefully.",
-            "name": "Amy S.",
-            "location": "Charlotte, NC"
-          }
-        ],
+        "social_review_count": "4,700+ reviews",
         "layout_preset": "classic_split",
         "show_trust_microcopy": false,
         "padding_top": 0,

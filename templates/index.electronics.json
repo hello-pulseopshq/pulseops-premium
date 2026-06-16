@@ -68,23 +68,7 @@
         "show_social_rating": true,
         "social_rating_value": "4.9/5",
         "show_social_review_count": true,
-        "social_review_count": [
-          {
-            "text": "Cleanest charging setup I have owned. Phone snaps on perfectly every time.",
-            "name": "Marcus D.",
-            "location": "Seattle, WA"
-          },
-          {
-            "text": "Charges my iPhone and AirPods overnight without getting hot. Solid build.",
-            "name": "Kevin H.",
-            "location": "San Francisco, CA"
-          },
-          {
-            "text": "Replaced three separate chargers with this one stand. Desk looks so much cleaner.",
-            "name": "Priya N.",
-            "location": "Boston, MA"
-          }
-        ],
+        "social_review_count": "5,500+ reviews",
         "layout_preset": "minimal",
         "show_trust_microcopy": false,
         "padding_top": 0,

@@ -156,7 +156,7 @@ function heroSettings(d) {
     show_social_rating: true,
     social_rating_value: d.rating,
     show_social_review_count: true,
-    social_review_count: d.reviews,
+    social_review_count: d.reviewsLabel,
     layout_preset: d.visualMode === 'neutral' ? 'minimal' : 'classic_split',
     show_trust_microcopy: false,
     padding_top: 0,

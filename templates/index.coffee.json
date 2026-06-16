@@ -59,23 +59,7 @@
         "show_social_rating": true,
         "social_rating_value": "4.8/5",
         "show_social_review_count": true,
-        "social_review_count": [
-          {
-            "text": "The blueberry notes are real. Best pour-over I have made at home.",
-            "name": "David L.",
-            "location": "Portland, OR"
-          },
-          {
-            "text": "You can taste the freshness compared to grocery store beans. Night and day.",
-            "name": "Nina W.",
-            "location": "Austin, TX"
-          },
-          {
-            "text": "My subscription arrives perfectly timed. Never run out of good coffee again.",
-            "name": "Chris F.",
-            "location": "Brooklyn, NY"
-          }
-        ],
+        "social_review_count": "2,900+ reviews",
         "layout_preset": "classic_split",
         "show_trust_microcopy": false,
         "padding_top": 0,

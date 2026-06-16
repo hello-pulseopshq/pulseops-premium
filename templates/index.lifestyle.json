@@ -68,23 +68,7 @@
         "show_social_rating": true,
         "social_rating_value": "4.9/5",
         "show_social_review_count": true,
-        "social_review_count": [
-          {
-            "text": "Softest hoodie I own. The weight is perfect — not too heavy, not too thin.",
-            "name": "Chris B.",
-            "location": "Denver, CO"
-          },
-          {
-            "text": "True to size and the quality is obvious. Already ordered a second color.",
-            "name": "Sam R.",
-            "location": "Minneapolis, MN"
-          },
-          {
-            "text": "Wears beautifully after months of washing. Worth the investment.",
-            "name": "Jordan M.",
-            "location": "Portland, OR"
-          }
-        ],
+        "social_review_count": "9,800+ reviews",
         "layout_preset": "minimal",
         "show_trust_microcopy": false,
         "padding_top": 0,

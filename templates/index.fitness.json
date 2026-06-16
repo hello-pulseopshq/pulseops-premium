@@ -59,23 +59,7 @@
         "show_social_rating": true,
         "social_rating_value": "4.9/5",
         "show_social_review_count": true,
-        "social_review_count": [
-          {
-            "text": "My IT band pain improved within a week. Quieter than my old Theragun too.",
-            "name": "Derek M.",
-            "location": "Houston, TX"
-          },
-          {
-            "text": "Perfect size for travel. Battery lasts forever and the case keeps everything organized.",
-            "name": "Laura P.",
-            "location": "Denver, CO"
-          },
-          {
-            "text": "My trainer recommended this and I see why. Serious power in a compact package.",
-            "name": "Jason W.",
-            "location": "Philadelphia, PA"
-          }
-        ],
+        "social_review_count": "9,100+ reviews",
         "layout_preset": "classic_split",
         "show_trust_microcopy": false,
         "padding_top": 0,
