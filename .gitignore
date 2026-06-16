@@ -8,3 +8,11 @@
 ehthumbs.db
 Thumbs.db
 .shopify
+
+# Local QA / audit tooling (not versioned)
+.audit/
+.audit-check.json
+
+# Node (audit scripts only — not required for theme)
+node_modules/
+package-lock.json
