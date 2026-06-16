@@ -1,0 +1,137 @@
+{% comment %}
+  Renders SP Hero CTA.
+  Accepts:
+  - section: {Object} section object
+  - cta_product: {Object} product for cart actions
+  - cta_label: {String} button label
+  - cta_type: {String} shop_now | add_to_cart | buy_now | scroll_to_section | custom_link
+  - cta_style: {String} primary | secondary | outline
+  - cta_link: {String} URL for custom/shop links
+  - cta_target_section: {String} anchor for scroll CTA
+  - class_prefix: {String} optional extra classes
+  - is_sticky: {Boolean} sticky bar variant
+{% endcomment %}
+
+{%- liquid
+  assign cta_product = cta_product | default: blank
+  assign cta_label = cta_label | default: section.settings.cta_label
+  assign cta_type = cta_type | default: section.settings.cta_type | default: 'custom_link'
+  assign cta_style = cta_style | default: section.settings.cta_style | default: 'primary'
+  assign cta_link = cta_link | default: section.settings.cta_link
+  assign cta_target_section = cta_target_section | default: section.settings.cta_target_section
+  assign is_sticky = is_sticky | default: false
+
+  if cta_label == blank
+    assign cta_label = 'Shop now'
+  endif
+
+  assign button_class = 'sp-hero__button button'
+  case cta_style
+    when 'secondary'
+      assign button_class = button_class | append: ' button--secondary'
+    when 'outline'
+      assign button_class = button_class | append: ' sp-hero__button--outline'
+    else
+      assign button_class = button_class | append: ' button--primary'
+  endcase
+
+  if is_sticky
+    assign button_class = button_class | append: ' sp-hero__button--sticky'
+  endif
+
+  assign hero_form_id = 'sp-hero-product-form-' | append: section.id
+  if is_sticky
+    assign hero_form_id = hero_form_id | append: '-sticky'
+  endif
+
+  assign cta_href = cta_link
+  if cta_type == 'shop_now'
+    if cta_product != blank
+      assign cta_href = cta_product.url
+    elsif cta_link == blank
+      assign cta_href = routes.all_products_collection_url
+    endif
+  elsif cta_type == 'scroll_to_section' and cta_target_section != blank
+    assign cta_href = cta_target_section
+  endif
+
+  assign cta_variant = blank
+  assign cta_sold_out = false
+  if cta_product != blank
+    assign cta_variant = cta_product.selected_or_first_available_variant
+    assign check_against_inventory = true
+    if cta_variant.inventory_management != 'shopify' or cta_variant.inventory_policy == 'continue'
+      assign check_against_inventory = false
+    endif
+    assign quantity_rule_soldout = false
+    if cta_variant.quantity_rule.min > cta_variant.inventory_quantity and check_against_inventory
+      assign quantity_rule_soldout = true
+    endif
+    if cta_variant.available == false or quantity_rule_soldout or cta_variant == null
+      assign cta_sold_out = true
+    endif
+  endif
+-%}
+
+{%- if cta_type == 'add_to_cart' and cta_product != blank -%}
+  <product-form class="sp-hero__product-form" data-section-id="{{ section.id }}">
+    {%- form 'product', cta_product, id: hero_form_id, class: 'sp-hero__product-form-inner', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+      <input type="hidden" name="id" value="{{ cta_variant.id }}" class="product-variant-id" {% if cta_sold_out %}disabled{% endif %}>
+      <button
+        type="submit"
+        name="add"
+        class="{{ button_class }}{% render 'sp-motion-class', type: 'hover-button' %}"
+        {% if cta_sold_out %}disabled{% endif %}
+        aria-label="{{ cta_label | escape }}"
+      >
+        <span>
+          {%- if cta_variant == null -%}
+            {{ 'products.product.unavailable' | t }}
+          {%- elsif cta_sold_out -%}
+            {{ 'products.product.sold_out' | t }}
+          {%- else -%}
+            {{ cta_label | escape }}
+          {%- endif -%}
+        </span>
+        {%- render 'loading-spinner' -%}
+      </button>
+    {%- endform -%}
+  </product-form>
+{%- elsif cta_type == 'add_to_cart' or cta_type == 'buy_now' -%}
+  <a role="link" aria-disabled="true" class="{{ button_class }}">
+    {{ 'products.product.unavailable' | t }}
+  </a>
+{%- elsif cta_type == 'buy_now' and cta_product != blank -%}
+  {%- form 'product', cta_product, id: hero_form_id, class: 'sp-hero__product-form-inner' -%}
+    <input type="hidden" name="id" value="{{ cta_variant.id }}" {% if cta_sold_out %}disabled{% endif %}>
+    <input type="hidden" name="return_to" value="/checkout">
+    <button
+      type="submit"
+      class="{{ button_class }}{% render 'sp-motion-class', type: 'hover-button' %}"
+      {% if cta_sold_out %}disabled{% endif %}
+      aria-label="{{ cta_label | escape }}"
+    >
+      <span>
+        {%- if cta_variant == null -%}
+          {{ 'products.product.unavailable' | t }}
+        {%- elsif cta_sold_out -%}
+          {{ 'products.product.sold_out' | t }}
+        {%- else -%}
+          {{ cta_label | escape }}
+        {%- endif -%}
+      </span>
+      {%- render 'loading-spinner' -%}
+    </button>
+  {%- endform -%}
+{%- else -%}
+  <a
+    {% if cta_href == blank %}
+      role="link" aria-disabled="true"
+    {% else %}
+      href="{{ cta_href }}"
+    {% endif %}
+    class="{{ button_class }}{% render 'sp-motion-class', type: 'hover-button' %}"
+  >
+    {{ cta_label | escape }}
+  </a>
+{%- endif -%}

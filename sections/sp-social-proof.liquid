@@ -1,0 +1,681 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .sp-social-proof {
+    --sp-social-proof-gap-sm: 1.2rem;
+    --sp-social-proof-gap-md: 1.6rem;
+    --sp-social-proof-gap-lg: 2.4rem;
+    --sp-social-proof-card-padding: 2rem;
+    --sp-social-proof-avatar-size: 4.8rem;
+    --sp-social-proof-star-size: 1.6rem;
+  }
+
+  .sp-social-proof__header {
+    margin-bottom: var(--sp-social-proof-gap-lg);
+    max-width: 72rem;
+  }
+
+  .sp-social-proof__header--center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .sp-social-proof__header--center .sp-social-proof__subheading {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .sp-social-proof__heading {
+    margin: 0;
+  }
+
+  .sp-social-proof__subheading {
+    margin-top: var(--sp-social-proof-gap-sm);
+  }
+
+  .sp-social-proof__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--sp-social-proof-gap-md);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .sp-social-proof__item {
+    height: 100%;
+  }
+
+  .sp-social-proof__card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-social-proof-gap-sm);
+    padding: var(--sp-social-proof-card-padding);
+    border-radius: var(--media-radius);
+    background: rgb(var(--color-background));
+    border: 0.1rem solid rgba(var(--color-foreground), 0.1);
+  }
+
+  .sp-social-proof__stars {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem;
+    color: rgb(var(--color-foreground));
+  }
+
+  .sp-social-proof__star {
+    width: var(--sp-social-proof-star-size);
+    height: var(--sp-social-proof-star-size);
+    flex-shrink: 0;
+  }
+
+  .sp-social-proof__star svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .sp-social-proof__review {
+    margin: 0;
+    flex: 1;
+  }
+
+  .sp-social-proof__footer {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-top: auto;
+  }
+
+  .sp-social-proof__avatar {
+    width: var(--sp-social-proof-avatar-size);
+    height: var(--sp-social-proof-avatar-size);
+    flex-shrink: 0;
+  }
+
+  .sp-social-proof__avatar--initials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(var(--color-foreground), 0.08);
+    color: rgb(var(--color-foreground));
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  .sp-social-proof__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    min-width: 0;
+  }
+
+  .sp-social-proof__name-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .sp-social-proof__name {
+    margin: 0;
+  }
+
+  .sp-social-proof__title {
+    margin: 0;
+    opacity: 0.75;
+  }
+
+  .sp-social-proof__verified {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.2rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(var(--color-foreground), 0.08);
+    white-space: nowrap;
+  }
+
+  .sp-social-proof__verified-icon {
+    width: 1.4rem;
+    height: 1.4rem;
+    flex-shrink: 0;
+    color: rgb(var(--color-foreground));
+  }
+
+  .sp-social-proof__verified-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .sp-social-proof__list--swipe {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(85%, 1fr);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.2rem;
+    padding-right: 8%;
+    scrollbar-width: none;
+  }
+
+  .sp-social-proof__list--swipe::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sp-social-proof__list--swipe .sp-social-proof__item {
+    scroll-snap-align: start;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+
+    .sp-social-proof__list--2,
+    .sp-social-proof__list--3,
+    .sp-social-proof__list--4 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .sp-social-proof__list--swipe {
+      grid-auto-flow: row;
+      grid-auto-columns: initial;
+      overflow-x: visible;
+      scroll-snap-type: none;
+      padding-bottom: 0;
+      padding-right: 0;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .sp-social-proof__list--2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .sp-social-proof__list--3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .sp-social-proof__list--4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+{%- endstyle -%}
+
+{% render 'sp-section-hierarchy-open', section: section %}
+    <div class="sp-social-proof">
+      {%- liquid
+        assign heading_stripped = section.settings.heading | strip_html | strip
+        assign subheading_stripped = section.settings.subheading | strip_html | strip
+      -%}
+      {%- if heading_stripped != blank or subheading_stripped != blank -%}
+        <header class="sp-social-proof__header sp-social-proof__header--{{ section.settings.content_alignment }}">
+          {%- if heading_stripped != blank -%}
+            <h2 class="sp-social-proof__heading inline-richtext h1{% render 'sp-motion-class', type: 'fade-up' %}">
+              {{ section.settings.heading }}
+            </h2>
+          {%- endif -%}
+          {%- if subheading_stripped != blank -%}
+            <div class="sp-social-proof__subheading rte{% render 'sp-motion-class', type: 'fade-up' %}">
+              {{ section.settings.subheading }}
+            </div>
+          {%- endif -%}
+        </header>
+      {%- endif -%}
+
+      {%- assign valid_reviews = 0 -%}
+      {%- for block in section.blocks -%}
+        {%- assign review_text_stripped = block.settings.review_text | strip_html | strip -%}
+        {%- assign customer_name_stripped = block.settings.customer_name | strip -%}
+        {%- if review_text_stripped != blank or customer_name_stripped != blank -%}
+          {%- assign valid_reviews = valid_reviews | plus: 1 -%}
+        {%- endif -%}
+      {%- endfor -%}
+
+      {%- if valid_reviews > 0 -%}
+      <ul
+        class="sp-social-proof__list sp-social-proof__list--{{ section.settings.desktop_columns }}{% if section.settings.mobile_layout == 'swipe' %} sp-social-proof__list--swipe{% endif %}{% render 'sp-motion-class', type: 'stagger' %}"
+        data-sp-stagger
+        role="list"
+      >
+        {%- for block in section.blocks -%}
+          {%- assign review_text_stripped = block.settings.review_text | strip_html | strip -%}
+          {%- assign customer_name_stripped = block.settings.customer_name | strip -%}
+          {%- if review_text_stripped != blank or customer_name_stripped != blank -%}
+            {%- liquid
+              assign review_rating = block.settings.rating | default: 5 | plus: 0
+              if review_rating > 5
+                assign review_rating = 5
+              endif
+              if review_rating < 1
+                assign review_rating = 1
+              endif
+              assign customer_title_stripped = block.settings.customer_title | strip
+              assign has_customer_meta = false
+              if block.settings.avatar != blank or customer_name_stripped != blank or customer_title_stripped != blank or block.settings.verified
+                assign has_customer_meta = true
+              endif
+              if customer_name_stripped != blank
+                assign avatar_alt = 'Avatar of ' | append: customer_name_stripped | escape
+              else
+                assign avatar_alt = 'Customer avatar' | escape
+              endif
+
+              assign customer_initials = ''
+              if customer_name_stripped != blank
+                assign name_words = customer_name_stripped | split: ' '
+                assign customer_initials = name_words | first | slice: 0, 1
+                if name_words.size > 1
+                  assign last_word = name_words | last
+                  assign customer_initials = customer_initials | append: last_word | slice: 0, 1
+                endif
+                assign customer_initials = customer_initials | upcase
+              endif
+            -%}
+            <li class="sp-social-proof__item{% render 'sp-motion-class', type: 'stagger-item' %}" {{ block.shopify_attributes }}>
+              <article class="sp-social-proof__card{% render 'sp-motion-class', type: 'hover-card-subtle' %}">
+                <div
+                  class="sp-social-proof__stars"
+                  role="img"
+                  aria-label="{{ review_rating }} out of 5 stars"
+                >
+                  {%- for i in (1..5) -%}
+                    <span class="sp-social-proof__star" aria-hidden="true">
+                      {%- if i <= review_rating -%}
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                          <path d="m12 3.5 2.6 5.2 5.7.8-4.1 4 1 5.7L12 16.5 6.8 19.2l1-5.7-4.1-4 5.7-.8z"></path>
+                        </svg>
+                      {%- else -%}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                          <path d="m12 3.5 2.6 5.2 5.7.8-4.1 4 1 5.7L12 16.5 6.8 19.2l1-5.7-4.1-4 5.7-.8z"></path>
+                        </svg>
+                      {%- endif -%}
+                    </span>
+                  {%- endfor -%}
+                </div>
+
+                {%- if review_text_stripped != blank -%}
+                  <div class="sp-social-proof__review rte">
+                    {{ block.settings.review_text }}
+                  </div>
+                {%- endif -%}
+
+                {%- if has_customer_meta -%}
+                <footer class="sp-social-proof__footer">
+                  {%- if block.settings.avatar != blank -%}
+                    <div class="sp-social-proof__avatar sp-media-frame sp-media-frame--circle sp-media-frame--intrinsic">
+                      {%- render 'sp-image',
+                        image: block.settings.avatar,
+                        ratio: 'circle',
+                        img_only: true,
+                        alt: avatar_alt,
+                        widths: '48, 96',
+                        sizes: '48px',
+                        image_width: 96,
+                        loading: 'lazy'
+                      -%}
+                    </div>
+                  {%- elsif customer_initials != blank -%}
+                    <div class="sp-social-proof__avatar sp-social-proof__avatar--initials sp-media-frame sp-media-frame--circle sp-media-frame--intrinsic" aria-hidden="true">
+                      {{ customer_initials }}
+                    </div>
+                  {%- endif -%}
+
+                  {%- if customer_name_stripped != blank or customer_title_stripped != blank or block.settings.verified -%}
+                  <div class="sp-social-proof__meta">
+                    {%- if customer_name_stripped != blank -%}
+                      <div class="sp-social-proof__name-row">
+                        <p class="sp-social-proof__name subtitle">
+                          {{ block.settings.customer_name | escape }}
+                        </p>
+                        {%- if block.settings.verified -%}
+                          <span class="sp-social-proof__verified caption">
+                            <span class="sp-social-proof__verified-icon" aria-hidden="true">
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 13l4 4L19 7"></path>
+                              </svg>
+                            </span>
+                            Verified Customer
+                          </span>
+                        {%- endif -%}
+                      </div>
+                    {%- elsif block.settings.verified -%}
+                      <div class="sp-social-proof__name-row">
+                        <span class="sp-social-proof__verified caption">
+                          <span class="sp-social-proof__verified-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                              <path d="M5 13l4 4L19 7"></path>
+                            </svg>
+                          </span>
+                          Verified Customer
+                        </span>
+                      </div>
+                    {%- endif -%}
+
+                    {%- if customer_title_stripped != blank -%}
+                      <p class="sp-social-proof__title caption">
+                        {{ block.settings.customer_title | escape }}
+                      </p>
+                    {%- endif -%}
+                  </div>
+                  {%- endif -%}
+                </footer>
+                {%- endif -%}
+              </article>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+      {%- elsif request.design_mode -%}
+        <div class="sp-social-proof__empty-state">
+          Add review blocks to display customer testimonials.
+        </div>
+      {%- endif -%}
+    </div>
+{% render 'sp-section-hierarchy-close' %}
+
+{% schema %}
+{
+  "name": "SP Social Proof",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 12,
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Trusted by thousands of happy customers",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "default": "<p>Real reviews from people who use our product every day.</p>",
+      "label": "Subheading"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ],
+      "default": "left",
+      "label": "Content alignment"
+    },
+    {
+      "type": "select",
+      "id": "desktop_columns",
+      "options": [
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        },
+        {
+          "value": "4",
+          "label": "4"
+        }
+      ],
+      "default": "3",
+      "label": "Desktop columns"
+    },
+    {
+      "type": "select",
+      "id": "mobile_layout",
+      "options": [
+        {
+          "value": "stack",
+          "label": "Stack"
+        },
+        {
+          "value": "swipe",
+          "label": "Swipe"
+        }
+      ],
+      "default": "swipe",
+      "label": "Mobile layout"
+    },
+{
+    "type": "header",
+    "content": "Visual hierarchy"
+  },
+  {
+    "type": "select",
+    "id": "sp_surface_style",
+    "label": "Surface style",
+    "default": "default",
+    "info": "Inverse uses the inverse color scheme from Theme settings → SP Visual hierarchy instead of the section Color scheme below.",
+    "options": [
+      {
+        "value": "default",
+        "label": "Default"
+      },
+      {
+        "value": "alternate",
+        "label": "Alternate"
+      },
+      {
+        "value": "inverse",
+        "label": "Inverse"
+      },
+      {
+        "value": "accent",
+        "label": "Accent"
+      },
+      {
+        "value": "transparent",
+        "label": "Transparent"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_width_mode",
+    "label": "Width mode",
+    "default": "contained",
+    "options": [
+      {
+        "value": "contained",
+        "label": "Contained"
+      },
+      {
+        "value": "wide",
+        "label": "Wide"
+      },
+      {
+        "value": "full",
+        "label": "Full width"
+      },
+      {
+        "value": "bleed",
+        "label": "Bleed"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_section_emphasis",
+    "label": "Section emphasis",
+    "default": "normal",
+    "options": [
+      {
+        "value": "normal",
+        "label": "Normal"
+      },
+      {
+        "value": "elevated",
+        "label": "Elevated"
+      },
+      {
+        "value": "feature",
+        "label": "Feature"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_divider_style",
+    "label": "Divider",
+    "default": "none",
+    "options": [
+      {
+        "value": "none",
+        "label": "None"
+      },
+      {
+        "value": "line",
+        "label": "Line"
+      },
+      {
+        "value": "gradient",
+        "label": "Gradient"
+      },
+      {
+        "value": "fade",
+        "label": "Fade"
+      }
+    ]
+  },
+
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "info": "Not applied when Surface style is set to Inverse.",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "limit": 12,
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5,
+          "label": "Rating"
+        },
+        {
+          "type": "richtext",
+          "id": "review_text",
+          "default": "<p>This is easily the best purchase I've made this year.</p>",
+          "label": "Review text"
+        },
+        {
+          "type": "image_picker",
+          "id": "avatar",
+          "label": "Avatar"
+        },
+        {
+          "type": "text",
+          "id": "customer_name",
+          "default": "Customer name",
+          "label": "Customer name"
+        },
+        {
+          "type": "text",
+          "id": "customer_title",
+          "default": "City, ST",
+          "label": "Customer title"
+        },
+        {
+          "type": "checkbox",
+          "id": "verified",
+          "default": true,
+          "label": "Show verified badge"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SP Social Proof",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "<p>This is easily the best purchase I've made this year.</p>",
+            "customer_name": "Sarah M.",
+            "customer_title": "Bend, OR",
+            "verified": true
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "<p>Simple, effective, and surprisingly high quality.</p>",
+            "customer_name": "James T.",
+            "customer_title": "Bend, OR",
+            "verified": true
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "<p>I noticed the difference within the first week.</p>",
+            "customer_name": "Emily R.",
+            "customer_title": "Bend, OR",
+            "verified": true
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

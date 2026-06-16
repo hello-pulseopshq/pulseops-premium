@@ -1,0 +1,423 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .sp-cta-offer {
+    --sp-cta-offer-gap-sm: 1.2rem;
+    --sp-cta-offer-gap-md: 1.6rem;
+    --sp-cta-offer-gap-lg: 2.4rem;
+    --sp-cta-offer-radius: 1.6rem;
+    --sp-cta-offer-max-width: 72rem;
+    --sp-cta-offer-card-padding: 2.4rem 2rem;
+    --sp-cta-offer-button-min-height: 5.6rem;
+  }
+
+  .sp-cta-offer__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-cta-offer-gap-md);
+    max-width: var(--sp-cta-offer-max-width);
+    margin: 0 auto;
+    padding: var(--sp-cta-offer-card-padding);
+    border-radius: var(--sp-cta-offer-radius);
+    text-align: center;
+  }
+
+  .sp-cta-offer__card--bordered {
+    border: 0.1rem solid rgba(var(--color-foreground), 0.12);
+    background: rgb(var(--color-background));
+  }
+
+  .sp-cta-offer__card--subtle {
+    border: 0.1rem solid rgba(var(--color-foreground), 0.12);
+    background: rgba(var(--color-foreground), 0.04);
+  }
+
+  .sp-cta-offer__card--gradient {
+    border: 0.1rem solid rgba(var(--color-foreground), 0.16);
+    background: linear-gradient(
+      180deg,
+      rgba(var(--color-foreground), 0.08) 0%,
+      rgba(var(--color-foreground), 0.02) 100%
+    );
+  }
+
+  .sp-cta-offer__badge {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+    padding: 0.5rem 1.2rem;
+    border-radius: 99rem;
+    background: rgb(var(--color-foreground));
+    color: rgb(var(--color-background));
+    white-space: nowrap;
+  }
+
+  .sp-cta-offer__heading {
+    margin: 0;
+    max-width: 56rem;
+  }
+
+  .sp-cta-offer__subheading {
+    margin: 0;
+    max-width: 52rem;
+    opacity: 0.85;
+  }
+
+  .sp-cta-offer__offer {
+    margin: 0;
+    max-width: 40rem;
+  }
+
+  .sp-cta-offer__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-cta-offer-gap-sm);
+    width: 100%;
+    max-width: 40rem;
+    margin-top: 0.4rem;
+  }
+
+  .sp-cta-offer__button {
+    width: 100%;
+    min-height: var(--sp-cta-offer-button-min-height);
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
+  }
+
+  .sp-cta-offer__reassurance {
+    margin: 0;
+    opacity: 0.75;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+
+    .sp-cta-offer__card {
+      padding: 3.2rem 4rem;
+      gap: var(--sp-cta-offer-gap-lg);
+    }
+
+    .sp-cta-offer__button {
+      width: auto;
+      min-width: 24rem;
+    }
+  }
+{%- endstyle -%}
+
+{% render 'sp-section-hierarchy-open', section: section %}
+    <div class="sp-cta-offer">
+      {%- liquid
+        assign heading_stripped = section.settings.heading | strip_html | strip
+        assign subheading_stripped = section.settings.subheading | strip_html | strip
+        assign offer_stripped = section.settings.offer_text | strip
+        assign button_label_stripped = section.settings.button_label | strip
+        assign reassurance_stripped = section.settings.reassurance_text | strip
+        assign badge_stripped = section.settings.badge_text | strip
+        assign has_content = false
+        if heading_stripped != blank or subheading_stripped != blank or offer_stripped != blank or button_label_stripped != blank or reassurance_stripped != blank
+          assign has_content = true
+        endif
+      -%}
+
+      {%- if has_content -%}
+        <div class="sp-cta-offer__card sp-cta-offer__card--{{ section.settings.card_style }}{% render 'sp-motion-class', type: 'fade-up' %}">
+          {%- if section.settings.show_badge and badge_stripped != blank -%}
+            <p class="sp-cta-offer__badge caption-with-letter-spacing">
+              {{ section.settings.badge_text | escape }}
+            </p>
+          {%- endif -%}
+
+          {%- if heading_stripped != blank -%}
+            <h2 class="sp-cta-offer__heading inline-richtext h1">
+              {{ section.settings.heading }}
+            </h2>
+          {%- endif -%}
+
+          {%- if subheading_stripped != blank -%}
+            <div class="sp-cta-offer__subheading rte">
+              {{ section.settings.subheading }}
+            </div>
+          {%- endif -%}
+
+          {%- if offer_stripped != blank -%}
+            <p class="sp-cta-offer__offer h2">
+              {{ section.settings.offer_text | escape }}
+            </p>
+          {%- endif -%}
+
+          {%- if button_label_stripped != blank -%}
+            <div class="sp-cta-offer__actions">
+              <a
+                {% if section.settings.button_link == blank %}
+                  role="link" aria-disabled="true"
+                {% else %}
+                  href="{{ section.settings.button_link }}"
+                {% endif %}
+                class="sp-cta-offer__button button button--primary{% render 'sp-motion-class', type: 'hover-button' %}"
+              >
+                {{ section.settings.button_label | escape }}
+              </a>
+
+              {%- if reassurance_stripped != blank -%}
+                <p class="sp-cta-offer__reassurance caption">
+                  {{ section.settings.reassurance_text | escape }}
+                </p>
+              {%- endif -%}
+            </div>
+          {%- elsif reassurance_stripped != blank -%}
+            <p class="sp-cta-offer__reassurance caption">
+              {{ section.settings.reassurance_text | escape }}
+            </p>
+          {%- endif -%}
+        </div>
+      {%- elsif request.design_mode -%}
+        <div class="sp-cta-offer__empty-state">
+          Add a heading and CTA button to display your offer.
+        </div>
+      {%- endif -%}
+    </div>
+{% render 'sp-section-hierarchy-close' %}
+
+{% schema %}
+{
+  "name": "SP CTA Offer",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Ready to upgrade your routine?",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "default": "<p>Join thousands of customers who made the switch today.</p>",
+      "label": "Subheading"
+    },
+    {
+      "type": "text",
+      "id": "offer_text",
+      "default": "From $49 — free shipping included",
+      "label": "Offer text"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "Shop now",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "reassurance_text",
+      "default": "30-day money back guarantee",
+      "label": "Reassurance text"
+    },
+    {
+      "type": "header",
+      "content": "Badge"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_badge",
+      "default": true,
+      "label": "Show badge"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "default": "Most Popular Offer",
+      "label": "Badge text"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "card_style",
+      "options": [
+        {
+          "value": "bordered",
+          "label": "Bordered"
+        },
+        {
+          "value": "subtle",
+          "label": "Subtle"
+        },
+        {
+          "value": "gradient",
+          "label": "Gradient"
+        }
+      ],
+      "default": "gradient",
+      "label": "Card style"
+    },
+{
+    "type": "header",
+    "content": "Visual hierarchy"
+  },
+  {
+    "type": "select",
+    "id": "sp_surface_style",
+    "label": "Surface style",
+    "default": "default",
+    "info": "Inverse uses the inverse color scheme from Theme settings → SP Visual hierarchy instead of the section Color scheme below.",
+    "options": [
+      {
+        "value": "default",
+        "label": "Default"
+      },
+      {
+        "value": "alternate",
+        "label": "Alternate"
+      },
+      {
+        "value": "inverse",
+        "label": "Inverse"
+      },
+      {
+        "value": "accent",
+        "label": "Accent"
+      },
+      {
+        "value": "transparent",
+        "label": "Transparent"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_width_mode",
+    "label": "Width mode",
+    "default": "contained",
+    "options": [
+      {
+        "value": "contained",
+        "label": "Contained"
+      },
+      {
+        "value": "wide",
+        "label": "Wide"
+      },
+      {
+        "value": "full",
+        "label": "Full width"
+      },
+      {
+        "value": "bleed",
+        "label": "Bleed"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_section_emphasis",
+    "label": "Section emphasis",
+    "default": "normal",
+    "options": [
+      {
+        "value": "normal",
+        "label": "Normal"
+      },
+      {
+        "value": "elevated",
+        "label": "Elevated"
+      },
+      {
+        "value": "feature",
+        "label": "Feature"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_divider_style",
+    "label": "Divider",
+    "default": "none",
+    "options": [
+      {
+        "value": "none",
+        "label": "None"
+      },
+      {
+        "value": "line",
+        "label": "Line"
+      },
+      {
+        "value": "gradient",
+        "label": "Gradient"
+      },
+      {
+        "value": "fade",
+        "label": "Fade"
+      }
+    ]
+  },
+
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "info": "Not applied when Surface style is set to Inverse.",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "SP CTA Offer",
+      "settings": {
+        "heading": "Ready to upgrade your routine?",
+        "subheading": "<p>Join thousands of customers who made the switch today.</p>",
+        "offer_text": "From $49 — free shipping included",
+        "button_label": "Shop now",
+        "reassurance_text": "30-day money back guarantee",
+        "show_badge": true,
+        "badge_text": "Most Popular Offer",
+        "card_style": "gradient"
+      }
+    }
+  ]
+}
+{% endschema %}

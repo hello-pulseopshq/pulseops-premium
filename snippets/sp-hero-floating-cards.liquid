@@ -1,0 +1,84 @@
+{% comment %}
+  SP Hero floating cards overlay.
+{% endcomment %}
+
+{%- if show_floating_review or show_floating_shipping or show_floating_bestseller -%}
+  {%- assign card_style = section.settings.floating_card_style | default: 'solid' -%}
+  <div class="sp-hero__float-cards sp-hero__float-cards--{{ card_style }}{% render 'sp-motion-class', type: 'stagger' %}" data-sp-stagger aria-hidden="true">
+    {%- if show_floating_bestseller -%}
+      <div class="sp-hero__float-card sp-hero__float-card--bestseller caption{% render 'sp-motion-class', type: 'stagger-item' %}{% render 'sp-motion-class', type: 'hover-card-subtle' %}">
+        <span class="sp-hero__float-card-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.4 9.6 8.8 2.8 9.4l5.4 4.4-1.8 6.6L12 17.3l5.6 3.1-1.8-6.6 5.4-4.4-6.8-.6z"></path>
+          </svg>
+        </span>
+        {{ section.settings.floating_bestseller_text }}
+      </div>
+    {%- endif -%}
+
+    {%- if show_floating_shipping -%}
+      <div class="sp-hero__float-card sp-hero__float-card--shipping caption{% render 'sp-motion-class', type: 'stagger-item' %}{% render 'sp-motion-class', type: 'hover-card-subtle' %}">
+        <span class="sp-hero__float-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M1.5 4.5h12v9h-12z"></path>
+            <path d="M13.5 8.5h4l3 3v2h-7z"></path>
+            <circle cx="6" cy="16.5" r="2"></circle>
+            <circle cx="17.5" cy="16.5" r="2"></circle>
+          </svg>
+        </span>
+        {{ section.settings.floating_shipping_text }}
+      </div>
+    {%- endif -%}
+
+    {%- if show_floating_review -%}
+      <div class="sp-hero__float-card sp-hero__float-card--review{% render 'sp-motion-class', type: 'stagger-item' %}{% render 'sp-motion-class', type: 'hover-card-subtle' %}">
+        <div class="sp-hero__float-card-header">
+          {%- if section.settings.floating_review_image != blank -%}
+            <div class="sp-hero__float-card-avatar sp-media-frame sp-media-frame--circle sp-media-frame--intrinsic" aria-hidden="true">
+              {%- render 'sp-image',
+                image: section.settings.floating_review_image,
+                img_only: true,
+                alt: '',
+                widths: '40, 80',
+                sizes: '40px',
+                image_width: 80,
+                loading: 'lazy'
+              -%}
+            </div>
+          {%- endif -%}
+
+          <div class="sp-hero__float-card-meta">
+            {%- if section.settings.floating_review_author != blank or section.settings.show_floating_review_verified -%}
+              <div class="sp-hero__float-card-name-row">
+                {%- if section.settings.floating_review_author != blank -%}
+                  <p class="sp-hero__float-card-author caption">{{ section.settings.floating_review_author | escape }}</p>
+                {%- endif -%}
+                {%- if section.settings.show_floating_review_verified and section.settings.floating_review_verified_label != blank -%}
+                  <span class="sp-hero__float-card-verified caption">{{ section.settings.floating_review_verified_label | escape }}</span>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+
+            <div class="sp-hero__float-card-stars" aria-hidden="true">
+              {%- for i in (1..5) -%}
+                <span class="sp-hero__float-card-star">
+                  {%- if i <= floating_review_rating -%}
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2.4 9.6 8.8 2.8 9.4l5.4 4.4-1.8 6.6L12 17.3l5.6 3.1-1.8-6.6 5.4-4.4-6.8-.6z"></path>
+                    </svg>
+                  {%- else -%}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                      <path d="M12 2.4 9.6 8.8 2.8 9.4l5.4 4.4-1.8 6.6L12 17.3l5.6 3.1-1.8-6.6 5.4-4.4-6.8-.6z"></path>
+                    </svg>
+                  {%- endif -%}
+                </span>
+              {%- endfor -%}
+            </div>
+          </div>
+        </div>
+
+        <p class="sp-hero__float-card-text caption">{{ section.settings.floating_review_text | escape }}</p>
+      </div>
+    {%- endif -%}
+  </div>
+{%- endif -%}

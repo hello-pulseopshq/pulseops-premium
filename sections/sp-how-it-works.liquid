@@ -1,0 +1,474 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .sp-how-it-works {
+    --sp-how-it-works-gap-sm: 1.2rem;
+    --sp-how-it-works-gap-md: 1.6rem;
+    --sp-how-it-works-gap-lg: 2.4rem;
+    --sp-how-it-works-radius: 1.6rem;
+    --sp-how-it-works-card-padding: 2rem;
+    --sp-how-it-works-max-width: 72rem;
+    --sp-how-it-works-number-size: 3.2rem;
+    --sp-how-it-works-icon-size: 2.4rem;
+  }
+
+  .sp-how-it-works__header {
+    margin: 0 auto var(--sp-how-it-works-gap-lg);
+    max-width: var(--sp-how-it-works-max-width);
+    text-align: center;
+  }
+
+  .sp-how-it-works__header .sp-how-it-works__subheading {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .sp-how-it-works__heading {
+    margin: 0;
+  }
+
+  .sp-how-it-works__subheading {
+    margin-top: var(--sp-how-it-works-gap-sm);
+  }
+
+  .sp-how-it-works__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--sp-how-it-works-gap-md);
+    max-width: var(--sp-how-it-works-max-width);
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+  }
+
+  .sp-how-it-works__item {
+    height: 100%;
+  }
+
+  .sp-how-it-works__card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-how-it-works-gap-sm);
+    padding: var(--sp-how-it-works-card-padding);
+    border-radius: var(--sp-how-it-works-radius);
+    border: 0.1rem solid rgba(var(--color-foreground), 0.12);
+    background: rgba(var(--color-foreground), 0.04);
+    text-align: center;
+  }
+
+  .sp-how-it-works__number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--sp-how-it-works-number-size);
+    height: var(--sp-how-it-works-number-size);
+    border-radius: 50%;
+    background: rgb(var(--color-foreground));
+    color: rgb(var(--color-background));
+    font-weight: 600;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .sp-how-it-works__icon {
+    width: var(--sp-how-it-works-icon-size);
+    height: var(--sp-how-it-works-icon-size);
+    color: rgb(var(--color-foreground));
+    flex-shrink: 0;
+  }
+
+  .sp-how-it-works__icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .sp-how-it-works__title {
+    margin: 0;
+  }
+
+  .sp-how-it-works__description {
+    margin: 0;
+    opacity: 0.85;
+  }
+
+  .sp-how-it-works__description > :first-child {
+    margin-top: 0;
+  }
+
+  .sp-how-it-works__description > :last-child {
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+
+    .sp-how-it-works__list {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--sp-how-it-works-gap-lg);
+    }
+  }
+{%- endstyle -%}
+
+{% render 'sp-section-hierarchy-open', section: section %}
+    <div class="sp-how-it-works">
+      {%- liquid
+        assign heading_stripped = section.settings.heading | strip_html | strip
+        assign subheading_stripped = section.settings.subheading | strip_html | strip
+      -%}
+
+      {%- if heading_stripped != blank or subheading_stripped != blank -%}
+        <header class="sp-how-it-works__header">
+          {%- if heading_stripped != blank -%}
+            <h2 class="sp-how-it-works__heading inline-richtext h1{% render 'sp-motion-class', type: 'fade-up' %}">
+              {{ section.settings.heading }}
+            </h2>
+          {%- endif -%}
+          {%- if subheading_stripped != blank -%}
+            <div class="sp-how-it-works__subheading rte{% render 'sp-motion-class', type: 'fade-up' %}">
+              {{ section.settings.subheading }}
+            </div>
+          {%- endif -%}
+        </header>
+      {%- endif -%}
+
+      {%- assign valid_steps = 0 -%}
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign title_stripped = block.settings.step_title | strip
+          assign description_stripped = block.settings.step_description | strip_html | strip
+        -%}
+        {%- if title_stripped != blank or description_stripped != blank -%}
+          {%- assign valid_steps = valid_steps | plus: 1 -%}
+        {%- endif -%}
+      {%- endfor -%}
+
+      {%- if valid_steps > 0 -%}
+        <ol class="sp-how-it-works__list{% render 'sp-motion-class', type: 'stagger' %}" data-sp-stagger role="list">
+          {%- assign step_number = 0 -%}
+          {%- for block in section.blocks -%}
+            {%- liquid
+              assign title_stripped = block.settings.step_title | strip
+              assign description_stripped = block.settings.step_description | strip_html | strip
+            -%}
+            {%- if title_stripped != blank or description_stripped != blank -%}
+              {%- assign step_number = step_number | plus: 1 -%}
+              <li class="sp-how-it-works__item{% render 'sp-motion-class', type: 'stagger-item' %}" {{ block.shopify_attributes }}>
+                <article class="sp-how-it-works__card{% render 'sp-motion-class', type: 'hover-card-subtle' %}">
+                  <span class="sp-how-it-works__number" aria-hidden="true">
+                    {{ step_number }}
+                  </span>
+                  <span class="visually-hidden">Step {{ step_number }}</span>
+
+                  <span class="sp-how-it-works__icon" aria-hidden="true">
+                    {%- case block.settings.step_icon -%}
+                      {%- when 'order' -%}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                          <path d="M6 6h15l-1.5 9h-12z"></path>
+                          <path d="M6 6 5 3H2"></path>
+                          <circle cx="9" cy="19" r="1.5"></circle>
+                          <circle cx="18" cy="19" r="1.5"></circle>
+                        </svg>
+                      {%- when 'package' -%}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                          <path d="M12 3 3 7.5 12 12l9-4.5z"></path>
+                          <path d="M3 7.5V16.5L12 21l9-4.5V7.5"></path>
+                          <path d="M12 12v9"></path>
+                        </svg>
+                      {%- when 'truck' -%}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                          <path d="M1.5 4.5h12v9h-12z"></path>
+                          <path d="M13.5 8.5h4l3 3v2h-7z"></path>
+                          <circle cx="6" cy="16.5" r="2"></circle>
+                          <circle cx="17.5" cy="16.5" r="2"></circle>
+                        </svg>
+                      {%- when 'check' -%}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                          <circle cx="12" cy="12" r="9"></circle>
+                          <path d="M8 12.5 10.5 15 16 9"></path>
+                        </svg>
+                      {%- when 'heart' -%}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                          <path d="M12 20.5 4.6 13.8a4.8 4.8 0 0 1 0-6.8 4.9 4.9 0 0 1 7 0L12 8l.4-1a4.9 4.9 0 0 1 7 0 4.8 4.8 0 0 1 0 6.8z"></path>
+                        </svg>
+                      {%- else -%}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                          <path d="m5.5 12 4 4 9-9"></path>
+                        </svg>
+                    {%- endcase -%}
+                  </span>
+
+                  {%- if title_stripped != blank -%}
+                    <h3 class="sp-how-it-works__title h4">
+                      {{ block.settings.step_title | escape }}
+                    </h3>
+                  {%- endif -%}
+
+                  {%- if description_stripped != blank -%}
+                    <div class="sp-how-it-works__description rte">
+                      {{ block.settings.step_description }}
+                    </div>
+                  {%- endif -%}
+                </article>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ol>
+      {%- elsif request.design_mode -%}
+        <div class="sp-how-it-works__empty-state">
+          Add step blocks to explain how it works after purchase.
+        </div>
+      {%- endif -%}
+    </div>
+{% render 'sp-section-hierarchy-close' %}
+
+{% schema %}
+{
+  "name": "SP How It Works",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 3,
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "How it works",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "default": "<p>Getting started is simple. Here is what happens after you order.</p>",
+      "label": "Subheading"
+    },
+{
+    "type": "header",
+    "content": "Visual hierarchy"
+  },
+  {
+    "type": "select",
+    "id": "sp_surface_style",
+    "label": "Surface style",
+    "default": "default",
+    "info": "Inverse uses the inverse color scheme from Theme settings → SP Visual hierarchy instead of the section Color scheme below.",
+    "options": [
+      {
+        "value": "default",
+        "label": "Default"
+      },
+      {
+        "value": "alternate",
+        "label": "Alternate"
+      },
+      {
+        "value": "inverse",
+        "label": "Inverse"
+      },
+      {
+        "value": "accent",
+        "label": "Accent"
+      },
+      {
+        "value": "transparent",
+        "label": "Transparent"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_width_mode",
+    "label": "Width mode",
+    "default": "contained",
+    "options": [
+      {
+        "value": "contained",
+        "label": "Contained"
+      },
+      {
+        "value": "wide",
+        "label": "Wide"
+      },
+      {
+        "value": "full",
+        "label": "Full width"
+      },
+      {
+        "value": "bleed",
+        "label": "Bleed"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_section_emphasis",
+    "label": "Section emphasis",
+    "default": "normal",
+    "options": [
+      {
+        "value": "normal",
+        "label": "Normal"
+      },
+      {
+        "value": "elevated",
+        "label": "Elevated"
+      },
+      {
+        "value": "feature",
+        "label": "Feature"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_divider_style",
+    "label": "Divider",
+    "default": "none",
+    "options": [
+      {
+        "value": "none",
+        "label": "None"
+      },
+      {
+        "value": "line",
+        "label": "Line"
+      },
+      {
+        "value": "gradient",
+        "label": "Gradient"
+      },
+      {
+        "value": "fade",
+        "label": "Fade"
+      }
+    ]
+  },
+
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "info": "Not applied when Surface style is set to Inverse.",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "text",
+          "id": "step_title",
+          "default": "Place your order",
+          "label": "Step title"
+        },
+        {
+          "type": "richtext",
+          "id": "step_description",
+          "default": "<p>Checkout securely in under 60 seconds.</p>",
+          "label": "Step description"
+        },
+        {
+          "type": "select",
+          "id": "step_icon",
+          "label": "Step icon",
+          "default": "order",
+          "options": [
+            {
+              "value": "order",
+              "label": "Order"
+            },
+            {
+              "value": "package",
+              "label": "Package"
+            },
+            {
+              "value": "truck",
+              "label": "Delivery"
+            },
+            {
+              "value": "check",
+              "label": "Complete"
+            },
+            {
+              "value": "heart",
+              "label": "Enjoy"
+            },
+            {
+              "value": "default",
+              "label": "Checkmark"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SP How It Works",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "step_title": "Place your order",
+            "step_description": "<p>Checkout securely in under 60 seconds.</p>",
+            "step_icon": "order"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step_title": "Fast delivery to your door",
+            "step_description": "<p>Most orders arrive within 3 to 5 business days.</p>",
+            "step_icon": "truck"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step_title": "Enjoy the results",
+            "step_description": "<p>Use it daily and feel the difference — or get your money back.</p>",
+            "step_icon": "heart"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

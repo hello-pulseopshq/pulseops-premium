@@ -1,0 +1,192 @@
+/**
+ * SP Visual Hierarchy System
+ * Theme-wide surface, width, emphasis, and divider utilities.
+ * All values use global CSS variables — no hardcoded colors.
+ */
+
+.sp-section {
+  position: relative;
+  isolation: isolate;
+}
+
+.sp-section > .sp-section__inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Surface styles --- */
+
+.sp-section--surface-alternate::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: rgba(var(--color-foreground), var(--sp-surface-alt-opacity, 0.04));
+}
+
+.sp-section--surface-accent::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: rgba(var(--color-button), var(--sp-surface-accent-opacity, 0.1));
+}
+
+.sp-section--surface-transparent,
+.sp-section--surface-transparent.gradient {
+  background: transparent !important;
+}
+
+.sp-section--surface-transparent::before {
+  display: none;
+}
+
+/* Inverse uses alternate color scheme via Liquid — no extra surface rules */
+
+/* --- Width modes --- */
+
+.sp-section__inner {
+  width: 100%;
+  margin-inline: auto;
+}
+
+.sp-section__inner--contained {
+  max-width: var(--page-width);
+  padding-inline: var(--sp-section-padding-inline, 1.6rem);
+}
+
+.sp-section__inner--wide {
+  max-width: min(100%, calc(var(--page-width) + var(--sp-width-wide-offset, 8rem)));
+  padding-inline: var(--sp-section-padding-inline, 1.6rem);
+}
+
+.sp-section__inner--full {
+  max-width: 100%;
+  padding-inline: var(--sp-section-padding-inline, 1.6rem);
+}
+
+.sp-section__inner--bleed {
+  max-width: 100%;
+  padding-inline: 0;
+}
+
+@media screen and (max-width: 749px) {
+  .sp-section__inner--contained,
+  .sp-section__inner--wide,
+  .sp-section__inner--full {
+    padding-inline: var(--sp-section-padding-inline-mobile, 1.2rem);
+  }
+}
+
+/* --- Section emphasis --- */
+
+.sp-section--emphasis-elevated {
+  box-shadow: 0 0.6rem 2.8rem rgba(var(--color-shadow), var(--sp-emphasis-elevated-opacity, 0.08));
+}
+
+.sp-section--emphasis-feature {
+  padding-block: calc(var(--sp-section-feature-padding, 1.6rem) + 0.4rem);
+}
+
+@media screen and (min-width: 750px) {
+  .sp-section--emphasis-feature .sp-section__inner--contained,
+  .sp-section--emphasis-feature .sp-section__inner--wide {
+    border-radius: var(--sp-section-feature-radius, var(--media-radius, 0));
+    overflow: hidden;
+  }
+
+  .sp-section--emphasis-feature.sp-section--surface-alternate::before,
+  .sp-section--emphasis-feature.sp-section--surface-accent::before {
+    border-radius: inherit;
+  }
+}
+
+/* --- Dividers (top edge) --- */
+
+.sp-section__divider {
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+.sp-section__divider--line {
+  height: 0.1rem;
+  background: rgba(var(--color-foreground), var(--sp-divider-opacity, 0.12));
+}
+
+.sp-section__divider--gradient {
+  height: 0.1rem;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(var(--color-foreground), var(--sp-divider-opacity, 0.12)) 50%,
+    transparent 100%
+  );
+}
+
+.sp-section__divider--fade {
+  height: 3.2rem;
+  margin-bottom: -1.2rem;
+  background: linear-gradient(
+    180deg,
+    rgba(var(--color-foreground), calc(var(--sp-divider-opacity, 0.12) * 0.65)) 0%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* --- Sticky / fixed SP components using hierarchy surfaces --- */
+
+.sp-surface--alternate::before,
+.sp-surface--accent::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.sp-surface--alternate::before {
+  background: rgba(var(--color-foreground), var(--sp-surface-alt-opacity, 0.04));
+}
+
+.sp-surface--accent::before {
+  background: rgba(var(--color-button), var(--sp-surface-accent-opacity, 0.1));
+}
+
+.sp-surface--transparent {
+  background: transparent !important;
+}
+
+/* Placeholder sections (design mode) */
+
+.sp-section-placeholder {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.sp-section-placeholder__heading {
+  margin: 0 0 0.8rem;
+}
+
+.sp-section-placeholder__body {
+  margin: 0 auto;
+  max-width: 52rem;
+  opacity: 0.82;
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
+.sp-section-placeholder__hint {
+  margin: 0;
+  opacity: 0.72;
+  font-size: 1.4rem;
+}
+
+/* Fixed SP components */
+
+.sp-sticky-atc .sp-section__divider--fade {
+  margin-bottom: -0.8rem;
+}

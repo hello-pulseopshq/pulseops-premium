@@ -1,0 +1,37 @@
+{%- comment -%}
+  SP Visual Hierarchy — section shell (open)
+
+  Usage:
+    {% render 'sp-section-hierarchy-open', section: section %}
+      ... section content ...
+    {% render 'sp-section-hierarchy-close' %}
+
+  Optional:
+    extra_class — additional classes on outer shell
+    extra_attributes — raw HTML attributes (e.g. data-sp-hero-sticky)
+{%- endcomment -%}
+
+{%- liquid
+  assign sp_surface = section.settings.sp_surface_style | default: 'default'
+  assign sp_width = section.settings.sp_width_mode | default: 'contained'
+  assign sp_emphasis = section.settings.sp_section_emphasis | default: 'normal'
+  assign sp_divider = section.settings.sp_divider_style | default: 'none'
+  assign sp_color_scheme = section.settings.color_scheme | default: 'scheme-1'
+
+  if sp_surface == 'inverse'
+    assign sp_color_scheme = settings.sp_inverse_color_scheme | default: 'scheme-3'
+  endif
+
+  assign sp_use_gradient = true
+  if sp_surface == 'transparent'
+    assign sp_use_gradient = false
+  endif
+-%}
+<div
+  class="sp-section sp-section--surface-{{ sp_surface }} sp-section--width-{{ sp_width }} sp-section--emphasis-{{ sp_emphasis }} sp-section--divider-{{ sp_divider }} color-{{ sp_color_scheme }}{% if sp_use_gradient %} gradient{% endif %} section-{{ section.id }}-padding{% if extra_class != blank %} {{ extra_class }}{% endif %}"
+  {% if extra_attributes != blank %}{{ extra_attributes }}{% endif %}
+>
+  {%- unless sp_divider == 'none' -%}
+    <div class="sp-section__divider sp-section__divider--{{ sp_divider }}" aria-hidden="true"></div>
+  {%- endunless -%}
+  <div class="sp-section__inner sp-section__inner--{{ sp_width }}">

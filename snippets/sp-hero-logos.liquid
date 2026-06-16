@@ -1,0 +1,44 @@
+{% comment %}
+  Featured logos strip inside hero.
+  Accepts: section
+{% endcomment %}
+
+{%- if section.settings.show_logos -%}
+  {%- assign logo_blocks = section.blocks | where: 'type', 'logo' -%}
+  {%- if logo_blocks.size > 0 -%}
+    <div class="sp-hero__logos sp-hero__slot--logos{% render 'sp-motion-class', type: 'stagger-item' %}">
+      {%- if section.settings.logos_label != blank -%}
+        <p class="sp-hero__logos-label caption-with-letter-spacing">{{ section.settings.logos_label | escape }}</p>
+      {%- endif -%}
+
+      <ul class="sp-hero__logos-list list-unstyled" role="list">
+        {%- for block in logo_blocks -%}
+          {%- if block.settings.image != blank -%}
+            <li class="sp-hero__logo" {{ block.shopify_attributes }}>
+              {%- if block.settings.link != blank -%}
+                <a href="{{ block.settings.link }}" class="sp-hero__logo-link" {% if block.settings.open_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}>
+              {%- endif -%}
+              <span class="sp-media-frame sp-media-frame--logo">
+                {%- render 'sp-image',
+                  image: block.settings.image,
+                  ratio: 'logo',
+                  img_only: true,
+                  fit: 'contain',
+                  alt: block.settings.image.alt | default: section.settings.logos_label | escape,
+                  widths: '120, 180, 240',
+                  sizes: '(min-width: 750px) 120px, 96px',
+                  image_width: 240,
+                  loading: 'lazy',
+                  reveal: false
+                -%}
+              </span>
+              {%- if block.settings.link != blank -%}
+                </a>
+              {%- endif -%}
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </div>
+  {%- endif -%}
+{%- endif -%}

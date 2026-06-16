@@ -1,0 +1,1078 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .sp-results {
+    --sp-results-gap-sm: 1.2rem;
+    --sp-results-gap-md: 1.6rem;
+    --sp-results-gap-lg: 2.4rem;
+    --sp-results-radius: 1.6rem;
+    --sp-results-card-padding: 1.6rem;
+    --sp-results-max-width: 72rem;
+    --sp-results-icon-size: 2.2rem;
+    --sp-results-progress-height: 0.6rem;
+  }
+
+  .sp-results__header {
+    margin-bottom: var(--sp-results-gap-lg);
+    max-width: var(--sp-results-max-width);
+  }
+
+  .sp-results__header--center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .sp-results__header--center .sp-results__subheading,
+  .sp-results__header--center .sp-results__trust-note,
+  .sp-results__header--center .sp-results__proof-badge {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .sp-results__proof-badge {
+    display: inline-flex;
+    margin: 0 0 1rem;
+    padding: 0.4rem 1rem;
+    border-radius: 99rem;
+    border: 0.1rem solid rgba(var(--color-foreground), 0.16);
+    background: rgba(var(--color-foreground), 0.06);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .sp-results__heading {
+    margin: 0;
+    line-height: 1.15;
+    font-weight: 600;
+  }
+
+  .sp-results__subheading {
+    margin-top: var(--sp-results-gap-sm);
+    opacity: 0.72;
+    max-width: 56rem;
+  }
+
+  .sp-results__trust-note {
+    margin: 0.8rem 0 0;
+    max-width: 52rem;
+    opacity: 0.6;
+  }
+
+  .sp-results__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--sp-results-gap-md);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .sp-results__item {
+    height: 100%;
+  }
+
+  .sp-results__card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-results-gap-sm);
+    padding: var(--sp-results-card-padding);
+    border-radius: var(--sp-results-radius);
+    border: 0.1rem solid rgba(var(--color-foreground), 0.12);
+    background: rgb(var(--color-background));
+    box-shadow: 0 0.4rem 1.6rem rgba(var(--color-foreground), 0.04);
+  }
+
+  .sp-results__card--featured {
+    border-color: rgba(var(--color-foreground), 0.24);
+    background: rgba(var(--color-foreground), 0.03);
+    box-shadow:
+      0 0 0 0.1rem rgba(var(--color-foreground), 0.08),
+      0 1rem 3rem rgba(var(--color-foreground), 0.1);
+    transform: scale(1.02);
+  }
+
+  .sp-results__card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .sp-results__card-header--icon-only {
+    justify-content: flex-end;
+  }
+
+  .sp-results__title-group {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .sp-results__title {
+    margin: 0;
+  }
+
+  .sp-results__icon {
+    width: var(--sp-results-icon-size);
+    height: var(--sp-results-icon-size);
+    flex-shrink: 0;
+    color: rgb(var(--color-foreground));
+  }
+
+  .sp-results__icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .sp-results__impact {
+    margin: 0;
+    align-self: flex-start;
+    padding: 0.25rem 0.7rem;
+    border-radius: 99rem;
+    background: rgba(var(--color-foreground), 0.08);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .sp-results__transform {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .sp-results__value {
+    margin: 0;
+    padding: 0.7rem 1rem;
+    border-radius: 99rem;
+    line-height: 1.25;
+  }
+
+  .sp-results__value--before {
+    font-size: 1.2rem;
+    opacity: 0.5;
+    background: rgba(var(--color-foreground), 0.05);
+    border: 0.1rem solid rgba(var(--color-foreground), 0.08);
+    text-align: center;
+  }
+
+  .sp-results__value-label {
+    display: block;
+    margin-bottom: 0.2rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 0.65;
+  }
+
+  .sp-results__value--after {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    background: rgba(var(--color-foreground), 0.1);
+    border: 0.1rem solid rgba(var(--color-foreground), 0.2);
+  }
+
+  .sp-results__card--featured .sp-results__value--after {
+    background: rgb(var(--color-foreground));
+    color: rgb(var(--color-background));
+    border-color: rgb(var(--color-foreground));
+  }
+
+  .sp-results__card--featured .sp-results__value--after .sp-results__value-label {
+    opacity: 0.85;
+    color: inherit;
+  }
+
+  .sp-results__arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.8rem;
+    height: 2.8rem;
+    flex-shrink: 0;
+    border-radius: 50%;
+    color: rgb(var(--color-foreground));
+    background: rgba(var(--color-foreground), 0.06);
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+
+  .sp-results__item.is-revealed .sp-results__arrow {
+    animation: sp-results-arrow-pulse 1.2s ease 0.3s 1;
+  }
+
+  .sp-results__card--featured .sp-results__arrow {
+    background: rgba(var(--color-foreground), 0.12);
+  }
+
+  @keyframes sp-results-arrow-pulse {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(0.3rem); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sp-results__item.is-revealed .sp-results__arrow {
+      animation: none;
+    }
+  }
+
+  .sp-results__arrow svg {
+    width: 1.6rem;
+    height: 1.6rem;
+    display: block;
+  }
+
+  .sp-results__progress {
+    width: 100%;
+    height: var(--sp-results-progress-height);
+    border-radius: 99rem;
+    background: rgba(var(--color-foreground), 0.08);
+    overflow: hidden;
+  }
+
+  .sp-results__progress-fill {
+    display: block;
+    height: 100%;
+    width: 0;
+    border-radius: inherit;
+    background: rgb(var(--color-foreground));
+    transition: width 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sp-results__progress-fill {
+      width: var(--sp-results-progress-target, 0);
+      transition: none;
+    }
+  }
+
+  .sp-results__description {
+    margin: 0;
+    opacity: 0.78;
+    font-size: 0.95em;
+  }
+
+  .sp-results__description > :first-child {
+    margin-top: 0;
+  }
+
+  .sp-results__description > :last-child {
+    margin-bottom: 0;
+  }
+
+  .sp-results__proof {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: auto;
+    padding-top: 0.8rem;
+    border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  }
+
+  .sp-results__avatar {
+    width: 3.6rem;
+    height: 3.6rem;
+    flex-shrink: 0;
+  }
+
+  .sp-results__avatar--initials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(var(--color-foreground), 0.08);
+    color: rgb(var(--color-foreground));
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .sp-results__customer {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .sp-results__customer-name {
+    margin: 0;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .sp-results__customer-context {
+    margin: 0.15rem 0 0;
+    opacity: 0.6;
+    line-height: 1.3;
+  }
+
+  .sp-results__verified {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    padding: 0.25rem 0.6rem;
+    border-radius: 99rem;
+    background: rgba(var(--color-foreground), 0.08);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    opacity: 0.85;
+  }
+
+  .sp-results__badge {
+    display: inline-flex;
+    align-self: flex-start;
+    margin: 0;
+    padding: 0.35rem 1rem;
+    border-radius: 99rem;
+    background: linear-gradient(
+      135deg,
+      rgb(var(--color-foreground)) 0%,
+      rgba(var(--color-foreground), 0.75) 100%
+    );
+    color: rgb(var(--color-background));
+    white-space: nowrap;
+    box-shadow: 0 0.2rem 0.8rem rgba(var(--color-foreground), 0.15);
+  }
+
+  .sp-results__empty-state {
+    margin: 0;
+    padding: 2rem 1.6rem;
+    border: 0.1rem dashed rgba(var(--color-foreground), 0.2);
+    border-radius: var(--sp-results-radius);
+    text-align: center;
+    opacity: 0.72;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+
+    .sp-results {
+      --sp-results-card-padding: 2rem;
+      --sp-results-progress-height: 0.5rem;
+    }
+
+    .sp-results__list--2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .sp-results__list--3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+{%- endstyle -%}
+
+{% render 'sp-section-hierarchy-open', section: section %}
+    <div class="sp-results" data-sp-results>
+      {%- liquid
+        assign heading_stripped = section.settings.heading | strip_html | strip
+        assign subheading_stripped = section.settings.subheading | strip_html | strip
+        assign badge_stripped = section.settings.header_badge_text | strip
+        assign trust_note_display = section.settings.trust_note_text | strip
+        if trust_note_display == blank
+          assign trust_note_display = 'Based on aggregated customer feedback and internal testing.'
+        endif
+        assign show_section_header = false
+        if heading_stripped != blank or subheading_stripped != blank
+          assign show_section_header = true
+        elsif section.settings.show_header_badge and badge_stripped != blank
+          assign show_section_header = true
+        elsif section.settings.show_trust_note
+          assign show_section_header = true
+        endif
+      -%}
+
+      {%- if show_section_header -%}
+        <header class="sp-results__header sp-results__header--{{ section.settings.content_alignment }}">
+          {%- if section.settings.show_header_badge and badge_stripped != blank -%}
+            <p class="sp-results__proof-badge caption-with-letter-spacing">
+              {{ badge_stripped | escape }}
+            </p>
+          {%- endif -%}
+
+          {%- if heading_stripped != blank -%}
+            <h2 class="sp-results__heading inline-richtext h1{% render 'sp-motion-class', type: 'fade-up' %}">
+              {{ section.settings.heading }}
+            </h2>
+          {%- endif -%}
+
+          {%- if subheading_stripped != blank -%}
+            <div class="sp-results__subheading rte{% render 'sp-motion-class', type: 'fade-up' %}">
+              {{ section.settings.subheading }}
+            </div>
+          {%- endif -%}
+
+          {%- if section.settings.show_trust_note -%}
+            <p class="sp-results__trust-note caption">
+              {{ trust_note_display | escape }}
+            </p>
+          {%- endif -%}
+        </header>
+      {%- endif -%}
+
+      {%- assign valid_results = 0 -%}
+      {%- capture results_list -%}
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign title_stripped = block.settings.result_title | strip
+            assign before_stripped = block.settings.before_value | strip
+            assign after_stripped = block.settings.after_value | strip
+            assign description_stripped = block.settings.result_description | strip_html | strip
+            assign impact_stripped = block.settings.impact_label | strip
+            assign customer_name_stripped = block.settings.customer_name | strip
+            assign customer_context_stripped = block.settings.customer_context | strip
+
+            assign is_valid_result = false
+            if title_stripped != blank or before_stripped != blank or after_stripped != blank or description_stripped != blank
+              assign is_valid_result = true
+            endif
+
+            assign has_transform = false
+            if before_stripped != blank or after_stripped != blank
+              assign has_transform = true
+            endif
+
+            assign progress_percent = block.settings.progress_percent | plus: 0
+            assign show_progress_bar = false
+            if has_transform
+              if progress_percent < 0
+                assign progress_percent = 0
+              elsif progress_percent > 100
+                assign progress_percent = 100
+              endif
+              assign show_progress_bar = true
+            endif
+
+            assign has_customer_proof = false
+            if block.settings.customer_avatar != blank or customer_name_stripped != blank or customer_context_stripped != blank
+              assign has_customer_proof = true
+            endif
+
+            assign customer_initials = ''
+            if customer_name_stripped != blank
+              assign name_words = customer_name_stripped | split: ' '
+              assign customer_initials = name_words | first | slice: 0, 1
+              if name_words.size > 1
+                assign last_word = name_words | last
+                assign customer_initials = customer_initials | append: last_word | slice: 0, 1
+              endif
+              assign customer_initials = customer_initials | upcase
+            endif
+
+            assign show_customer_avatar = false
+            if block.settings.customer_avatar != blank
+              assign show_customer_avatar = true
+            elsif customer_initials != blank
+              assign show_customer_avatar = true
+            endif
+
+            assign show_customer_meta = false
+            if customer_name_stripped != blank or customer_context_stripped != blank
+              assign show_customer_meta = true
+            endif
+
+            assign show_verified_badge = false
+            if has_customer_proof and block.settings.verified_customer
+              assign show_verified_badge = true
+            endif
+
+            assign show_proof_footer = false
+            if show_customer_avatar or show_customer_meta or show_verified_badge
+              assign show_proof_footer = true
+            endif
+
+            if customer_name_stripped != blank
+              assign avatar_alt = 'Avatar of ' | append: customer_name_stripped
+            else
+              assign avatar_alt = 'Customer avatar'
+            endif
+
+            assign transform_aria_label = 'Before and after comparison'
+            if before_stripped != blank and after_stripped != blank
+              assign transform_aria_label = 'Before: ' | append: before_stripped | append: ', After: ' | append: after_stripped
+            elsif before_stripped != blank
+              assign transform_aria_label = 'Before: ' | append: before_stripped
+            elsif after_stripped != blank
+              assign transform_aria_label = 'After: ' | append: after_stripped
+            endif
+
+            assign is_featured = false
+            if section.settings.highlight_best_result and block.settings.is_best_result
+              assign is_featured = true
+            endif
+          -%}
+          {%- if is_valid_result -%}
+            {%- assign valid_results = valid_results | plus: 1 -%}
+            <li class="sp-results__item{% render 'sp-motion-class', type: 'stagger-item' %}" {{ block.shopify_attributes }}>
+              <article class="sp-results__card{% if is_featured %} sp-results__card--featured{% endif %}{% render 'sp-motion-class', type: 'hover-card-subtle' %}">
+                {%- if is_featured -%}
+                  <p class="sp-results__badge caption">Best Result</p>
+                {%- endif -%}
+
+                <div class="sp-results__card-header{% if title_stripped == blank and impact_stripped == blank %} sp-results__card-header--icon-only{% endif %}">
+                  {%- if title_stripped != blank or impact_stripped != blank -%}
+                    <div class="sp-results__title-group">
+                      {%- if title_stripped != blank -%}
+                        <h3 class="sp-results__title h4">
+                          {{ title_stripped | escape }}
+                        </h3>
+                      {%- endif -%}
+
+                      {%- if impact_stripped != blank -%}
+                        <p class="sp-results__impact caption">{{ impact_stripped | escape }}</p>
+                      {%- endif -%}
+                    </div>
+                  {%- endif -%}
+
+                  <span class="sp-results__icon" aria-hidden="true">
+                      {%- case block.settings.icon -%}
+                        {%- when 'chart' -%}
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false">
+                            <path d="M4 19V5"></path>
+                            <path d="M4 19h16"></path>
+                            <path d="M8 15V9"></path>
+                            <path d="M12 15V7"></path>
+                            <path d="M16 15v-4"></path>
+                          </svg>
+                        {%- when 'arrow' -%}
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false">
+                            <path d="M5 12h14"></path>
+                            <path d="M13 6l6 6-6 6"></path>
+                          </svg>
+                        {%- when 'spark' -%}
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false">
+                            <path d="M12 3.5 9.5 12 3 14.5 9.5 12 12 20.5 14.5 12 21 9.5 14.5 12z"></path>
+                          </svg>
+                        {%- when 'trend' -%}
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false">
+                            <path d="M4 18h16"></path>
+                            <path d="M6 14l4-4 3 3 5-6"></path>
+                          </svg>
+                        {%- else -%}
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false">
+                            <circle cx="12" cy="12" r="9"></circle>
+                            <path d="M8 12.5 10.5 15 16 9"></path>
+                          </svg>
+                      {%- endcase -%}
+                    </span>
+                  </div>
+
+                {%- if has_transform -%}
+                  <div class="sp-results__transform" role="group" aria-label="{{ transform_aria_label | escape }}">
+                    {%- if before_stripped != blank -%}
+                      <div class="sp-results__value sp-results__value--before">
+                        <span class="sp-results__value-label caption">Before</span>
+                        {{ before_stripped | escape }}
+                      </div>
+                    {%- else -%}
+                      <div class="sp-results__value sp-results__value--before" aria-hidden="true">
+                        <span aria-hidden="true">—</span>
+                      </div>
+                    {%- endif -%}
+
+                    <span class="sp-results__arrow" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
+                        <path d="M5 12h14"></path>
+                        <path d="M13 6l6 6-6 6"></path>
+                      </svg>
+                    </span>
+
+                    {%- if after_stripped != blank -%}
+                      <div class="sp-results__value sp-results__value--after">
+                        <span class="sp-results__value-label caption">After</span>
+                        {{ after_stripped | escape }}
+                      </div>
+                    {%- else -%}
+                      <div class="sp-results__value sp-results__value--after" aria-hidden="true">
+                        <span aria-hidden="true">—</span>
+                      </div>
+                    {%- endif -%}
+                  </div>
+
+                  {%- if show_progress_bar -%}
+                    <div
+                      class="sp-results__progress"
+                      data-sp-results-progress="{{ progress_percent }}"
+                      style="--sp-results-progress-target: {{ progress_percent }}%;"
+                      role="progressbar"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-valuenow="{{ progress_percent }}"
+                      aria-label="Progress: {{ progress_percent }}%"
+                    >
+                      <span class="sp-results__progress-fill"></span>
+                    </div>
+                  {%- endif -%}
+                {%- endif -%}
+
+                {%- if description_stripped != blank -%}
+                  <div class="sp-results__description rte">
+                    {{ block.settings.result_description }}
+                  </div>
+                {%- endif -%}
+
+                {%- if show_proof_footer -%}
+                  <footer class="sp-results__proof">
+                    {%- if block.settings.customer_avatar != blank -%}
+                      <div class="sp-results__avatar sp-media-frame sp-media-frame--circle sp-media-frame--intrinsic">
+                        {%- render 'sp-image',
+                          image: block.settings.customer_avatar,
+                          img_only: true,
+                          alt: avatar_alt,
+                          widths: '36, 72',
+                          sizes: '36px',
+                          image_width: 72,
+                          loading: 'lazy'
+                        -%}
+                      </div>
+                    {%- elsif customer_initials != blank -%}
+                      <div class="sp-results__avatar sp-results__avatar--initials" aria-hidden="true">
+                        {{ customer_initials }}
+                      </div>
+                    {%- endif -%}
+
+                    {%- if show_customer_meta -%}
+                      <div class="sp-results__customer">
+                        {%- if customer_name_stripped != blank -%}
+                          <p class="sp-results__customer-name">
+                            {{ customer_name_stripped | escape }}
+                          </p>
+                        {%- endif -%}
+                        {%- if customer_context_stripped != blank -%}
+                          <p class="sp-results__customer-context caption">
+                            {{ customer_context_stripped | escape }}
+                          </p>
+                        {%- endif -%}
+                      </div>
+                    {%- endif -%}
+
+                    {%- if show_verified_badge -%}
+                      <span class="sp-results__verified caption">Verified customer</span>
+                    {%- endif -%}
+                  </footer>
+                {%- endif -%}
+              </article>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endcapture -%}
+
+      {%- if valid_results > 0 -%}
+        <ul
+          class="sp-results__list sp-results__list--{{ section.settings.desktop_columns }}{% render 'sp-motion-class', type: 'stagger' %}"
+          data-sp-stagger
+          role="list"
+        >
+          {{ results_list }}
+        </ul>
+      {%- elsif request.design_mode -%}
+        <div class="sp-results__empty-state">
+          Add result blocks to display before and after outcomes.
+        </div>
+      {%- endif -%}
+    </div>
+{% render 'sp-section-hierarchy-close' %}
+
+<script src="{{ 'sp-results.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "SP Results",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 6,
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Real results you can feel",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "default": "<p>See the difference our customers experience after switching.</p>",
+      "label": "Subheading"
+    },
+    {
+      "type": "header",
+      "content": "Proof header"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_header_badge",
+      "default": true,
+      "label": "Show proof badge"
+    },
+    {
+      "type": "text",
+      "id": "header_badge_text",
+      "default": "Proven Results",
+      "label": "Proof badge text"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_trust_note",
+      "default": false,
+      "label": "Show trust note"
+    },
+    {
+      "type": "text",
+      "id": "trust_note_text",
+      "default": "Based on aggregated customer feedback and internal testing.",
+      "label": "Trust note text"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ],
+      "default": "center",
+      "label": "Content alignment"
+    },
+    {
+      "type": "select",
+      "id": "desktop_columns",
+      "options": [
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        }
+      ],
+      "default": "3",
+      "label": "Desktop columns"
+    },
+    {
+      "type": "checkbox",
+      "id": "highlight_best_result",
+      "default": true,
+      "label": "Highlight best result",
+      "info": "Visually emphasize blocks marked as best result."
+    },
+{
+    "type": "header",
+    "content": "Visual hierarchy"
+  },
+  {
+    "type": "select",
+    "id": "sp_surface_style",
+    "label": "Surface style",
+    "default": "default",
+    "info": "Inverse uses the inverse color scheme from Theme settings → SP Visual hierarchy instead of the section Color scheme below.",
+    "options": [
+      {
+        "value": "default",
+        "label": "Default"
+      },
+      {
+        "value": "alternate",
+        "label": "Alternate"
+      },
+      {
+        "value": "inverse",
+        "label": "Inverse"
+      },
+      {
+        "value": "accent",
+        "label": "Accent"
+      },
+      {
+        "value": "transparent",
+        "label": "Transparent"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_width_mode",
+    "label": "Width mode",
+    "default": "contained",
+    "options": [
+      {
+        "value": "contained",
+        "label": "Contained"
+      },
+      {
+        "value": "wide",
+        "label": "Wide"
+      },
+      {
+        "value": "full",
+        "label": "Full width"
+      },
+      {
+        "value": "bleed",
+        "label": "Bleed"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_section_emphasis",
+    "label": "Section emphasis",
+    "default": "normal",
+    "options": [
+      {
+        "value": "normal",
+        "label": "Normal"
+      },
+      {
+        "value": "elevated",
+        "label": "Elevated"
+      },
+      {
+        "value": "feature",
+        "label": "Feature"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_divider_style",
+    "label": "Divider",
+    "default": "none",
+    "options": [
+      {
+        "value": "none",
+        "label": "None"
+      },
+      {
+        "value": "line",
+        "label": "Line"
+      },
+      {
+        "value": "gradient",
+        "label": "Gradient"
+      },
+      {
+        "value": "fade",
+        "label": "Fade"
+      }
+    ]
+  },
+
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "info": "Not applied when Surface style is set to Inverse.",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "result",
+      "name": "Result",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "text",
+          "id": "result_title",
+          "default": "Energy levels",
+          "label": "Result title"
+        },
+        {
+          "type": "text",
+          "id": "before_value",
+          "default": "Low",
+          "label": "Before value"
+        },
+        {
+          "type": "text",
+          "id": "after_value",
+          "default": "High",
+          "label": "After value"
+        },
+        {
+          "type": "text",
+          "id": "impact_label",
+          "label": "Impact label",
+          "info": "e.g. +120% improvement or Noticeable in 7 days"
+        },
+        {
+          "type": "range",
+          "id": "progress_percent",
+          "min": 10,
+          "max": 100,
+          "step": 5,
+          "unit": "%",
+          "default": 85,
+          "label": "Progress bar fill"
+        },
+        {
+          "type": "richtext",
+          "id": "result_description",
+          "label": "Result description"
+        },
+        {
+          "type": "header",
+          "content": "Customer proof"
+        },
+        {
+          "type": "text",
+          "id": "customer_name",
+          "label": "Customer name"
+        },
+        {
+          "type": "image_picker",
+          "id": "customer_avatar",
+          "label": "Customer avatar"
+        },
+        {
+          "type": "text",
+          "id": "customer_context",
+          "label": "Customer context",
+          "info": "Short descriptor, e.g. Fitness coach or Mom of 2"
+        },
+        {
+          "type": "checkbox",
+          "id": "verified_customer",
+          "default": true,
+          "label": "Show verified badge"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "trend",
+          "options": [
+            {
+              "value": "chart",
+              "label": "Chart"
+            },
+            {
+              "value": "arrow",
+              "label": "Arrow"
+            },
+            {
+              "value": "spark",
+              "label": "Spark"
+            },
+            {
+              "value": "check",
+              "label": "Check"
+            },
+            {
+              "value": "trend",
+              "label": "Trend"
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "id": "is_best_result",
+          "default": false,
+          "label": "Mark as best result"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SP Results",
+      "settings": {
+        "show_header_badge": true,
+        "header_badge_text": "Proven Results",
+        "highlight_best_result": true
+      },
+      "blocks": [
+        {
+          "type": "result",
+          "settings": {
+            "result_title": "Energy levels",
+            "before_value": "Low",
+            "after_value": "High",
+            "impact_label": "Noticeable in 7 days",
+            "progress_percent": 90,
+            "result_description": "<p>Customers report feeling more focused within the first week.</p>",
+            "customer_name": "Sarah M.",
+            "customer_context": "Fitness coach",
+            "verified_customer": true,
+            "icon": "trend",
+            "is_best_result": true
+          }
+        },
+        {
+          "type": "result",
+          "settings": {
+            "result_title": "Sleep quality",
+            "before_value": "Restless",
+            "after_value": "Deep rest",
+            "impact_label": "+85% better sleep",
+            "progress_percent": 85,
+            "result_description": "<p>Better nights lead to better mornings.</p>",
+            "customer_name": "James T.",
+            "customer_context": "Night shift nurse",
+            "verified_customer": true,
+            "icon": "chart"
+          }
+        },
+        {
+          "type": "result",
+          "settings": {
+            "result_title": "Daily confidence",
+            "before_value": "Inconsistent",
+            "after_value": "All-day",
+            "impact_label": "Consistent results",
+            "progress_percent": 80,
+            "result_description": "<p>A simple routine that actually sticks.</p>",
+            "customer_name": "Elena R.",
+            "customer_context": "Mom of 2",
+            "verified_customer": true,
+            "icon": "spark"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

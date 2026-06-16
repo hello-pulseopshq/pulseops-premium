@@ -1,0 +1,40 @@
+{%- comment -%}
+  SP Motion — class helper for Liquid templates.
+
+  Usage:
+    <div class="my-card{% render 'sp-motion-class', type: 'fade-up' %}">
+    <article class="sp-benefits__card{% render 'sp-motion-class', type: 'stagger-item' %}">
+    <a class="button{% render 'sp-motion-class', type: 'hover-button' %}">
+
+  Types:
+    fade-in | fade-up | stagger | stagger-item | hover-card | hover-card-subtle | hover-image | hover-button
+
+  Returns empty string when motion is disabled.
+{%- endcomment -%}
+{%- liquid
+  assign motion = settings.sp_motion_style | default: 'balanced'
+  assign output = ''
+
+  unless motion == 'disabled'
+  case type
+    when 'fade-in'
+      assign output = ' sp-reveal sp-reveal--fade-in'
+    when 'fade-up'
+      assign output = ' sp-reveal sp-reveal--fade-up'
+    when 'stagger'
+      assign output = ' sp-stagger'
+    when 'stagger-item'
+      assign output = ' sp-stagger__item sp-reveal sp-reveal--fade-up'
+    when 'hover-card'
+      assign output = ' sp-hover-card'
+    when 'hover-card-subtle'
+      assign output = ' sp-hover-card sp-hover-card--subtle'
+    when 'hover-image'
+      assign output = ' sp-hover-image'
+    when 'hover-button'
+      assign output = ' sp-hover-button'
+  endcase
+  endunless
+
+  echo output
+-%}

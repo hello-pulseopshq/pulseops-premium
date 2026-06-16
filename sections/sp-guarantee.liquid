@@ -1,0 +1,568 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .sp-guarantee {
+    --sp-guarantee-gap-sm: 1.2rem;
+    --sp-guarantee-gap-md: 1.6rem;
+    --sp-guarantee-gap-lg: 2.4rem;
+    --sp-guarantee-radius: 1.6rem;
+    --sp-guarantee-max-width: 72rem;
+    --sp-guarantee-card-padding: 2.4rem 2rem;
+    --sp-guarantee-icon-size: 3.2rem;
+  }
+
+  .sp-guarantee__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-guarantee-gap-md);
+    max-width: var(--sp-guarantee-max-width);
+    margin: 0 auto;
+    padding: var(--sp-guarantee-card-padding);
+    border-radius: var(--sp-guarantee-radius);
+    text-align: center;
+  }
+
+  .sp-guarantee__card--none {
+    background: transparent;
+    border: 0.1rem solid rgba(var(--color-foreground), 0.1);
+  }
+
+  .sp-guarantee__card--subtle {
+    border: 0.1rem solid rgba(var(--color-foreground), 0.12);
+    background: rgba(var(--color-foreground), 0.04);
+  }
+
+  .sp-guarantee__card--gradient {
+    border: 0.1rem solid rgba(var(--color-foreground), 0.14);
+    background: linear-gradient(
+      180deg,
+      rgba(var(--color-foreground), 0.08) 0%,
+      rgba(var(--color-foreground), 0.02) 100%
+    );
+  }
+
+  .sp-guarantee__badge {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+    padding: 0.45rem 1.2rem;
+    border-radius: 99rem;
+    background: rgb(var(--color-foreground));
+    color: rgb(var(--color-background));
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+
+  .sp-guarantee__icon {
+    width: var(--sp-guarantee-icon-size);
+    height: var(--sp-guarantee-icon-size);
+    color: rgb(var(--color-foreground));
+    flex-shrink: 0;
+  }
+
+  .sp-guarantee__icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .sp-guarantee__heading {
+    margin: 0;
+    max-width: 52rem;
+    line-height: 1.2;
+  }
+
+  .sp-guarantee__subheading {
+    margin: 0;
+    max-width: 48rem;
+    opacity: 0.82;
+  }
+
+  .sp-guarantee__subheading > :first-child {
+    margin-top: 0;
+  }
+
+  .sp-guarantee__subheading > :last-child {
+    margin-bottom: 0;
+  }
+
+  .sp-guarantee__steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--sp-guarantee-gap-sm);
+    width: 100%;
+    max-width: 56rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .sp-guarantee__step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 1.2rem 1rem;
+    border-radius: calc(var(--sp-guarantee-radius) * 0.75);
+    background: rgba(var(--color-background), 0.5);
+    border: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  }
+
+  .sp-guarantee__step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    background: rgba(var(--color-foreground), 0.1);
+    font-weight: 600;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .sp-guarantee__step-title {
+    margin: 0;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .sp-guarantee__step-description {
+    margin: 0;
+    opacity: 0.75;
+    font-size: 0.95em;
+    line-height: 1.4;
+  }
+
+  .sp-guarantee__step-description > :first-child {
+    margin-top: 0;
+  }
+
+  .sp-guarantee__step-description > :last-child {
+    margin-bottom: 0;
+  }
+
+  .sp-guarantee__trust-note {
+    margin: 0;
+    max-width: 44rem;
+    opacity: 0.62;
+  }
+
+  .sp-guarantee__empty-state {
+    margin: 0 auto;
+    max-width: var(--sp-guarantee-max-width);
+    padding: 2rem 1.6rem;
+    border: 0.1rem dashed rgba(var(--color-foreground), 0.2);
+    border-radius: var(--sp-guarantee-radius);
+    text-align: center;
+    opacity: 0.72;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+
+    .sp-guarantee__card {
+      padding: 3.2rem 4rem;
+      gap: var(--sp-guarantee-gap-lg);
+    }
+
+    .sp-guarantee__steps {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--sp-guarantee-gap-md);
+    }
+  }
+{%- endstyle -%}
+
+{% render 'sp-section-hierarchy-open', section: section %}
+    <div class="sp-guarantee">
+      {%- liquid
+        assign heading_stripped = section.settings.heading | strip_html | strip
+        assign subheading_stripped = section.settings.subheading | strip_html | strip
+        assign badge_stripped = section.settings.badge_text | strip
+        assign trust_stripped = section.settings.trust_note | strip
+      -%}
+
+      {%- assign valid_steps = 0 -%}
+      {%- capture steps_list -%}
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign step_title_stripped = block.settings.step_title | strip
+            assign step_description_stripped = block.settings.step_description | strip_html | strip
+          -%}
+          {%- if step_title_stripped != blank or step_description_stripped != blank -%}
+            {%- assign valid_steps = valid_steps | plus: 1 -%}
+            {%- assign step_number = valid_steps -%}
+            <li class="sp-guarantee__step" {{ block.shopify_attributes }}>
+              <span class="sp-guarantee__step-number" aria-hidden="true">{{ step_number }}</span>
+              <span class="visually-hidden">Step {{ step_number }}</span>
+              {%- if step_title_stripped != blank -%}
+                <h3 class="sp-guarantee__step-title h5">
+                  {{ step_title_stripped | escape }}
+                </h3>
+              {%- endif -%}
+              {%- if step_description_stripped != blank -%}
+                <div class="sp-guarantee__step-description rte">
+                  {{ block.settings.step_description }}
+                </div>
+              {%- endif -%}
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endcapture -%}
+
+      {%- assign has_content = false -%}
+      {%- if badge_stripped != blank or heading_stripped != blank or subheading_stripped != blank or trust_stripped != blank or valid_steps > 0 -%}
+        {%- assign has_content = true -%}
+      {%- endif -%}
+
+      {%- if has_content -%}
+        <article
+          class="sp-guarantee__card sp-guarantee__card--{{ section.settings.background_style }}{% render 'sp-motion-class', type: 'fade-up' %}"
+        >
+          {%- if badge_stripped != blank -%}
+            <p class="sp-guarantee__badge caption-with-letter-spacing">
+              {{ badge_stripped | escape }}
+            </p>
+          {%- endif -%}
+
+          {%- if section.settings.show_icon -%}
+            <span class="sp-guarantee__icon" aria-hidden="true">
+              {%- case section.settings.icon -%}
+                {%- when 'check' -%}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false">
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <path d="M8 12.5 10.5 15 16 9"></path>
+                  </svg>
+                {%- when 'lock' -%}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false">
+                    <rect x="5" y="11" width="14" height="10" rx="2"></rect>
+                    <path d="M8 11V8a4 4 0 0 1 8 0v3"></path>
+                  </svg>
+                {%- else -%}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false">
+                    <path d="M12 3 4 6.5v5.2c0 4.2 3.2 8.1 8 9.3 4.8-1.2 8-5.1 8-9.3V6.5z"></path>
+                    <path d="M9.5 12.5 11 14l3.5-3.5"></path>
+                  </svg>
+              {%- endcase -%}
+            </span>
+          {%- endif -%}
+
+          {%- if heading_stripped != blank -%}
+            <h2 class="sp-guarantee__heading inline-richtext h1">
+              {{ section.settings.heading }}
+            </h2>
+          {%- endif -%}
+
+          {%- if subheading_stripped != blank -%}
+            <div class="sp-guarantee__subheading rte">
+              {{ section.settings.subheading }}
+            </div>
+          {%- endif -%}
+
+          {%- if valid_steps > 0 -%}
+            <ol class="sp-guarantee__steps" role="list">
+              {{ steps_list }}
+            </ol>
+          {%- endif -%}
+
+          {%- if trust_stripped != blank -%}
+            <p class="sp-guarantee__trust-note caption">
+              {{ trust_stripped | escape }}
+            </p>
+          {%- endif -%}
+        </article>
+      {%- elsif request.design_mode -%}
+        <div class="sp-guarantee__empty-state">
+          Add a guarantee badge, heading, or step blocks to display your risk-reversal message.
+        </div>
+      {%- endif -%}
+    </div>
+{% render 'sp-section-hierarchy-close' %}
+
+{% schema %}
+{
+  "name": "SP Guarantee",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 3,
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge_text",
+      "default": "30-Day Money Back Guarantee",
+      "label": "Guarantee badge text"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Try it risk-free",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "default": "<p>Love it or get a full refund. No hoops, no hassle.</p>",
+      "label": "Subheading"
+    },
+    {
+      "type": "header",
+      "content": "Icon"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_icon",
+      "default": true,
+      "label": "Show icon"
+    },
+    {
+      "type": "select",
+      "id": "icon",
+      "label": "Icon",
+      "default": "shield",
+      "options": [
+        {
+          "value": "shield",
+          "label": "Shield"
+        },
+        {
+          "value": "check",
+          "label": "Check"
+        },
+        {
+          "value": "lock",
+          "label": "Lock"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "trust_note",
+      "label": "Trust note",
+      "default": "Refund processed within 5 business days of approval.",
+      "info": "Small caption shown below the steps."
+    },
+    {
+      "type": "select",
+      "id": "background_style",
+      "label": "Background style",
+      "default": "gradient",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "subtle",
+          "label": "Subtle tint"
+        },
+        {
+          "value": "gradient",
+          "label": "Gradient"
+        }
+      ]
+    },
+{
+    "type": "header",
+    "content": "Visual hierarchy"
+  },
+  {
+    "type": "select",
+    "id": "sp_surface_style",
+    "label": "Surface style",
+    "default": "default",
+    "info": "Inverse uses the inverse color scheme from Theme settings → SP Visual hierarchy instead of the section Color scheme below.",
+    "options": [
+      {
+        "value": "default",
+        "label": "Default"
+      },
+      {
+        "value": "alternate",
+        "label": "Alternate"
+      },
+      {
+        "value": "inverse",
+        "label": "Inverse"
+      },
+      {
+        "value": "accent",
+        "label": "Accent"
+      },
+      {
+        "value": "transparent",
+        "label": "Transparent"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_width_mode",
+    "label": "Width mode",
+    "default": "contained",
+    "options": [
+      {
+        "value": "contained",
+        "label": "Contained"
+      },
+      {
+        "value": "wide",
+        "label": "Wide"
+      },
+      {
+        "value": "full",
+        "label": "Full width"
+      },
+      {
+        "value": "bleed",
+        "label": "Bleed"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_section_emphasis",
+    "label": "Section emphasis",
+    "default": "normal",
+    "options": [
+      {
+        "value": "normal",
+        "label": "Normal"
+      },
+      {
+        "value": "elevated",
+        "label": "Elevated"
+      },
+      {
+        "value": "feature",
+        "label": "Feature"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_divider_style",
+    "label": "Divider",
+    "default": "none",
+    "options": [
+      {
+        "value": "none",
+        "label": "None"
+      },
+      {
+        "value": "line",
+        "label": "Line"
+      },
+      {
+        "value": "gradient",
+        "label": "Gradient"
+      },
+      {
+        "value": "fade",
+        "label": "Fade"
+      }
+    ]
+  },
+
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "info": "Not applied when Surface style is set to Inverse.",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "text",
+          "id": "step_title",
+          "default": "Try it",
+          "label": "Step title"
+        },
+        {
+          "type": "richtext",
+          "id": "step_description",
+          "label": "Step description",
+          "info": "Keep this short for scannability."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SP Guarantee",
+      "settings": {
+        "badge_text": "30-Day Money Back Guarantee",
+        "heading": "Try it risk-free",
+        "subheading": "<p>Love it or get a full refund. No hoops, no hassle.</p>",
+        "show_icon": true,
+        "icon": "shield",
+        "trust_note": "Refund processed within 5 business days of approval.",
+        "background_style": "gradient"
+      },
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "step_title": "Try it",
+            "step_description": "<p>Use it daily for up to 30 days.</p>"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step_title": "Love it",
+            "step_description": "<p>Feel the difference — or move to step three.</p>"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step_title": "Refund",
+            "step_description": "<p>Not satisfied? Email us for a full refund.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

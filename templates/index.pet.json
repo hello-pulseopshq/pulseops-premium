@@ -1,0 +1,409 @@
+{
+  "sections": {
+    "sp-hero": {
+      "type": "sp-hero",
+      "blocks": {
+        "benefit-chip-1": {
+          "type": "benefit_chip",
+          "settings": {
+            "benefit_text": "Vet Inspired"
+          }
+        },
+        "benefit-chip-2": {
+          "type": "benefit_chip",
+          "settings": {
+            "benefit_text": "30-Day Guarantee"
+          }
+        },
+        "benefit-chip-3": {
+          "type": "benefit_chip",
+          "settings": {
+            "benefit_text": "4.9★ Rated"
+          }
+        },
+        "cta-trust-1": {
+          "type": "cta_trust_item",
+          "settings": {
+            "icon": "guarantee",
+            "text": "30-day money-back guarantee"
+          }
+        },
+        "cta-trust-2": {
+          "type": "cta_trust_item",
+          "settings": {
+            "icon": "secure",
+            "text": "Secure checkout"
+          }
+        }
+      },
+      "block_order": [
+        "benefit-chip-1",
+        "benefit-chip-2",
+        "benefit-chip-3",
+        "cta-trust-1",
+        "cta-trust-2"
+      ],
+      "settings": {
+        "show_announcement": true,
+        "announcement_text": "Made in the USA · Free shipping on orders over $35",
+        "headline": "Help your dog stay calm with <strong>Daily Calm Chews</strong>",
+        "headline_highlight_style": "underline",
+        "subheadline": "Vet-inspired soft chews with chamomile, L-theanine, and hemp seed oil — formulated for anxious moments, travel, and everyday wellness.",
+        "price_source": "custom",
+        "cta_type": "custom_link",
+        "cta_label": "Shop Daily Calm",
+        "cta_link": "shopify://collections/all",
+        "show_cta_trust_stack": true,
+        "show_social_proof": false,
+        "social_proof_text": "",
+        "show_social_rating": true,
+        "social_rating_value": "4.9/5",
+        "show_social_review_count": true,
+        "social_review_count": [
+          {
+            "text": "My rescue finally relaxes during thunderstorms. Game changer for our household.",
+            "name": "Lisa K.",
+            "location": "Phoenix, AZ"
+          },
+          {
+            "text": "He thinks they are treats. I think they are magic. Everyone wins.",
+            "name": "Tom B.",
+            "location": "Dallas, TX"
+          },
+          {
+            "text": "Road trips used to be stressful. Now she sleeps in the back seat peacefully.",
+            "name": "Amy S.",
+            "location": "Charlotte, NC"
+          }
+        ],
+        "layout_preset": "classic_split",
+        "show_trust_microcopy": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "price_text": "$34.95"
+      }
+    },
+    "sp-metrics": {
+      "type": "sp-metrics",
+      "blocks": {
+        "metric-1": {
+          "type": "metric",
+          "settings": {
+            "value": "22,000+",
+            "label": "Pet parents"
+          }
+        },
+        "metric-2": {
+          "type": "metric",
+          "settings": {
+            "value": "4.9★",
+            "label": "Average rating"
+          }
+        },
+        "metric-3": {
+          "type": "metric",
+          "settings": {
+            "value": "4,700+",
+            "label": "Verified reviews"
+          }
+        },
+        "metric-4": {
+          "type": "metric",
+          "settings": {
+            "value": "30-day guarantee",
+            "label": "Money-back guarantee"
+          }
+        }
+      },
+      "block_order": [
+        "metric-1",
+        "metric-2",
+        "metric-3",
+        "metric-4"
+      ],
+      "settings": {
+        "heading": "Trusted by pet parents",
+        "subheading": "<p>Safe, daily-use support that dogs actually enjoy taking.</p>",
+        "content_alignment": "center",
+        "desktop_columns": "4",
+        "show_band": true,
+        "show_dividers": true,
+        "mobile_layout": "swipe",
+        "sp_surface_style": "alternate",
+        "sp_divider_style": "line",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "sp-benefits": {
+      "type": "sp-benefits",
+      "blocks": {
+        "benefit-1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "check",
+            "title": "Vet-inspired formula",
+            "description": "<p>Chamomile, L-theanine, and hemp seed oil in safe, weight-based dosing.</p>"
+          }
+        },
+        "benefit-2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "truck",
+            "title": "Ships within 24 hours",
+            "description": "<p>Fresh chews shipped in temperature-safe packaging.</p>"
+          }
+        },
+        "benefit-3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shield",
+            "title": "30-day guarantee",
+            "description": "<p>Not seeing results? Full refund within 30 days.</p>"
+          }
+        },
+        "benefit-4": {
+          "type": "benefit",
+          "settings": {
+            "icon": "star",
+            "title": "4.9★ pet approved",
+            "description": "<p>22,000+ pet parents and 4,700+ verified reviews.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "benefit-1",
+        "benefit-2",
+        "benefit-3",
+        "benefit-4"
+      ],
+      "settings": {
+        "heading": "Why dogs (and owners) love Daily Calm",
+        "subheading": "<p>Clean ingredients, transparent dosing, and a taste dogs beg for.</p>",
+        "content_alignment": "center",
+        "desktop_columns": "4",
+        "card_style": "subtle",
+        "mobile_layout": "swipe",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "sp-features": {
+      "type": "sp-features",
+      "blocks": {
+        "feature-1": {
+          "type": "feature",
+          "settings": {
+            "title": "For anxious moments and daily wellness",
+            "description": "<p>Supports calm behavior during storms, travel, separation, and vet visits.</p>",
+            "bullet_1": "Weight-based dosing chart included",
+            "bullet_2": "Soft chew dogs love",
+            "bullet_3": "No artificial colors or flavors"
+          }
+        },
+        "feature-2": {
+          "type": "feature",
+          "settings": {
+            "title": "Made with pet safety first",
+            "description": "<p>Manufactured in a NASC-certified facility with batch-level testing.</p>",
+            "bullet_1": "Made in the USA",
+            "bullet_2": "Third-party tested every batch",
+            "bullet_3": "Safe for daily long-term use"
+          }
+        }
+      },
+      "block_order": [
+        "feature-1",
+        "feature-2"
+      ],
+      "settings": {
+        "heading": "Calm support made simple",
+        "subheading": "<p>One chew daily based on your dog's weight — no pills, no mess.</p>",
+        "content_alignment": "left",
+        "image_ratio": "portrait",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "sp-scientific-proof": {
+      "type": "sp-scientific-proof",
+      "blocks": {
+        "proof-1": {
+          "type": "proof",
+          "settings": {
+            "statistic": "89%",
+            "presentation": "statistic",
+            "description": "<p>Of pet parents reported calmer behavior within 2 weeks.</p>",
+            "icon": "chart",
+            "source": "Pet parent survey",
+            "footnote": ""
+          }
+        },
+        "proof-2": {
+          "type": "proof",
+          "settings": {
+            "statistic": "NASC certified",
+            "presentation": "certification",
+            "description": "<p>Manufactured in a NASC-audited facility for supplement quality.</p>",
+            "icon": "shield",
+            "source": "NASC audit",
+            "footnote": ""
+          }
+        },
+        "proof-3": {
+          "type": "proof",
+          "settings": {
+            "statistic": "Vet reviewed",
+            "presentation": "certification",
+            "description": "<p>Formula reviewed by practicing veterinarians for safety and dosing.</p>",
+            "icon": "certificate",
+            "source": "Veterinary advisory panel",
+            "footnote": ""
+          }
+        }
+      },
+      "block_order": [
+        "proof-1",
+        "proof-2",
+        "proof-3"
+      ],
+      "settings": {
+        "heading": "Safety and quality tested",
+        "subheading": "<p>Standards pet parents expect from a supplement they give every day.</p>",
+        "content_alignment": "center",
+        "desktop_columns": "3",
+        "card_style": "elevated",
+        "mobile_layout": "swipe",
+        "sp_surface_style": "default",
+        "sp_divider_style": "line",
+        "padding_top": 64,
+        "padding_bottom": 48
+      }
+    },
+    "sp-social-proof": {
+      "type": "sp-social-proof",
+      "blocks": {
+        "review-1": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "<p>My rescue finally relaxes during thunderstorms. Game changer for our household.</p>",
+            "customer_name": "Lisa K.",
+            "customer_title": "Phoenix, AZ",
+            "verified": true
+          }
+        },
+        "review-2": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "<p>He thinks they are treats. I think they are magic. Everyone wins.</p>",
+            "customer_name": "Tom B.",
+            "customer_title": "Dallas, TX",
+            "verified": true
+          }
+        },
+        "review-3": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "<p>Road trips used to be stressful. Now she sleeps in the back seat peacefully.</p>",
+            "customer_name": "Amy S.",
+            "customer_title": "Charlotte, NC",
+            "verified": true
+          }
+        }
+      },
+      "block_order": [
+        "review-1",
+        "review-2",
+        "review-3"
+      ],
+      "settings": {
+        "heading": "4,700+ verified reviews · 4.9★ average",
+        "subheading": "<p>Pet parents who found a calmer daily routine for their dogs.</p>",
+        "content_alignment": "center",
+        "desktop_columns": "3",
+        "mobile_layout": "swipe",
+        "sp_surface_style": "alternate",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "sp-faq": {
+      "type": "sp-faq",
+      "blocks": {
+        "faq-1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How many chews should I give my dog?",
+            "answer": "<p>Use the weight chart on the label: 1 chew for dogs under 25 lbs, 2 for 25–50 lbs, 3 for 50+ lbs daily.</p>"
+          }
+        },
+        "faq-2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Are these safe for puppies?",
+            "answer": "<p>Safe for dogs 12 weeks and older. Consult your vet for puppies under 12 weeks.</p>"
+          }
+        },
+        "faq-3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What ingredients are included?",
+            "answer": "<p>Chamomile extract, L-theanine, hemp seed oil, and natural chicken flavor. Full label on product page.</p>"
+          }
+        },
+        "faq-4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "<p>30-day money-back guarantee. If Daily Calm is not right for your dog, contact support for a full refund.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq-1",
+        "faq-2",
+        "faq-3",
+        "faq-4"
+      ],
+      "settings": {
+        "heading": "Pet parent questions",
+        "subheading": "<p>Dosing, safety, ingredients, and returns.</p>",
+        "content_alignment": "center",
+        "open_first_item": true,
+        "padding_top": 64,
+        "padding_bottom": 48
+      }
+    },
+    "sp-cta-offer": {
+      "type": "sp-cta-offer",
+      "settings": {
+        "heading": "Give your dog the calm they deserve",
+        "subheading": "<p>Join 22,000+ pet parents trusting Daily Calm Chews.</p>",
+        "offer_text": "$34.95 · Free shipping included",
+        "button_label": "Shop Daily Calm",
+        "button_link": "shopify://collections/all",
+        "reassurance_text": "30-day money-back guarantee",
+        "show_badge": true,
+        "badge_text": "Vet favorite",
+        "card_style": "gradient",
+        "sp_surface_style": "inverse",
+        "sp_section_emphasis": "feature",
+        "padding_top": 64,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "sp-hero",
+    "sp-metrics",
+    "sp-benefits",
+    "sp-features",
+    "sp-scientific-proof",
+    "sp-social-proof",
+    "sp-faq",
+    "sp-cta-offer"
+  ]
+}

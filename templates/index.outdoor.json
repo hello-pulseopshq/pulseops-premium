@@ -49,7 +49,6 @@
         "headline": "Ride farther with the <strong>Collection Snowboard: Liquid</strong>",
         "headline_highlight_style": "underline",
         "subheadline": "All-mountain freestyle performance with a lightweight core, buttery flex, and edge control you can feel from the first run.",
-        "featured_product": "the-collection-snowboard-liquid",
         "price_source": "product",
         "cta_type": "custom_link",
         "cta_label": "Shop Liquid",
@@ -60,11 +59,28 @@
         "show_social_rating": true,
         "social_rating_value": "4.9/5",
         "show_social_review_count": true,
-        "social_review_count": "12,000+ reviews",
+        "social_review_count": [
+          {
+            "text": "Best board I have ridden in years. Buttery in the park, stable when charging groomers.",
+            "name": "Ryan P.",
+            "location": "Boulder, CO"
+          },
+          {
+            "text": "Light underfoot with serious edge hold. My go-to board for pipe to powder.",
+            "name": "Mike T.",
+            "location": "Salt Lake City, UT"
+          },
+          {
+            "text": "Worth every penny. Arrived fast and rode it the next morning.",
+            "name": "Anna L.",
+            "location": "Seattle, WA"
+          }
+        ],
         "layout_preset": "classic_split",
         "show_trust_microcopy": false,
         "padding_top": 0,
-        "padding_bottom": 0
+        "padding_bottom": 0,
+        "featured_product": "the-collection-snowboard-liquid"
       }
     },
     "sp-metrics": {
@@ -94,7 +110,7 @@
         "metric-4": {
           "type": "metric",
           "settings": {
-            "value": "30-day",
+            "value": "30-day guarantee",
             "label": "Money-back guarantee"
           }
         }
@@ -107,7 +123,7 @@
       ],
       "settings": {
         "heading": "Trusted on every mountain",
-        "subheading": "<p>From first chair to last lap, Liquid Collection riders count on consistent performance season after season.</p>",
+        "subheading": "<p>From first chair to last lap, Liquid riders count on consistent performance season after season.</p>",
         "content_alignment": "center",
         "desktop_columns": "4",
         "show_band": true,
@@ -151,7 +167,7 @@
           "settings": {
             "icon": "star",
             "title": "4.9★ rider approved",
-            "description": "<p>Trusted by 50,000+ riders and backed by 12,000+ verified reviews.</p>"
+            "description": "<p>50,000+ riders and 12,000+ verified reviews.</p>"
           }
         }
       },
@@ -202,11 +218,66 @@
       ],
       "settings": {
         "heading": "Performance you can feel",
-        "subheading": "<p>Every detail of the Collection Snowboard: Liquid is tuned for riders who demand more from their setup.</p>",
+        "subheading": "<p>Every detail tuned for riders who demand more from their setup.</p>",
         "content_alignment": "left",
         "image_ratio": "landscape",
         "padding_top": 64,
         "padding_bottom": 64
+      }
+    },
+    "sp-scientific-proof": {
+      "type": "sp-scientific-proof",
+      "blocks": {
+        "proof-1": {
+          "type": "proof",
+          "settings": {
+            "statistic": "40%",
+            "presentation": "statistic",
+            "description": "<p>Lighter than comparable all-mountain boards in independent flex testing.</p>",
+            "icon": "chart",
+            "source": "PulseOps lab testing",
+            "footnote": ""
+          }
+        },
+        "proof-2": {
+          "type": "proof",
+          "settings": {
+            "statistic": "ISO certified",
+            "presentation": "certification",
+            "description": "<p>Manufactured in an ISO-certified facility with batch-level quality control.</p>",
+            "icon": "shield",
+            "source": "Factory certification",
+            "footnote": ""
+          }
+        },
+        "proof-3": {
+          "type": "proof",
+          "settings": {
+            "statistic": "Pro-grade edges",
+            "presentation": "certification",
+            "description": "<p>Factory-tuned steel edges tested for edge hold and durability.</p>",
+            "icon": "certificate",
+            "source": "Quality assurance",
+            "footnote": ""
+          }
+        }
+      },
+      "block_order": [
+        "proof-1",
+        "proof-2",
+        "proof-3"
+      ],
+      "settings": {
+        "heading": "Engineered with purpose",
+        "subheading": "<p>Materials, manufacturing, and quality controls chosen for riders who notice the difference.</p>",
+        "content_alignment": "center",
+        "desktop_columns": "3",
+        "card_style": "elevated",
+        "mobile_layout": "swipe",
+        "sp_surface_style": "default",
+        "sp_divider_style": "line",
+        "padding_top": 64,
+        "padding_bottom": 48
       }
     },
     "sp-social-proof": {
@@ -216,9 +287,9 @@
           "type": "review",
           "settings": {
             "rating": 5,
-            "review_text": "<p>Best board I have ridden in years. Buttery in the park, stable when I am charging groomers.</p>",
-            "customer_name": "Sarah M.",
-            "customer_title": "Bend, OR",
+            "review_text": "<p>Best board I have ridden in years. Buttery in the park, stable when charging groomers.</p>",
+            "customer_name": "Ryan P.",
+            "customer_title": "Boulder, CO",
             "verified": true
           }
         },
@@ -226,9 +297,9 @@
           "type": "review",
           "settings": {
             "rating": 5,
-            "review_text": "<p>Light underfoot with serious edge hold. My go-to board for everything from pipe to powder.</p>",
-            "customer_name": "James T.",
-            "customer_title": "Park City, UT",
+            "review_text": "<p>Light underfoot with serious edge hold. My go-to board for pipe to powder.</p>",
+            "customer_name": "Mike T.",
+            "customer_title": "Salt Lake City, UT",
             "verified": true
           }
         },
@@ -236,9 +307,9 @@
           "type": "review",
           "settings": {
             "rating": 5,
-            "review_text": "<p>Worth every penny. Arrived fast, rode it the next morning, and have not looked back.</p>",
-            "customer_name": "Emily R.",
-            "customer_title": "Denver, CO",
+            "review_text": "<p>Worth every penny. Arrived fast and rode it the next morning.</p>",
+            "customer_name": "Anna L.",
+            "customer_title": "Seattle, WA",
             "verified": true
           }
         }
@@ -265,29 +336,29 @@
         "faq-1": {
           "type": "faq_item",
           "settings": {
-            "question": "How long does shipping take?",
-            "answer": "<p>Most orders ship within 24 hours and arrive in 3 to 5 business days. Express shipping is available at checkout.</p>"
+            "question": "What length should I choose?",
+            "answer": "<p>Choose a board that reaches between your chin and nose when stood on end. Contact our team for a personalized sizing recommendation.</p>"
           }
         },
         "faq-2": {
           "type": "faq_item",
           "settings": {
-            "question": "What is your return policy?",
-            "answer": "<p>Every board is covered by our 30-day money-back guarantee. If it is not the right fit, contact support for a full refund or exchange.</p>"
+            "question": "How long does shipping take?",
+            "answer": "<p>Most orders ship within 24 hours and arrive in 3 to 5 business days.</p>"
           }
         },
         "faq-3": {
           "type": "faq_item",
           "settings": {
-            "question": "What length should I choose?",
-            "answer": "<p>Choose a board that reaches between your chin and nose when stood on end. Contact our team if you want a personalized sizing recommendation.</p>"
+            "question": "What is your return policy?",
+            "answer": "<p>Every board is covered by our 30-day money-back guarantee.</p>"
           }
         },
         "faq-4": {
           "type": "faq_item",
           "settings": {
-            "question": "How do I contact support?",
-            "answer": "<p>Reach us via live chat or email at support@pulseopslabs.com. We typically respond within a few hours.</p>"
+            "question": "Does it come with a warranty?",
+            "answer": "<p>Yes. Every purchase includes a limited warranty covering manufacturing defects and normal use.</p>"
           }
         }
       },
@@ -299,7 +370,7 @@
       ],
       "settings": {
         "heading": "Questions before you ride?",
-        "subheading": "<p>Everything you need to know about sizing, shipping, and our 30-day guarantee.</p>",
+        "subheading": "<p>Sizing, shipping, and our 30-day guarantee explained.</p>",
         "content_alignment": "center",
         "open_first_item": true,
         "padding_top": 64,
@@ -330,6 +401,7 @@
     "sp-metrics",
     "sp-benefits",
     "sp-features",
+    "sp-scientific-proof",
     "sp-social-proof",
     "sp-faq",
     "sp-cta-offer"

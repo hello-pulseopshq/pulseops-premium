@@ -1,0 +1,55 @@
+[
+  {
+    "type": "header",
+    "content": "Visual hierarchy"
+  },
+  {
+    "type": "select",
+    "id": "sp_surface_style",
+    "label": "Surface style",
+    "default": "default",
+    "info": "Inverse uses the inverse color scheme from Theme settings → SP Visual hierarchy instead of the section Color scheme below.",
+    "options": [
+      { "value": "default", "label": "Default" },
+      { "value": "alternate", "label": "Alternate" },
+      { "value": "inverse", "label": "Inverse" },
+      { "value": "accent", "label": "Accent" },
+      { "value": "transparent", "label": "Transparent" }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_width_mode",
+    "label": "Width mode",
+    "default": "contained",
+    "options": [
+      { "value": "contained", "label": "Contained" },
+      { "value": "wide", "label": "Wide" },
+      { "value": "full", "label": "Full width" },
+      { "value": "bleed", "label": "Bleed" }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_section_emphasis",
+    "label": "Section emphasis",
+    "default": "normal",
+    "options": [
+      { "value": "normal", "label": "Normal" },
+      { "value": "elevated", "label": "Elevated" },
+      { "value": "feature", "label": "Feature" }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_divider_style",
+    "label": "Divider",
+    "default": "none",
+    "options": [
+      { "value": "none", "label": "None" },
+      { "value": "line", "label": "Line" },
+      { "value": "gradient", "label": "Gradient" },
+      { "value": "fade", "label": "Fade" }
+    ]
+  }
+]

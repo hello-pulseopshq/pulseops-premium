@@ -1,0 +1,501 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .sp-faq {
+    --sp-faq-gap-sm: 1.2rem;
+    --sp-faq-gap-lg: 2.4rem;
+    --sp-faq-radius: 1.6rem;
+    --sp-faq-item-padding: 1.6rem 2rem;
+    --sp-faq-max-width: 90rem;
+    --sp-faq-icon-size: 2rem;
+    --sp-faq-transition: 0.3s ease;
+  }
+
+  .sp-faq__header {
+    margin-bottom: var(--sp-faq-gap-lg);
+    max-width: var(--sp-faq-max-width);
+  }
+
+  .sp-faq__header--center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .sp-faq__header--center .sp-faq__subheading {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .sp-faq__heading {
+    margin: 0;
+  }
+
+  .sp-faq__subheading {
+    margin-top: var(--sp-faq-gap-sm);
+  }
+
+  .sp-faq__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    width: 100%;
+    max-width: var(--sp-faq-max-width);
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+  }
+
+  .sp-faq__item {
+    border: 0.1rem solid rgba(var(--color-foreground), 0.12);
+    border-radius: var(--sp-faq-radius);
+    background: rgb(var(--color-background));
+    overflow: hidden;
+    transition:
+      border-color var(--sp-faq-transition),
+      background-color var(--sp-faq-transition);
+  }
+
+  .sp-faq__item.is-open {
+    border-color: rgba(var(--color-foreground), 0.22);
+    background: rgba(var(--color-foreground), 0.04);
+  }
+
+  .sp-faq__item-heading {
+    margin: 0;
+  }
+
+  .sp-faq__trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.6rem;
+    width: 100%;
+    min-height: 4.8rem;
+    padding: var(--sp-faq-item-padding);
+    border: none;
+    background: transparent;
+    color: rgb(var(--color-foreground));
+    text-align: left;
+    cursor: pointer;
+    font: inherit;
+  }
+
+  @media (hover: hover) {
+    .sp-faq__trigger:hover {
+      background: rgba(var(--color-foreground), 0.04);
+    }
+
+    .sp-faq__item.is-open .sp-faq__trigger:hover {
+      background: rgba(var(--color-foreground), 0.06);
+    }
+  }
+
+  .sp-faq__question {
+    margin: 0;
+    flex: 1;
+    min-width: 0;
+    line-height: 1.4;
+  }
+
+  .sp-faq__icon {
+    width: var(--sp-faq-icon-size);
+    height: var(--sp-faq-icon-size);
+    flex-shrink: 0;
+    color: rgb(var(--color-foreground));
+  }
+
+  .sp-faq__icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .sp-faq__icon-line--vertical {
+    transform-origin: center;
+    transition: transform var(--sp-faq-transition), opacity var(--sp-faq-transition);
+  }
+
+  .sp-faq__item.is-open .sp-faq__icon-line--vertical {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+
+  .sp-faq__panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows var(--sp-faq-transition);
+  }
+
+  .sp-faq__item.is-open .sp-faq__panel {
+    grid-template-rows: 1fr;
+  }
+
+  .sp-faq__panel-inner {
+    overflow: hidden;
+  }
+
+  .sp-faq__answer {
+    padding: 0 2rem 1.6rem;
+    margin: 0;
+  }
+
+  .sp-faq__answer > :first-child {
+    margin-top: 0;
+  }
+
+  .sp-faq__answer > :last-child {
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{% render 'sp-section-hierarchy-open', section: section %}
+    <div class="sp-faq">
+      {%- liquid
+        assign heading_stripped = section.settings.heading | strip_html | strip
+        assign subheading_stripped = section.settings.subheading | strip_html | strip
+      -%}
+
+      {%- if heading_stripped != blank or subheading_stripped != blank -%}
+        <header class="sp-faq__header sp-faq__header--{{ section.settings.content_alignment }}">
+          {%- if heading_stripped != blank -%}
+            <h2 class="sp-faq__heading inline-richtext h1{% render 'sp-motion-class', type: 'fade-up' %}">
+              {{ section.settings.heading }}
+            </h2>
+          {%- endif -%}
+          {%- if subheading_stripped != blank -%}
+            <div class="sp-faq__subheading rte{% render 'sp-motion-class', type: 'fade-up' %}">
+              {{ section.settings.subheading }}
+            </div>
+          {%- endif -%}
+        </header>
+      {%- endif -%}
+
+      {%- assign valid_items = 0 -%}
+      {%- for block in section.blocks -%}
+        {%- assign question_stripped = block.settings.question | strip -%}
+        {%- if question_stripped != blank -%}
+          {%- assign valid_items = valid_items | plus: 1 -%}
+        {%- endif -%}
+      {%- endfor -%}
+
+      {%- if valid_items > 0 -%}
+        <ul class="sp-faq__list{% render 'sp-motion-class', type: 'stagger' %}" data-sp-stagger data-sp-faq-list>
+          {%- assign first_valid_item = true -%}
+          {%- for block in section.blocks -%}
+            {%- liquid
+              assign question_stripped = block.settings.question | strip
+              assign answer_stripped = block.settings.answer | strip_html | strip
+              assign is_first_open = false
+              if section.settings.open_first_item and first_valid_item and question_stripped != blank
+                assign is_first_open = true
+              endif
+            -%}
+            {%- if question_stripped != blank -%}
+              {%- assign first_valid_item = false -%}
+              {%- assign panel_id = 'SpFaq-panel-' | append: section.id | append: '-' | append: block.id -%}
+              {%- assign trigger_id = 'SpFaq-trigger-' | append: section.id | append: '-' | append: block.id -%}
+              <li
+                class="sp-faq__item{% if is_first_open %} is-open{% endif %}{% render 'sp-motion-class', type: 'stagger-item' %}"
+                {{ block.shopify_attributes }}
+              >
+                <h3 class="sp-faq__item-heading h4">
+                  <button
+                    type="button"
+                    class="sp-faq__trigger"
+                    id="{{ trigger_id }}"
+                    aria-expanded="{% if is_first_open %}true{% else %}false{% endif %}"
+                    aria-controls="{{ panel_id }}"
+                  >
+                    <span class="sp-faq__question">{{ block.settings.question | escape }}</span>
+                    <span class="sp-faq__icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path class="sp-faq__icon-line--horizontal" d="M5 12h14"></path>
+                        <path class="sp-faq__icon-line--vertical" d="M12 5v14"></path>
+                      </svg>
+                    </span>
+                  </button>
+                </h3>
+
+                <div
+                  id="{{ panel_id }}"
+                  class="sp-faq__panel"
+                  role="region"
+                  aria-labelledby="{{ trigger_id }}"
+                  aria-hidden="{% if is_first_open %}false{% else %}true{% endif %}"
+                >
+                  <div class="sp-faq__panel-inner">
+                    {%- if answer_stripped != blank -%}
+                      <div class="sp-faq__answer rte">
+                        {{ block.settings.answer }}
+                      </div>
+                    {%- endif -%}
+                  </div>
+                </div>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      {%- elsif request.design_mode -%}
+        <div class="sp-faq__empty-state">
+          Add FAQ item blocks to display frequently asked questions.
+        </div>
+      {%- endif -%}
+    </div>
+{% render 'sp-section-hierarchy-close' %}
+
+<script src="{{ 'sp-faq.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "SP FAQ",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 15,
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Frequently asked questions",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "default": "<p>Everything you need to know before you buy.</p>",
+      "label": "Subheading"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ],
+      "default": "left",
+      "label": "Content alignment"
+    },
+    {
+      "type": "checkbox",
+      "id": "open_first_item",
+      "default": false,
+      "label": "Open first item by default"
+    },
+{
+    "type": "header",
+    "content": "Visual hierarchy"
+  },
+  {
+    "type": "select",
+    "id": "sp_surface_style",
+    "label": "Surface style",
+    "default": "default",
+    "info": "Inverse uses the inverse color scheme from Theme settings → SP Visual hierarchy instead of the section Color scheme below.",
+    "options": [
+      {
+        "value": "default",
+        "label": "Default"
+      },
+      {
+        "value": "alternate",
+        "label": "Alternate"
+      },
+      {
+        "value": "inverse",
+        "label": "Inverse"
+      },
+      {
+        "value": "accent",
+        "label": "Accent"
+      },
+      {
+        "value": "transparent",
+        "label": "Transparent"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_width_mode",
+    "label": "Width mode",
+    "default": "contained",
+    "options": [
+      {
+        "value": "contained",
+        "label": "Contained"
+      },
+      {
+        "value": "wide",
+        "label": "Wide"
+      },
+      {
+        "value": "full",
+        "label": "Full width"
+      },
+      {
+        "value": "bleed",
+        "label": "Bleed"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_section_emphasis",
+    "label": "Section emphasis",
+    "default": "normal",
+    "options": [
+      {
+        "value": "normal",
+        "label": "Normal"
+      },
+      {
+        "value": "elevated",
+        "label": "Elevated"
+      },
+      {
+        "value": "feature",
+        "label": "Feature"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_divider_style",
+    "label": "Divider",
+    "default": "none",
+    "options": [
+      {
+        "value": "none",
+        "label": "None"
+      },
+      {
+        "value": "line",
+        "label": "Line"
+      },
+      {
+        "value": "gradient",
+        "label": "Gradient"
+      },
+      {
+        "value": "fade",
+        "label": "Fade"
+      }
+    ]
+  },
+
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "info": "Not applied when Surface style is set to Inverse.",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ item",
+      "limit": 15,
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "default": "How long does shipping take?",
+          "label": "Question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "default": "<p>Most orders arrive within 3 to 5 business days. Express options are available at checkout.</p>",
+          "label": "Answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SP FAQ",
+      "blocks": [
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does shipping take?",
+            "answer": "<p>Most orders arrive within 3 to 5 business days. Express shipping is available at checkout for faster delivery.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "<p>We offer a 30-day risk-free return policy. If you are not satisfied, contact our support team and we will help you with a full refund or exchange.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does it come with a warranty?",
+            "answer": "<p>Yes. Every purchase includes a limited lifetime warranty covering manufacturing defects and normal use.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is this suitable for beginners?",
+            "answer": "<p>Absolutely. The product is designed for first-time users and includes simple setup instructions so you can start right away.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I contact support?",
+            "answer": "<p>Reach us anytime via live chat or email at support@yourstore.com. Our team typically responds within a few hours.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

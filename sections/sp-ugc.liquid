@@ -1,0 +1,129 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{% render 'sp-section-hierarchy-open', section: section %}
+  <div class="sp-section-placeholder">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="sp-section-placeholder__heading h2{% render 'sp-motion-class', type: 'fade-up' %}">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+    <p class="sp-section-placeholder__body{% render 'sp-motion-class', type: 'fade-up' %}">
+      Customer media grids are coming in a future SP Core update.
+      For now, use <strong>SP Social Proof</strong> for testimonials or <strong>SP Video</strong> for product demonstrations.
+    </p>
+    {%- if request.design_mode -%}
+      <p class="sp-section-placeholder__hint">This section is hidden from the Add section menu until it is complete. Remove it from this template or keep it as a roadmap placeholder.</p>
+    {%- endif -%}
+  </div>
+{% render 'sp-section-hierarchy-close' %}
+
+{% schema %}
+{
+  "name": "SP UGC",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Real customers, real results"
+    },
+    {
+      "type": "header",
+      "content": "Visual hierarchy"
+    },
+    {
+      "type": "select",
+      "id": "sp_surface_style",
+      "label": "Surface style",
+      "default": "default",
+    "info": "Inverse uses the inverse color scheme from Theme settings → SP Visual hierarchy instead of the section Color scheme below.",
+      "options": [
+        { "value": "default", "label": "Default" },
+        { "value": "alternate", "label": "Alternate" },
+        { "value": "inverse", "label": "Inverse" },
+        { "value": "accent", "label": "Accent" },
+        { "value": "transparent", "label": "Transparent" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "sp_width_mode",
+      "label": "Width mode",
+      "default": "contained",
+      "options": [
+        { "value": "contained", "label": "Contained" },
+        { "value": "wide", "label": "Wide" },
+        { "value": "full", "label": "Full width" },
+        { "value": "bleed", "label": "Bleed" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "sp_section_emphasis",
+      "label": "Section emphasis",
+      "default": "normal",
+      "options": [
+        { "value": "normal", "label": "Normal" },
+        { "value": "elevated", "label": "Elevated" },
+        { "value": "feature", "label": "Feature" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "sp_divider_style",
+      "label": "Divider",
+      "default": "none",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "line", "label": "Line" },
+        { "value": "gradient", "label": "Gradient" },
+        { "value": "fade", "label": "Fade" }
+      ]
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "info": "Not applied when Surface style is set to Inverse.",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,690 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .sp-comparison {
+    --sp-comparison-gap-sm: 1.2rem;
+    --sp-comparison-gap-lg: 2.4rem;
+    --sp-comparison-radius: 1.6rem;
+    --sp-comparison-cell-padding: 1.4rem 1.6rem;
+    --sp-comparison-icon-size: 2rem;
+    --sp-comparison-feature-width: 14rem;
+    --sp-comparison-value-width: 11rem;
+  }
+
+  .sp-comparison__header {
+    margin-bottom: var(--sp-comparison-gap-lg);
+    max-width: 72rem;
+  }
+
+  .sp-comparison__header--center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .sp-comparison__header--center .sp-comparison__subheading {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .sp-comparison__heading {
+    margin: 0;
+  }
+
+  .sp-comparison__subheading {
+    margin-top: var(--sp-comparison-gap-sm);
+  }
+
+  .sp-comparison__wrapper {
+    border: 0.1rem solid rgba(var(--color-foreground), 0.12);
+    border-radius: var(--sp-comparison-radius);
+    background: rgb(var(--color-background));
+    overflow: hidden;
+  }
+
+  .sp-comparison__scroll {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .sp-comparison__table {
+    width: 100%;
+    min-width: calc(var(--sp-comparison-feature-width) + (var(--sp-comparison-value-width) * 2));
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 0;
+  }
+
+  .sp-comparison__table caption {
+    margin: 0;
+    padding: 0;
+  }
+
+  .sp-comparison__cell {
+    padding: var(--sp-comparison-cell-padding);
+    border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.12);
+    vertical-align: middle;
+    background: rgb(var(--color-background));
+  }
+
+  .sp-comparison__table thead .sp-comparison__cell {
+    border-bottom-width: 0.2rem;
+    font-weight: 600;
+  }
+
+  .sp-comparison__table tbody tr:last-child .sp-comparison__cell {
+    border-bottom: none;
+  }
+
+  .sp-comparison__cell--feature {
+    min-width: var(--sp-comparison-feature-width);
+    max-width: 18rem;
+    text-align: left;
+    font-weight: 500;
+  }
+
+  .sp-comparison__cell--ours,
+  .sp-comparison__cell--competitor {
+    min-width: var(--sp-comparison-value-width);
+    text-align: center;
+  }
+
+  .sp-comparison__cell--sticky {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    box-shadow: 0.4rem 0 0.8rem -0.4rem rgba(var(--color-foreground), 0.08);
+  }
+
+  .sp-comparison__table thead .sp-comparison__cell--sticky {
+    z-index: 3;
+  }
+
+  .sp-comparison--highlight-ours .sp-comparison__cell--ours {
+    background: rgba(var(--color-foreground), 0.04);
+  }
+
+  .sp-comparison--highlight-ours .sp-comparison__table thead .sp-comparison__cell--ours {
+    background: rgba(var(--color-foreground), 0.08);
+  }
+
+  .sp-comparison__value {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    margin: 0 auto;
+    min-height: var(--sp-comparison-icon-size);
+  }
+
+  .sp-comparison__icon {
+    width: var(--sp-comparison-icon-size);
+    height: var(--sp-comparison-icon-size);
+    flex-shrink: 0;
+    color: rgb(var(--color-foreground));
+  }
+
+  .sp-comparison__icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .sp-comparison__icon--cross {
+    opacity: 0.45;
+  }
+
+  .sp-comparison__text {
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+
+    .sp-comparison__scroll {
+      overflow-x: visible;
+    }
+
+    .sp-comparison__table {
+      min-width: 0;
+    }
+
+    .sp-comparison__cell--sticky {
+      position: static;
+      box-shadow: none;
+    }
+
+    .sp-comparison__cell--feature {
+      width: 40%;
+    }
+
+    .sp-comparison__cell--ours,
+    .sp-comparison__cell--competitor {
+      width: 30%;
+    }
+  }
+{%- endstyle -%}
+
+{% render 'sp-section-hierarchy-open', section: section %}
+    <div class="sp-comparison{% if section.settings.highlight_our_product %} sp-comparison--highlight-ours{% endif %}">
+      {%- liquid
+        assign heading_stripped = section.settings.heading | strip_html | strip
+        assign subheading_stripped = section.settings.subheading | strip_html | strip
+        assign our_label = section.settings.our_product_label | strip
+        assign competitor_label = section.settings.competitor_label | strip
+        if our_label == blank
+          assign our_label = 'Our product'
+        endif
+        if competitor_label == blank
+          assign competitor_label = 'Competitor'
+        endif
+      -%}
+
+      {%- if heading_stripped != blank or subheading_stripped != blank -%}
+        <header class="sp-comparison__header sp-comparison__header--{{ section.settings.content_alignment }}">
+          {%- if heading_stripped != blank -%}
+            <h2 class="sp-comparison__heading inline-richtext h1{% render 'sp-motion-class', type: 'fade-up' %}">
+              {{ section.settings.heading }}
+            </h2>
+          {%- endif -%}
+          {%- if subheading_stripped != blank -%}
+            <div class="sp-comparison__subheading rte{% render 'sp-motion-class', type: 'fade-up' %}">
+              {{ section.settings.subheading }}
+            </div>
+          {%- endif -%}
+        </header>
+      {%- endif -%}
+
+      {%- assign valid_rows = 0 -%}
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign feature_stripped = block.settings.feature_name | strip
+          assign our_text_stripped = block.settings.our_product_value | strip
+          assign competitor_text_stripped = block.settings.competitor_value | strip
+          assign row_valid = false
+          if feature_stripped != blank
+            assign row_valid = true
+          endif
+          unless row_valid
+            if block.settings.our_product_style == 'check' or block.settings.our_product_style == 'cross'
+              assign row_valid = true
+            elsif our_text_stripped != blank
+              assign row_valid = true
+            endif
+          endunless
+          unless row_valid
+            if block.settings.competitor_style == 'check' or block.settings.competitor_style == 'cross'
+              assign row_valid = true
+            elsif competitor_text_stripped != blank
+              assign row_valid = true
+            endif
+          endunless
+        -%}
+        {%- if row_valid -%}
+          {%- assign valid_rows = valid_rows | plus: 1 -%}
+        {%- endif -%}
+      {%- endfor -%}
+
+      {%- if valid_rows > 0 -%}
+        <div
+          class="sp-comparison__wrapper{% render 'sp-motion-class', type: 'fade-up' %}"
+          role="region"
+          aria-label="{{ heading_stripped | default: 'Product comparison' | escape }}"
+        >
+          <div class="sp-comparison__scroll" tabindex="0">
+            <table class="sp-comparison__table">
+              <caption class="visually-hidden">
+                {{ heading_stripped | default: 'Product comparison' | escape }}: {{ our_label | escape }} versus {{ competitor_label | escape }}
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col" class="sp-comparison__cell sp-comparison__cell--feature sp-comparison__cell--sticky">
+                    {{ 'Feature' | escape }}
+                  </th>
+                  <th scope="col" class="sp-comparison__cell sp-comparison__cell--ours">
+                    {{ our_label | escape }}
+                  </th>
+                  <th scope="col" class="sp-comparison__cell sp-comparison__cell--competitor">
+                    {{ competitor_label | escape }}
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="{% render 'sp-motion-class', type: 'stagger' %}" data-sp-stagger>
+                {%- for block in section.blocks -%}
+                  {%- liquid
+                    assign feature_stripped = block.settings.feature_name | strip
+                    assign our_text_stripped = block.settings.our_product_value | strip
+                    assign competitor_text_stripped = block.settings.competitor_value | strip
+                    assign row_valid = false
+                    if feature_stripped != blank
+                      assign row_valid = true
+                    endif
+                    unless row_valid
+                      if block.settings.our_product_style == 'check' or block.settings.our_product_style == 'cross'
+                        assign row_valid = true
+                      elsif our_text_stripped != blank
+                        assign row_valid = true
+                      endif
+                    endunless
+                    unless row_valid
+                      if block.settings.competitor_style == 'check' or block.settings.competitor_style == 'cross'
+                        assign row_valid = true
+                      elsif competitor_text_stripped != blank
+                        assign row_valid = true
+                      endif
+                    endunless
+                  -%}
+                  {%- if row_valid -%}
+                    <tr class="{% render 'sp-motion-class', type: 'stagger-item' %}" {{ block.shopify_attributes }}>
+                      <th scope="row" class="sp-comparison__cell sp-comparison__cell--feature sp-comparison__cell--sticky">
+                        {%- if feature_stripped != blank -%}
+                          {{ block.settings.feature_name | escape }}
+                        {%- else -%}
+                          <span class="visually-hidden">{{ 'Feature' | escape }}</span>
+                        {%- endif -%}
+                      </th>
+                      <td class="sp-comparison__cell sp-comparison__cell--ours">
+                        <div class="sp-comparison__value">
+                          {%- case block.settings.our_product_style -%}
+                            {%- when 'check' -%}
+                              <span class="sp-comparison__icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                  <path d="M5 13l4 4L19 7"></path>
+                                </svg>
+                              </span>
+                              <span class="visually-hidden">{{ 'Included' | escape }}</span>
+                            {%- when 'cross' -%}
+                              <span class="sp-comparison__icon sp-comparison__icon--cross" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                  <circle cx="12" cy="12" r="9"></circle>
+                                  <path d="M8.5 8.5 15.5 15.5"></path>
+                                  <path d="M15.5 8.5 8.5 15.5"></path>
+                                </svg>
+                              </span>
+                              <span class="visually-hidden">{{ 'Not included' | escape }}</span>
+                            {%- else -%}
+                              {%- if our_text_stripped != blank -%}
+                                <span class="sp-comparison__text">{{ block.settings.our_product_value | escape }}</span>
+                              {%- else -%}
+                                <span class="visually-hidden">{{ 'No value' | escape }}</span>
+                              {%- endif -%}
+                          {%- endcase -%}
+                        </div>
+                      </td>
+                      <td class="sp-comparison__cell sp-comparison__cell--competitor">
+                        <div class="sp-comparison__value">
+                          {%- case block.settings.competitor_style -%}
+                            {%- when 'check' -%}
+                              <span class="sp-comparison__icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                  <path d="M5 13l4 4L19 7"></path>
+                                </svg>
+                              </span>
+                              <span class="visually-hidden">{{ 'Included' | escape }}</span>
+                            {%- when 'cross' -%}
+                              <span class="sp-comparison__icon sp-comparison__icon--cross" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                  <circle cx="12" cy="12" r="9"></circle>
+                                  <path d="M8.5 8.5 15.5 15.5"></path>
+                                  <path d="M15.5 8.5 8.5 15.5"></path>
+                                </svg>
+                              </span>
+                              <span class="visually-hidden">{{ 'Not included' | escape }}</span>
+                            {%- else -%}
+                              {%- if competitor_text_stripped != blank -%}
+                                <span class="sp-comparison__text">{{ block.settings.competitor_value | escape }}</span>
+                              {%- else -%}
+                                <span class="visually-hidden">{{ 'No value' | escape }}</span>
+                              {%- endif -%}
+                          {%- endcase -%}
+                        </div>
+                      </td>
+                    </tr>
+                  {%- endif -%}
+                {%- endfor -%}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      {%- elsif request.design_mode -%}
+        <div class="sp-comparison__empty-state">
+          Add comparison row blocks to display your product comparison table.
+        </div>
+      {%- endif -%}
+    </div>
+{% render 'sp-section-hierarchy-close' %}
+
+{% schema %}
+{
+  "name": "SP Comparison Table",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 15,
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "See how we compare",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "default": "<p>Everything you need, without the compromises of traditional alternatives.</p>",
+      "label": "Subheading"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ],
+      "default": "left",
+      "label": "Content alignment"
+    },
+    {
+      "type": "checkbox",
+      "id": "highlight_our_product",
+      "default": true,
+      "label": "Highlight our product column"
+    },
+    {
+      "type": "text",
+      "id": "our_product_label",
+      "default": "Our Product",
+      "label": "Our product label"
+    },
+    {
+      "type": "text",
+      "id": "competitor_label",
+      "default": "Others",
+      "label": "Competitor label"
+    },
+{
+    "type": "header",
+    "content": "Visual hierarchy"
+  },
+  {
+    "type": "select",
+    "id": "sp_surface_style",
+    "label": "Surface style",
+    "default": "default",
+    "info": "Inverse uses the inverse color scheme from Theme settings → SP Visual hierarchy instead of the section Color scheme below.",
+    "options": [
+      {
+        "value": "default",
+        "label": "Default"
+      },
+      {
+        "value": "alternate",
+        "label": "Alternate"
+      },
+      {
+        "value": "inverse",
+        "label": "Inverse"
+      },
+      {
+        "value": "accent",
+        "label": "Accent"
+      },
+      {
+        "value": "transparent",
+        "label": "Transparent"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_width_mode",
+    "label": "Width mode",
+    "default": "contained",
+    "options": [
+      {
+        "value": "contained",
+        "label": "Contained"
+      },
+      {
+        "value": "wide",
+        "label": "Wide"
+      },
+      {
+        "value": "full",
+        "label": "Full width"
+      },
+      {
+        "value": "bleed",
+        "label": "Bleed"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_section_emphasis",
+    "label": "Section emphasis",
+    "default": "normal",
+    "options": [
+      {
+        "value": "normal",
+        "label": "Normal"
+      },
+      {
+        "value": "elevated",
+        "label": "Elevated"
+      },
+      {
+        "value": "feature",
+        "label": "Feature"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "id": "sp_divider_style",
+    "label": "Divider",
+    "default": "none",
+    "options": [
+      {
+        "value": "none",
+        "label": "None"
+      },
+      {
+        "value": "line",
+        "label": "Line"
+      },
+      {
+        "value": "gradient",
+        "label": "Gradient"
+      },
+      {
+        "value": "fade",
+        "label": "Fade"
+      }
+    ]
+  },
+
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "info": "Not applied when Surface style is set to Inverse.",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "comparison_row",
+      "name": "Comparison row",
+      "limit": 15,
+      "settings": [
+        {
+          "type": "text",
+          "id": "feature_name",
+          "default": "Premium materials",
+          "label": "Feature name"
+        },
+        {
+          "type": "header",
+          "content": "Our product"
+        },
+        {
+          "type": "select",
+          "id": "our_product_style",
+          "options": [
+            {
+              "value": "check",
+              "label": "Check"
+            },
+            {
+              "value": "cross",
+              "label": "Cross"
+            },
+            {
+              "value": "text",
+              "label": "Text"
+            }
+          ],
+          "default": "check",
+          "label": "Our product icon style"
+        },
+        {
+          "type": "text",
+          "id": "our_product_value",
+          "label": "Our product value",
+          "info": "Used when icon style is set to Text."
+        },
+        {
+          "type": "header",
+          "content": "Competitor"
+        },
+        {
+          "type": "select",
+          "id": "competitor_style",
+          "options": [
+            {
+              "value": "check",
+              "label": "Check"
+            },
+            {
+              "value": "cross",
+              "label": "Cross"
+            },
+            {
+              "value": "text",
+              "label": "Text"
+            }
+          ],
+          "default": "cross",
+          "label": "Competitor icon style"
+        },
+        {
+          "type": "text",
+          "id": "competitor_value",
+          "label": "Competitor value",
+          "info": "Used when icon style is set to Text."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SP Comparison Table",
+      "blocks": [
+        {
+          "type": "comparison_row",
+          "settings": {
+            "feature_name": "Premium materials",
+            "our_product_style": "check",
+            "competitor_style": "cross"
+          }
+        },
+        {
+          "type": "comparison_row",
+          "settings": {
+            "feature_name": "Free shipping",
+            "our_product_style": "check",
+            "competitor_style": "cross"
+          }
+        },
+        {
+          "type": "comparison_row",
+          "settings": {
+            "feature_name": "Lifetime warranty",
+            "our_product_style": "check",
+            "competitor_style": "cross"
+          }
+        },
+        {
+          "type": "comparison_row",
+          "settings": {
+            "feature_name": "30-day risk-free trial",
+            "our_product_style": "check",
+            "competitor_style": "cross"
+          }
+        },
+        {
+          "type": "comparison_row",
+          "settings": {
+            "feature_name": "Setup time",
+            "our_product_style": "text",
+            "our_product_value": "Under 2 minutes",
+            "competitor_style": "text",
+            "competitor_value": "15+ minutes"
+          }
+        },
+        {
+          "type": "comparison_row",
+          "settings": {
+            "feature_name": "Customer support",
+            "our_product_style": "text",
+            "our_product_value": "24/7 live chat",
+            "competitor_style": "text",
+            "competitor_value": "Email only"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
