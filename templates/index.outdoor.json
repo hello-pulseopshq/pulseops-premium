@@ -1,0 +1,409 @@
+{
+  "sections": {
+    "sp-hero": {
+      "type": "sp-hero",
+      "blocks": {
+        "benefit-chip-1": {
+          "type": "benefit_chip",
+          "settings": {
+            "benefit_text": "Free Shipping"
+          }
+        },
+        "benefit-chip-2": {
+          "type": "benefit_chip",
+          "settings": {
+            "benefit_text": "30-Day Guarantee"
+          }
+        },
+        "benefit-chip-3": {
+          "type": "benefit_chip",
+          "settings": {
+            "benefit_text": "4.9★ Rated"
+          }
+        },
+        "cta-trust-1": {
+          "type": "cta_trust_item",
+          "settings": {
+            "icon": "guarantee",
+            "text": "30-day money-back guarantee"
+          }
+        },
+        "cta-trust-2": {
+          "type": "cta_trust_item",
+          "settings": {
+            "icon": "secure",
+            "text": "Secure checkout"
+          }
+        }
+      },
+      "block_order": [
+        "benefit-chip-1",
+        "benefit-chip-2",
+        "benefit-chip-3",
+        "cta-trust-1",
+        "cta-trust-2"
+      ],
+      "settings": {
+        "show_announcement": true,
+        "announcement_text": "Free shipping on every order · 30-day ride guarantee",
+        "headline": "Ride farther with the <strong>Collection Snowboard: Liquid</strong>",
+        "headline_highlight_style": "underline",
+        "subheadline": "All-mountain freestyle performance with a lightweight core, buttery flex, and edge control you can feel from the first run.",
+        "price_source": "product",
+        "cta_type": "custom_link",
+        "cta_label": "Shop Liquid",
+        "cta_link": "shopify://products/the-collection-snowboard-liquid",
+        "show_cta_trust_stack": true,
+        "show_social_proof": false,
+        "social_proof_text": "",
+        "show_social_rating": true,
+        "social_rating_value": "4.9/5",
+        "show_social_review_count": true,
+        "social_review_count": [
+          {
+            "text": "Best board I have ridden in years. Buttery in the park, stable when charging groomers.",
+            "name": "Ryan P.",
+            "location": "Boulder, CO"
+          },
+          {
+            "text": "Light underfoot with serious edge hold. My go-to board for pipe to powder.",
+            "name": "Mike T.",
+            "location": "Salt Lake City, UT"
+          },
+          {
+            "text": "Worth every penny. Arrived fast and rode it the next morning.",
+            "name": "Anna L.",
+            "location": "Seattle, WA"
+          }
+        ],
+        "layout_preset": "classic_split",
+        "show_trust_microcopy": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "featured_product": "the-collection-snowboard-liquid"
+      }
+    },
+    "sp-metrics": {
+      "type": "sp-metrics",
+      "blocks": {
+        "metric-1": {
+          "type": "metric",
+          "settings": {
+            "value": "50,000+",
+            "label": "Riders worldwide"
+          }
+        },
+        "metric-2": {
+          "type": "metric",
+          "settings": {
+            "value": "4.9★",
+            "label": "Average rating"
+          }
+        },
+        "metric-3": {
+          "type": "metric",
+          "settings": {
+            "value": "12,000+",
+            "label": "Verified reviews"
+          }
+        },
+        "metric-4": {
+          "type": "metric",
+          "settings": {
+            "value": "30-day guarantee",
+            "label": "Money-back guarantee"
+          }
+        }
+      },
+      "block_order": [
+        "metric-1",
+        "metric-2",
+        "metric-3",
+        "metric-4"
+      ],
+      "settings": {
+        "heading": "Trusted on every mountain",
+        "subheading": "<p>From first chair to last lap, Liquid riders count on consistent performance season after season.</p>",
+        "content_alignment": "center",
+        "desktop_columns": "4",
+        "show_band": true,
+        "show_dividers": true,
+        "mobile_layout": "swipe",
+        "sp_surface_style": "alternate",
+        "sp_divider_style": "line",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "sp-benefits": {
+      "type": "sp-benefits",
+      "blocks": {
+        "benefit-1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "check",
+            "title": "Premium core construction",
+            "description": "<p>Lightweight pop with torsional stability for park laps and powder days.</p>"
+          }
+        },
+        "benefit-2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "truck",
+            "title": "Ships within 24 hours",
+            "description": "<p>Most orders leave our warehouse the same day you order.</p>"
+          }
+        },
+        "benefit-3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shield",
+            "title": "30-day ride guarantee",
+            "description": "<p>Take it to the mountain. If it is not the right fit, return it hassle-free.</p>"
+          }
+        },
+        "benefit-4": {
+          "type": "benefit",
+          "settings": {
+            "icon": "star",
+            "title": "4.9★ rider approved",
+            "description": "<p>50,000+ riders and 12,000+ verified reviews.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "benefit-1",
+        "benefit-2",
+        "benefit-3",
+        "benefit-4"
+      ],
+      "settings": {
+        "heading": "Why riders choose Liquid",
+        "subheading": "<p>Engineered for all-mountain confidence without compromising freestyle feel.</p>",
+        "content_alignment": "center",
+        "desktop_columns": "4",
+        "card_style": "subtle",
+        "mobile_layout": "swipe",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "sp-features": {
+      "type": "sp-features",
+      "blocks": {
+        "feature-1": {
+          "type": "feature",
+          "settings": {
+            "title": "All-mountain freestyle control",
+            "description": "<p>A balanced camber profile delivers edge hold on hardpack and forgiving flex in the park.</p>",
+            "bullet_1": "Responsive turn initiation on groomers",
+            "bullet_2": "Stable at speed through variable terrain",
+            "bullet_3": "Buttery press-friendly nose and tail"
+          }
+        },
+        "feature-2": {
+          "type": "feature",
+          "settings": {
+            "title": "Built to last season after season",
+            "description": "<p>Sintered base, reinforced sidewalls, and a premium wood core engineered for durability.</p>",
+            "bullet_1": "Sintered base for speed and easy wax absorption",
+            "bullet_2": "Impact-resistant sidewalls for park abuse",
+            "bullet_3": "Factory-tuned edges ready for day one"
+          }
+        }
+      },
+      "block_order": [
+        "feature-1",
+        "feature-2"
+      ],
+      "settings": {
+        "heading": "Performance you can feel",
+        "subheading": "<p>Every detail tuned for riders who demand more from their setup.</p>",
+        "content_alignment": "left",
+        "image_ratio": "landscape",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "sp-scientific-proof": {
+      "type": "sp-scientific-proof",
+      "blocks": {
+        "proof-1": {
+          "type": "proof",
+          "settings": {
+            "statistic": "40%",
+            "presentation": "statistic",
+            "description": "<p>Lighter than comparable all-mountain boards in independent flex testing.</p>",
+            "icon": "chart",
+            "source": "PulseOps lab testing",
+            "footnote": ""
+          }
+        },
+        "proof-2": {
+          "type": "proof",
+          "settings": {
+            "statistic": "ISO certified",
+            "presentation": "certification",
+            "description": "<p>Manufactured in an ISO-certified facility with batch-level quality control.</p>",
+            "icon": "shield",
+            "source": "Factory certification",
+            "footnote": ""
+          }
+        },
+        "proof-3": {
+          "type": "proof",
+          "settings": {
+            "statistic": "Pro-grade edges",
+            "presentation": "certification",
+            "description": "<p>Factory-tuned steel edges tested for edge hold and durability.</p>",
+            "icon": "certificate",
+            "source": "Quality assurance",
+            "footnote": ""
+          }
+        }
+      },
+      "block_order": [
+        "proof-1",
+        "proof-2",
+        "proof-3"
+      ],
+      "settings": {
+        "heading": "Engineered with purpose",
+        "subheading": "<p>Materials, manufacturing, and quality controls chosen for riders who notice the difference.</p>",
+        "content_alignment": "center",
+        "desktop_columns": "3",
+        "card_style": "elevated",
+        "mobile_layout": "swipe",
+        "sp_surface_style": "default",
+        "sp_divider_style": "line",
+        "padding_top": 64,
+        "padding_bottom": 48
+      }
+    },
+    "sp-social-proof": {
+      "type": "sp-social-proof",
+      "blocks": {
+        "review-1": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "<p>Best board I have ridden in years. Buttery in the park, stable when charging groomers.</p>",
+            "customer_name": "Ryan P.",
+            "customer_title": "Boulder, CO",
+            "verified": true
+          }
+        },
+        "review-2": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "<p>Light underfoot with serious edge hold. My go-to board for pipe to powder.</p>",
+            "customer_name": "Mike T.",
+            "customer_title": "Salt Lake City, UT",
+            "verified": true
+          }
+        },
+        "review-3": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "<p>Worth every penny. Arrived fast and rode it the next morning.</p>",
+            "customer_name": "Anna L.",
+            "customer_title": "Seattle, WA",
+            "verified": true
+          }
+        }
+      },
+      "block_order": [
+        "review-1",
+        "review-2",
+        "review-3"
+      ],
+      "settings": {
+        "heading": "12,000+ verified reviews · 4.9★ average",
+        "subheading": "<p>Real feedback from riders who put the Collection Snowboard: Liquid through its paces.</p>",
+        "content_alignment": "center",
+        "desktop_columns": "3",
+        "mobile_layout": "swipe",
+        "sp_surface_style": "alternate",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "sp-faq": {
+      "type": "sp-faq",
+      "blocks": {
+        "faq-1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What length should I choose?",
+            "answer": "<p>Choose a board that reaches between your chin and nose when stood on end. Contact our team for a personalized sizing recommendation.</p>"
+          }
+        },
+        "faq-2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does shipping take?",
+            "answer": "<p>Most orders ship within 24 hours and arrive in 3 to 5 business days.</p>"
+          }
+        },
+        "faq-3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "<p>Every board is covered by our 30-day money-back guarantee.</p>"
+          }
+        },
+        "faq-4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does it come with a warranty?",
+            "answer": "<p>Yes. Every purchase includes a limited warranty covering manufacturing defects and normal use.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq-1",
+        "faq-2",
+        "faq-3",
+        "faq-4"
+      ],
+      "settings": {
+        "heading": "Questions before you ride?",
+        "subheading": "<p>Sizing, shipping, and our 30-day guarantee explained.</p>",
+        "content_alignment": "center",
+        "open_first_item": true,
+        "padding_top": 64,
+        "padding_bottom": 48
+      }
+    },
+    "sp-cta-offer": {
+      "type": "sp-cta-offer",
+      "settings": {
+        "heading": "Ready to ride Liquid?",
+        "subheading": "<p>Join 50,000+ riders who upgraded to the Collection Snowboard: Liquid.</p>",
+        "offer_text": "$749.95 · Free shipping included",
+        "button_label": "Shop Liquid",
+        "button_link": "shopify://products/the-collection-snowboard-liquid",
+        "reassurance_text": "30-day money-back guarantee",
+        "show_badge": true,
+        "badge_text": "Most popular board",
+        "card_style": "gradient",
+        "sp_surface_style": "inverse",
+        "sp_section_emphasis": "feature",
+        "padding_top": 64,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "sp-hero",
+    "sp-metrics",
+    "sp-benefits",
+    "sp-features",
+    "sp-scientific-proof",
+    "sp-social-proof",
+    "sp-faq",
+    "sp-cta-offer"
+  ]
+}

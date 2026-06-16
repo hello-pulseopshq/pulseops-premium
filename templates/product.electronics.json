@@ -1,0 +1,418 @@
+{
+  "sections": {
+    "demo-visual-treatment": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "{{ 'sp-demo-presets.css' | asset_url | stylesheet_tag }}<script>document.documentElement.classList.add('sp-demo-visual-neutral','sp-demo-electronics');</script>",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title"
+        },
+        "caption": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.descriptors.subtitle.value }}",
+            "text_style": "subtitle"
+          }
+        },
+        "price": {
+          "type": "price"
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector"
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "description": {
+          "type": "description"
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "caption",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "description"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "gallery_layout": "stacked",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "mobile_thumbnails": "hide",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 8
+      }
+    },
+    "sp-trust-icons": {
+      "type": "sp-trust-icons",
+      "blocks": {
+        "trust-1": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "guarantee",
+            "heading": "2-year warranty",
+            "text": "<p>2-year warranty on hardware defects.</p>"
+          }
+        },
+        "trust-2": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "truck",
+            "heading": "Free shipping",
+            "text": "<p>Ships within 24 hours · arrives in 3–5 business days.</p>"
+          }
+        },
+        "trust-3": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "lock",
+            "heading": "Secure checkout",
+            "text": "<p>256-bit SSL encryption on every order.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "trust-1",
+        "trust-2",
+        "trust-3"
+      ],
+      "settings": {
+        "heading": "",
+        "subheading": "",
+        "content_alignment": "center",
+        "card_style": "minimal",
+        "desktop_layout": "inline",
+        "desktop_columns": "3",
+        "mobile_layout": "grid",
+        "sp_surface_style": "default",
+        "padding_top": 8,
+        "padding_bottom": 32
+      }
+    },
+    "sp-benefits": {
+      "type": "sp-benefits",
+      "blocks": {
+        "benefit-1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "check",
+            "title": "15W fast wireless charge",
+            "description": "<p>Qi2 and MagSafe-compatible coil delivers full-speed charging for supported devices.</p>"
+          }
+        },
+        "benefit-2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "truck",
+            "title": "Ships within 24 hours",
+            "description": "<p>Orders leave our warehouse same-day when placed before 2 PM.</p>"
+          }
+        },
+        "benefit-3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shield",
+            "title": "2-year warranty",
+            "description": "<p>Hardware defects covered for two full years. Hassle-free replacement process.</p>"
+          }
+        },
+        "benefit-4": {
+          "type": "benefit",
+          "settings": {
+            "icon": "star",
+            "title": "4.9★ tech approved",
+            "description": "<p>42,000+ customers and 5,500+ verified reviews.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "benefit-1",
+        "benefit-2",
+        "benefit-3",
+        "benefit-4"
+      ],
+      "settings": {
+        "heading": "Why tech lovers choose MagCharge",
+        "subheading": "<p>Compatibility, speed, and build quality without the clutter.</p>",
+        "content_alignment": "center",
+        "desktop_columns": "4",
+        "card_style": "subtle",
+        "mobile_layout": "swipe",
+        "sp_surface_style": "alternate",
+        "sp_divider_style": "line",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "sp-features": {
+      "type": "sp-features",
+      "blocks": {
+        "feature-1": {
+          "type": "feature",
+          "settings": {
+            "title": "Universal compatibility",
+            "description": "<p>Works with iPhone 12 and newer, Samsung Galaxy S series, and all Qi-enabled devices.</p>",
+            "bullet_1": "MagSafe alignment for iPhone",
+            "bullet_2": "Adjustable 15°–75° viewing angle",
+            "bullet_3": "Non-slip silicone base"
+          }
+        },
+        "feature-2": {
+          "type": "feature",
+          "settings": {
+            "title": "Built to last",
+            "description": "<p>Aircraft-grade aluminum body with thermal management for safe overnight charging.</p>",
+            "bullet_1": "Overcharge and overheat protection",
+            "bullet_2": "Hidden cable channel",
+            "bullet_3": "Compact 4″ footprint"
+          }
+        }
+      },
+      "block_order": [
+        "feature-1",
+        "feature-2"
+      ],
+      "settings": {
+        "heading": "Designed for your workspace",
+        "subheading": "<p>One stand for phone, watch, and earbuds — clean cable routing included.</p>",
+        "content_alignment": "left",
+        "image_ratio": "landscape",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "sp-scientific-proof": {
+      "type": "sp-scientific-proof",
+      "blocks": {
+        "proof-1": {
+          "type": "proof",
+          "settings": {
+            "statistic": "15W",
+            "presentation": "statistic",
+            "description": "<p>Maximum wireless output on Qi2-compatible devices.</p>",
+            "icon": "chart",
+            "source": "Lab certification",
+            "footnote": ""
+          }
+        },
+        "proof-2": {
+          "type": "proof",
+          "settings": {
+            "statistic": "CE & FCC",
+            "presentation": "certification",
+            "description": "<p>Fully certified for safe electromagnetic emissions and electrical safety.</p>",
+            "icon": "shield",
+            "source": "Regulatory compliance",
+            "footnote": ""
+          }
+        },
+        "proof-3": {
+          "type": "proof",
+          "settings": {
+            "statistic": "10,000+ cycles",
+            "presentation": "statistic",
+            "description": "<p>Coil durability tested across 10,000 charge cycles without degradation.</p>",
+            "icon": "certificate",
+            "source": "QA testing",
+            "footnote": ""
+          }
+        }
+      },
+      "block_order": [
+        "proof-1",
+        "proof-2",
+        "proof-3"
+      ],
+      "settings": {
+        "heading": "Engineered and tested",
+        "subheading": "<p>Certifications and lab results that back every claim.</p>",
+        "content_alignment": "center",
+        "desktop_columns": "3",
+        "card_style": "elevated",
+        "mobile_layout": "swipe",
+        "sp_surface_style": "default",
+        "sp_divider_style": "line",
+        "padding_top": 64,
+        "padding_bottom": 48
+      }
+    },
+    "sp-social-proof": {
+      "type": "sp-social-proof",
+      "blocks": {
+        "review-1": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "<p>Cleanest charging setup I have owned. Phone snaps on perfectly every time.</p>",
+            "customer_name": "Marcus D.",
+            "customer_title": "Seattle, WA",
+            "verified": true
+          }
+        },
+        "review-2": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "<p>Charges my iPhone and AirPods overnight without getting hot. Solid build.</p>",
+            "customer_name": "Kevin H.",
+            "customer_title": "San Francisco, CA",
+            "verified": true
+          }
+        },
+        "review-3": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "<p>Replaced three separate chargers with this one stand. Desk looks so much cleaner.</p>",
+            "customer_name": "Priya N.",
+            "customer_title": "Boston, MA",
+            "verified": true
+          }
+        }
+      },
+      "block_order": [
+        "review-1",
+        "review-2",
+        "review-3"
+      ],
+      "settings": {
+        "heading": "5,500+ verified reviews · 4.9★ average",
+        "subheading": "<p>Desk setup upgrades from customers who charge smarter.</p>",
+        "content_alignment": "center",
+        "desktop_columns": "3",
+        "mobile_layout": "swipe",
+        "sp_surface_style": "alternate",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "sp-faq": {
+      "type": "sp-faq",
+      "blocks": {
+        "faq-1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will this work with my phone case?",
+            "answer": "<p>Cases under 5mm thick work with wireless charging. MagSafe cases align automatically on iPhone.</p>"
+          }
+        },
+        "faq-2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is included in the box?",
+            "answer": "<p>MagCharge Pro Stand, USB-C cable, and quick-start guide. Power adapter sold separately.</p>"
+          }
+        },
+        "faq-3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What does the 2-year warranty cover?",
+            "answer": "<p>Manufacturing defects and hardware failure. Accidental damage is not covered.</p>"
+          }
+        },
+        "faq-4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How fast does it ship?",
+            "answer": "<p>Most orders ship within 24 hours and arrive in 3–5 business days. Express options at checkout.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq-1",
+        "faq-2",
+        "faq-3",
+        "faq-4"
+      ],
+      "settings": {
+        "heading": "Tech specs and support",
+        "subheading": "<p>Compatibility, warranty, shipping, and returns.</p>",
+        "content_alignment": "center",
+        "open_first_item": true,
+        "padding_top": 64,
+        "padding_bottom": 48
+      }
+    },
+    "sp-cta-offer": {
+      "type": "sp-cta-offer",
+      "settings": {
+        "heading": "Upgrade your desk setup",
+        "subheading": "<p>Join 42,000+ customers charging smarter with MagCharge Pro.</p>",
+        "offer_text": "$129.00 · Free shipping included",
+        "button_label": "Add to cart",
+        "button_link": "",
+        "reassurance_text": "2-year warranty included",
+        "show_badge": true,
+        "badge_text": "Top rated charger",
+        "card_style": "gradient",
+        "sp_surface_style": "inverse",
+        "sp_section_emphasis": "feature",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "sp-sticky-atc": {
+      "type": "sp-sticky-atc",
+      "settings": {
+        "enable_sticky_bar": true,
+        "mobile_only": true,
+        "show_mobile_product_image": false,
+        "show_mobile_title": false,
+        "show_mobile_variant_selector": false,
+        "show_product_image": true,
+        "show_variant_selector": true,
+        "show_compare_at_price": true,
+        "button_label": "Add to cart",
+        "show_price_in_button": false,
+        "show_buy_now_button": false,
+        "scroll_threshold": 10,
+        "hide_near_footer": true,
+        "background_style": "blur",
+        "color_scheme": "scheme-1"
+      }
+    }
+  },
+  "order": [
+    "demo-visual-treatment",
+    "main",
+    "sp-trust-icons",
+    "sp-benefits",
+    "sp-features",
+    "sp-scientific-proof",
+    "sp-social-proof",
+    "sp-faq",
+    "sp-cta-offer",
+    "sp-sticky-atc"
+  ]
+}

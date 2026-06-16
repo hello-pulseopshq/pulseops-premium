@@ -1,0 +1,409 @@
+{
+  "sections": {
+    "sp-hero": {
+      "type": "sp-hero",
+      "blocks": {
+        "benefit-chip-1": {
+          "type": "benefit_chip",
+          "settings": {
+            "benefit_text": "Fresh Roasted"
+          }
+        },
+        "benefit-chip-2": {
+          "type": "benefit_chip",
+          "settings": {
+            "benefit_text": "30-Day Guarantee"
+          }
+        },
+        "benefit-chip-3": {
+          "type": "benefit_chip",
+          "settings": {
+            "benefit_text": "4.8★ Rated"
+          }
+        },
+        "cta-trust-1": {
+          "type": "cta_trust_item",
+          "settings": {
+            "icon": "guarantee",
+            "text": "30-day freshness guarantee"
+          }
+        },
+        "cta-trust-2": {
+          "type": "cta_trust_item",
+          "settings": {
+            "icon": "secure",
+            "text": "Secure checkout"
+          }
+        }
+      },
+      "block_order": [
+        "benefit-chip-1",
+        "benefit-chip-2",
+        "benefit-chip-3",
+        "cta-trust-1",
+        "cta-trust-2"
+      ],
+      "settings": {
+        "show_announcement": true,
+        "announcement_text": "Roasted to order · Shipped within 48 hours of roasting",
+        "headline": "Taste the difference with <strong>Summit Single-Origin</strong>",
+        "headline_highlight_style": "underline",
+        "subheadline": "Small-batch roasted Ethiopian Yirgacheffe with notes of blueberry, jasmine, and dark chocolate — delivered at peak freshness.",
+        "price_source": "custom",
+        "cta_type": "custom_link",
+        "cta_label": "Shop Summit Roast",
+        "cta_link": "shopify://collections/all",
+        "show_cta_trust_stack": true,
+        "show_social_proof": false,
+        "social_proof_text": "",
+        "show_social_rating": true,
+        "social_rating_value": "4.8/5",
+        "show_social_review_count": true,
+        "social_review_count": [
+          {
+            "text": "The blueberry notes are real. Best pour-over I have made at home.",
+            "name": "David L.",
+            "location": "Portland, OR"
+          },
+          {
+            "text": "You can taste the freshness compared to grocery store beans. Night and day.",
+            "name": "Nina W.",
+            "location": "Austin, TX"
+          },
+          {
+            "text": "My subscription arrives perfectly timed. Never run out of good coffee again.",
+            "name": "Chris F.",
+            "location": "Brooklyn, NY"
+          }
+        ],
+        "layout_preset": "classic_split",
+        "show_trust_microcopy": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "price_text": "$24.95"
+      }
+    },
+    "sp-metrics": {
+      "type": "sp-metrics",
+      "blocks": {
+        "metric-1": {
+          "type": "metric",
+          "settings": {
+            "value": "18,000+",
+            "label": "Coffee lovers"
+          }
+        },
+        "metric-2": {
+          "type": "metric",
+          "settings": {
+            "value": "4.8★",
+            "label": "Average rating"
+          }
+        },
+        "metric-3": {
+          "type": "metric",
+          "settings": {
+            "value": "2,900+",
+            "label": "Verified reviews"
+          }
+        },
+        "metric-4": {
+          "type": "metric",
+          "settings": {
+            "value": "30-day guarantee",
+            "label": "Freshness guarantee"
+          }
+        }
+      },
+      "block_order": [
+        "metric-1",
+        "metric-2",
+        "metric-3",
+        "metric-4"
+      ],
+      "settings": {
+        "heading": "Roasted for people who notice",
+        "subheading": "<p>From farm to cup in under two weeks — because freshness changes everything.</p>",
+        "content_alignment": "center",
+        "desktop_columns": "4",
+        "show_band": true,
+        "show_dividers": true,
+        "mobile_layout": "swipe",
+        "sp_surface_style": "alternate",
+        "sp_divider_style": "line",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "sp-benefits": {
+      "type": "sp-benefits",
+      "blocks": {
+        "benefit-1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "check",
+            "title": "Roasted to order",
+            "description": "<p>Every bag roasted within 48 hours of shipping for maximum freshness.</p>"
+          }
+        },
+        "benefit-2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "truck",
+            "title": "Ships within 48 hours",
+            "description": "<p>Roast date stamped on every bag. Delivered in valve-sealed packaging.</p>"
+          }
+        },
+        "benefit-3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shield",
+            "title": "30-day freshness guarantee",
+            "description": "<p>Not fresh? Full refund within 30 days, no questions asked.</p>"
+          }
+        },
+        "benefit-4": {
+          "type": "benefit",
+          "settings": {
+            "icon": "star",
+            "title": "4.8★ coffee approved",
+            "description": "<p>18,000+ customers and 2,900+ verified reviews.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "benefit-1",
+        "benefit-2",
+        "benefit-3",
+        "benefit-4"
+      ],
+      "settings": {
+        "heading": "Why coffee lovers choose Summit",
+        "subheading": "<p>Single-origin transparency, ethical sourcing, and roast dates on every bag.</p>",
+        "content_alignment": "center",
+        "desktop_columns": "4",
+        "card_style": "subtle",
+        "mobile_layout": "swipe",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "sp-features": {
+      "type": "sp-features",
+      "blocks": {
+        "feature-1": {
+          "type": "feature",
+          "settings": {
+            "title": "Ethiopian Yirgacheffe, washed process",
+            "description": "<p>Bright acidity with blueberry and floral notes from high-altitude smallholder farms.</p>",
+            "bullet_1": "Altitude: 1,800–2,200 meters",
+            "bullet_2": "Direct trade partnership since 2019",
+            "bullet_3": "Light-medium roast profile"
+          }
+        },
+        "feature-2": {
+          "type": "feature",
+          "settings": {
+            "title": "Brew your way",
+            "description": "<p>Versatile enough for pour-over, AeroPress, drip, and cold brew.</p>",
+            "bullet_1": "Whole bean or ground to order",
+            "bullet_2": "Brew guide included with every bag",
+            "bullet_3": "12 oz bag ≈ 20 cups"
+          }
+        }
+      },
+      "block_order": [
+        "feature-1",
+        "feature-2"
+      ],
+      "settings": {
+        "heading": "From farm to your cup",
+        "subheading": "<p>Ethically sourced beans with full traceability and expert roasting.</p>",
+        "content_alignment": "left",
+        "image_ratio": "portrait",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "sp-scientific-proof": {
+      "type": "sp-scientific-proof",
+      "blocks": {
+        "proof-1": {
+          "type": "proof",
+          "settings": {
+            "statistic": "86 pts",
+            "presentation": "statistic",
+            "description": "<p>Specialty Coffee Association score — specialty grade classification.</p>",
+            "icon": "chart",
+            "source": "SCA cupping score",
+            "footnote": ""
+          }
+        },
+        "proof-2": {
+          "type": "proof",
+          "settings": {
+            "statistic": "Direct trade",
+            "presentation": "certification",
+            "description": "<p>Direct relationships with farming cooperatives in Yirgacheffe, Ethiopia.</p>",
+            "icon": "shield",
+            "source": "Sourcing partnership",
+            "footnote": ""
+          }
+        },
+        "proof-3": {
+          "type": "proof",
+          "settings": {
+            "statistic": "Roasted daily",
+            "presentation": "certification",
+            "description": "<p>Small-batch roasted in our Portland facility — never warehoused for months.</p>",
+            "icon": "certificate",
+            "source": "Roastery operations",
+            "footnote": ""
+          }
+        }
+      },
+      "block_order": [
+        "proof-1",
+        "proof-2",
+        "proof-3"
+      ],
+      "settings": {
+        "heading": "Sourced and roasted with care",
+        "subheading": "<p>Transparency from origin to roast date.</p>",
+        "content_alignment": "center",
+        "desktop_columns": "3",
+        "card_style": "elevated",
+        "mobile_layout": "swipe",
+        "sp_surface_style": "default",
+        "sp_divider_style": "line",
+        "padding_top": 64,
+        "padding_bottom": 48
+      }
+    },
+    "sp-social-proof": {
+      "type": "sp-social-proof",
+      "blocks": {
+        "review-1": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "<p>The blueberry notes are real. Best pour-over I have made at home.</p>",
+            "customer_name": "David L.",
+            "customer_title": "Portland, OR",
+            "verified": true
+          }
+        },
+        "review-2": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "<p>You can taste the freshness compared to grocery store beans. Night and day.</p>",
+            "customer_name": "Nina W.",
+            "customer_title": "Austin, TX",
+            "verified": true
+          }
+        },
+        "review-3": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "<p>My subscription arrives perfectly timed. Never run out of good coffee again.</p>",
+            "customer_name": "Chris F.",
+            "customer_title": "Brooklyn, NY",
+            "verified": true
+          }
+        }
+      },
+      "block_order": [
+        "review-1",
+        "review-2",
+        "review-3"
+      ],
+      "settings": {
+        "heading": "2,900+ verified reviews · 4.8★ average",
+        "subheading": "<p>Coffee lovers who upgraded their morning ritual.</p>",
+        "content_alignment": "center",
+        "desktop_columns": "3",
+        "mobile_layout": "swipe",
+        "sp_surface_style": "alternate",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "sp-faq": {
+      "type": "sp-faq",
+      "blocks": {
+        "faq-1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "When was my coffee roasted?",
+            "answer": "<p>Every bag is stamped with the roast date. We ship within 48 hours of roasting.</p>"
+          }
+        },
+        "faq-2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Should I choose whole bean or ground?",
+            "answer": "<p>Whole bean stays freshest longest. Choose ground if you do not have a grinder — select your brew method at checkout.</p>"
+          }
+        },
+        "faq-3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I subscribe for regular delivery?",
+            "answer": "<p>Yes. Subscribe every 2, 4, or 6 weeks and save 10% on every shipment.</p>"
+          }
+        },
+        "faq-4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is the freshness guarantee?",
+            "answer": "<p>If your coffee is not fresh and delicious within 30 days of delivery, contact us for a full refund.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq-1",
+        "faq-2",
+        "faq-3",
+        "faq-4"
+      ],
+      "settings": {
+        "heading": "Coffee questions answered",
+        "subheading": "<p>Roast date, grind, brewing, subscriptions, and returns.</p>",
+        "content_alignment": "center",
+        "open_first_item": true,
+        "padding_top": 64,
+        "padding_bottom": 48
+      }
+    },
+    "sp-cta-offer": {
+      "type": "sp-cta-offer",
+      "settings": {
+        "heading": "Upgrade your morning cup",
+        "subheading": "<p>Join 18,000+ coffee lovers starting their day with Summit.</p>",
+        "offer_text": "$24.95 · Free shipping included",
+        "button_label": "Shop Summit Roast",
+        "button_link": "shopify://collections/all",
+        "reassurance_text": "30-day freshness guarantee",
+        "show_badge": true,
+        "badge_text": "Roaster's pick",
+        "card_style": "gradient",
+        "sp_surface_style": "inverse",
+        "sp_section_emphasis": "feature",
+        "padding_top": 64,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "sp-hero",
+    "sp-metrics",
+    "sp-benefits",
+    "sp-features",
+    "sp-scientific-proof",
+    "sp-social-proof",
+    "sp-faq",
+    "sp-cta-offer"
+  ]
+}

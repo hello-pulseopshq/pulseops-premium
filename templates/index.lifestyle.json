@@ -1,0 +1,419 @@
+{
+  "sections": {
+    "demo-visual-treatment": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "{{ 'sp-demo-presets.css' | asset_url | stylesheet_tag }}<script>document.documentElement.classList.add('sp-demo-visual-neutral','sp-demo-lifestyle');</script>",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "sp-hero": {
+      "type": "sp-hero",
+      "blocks": {
+        "benefit-chip-1": {
+          "type": "benefit_chip",
+          "settings": {
+            "benefit_text": "Free Shipping"
+          }
+        },
+        "benefit-chip-2": {
+          "type": "benefit_chip",
+          "settings": {
+            "benefit_text": "30-Day Guarantee"
+          }
+        },
+        "benefit-chip-3": {
+          "type": "benefit_chip",
+          "settings": {
+            "benefit_text": "4.9★ Rated"
+          }
+        },
+        "cta-trust-1": {
+          "type": "cta_trust_item",
+          "settings": {
+            "icon": "guarantee",
+            "text": "30-day money-back guarantee"
+          }
+        },
+        "cta-trust-2": {
+          "type": "cta_trust_item",
+          "settings": {
+            "icon": "secure",
+            "text": "Secure checkout"
+          }
+        }
+      },
+      "block_order": [
+        "benefit-chip-1",
+        "benefit-chip-2",
+        "benefit-chip-3",
+        "cta-trust-1",
+        "cta-trust-2"
+      ],
+      "settings": {
+        "show_announcement": true,
+        "announcement_text": "New season drop · Free shipping on all apparel orders",
+        "headline": "Live comfortably in the <strong>Essential Fleece Hoodie</strong>",
+        "headline_highlight_style": "underline",
+        "subheadline": "Premium heavyweight fleece with a relaxed fit, reinforced seams, and a soft brushed interior — built for everyday wear from city streets to weekend trails.",
+        "price_source": "custom",
+        "cta_type": "custom_link",
+        "cta_label": "Shop the Hoodie",
+        "cta_link": "shopify://collections/all",
+        "show_cta_trust_stack": true,
+        "show_social_proof": false,
+        "social_proof_text": "",
+        "show_social_rating": true,
+        "social_rating_value": "4.9/5",
+        "show_social_review_count": true,
+        "social_review_count": [
+          {
+            "text": "Softest hoodie I own. The weight is perfect — not too heavy, not too thin.",
+            "name": "Chris B.",
+            "location": "Denver, CO"
+          },
+          {
+            "text": "True to size and the quality is obvious. Already ordered a second color.",
+            "name": "Sam R.",
+            "location": "Minneapolis, MN"
+          },
+          {
+            "text": "Wears beautifully after months of washing. Worth the investment.",
+            "name": "Jordan M.",
+            "location": "Portland, OR"
+          }
+        ],
+        "layout_preset": "minimal",
+        "show_trust_microcopy": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "price_text": "$68.00"
+      }
+    },
+    "sp-metrics": {
+      "type": "sp-metrics",
+      "blocks": {
+        "metric-1": {
+          "type": "metric",
+          "settings": {
+            "value": "45,000+",
+            "label": "Happy customers"
+          }
+        },
+        "metric-2": {
+          "type": "metric",
+          "settings": {
+            "value": "4.9★",
+            "label": "Average rating"
+          }
+        },
+        "metric-3": {
+          "type": "metric",
+          "settings": {
+            "value": "9,800+",
+            "label": "Verified reviews"
+          }
+        },
+        "metric-4": {
+          "type": "metric",
+          "settings": {
+            "value": "30-day guarantee",
+            "label": "Money-back guarantee"
+          }
+        }
+      },
+      "block_order": [
+        "metric-1",
+        "metric-2",
+        "metric-3",
+        "metric-4"
+      ],
+      "settings": {
+        "heading": "Worn and loved daily",
+        "subheading": "<p>Apparel designed for comfort, durability, and effortless style season after season.</p>",
+        "content_alignment": "center",
+        "desktop_columns": "4",
+        "show_band": true,
+        "show_dividers": true,
+        "mobile_layout": "swipe",
+        "sp_surface_style": "alternate",
+        "sp_divider_style": "line",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "sp-benefits": {
+      "type": "sp-benefits",
+      "blocks": {
+        "benefit-1": {
+          "type": "benefit",
+          "settings": {
+            "icon": "check",
+            "title": "Premium heavyweight fleece",
+            "description": "<p>400 GSM cotton-blend fleece with a brushed interior for all-day softness.</p>"
+          }
+        },
+        "benefit-2": {
+          "type": "benefit",
+          "settings": {
+            "icon": "truck",
+            "title": "Free shipping & easy returns",
+            "description": "<p>Most orders ship within 24 hours. Free exchanges on sizing.</p>"
+          }
+        },
+        "benefit-3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shield",
+            "title": "30-day fit guarantee",
+            "description": "<p>Not the right fit? Exchange or return within 30 days, hassle-free.</p>"
+          }
+        },
+        "benefit-4": {
+          "type": "benefit",
+          "settings": {
+            "icon": "star",
+            "title": "4.9★ style approved",
+            "description": "<p>45,000+ customers and 9,800+ verified reviews.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "benefit-1",
+        "benefit-2",
+        "benefit-3",
+        "benefit-4"
+      ],
+      "settings": {
+        "heading": "Why customers live in this hoodie",
+        "subheading": "<p>Quality materials and thoughtful construction that get better with every wear.</p>",
+        "content_alignment": "center",
+        "desktop_columns": "4",
+        "card_style": "subtle",
+        "mobile_layout": "swipe",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "sp-features": {
+      "type": "sp-features",
+      "blocks": {
+        "feature-1": {
+          "type": "feature",
+          "settings": {
+            "title": "Relaxed fit, true to size",
+            "description": "<p>Designed with a modern relaxed silhouette that layers easily without bulk.</p>",
+            "bullet_1": "Unisex sizing XS–3XL",
+            "bullet_2": "Ribbed cuffs and hem hold shape",
+            "bullet_3": "Kangaroo pocket with hidden phone slot"
+          }
+        },
+        "feature-2": {
+          "type": "feature",
+          "settings": {
+            "title": "Built to last",
+            "description": "<p>Double-stitched seams and pre-shrunk fabric that maintains fit wash after wash.</p>",
+            "bullet_1": "Reinforced shoulder panels",
+            "bullet_2": "Colorfast dyes that resist fading",
+            "bullet_3": "Machine wash cold, tumble dry low"
+          }
+        }
+      },
+      "block_order": [
+        "feature-1",
+        "feature-2"
+      ],
+      "settings": {
+        "heading": "Details that matter",
+        "subheading": "<p>From fabric weight to stitch count — every choice is intentional.</p>",
+        "content_alignment": "left",
+        "image_ratio": "portrait",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "sp-scientific-proof": {
+      "type": "sp-scientific-proof",
+      "blocks": {
+        "proof-1": {
+          "type": "proof",
+          "settings": {
+            "statistic": "400 GSM",
+            "presentation": "statistic",
+            "description": "<p>Heavyweight fleece weight for warmth without overheating.</p>",
+            "icon": "chart",
+            "source": "Fabric specification",
+            "footnote": ""
+          }
+        },
+        "proof-2": {
+          "type": "proof",
+          "settings": {
+            "statistic": "OEKO-TEX",
+            "presentation": "certification",
+            "description": "<p>Certified safe textiles tested for harmful substances.</p>",
+            "icon": "shield",
+            "source": "Textile certification",
+            "footnote": ""
+          }
+        },
+        "proof-3": {
+          "type": "proof",
+          "settings": {
+            "statistic": "50+ wash cycles",
+            "presentation": "statistic",
+            "description": "<p>Fabric tested to maintain shape and color through 50+ machine washes.</p>",
+            "icon": "certificate",
+            "source": "Durability testing",
+            "footnote": ""
+          }
+        }
+      },
+      "block_order": [
+        "proof-1",
+        "proof-2",
+        "proof-3"
+      ],
+      "settings": {
+        "heading": "Quality you can trust",
+        "subheading": "<p>Materials and manufacturing standards behind every garment.</p>",
+        "content_alignment": "center",
+        "desktop_columns": "3",
+        "card_style": "elevated",
+        "mobile_layout": "swipe",
+        "sp_surface_style": "default",
+        "sp_divider_style": "line",
+        "padding_top": 64,
+        "padding_bottom": 48
+      }
+    },
+    "sp-social-proof": {
+      "type": "sp-social-proof",
+      "blocks": {
+        "review-1": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "<p>Softest hoodie I own. The weight is perfect — not too heavy, not too thin.</p>",
+            "customer_name": "Chris B.",
+            "customer_title": "Denver, CO",
+            "verified": true
+          }
+        },
+        "review-2": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "<p>True to size and the quality is obvious. Already ordered a second color.</p>",
+            "customer_name": "Sam R.",
+            "customer_title": "Minneapolis, MN",
+            "verified": true
+          }
+        },
+        "review-3": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "<p>Wears beautifully after months of washing. Worth the investment.</p>",
+            "customer_name": "Jordan M.",
+            "customer_title": "Portland, OR",
+            "verified": true
+          }
+        }
+      },
+      "block_order": [
+        "review-1",
+        "review-2",
+        "review-3"
+      ],
+      "settings": {
+        "heading": "9,800+ verified reviews · 4.9★ average",
+        "subheading": "<p>Customers who made the Essential Fleece their daily uniform.</p>",
+        "content_alignment": "center",
+        "desktop_columns": "3",
+        "mobile_layout": "swipe",
+        "sp_surface_style": "alternate",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "sp-faq": {
+      "type": "sp-faq",
+      "blocks": {
+        "faq-1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How does the fit run?",
+            "answer": "<p>True to size with a relaxed fit. Size down for a closer fit or up for an oversized look.</p>"
+          }
+        },
+        "faq-2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How should I care for it?",
+            "answer": "<p>Machine wash cold with like colors. Tumble dry low. Do not bleach or iron directly on print.</p>"
+          }
+        },
+        "faq-3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I exchange for a different size?",
+            "answer": "<p>Yes. Free size exchanges within 30 days. Contact support to start an exchange.</p>"
+          }
+        },
+        "faq-4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "<p>30-day money-back guarantee on unworn items with tags attached.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq-1",
+        "faq-2",
+        "faq-3",
+        "faq-4"
+      ],
+      "settings": {
+        "heading": "Fit, care, and returns",
+        "subheading": "<p>Sizing guide, fabric care, shipping, and our 30-day guarantee.</p>",
+        "content_alignment": "center",
+        "open_first_item": true,
+        "padding_top": 64,
+        "padding_bottom": 48
+      }
+    },
+    "sp-cta-offer": {
+      "type": "sp-cta-offer",
+      "settings": {
+        "heading": "Find your everyday essential",
+        "subheading": "<p>Join 45,000+ customers living comfortably in the Essential Fleece Hoodie.</p>",
+        "offer_text": "$68.00 · Free shipping included",
+        "button_label": "Shop the Hoodie",
+        "button_link": "shopify://collections/all",
+        "reassurance_text": "30-day money-back guarantee",
+        "show_badge": true,
+        "badge_text": "Season bestseller",
+        "card_style": "gradient",
+        "sp_surface_style": "inverse",
+        "sp_section_emphasis": "feature",
+        "padding_top": 64,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "demo-visual-treatment",
+    "sp-hero",
+    "sp-metrics",
+    "sp-benefits",
+    "sp-features",
+    "sp-scientific-proof",
+    "sp-social-proof",
+    "sp-faq",
+    "sp-cta-offer"
+  ]
+}
