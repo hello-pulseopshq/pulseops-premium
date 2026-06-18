@@ -55,6 +55,8 @@
       "settings": {
         "show_announcement": true,
         "announcement_text": "New season drop · Free shipping on all apparel orders",
+        "eyebrow_text": "",
+        "badge_text": "",
         "headline": "Live comfortably in the <strong>Essential Fleece Hoodie</strong>",
         "headline_highlight_style": "underline",
         "subheadline": "Premium heavyweight fleece with a relaxed fit, reinforced seams, and a soft brushed interior — built for everyday wear from city streets to weekend trails.",
@@ -70,6 +72,8 @@
         "show_social_review_count": true,
         "social_review_count": "9,800+ reviews",
         "layout_preset": "minimal",
+        "visual_effects": "none",
+        "desktop_image_position": "left",
         "show_trust_microcopy": false,
         "padding_top": 0,
         "padding_bottom": 0,

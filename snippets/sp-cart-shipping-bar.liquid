@@ -1,0 +1,50 @@
+{%- comment -%}
+  SP Cart — free-shipping progress bar for the cart drawer.
+
+  Self-contained SP enhancement extracted out of Dawn's cart-drawer.liquid so
+  that the Dawn file carries only a single render hook (easier upstream merges).
+
+  Behaviour is merchant-editable via theme settings (Theme settings → SP Cart):
+    settings.sp_cart_free_shipping_enabled   — toggle the bar
+    settings.sp_cart_free_shipping_threshold — threshold in store currency units
+
+  Note: cart prices are in the currency's smallest unit (cents). The threshold
+  setting is expressed in main units and converted with `times: 100`. For
+  zero-decimal currencies a merchant should set the threshold accordingly.
+{%- endcomment -%}
+{%- if settings.sp_cart_free_shipping_enabled and cart != empty -%}
+  {%- liquid
+    assign sp_free_ship_threshold = settings.sp_cart_free_shipping_threshold | default: 50 | times: 100
+    assign sp_near_threshold_cents = 50
+  -%}
+  {%- if sp_free_ship_threshold > 0 -%}
+    {%- liquid
+      assign sp_amount_away = sp_free_ship_threshold | minus: cart.total_price
+      assign sp_free_ship_progress = cart.total_price | times: 100 | divided_by: sp_free_ship_threshold
+      if sp_free_ship_progress > 100
+        assign sp_free_ship_progress = 100
+      endif
+      assign sp_free_shipping_unlocked = false
+      if cart.total_price >= sp_free_ship_threshold
+        assign sp_free_shipping_unlocked = true
+      elsif sp_amount_away > 0 and sp_amount_away <= sp_near_threshold_cents
+        assign sp_free_shipping_unlocked = true
+      endif
+    -%}
+    <div class="sp-cart-drawer__shipping" role="status">
+      {%- if sp_free_shipping_unlocked -%}
+        <p class="sp-cart-drawer__shipping-text sp-cart-drawer__shipping-text--unlocked">
+          {{ 'icon-checkmark.svg' | inline_asset_content }}
+          <span>Free shipping included</span>
+        </p>
+      {%- else -%}
+        <p class="sp-cart-drawer__shipping-text">
+          Add {{ sp_amount_away | money }} more for free shipping
+        </p>
+        <div class="sp-cart-drawer__shipping-track" aria-hidden="true">
+          <span class="sp-cart-drawer__shipping-fill" style="width: {{ sp_free_ship_progress }}%;"></span>
+        </div>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+{%- endif -%}

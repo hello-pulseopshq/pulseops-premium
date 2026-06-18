@@ -1,0 +1,27 @@
+{
+  "name": "pulseops-premium",
+  "version": "1.0.0",
+  "description": "A Shopify Online Store 2.0 theme for **single-product brands** — conversion-focused section stack, frozen core architecture, and vertical demo presets.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hello-pulseopshq/pulseops-premium.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/hello-pulseopshq/pulseops-premium/issues"
+  },
+  "homepage": "https://github.com/hello-pulseopshq/pulseops-premium#readme",
+  "devDependencies": {
+    "playwright": "^1.61.0"
+  }
+}

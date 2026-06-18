@@ -1662,5 +1662,43 @@
         "info": "Background tint shown while images load. Lower is subtler."
       }
     ]
+  },
+  {
+    "name": "SP Cart",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Controls the SP cart drawer enhancements — the free-shipping progress bar and the checkout trust line. These are merchant-editable and vertical-agnostic."
+      },
+      {
+        "type": "header",
+        "content": "Free shipping bar"
+      },
+      {
+        "type": "checkbox",
+        "id": "sp_cart_free_shipping_enabled",
+        "label": "Show free shipping progress bar",
+        "default": true,
+        "info": "Displays progress toward a free-shipping threshold in the cart drawer."
+      },
+      {
+        "type": "number",
+        "id": "sp_cart_free_shipping_threshold",
+        "label": "Free shipping threshold",
+        "default": 50,
+        "info": "Order value (in your store currency's main units, e.g. 50 = $50) needed to unlock free shipping. Used only for the progress bar display; configure actual shipping rates in Shipping settings."
+      },
+      {
+        "type": "header",
+        "content": "Checkout trust"
+      },
+      {
+        "type": "text",
+        "id": "sp_cart_trust_text",
+        "label": "Cart trust line",
+        "default": "30-day money-back guarantee · Secure checkout",
+        "info": "Short reassurance text shown under the cart drawer checkout button. Leave blank to hide."
+      }
+    ]
   }
 ]

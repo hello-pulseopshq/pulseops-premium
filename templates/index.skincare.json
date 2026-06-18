@@ -55,6 +55,8 @@
       "settings": {
         "show_announcement": true,
         "announcement_text": "New customers: Free shipping + 30-day glow guarantee",
+        "eyebrow_text": "",
+        "badge_text": "",
         "headline": "Reveal brighter skin with <strong>Radiance Renewal Serum</strong>",
         "headline_highlight_style": "underline",
         "subheadline": "A lightweight vitamin C and hyaluronic acid serum that targets dullness, fine lines, and uneven tone — for visible results in your daily routine.",
@@ -70,6 +72,8 @@
         "show_social_review_count": true,
         "social_review_count": "6,200+ reviews",
         "layout_preset": "minimal",
+        "visual_effects": "none",
+        "desktop_image_position": "left",
         "show_trust_microcopy": false,
         "padding_top": 0,
         "padding_bottom": 0,

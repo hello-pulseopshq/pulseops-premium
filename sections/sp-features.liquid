@@ -139,9 +139,9 @@
 
       {%- liquid
         assign feature_product = product
-        if feature_product == blank
-          assign feature_product = all_products['the-collection-snowboard-liquid']
-        endif
+        capture sp_hide_blank_feature_media
+          render 'sp-pack-registry', field: 'hide_blank_feature_media'
+        endcapture
       -%}
 
       <div class="sp-features__list{% render 'sp-motion-class', type: 'stagger' %}" data-sp-stagger>
@@ -159,10 +159,18 @@
             {%- endif -%}
           {%- endif -%}
 
+          {%- liquid
+            assign render_feature_media = true
+            if sp_hide_blank_feature_media == 'true' and block.settings.image == blank
+              assign render_feature_media = false
+            endif
+          -%}
+
           <article
             class="sp-features__feature{% if is_even == 0 %} sp-features__feature--reverse{% endif %}{% render 'sp-motion-class', type: 'stagger-item' %}"
             {{ block.shopify_attributes }}
           >
+            {%- if render_feature_media -%}
             <div class="sp-features__media{% render 'sp-motion-class', type: 'fade-up' %}">
               {%- capture features_frame_class -%}sp-features__image-wrapper{% render 'sp-motion-class', type: 'hover-image' %}{%- endcapture -%}
               {%- render 'sp-image',
@@ -175,6 +183,7 @@
                 loading: 'lazy'
               -%}
             </div>
+            {%- endif -%}
 
             <div class="sp-features__content">
               {%- if block.settings.title != blank -%}

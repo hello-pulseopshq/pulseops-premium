@@ -55,6 +55,8 @@
       "settings": {
         "show_announcement": true,
         "announcement_text": "Works with iPhone, Samsung, and Qi2 devices · Free shipping",
+        "eyebrow_text": "",
+        "badge_text": "",
         "headline": "Charge faster with <strong>MagCharge Pro Stand</strong>",
         "headline_highlight_style": "underline",
         "subheadline": "A compact 3-in-1 charging stand with 15W MagSafe-compatible wireless charging, adjustable viewing angle, and cable management built in.",
@@ -70,6 +72,8 @@
         "show_social_review_count": true,
         "social_review_count": "5,500+ reviews",
         "layout_preset": "minimal",
+        "visual_effects": "none",
+        "desktop_image_position": "left",
         "show_trust_microcopy": false,
         "padding_top": 0,
         "padding_bottom": 0,

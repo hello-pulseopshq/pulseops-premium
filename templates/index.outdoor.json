@@ -46,6 +46,8 @@
       "settings": {
         "show_announcement": true,
         "announcement_text": "Free shipping on every order · 30-day ride guarantee",
+        "eyebrow_text": "",
+        "badge_text": "",
         "headline": "Ride farther with the <strong>Collection Snowboard: Liquid</strong>",
         "headline_highlight_style": "underline",
         "subheadline": "All-mountain freestyle performance with a lightweight core, buttery flex, and edge control you can feel from the first run.",
@@ -61,6 +63,8 @@
         "show_social_review_count": true,
         "social_review_count": "12,000+ reviews",
         "layout_preset": "classic_split",
+        "visual_effects": "premium",
+        "desktop_image_position": "right",
         "show_trust_microcopy": false,
         "padding_top": 0,
         "padding_bottom": 0,

@@ -1,0 +1,108 @@
+{%- comment -%}
+  ============================================================================
+  SP PACK REGISTRY — single source of truth for demo / pack vertical identity
+  ============================================================================
+
+  This is the ONLY file in the theme that maps a template suffix to a vertical
+  identity and its demo content (brand name, product handle, CSS classes,
+  browser titles, fallback assets, etc.).
+
+  Core theme files (layout/theme.liquid, sections/*.liquid, snippets/cart-*.liquid)
+  MUST NOT reference "supplement", "Daily Vitality", demo product handles, or
+  any other vertical-specific string directly. They ask this registry instead.
+
+  ──────────────────────────────────────────────────────────────────────────
+  USAGE
+  ──────────────────────────────────────────────────────────────────────────
+  Scalar lookup (returns a string, or blank when not applicable):
+
+    {%- capture sp_brand -%}
+      {%- render 'sp-pack-registry', field: 'brand_name' -%}
+    {%- endcapture -%}
+
+  Optional explicit vertical (defaults to the active template suffix):
+
+    {%- render 'sp-pack-registry', field: 'brand_name', vertical: 'supplement' -%}
+
+  IMPORTANT — Dispatching to snippets by variable name:
+  Shopify Liquid silently no-ops a `render variableName` call when the variable
+  contains a snippet name (dynamic render). This is a known Liquid limitation.
+  Any consumer that needs to conditionally render a snippet based on the active
+  vertical MUST use a static `case` statement keyed on the `active` field:
+
+    {%- capture sp_demo_active -%}{%- render 'sp-pack-registry', field: 'active' -%}{%- endcapture -%}
+    {%- case sp_demo_active -%}
+      {%- when 'supplement' -%}{%- render 'sp-demo-supplement-head' -%}
+    {%- endcase -%}
+
+  String values returned by the registry (brand_name, product_handle, etc.) work
+  fine as captured variables used in `if` conditions, output, or Liquid expressions.
+
+  ──────────────────────────────────────────────────────────────────────────
+  FIELDS
+  ──────────────────────────────────────────────────────────────────────────
+    active                 → vertical id (e.g. 'supplement') or blank
+    html_class             → classes to add to <html> (no leading space)
+    brand_name             → demo brand/store name
+    product_handle         → primary demo product handle
+    title_index            → <title> for the homepage
+    title_cart             → <title> for the cart page
+    title_product_suffix   → string appended after product.title in <title>
+    footer_hidden_links    → comma list of footer link labels to hide (lowercase)
+    footer_nav             → snippet name that renders the vertical's footer nav
+    head_snippet           → snippet name rendered before </head> for demo assets
+    hide_blank_feature_media → 'true' if SP Features should drop empty media slots
+    hero_fallback_tokens   → comma list of image-url tokens that trigger the
+                             hero fallback image (placeholder/demo art detection)
+    hero_fallback_image    → asset filename used as the hero fallback image
+
+  ──────────────────────────────────────────────────────────────────────────
+  ADDING A NEW PACK / VERTICAL
+  ──────────────────────────────────────────────────────────────────────────
+  1. Add a new `when '<suffix>'` branch below.
+  2. Fill in the fields the vertical needs (omit any it doesn't).
+  3. Create templates/*.<suffix>.json for content composition only.
+  4. Do NOT edit core sections, layout, or cart files — they read this registry.
+
+  Verticals that only need preset CSS + content (skincare, electronics, etc.)
+  load their styling through templates/*.<suffix>.json custom-liquid and do not
+  need a branch here unless they require identity overrides.
+{%- endcomment -%}
+{%- liquid
+  assign sp_reg_vertical = vertical
+  if sp_reg_vertical == blank
+    assign sp_reg_vertical = template.suffix
+  endif
+
+  case sp_reg_vertical
+    when 'supplement'
+      case field
+        when 'active'
+          echo 'supplement'
+        when 'html_class'
+          echo 'sp-demo-visual-neutral sp-demo-supplement'
+        when 'brand_name'
+          echo 'Daily Vitality'
+        when 'product_handle'
+          echo 'daily-vitality-complex'
+        when 'title_index'
+          echo 'Daily Vitality — Daily Wellness, Simplified'
+        when 'title_cart'
+          echo 'Your Cart | Daily Vitality'
+        when 'title_product_suffix'
+          echo ' | Daily Vitality'
+        when 'footer_hidden_links'
+          echo 'energy,daily vitality'
+        when 'footer_nav'
+          echo 'sp-demo-footer-nav'
+        when 'head_snippet'
+          echo 'sp-demo-supplement-head'
+        when 'hide_blank_feature_media'
+          echo 'true'
+        when 'hero_fallback_tokens'
+          echo 'snowboard,gift-card,ski-wax,Main_b13ad453'
+        when 'hero_fallback_image'
+          echo 'sp-demo-daily-vitality-product.svg'
+      endcase
+  endcase
+-%}

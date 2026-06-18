@@ -1956,6 +1956,10 @@
             },
             "pairing_3": {
               "label": "Koppeling 3"
+            },
+            "content": {
+              "label": "Content",
+              "info": "Choose an icon or add an image for each pairing"
             }
           }
         },

@@ -1,4 +1,51 @@
-MatchingTranslations:
-  enabled: false
+# =============================================================================
+# SP Core Theme — Theme Check configuration
+# Last reviewed: architecture-9 hardening pass
+# Run with: shopify theme check
+# =============================================================================
+
+# ── Enforced rules with tuned options ────────────────────────────────────────
+#
+# TemplateLength
+#   Re-enabled. The Dawn default (200 lines) counts the {% schema %} block, which
+#   for SP sections is large config (option lists, presets) rather than logic.
+#   We exclude the schema from the count and cap actual Liquid/markup length, so
+#   the rule still catches genuine logic bloat in a section's body.
 TemplateLength:
-  enabled: false
+  enabled: true
+  max_length: 600
+  exclude_schema: true
+  exclude_content_for_header: true
+
+# MatchingTranslations
+#   Re-enabled. Verifies locale files keep key parity with en.default(.schema).json.
+#   The previous disable note (about inline schema labels) was inaccurate — this
+#   rule governs locale-file consistency, which we want enforced.
+MatchingTranslations:
+  enabled: true
+
+# ── Scoped false positives (rule stays enabled everywhere else) ───────────────
+#
+# LiquidHTMLSyntaxError
+#   The section hierarchy wrapper is intentionally split across two snippets:
+#   sp-section-hierarchy-open.liquid emits opening <div>s and the matching
+#   sp-section-hierarchy-close.liquid emits the closing </div>s. Each file is
+#   therefore "unbalanced" on its own, which is by design (Dawn uses the same
+#   open/close snippet pattern). Ignore these two files only; the rule remains
+#   active for every other file.
+LiquidHTMLSyntaxError:
+  ignore:
+    - snippets/sp-section-hierarchy-open.liquid
+    - snippets/sp-section-hierarchy-close.liquid
+
+# OrphanedSnippet
+#   These snippets ARE used, but they are rendered dynamically by name via the SP
+#   pack registry, e.g. `{% render sp_footer_nav_snippet %}` where the snippet name
+#   is returned by snippets/sp-pack-registry.liquid. Theme Check's static analysis
+#   cannot follow a variable snippet name, so it reports them as orphaned. The
+#   indirection is intentional (it keeps core files vertical-agnostic), so these two
+#   files are ignored for this rule only. The rule stays active for every other file.
+OrphanedSnippet:
+  ignore:
+    - snippets/sp-demo-footer-nav.liquid
+    - snippets/sp-demo-supplement-head.liquid

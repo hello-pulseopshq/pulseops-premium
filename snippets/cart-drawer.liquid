@@ -475,6 +475,8 @@
         </form>
       </cart-drawer-items>
       <div class="drawer__footer">
+        {%- render 'sp-cart-shipping-bar' -%}
+
         {%- if settings.show_cart_note -%}
           <details id="Details-CartDrawer">
             <summary>
@@ -574,6 +576,20 @@
           >
             {{ 'sections.cart.checkout' | t }}
           </button>
+          <button
+            type="button"
+            class="sp-cart-drawer__continue button button--secondary"
+            onclick="this.closest('cart-drawer').close()"
+          >
+            {{ 'general.continue_shopping' | t }}
+          </button>
+          {%- assign sp_cart_trust_text = settings.sp_cart_trust_text | default: '30-day money-back guarantee · Secure checkout' -%}
+          {%- if sp_cart_trust_text != blank -%}
+            <p class="sp-cart-drawer__trust caption">
+              {{ 'icon-lock.svg' | inline_asset_content }}
+              <span>{{ sp_cart_trust_text }}</span>
+            </p>
+          {%- endif -%}
         </div>
       </div>
     </div>

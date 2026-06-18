@@ -87,7 +87,17 @@
                       {{ block.settings.subtext }}
                     </div>
                   {%- when 'link_list' -%}
-                    {%- if block.settings.menu != blank -%}
+                    {%- comment -%}
+                      SP Demo footer nav — static case dispatch on the active vertical.
+                      Dynamic render-by-variable silently no-ops in Liquid; use case instead.
+                      Add one `when` branch per new pack/vertical below.
+                    {%- endcomment -%}
+                    {%- capture sp_demo_active_nav -%}{%- render 'sp-pack-registry', field: 'active' -%}{%- endcapture -%}
+                    {%- case sp_demo_active_nav -%}
+                      {%- when 'supplement' -%}
+                        {%- render 'sp-demo-footer-nav' -%}
+                    {%- else -%}
+                      {%- if block.settings.menu != blank -%}
                       <ul class="footer-block__details-content list-unstyled">
                         {%- for link in block.settings.menu.links -%}
                           <li>
@@ -101,6 +111,7 @@
                         {%- endfor -%}
                       </ul>
                     {%- endif -%}
+                    {%- endcase -%}
                   {%- when 'brand_information' -%}
                     <div class="footer-block__brand-info">
                       {%- if settings.brand_image != blank -%}
@@ -300,7 +311,7 @@
     <div class="footer__content-bottom-wrapper page-width{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}">
       <div class="footer__copyright caption">
         <small class="copyright__content"
-          >&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url -}}
+          >&copy; {{ 'now' | date: '%Y' }}, {% capture sp_footer_brand %}{% render 'sp-demo-brand-name' %}{% endcapture %}{{ sp_footer_brand | link_to: routes.root_url -}}
         </small>
         <small class="copyright__content">{{ powered_by_link }}</small>
         {%- if section.settings.show_policy -%}

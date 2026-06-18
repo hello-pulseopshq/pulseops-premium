@@ -16,6 +16,8 @@ Onboard **10 merchants** to validate PulseOps SP Core setup, narrative flow, and
 
 Assign matching homepage and product templates from [DEMO_PRESETS.md](./DEMO_PRESETS.md).
 
+Configure **hero-product navigation** (not Catalog-style menus). See [QUICK_START.md](./QUICK_START.md).
+
 ## Feedback objectives
 
 1. **Setup friction** — time to first publishable product page

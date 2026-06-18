@@ -1,0 +1,12 @@
+{
+  "handle": "footer",
+  "title": "Footer menu",
+  "items": [
+    { "title": "Shop", "url": "/collections/all" },
+    { "title": "Benefits", "url": "/" },
+    { "title": "Reviews", "url": "/" },
+    { "title": "FAQ", "url": "/" },
+    { "title": "Contact", "url": "/pages/contact" },
+    { "title": "Shipping & Returns", "url": "/policies/refund-policy" }
+  ]
+}

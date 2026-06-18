@@ -1,0 +1,10 @@
+{
+  "handle": "main-menu",
+  "title": "Main menu",
+  "items": [
+    { "title": "Shop", "url": "/collections/all" },
+    { "title": "Benefits", "url": "/" },
+    { "title": "Reviews", "url": "/" },
+    { "title": "FAQ", "url": "/" }
+  ]
+}

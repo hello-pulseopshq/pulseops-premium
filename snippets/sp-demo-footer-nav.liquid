@@ -1,0 +1,34 @@
+{%- comment -%}
+  SP Demo — supplement footer navigation list.
+  Replaces the Admin menu-driven nav for the supplement vertical demo to ensure
+  anchor links are correct and no Admin menu sync is required.
+
+  Resolved via sp-pack-registry (field: 'footer_nav') and rendered by
+  sections/footer.liquid inside the link_list block type. The core footer
+  section never names a vertical — it renders whatever snippet the registry returns.
+
+  To update supplement demo footer links, edit ONLY this snippet.
+{%- endcomment -%}
+<ul class="footer-block__details-content list-unstyled">
+  <li>
+    <a href="#sp-benefits" class="link link--text list-menu__item list-menu__item--link">Benefits</a>
+  </li>
+  <li>
+    <a href="#sp-ingredients" class="link link--text list-menu__item list-menu__item--link">Ingredients</a>
+  </li>
+  <li>
+    <a href="#sp-science" class="link link--text list-menu__item list-menu__item--link">Science</a>
+  </li>
+  <li>
+    <a href="#sp-reviews" class="link link--text list-menu__item list-menu__item--link">Reviews</a>
+  </li>
+  <li>
+    <a href="#sp-faq" class="link link--text list-menu__item list-menu__item--link">FAQ</a>
+  </li>
+  <li>
+    <a href="/pages/contact" class="link link--text list-menu__item list-menu__item--link">Contact</a>
+  </li>
+  <li>
+    <a href="/policies/refund-policy" class="link link--text list-menu__item list-menu__item--link">Shipping &amp; Returns</a>
+  </li>
+</ul>

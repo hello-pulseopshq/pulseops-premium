@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="{{ 'component-mega-menu.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- endif -%}
 
+{%- capture sp_header_brand -%}{%- render 'sp-demo-brand-name' -%}{%- endcapture -%}
 
 <style>
   header-drawer {
@@ -160,7 +161,7 @@
                 }}
               </div>
             {%- else -%}
-              <span class="h2">{{ shop.name }}</span>
+              <span class="h2">{{ sp_header_brand }}</span>
             {%- endif -%}
           </a>
       {%- if request.page_type == 'index' -%}
@@ -200,7 +201,7 @@
                 }}
               </div>
             {%- else -%}
-              <span class="h2">{{ shop.name }}</span>
+              <span class="h2">{{ sp_header_brand }}</span>
             {%- endif -%}
           </a>
       {%- if request.page_type == 'index' -%}
@@ -410,7 +411,7 @@
   {
     "@context": "http://schema.org",
     "@type": "Organization",
-    "name": {{ shop.name | json }},
+    "name": {{ sp_header_brand | json }},
     {% if settings.logo %}
       "logo": {{ settings.logo | image_url: width: 500 | prepend: "https:" | json }},
     {% endif %}
@@ -435,7 +436,7 @@
     {
       "@context": "http://schema.org",
       "@type": "WebSite",
-      "name": {{ shop.name | json }},
+      "name": {{ sp_header_brand | json }},
       "potentialAction": {
         "@type": "SearchAction",
         "target": {{ potential_action_target | json }},

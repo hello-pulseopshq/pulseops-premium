@@ -4,7 +4,7 @@
       "type": "main-cart-items",
       "settings": {
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 24
       }
     },
     "cart-footer": {
@@ -12,44 +12,24 @@
       "blocks": {
         "subtotal": {
           "type": "subtotal",
-          "settings": {
-          }
+          "settings": {}
         },
         "buttons": {
           "type": "buttons",
-          "settings": {
-          }
+          "settings": {}
         }
       },
-      "block_order": [
-        "subtotal",
-        "buttons"
-      ]
+      "block_order": ["subtotal", "buttons"],
+      "settings": {}
     },
-    "featured-collection": {
-      "type": "featured-collection",
+    "cart-trust": {
+      "type": "custom-liquid",
       "settings": {
-        "title": "Featured collection",
-        "heading_size": "h2",
-        "collection": "all",
-        "products_to_show": 4,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "show_view_all": true,
-        "swipe_on_mobile": false,
-        "image_ratio": "square",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "columns_mobile": "2",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "custom_liquid": "<div class=\"page-width sp-cart-page-trust\"><div class=\"sp-cart-page-trust__item\"><div><strong>30-day money-back guarantee</strong><span>Try Daily Vitality risk-free. Full refund if you are not satisfied.</span></div></div><div class=\"sp-cart-page-trust__item\"><div><strong>Free shipping over $50</strong><span>Most orders ship within 24 hours.</span></div></div><div class=\"sp-cart-page-trust__item\"><div><strong>Secure checkout</strong><span>256-bit SSL encryption on every order.</span></div></div></div>",
+        "padding_top": 0,
+        "padding_bottom": 48
       }
     }
   },
-  "order": [
-    "cart-items",
-    "cart-footer",
-    "featured-collection"
-  ]
+  "order": ["cart-items", "cart-footer", "cart-trust"]
 }

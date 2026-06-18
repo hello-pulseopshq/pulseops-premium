@@ -5,7 +5,8 @@ class SpStickyAtc {
 
     this.root = root;
     this.enabled = root.dataset.enabled !== 'false';
-    this.threshold = Math.max(0, parseFloat(root.dataset.scrollThreshold || '10'));
+    const rawThreshold = parseFloat(this.root.dataset.scrollThreshold);
+    this.threshold = Number.isFinite(rawThreshold) ? Math.max(0, Math.min(50, rawThreshold)) : 10;
     this.hideNearFooter = root.dataset.hideNearFooter !== 'false';
     this.mobileOnly = root.dataset.mobileOnly === 'true';
     this.showPriceInButton = root.dataset.showPriceInButton === 'true';
@@ -86,14 +87,18 @@ class SpStickyAtc {
 
     if (this.anchor && 'IntersectionObserver' in window) {
       const marginTop = `-${this.threshold}vh`;
-      this.intersectionObserver = new IntersectionObserver(
-        (entries) => {
-          this.anchorVisible = entries[0]?.isIntersecting ?? false;
-          this.updateVisibility();
-        },
-        { root: null, threshold: 0, rootMargin: `${marginTop} 0px 0px 0px` }
-      );
-      this.intersectionObserver.observe(this.anchor);
+      try {
+        this.intersectionObserver = new IntersectionObserver(
+          (entries) => {
+            this.anchorVisible = entries[0]?.isIntersecting ?? false;
+            this.updateVisibility();
+          },
+          { root: null, threshold: 0, rootMargin: `${marginTop} 0px 0px 0px` }
+        );
+        this.intersectionObserver.observe(this.anchor);
+      } catch {
+        this.intersectionObserver = null;
+      }
     }
 
     this.bindOverlayListeners();
@@ -118,6 +123,12 @@ class SpStickyAtc {
     if (cartDrawer) {
       this.cartObserver = new MutationObserver(() => this.updateVisibility());
       this.cartObserver.observe(cartDrawer, { attributes: true, attributeFilter: ['class'] });
+    }
+
+    const cartNotification = document.querySelector('cart-notification');
+    if (cartNotification) {
+      const notifObserver = new MutationObserver(() => this.updateVisibility());
+      notifObserver.observe(cartNotification, { attributes: true, attributeFilter: ['class', 'open'] });
     }
 
     document.querySelectorAll('quick-add-modal, modal-dialog').forEach((modal) => {
@@ -146,7 +157,9 @@ class SpStickyAtc {
 
   updateAnchorVisibilityFallback() {
     if (!this.anchor) return;
-    const thresholdPx = (this.threshold / 100) * window.innerHeight;
+    const thresholdPx = Number.isFinite(this.threshold)
+      ? (this.threshold / 100) * window.innerHeight
+      : window.innerHeight * 0.1;
     const rect = this.anchor.getBoundingClientRect();
     this.anchorVisible = rect.bottom > thresholdPx && rect.top < window.innerHeight;
   }
@@ -159,6 +172,9 @@ class SpStickyAtc {
   isOverlayOpen() {
     const cartDrawer = document.querySelector('cart-drawer');
     if (cartDrawer?.classList.contains('active')) return true;
+
+    const cartNotification = document.querySelector('cart-notification.active, cart-notification[class*="active"]');
+    if (cartNotification) return true;
 
     const quickAddModal = document.querySelector('quick-add-modal[open]');
     if (quickAddModal) return true;
@@ -314,10 +330,14 @@ class SpStickyAtc {
 
   syncPriceFromMain() {
     if (!this.priceEl || !this.mainSectionId) return;
-    if (this.mobileQuery.matches) return;
     const mainPrice = document.getElementById(`price-${this.mainSectionId}`);
-    if (mainPrice) {
+    if (mainPrice && !this.mobileQuery.matches) {
       this.priceEl.innerHTML = mainPrice.innerHTML;
+    }
+
+    const variant = this.getCurrentVariant();
+    if (variant) {
+      this.updateCompactPrice(variant);
     }
   }
 

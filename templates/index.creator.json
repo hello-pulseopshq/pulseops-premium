@@ -55,6 +55,8 @@
       "settings": {
         "show_announcement": true,
         "announcement_text": "Limited restock — join 15,000+ creators in the community",
+        "eyebrow_text": "",
+        "badge_text": "",
         "headline": "Build your brand with the <strong>Creator Essentials Kit</strong>",
         "headline_highlight_style": "underline",
         "subheadline": "Everything you need to launch, sell, and grow — curated by creators who turned passion into a full-time business.",
@@ -70,6 +72,8 @@
         "show_social_review_count": true,
         "social_review_count": "3,100+ reviews",
         "layout_preset": "minimal",
+        "visual_effects": "none",
+        "desktop_image_position": "left",
         "show_trust_microcopy": false,
         "padding_top": 0,
         "padding_bottom": 0,

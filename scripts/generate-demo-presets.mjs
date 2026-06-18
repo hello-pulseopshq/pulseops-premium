@@ -121,11 +121,16 @@ function trustBlocks(d) {
 
 function neutralVisualSection(d) {
   if (d.visualMode !== 'neutral') return {};
+  const classScript = `<script>document.documentElement.classList.add('sp-demo-visual-neutral','sp-demo-${d.id}');</script>`;
+  const customLiquid =
+    d.id === 'supplement'
+      ? classScript
+      : `{{ 'sp-demo-presets.css' | asset_url | stylesheet_tag }}${classScript}`;
   return {
     'demo-visual-treatment': {
       type: 'custom-liquid',
       settings: {
-        custom_liquid: `{{ 'sp-demo-presets.css' | asset_url | stylesheet_tag }}<script>document.documentElement.classList.add('sp-demo-visual-neutral','sp-demo-${d.id}');</script>`,
+        custom_liquid: customLiquid,
         padding_top: 0,
         padding_bottom: 0,
         color_scheme: 'scheme-1',
@@ -143,6 +148,8 @@ function heroSettings(d) {
   const s = {
     show_announcement: true,
     announcement_text: d.announcement,
+    eyebrow_text: d.eyebrowText ?? '',
+    badge_text: d.badgeText ?? '',
     headline: d.headline,
     headline_highlight_style: 'underline',
     subheadline: d.subheadline,
@@ -157,7 +164,9 @@ function heroSettings(d) {
     social_rating_value: d.rating,
     show_social_review_count: true,
     social_review_count: d.reviewsLabel,
-    layout_preset: d.visualMode === 'neutral' ? 'minimal' : 'classic_split',
+    layout_preset: d.productHandle ? 'classic_split' : d.visualMode === 'neutral' ? 'minimal' : 'classic_split',
+    visual_effects: d.productHandle ? 'premium' : 'none',
+    desktop_image_position: d.productHandle ? 'right' : 'left',
     show_trust_microcopy: false,
     padding_top: 0,
     padding_bottom: 0,
@@ -461,9 +470,9 @@ function buildProduct(d) {
         type: 'sp-sticky-atc',
         settings: {
           enable_sticky_bar: true,
-          mobile_only: true,
-          show_mobile_product_image: false,
-          show_mobile_title: false,
+          mobile_only: d.id === 'supplement' ? false : true,
+          show_mobile_product_image: d.id === 'supplement',
+          show_mobile_title: d.id === 'supplement',
           show_mobile_variant_selector: false,
           show_product_image: true,
           show_variant_selector: true,

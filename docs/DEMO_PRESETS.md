@@ -4,6 +4,20 @@ Demo store presets built on top of frozen SP Core (`sp-core-v1.0`, commit `912e1
 
 These are **alternate templates** — they do not modify default `index.json` or `product.json`.
 
+## Hero-product positioning
+
+SP Core is a **hero-product theme**. Navigation should reflect buyer entry points, not generic catalog browsing.
+
+| Pattern | Example nav |
+|---------|-------------|
+| Single hero product | Shop · Benefits · Reviews · FAQ |
+| Audience-based line | Kids · Seniors · Pets |
+| Product family | Product · Bundle · Accessories · Reviews |
+
+Avoid: Catalog, Search (as menu items), All products, generic Dawn menu defaults.
+
+Default menu definitions: `config/menus/`. Demo-specific shells: `config/demo-shells/`.
+
 ## Readiness tiers
 
 ### Public demo ready (presets 1–5)
@@ -93,6 +107,21 @@ node scripts/validate-demo-presets.mjs
 ```
 
 Edit copy in `scripts/demo-presets-config.mjs`, then regenerate.
+
+## Demo shell (supplement flagship)
+
+For the supplement showcase store, apply the supplement shell and menu profile:
+
+```bash
+node scripts/apply-demo-shell.mjs supplement
+SHOPIFY_ADMIN_ACCESS_TOKEN=shpat_xxx node scripts/setup-hero-product-menus-api.mjs supplement
+shopify theme push --only sections/header-group.json sections/footer-group.json --theme 182855336251
+```
+
+Supplement header nav: **Daily Vitality · Energy · Reviews · FAQ**  
+Supplement announcement: **4.9★ · 8,400+ reviews · 30-day guarantee**
+
+**Branding note:** The supplement preview uses a CSS wordmark (`Daily Vitality`) on `?view=supplement` / `product.supplement` via `assets/sp-demo-supplement.css`. The Shopify store name (`pulseops-labs`) is unchanged in Admin — update **Settings → Store details** or upload a theme logo for a merchant-native wordmark. Browser tab titles may still show the store name until changed in Admin.
 
 ## Image limitations
 

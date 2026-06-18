@@ -8,10 +8,10 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "4.9★ rated · 12,000+ reviews · Free shipping on all orders",
+            "text": "4.9★ rated · 8,400+ reviews · 30-day guarantee",
             "text_alignment": "center",
             "color_scheme": "scheme-1",
-            "link": "shopify://products/the-collection-snowboard-liquid"
+            "link": "shopify://products/daily-vitality-complex"
           }
         }
       },

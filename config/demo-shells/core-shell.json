@@ -1,0 +1,21 @@
+{
+  "id": "core",
+  "headerGroup": {
+    "announcement": {
+      "text": "Free shipping · 30-day money-back guarantee · Secure checkout",
+      "link": "shopify://collections/all"
+    },
+    "menu": "main-menu"
+  },
+  "footerGroup": {
+    "linkListHeading": "Navigate",
+    "menu": "footer",
+    "brandHeading": "Your brand",
+    "brandText": "<p>Hero-product storefront powered by SP Core. Lead with one primary offer, proof, and a conversion-focused narrative — not a generic catalog.</p>",
+    "newsletterHeading": "Get updates & offers"
+  },
+  "menus": {
+    "main": "core-main-menu.json",
+    "footer": "core-footer-menu.json"
+  }
+}

@@ -1,6 +1,6 @@
 <!doctype html>
 <html
-  class="no-js"
+  class="no-js{%- render 'sp-demo-html-class' -%}"
   lang="{{ request.locale.iso_code }}"
   data-sp-motion="{{ settings.sp_motion_style | default: 'balanced' }}"
   data-sp-image-reveal="{% if settings.sp_image_progressive_reveal %}true{% else %}false{% endif %}"
@@ -20,11 +20,19 @@
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
 
+    {%- capture sp_browser_title -%}{%- render 'sp-demo-page-title' -%}{%- endcapture -%}
+    {%- if sp_browser_title != blank -%}
+      {%- assign sp_is_demo_title = true -%}
+    {%- else -%}
+      {%- assign sp_is_demo_title = false -%}
+      {%- assign sp_browser_title = page_title -%}
+    {%- endif -%}
+
     <title>
-      {{ page_title }}
+      {{ sp_browser_title }}
       {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
       {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+      {%- unless sp_is_demo_title or sp_browser_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
     </title>
 
     {% if page_description %}
@@ -127,67 +135,10 @@
         --media-shadow-blur-radius: {{ settings.media_shadow_blur }}px;
         --media-shadow-visible: {% if settings.media_shadow_opacity > 0 %}1{% else %}0{% endif %};
 
-        --sp-image-placeholder-alpha: {{ settings.sp_image_placeholder_strength | divided_by: 100.0 }};
-        --sp-image-reveal-duration: 320ms;
-        {%- if settings.sp_image_shadow == 'elevated' -%}
-          --sp-image-shadow: var(--media-shadow-horizontal-offset) var(--media-shadow-vertical-offset) var(--media-shadow-blur-radius) rgba(var(--color-shadow), var(--media-shadow-opacity));
-        {%- elsif settings.sp_image_shadow == 'subtle' -%}
-          --sp-image-shadow: 0 0.2rem 1.2rem rgba(var(--color-shadow), calc(var(--media-shadow-opacity) * 0.65));
-        {%- else -%}
-          --sp-image-shadow: none;
-        {%- endif -%}
-
         --page-width: {{ settings.page_width | divided_by: 10 }}rem;
         --page-width-margin: {% if settings.page_width == '1600' %}2{% else %}0{% endif %}rem;
 
-        --sp-surface-alt-opacity: {{ settings.sp_surface_alt_opacity | default: 4 | divided_by: 100.0 }};
-        --sp-surface-accent-opacity: {{ settings.sp_surface_accent_opacity | default: 10 | divided_by: 100.0 }};
-        --sp-width-wide-offset: {{ settings.sp_width_wide_offset | default: 80 | divided_by: 10.0 }}rem;
-        --sp-section-padding-inline: {{ settings.sp_section_padding_inline | default: 16 | divided_by: 10.0 }}rem;
-        --sp-section-padding-inline-mobile: {{ settings.sp_section_padding_inline_mobile | default: 12 | divided_by: 10.0 }}rem;
-        --sp-emphasis-elevated-opacity: {{ settings.sp_emphasis_elevated_opacity | default: 8 | divided_by: 100.0 }};
-        --sp-divider-opacity: {{ settings.sp_divider_opacity | default: 12 | divided_by: 100.0 }};
-        --sp-section-feature-padding: {{ settings.sp_section_feature_padding | default: 16 | divided_by: 10.0 }}rem;
-        --sp-section-feature-radius: var(--media-radius);
-
-        {%- case settings.sp_motion_style -%}
-          {%- when 'disabled' -%}
-            --sp-motion-duration: 0ms;
-            --sp-motion-duration-fast: 0ms;
-            --sp-motion-reveal-distance: 0rem;
-            --sp-motion-stagger-delay: 0ms;
-            --sp-motion-hover-lift: 0rem;
-            --sp-motion-hover-shadow: 0;
-            --sp-motion-image-scale: 1;
-            --sp-motion-button-shift: 0rem;
-          {%- when 'minimal' -%}
-            --sp-motion-duration: 400ms;
-            --sp-motion-duration-fast: 240ms;
-            --sp-motion-reveal-distance: 1.2rem;
-            --sp-motion-stagger-delay: 60ms;
-            --sp-motion-hover-lift: 0.2rem;
-            --sp-motion-hover-shadow: 0.08;
-            --sp-motion-image-scale: 1.02;
-            --sp-motion-button-shift: 0.06rem;
-          {%- when 'premium' -%}
-            --sp-motion-duration: 700ms;
-            --sp-motion-duration-fast: 380ms;
-            --sp-motion-reveal-distance: 2.8rem;
-            --sp-motion-stagger-delay: 120ms;
-            --sp-motion-hover-lift: 0.5rem;
-            --sp-motion-hover-shadow: 0.18;
-            --sp-motion-image-scale: 1.03;
-            --sp-motion-button-shift: 0.14rem;
-          {%- else -%}
-            --sp-motion-duration: 550ms;
-            --sp-motion-duration-fast: 320ms;
-            --sp-motion-reveal-distance: 2rem;
-            --sp-motion-stagger-delay: 80ms;
-            --sp-motion-hover-lift: 0.35rem;
-            --sp-motion-hover-shadow: 0.12;
-            --sp-motion-image-scale: 1.03;
-            --sp-motion-button-shift: 0.1rem;
-        {%- endcase -%}
+        {%- render 'sp-root-tokens' -%}
 
         --product-card-image-padding: {{ settings.card_image_padding | divided_by: 10.0 }}rem;
         --product-card-corner-radius: {{ settings.card_corner_radius | divided_by: 10.0 }}rem;
@@ -324,6 +275,7 @@
     {{ 'sp-motion.css' | asset_url | stylesheet_tag }}
     {{ 'sp-image-experience.css' | asset_url | stylesheet_tag }}
     {{ 'sp-storefront-polish.css' | asset_url | stylesheet_tag }}
+    {{ 'sp-commerce-premium.css' | asset_url | stylesheet_tag }}
     {% render 'sp-motion-boot' %}
     {% render 'sp-image-boot' %}
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -366,6 +318,18 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
+
+    {%- comment -%}
+      SP Demo head assets — static case dispatch on the active vertical.
+      Dynamic render-by-variable is a Liquid limitation (silently no-ops in this context),
+      so we use a case statement keyed on the active registry value instead.
+      Add one `when` branch per new pack/vertical below.
+    {%- endcomment -%}
+    {%- capture sp_demo_active_head -%}{%- render 'sp-pack-registry', field: 'active' -%}{%- endcapture -%}
+    {%- case sp_demo_active_head -%}
+      {%- when 'supplement' -%}
+        {%- render 'sp-demo-supplement-head' -%}
+    {%- endcase -%}
   </head>
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">

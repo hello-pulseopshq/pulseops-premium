@@ -46,6 +46,8 @@
       "settings": {
         "show_announcement": true,
         "announcement_text": "Made in the USA · Free shipping on orders over $35",
+        "eyebrow_text": "",
+        "badge_text": "",
         "headline": "Help your dog stay calm with <strong>Daily Calm Chews</strong>",
         "headline_highlight_style": "underline",
         "subheadline": "Vet-inspired soft chews with chamomile, L-theanine, and hemp seed oil — formulated for anxious moments, travel, and everyday wellness.",
@@ -61,6 +63,8 @@
         "show_social_review_count": true,
         "social_review_count": "4,700+ reviews",
         "layout_preset": "classic_split",
+        "visual_effects": "none",
+        "desktop_image_position": "left",
         "show_trust_microcopy": false,
         "padding_top": 0,
         "padding_bottom": 0,

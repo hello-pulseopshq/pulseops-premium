@@ -1,0 +1,9 @@
+{%- comment -%}
+  SP Demo — <head> assets for the supplement vertical demo.
+  Rendered by layout/theme.liquid only when sp-pack-registry resolves
+  'head_snippet' to this snippet (i.e. the supplement demo is active), so no
+  vertical/suffix check is needed here.
+{%- endcomment -%}
+{{ 'sp-demo-presets.css' | asset_url | stylesheet_tag }}
+{{ 'sp-demo-supplement.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'sp-anchor-nav.js' | asset_url }}" defer="defer"></script>

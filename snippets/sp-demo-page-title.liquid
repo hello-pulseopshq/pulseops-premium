@@ -1,0 +1,23 @@
+{%- comment -%}
+  SP Demo — browser tab title overrides for vertical demo templates.
+  Thin wrapper over sp-pack-registry; returns a replacement <title> string when
+  the active template is a registered demo vertical, otherwise blank so callers
+  fall through to page_title.
+
+  Usage (in layout/theme.liquid):
+    {%- capture sp_browser_title -%}{%- render 'sp-demo-page-title' -%}{%- endcapture -%}
+    {%- if sp_browser_title == blank -%}{%- assign sp_browser_title = page_title -%}{%- endif -%}
+{%- endcomment -%}
+{%- capture sp_demo_active -%}{%- render 'sp-pack-registry', field: 'active' -%}{%- endcapture -%}
+{%- if sp_demo_active != blank -%}
+  {%- if request.page_type == 'product' and product != blank -%}
+    {{- product.title -}}{%- render 'sp-pack-registry', field: 'title_product_suffix' -%}
+  {%- elsif request.page_type == 'index' -%}
+    {%- render 'sp-pack-registry', field: 'title_index' -%}
+  {%- elsif request.page_type == 'cart' -%}
+    {%- render 'sp-pack-registry', field: 'title_cart' -%}
+  {%- else -%}
+    {%- capture sp_demo_brand -%}{%- render 'sp-pack-registry', field: 'brand_name' -%}{%- endcapture -%}
+    {{- page_title | replace: shop.name, sp_demo_brand -}}
+  {%- endif -%}
+{%- endif -%}

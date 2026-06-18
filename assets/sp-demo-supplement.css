@@ -1,0 +1,350 @@
+﻿/**
+ * Daily Vitality — flagship supplement demo brand layer
+ * Scoped to .sp-demo-supplement on <html> (supplement template suffix).
+ */
+
+/* ── Premium wellness palette ── */
+.sp-demo-supplement {
+  --sp-supplement-cream: 250, 248, 244;
+  --sp-supplement-green: 26, 61, 46;
+  --sp-supplement-green-deep: 20, 45, 34;
+  --sp-supplement-sage: 143, 168, 138;
+  --sp-supplement-gold: 196, 163, 90;
+  --sp-supplement-card: 255, 255, 255;
+  --sp-supplement-shadow: 20, 45, 34;
+
+  --color-background: var(--sp-supplement-cream);
+  --color-foreground: var(--sp-supplement-green-deep);
+  --color-button: var(--sp-supplement-green);
+  --color-button-label: 255, 255, 255;
+  --color-link: var(--sp-supplement-green);
+}
+
+.sp-demo-supplement.gradient {
+  background: rgb(var(--sp-supplement-cream));
+}
+
+/* Wordmark */
+.sp-demo-supplement .header__heading-link .header__heading-logo {
+  display: none !important;
+}
+
+.sp-demo-supplement .header__heading-link > .h2,
+.sp-demo-supplement .header__heading-link > span.h2 {
+  position: relative;
+  display: inline-block;
+  width: auto;
+  max-width: 100%;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  color: transparent !important;
+  overflow: hidden;
+}
+
+.sp-demo-supplement .header__heading-link > .h2::after,
+.sp-demo-supplement .header__heading-link > span.h2::after {
+  content: 'Daily Vitality';
+  display: inline-block;
+  font-size: 2rem;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: rgb(var(--sp-supplement-green-deep));
+}
+
+@media screen and (max-width: 749px) {
+  .sp-demo-supplement .header__heading-link > .h2::after,
+  .sp-demo-supplement .header__heading-link > span.h2::after {
+    font-size: 1.8rem;
+  }
+}
+
+/* Header + announcement */
+.sp-demo-supplement .announcement-bar {
+  background: rgb(var(--sp-supplement-green-deep));
+  color: rgb(var(--sp-supplement-cream));
+}
+
+.sp-demo-supplement .header-wrapper {
+  border-bottom: 0.1rem solid rgba(var(--sp-supplement-green), 0.1);
+}
+
+.sp-demo-supplement .header__inline-menu .header__menu-item--anchor.is-active > a::after,
+.sp-demo-supplement .header__inline-menu .header__menu-item--anchor.is-active > span::after {
+  background: rgb(var(--sp-supplement-gold));
+}
+
+/* Hero */
+.sp-demo-supplement .sp-hero {
+  background: linear-gradient(
+    165deg,
+    rgb(var(--sp-supplement-cream)) 0%,
+    rgba(var(--sp-supplement-sage), 0.18) 100%
+  );
+}
+
+/* Hero — restore product visual for flagship supplement demo */
+.sp-demo-visual-neutral.sp-demo-supplement .sp-hero__media-wrapper,
+html.sp-demo-supplement .sp-hero__media-wrapper {
+  display: block !important;
+}
+
+.sp-demo-supplement .sp-hero__media-frame {
+  border-radius: 1.6rem;
+  background: linear-gradient(
+    160deg,
+    rgba(var(--sp-supplement-sage), 0.22) 0%,
+    rgba(var(--sp-supplement-cream), 1) 55%,
+    rgba(var(--sp-supplement-card), 1) 100%
+  );
+  box-shadow: 0 1.6rem 4.8rem rgba(var(--sp-supplement-shadow), 0.1);
+}
+
+.sp-demo-supplement .sp-hero__media-frame img {
+  filter: drop-shadow(0 1.2rem 2.4rem rgba(var(--sp-supplement-shadow), 0.18));
+}
+
+@media screen and (min-width: 750px) {
+  .sp-demo-supplement .sp-hero {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    gap: 3.2rem;
+  }
+
+  .sp-demo-supplement .sp-hero__media-wrapper {
+    order: 2;
+  }
+
+  .sp-demo-supplement .sp-hero__content-wrapper {
+    order: 1;
+  }
+}
+
+.sp-demo-supplement .sp-hero__heading {
+  letter-spacing: -0.03em;
+}
+
+.sp-demo-supplement .button--primary {
+  background: rgb(var(--sp-supplement-green));
+  border-color: rgb(var(--sp-supplement-green));
+  border-radius: 999px;
+  font-weight: 600;
+  min-height: 5rem;
+  padding-inline: 2.4rem;
+}
+
+.sp-demo-supplement .sp-hero__price-current {
+  color: rgb(var(--sp-supplement-green-deep));
+  font-weight: 700;
+}
+
+/* PDP product media */
+.sp-demo-supplement.template-product .product__media-wrapper {
+  max-width: 48rem;
+  margin-inline: auto;
+  padding: 2.4rem;
+  border-radius: 1.6rem;
+  background: linear-gradient(
+    160deg,
+    rgba(var(--sp-supplement-sage), 0.22) 0%,
+    rgba(var(--sp-supplement-cream), 1) 55%,
+    rgba(var(--sp-supplement-card), 1) 100%
+  );
+  box-shadow: 0 1.6rem 4.8rem rgba(var(--sp-supplement-shadow), 0.1);
+}
+
+.sp-demo-supplement.template-product .product__media-item img {
+  filter: drop-shadow(0 1.2rem 2.4rem rgba(var(--sp-supplement-shadow), 0.18));
+}
+
+.sp-demo-supplement.template-product .product__media-item img[src*='snowboard'],
+.sp-demo-supplement.template-product .product__media-item img[src*='Main_b13ad453'] {
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.sp-demo-supplement.template-product .product__media-item img[src*='daily-vitality'],
+.sp-demo-supplement.template-product .product__media-item img[src*='sp-demo-daily-vitality'] {
+  opacity: 1;
+  position: relative;
+}
+
+.sp-demo-supplement .sp-sticky-atc__media-image[src*='snowboard'] {
+  display: none !important;
+}
+
+/* Cards + sections */
+.sp-demo-supplement .sp-benefits__card,
+.sp-demo-supplement .sp-features__feature,
+.sp-demo-supplement .sp-social-proof__card {
+  background: rgb(var(--sp-supplement-card));
+  border: 0.1rem solid rgba(var(--sp-supplement-green), 0.1);
+  box-shadow: 0 0.6rem 2rem rgba(var(--sp-supplement-shadow), 0.06);
+  border-radius: 1.2rem;
+}
+
+.sp-demo-supplement .sp-section--surface-inverse {
+  --color-background: var(--sp-supplement-green-deep);
+  --color-foreground: var(--sp-supplement-cream);
+  --color-button: var(--sp-supplement-cream);
+  --color-button-label: var(--sp-supplement-green-deep);
+}
+
+.sp-demo-supplement .sp-cta-offer__card {
+  border-radius: 1.6rem;
+}
+
+/* Footer */
+.sp-demo-supplement .footer {
+  background: rgb(var(--sp-supplement-cream));
+  border-top: 0.1rem solid rgba(var(--sp-supplement-green), 0.12);
+}
+
+.sp-demo-supplement .footer-block__heading {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.sp-demo-supplement .footer__copyright a {
+  font-size: 0;
+  line-height: 0;
+  color: transparent;
+}
+
+.sp-demo-supplement .footer__copyright a::after {
+  content: 'Daily Vitality';
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: rgba(var(--color-foreground), 0.75);
+}
+
+/* Collapse hidden feature media so neutral preset does not reserve blank blocks */
+.sp-demo-supplement .sp-features__media,
+.sp-demo-supplement .sp-features__image-wrapper,
+.sp-demo-supplement .sp-features__media .sp-media-frame {
+  display: none !important;
+  min-height: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+/* Hide unrelated demo product imagery on homepage featured areas */
+.sp-demo-supplement img[src*='snowboard']:not(img),
+.sp-demo-supplement img[src*='gift-card']:not(img),
+.sp-demo-supplement img[src*='ski-wax']:not(img) {
+  display: none !important;
+}
+
+@media screen and (max-width: 749px) {
+  .sp-demo-supplement .sp-features__list {
+    gap: 3.2rem;
+  }
+
+  .sp-demo-supplement .sp-features__feature {
+    padding: 1.8rem;
+  }
+
+  .sp-demo-supplement .sp-metrics__grid {
+    gap: 1.2rem;
+  }
+
+  .sp-demo-supplement .sp-hero__content-wrapper {
+    padding-inline: 1.6rem;
+  }
+
+  .sp-demo-supplement.template-product .product__media-wrapper {
+    padding: 1.6rem;
+  }
+
+  /* Motion: keep supplement sections visible on mobile (avoid white unrevealed blocks) */
+  html.sp-demo-supplement.sp-motion-active .sp-reveal:not(.is-revealed):not(.sp-reveal--static),
+  html.sp-demo-supplement.sp-motion-active [data-sp-reveal]:not(.is-revealed):not(.sp-reveal--static),
+  .sp-demo-supplement .sp-reveal:not(.is-revealed),
+  .sp-demo-supplement [data-sp-reveal]:not(.is-revealed) {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+  }
+
+  /* Benefits swipe → stacked list on supplement mobile (no off-screen column height) */
+  .sp-demo-supplement .sp-benefits__list--swipe {
+    grid-auto-flow: row;
+    grid-auto-columns: unset;
+    grid-template-columns: 1fr;
+    overflow-x: visible;
+    scroll-snap-type: none;
+  }
+
+  /* Homepage hero — product image first on mobile, then copy/CTA */
+  html.sp-demo-supplement .sp-hero,
+  .sp-demo-supplement .sp-hero {
+    display: flex !important;
+    flex-direction: column-reverse !important;
+  }
+
+  .sp-demo-supplement .sp-hero__content-wrapper,
+  .sp-demo-supplement .sp-hero__media-wrapper,
+  .sp-demo-supplement .sp-hero__content-wrapper,
+  .sp-demo-supplement .sp-hero__media-wrapper {
+    order: unset !important;
+    width: 100%;
+  }
+
+  .sp-demo-supplement .sp-hero__media-wrapper,
+  .sp-demo-supplement .sp-hero__media-wrapper {
+    margin-top: 0.4rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .sp-demo-supplement img,
+  .sp-demo-supplement .sp-media-frame:has(img) {
+    display: block !important;
+    opacity: 1 !important;
+  }
+
+  .sp-demo-supplement .sp-hero__media-frame {
+    max-width: 22rem;
+    margin-inline: auto;
+  }
+
+  .sp-demo-supplement .sp-hero__media-frame.sp-media-frame--custom::before {
+    padding-bottom: min(var(--sp-hero-ratio-mobile, 100%), 72%) !important;
+  }
+
+  .sp-demo-supplement .sp-hero__media-frame .sp-image-placeholder,
+  .sp-demo-supplement .sp-hero__media-frame .placeholder-svg {
+    display: none !important;
+  }
+
+  .sp-demo-supplement .sp-hero__media .sp-image,
+  .sp-demo-supplement .sp-hero__media picture img {
+    opacity: 1 !important;
+  }
+
+  /* Collapse aspect-ratio shells for hidden demo product images */
+  .sp-demo-supplement .sp-media-frame:has(img[src*='snowboard']),
+  .sp-demo-supplement .sp-media-frame:has(img[src*='gift-card']),
+  .sp-demo-supplement .sp-media-frame:has(img[src*='ski-wax']) {
+    display: none !important;
+    min-height: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .sp-demo-supplement .sp-media-frame:has(img[src*='snowboard'])::before,
+  .sp-demo-supplement .sp-media-frame:has(img[src*='gift-card'])::before,
+  .sp-demo-supplement .sp-media-frame:has(img[src*='ski-wax'])::before {
+    display: none !important;
+    padding: 0 !important;
+  }
+
+  /* Sticky ATC — account for Shopify preview bar on dev stores */
+  .sp-demo-supplement [data-sp-sticky-atc].is-visible {
+    padding-bottom: calc(var(--sp-sticky-atc-safe-bottom, 0px) + env(safe-area-inset-bottom, 0px));
+  }
+}
+

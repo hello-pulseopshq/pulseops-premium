@@ -46,6 +46,8 @@
       "settings": {
         "show_announcement": true,
         "announcement_text": "Trainer approved · Free shipping on all fitness gear",
+        "eyebrow_text": "",
+        "badge_text": "",
         "headline": "Recover faster with <strong>RecoverPro Massage Gun</strong>",
         "headline_highlight_style": "underline",
         "subheadline": "A compact percussive therapy device with 5 speed settings, 4 attachment heads, and 6-hour battery — built for post-workout recovery and daily mobility.",
@@ -61,6 +63,8 @@
         "show_social_review_count": true,
         "social_review_count": "9,100+ reviews",
         "layout_preset": "classic_split",
+        "visual_effects": "none",
+        "desktop_image_position": "left",
         "show_trust_microcopy": false,
         "padding_top": 0,
         "padding_bottom": 0,

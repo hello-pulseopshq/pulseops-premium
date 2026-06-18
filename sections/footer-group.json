@@ -8,15 +8,15 @@
         "footer-0": {
           "type": "link_list",
           "settings": {
-            "heading": "Shop",
+            "heading": "Navigate",
             "menu": "footer"
           }
         },
         "footer-1": {
           "type": "text",
           "settings": {
-            "heading": "Liquid Collection",
-            "subtext": "<p>Premium all-mountain snowboards engineered for riders who demand performance, durability, and style. Backed by a 30-day money-back guarantee on every order.</p>"
+            "heading": "Daily Vitality",
+            "subtext": "<p>Science-backed daily wellness for steady energy, recovery, and gut support. Trusted by 35,000+ customers with 8,400+ verified reviews. Every order includes free shipping and our 30-day money-back guarantee.</p>"
           }
         }
       },
@@ -27,7 +27,7 @@
       "settings": {
         "color_scheme": "scheme-1",
         "newsletter_enable": true,
-        "newsletter_heading": "Get early access to new drops",
+        "newsletter_heading": "Wellness tips & subscriber perks",
         "show_social": true,
         "enable_country_selector": false,
         "enable_language_selector": false,

@@ -1,0 +1,9 @@
+{%- comment -%}
+  SP Demo — per-vertical HTML class tokens injected on the <html> element.
+  Thin wrapper over sp-pack-registry; called by layout/theme.liquid inside the
+  class attribute. Emits a leading space so it can be concatenated directly.
+
+  Identity lives in snippets/sp-pack-registry.liquid (field: 'html_class').
+{%- endcomment -%}
+{%- capture sp_demo_html_class -%}{%- render 'sp-pack-registry', field: 'html_class' -%}{%- endcapture -%}
+{%- if sp_demo_html_class != blank %} {{ sp_demo_html_class }}{% endif -%}

@@ -1,0 +1,231 @@
+/* SP Core — premium commerce UX (cart drawer, cart page, PDP, header nav) */
+
+/* ── Cart drawer ── */
+.sp-cart-drawer__shipping {
+  padding: 1.2rem 0 1.6rem;
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  margin-bottom: 1.2rem;
+}
+
+.sp-cart-drawer__shipping-text {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 0.8rem;
+  font-size: 1.3rem;
+  line-height: 1.4;
+  color: rgba(var(--color-foreground), 0.75);
+}
+
+.sp-cart-drawer__shipping-text--unlocked {
+  color: rgb(var(--color-foreground));
+  font-weight: 600;
+}
+
+.sp-cart-drawer__shipping-text .svg-wrapper {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.sp-cart-drawer__shipping-track {
+  height: 0.4rem;
+  border-radius: 999px;
+  background: rgba(var(--color-foreground), 0.1);
+  overflow: hidden;
+}
+
+.sp-cart-drawer__shipping-fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: rgb(var(--color-button));
+  transition: width 0.3s ease;
+}
+
+.cart-drawer .drawer__inner {
+  border-radius: 1.6rem 0 0 1.6rem;
+  box-shadow: -0.8rem 0 4rem rgba(var(--color-shadow), 0.12);
+}
+
+.cart-drawer .drawer__heading {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.cart-drawer .cart-item__image {
+  border-radius: 0.8rem;
+  border: 0.1rem solid rgba(var(--color-foreground), 0.08);
+}
+
+.cart-drawer .cart-item__name {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.cart-drawer .cart__checkout-button {
+  font-weight: 600;
+  min-height: 5rem;
+  border-radius: 999px;
+}
+
+.sp-cart-drawer__continue {
+  width: 100%;
+  margin-top: 0.8rem;
+  min-height: 4.4rem;
+  border-radius: 999px;
+}
+
+.sp-cart-drawer__trust {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1.2rem 0 0;
+  text-align: center;
+  color: rgba(var(--color-foreground), 0.65);
+}
+
+.sp-cart-drawer__trust .svg-wrapper {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+/* ── Cart page ── */
+.template-cart .title-wrapper-with-link .title {
+  letter-spacing: -0.03em;
+}
+
+.template-cart .cart__items {
+  border-radius: 1.2rem;
+}
+
+.template-cart .cart__footer-wrapper {
+  border-radius: 1.2rem;
+  border: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  padding: 2rem;
+}
+
+.sp-cart-page-trust {
+  display: grid;
+  gap: 1.2rem;
+  margin-top: 2.4rem;
+  padding: 2rem;
+  border-radius: 1.2rem;
+  background: rgba(var(--color-foreground), 0.04);
+}
+
+.sp-cart-page-trust__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.sp-cart-page-trust__item strong {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+/* ── PDP media polish ── */
+.product__media-wrapper {
+  --media-radius: 1.2rem;
+}
+
+.product__media-item {
+  border-radius: var(--media-radius);
+  overflow: hidden;
+}
+
+.product .product__media img {
+  background: rgba(var(--color-foreground), 0.03);
+}
+
+.product__info-wrapper .product__title {
+  letter-spacing: -0.03em;
+}
+
+.product__info-wrapper .price {
+  font-weight: 600;
+}
+
+/* ── Header anchor nav ── */
+.header__menu-item--anchor {
+  position: relative;
+}
+
+.header__inline-menu .header__menu-item--anchor > .header__active-menu-item,
+.header__inline-menu .header__menu-item--anchor > span,
+.header__inline-menu .header__menu-item--anchor > a {
+  text-decoration: none;
+  position: relative;
+}
+
+.header__inline-menu .header__menu-item--anchor.is-active > a,
+.header__inline-menu .header__menu-item--anchor.is-active > span {
+  color: rgb(var(--color-foreground));
+  font-weight: 600;
+}
+
+.header__inline-menu .header__menu-item--anchor.is-active > a::after,
+.header__inline-menu .header__menu-item--anchor.is-active > span::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.4rem;
+  height: 0.2rem;
+  border-radius: 999px;
+  background: rgb(var(--color-button));
+}
+
+.header__inline-menu .header__menu-item--anchor > a:hover,
+.header__inline-menu .header__menu-item--anchor > span:hover {
+  opacity: 0.85;
+}
+
+.sp-demo-supplement .sp-sticky-atc__trust {
+  margin: 0;
+  color: rgba(var(--color-foreground), 0.65);
+  font-size: 1.2rem;
+}
+
+/* ── Sticky ATC layering ── */
+[data-sp-sticky-atc] {
+  z-index: 99;
+}
+
+cart-drawer.active ~ [data-sp-sticky-atc],
+cart-drawer.active [data-sp-sticky-atc] {
+  pointer-events: none;
+}
+
+/* ── Premium cards (global) ── */
+.sp-benefits__card--soft,
+.sp-features__feature {
+  border: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  box-shadow: 0 0.4rem 1.6rem rgba(var(--color-shadow), 0.04);
+}
+
+.sp-section--emphasis-feature .sp-section__inner {
+  padding-block: 0.4rem;
+}
+
+/* ── Color scheme presets (merchant-facing via color_scheme) ── */
+.color-scheme-warm-cream {
+  --color-background: 250, 248, 244;
+  --color-foreground: 28, 37, 32;
+}
+
+.color-scheme-botanical {
+  --color-background: 245, 249, 246;
+  --color-foreground: 26, 61, 46;
+  --color-button: 26, 61, 46;
+  --color-button-label: 255, 255, 255;
+}
+
+.color-scheme-dark-premium {
+  --color-background: 28, 37, 32;
+  --color-foreground: 250, 248, 244;
+  --color-button: 250, 248, 244;
+  --color-button-label: 28, 37, 32;
+}

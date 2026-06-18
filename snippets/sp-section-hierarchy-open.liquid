@@ -26,9 +26,26 @@
   if sp_surface == 'transparent'
     assign sp_use_gradient = false
   endif
+
+  assign sp_anchor_id = ''
+  case section.type
+    when 'sp-benefits'
+      assign sp_anchor_id = 'sp-benefits'
+    when 'sp-features'
+      assign sp_anchor_id = 'sp-ingredients'
+    when 'sp-scientific-proof'
+      assign sp_anchor_id = 'sp-science'
+    when 'sp-social-proof'
+      assign sp_anchor_id = 'sp-reviews'
+    when 'sp-faq'
+      assign sp_anchor_id = 'sp-faq'
+    when 'sp-cta-offer'
+      assign sp_anchor_id = 'sp-cta'
+  endcase
 -%}
 <div
   class="sp-section sp-section--surface-{{ sp_surface }} sp-section--width-{{ sp_width }} sp-section--emphasis-{{ sp_emphasis }} sp-section--divider-{{ sp_divider }} color-{{ sp_color_scheme }}{% if sp_use_gradient %} gradient{% endif %} section-{{ section.id }}-padding{% if extra_class != blank %} {{ extra_class }}{% endif %}"
+  {% if sp_anchor_id != blank %}id="{{ sp_anchor_id }}"{% endif %}
   {% if extra_attributes != blank %}{{ extra_attributes }}{% endif %}
 >
   {%- unless sp_divider == 'none' -%}

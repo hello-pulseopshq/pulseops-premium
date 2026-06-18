@@ -1955,6 +1955,10 @@
             },
             "pairing_3": {
               "label": "Emparelhamento 3"
+            },
+            "content": {
+              "label": "Content",
+              "info": "Choose an icon or add an image for each pairing"
             }
           }
         },

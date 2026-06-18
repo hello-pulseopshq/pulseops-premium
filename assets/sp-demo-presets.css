@@ -1,43 +1,44 @@
 /**
  * SP Core Demo Presets — visual treatments
- * Scoped via .sp-demo-visual-neutral on <html> (set by demo template custom-liquid).
+ * Scoped via .sp-demo-visual-neutral on <html> (supplement template in theme.liquid).
+ * Uses class selectors — not #shopify-section-* IDs (OS 2.0 uses template-prefixed IDs).
  */
 
 /* Hide injector section chrome */
-.sp-demo-visual-neutral #shopify-section-demo-visual-treatment {
+.sp-demo-visual-neutral [id*='demo-visual-treatment'] {
   padding: 0 !important;
   margin: 0 !important;
   min-height: 0 !important;
   border: 0 !important;
 }
 
-.sp-demo-visual-neutral #shopify-section-demo-visual-treatment .gradient,
-.sp-demo-visual-neutral #shopify-section-demo-visual-treatment [class*='-padding'] {
+.sp-demo-visual-neutral [id*='demo-visual-treatment'] .gradient,
+.sp-demo-visual-neutral [id*='demo-visual-treatment'] [class*='-padding'] {
   padding: 0 !important;
   margin: 0 !important;
   background: transparent !important;
 }
 
 /* Hero — copy-forward, no mismatched product photography */
-.sp-demo-visual-neutral #shopify-section-sp-hero .sp-hero__media-wrapper {
+.sp-demo-visual-neutral .sp-hero__media-wrapper {
   display: none !important;
 }
 
-.sp-demo-visual-neutral #shopify-section-sp-hero .sp-hero {
+.sp-demo-visual-neutral .sp-hero {
   display: block;
 }
 
-.sp-demo-visual-neutral #shopify-section-sp-hero .sp-hero__content-wrapper {
+.sp-demo-visual-neutral .sp-hero__content-wrapper {
   max-width: 72rem;
   margin-inline: auto;
 }
 
 /* Features — icon/bullet-led rows without wrong product images */
-.sp-demo-visual-neutral #shopify-section-sp-features .sp-features__media {
+.sp-demo-visual-neutral .sp-features__media {
   display: none !important;
 }
 
-.sp-demo-visual-neutral #shopify-section-sp-features .sp-features__feature {
+.sp-demo-visual-neutral .sp-features__feature {
   grid-template-columns: 1fr !important;
   gap: 1.6rem;
   padding: 2.4rem;
@@ -46,15 +47,15 @@
   border: 0.1rem solid rgba(var(--color-foreground), 0.08);
 }
 
-.sp-demo-visual-neutral #shopify-section-sp-features .sp-features__feature--reverse .sp-features__media,
-.sp-demo-visual-neutral #shopify-section-sp-features .sp-features__feature--reverse .sp-features__content {
+.sp-demo-visual-neutral .sp-features__feature--reverse .sp-features__media,
+.sp-demo-visual-neutral .sp-features__feature--reverse .sp-features__content {
   order: unset !important;
 }
 
-.sp-demo-visual-neutral #shopify-section-sp-features .sp-features__bullets {
+.sp-demo-visual-neutral .sp-features__bullets {
   margin-top: 1.2rem;
 }
 
-.sp-demo-visual-neutral #shopify-section-sp-features .sp-features__title {
+.sp-demo-visual-neutral .sp-features__title {
   margin-bottom: 0.4rem;
 }
