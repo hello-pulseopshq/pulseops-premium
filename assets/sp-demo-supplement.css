@@ -3,21 +3,41 @@
  * Scoped to .sp-demo-supplement on <html> (supplement template suffix).
  */
 
-/* ── Premium wellness palette ── */
+/* ── Premium wellness design tokens ── */
 .sp-demo-supplement {
-  --sp-supplement-cream: 250, 248, 244;
+  --sp-supplement-ivory: 252, 250, 246;
+  --sp-supplement-cream: var(--sp-supplement-ivory);
+  --sp-supplement-charcoal: 28, 32, 30;
   --sp-supplement-green: 26, 61, 46;
   --sp-supplement-green-deep: 20, 45, 34;
   --sp-supplement-sage: 143, 168, 138;
   --sp-supplement-gold: 196, 163, 90;
+  --sp-supplement-amber: 180, 138, 70;
   --sp-supplement-card: 255, 255, 255;
   --sp-supplement-shadow: 20, 45, 34;
 
+  --sp-supplement-radius-sm: 0.6rem;
+  --sp-supplement-radius-md: 1rem;
+  --sp-supplement-radius-lg: 1.4rem;
+  --sp-supplement-radius-xl: 1.8rem;
+  --sp-supplement-radius-pill: 999px;
+
+  --sp-supplement-section-gap: 0.4rem;
+
+  /* Typography tokens → assets/sp-demo-supplement-type.css */
+  --sp-supplement-content-max: min(100%, var(--page-width, 120rem));
+  --sp-supplement-content-narrow: min(100%, 72rem);
+  --sp-supplement-hero-media-ratio: 100%;
+  --sp-supplement-feature-media-ratio: 72%;
+  --sp-supplement-section-header-gap: clamp(2.4rem, 3.5vw, 3.6rem);
+
   --color-background: var(--sp-supplement-cream);
-  --color-foreground: var(--sp-supplement-green-deep);
+  --color-foreground: var(--sp-supplement-charcoal);
   --color-button: var(--sp-supplement-green);
   --color-button-label: 255, 255, 255;
   --color-link: var(--sp-supplement-green);
+  --media-radius: var(--sp-supplement-radius-lg);
+  --buttons-radius: var(--sp-supplement-radius-pill);
 }
 
 .sp-demo-supplement.gradient {
@@ -59,6 +79,16 @@
   }
 }
 
+/* Account entry points — hidden in the demo.
+   Storefront customer accounts are not provisioned on the demo store, so the
+   login route errors. Hiding the account icon (desktop) and the mobile menu
+   account link keeps the demo free of broken routes. Re-enable by removing
+   this block once customer accounts are configured in Admin. */
+.sp-demo-supplement .header__icon--account,
+.sp-demo-supplement .menu-drawer__account {
+  display: none !important;
+}
+
 /* Header + announcement */
 .sp-demo-supplement .announcement-bar {
   background: rgb(var(--sp-supplement-green-deep));
@@ -66,7 +96,7 @@
 }
 
 .sp-demo-supplement .header-wrapper {
-  border-bottom: 0.1rem solid rgba(var(--sp-supplement-green), 0.1);
+  border-bottom: none;
 }
 
 .sp-demo-supplement .header__inline-menu .header__menu-item--anchor.is-active > a::after,
@@ -74,76 +104,68 @@
   background: rgb(var(--sp-supplement-gold));
 }
 
-/* Hero */
-.sp-demo-supplement .sp-hero {
-  background: linear-gradient(
-    165deg,
-    rgb(var(--sp-supplement-cream)) 0%,
-    rgba(var(--sp-supplement-sage), 0.18) 100%
-  );
+/* Section display typography → assets/sp-demo-supplement-type.css */
+
+.sp-demo-supplement .sp-metrics__heading,
+.sp-demo-supplement .sp-social-proof__heading,
+.sp-demo-supplement .sp-scientific-proof__heading,
+.sp-demo-supplement .sp-faq__heading {
+  max-width: 22ch;
+  margin-inline: auto;
 }
 
-/* Hero — restore product visual for flagship supplement demo */
-.sp-demo-visual-neutral.sp-demo-supplement .sp-hero__media-wrapper,
-html.sp-demo-supplement .sp-hero__media-wrapper {
-  display: block !important;
+.sp-demo-supplement .sp-features__header--left .sp-features__heading,
+.sp-demo-supplement .sp-video__body:not(.sp-video__body--split) .sp-video__content h2 {
+  max-width: 16ch;
+  margin-inline: 0;
 }
 
-.sp-demo-supplement .sp-hero__media-frame {
-  border-radius: 1.6rem;
-  background: linear-gradient(
-    160deg,
-    rgba(var(--sp-supplement-sage), 0.22) 0%,
-    rgba(var(--sp-supplement-cream), 1) 55%,
-    rgba(var(--sp-supplement-card), 1) 100%
-  );
-  box-shadow: 0 1.6rem 4.8rem rgba(var(--sp-supplement-shadow), 0.1);
+.sp-demo-supplement .sp-metrics__label {
+  margin-top: 0.8rem;
+  text-transform: uppercase;
 }
 
-.sp-demo-supplement .sp-hero__media-frame img {
-  filter: drop-shadow(0 1.2rem 2.4rem rgba(var(--sp-supplement-shadow), 0.18));
+.sp-demo-supplement .sp-metrics__value {
+  font-variant-numeric: tabular-nums;
+  color: rgb(var(--sp-supplement-green-deep));
 }
 
-@media screen and (min-width: 750px) {
-  .sp-demo-supplement .sp-hero {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: center;
-    gap: 3.2rem;
-  }
-
-  .sp-demo-supplement .sp-hero__media-wrapper {
-    order: 2;
-  }
-
-  .sp-demo-supplement .sp-hero__content-wrapper {
-    order: 1;
-  }
-}
-
-.sp-demo-supplement .sp-hero__heading {
-  letter-spacing: -0.03em;
-}
-
+/* ── Buttons + CTAs (visual; type → sp-demo-supplement-type.css) ── */
 .sp-demo-supplement .button--primary {
   background: rgb(var(--sp-supplement-green));
   border-color: rgb(var(--sp-supplement-green));
-  border-radius: 999px;
-  font-weight: 600;
+  border-radius: var(--sp-supplement-radius-pill);
   min-height: 5rem;
-  padding-inline: 2.4rem;
+  padding-inline: 2.8rem;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
 }
 
-.sp-demo-supplement .sp-hero__price-current {
-  color: rgb(var(--sp-supplement-green-deep));
-  font-weight: 700;
+.sp-demo-supplement .button--primary:hover {
+  background: rgb(var(--sp-supplement-green-deep));
+  border-color: rgb(var(--sp-supplement-green-deep));
+  box-shadow: 0 0.6rem 2rem rgba(var(--sp-supplement-shadow), 0.18);
+}
+
+.sp-demo-supplement .button--primary:focus-visible {
+  outline: 0.2rem solid rgba(var(--sp-supplement-amber), 0.55);
+  outline-offset: 0.2rem;
+}
+
+.sp-demo-supplement .button--secondary {
+  border-radius: var(--sp-supplement-radius-pill);
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 /* PDP product media */
 .sp-demo-supplement.template-product .product__media-wrapper {
-  max-width: 48rem;
+  max-width: 52rem;
   margin-inline: auto;
-  padding: 2.4rem;
-  border-radius: 1.6rem;
+  padding: clamp(2rem, 3vw, 3.2rem);
+  border-radius: var(--sp-supplement-radius-xl);
   background: linear-gradient(
     160deg,
     rgba(var(--sp-supplement-sage), 0.22) 0%,
@@ -164,6 +186,20 @@ html.sp-demo-supplement .sp-hero__media-wrapper {
   pointer-events: none;
 }
 
+.sp-demo-supplement.template-product .product__info-container {
+  gap: 1.6rem;
+}
+
+.sp-demo-supplement .sp-video__content > header,
+.sp-demo-supplement .sp-video__body > .sp-video__content:first-child {
+  margin-bottom: 1.6rem;
+}
+
+.sp-demo-supplement .cart-drawer .cart-item__image {
+  border-radius: var(--sp-supplement-radius-sm);
+  background: rgba(var(--sp-supplement-sage), 0.12);
+}
+
 .sp-demo-supplement.template-product .product__media-item img[src*='daily-vitality'],
 .sp-demo-supplement.template-product .product__media-item img[src*='sp-demo-daily-vitality'] {
   opacity: 1;
@@ -174,14 +210,260 @@ html.sp-demo-supplement .sp-hero__media-wrapper {
   display: none !important;
 }
 
-/* Cards + sections */
-.sp-demo-supplement .sp-benefits__card,
-.sp-demo-supplement .sp-features__feature,
-.sp-demo-supplement .sp-social-proof__card {
+/* ── Card system — differentiated hierarchy ── */
+
+/* Benefits: numbered editorial tiles */
+.sp-demo-supplement .sp-benefits__card {
   background: rgb(var(--sp-supplement-card));
   border: 0.1rem solid rgba(var(--sp-supplement-green), 0.1);
-  box-shadow: 0 0.6rem 2rem rgba(var(--sp-supplement-shadow), 0.06);
-  border-radius: 1.2rem;
+  box-shadow: 0 0.4rem 1.6rem rgba(var(--sp-supplement-shadow), 0.05);
+  border-radius: var(--sp-supplement-radius-md);
+  padding: 2.2rem 2rem;
+}
+
+/* Features: editorial rows, not boxed cards */
+.sp-demo-supplement .sp-features__feature {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0 0 2.8rem;
+  border-bottom: 0.1rem solid rgba(var(--sp-supplement-green), 0.1);
+}
+
+.sp-demo-supplement .sp-features__feature:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.sp-demo-supplement .sp-features__feature:has(.sp-features__media img[src*='daily-vitality']) {
+  padding: 0;
+  border-bottom: none;
+}
+
+/* Scientific proof: stat hero + certification badges */
+.sp-demo-supplement .sp-scientific-proof__card {
+  border-radius: var(--sp-supplement-radius-md);
+}
+
+.sp-demo-supplement .sp-scientific-proof__card:not(.sp-scientific-proof__card--certification) {
+  background: rgb(var(--sp-supplement-card));
+  border: 0.1rem solid rgba(var(--sp-supplement-green), 0.1);
+  box-shadow: 0 1rem 3.2rem rgba(var(--sp-supplement-shadow), 0.08);
+  border-top: 0.3rem solid rgb(var(--sp-supplement-amber));
+  padding-top: 2.4rem;
+}
+
+.sp-demo-supplement .sp-scientific-proof__card--certification {
+  background: rgba(var(--sp-supplement-sage), 0.1);
+  border: 0.1rem solid rgba(var(--sp-supplement-green), 0.12);
+  box-shadow: none;
+  border-left: 0.3rem solid rgb(var(--sp-supplement-green));
+}
+
+/* Reviews: quote-forward cards */
+.sp-demo-supplement .sp-social-proof__card {
+  background: rgb(var(--sp-supplement-card));
+  border: none;
+  border-radius: var(--sp-supplement-radius-lg);
+  box-shadow:
+    inset 0 0 0 0.1rem rgba(var(--sp-supplement-green), 0.08),
+    0 1.2rem 3.6rem rgba(var(--sp-supplement-shadow), 0.06);
+  padding: 2.4rem 2.2rem 2rem;
+}
+
+.sp-demo-supplement .sp-scientific-proof__icon {
+  color: rgb(var(--sp-supplement-green));
+}
+
+/* Editorial numbered benefit cards */
+.sp-demo-supplement .sp-benefits__list {
+  counter-reset: sp-benefit;
+}
+
+.sp-demo-supplement .sp-benefits__item {
+  counter-increment: sp-benefit;
+}
+
+.sp-demo-supplement .sp-benefits__icon {
+  display: none;
+}
+
+.sp-demo-supplement .sp-benefits__card::before {
+  content: counter(sp-benefit, decimal-leading-zero);
+  display: block;
+  margin-bottom: 0.6rem;
+  color: rgb(var(--sp-supplement-amber));
+}
+
+.sp-demo-supplement .sp-features__check {
+  color: rgb(var(--sp-supplement-green));
+}
+
+.sp-demo-supplement .sp-scientific-proof__stat {
+  color: rgb(var(--sp-supplement-green-deep));
+  letter-spacing: -0.02em;
+}
+
+.sp-demo-supplement .sp-social-proof__rating {
+  color: rgb(var(--sp-supplement-amber));
+}
+
+.sp-demo-supplement .sp-social-proof__verified {
+  color: rgb(var(--sp-supplement-green));
+}
+
+/* ── Metrics band ── */
+.sp-demo-supplement .sp-metrics__list--band {
+  background: rgba(var(--sp-supplement-card), 0.72);
+  border-block: 0.1rem solid rgba(var(--sp-supplement-green), 0.08);
+}
+
+.sp-demo-supplement .sp-metrics__list--divided .sp-metrics__item + .sp-metrics__item {
+  border-color: rgba(var(--sp-supplement-green), 0.1);
+}
+
+/* ── FAQ ── */
+.sp-demo-supplement .sp-faq__item {
+  border-radius: var(--sp-supplement-radius-md);
+  border-color: rgba(var(--sp-supplement-green), 0.12);
+  background: rgb(var(--sp-supplement-card));
+}
+
+.sp-demo-supplement .sp-faq__trigger {
+  border-radius: var(--sp-supplement-radius-md);
+}
+
+.sp-demo-supplement .sp-faq__icon {
+  color: rgb(var(--sp-supplement-green));
+}
+
+/* ── Layout alignment QA ── */
+
+/* Motion reveal disabled on supplement demo — prevents empty below-fold sections */
+html.sp-demo-supplement.sp-motion-active .sp-reveal:not(.is-revealed):not(.sp-reveal--static),
+html.sp-demo-supplement.sp-motion-active [data-sp-reveal]:not(.is-revealed):not(.sp-reveal--static),
+.sp-demo-supplement .sp-reveal:not(.is-revealed),
+.sp-demo-supplement [data-sp-reveal]:not(.is-revealed) {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+
+.sp-demo-supplement .sp-section__inner--contained,
+.sp-demo-supplement .sp-section__inner--wide {
+  max-width: var(--sp-supplement-content-max);
+}
+
+.sp-demo-supplement .sp-section__inner--wide {
+  max-width: var(--sp-supplement-content-max);
+}
+
+.sp-demo-supplement .sp-video__body--split {
+  align-items: center;
+  gap: clamp(2.4rem, 4vw, 4rem);
+}
+
+.sp-demo-supplement .sp-video__media {
+  max-width: 100%;
+}
+
+.sp-demo-supplement .sp-features__list {
+  gap: clamp(4rem, 6vw, 6rem);
+  max-width: var(--sp-supplement-content-narrow);
+  margin-inline: auto;
+}
+
+.sp-demo-supplement .sp-features__feature:has(.sp-features__media img[src*='daily-vitality']) {
+  gap: clamp(2rem, 3vw, 3.2rem);
+}
+
+.sp-demo-supplement .sp-features__feature:has(.sp-features__media img[src*='daily-vitality']) .sp-features__media {
+  max-width: min(42rem, 100%);
+  margin-inline: auto;
+  width: 100%;
+}
+
+.sp-demo-supplement .sp-features__feature:has(.sp-features__media img[src*='daily-vitality']) .sp-media-frame::before {
+  padding-bottom: var(--sp-supplement-feature-media-ratio) !important;
+}
+
+.sp-demo-supplement .sp-features__feature:has(.sp-features__media img[src*='daily-vitality']) .sp-features__content {
+  max-width: 42rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.sp-demo-supplement .sp-features__feature:has(.sp-features__media img[src*='daily-vitality']) .sp-features__bullets {
+  text-align: left;
+}
+
+@media screen and (min-width: 750px) {
+  .sp-demo-supplement .sp-benefits__list--2,
+  .sp-demo-supplement .sp-benefits__list--3,
+  .sp-demo-supplement .sp-benefits__list--4 {
+    align-items: stretch;
+  }
+
+  .sp-demo-supplement .sp-benefits__card {
+    height: 100%;
+  }
+
+  .sp-demo-supplement .sp-scientific-proof__list--3 .sp-scientific-proof__item,
+  .sp-demo-supplement .sp-social-proof__list .sp-social-proof__item {
+    height: 100%;
+  }
+
+  .sp-demo-supplement .sp-scientific-proof__card,
+  .sp-demo-supplement .sp-social-proof__card {
+    height: 100%;
+  }
+}
+
+.sp-demo-supplement .sp-cta-offer__inner,
+.sp-demo-supplement .sp-cta-offer__card {
+  max-width: var(--sp-supplement-content-narrow);
+  margin-inline: auto;
+}
+
+.sp-demo-supplement .sp-cta-offer__card {
+  padding: clamp(3.2rem, 5vw, 5.6rem);
+}
+
+.sp-demo-supplement.template-product .product {
+  column-gap: clamp(3.2rem, 5vw, 5.6rem);
+  row-gap: clamp(2.4rem, 4vw, 4rem);
+}
+
+.sp-demo-supplement.template-product .product__info-wrapper {
+  padding-top: 0.8rem;
+}
+
+.sp-demo-supplement .sp-benefits__header,
+.sp-demo-supplement .sp-features__header,
+.sp-demo-supplement .sp-metrics__header,
+.sp-demo-supplement .sp-scientific-proof__header,
+.sp-demo-supplement .sp-social-proof__header,
+.sp-demo-supplement .sp-faq__header {
+  margin-bottom: var(--sp-supplement-section-header-gap);
+}
+
+/* ── Section rhythm ── */
+.sp-demo-supplement .shopify-section:has(.sp-metrics),
+.sp-demo-supplement .shopify-section:has(.sp-benefits),
+.sp-demo-supplement .shopify-section:has(.sp-features),
+.sp-demo-supplement .shopify-section:has(.sp-scientific-proof),
+.sp-demo-supplement .shopify-section:has(.sp-social-proof),
+.sp-demo-supplement .shopify-section:has(.sp-faq) {
+  scroll-margin-top: 8rem;
+}
+
+.sp-demo-supplement .sp-section--surface-alternate {
+  background: rgba(var(--sp-supplement-sage), 0.08);
+}
+
+.sp-demo-supplement .sp-section--emphasis-elevated {
+  box-shadow: inset 0 0.1rem 0 rgba(var(--sp-supplement-green), 0.06);
 }
 
 .sp-demo-supplement .sp-section--surface-inverse {
@@ -192,7 +474,13 @@ html.sp-demo-supplement .sp-hero__media-wrapper {
 }
 
 .sp-demo-supplement .sp-cta-offer__card {
-  border-radius: 1.6rem;
+  border-radius: var(--sp-supplement-radius-xl);
+}
+
+.sp-demo-supplement .sp-cta-offer__badge {
+  background: rgba(var(--sp-supplement-amber), 0.18);
+  color: rgb(var(--sp-supplement-charcoal));
+  border-radius: var(--sp-supplement-radius-pill);
 }
 
 /* Footer */
@@ -201,9 +489,17 @@ html.sp-demo-supplement .sp-hero__media-wrapper {
   border-top: 0.1rem solid rgba(var(--sp-supplement-green), 0.12);
 }
 
-.sp-demo-supplement .footer-block__heading {
-  font-weight: 600;
-  letter-spacing: -0.01em;
+.sp-demo-supplement .footer__list-social,
+.sp-demo-supplement .footer .list-social {
+  display: none !important;
+}
+
+.sp-demo-supplement .footer .newsletter-form__field-wrapper .field__input {
+  border-radius: var(--sp-supplement-radius-sm);
+}
+
+.sp-demo-supplement .footer .newsletter-form__button {
+  border-radius: var(--sp-supplement-radius-sm);
 }
 
 .sp-demo-supplement .footer__copyright a {
@@ -231,6 +527,110 @@ html.sp-demo-supplement .sp-hero__media-wrapper {
   overflow: hidden;
 }
 
+/* Reveal configured supplement ingredient / macro photography */
+.sp-demo-supplement .sp-features__feature:has(.sp-features__media img[src*='daily-vitality']) .sp-features__media,
+.sp-demo-supplement .sp-features__feature:has(.sp-features__media img[src*='daily-vitality']) .sp-features__image-wrapper,
+.sp-demo-supplement .sp-features__feature:has(.sp-features__media img[src*='daily-vitality']) .sp-features__media .sp-media-frame {
+  display: block !important;
+  height: auto !important;
+  min-height: unset !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: visible;
+}
+
+.sp-demo-supplement .sp-features__feature:has(.sp-features__media img[src*='daily-vitality']) .sp-features__image-wrapper {
+  border-radius: var(--sp-supplement-radius-md);
+  overflow: hidden;
+  box-shadow: 0 1.2rem 3.6rem rgba(var(--sp-supplement-shadow), 0.12);
+}
+
+.sp-demo-supplement .sp-sticky-atc__bar {
+  border-top: 0.1rem solid rgba(var(--sp-supplement-green), 0.1);
+  backdrop-filter: blur(1.2rem);
+}
+
+.sp-demo-supplement .sp-sticky-atc .button--primary {
+  min-height: 4.4rem;
+}
+
+.sp-demo-supplement .cart-drawer,
+.sp-demo-supplement .drawer__inner {
+  border-radius: var(--sp-supplement-radius-lg) 0 0 var(--sp-supplement-radius-lg);
+}
+
+.sp-demo-supplement .cart-drawer .button--primary,
+.sp-demo-supplement .cart__checkout-button {
+  border-radius: var(--sp-supplement-radius-pill);
+}
+
+/* CTA — product-in-hand lifestyle photography */
+.sp-demo-supplement .sp-cta-offer__card--gradient {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(var(--sp-supplement-green-deep), 0.72) 0%, rgba(var(--sp-supplement-green-deep), 0.88) 100%),
+    url('https://cdn.shopify.com/s/files/1/0959/5594/3739/files/daily-vitality-product-in-hand.png?v=1781868430') center center / cover no-repeat;
+  color: rgb(var(--sp-supplement-cream));
+  border-color: rgba(var(--sp-supplement-cream), 0.16);
+}
+
+.sp-demo-supplement .sp-cta-offer__card--gradient .sp-cta-offer__heading,
+.sp-demo-supplement .sp-cta-offer__card--gradient .sp-cta-offer__subheading,
+.sp-demo-supplement .sp-cta-offer__card--gradient .sp-cta-offer__offer,
+.sp-demo-supplement .sp-cta-offer__card--gradient .sp-cta-offer__reassurance {
+  color: rgb(var(--sp-supplement-cream));
+}
+
+.sp-demo-supplement .sp-cta-offer__card--gradient .sp-cta-offer__subheading,
+.sp-demo-supplement .sp-cta-offer__card--gradient .sp-cta-offer__reassurance {
+  opacity: 0.92;
+}
+
+.sp-demo-supplement .sp-cta-offer__card--gradient .sp-cta-offer__badge {
+  background: rgba(var(--sp-supplement-cream), 0.14);
+  color: rgb(var(--sp-supplement-cream));
+  backdrop-filter: blur(0.8rem);
+}
+
+.sp-demo-supplement .sp-cta-offer__card:not(.sp-cta-offer__card--gradient) .sp-cta-offer__badge {
+  background: rgba(var(--sp-supplement-amber), 0.16);
+  color: rgb(var(--sp-supplement-charcoal));
+}
+
+.sp-demo-supplement .sp-cta-offer__card--gradient .button--primary {
+  background: rgb(var(--sp-supplement-cream));
+  color: rgb(var(--sp-supplement-green-deep));
+  border-color: rgb(var(--sp-supplement-cream));
+}
+
+/* Homepage video sections — motion photography (silent autoplay loop) */
+.sp-demo-supplement .sp-video__media {
+  border-radius: var(--sp-supplement-radius-md);
+  overflow: hidden;
+  box-shadow: 0 1.2rem 3.6rem rgba(var(--sp-supplement-shadow), 0.12);
+}
+
+.sp-demo-supplement .sp-video__media .sp-video__motion {
+  object-fit: cover;
+  object-position: var(--sp-video-focal, center);
+  pointer-events: none;
+}
+
+.sp-demo-supplement .sp-video__media .sp-video__motion-fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--sp-video-focal, center);
+}
+
+.sp-demo-supplement .sp-video__media .sp-video__motion::-webkit-media-controls,
+.sp-demo-supplement .sp-video__media .sp-video__motion::-webkit-media-controls-enclosure {
+  display: none !important;
+}
+
 /* Hide unrelated demo product imagery on homepage featured areas */
 .sp-demo-supplement img[src*='snowboard']:not(img),
 .sp-demo-supplement img[src*='gift-card']:not(img),
@@ -239,37 +639,53 @@ html.sp-demo-supplement .sp-hero__media-wrapper {
 }
 
 @media screen and (max-width: 749px) {
-  .sp-demo-supplement .sp-features__list {
-    gap: 3.2rem;
+  .sp-demo-supplement .sp-cta-offer__card--gradient {
+    background:
+      linear-gradient(180deg, rgba(var(--sp-supplement-green-deep), 0.78) 0%, rgba(var(--sp-supplement-green-deep), 0.94) 100%),
+      url('https://cdn.shopify.com/s/files/1/0959/5594/3739/files/daily-vitality-product-in-hand.png?v=1781868430') 70% center / cover no-repeat;
   }
 
-  .sp-demo-supplement .sp-features__feature {
-    padding: 1.8rem;
+  .sp-demo-supplement .sp-features__list {
+    gap: 2.4rem;
   }
 
   .sp-demo-supplement .sp-metrics__grid {
     gap: 1.2rem;
   }
 
-  .sp-demo-supplement .sp-hero__content-wrapper {
-    padding-inline: 1.6rem;
+  .sp-demo-supplement .sp-benefits__card,
+  .sp-demo-supplement .sp-social-proof__card {
+    padding: 1.8rem 1.6rem;
+  }
+
+  .sp-demo-supplement .sp-benefits__list,
+  .sp-demo-supplement .sp-social-proof__list {
+    gap: 1.2rem;
+  }
+
+  .sp-demo-supplement .sp-sticky-atc__bar {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+  }
+
+  .sp-demo-supplement .sp-sticky-atc .button--primary {
+    min-height: 4.8rem;
+    width: 100%;
+  }
+
+  .sp-demo-supplement .sp-features__feature {
+    padding-bottom: 2.4rem !important;
+  }
+
+  .sp-demo-supplement .sp-features__feature:has(.sp-features__media img[src*='daily-vitality']) .sp-features__content {
+    text-align: left;
+    margin-inline: 0;
+    max-width: none;
   }
 
   .sp-demo-supplement.template-product .product__media-wrapper {
     padding: 1.6rem;
   }
 
-  /* Motion: keep supplement sections visible on mobile (avoid white unrevealed blocks) */
-  html.sp-demo-supplement.sp-motion-active .sp-reveal:not(.is-revealed):not(.sp-reveal--static),
-  html.sp-demo-supplement.sp-motion-active [data-sp-reveal]:not(.is-revealed):not(.sp-reveal--static),
-  .sp-demo-supplement .sp-reveal:not(.is-revealed),
-  .sp-demo-supplement [data-sp-reveal]:not(.is-revealed) {
-    opacity: 1 !important;
-    transform: none !important;
-    visibility: visible !important;
-  }
-
-  /* Benefits swipe → stacked list on supplement mobile (no off-screen column height) */
   .sp-demo-supplement .sp-benefits__list--swipe {
     grid-auto-flow: row;
     grid-auto-columns: unset;
@@ -278,53 +694,6 @@ html.sp-demo-supplement .sp-hero__media-wrapper {
     scroll-snap-type: none;
   }
 
-  /* Homepage hero — product image first on mobile, then copy/CTA */
-  html.sp-demo-supplement .sp-hero,
-  .sp-demo-supplement .sp-hero {
-    display: flex !important;
-    flex-direction: column-reverse !important;
-  }
-
-  .sp-demo-supplement .sp-hero__content-wrapper,
-  .sp-demo-supplement .sp-hero__media-wrapper,
-  .sp-demo-supplement .sp-hero__content-wrapper,
-  .sp-demo-supplement .sp-hero__media-wrapper {
-    order: unset !important;
-    width: 100%;
-  }
-
-  .sp-demo-supplement .sp-hero__media-wrapper,
-  .sp-demo-supplement .sp-hero__media-wrapper {
-    margin-top: 0.4rem;
-    margin-bottom: 0.8rem;
-  }
-
-  .sp-demo-supplement img,
-  .sp-demo-supplement .sp-media-frame:has(img) {
-    display: block !important;
-    opacity: 1 !important;
-  }
-
-  .sp-demo-supplement .sp-hero__media-frame {
-    max-width: 22rem;
-    margin-inline: auto;
-  }
-
-  .sp-demo-supplement .sp-hero__media-frame.sp-media-frame--custom::before {
-    padding-bottom: min(var(--sp-hero-ratio-mobile, 100%), 72%) !important;
-  }
-
-  .sp-demo-supplement .sp-hero__media-frame .sp-image-placeholder,
-  .sp-demo-supplement .sp-hero__media-frame .placeholder-svg {
-    display: none !important;
-  }
-
-  .sp-demo-supplement .sp-hero__media .sp-image,
-  .sp-demo-supplement .sp-hero__media picture img {
-    opacity: 1 !important;
-  }
-
-  /* Collapse aspect-ratio shells for hidden demo product images */
   .sp-demo-supplement .sp-media-frame:has(img[src*='snowboard']),
   .sp-demo-supplement .sp-media-frame:has(img[src*='gift-card']),
   .sp-demo-supplement .sp-media-frame:has(img[src*='ski-wax']) {
@@ -342,9 +711,10 @@ html.sp-demo-supplement .sp-hero__media-wrapper {
     padding: 0 !important;
   }
 
-  /* Sticky ATC — account for Shopify preview bar on dev stores */
   .sp-demo-supplement [data-sp-sticky-atc].is-visible {
     padding-bottom: calc(var(--sp-sticky-atc-safe-bottom, 0px) + env(safe-area-inset-bottom, 0px));
   }
 }
 
+/* Supplement typography → assets/sp-demo-supplement-type.css (via sp-demo-supplement-head.liquid) */
+/* Supplement hero → assets/sp-demo-supplement-hero.css (via sections/sp-hero.liquid) */

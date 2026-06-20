@@ -1,12 +1,21 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "demo-visual-treatment": {
       "type": "custom-liquid",
       "settings": {
         "custom_liquid": "<script>document.documentElement.classList.add('sp-demo-visual-neutral','sp-demo-supplement');</script>",
+        "color_scheme": "scheme-1",
         "padding_top": 0,
-        "padding_bottom": 0,
-        "color_scheme": "scheme-1"
+        "padding_bottom": 0
       }
     },
     "main": {
@@ -20,7 +29,8 @@
           }
         },
         "title": {
-          "type": "title"
+          "type": "title",
+          "settings": {}
         },
         "caption": {
           "type": "text",
@@ -30,7 +40,8 @@
           }
         },
         "price": {
-          "type": "price"
+          "type": "price",
+          "settings": {}
         },
         "variant_picker": {
           "type": "variant_picker",
@@ -39,7 +50,8 @@
           }
         },
         "quantity_selector": {
-          "type": "quantity_selector"
+          "type": "quantity_selector",
+          "settings": {}
         },
         "buy_buttons": {
           "type": "buy_buttons",
@@ -49,7 +61,8 @@
           }
         },
         "description": {
-          "type": "description"
+          "type": "description",
+          "settings": {}
         }
       },
       "block_order": [
@@ -64,9 +77,9 @@
       ],
       "settings": {
         "enable_sticky_info": true,
-        "gallery_layout": "stacked",
         "media_size": "large",
         "constrain_to_viewport": true,
+        "gallery_layout": "stacked",
         "mobile_thumbnails": "hide",
         "hide_variants": true,
         "enable_video_looping": false,
@@ -111,9 +124,9 @@
         "heading": "",
         "subheading": "",
         "content_alignment": "center",
+        "desktop_columns": "3",
         "card_style": "minimal",
         "desktop_layout": "inline",
-        "desktop_columns": "3",
         "mobile_layout": "grid",
         "sp_surface_style": "default",
         "padding_top": 8,
@@ -165,8 +178,8 @@
       "settings": {
         "heading": "Why customers choose Daily Vitality",
         "subheading": "<p>Clean ingredients, transparent dosing, and a routine you can actually stick to.</p>",
-        "content_alignment": "center",
         "desktop_columns": "4",
+        "content_alignment": "center",
         "card_style": "subtle",
         "mobile_layout": "swipe",
         "sp_surface_style": "alternate",
@@ -397,7 +410,7 @@
         "heading": "Ready to upgrade your daily routine?",
         "subheading": "<p>Join 35,000+ customers who start their mornings with Daily Vitality Complex.</p>",
         "offer_text": "$49.95 · Free shipping included",
-        "button_label": "Add to cart",
+        "button_label": "Start your daily routine",
         "button_link": "",
         "reassurance_text": "30-day money-back guarantee",
         "show_badge": true,

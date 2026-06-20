@@ -1,12 +1,21 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "demo-visual-treatment": {
       "type": "custom-liquid",
       "settings": {
         "custom_liquid": "<script>document.documentElement.classList.add('sp-demo-visual-neutral','sp-demo-supplement');</script>",
+        "color_scheme": "scheme-1",
         "padding_top": 0,
-        "padding_bottom": 0,
-        "color_scheme": "scheme-1"
+        "padding_bottom": 0
       }
     },
     "sp-hero": {
@@ -15,19 +24,19 @@
         "benefit-chip-1": {
           "type": "benefit_chip",
           "settings": {
-            "benefit_text": "Free Shipping"
+            "benefit_text": "Science-backed formula"
           }
         },
         "benefit-chip-2": {
           "type": "benefit_chip",
           "settings": {
-            "benefit_text": "30-Day Guarantee"
+            "benefit_text": "Free shipping"
           }
         },
         "benefit-chip-3": {
           "type": "benefit_chip",
           "settings": {
-            "benefit_text": "4.9★ Rated"
+            "benefit_text": "30-day guarantee"
           }
         },
         "cta-trust-1": {
@@ -54,30 +63,95 @@
       ],
       "settings": {
         "show_announcement": true,
-        "announcement_text": "Subscribe & save 15% · Free shipping on every order",
-        "eyebrow_text": "4.9★ rated · 8,400+ reviews · 30-day guarantee",
-        "badge_text": "",
-        "headline": "Daily wellness, simplified.",
-        "headline_highlight_style": "underline",
+        "announcement_text": "Subscribe & save 15% · Free shipping on every order →",
+        "eyebrow_text": "Premium daily nutrition",
+        "headline": "Daily <strong>wellness</strong>, simplified.",
         "subheadline": "A science-backed daily formula designed to support steady energy, digestion, recovery, and everyday vitality.",
-        "price_source": "product",
-        "cta_type": "custom_link",
-        "cta_label": "Shop Daily Vitality",
-        "cta_link": "shopify://products/daily-vitality-complex",
-        "show_cta_trust_stack": true,
-        "show_social_proof": false,
+        "badge_text": "",
+        "heading_size": "hxl",
+        "headline_highlight_style": "gradient",
+        "featured_product": "daily-vitality-complex",
+        "price_source": "custom",
+        "price_text": "",
+        "show_social_proof": true,
         "social_proof_text": "",
         "show_social_rating": true,
-        "social_rating_value": "4.9/5",
+        "social_rating_value": "4.9",
         "show_social_review_count": true,
-        "social_review_count": "8,400+ reviews",
-        "layout_preset": "classic_split",
-        "visual_effects": "premium",
-        "desktop_image_position": "right",
+        "social_review_count": "rated by 8.4k+ customers",
+        "show_social_customer_count": false,
+        "show_social_avatars": false,
+        "show_rating_stars": true,
+        "cta_type": "custom_link",
+        "cta_label": "Start your 30-day routine",
+        "cta_link": "/products/daily-vitality-complex?view=supplement",
+        "show_cta_trust_stack": true,
         "show_trust_microcopy": false,
+        "show_hero_stats": false,
+        "floating_card_style": "glass",
+        "show_floating_review": true,
+        "floating_review_rating": 5,
+        "floating_review_text": "Steady energy without the afternoon crash.",
+        "floating_review_author": "Sarah M.",
+        "show_floating_review_verified": true,
+        "floating_review_verified_label": "Verified buyer",
+        "show_floating_shipping": false,
+        "show_floating_bestseller": false,
+        "image_alt": "Daily Vitality Complex premium supplement bottle",
+        "layout_preset": "media_focus",
+        "desktop_image_position": "right",
+        "visual_effects": "premium",
+        "prioritize_lcp": true,
         "padding_top": 0,
-        "padding_bottom": 0,
-        "featured_product": "daily-vitality-complex"
+        "padding_bottom": 0
+      }
+    },
+    "sp-video-morning-routine": {
+      "type": "sp-video",
+      "blocks": {
+        "highlight-1": {
+          "type": "highlight",
+          "settings": {
+            "text": "Two capsules with breakfast"
+          }
+        },
+        "highlight-2": {
+          "type": "highlight",
+          "settings": {
+            "text": "Steady energy without the crash"
+          }
+        },
+        "highlight-3": {
+          "type": "highlight",
+          "settings": {
+            "text": "30-day money-back guarantee"
+          }
+        }
+      },
+      "block_order": [
+        "highlight-1",
+        "highlight-2",
+        "highlight-3"
+      ],
+      "settings": {
+        "hook_text": "Your morning ritual",
+        "heading": "Start your day with intention",
+        "subheading": "<p>See how Daily Vitality fits into a calm, consistent morning routine — two capsules, real food, and steady focus for the hours ahead.</p>",
+        "mp4_url": "https://cdn.shopify.com/s/files/1/0959/5594/3739/files/daily-vitality-morning-routine.mp4",
+        "poster_image": "shopify://shop_images/daily-vitality-morning-routine.png",
+        "video_url": "",
+        "autoplay_muted": true,
+        "enable_loop": true,
+        "cta_label": "Start your daily routine",
+        "cta_link": "/products/daily-vitality-complex?view=supplement",
+        "cta_micro_text": "Free shipping · 30-day guarantee",
+        "layout": "split",
+        "sp_surface_style": "alternate",
+        "sp_width_mode": "contained",
+        "sp_section_emphasis": "normal",
+        "sp_divider_style": "fade",
+        "padding_top": 48,
+        "padding_bottom": 48
       }
     },
     "sp-metrics": {
@@ -128,8 +202,8 @@
         "mobile_layout": "swipe",
         "sp_surface_style": "alternate",
         "sp_divider_style": "line",
-        "padding_top": 48,
-        "padding_bottom": 48
+        "padding_top": 56,
+        "padding_bottom": 56
       }
     },
     "sp-benefits": {
@@ -138,7 +212,7 @@
         "benefit-1": {
           "type": "benefit",
           "settings": {
-            "icon": "check",
+            "icon": "leaf",
             "title": "Science-backed formula",
             "description": "<p>Clinically studied adaptogens, B-vitamins, and probiotics in transparent doses.</p>"
           }
@@ -177,12 +251,14 @@
       "settings": {
         "heading": "Why customers choose Daily Vitality",
         "subheading": "<p>Clean ingredients, transparent dosing, and a routine you can actually stick to.</p>",
-        "content_alignment": "center",
         "desktop_columns": "4",
+        "content_alignment": "center",
         "card_style": "subtle",
-        "mobile_layout": "swipe",
+        "mobile_layout": "stack",
+        "sp_surface_style": "alternate",
+        "sp_width_mode": "contained",
         "padding_top": 64,
-        "padding_bottom": 64
+        "padding_bottom": 72
       }
     },
     "sp-features": {
@@ -191,6 +267,7 @@
         "feature-1": {
           "type": "feature",
           "settings": {
+            "image": "shopify://shop_images/daily-vitality-capsule-macro.png",
             "title": "Clean daily energy",
             "description": "<p>B-vitamin complex and rhodiola help support focus and stamina through your busiest days.</p>",
             "bullet_1": "No jitters or late-day slump",
@@ -229,8 +306,55 @@
         "subheading": "<p>Two capsules each morning — built for energy, gut health, and recovery without the crash.</p>",
         "content_alignment": "left",
         "image_ratio": "portrait",
+        "sp_surface_style": "default",
+        "sp_width_mode": "contained",
         "padding_top": 64,
-        "padding_bottom": 64
+        "padding_bottom": 72
+      }
+    },
+    "sp-video-lab-quality": {
+      "type": "sp-video",
+      "blocks": {
+        "trust-1": {
+          "type": "trust_badge",
+          "settings": {
+            "text": "GMP certified"
+          }
+        },
+        "trust-2": {
+          "type": "trust_badge",
+          "settings": {
+            "text": "Third-party tested"
+          }
+        },
+        "trust-3": {
+          "type": "trust_badge",
+          "settings": {
+            "text": "Batch-level QA"
+          }
+        }
+      },
+      "block_order": [
+        "trust-1",
+        "trust-2",
+        "trust-3"
+      ],
+      "settings": {
+        "hook_text": "Lab-grade quality",
+        "heading": "Manufactured to standards you can trust",
+        "subheading": "<p>Every batch is produced in a GMP-certified facility with third-party testing for purity, potency, and heavy metals.</p>",
+        "mp4_url": "https://cdn.shopify.com/s/files/1/0959/5594/3739/files/daily-vitality-lab-quality.mp4",
+        "poster_image": "shopify://shop_images/daily-vitality-lab-quality.png",
+        "video_url": "",
+        "autoplay_muted": true,
+        "enable_loop": true,
+        "layout": "split",
+        "sp_surface_style": "default",
+        "sp_width_mode": "contained",
+        "sp_section_emphasis": "elevated",
+        "sp_divider_style": "line",
+        "padding_top": 56,
+        "padding_bottom": 56
       }
     },
     "sp-scientific-proof": {
@@ -283,6 +407,7 @@
         "card_style": "elevated",
         "mobile_layout": "swipe",
         "sp_surface_style": "default",
+        "sp_width_mode": "contained",
         "sp_divider_style": "line",
         "padding_top": 64,
         "padding_bottom": 48
@@ -334,6 +459,7 @@
         "desktop_columns": "3",
         "mobile_layout": "swipe",
         "sp_surface_style": "alternate",
+        "sp_width_mode": "contained",
         "padding_top": 64,
         "padding_bottom": 64
       }
@@ -407,8 +533,8 @@
         "heading": "Ready to upgrade your daily routine?",
         "subheading": "<p>Join 35,000+ customers who start their mornings with Daily Vitality Complex.</p>",
         "offer_text": "$49.95 · Free shipping included",
-        "button_label": "Shop Daily Vitality",
-        "button_link": "shopify://products/daily-vitality-complex",
+        "button_label": "Start your daily routine",
+        "button_link": "/products/daily-vitality-complex?view=supplement",
         "reassurance_text": "30-day money-back guarantee",
         "show_badge": true,
         "badge_text": "Most popular plan",
@@ -423,9 +549,11 @@
   "order": [
     "demo-visual-treatment",
     "sp-hero",
+    "sp-video-morning-routine",
     "sp-metrics",
     "sp-benefits",
     "sp-features",
+    "sp-video-lab-quality",
     "sp-scientific-proof",
     "sp-social-proof",
     "sp-faq",

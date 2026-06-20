@@ -22,7 +22,12 @@
   font-weight: 600;
 }
 
-.sp-cart-drawer__shipping-text .svg-wrapper {
+/* Inline icons are emitted as raw <svg class="icon …"> (no .svg-wrapper),
+   so constrain the svg directly to keep the trust reassurance subtle. */
+.sp-cart-drawer__shipping-text .svg-wrapper,
+.sp-cart-drawer__shipping-text svg,
+.sp-cart-drawer__shipping-text .icon {
+  flex: 0 0 auto;
   width: 1.4rem;
   height: 1.4rem;
 }
@@ -85,7 +90,10 @@
   color: rgba(var(--color-foreground), 0.65);
 }
 
-.sp-cart-drawer__trust .svg-wrapper {
+.sp-cart-drawer__trust .svg-wrapper,
+.sp-cart-drawer__trust svg,
+.sp-cart-drawer__trust .icon {
+  flex: 0 0 auto;
   width: 1.3rem;
   height: 1.3rem;
 }

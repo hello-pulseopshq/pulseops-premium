@@ -9,6 +9,7 @@
 
   To update supplement demo footer links, edit ONLY this snippet.
 {%- endcomment -%}
+{%- capture sp_demo_view_qs -%}{%- render 'sp-demo-view-query' -%}{%- endcapture -%}
 <ul class="footer-block__details-content list-unstyled">
   <li>
     <a href="#sp-benefits" class="link link--text list-menu__item list-menu__item--link">Benefits</a>
@@ -26,9 +27,9 @@
     <a href="#sp-faq" class="link link--text list-menu__item list-menu__item--link">FAQ</a>
   </li>
   <li>
-    <a href="/pages/contact" class="link link--text list-menu__item list-menu__item--link">Contact</a>
+    <a href="/pages/contact{{ sp_demo_view_qs }}" class="link link--text list-menu__item list-menu__item--link">Contact</a>
   </li>
   <li>
-    <a href="/policies/refund-policy" class="link link--text list-menu__item list-menu__item--link">Shipping &amp; Returns</a>
+    <a href="/policies/refund-policy{{ sp_demo_view_qs }}" class="link link--text list-menu__item list-menu__item--link">Shipping &amp; Returns</a>
   </li>
 </ul>

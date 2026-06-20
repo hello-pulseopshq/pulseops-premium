@@ -1,0 +1,488 @@
+/**
+ * Supplement Demo — Typography System
+ * Reusable tokens + application rules for .sp-demo-supplement only.
+ * Load after sp-demo-supplement.css via snippets/sp-demo-supplement-head.liquid.
+ * Hero display scale overrides remain in sp-demo-supplement-hero.css.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Inter:wght@500;600;700;800&display=swap');
+
+/* ══════════════════════════════════════════════════════════════
+   1. TOKENS
+   ══════════════════════════════════════════════════════════════ */
+
+.sp-demo-supplement {
+  --sp-font-heading: var(--font-heading-family);
+  --sp-font-body: var(--font-body-family);
+
+  --sp-type-ink: 14, 17, 15;
+  --sp-type-body-ink: 18, 22, 20;
+  --sp-type-muted: var(--sp-type-body-ink);
+  --sp-type-muted-opacity: 0.82;
+  --sp-type-muted-soft-opacity: 0.76;
+
+  --sp-type-display-2: clamp(2.8rem, 3.4vw, 4.2rem);
+  --sp-type-display-1: clamp(2.8rem, 4.2vw, 4.8rem);
+  --sp-type-title-lg: clamp(2.8rem, 3.6vw, 4rem);
+  --sp-type-title-md: clamp(1.8rem, 2vw, 2.2rem);
+  --sp-type-title-sm: 1.65rem;
+  --sp-type-body-lg: 1.7rem;
+  --sp-type-body-md: 1.5rem;
+  --sp-type-body-sm: 1.35rem;
+  --sp-type-ui: 1.25rem;
+  --sp-type-chip: 1.22rem;
+  --sp-type-caption: 1.15rem;
+  --sp-type-eyebrow: 1.1rem;
+  --sp-type-price-lg: clamp(2rem, 2.4vw, 2.4rem);
+  --sp-type-price-md: 1.65rem;
+  --sp-type-button: 1.5rem;
+  --sp-type-stat: clamp(3rem, 4.2vw, 5.6rem);
+
+  --sp-type-w-display: 800;
+  --sp-type-w-heading: 700;
+  --sp-type-w-subhead: 600;
+  --sp-type-w-body: 500;
+  --sp-type-w-ui: 600;
+  --sp-type-w-button: 800;
+  --sp-type-w-chip: 600;
+
+  --sp-type-lh-display: 1.04;
+  --sp-type-lh-heading: 1.08;
+  --sp-type-lh-body: 1.6;
+  --sp-type-lh-ui: 1.45;
+  --sp-type-lh-tight: 0.95;
+
+  --sp-type-track-display: -0.035em;
+  --sp-type-track-title: -0.025em;
+  --sp-type-track-eyebrow: 0.12em;
+  --sp-type-track-caption: 0.1em;
+  --sp-type-track-button: -0.01em;
+}
+
+/* Variant A (current system): theme-default families */
+html.sp-demo-supplement.sp-font-variant-a {
+  --sp-font-heading: var(--font-heading-family);
+  --sp-font-body: var(--font-body-family);
+}
+
+/* Variant B: Fraunces headings + Inter body */
+html.sp-demo-supplement.sp-font-variant-b {
+  --sp-font-heading: 'Fraunces', Georgia, serif;
+  --sp-font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Variant C: Cormorant Garamond headings + Inter body */
+html.sp-demo-supplement.sp-font-variant-c {
+  --sp-font-heading: 'Cormorant Garamond', Georgia, serif;
+  --sp-font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   2. BASE + RTE
+   ══════════════════════════════════════════════════════════════ */
+
+.sp-demo-supplement body {
+  font-family: var(--sp-font-body);
+  color: rgba(var(--sp-type-body-ink), var(--sp-type-muted-opacity));
+  font-weight: var(--sp-type-w-body);
+}
+
+.sp-demo-supplement .rte,
+.sp-demo-supplement .rte p {
+  font-family: var(--sp-font-body);
+  line-height: var(--sp-type-lh-body);
+  color: rgba(var(--sp-type-body-ink), var(--sp-type-muted-opacity));
+}
+
+.sp-demo-supplement .rte p {
+  font-weight: var(--sp-type-w-body);
+}
+
+.sp-demo-supplement .rte strong {
+  font-weight: var(--sp-type-w-subhead);
+  color: rgb(var(--sp-type-ink));
+}
+
+/* ══════════════════════════════════════════════════════════════
+   3. HEADINGS (H1–H3 + section display)
+   ══════════════════════════════════════════════════════════════ */
+
+.sp-demo-supplement h1,
+.sp-demo-supplement .h1,
+.sp-demo-supplement h2,
+.sp-demo-supplement .h2 {
+  font-family: var(--sp-font-heading);
+  color: rgb(var(--sp-type-ink));
+}
+
+.sp-demo-supplement h3,
+.sp-demo-supplement .h3,
+.sp-demo-supplement h4,
+.sp-demo-supplement .h4 {
+  font-family: var(--sp-font-heading);
+  color: rgb(var(--sp-type-ink));
+}
+
+.sp-demo-supplement .sp-benefits__heading,
+.sp-demo-supplement .sp-features__heading,
+.sp-demo-supplement .sp-metrics__heading,
+.sp-demo-supplement .sp-scientific-proof__heading,
+.sp-demo-supplement .sp-social-proof__heading,
+.sp-demo-supplement .sp-faq__heading,
+.sp-demo-supplement .sp-video h2 {
+  font-size: var(--sp-type-display-2);
+  font-weight: var(--sp-type-w-display);
+  letter-spacing: var(--sp-type-track-display);
+  line-height: var(--sp-type-lh-display);
+  text-wrap: balance;
+  color: rgb(var(--sp-type-ink));
+}
+
+.sp-demo-supplement .sp-cta-offer__heading {
+  font-size: var(--sp-type-display-1);
+  font-weight: var(--sp-type-w-display);
+  letter-spacing: var(--sp-type-track-display);
+  line-height: var(--sp-type-lh-display);
+  text-wrap: balance;
+  color: rgb(var(--sp-type-ink));
+}
+
+.sp-demo-supplement .sp-benefits__subheading,
+.sp-demo-supplement .sp-features__subheading,
+.sp-demo-supplement .sp-metrics__subheading,
+.sp-demo-supplement .sp-scientific-proof__subheading,
+.sp-demo-supplement .sp-social-proof__subheading,
+.sp-demo-supplement .sp-faq__subheading {
+  font-size: var(--sp-type-body-lg);
+  font-weight: var(--sp-type-w-body);
+  line-height: var(--sp-type-lh-body);
+  color: rgba(var(--sp-type-body-ink), var(--sp-type-muted-opacity));
+}
+
+/* ══════════════════════════════════════════════════════════════
+   4. EYEBROWS + CAPTIONS
+   ══════════════════════════════════════════════════════════════ */
+
+.sp-demo-supplement .sp-video__hook,
+.sp-demo-supplement .sp-cta-offer__badge {
+  font-size: var(--sp-type-eyebrow);
+  font-weight: var(--sp-type-w-heading);
+  letter-spacing: var(--sp-type-track-eyebrow);
+  text-transform: uppercase;
+}
+
+.sp-demo-supplement .sp-video__hook {
+  color: rgb(var(--sp-supplement-green-deep));
+}
+
+.sp-demo-supplement .sp-cta-offer__badge {
+  font-weight: var(--sp-type-w-subhead);
+  letter-spacing: var(--sp-type-track-caption);
+}
+
+.sp-demo-supplement .caption:not(.sp-hero *) {
+  font-size: var(--sp-type-caption);
+  font-weight: var(--sp-type-w-ui);
+  letter-spacing: var(--sp-type-track-caption);
+  line-height: 1.35;
+  color: rgba(var(--sp-type-body-ink), var(--sp-type-muted-opacity));
+}
+
+/* ══════════════════════════════════════════════════════════════
+   5. NAVIGATION
+   ══════════════════════════════════════════════════════════════ */
+
+.sp-demo-supplement .header__inline-menu .header__menu-item,
+.sp-demo-supplement .header__inline-menu .header__menu-item > span,
+.sp-demo-supplement .header__inline-menu .header__menu-item > a,
+.sp-demo-supplement .menu-drawer__menu-item .link {
+  font-weight: var(--sp-type-w-subhead) !important;
+  color: rgba(var(--sp-type-body-ink), var(--sp-type-muted-opacity)) !important;
+}
+
+.sp-demo-supplement .header__inline-menu .header__menu-item:hover,
+.sp-demo-supplement .header__inline-menu .header__menu-item:hover > span,
+.sp-demo-supplement .menu-drawer__menu-item .link:hover {
+  color: rgb(var(--sp-type-ink)) !important;
+}
+
+.sp-demo-supplement .announcement-bar__message {
+  font-size: var(--sp-type-caption);
+  font-weight: var(--sp-type-w-subhead);
+  letter-spacing: var(--sp-type-track-caption);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   6. BUTTONS
+   ══════════════════════════════════════════════════════════════ */
+
+.sp-demo-supplement .button,
+.sp-demo-supplement .shopify-challenge__button,
+.sp-demo-supplement .customer button,
+.sp-demo-supplement button.button {
+  font-family: var(--sp-font-body);
+  font-size: var(--sp-type-button);
+  font-weight: var(--sp-type-w-button);
+  letter-spacing: var(--sp-type-track-button);
+  line-height: 1.2;
+}
+
+.sp-demo-supplement .button--primary,
+.sp-demo-supplement .product-form__submit {
+  font-weight: var(--sp-type-w-button);
+}
+
+.sp-demo-supplement .button--secondary {
+  font-weight: var(--sp-type-w-subhead);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   7. CHIPS + BADGES
+   ══════════════════════════════════════════════════════════════ */
+
+.sp-demo-supplement .sp-scientific-proof__card--certification .sp-scientific-proof__stat {
+  font-size: var(--sp-type-ui);
+  font-weight: var(--sp-type-w-subhead);
+  letter-spacing: var(--sp-type-track-caption);
+}
+
+.sp-demo-supplement .sp-social-proof__verified,
+.sp-demo-supplement .sp-social-proof__title {
+  font-size: var(--sp-type-caption) !important;
+  font-weight: var(--sp-type-w-heading) !important;
+  letter-spacing: var(--sp-type-track-caption) !important;
+  line-height: 1.35 !important;
+}
+
+.sp-demo-supplement .sp-social-proof__verified {
+  color: rgb(var(--sp-supplement-green-deep)) !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   8. CARDS + REVIEWS
+   ══════════════════════════════════════════════════════════════ */
+
+.sp-demo-supplement .sp-benefits__card::before {
+  font-size: var(--sp-type-eyebrow);
+  font-weight: var(--sp-type-w-heading);
+  letter-spacing: var(--sp-type-track-eyebrow);
+}
+
+.sp-demo-supplement .sp-benefits__title,
+.sp-demo-supplement .sp-features__title {
+  font-size: var(--sp-type-title-sm);
+  font-weight: var(--sp-type-w-heading);
+  letter-spacing: var(--sp-type-track-title);
+  line-height: var(--sp-type-lh-heading);
+  color: rgb(var(--sp-type-ink));
+}
+
+.sp-demo-supplement .sp-features__title {
+  font-size: var(--sp-type-title-md);
+}
+
+.sp-demo-supplement .sp-benefits__description,
+.sp-demo-supplement .sp-features__text,
+.sp-demo-supplement .sp-features__bullets li {
+  font-size: var(--sp-type-body-sm);
+  font-weight: var(--sp-type-w-body);
+  line-height: var(--sp-type-lh-body);
+  color: rgba(var(--sp-type-body-ink), var(--sp-type-muted-opacity));
+}
+
+.sp-demo-supplement .sp-social-proof__review {
+  font-size: var(--sp-type-body-lg);
+  font-weight: var(--sp-type-w-body);
+  line-height: var(--sp-type-lh-body);
+  color: rgba(var(--sp-type-body-ink), 0.88);
+}
+
+.sp-demo-supplement .sp-social-proof__name {
+  font-size: var(--sp-type-ui);
+  font-weight: var(--sp-type-w-heading);
+  letter-spacing: var(--sp-type-track-title);
+  color: rgb(var(--sp-type-ink));
+}
+
+.sp-demo-supplement .sp-metrics__value {
+  font-size: var(--sp-type-stat);
+  font-weight: var(--sp-type-w-display);
+  letter-spacing: var(--sp-type-track-display);
+  line-height: 1;
+}
+
+.sp-demo-supplement .sp-metrics__label {
+  font-size: var(--sp-type-ui);
+  font-weight: var(--sp-type-w-subhead);
+  letter-spacing: var(--sp-type-track-caption);
+  color: rgba(var(--sp-type-body-ink), var(--sp-type-muted-soft-opacity));
+}
+
+.sp-demo-supplement .sp-scientific-proof__card:not(.sp-scientific-proof__card--certification) .sp-scientific-proof__stat {
+  font-size: clamp(3.2rem, 4vw, 4.8rem);
+  font-weight: var(--sp-type-w-display);
+  line-height: 1;
+  letter-spacing: var(--sp-type-track-display);
+  color: rgb(var(--sp-supplement-green-deep));
+}
+
+.sp-demo-supplement .sp-scientific-proof__card--certification .sp-scientific-proof__stat {
+  text-transform: uppercase;
+}
+
+.sp-demo-supplement .sp-scientific-proof__stat {
+  color: rgb(var(--sp-supplement-green-deep));
+  letter-spacing: var(--sp-type-track-title);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   9. FAQ
+   ══════════════════════════════════════════════════════════════ */
+
+.sp-demo-supplement .sp-faq__question {
+  font-size: var(--sp-type-ui);
+  font-weight: var(--sp-type-w-heading);
+  line-height: var(--sp-type-lh-ui);
+  letter-spacing: var(--sp-type-track-title);
+  color: rgb(var(--sp-type-ink));
+}
+
+.sp-demo-supplement .sp-faq__answer,
+.sp-demo-supplement .sp-faq__answer p {
+  font-size: var(--sp-type-body-sm);
+  font-weight: var(--sp-type-w-body);
+  line-height: var(--sp-type-lh-body);
+  color: rgba(var(--sp-type-body-ink), var(--sp-type-muted-opacity));
+}
+
+/* ══════════════════════════════════════════════════════════════
+   10. PDP
+   ══════════════════════════════════════════════════════════════ */
+
+.sp-demo-supplement.template-product .product__title,
+.sp-demo-supplement.template-product .product__title h1 {
+  font-size: var(--sp-type-title-lg);
+  font-weight: var(--sp-type-w-display);
+  letter-spacing: var(--sp-type-track-display);
+  line-height: var(--sp-type-lh-display);
+  color: rgb(var(--sp-type-ink));
+}
+
+.sp-demo-supplement.template-product .price-item--regular,
+.sp-demo-supplement.template-product .price__regular .price-item--last {
+  font-size: var(--sp-type-price-lg);
+  font-weight: var(--sp-type-w-heading);
+  letter-spacing: var(--sp-type-track-title);
+  color: rgb(var(--sp-supplement-green-deep));
+}
+
+.sp-demo-supplement.template-product .product__description,
+.sp-demo-supplement.template-product .product__description p {
+  font-size: var(--sp-type-body-md);
+  font-weight: var(--sp-type-w-body);
+  line-height: var(--sp-type-lh-body);
+  color: rgba(var(--sp-type-body-ink), var(--sp-type-muted-opacity));
+}
+
+.sp-demo-supplement.template-product .product-form__submit {
+  font-size: var(--sp-type-button);
+}
+
+.sp-demo-supplement .sp-sticky-atc__title {
+  font-size: var(--sp-type-ui);
+  font-weight: var(--sp-type-w-heading);
+  letter-spacing: var(--sp-type-track-title);
+  color: rgb(var(--sp-type-ink));
+}
+
+.sp-demo-supplement .sp-sticky-atc__price {
+  font-size: var(--sp-type-price-md);
+  font-weight: var(--sp-type-w-heading);
+  color: rgb(var(--sp-supplement-green-deep));
+}
+
+/* ══════════════════════════════════════════════════════════════
+   11. CART (drawer + page)
+   ══════════════════════════════════════════════════════════════ */
+
+.sp-demo-supplement .cart-drawer .drawer__heading,
+.sp-demo-supplement .cart-drawer .cart__empty-text {
+  font-size: var(--sp-type-title-md);
+  font-weight: var(--sp-type-w-heading);
+  letter-spacing: var(--sp-type-track-title);
+  color: rgb(var(--sp-type-ink));
+}
+
+.sp-demo-supplement .cart-drawer .cart-item__name {
+  font-size: var(--sp-type-ui);
+  font-weight: var(--sp-type-w-subhead);
+  letter-spacing: var(--sp-type-track-title);
+  line-height: var(--sp-type-lh-ui);
+  color: rgb(var(--sp-type-ink));
+}
+
+.sp-demo-supplement .cart-drawer .product-option,
+.sp-demo-supplement .cart-drawer .cart-item__final-price {
+  font-size: var(--sp-type-body-sm);
+  font-weight: var(--sp-type-w-subhead);
+  color: rgba(var(--sp-type-body-ink), var(--sp-type-muted-opacity));
+}
+
+.sp-demo-supplement .cart-drawer .totals__total-value,
+.sp-demo-supplement .cart-drawer .totals__subtotal-value {
+  font-size: var(--sp-type-ui);
+  font-weight: var(--sp-type-w-heading);
+  color: rgb(var(--sp-supplement-green-deep));
+}
+
+.sp-demo-supplement .cart-drawer .cart__checkout-button,
+.sp-demo-supplement .cart-drawer .cart__view-cart-button {
+  font-size: var(--sp-type-button);
+  font-weight: var(--sp-type-w-button);
+  letter-spacing: var(--sp-type-track-button);
+}
+
+.sp-demo-supplement .cart-drawer .tax-note,
+.sp-demo-supplement .cart-drawer .discounts__discount {
+  font-size: var(--sp-type-caption);
+  font-weight: var(--sp-type-w-body);
+  color: rgba(var(--sp-type-body-ink), var(--sp-type-muted-soft-opacity));
+}
+
+.sp-demo-supplement .sp-cart-page-trust__item,
+.sp-demo-supplement .sp-cart-page-trust__item strong {
+  font-size: var(--sp-type-body-sm);
+  font-weight: var(--sp-type-w-body);
+  line-height: var(--sp-type-lh-body);
+}
+
+.sp-demo-supplement .sp-cart-page-trust__item strong {
+  font-weight: var(--sp-type-w-heading);
+  color: rgb(var(--sp-supplement-green-deep));
+}
+
+/* ══════════════════════════════════════════════════════════════
+   12. CTA OFFER + FOOTER
+   ══════════════════════════════════════════════════════════════ */
+
+.sp-demo-supplement .sp-cta-offer__subheading,
+.sp-demo-supplement .sp-cta-offer__body {
+  font-size: var(--sp-type-body-lg);
+  font-weight: var(--sp-type-w-body);
+  line-height: var(--sp-type-lh-body);
+  color: rgba(var(--sp-type-body-ink), var(--sp-type-muted-opacity));
+}
+
+.sp-demo-supplement .footer-block__heading {
+  font-size: var(--sp-type-ui);
+  font-weight: var(--sp-type-w-heading);
+  letter-spacing: var(--sp-type-track-title);
+  color: rgb(var(--sp-type-ink));
+}
+
+.sp-demo-supplement .footer-block__details-content {
+  font-size: var(--sp-type-body-sm);
+  font-weight: var(--sp-type-w-body);
+  line-height: var(--sp-type-lh-body);
+  color: rgba(var(--sp-type-body-ink), var(--sp-type-muted-soft-opacity));
+}

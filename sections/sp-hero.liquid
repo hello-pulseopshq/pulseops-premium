@@ -1,4 +1,7 @@
 ﻿{{ 'section-sp-hero.css' | asset_url | stylesheet_tag }}
+{%- if template.suffix == 'supplement' -%}
+  {{ 'sp-demo-supplement-hero.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -106,9 +109,7 @@
   assign heading_tag = section.settings.heading_tag | default: 'h1'
 
   assign mobile_ratio = 100
-  if sp_hero_fallback
-    assign mobile_ratio = 125
-  elsif mobile_image != blank and mobile_image.aspect_ratio
+  if mobile_image != blank and mobile_image.aspect_ratio
     assign mobile_ratio = 1 | divided_by: mobile_image.aspect_ratio | times: 100
   elsif desktop_image != blank and desktop_image.aspect_ratio
     assign mobile_ratio = 1 | divided_by: desktop_image.aspect_ratio | times: 100

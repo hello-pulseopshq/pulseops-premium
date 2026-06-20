@@ -1,0 +1,35 @@
+{
+  "sections": {
+    "cart-items": {
+      "type": "main-cart-items",
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 24
+      }
+    },
+    "cart-footer": {
+      "type": "main-cart-footer",
+      "blocks": {
+        "subtotal": {
+          "type": "subtotal",
+          "settings": {}
+        },
+        "buttons": {
+          "type": "buttons",
+          "settings": {}
+        }
+      },
+      "block_order": ["subtotal", "buttons"],
+      "settings": {}
+    },
+    "cart-trust": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"page-width sp-cart-page-trust\"><div class=\"sp-cart-page-trust__item\"><div><strong>30-day money-back guarantee</strong><span>Try Daily Vitality risk-free. Full refund if you are not satisfied.</span></div></div><div class=\"sp-cart-page-trust__item\"><div><strong>Free shipping over $50</strong><span>Most orders ship within 24 hours.</span></div></div><div class=\"sp-cart-page-trust__item\"><div><strong>Secure checkout</strong><span>256-bit SSL encryption on every order.</span></div></div></div>",
+        "padding_top": 0,
+        "padding_bottom": 48
+      }
+    }
+  },
+  "order": ["cart-items", "cart-footer", "cart-trust"]
+}

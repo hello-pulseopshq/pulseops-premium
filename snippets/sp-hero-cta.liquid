@@ -84,7 +84,7 @@
         {% if cta_sold_out %}disabled{% endif %}
         aria-label="{{ cta_label | escape }}"
       >
-        <span>
+        <span class="sp-hero__button-label">
           {%- if cta_variant == null -%}
             {{ 'products.product.unavailable' | t }}
           {%- elsif cta_sold_out -%}
@@ -93,6 +93,7 @@
             {{ cta_label | escape }}
           {%- endif -%}
         </span>
+        <span class="sp-hero__button-arrow" aria-hidden="true">→</span>
         {%- render 'loading-spinner' -%}
       </button>
     {%- endform -%}
@@ -132,6 +133,7 @@
     {% endif %}
     class="{{ button_class }}{% render 'sp-motion-class', type: 'hover-button' %}"
   >
-    {{ cta_label | escape }}
+    <span class="sp-hero__button-label">{{ cta_label | escape }}</span>
+    <span class="sp-hero__button-arrow" aria-hidden="true">→</span>
   </a>
 {%- endif -%}
