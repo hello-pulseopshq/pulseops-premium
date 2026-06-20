@@ -32,6 +32,30 @@ Concise checkpoints for PulseOps SP Core and demo presets.
 
 ---
 
+## Supplement Demo Hero v1 (frozen)
+
+| Field | Value |
+|-------|-------|
+| **Tag** | `supplement-hero-frozen-v1` |
+| **Commit** | `5d939af` |
+| **Date** | 2026-06-20 |
+| **Branch** | `main` |
+
+**Summary:** Supplement Demo hero freeze — merchant-safe, Theme Check clean (0 errors), audit complete. Hero CSS isolated in `assets/sp-demo-supplement-hero.css`; Liquid/snippets generic and settings-driven.
+
+**Policy:**
+
+> **SUPPLEMENT HERO: FROZEN**
+>
+> No visual or architectural changes unless:
+> - bug
+> - accessibility issue
+> - merchant configurability issue
+
+**Includes:** `assets/sp-demo-supplement-hero.css`, hero snippets, `sections/sp-hero.liquid` supplement load path, `.audit/hero-freeze-audit-report.md` (local audit artifact).
+
+---
+
 ## Legacy tags
 
 | Tag | Commit | Purpose |
@@ -46,4 +70,5 @@ Concise checkpoints for PulseOps SP Core and demo presets.
 |-----|--------|---------|
 | `sp-core-v1.0` | `912e196` | **Current** SP Core production freeze |
 | `demo-presets-v1-release` | `7109c52` | **Current** demo presets release |
+| `supplement-hero-frozen-v1` | `5d939af` | **Current** Supplement Demo hero freeze |
 | `SP-Core-Freeze-v1` | `6fcf32b` | Legacy architecture-only freeze |
