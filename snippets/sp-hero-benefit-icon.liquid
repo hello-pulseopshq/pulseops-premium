@@ -1,0 +1,19 @@
+{% comment %}
+  Benefit pill icon from benefit text keywords.
+  Accepts: text
+{% endcomment %}
+{%- liquid
+  assign benefit_lower = text | downcase
+  assign benefit_icon = 'science'
+
+  if benefit_lower contains 'customer' or benefit_lower contains 'supported' or benefit_lower contains 'k+' or benefit_lower contains 'review' or benefit_lower contains 'rated'
+    assign benefit_icon = 'star'
+  elsif benefit_lower contains 'shipping' or benefit_lower contains 'delivery'
+    assign benefit_icon = 'shipping'
+  elsif benefit_lower contains 'guarantee' or benefit_lower contains 'return' or benefit_lower contains 'refund'
+    assign benefit_icon = 'returns'
+  elsif benefit_lower contains 'formula' or benefit_lower contains 'science' or benefit_lower contains 'lab' or benefit_lower contains 'nutrition' or benefit_lower contains 'ingredient'
+    assign benefit_icon = 'science'
+  endif
+-%}
+{%- render 'sp-trust-icon', icon: benefit_icon -%}

@@ -1,0 +1,61 @@
+{% comment %}
+  Shared CTA trust row (check + lock pattern).
+  Accepts:
+  - blocks: cta_trust_item blocks (hero)
+  - trust_text: optional "item · item" string (editorial)
+  - wrapper_class: optional extra classes on <ul>
+{% endcomment %}
+
+{%- liquid
+  assign row_items = blocks | where: 'type', 'cta_trust_item'
+  assign has_blocks = false
+  if row_items.size > 0
+    assign has_blocks = true
+  endif
+-%}
+
+{%- if has_blocks or trust_text != blank -%}
+  <ul
+    class="sp-cta-trust-row list-unstyled{% if wrapper_class != blank %} {{ wrapper_class }}{% endif %}"
+    role="list"
+  >
+    {%- if has_blocks -%}
+      {%- for block in row_items -%}
+        {%- if block.settings.text != blank -%}
+          {%- liquid
+            assign trust_icon = block.settings.icon
+            if trust_icon == 'guarantee'
+              assign trust_icon = 'check'
+            endif
+          -%}
+          <li class="sp-cta-trust-row__item caption" {{ block.shopify_attributes }}>
+            <span class="sp-cta-trust-row__icon" aria-hidden="true">
+              {%- render 'sp-trust-icon', icon: trust_icon -%}
+            </span>
+            {{ block.settings.text | escape }}
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- else -%}
+      {%- assign trust_parts = trust_text | split: ' · ' -%}
+      {%- for part in trust_parts -%}
+        {%- assign part_trim = part | strip -%}
+        {%- if part_trim != blank -%}
+          {%- liquid
+            assign part_lower = part_trim | downcase
+            assign trust_icon = 'check'
+            if part_lower contains 'checkout' or part_lower contains 'secure'
+              assign trust_icon = 'secure'
+            endif
+          -%}
+          <li class="sp-cta-trust-row__item caption">
+            <span class="sp-cta-trust-row__icon" aria-hidden="true">
+              {%- render 'sp-trust-icon', icon: trust_icon -%}
+            </span>
+            {{ part_trim | escape }}
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+  </ul>
+{%- endif -%}

@@ -266,9 +266,7 @@
                 {%- if block.settings.benefit_text != blank -%}
                   <li class="sp-hero__benefit caption" {{ block.shopify_attributes }}>
                     <span class="sp-hero__benefit-icon" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                        <path d="m5.5 12.2 4.1 4.1 9-9"></path>
-                      </svg>
+                      {%- render 'sp-hero-benefit-icon', text: block.settings.benefit_text -%}
                     </span>
                     <span>{{ block.settings.benefit_text }}</span>
                   </li>

@@ -165,7 +165,7 @@
           "settings": {
             "icon": "star",
             "title": "4.9★ customer approved",
-            "description": "<p>Trusted by 35,000+ customers and backed by 8,400+ verified reviews.</p>"
+            "description": "<p>Trusted by 35k+ customers and backed by 8.4k+ verified reviews.</p>"
           }
         }
       },
@@ -331,7 +331,7 @@
         "review-3"
       ],
       "settings": {
-        "heading": "8,400+ verified reviews · 4.9★ average",
+        "heading": "8.4k+ verified reviews · 4.9★ average",
         "subheading": "<p>Real feedback from customers who made Daily Vitality part of their morning routine.</p>",
         "content_alignment": "center",
         "desktop_columns": "3",
@@ -408,7 +408,7 @@
       "type": "sp-cta-offer",
       "settings": {
         "heading": "Ready to upgrade your daily routine?",
-        "subheading": "<p>Join 35,000+ customers who start their mornings with Daily Vitality Complex.</p>",
+        "subheading": "<p>Join 35k+ customers who start their mornings with Daily Vitality Complex.</p>",
         "offer_text": "$49.95 · Free shipping included",
         "button_label": "Start your daily routine",
         "button_link": "",

@@ -1,0 +1,562 @@
+{{ 'sp-editorial-outcomes.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign top_extra = 0
+  case section.settings.top_spacing
+    when 'small'
+      assign top_extra = 12
+    when 'medium'
+      assign top_extra = 28
+    when 'large'
+      assign top_extra = 48
+  endcase
+
+  assign bottom_extra = 0
+  case section.settings.bottom_spacing
+    when 'small'
+      assign bottom_extra = 12
+    when 'medium'
+      assign bottom_extra = 28
+    when 'large'
+      assign bottom_extra = 48
+  endcase
+
+  assign pad_top = section.settings.padding_top | plus: top_extra
+  assign pad_bottom = section.settings.padding_bottom | plus: bottom_extra
+-%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ pad_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ pad_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ pad_top }}px;
+      padding-bottom: {{ pad_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign shell_class = 'sp-editorial-outcomes-shell sp-editorial-outcomes-shell--tone-' | append: section.settings.background_tone
+
+  assign root_class = 'sp-editorial-outcomes'
+  assign root_class = root_class | append: ' sp-editorial-outcomes--top-spacing-' | append: section.settings.top_spacing
+  assign root_class = root_class | append: ' sp-editorial-outcomes--bottom-spacing-' | append: section.settings.bottom_spacing
+  assign root_class = root_class | append: ' sp-editorial-outcomes--mobile-cards-' | append: section.settings.mobile_card_layout
+
+  if section.settings.show_card_numbers
+    assign root_class = root_class | append: ' sp-editorial-outcomes--show-card-numbers'
+  endif
+
+  if section.settings.show_cta_divider
+    assign root_class = root_class | append: ' sp-editorial-outcomes--show-cta-divider'
+  endif
+
+  assign image_alt = section.settings.image_alt | strip
+  if image_alt == blank and section.settings.image != blank
+    assign image_alt = section.settings.image.alt | escape
+  endif
+  if image_alt == blank
+    assign image_alt = section.settings.heading | strip_html | escape
+  endif
+
+  assign show_stats = false
+  if section.settings.stat_1_value != blank or section.settings.stat_2_value != blank
+    assign show_stats = true
+  endif
+
+  assign show_cta = false
+  if section.settings.button_label != blank and section.settings.button_link != blank
+    assign show_cta = true
+  endif
+-%}
+
+{% render 'sp-section-hierarchy-open', section: section, anchor_id: 'sp-outcomes', extra_class: shell_class %}
+  <div
+    class="{{ root_class }}"
+    {% if section.settings.heading != blank %}
+      aria-label="{{ section.settings.heading | strip_html | escape }}"
+    {% else %}
+      aria-label="Editorial outcomes"
+    {% endif %}
+  >
+    {%- if section.settings.show_top_divider -%}
+      <div class="sp-editorial-outcomes__chapter-divider" aria-hidden="true"></div>
+    {%- endif -%}
+
+    <div class="sp-editorial-outcomes__composition{% render 'sp-motion-class', type: 'stagger' %}" data-sp-stagger>
+      <div class="sp-editorial-outcomes__media{% render 'sp-motion-class', type: 'stagger-item' %}">
+        {%- if section.settings.image != blank -%}
+          <div class="sp-editorial-outcomes__media-frame">
+            {{
+              section.settings.image
+              | image_url: width: 2200
+              | image_tag:
+                widths: '550, 750, 1100, 1500, 1800, 2200',
+                sizes: '(min-width: 990px) calc((100vw - 8rem) / 2), 100vw',
+                alt: image_alt,
+                loading: 'lazy',
+                class: 'sp-image sp-editorial-outcomes__media-image'
+            }}
+          </div>
+        {%- else -%}
+          <div class="sp-editorial-outcomes__media-frame sp-editorial-outcomes__media-frame--placeholder">
+            {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="sp-editorial-outcomes__story{% render 'sp-motion-class', type: 'stagger-item' %}">
+        <div class="sp-editorial-outcomes__story-copy">
+          {%- if section.settings.eyebrow != blank -%}
+            <p class="sp-editorial-outcomes__eyebrow caption-with-letter-spacing">
+              <span class="sp-editorial-outcomes__eyebrow-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M20 4.5C11 4.5 5 9.4 5 15.8c0 2.4 1.4 4.7 3.8 5.7 5.5 2.2 11.7-2.1 11.7-9.3 0-2.2-.3-5-0.5-7.7z"></path>
+                  <path d="M8 16.5c2.7-.2 5.1-1.7 7.3-4.3"></path>
+                </svg>
+              </span>
+              {{ section.settings.eyebrow | escape }}
+            </p>
+          {%- endif -%}
+
+          {%- if section.settings.heading != blank -%}
+            <h2 class="sp-editorial-outcomes__heading{% render 'sp-motion-class', type: 'fade-up' %}">
+              {{ section.settings.heading }}
+            </h2>
+          {%- endif -%}
+
+          {%- if section.settings.body != blank -%}
+            <div class="sp-editorial-outcomes__body rte">
+              {{ section.settings.body }}
+            </div>
+          {%- endif -%}
+
+          {%- if show_stats -%}
+            <div class="sp-editorial-outcomes__stats">
+              {%- if section.settings.stat_1_value != blank -%}
+                <div class="sp-editorial-outcomes__stat">
+                  <p class="sp-editorial-outcomes__stat-value">{{ section.settings.stat_1_value | escape }}</p>
+                  {%- if section.settings.stat_1_label != blank -%}
+                    <p class="sp-editorial-outcomes__stat-label">{{ section.settings.stat_1_label | escape }}</p>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+
+              {%- if section.settings.stat_1_value != blank and section.settings.stat_2_value != blank -%}
+                <span class="sp-editorial-outcomes__stat-divider" aria-hidden="true"></span>
+              {%- endif -%}
+
+              {%- if section.settings.stat_2_value != blank -%}
+                <div class="sp-editorial-outcomes__stat">
+                  <p class="sp-editorial-outcomes__stat-value">{{ section.settings.stat_2_value | escape }}</p>
+                  {%- if section.settings.stat_2_label != blank -%}
+                    <p class="sp-editorial-outcomes__stat-label">{{ section.settings.stat_2_label | escape }}</p>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        </div>
+
+        {%- if section.blocks.size > 0 -%}
+          <ul class="sp-editorial-outcomes__cards{% render 'sp-motion-class', type: 'stagger' %}" data-sp-stagger role="list">
+            {%- for block in section.blocks -%}
+              {%- if block.settings.title != blank or block.settings.text != blank -%}
+                <li class="sp-editorial-outcomes__item{% render 'sp-motion-class', type: 'stagger-item' %}" {{ block.shopify_attributes }}>
+                  <article class="sp-editorial-outcomes__card{% render 'sp-motion-class', type: 'hover-card-subtle' %}">
+                    <div class="sp-editorial-outcomes__card-meta">
+                      {%- if section.settings.show_card_numbers -%}
+                        <span class="sp-editorial-outcomes__card-index" aria-hidden="true"></span>
+                      {%- endif -%}
+
+                      {%- if block.settings.icon != 'none' -%}
+                        <span class="sp-editorial-outcomes__card-icon" aria-hidden="true">
+                          {%- case block.settings.icon -%}
+                            {%- when 'sun' -%}
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <circle cx="12" cy="12" r="4"></circle>
+                                <path d="M12 2.5v2.2M12 19.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"></path>
+                              </svg>
+                            {%- when 'lightning' -%}
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <path d="M13.5 2.5 5 13h5l-1.5 8.5L19 11h-5z"></path>
+                              </svg>
+                            {%- when 'refresh' -%}
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <path d="M20 7.5A8.5 8.5 0 0 0 6.2 6.2L4 9"></path>
+                                <path d="m4 4.5 2 2.5"></path>
+                                <path d="M4 16.5A8.5 8.5 0 0 0 17.8 17.8L20 15"></path>
+                                <path d="m20 19.5-2-2.5"></path>
+                              </svg>
+                            {%- when 'shield' -%}
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <path d="M12 2.5 4.5 5.5v6.2c0 4.5 2.8 8.6 7.5 9.8 4.7-1.2 7.5-5.3 7.5-9.8V5.5z"></path>
+                                <path d="m8.8 12.1 2.2 2.3 4.3-4.4"></path>
+                              </svg>
+                            {%- else -%}
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <path d="m5.5 12 4 4 9-9"></path>
+                              </svg>
+                          {%- endcase -%}
+                        </span>
+                      {%- endif -%}
+                    </div>
+
+                    {%- if block.settings.title != blank -%}
+                      <h3 class="sp-editorial-outcomes__card-title">{{ block.settings.title | escape }}</h3>
+                    {%- endif -%}
+
+                    {%- if block.settings.text != blank -%}
+                      <p class="sp-editorial-outcomes__card-text">{{ block.settings.text | escape }}</p>
+                    {%- endif -%}
+                  </article>
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+
+        {%- if show_cta or section.settings.trust_text != blank -%}
+          <div class="sp-editorial-outcomes__cta-shell{% render 'sp-motion-class', type: 'fade-up' %}">
+            {%- if section.settings.show_cta_divider -%}
+              <div class="sp-editorial-outcomes__cta-divider" aria-hidden="true"></div>
+            {%- endif -%}
+            <div class="sp-editorial-outcomes__footer">
+              {%- if show_cta -%}
+                <a href="{{ section.settings.button_link }}" class="sp-editorial-outcomes__button button{% render 'sp-motion-class', type: 'hover-button' %}">
+                  <span>{{ section.settings.button_label | escape }}</span>
+                  <span class="sp-editorial-outcomes__button-arrow" aria-hidden="true">→</span>
+                </a>
+              {%- endif -%}
+
+              {%- if section.settings.trust_text != blank -%}
+                {%- render 'sp-cta-trust-row',
+                  trust_text: section.settings.trust_text,
+                  wrapper_class: 'sp-editorial-outcomes__trust-row'
+                -%}
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+{% render 'sp-section-hierarchy-close' %}
+
+{% schema %}
+{
+  "name": "SP Editorial Outcomes",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 8,
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Editorial image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "Designed for modern wellness",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "default": "<p>One habit.<br>Four outcomes.</p>",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "default": "<p>Not another supplement. A daily system that supports energy, focus and recovery in one simple habit.</p>",
+      "label": "Body"
+    },
+    {
+      "type": "header",
+      "content": "Stats"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_value",
+      "default": "35k+",
+      "label": "Stat 1 value"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_label",
+      "default": "Customers supported",
+      "label": "Stat 1 label"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_value",
+      "default": "4.9★",
+      "label": "Stat 2 value"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_label",
+      "default": "Average rating",
+      "label": "Stat 2 label"
+    },
+    {
+      "type": "header",
+      "content": "Call to action"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "Start your daily routine",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "trust_text",
+      "default": "30-day money-back guarantee · Secure checkout",
+      "label": "Trust line"
+    },
+    {
+      "type": "header",
+      "content": "Chapter layout"
+    },
+    {
+      "type": "select",
+      "id": "top_spacing",
+      "label": "Top spacing",
+      "default": "medium",
+      "options": [
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "bottom_spacing",
+      "label": "Bottom spacing",
+      "default": "medium",
+      "options": [
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "show_top_divider",
+      "label": "Show top chapter divider",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "background_tone",
+      "label": "Background tone",
+      "default": "default",
+      "options": [
+        { "value": "default", "label": "Default" },
+        { "value": "soft", "label": "Soft" },
+        { "value": "contrast", "label": "Contrast" }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "show_card_numbers",
+      "label": "Show card numbers",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cta_divider",
+      "label": "Show divider above CTA",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "mobile_card_layout",
+      "label": "Mobile card layout",
+      "default": "auto",
+      "info": "Auto stacks cards on narrow screens for readability.",
+      "options": [
+        { "value": "auto", "label": "Auto" },
+        { "value": "stack", "label": "Single column" },
+        { "value": "two_column", "label": "Two columns" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Visual hierarchy"
+    },
+    {
+      "type": "select",
+      "id": "sp_surface_style",
+      "label": "Surface style",
+      "default": "default",
+      "options": [
+        { "value": "default", "label": "Default" },
+        { "value": "alternate", "label": "Alternate" },
+        { "value": "inverse", "label": "Inverse" },
+        { "value": "accent", "label": "Accent" },
+        { "value": "transparent", "label": "Transparent" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "sp_width_mode",
+      "label": "Width mode",
+      "default": "wide",
+      "options": [
+        { "value": "contained", "label": "Contained" },
+        { "value": "wide", "label": "Wide" },
+        { "value": "full", "label": "Full width" },
+        { "value": "bleed", "label": "Bleed" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "sp_section_emphasis",
+      "label": "Section emphasis",
+      "default": "normal",
+      "options": [
+        { "value": "normal", "label": "Normal" },
+        { "value": "elevated", "label": "Elevated" },
+        { "value": "feature", "label": "Feature" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "sp_divider_style",
+      "label": "Divider",
+      "default": "none",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "line", "label": "Line" },
+        { "value": "gradient", "label": "Gradient" },
+        { "value": "fade", "label": "Fade" }
+      ]
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "outcome_card",
+      "name": "Outcome card",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "sun",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "sun", "label": "Sun" },
+            { "value": "lightning", "label": "Lightning" },
+            { "value": "refresh", "label": "Refresh" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "check", "label": "Check" }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Outcome title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "default": "Short supporting copy for this outcome.",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SP Editorial Outcomes",
+      "blocks": [
+        {
+          "type": "outcome_card",
+          "settings": {
+            "icon": "sun",
+            "title": "Morning Ritual",
+            "text": "Build consistency with a simple daily wellness habit."
+          }
+        },
+        {
+          "type": "outcome_card",
+          "settings": {
+            "icon": "lightning",
+            "title": "Energy Support",
+            "text": "B vitamins and adaptogens help support daily energy."
+          }
+        },
+        {
+          "type": "outcome_card",
+          "settings": {
+            "icon": "refresh",
+            "title": "Recovery",
+            "text": "Supports recovery from modern stressors."
+          }
+        },
+        {
+          "type": "outcome_card",
+          "settings": {
+            "icon": "shield",
+            "title": "Immune Health",
+            "text": "Foundational nutrients for everyday wellness."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

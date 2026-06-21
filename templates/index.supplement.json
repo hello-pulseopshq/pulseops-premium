@@ -36,7 +36,7 @@
         "benefit-chip-3": {
           "type": "benefit_chip",
           "settings": {
-            "benefit_text": "30-day guarantee"
+            "benefit_text": "35k+ customers supported"
           }
         },
         "cta-trust-1": {
@@ -76,12 +76,12 @@
         "show_social_proof": true,
         "social_proof_text": "",
         "show_social_rating": true,
-        "social_rating_value": "4.9",
+        "social_rating_value": "4.9★",
         "show_social_review_count": true,
-        "social_review_count": "rated by 8.4k+ customers",
+        "social_review_count": "8.4k+ verified reviews",
         "show_social_customer_count": false,
         "show_social_avatars": false,
-        "show_rating_stars": true,
+        "show_rating_stars": false,
         "cta_type": "custom_link",
         "cta_label": "Start your 30-day routine",
         "cta_link": "/products/daily-vitality-complex?view=supplement",
@@ -106,52 +106,75 @@
         "padding_bottom": 0
       }
     },
-    "sp-video-morning-routine": {
-      "type": "sp-video",
+    "sp-editorial-outcomes": {
+      "type": "sp-editorial-outcomes",
       "blocks": {
-        "highlight-1": {
-          "type": "highlight",
+        "outcome-1": {
+          "type": "outcome_card",
           "settings": {
-            "text": "Two capsules with breakfast"
+            "icon": "sun",
+            "title": "Morning Ritual",
+            "text": "Build consistency with a simple daily wellness habit."
           }
         },
-        "highlight-2": {
-          "type": "highlight",
+        "outcome-2": {
+          "type": "outcome_card",
           "settings": {
-            "text": "Steady energy without the crash"
+            "icon": "lightning",
+            "title": "Energy Support",
+            "text": "B vitamins and adaptogens help support daily energy."
           }
         },
-        "highlight-3": {
-          "type": "highlight",
+        "outcome-3": {
+          "type": "outcome_card",
           "settings": {
-            "text": "30-day money-back guarantee"
+            "icon": "refresh",
+            "title": "Recovery",
+            "text": "Supports recovery from modern stressors."
+          }
+        },
+        "outcome-4": {
+          "type": "outcome_card",
+          "settings": {
+            "icon": "shield",
+            "title": "Immune Health",
+            "text": "Foundational nutrients for everyday wellness."
           }
         }
       },
       "block_order": [
-        "highlight-1",
-        "highlight-2",
-        "highlight-3"
+        "outcome-1",
+        "outcome-2",
+        "outcome-3",
+        "outcome-4"
       ],
       "settings": {
-        "hook_text": "Your morning ritual",
-        "heading": "Start your day with intention",
-        "subheading": "<p>See how Daily Vitality fits into a calm, consistent morning routine — two capsules, real food, and steady focus for the hours ahead.</p>",
-        "mp4_url": "https://cdn.shopify.com/s/files/1/0959/5594/3739/files/daily-vitality-morning-routine.mp4",
-        "poster_image": "shopify://shop_images/daily-vitality-morning-routine.png",
-        "video_url": "",
-        "autoplay_muted": true,
-        "enable_loop": true,
-        "cta_label": "Start your daily routine",
-        "cta_link": "/products/daily-vitality-complex?view=supplement",
-        "cta_micro_text": "Free shipping · 30-day guarantee",
-        "layout": "split",
-        "sp_surface_style": "alternate",
-        "sp_width_mode": "contained",
+        "image": "shopify://shop_images/daily-vitality-morning-routine.png",
+        "image_alt": "Daily Vitality morning ritual with supplement bottle on kitchen counter",
+        "eyebrow": "Designed for modern wellness",
+        "heading": "<p>One habit.<br>Four outcomes.</p>",
+        "body": "<p>Not another supplement. A daily system that supports energy, focus and recovery in one simple habit.</p>",
+        "stat_1_value": "35k+",
+        "stat_1_label": "Customers supported",
+        "stat_2_value": "4.9★",
+        "stat_2_label": "Average rating",
+        "button_label": "Start your daily routine",
+        "button_link": "/products/daily-vitality-complex?view=supplement",
+        "trust_text": "30-day money-back guarantee · Secure checkout",
+        "top_spacing": "small",
+        "bottom_spacing": "large",
+        "show_top_divider": false,
+        "background_tone": "soft",
+        "show_card_numbers": true,
+        "show_cta_divider": true,
+        "mobile_card_layout": "auto",
+        "sp_surface_style": "default",
+        "sp_width_mode": "wide",
         "sp_section_emphasis": "normal",
-        "sp_divider_style": "fade",
-        "padding_top": 48,
-        "padding_bottom": 48
+        "sp_divider_style": "none",
+        "color_scheme": "scheme-1",
+        "padding_top": 24,
+        "padding_bottom": 104
       }
     },
     "sp-metrics": {
@@ -160,8 +183,8 @@
         "metric-1": {
           "type": "metric",
           "settings": {
-            "value": "35,000+",
-            "label": "Happy customers"
+            "value": "35k+",
+            "label": "Customers supported"
           }
         },
         "metric-2": {
@@ -174,7 +197,7 @@
         "metric-3": {
           "type": "metric",
           "settings": {
-            "value": "8,400+",
+            "value": "8.4k+",
             "label": "Verified reviews"
           }
         },
@@ -238,7 +261,7 @@
           "settings": {
             "icon": "star",
             "title": "4.9★ customer approved",
-            "description": "<p>Trusted by 35,000+ customers and backed by 8,400+ verified reviews.</p>"
+            "description": "<p>Trusted by 35k+ customers and backed by 8.4k+ verified reviews.</p>"
           }
         }
       },
@@ -453,7 +476,7 @@
         "review-3"
       ],
       "settings": {
-        "heading": "8,400+ verified reviews · 4.9★ average",
+        "heading": "8.4k+ verified reviews · 4.9★ average",
         "subheading": "<p>Real feedback from customers who made Daily Vitality part of their morning routine.</p>",
         "content_alignment": "center",
         "desktop_columns": "3",
@@ -531,7 +554,7 @@
       "type": "sp-cta-offer",
       "settings": {
         "heading": "Ready to upgrade your daily routine?",
-        "subheading": "<p>Join 35,000+ customers who start their mornings with Daily Vitality Complex.</p>",
+        "subheading": "<p>Join 35k+ customers who start their mornings with Daily Vitality Complex.</p>",
         "offer_text": "$49.95 · Free shipping included",
         "button_label": "Start your daily routine",
         "button_link": "/products/daily-vitality-complex?view=supplement",
@@ -549,7 +572,7 @@
   "order": [
     "demo-visual-treatment",
     "sp-hero",
-    "sp-video-morning-routine",
+    "sp-editorial-outcomes",
     "sp-metrics",
     "sp-benefits",
     "sp-features",
