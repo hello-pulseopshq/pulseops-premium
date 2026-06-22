@@ -1,8 +1,13 @@
 /**
  * Smooth-scroll anchor navigation for single-product / demo storefronts.
+ * Supplement homepage: Benefits formerly targeted #sp-benefits; resolves to
+ * #sp-ingredients when that section is absent (editorial differentiation chapter).
  */
 (function () {
   const ANCHOR_IDS = ['sp-benefits', 'sp-ingredients', 'sp-science', 'sp-reviews', 'sp-faq', 'sp-cta'];
+  const ANCHOR_ALIASES = {
+    'sp-benefits': 'sp-ingredients',
+  };
   const HEADER_OFFSET = 96;
 
   function getHeaderOffset() {
@@ -17,6 +22,7 @@
   function ensureAnchorIds() {
     const classMap = {
       '.sp-benefits': 'sp-benefits',
+      '.sp-editorial-differentiation': 'sp-ingredients',
       '.sp-features': 'sp-ingredients',
       '.sp-scientific-proof': 'sp-science',
       '.sp-social-proof': 'sp-reviews',
@@ -35,7 +41,12 @@
 
   function resolveTarget(hash) {
     if (!hash || hash === '#') return null;
-    return document.getElementById(hash.replace(/^#/, ''));
+    const id = hash.replace(/^#/, '');
+    let target = document.getElementById(id);
+    if (!target && ANCHOR_ALIASES[id]) {
+      target = document.getElementById(ANCHOR_ALIASES[id]);
+    }
+    return target;
   }
 
   function scrollToTarget(target) {
@@ -55,7 +66,10 @@
   }
 
   function findNavLinks() {
-    return [...document.querySelectorAll('.header__menu a, .header__inline-menu a')];
+    return [
+      ...document.querySelectorAll('.header__menu a, .header__inline-menu a'),
+      ...document.querySelectorAll('.footer-block__details-content a[href^="#"]'),
+    ];
   }
 
   function setActiveNav(hash) {
@@ -99,8 +113,9 @@
     if (!target) return;
     event.preventDefault();
     scrollToTarget(target);
-    setActiveNav(hash);
-    history.replaceState(null, '', `${window.location.pathname}${window.location.search}${hash}`);
+    const resolvedHash = `#${target.id}`;
+    setActiveNav(resolvedHash);
+    history.replaceState(null, '', `${window.location.pathname}${window.location.search}${resolvedHash}`);
   }
 
   function init() {
@@ -114,9 +129,10 @@
     requestAnimationFrame(() => observeSections());
 
     const initialHash = window.location.hash;
-    if (initialHash && resolveTarget(initialHash)) {
-      requestAnimationFrame(() => scrollToTarget(resolveTarget(initialHash)));
-      setActiveNav(initialHash);
+    const initialTarget = resolveTarget(initialHash);
+    if (initialHash && initialTarget) {
+      requestAnimationFrame(() => scrollToTarget(initialTarget));
+      setActiveNav(`#${initialTarget.id}`);
     }
   }
 

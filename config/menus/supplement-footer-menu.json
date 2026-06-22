@@ -3,7 +3,7 @@
   "title": "Footer menu",
   "items": [
     { "title": "Shop Daily Vitality", "url": "/products/daily-vitality-complex" },
-    { "title": "Benefits", "url": "#sp-benefits" },
+    { "title": "Benefits", "url": "#sp-ingredients" },
     { "title": "Ingredients", "url": "#sp-ingredients" },
     { "title": "Science", "url": "#sp-science" },
     { "title": "Reviews", "url": "#sp-reviews" },
