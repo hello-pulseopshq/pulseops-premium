@@ -1,0 +1,437 @@
+{{ 'sp-quality-standards.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign top_extra = 0
+  case section.settings.top_spacing
+    when 'small'
+      assign top_extra = 12
+    when 'medium'
+      assign top_extra = 28
+    when 'large'
+      assign top_extra = 48
+  endcase
+
+  assign bottom_extra = 0
+  case section.settings.bottom_spacing
+    when 'small'
+      assign bottom_extra = 12
+    when 'medium'
+      assign bottom_extra = 28
+    when 'large'
+      assign bottom_extra = 48
+  endcase
+
+  assign pad_top = section.settings.padding_top | plus: top_extra
+  assign pad_bottom = section.settings.padding_bottom | plus: bottom_extra
+-%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ pad_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ pad_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ pad_top }}px;
+      padding-bottom: {{ pad_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign shell_class = 'sp-quality-standards-shell sp-quality-standards-shell--tone-' | append: section.settings.background_tone
+  assign root_class = 'sp-quality-standards'
+  assign root_class = root_class | append: ' sp-quality-standards--top-spacing-' | append: section.settings.top_spacing
+  assign root_class = root_class | append: ' sp-quality-standards--bottom-spacing-' | append: section.settings.bottom_spacing
+
+  assign image_alt = section.settings.image_alt | strip
+  if image_alt == blank and section.settings.image != blank
+    assign image_alt = section.settings.image.alt | escape
+  endif
+  if image_alt == blank
+    assign image_alt = section.settings.heading | strip_html | escape
+  endif
+
+  assign show_cta = false
+  if section.settings.button_label != blank and section.settings.button_link != blank
+    assign show_cta = true
+  endif
+-%}
+
+{% render 'sp-section-hierarchy-open', section: section, anchor_id: 'sp-quality', extra_class: shell_class %}
+  <div
+    class="{{ root_class }}"
+    {% if section.settings.heading != blank %}
+      aria-label="{{ section.settings.heading | strip_html | escape }}"
+    {% else %}
+      aria-label="Quality standards"
+    {% endif %}
+  >
+    {%- if section.settings.show_top_divider -%}
+      <div class="sp-quality-standards__chapter-divider" aria-hidden="true"></div>
+    {%- endif -%}
+
+    <div class="sp-quality-standards__composition{% render 'sp-motion-class', type: 'stagger' %}" data-sp-stagger>
+      <div class="sp-quality-standards__story">
+        <header class="sp-quality-standards__story-copy{% render 'sp-motion-class', type: 'stagger-item' %}">
+          {%- if section.settings.eyebrow != blank -%}
+            <p class="sp-quality-standards__eyebrow caption-with-letter-spacing">
+              {{ section.settings.eyebrow | escape }}
+            </p>
+          {%- endif -%}
+
+          {%- if section.settings.heading != blank -%}
+            <h2 class="sp-quality-standards__heading{% render 'sp-motion-class', type: 'fade-up' %}">
+              {{ section.settings.heading }}
+            </h2>
+          {%- endif -%}
+
+          {%- if section.settings.body != blank -%}
+            <div class="sp-quality-standards__body rte">
+              {{ section.settings.body }}
+            </div>
+          {%- endif -%}
+        </header>
+
+        {%- if section.settings.image != blank -%}
+          <div class="sp-quality-standards__media sp-quality-standards__media--mobile{% render 'sp-motion-class', type: 'stagger-item' %}">
+            <div class="sp-quality-standards__media-frame">
+              {{
+                section.settings.image
+                | image_url: width: 2400
+                | image_tag:
+                  widths: '550, 750, 1100, 1500, 1800, 2200, 2400',
+                  sizes: '(min-width: 990px) calc((100vw - 8rem) / 2), 100vw',
+                  alt: image_alt,
+                  loading: 'lazy',
+                  class: 'sp-image sp-quality-standards__media-image'
+              }}
+            </div>
+          </div>
+        {%- endif -%}
+
+        <div class="sp-quality-standards__story-rest{% render 'sp-motion-class', type: 'stagger-item' %}">
+          {%- if section.blocks.size > 0 -%}
+            <ul class="sp-quality-standards__proof-list" role="list">
+              {%- for block in section.blocks -%}
+                {%- if block.settings.value != blank or block.settings.label != blank -%}
+                  <li class="sp-quality-standards__proof-item" {{ block.shopify_attributes }}>
+                    <div class="sp-quality-standards__proof-content">
+                      {%- if block.settings.value != blank -%}
+                        <p class="sp-quality-standards__proof-value">{{ block.settings.value | escape }}</p>
+                      {%- endif -%}
+                      {%- if block.settings.label != blank -%}
+                        <p class="sp-quality-standards__proof-label">{{ block.settings.label | escape }}</p>
+                      {%- endif -%}
+                      {%- if block.settings.detail != blank -%}
+                        <p class="sp-quality-standards__proof-detail">{{ block.settings.detail | escape }}</p>
+                      {%- endif -%}
+                    </div>
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+
+          {%- if section.settings.supporting_text != blank -%}
+            <div class="sp-quality-standards__supporting rte{% render 'sp-motion-class', type: 'fade-up' %}">
+              {{ section.settings.supporting_text }}
+            </div>
+          {%- endif -%}
+
+          {%- if show_cta or section.settings.trust_text != blank -%}
+            <div class="sp-quality-standards__footer{% render 'sp-motion-class', type: 'fade-up' %}">
+              {%- if show_cta -%}
+                <a href="{{ section.settings.button_link }}" class="sp-quality-standards__button button{% render 'sp-motion-class', type: 'hover-button' %}">
+                  <span>{{ section.settings.button_label | escape }}</span>
+                  <span class="sp-quality-standards__button-arrow" aria-hidden="true">→</span>
+                </a>
+              {%- endif -%}
+
+              {%- if section.settings.trust_text != blank -%}
+                {%- render 'sp-cta-trust-row',
+                  trust_text: section.settings.trust_text,
+                  wrapper_class: 'sp-quality-standards__trust-row'
+                -%}
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+
+      {%- if section.settings.image != blank -%}
+        <div class="sp-quality-standards__media sp-quality-standards__media--desktop{% render 'sp-motion-class', type: 'stagger-item' %}">
+          <div class="sp-quality-standards__media-frame">
+            {{
+              section.settings.image
+              | image_url: width: 2400
+              | image_tag:
+                widths: '550, 750, 1100, 1500, 1800, 2200, 2400',
+                sizes: '(min-width: 990px) calc((100vw - 8rem) / 2), 100vw',
+                alt: image_alt,
+                loading: 'lazy',
+                class: 'sp-image sp-quality-standards__media-image'
+            }}
+          </div>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+{% render 'sp-section-hierarchy-close' %}
+
+{% schema %}
+{
+  "name": "SP Quality Standards",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 6,
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "Lab grade quality",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "default": "<p>Quality without compromise.</p>",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "default": "<p>Every batch is produced with strict quality controls, manufacturing discipline, and standards designed to support long-term trust.</p>",
+      "label": "Intro body"
+    },
+    {
+      "type": "header",
+      "content": "Supporting media"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Editorial image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text"
+    },
+    {
+      "type": "richtext",
+      "id": "supporting_text",
+      "default": "<p>From sourcing to production, every step is designed to maintain consistency, transparency, and quality.</p>",
+      "label": "Supporting copy"
+    },
+    {
+      "type": "header",
+      "content": "Call to action"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "Shop now",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "trust_text",
+      "label": "Trust line"
+    },
+    {
+      "type": "header",
+      "content": "Chapter layout"
+    },
+    {
+      "type": "select",
+      "id": "top_spacing",
+      "label": "Top spacing",
+      "default": "medium",
+      "options": [
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "bottom_spacing",
+      "label": "Bottom spacing",
+      "default": "large",
+      "options": [
+        { "value": "small", "label": "Small" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "large", "label": "Large" }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "show_top_divider",
+      "label": "Show top chapter divider",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "background_tone",
+      "label": "Background tone",
+      "default": "soft",
+      "options": [
+        { "value": "default", "label": "Default" },
+        { "value": "soft", "label": "Soft" },
+        { "value": "contrast", "label": "Contrast" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Visual hierarchy"
+    },
+    {
+      "type": "select",
+      "id": "sp_surface_style",
+      "label": "Surface style",
+      "default": "default",
+      "options": [
+        { "value": "default", "label": "Default" },
+        { "value": "alternate", "label": "Alternate" },
+        { "value": "inverse", "label": "Inverse" },
+        { "value": "accent", "label": "Accent" },
+        { "value": "transparent", "label": "Transparent" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "sp_width_mode",
+      "label": "Width mode",
+      "default": "wide",
+      "options": [
+        { "value": "contained", "label": "Contained" },
+        { "value": "wide", "label": "Wide" },
+        { "value": "full", "label": "Full width" },
+        { "value": "bleed", "label": "Bleed" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "sp_section_emphasis",
+      "label": "Section emphasis",
+      "default": "normal",
+      "options": [
+        { "value": "normal", "label": "Normal" },
+        { "value": "elevated", "label": "Elevated" },
+        { "value": "feature", "label": "Feature" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "sp_divider_style",
+      "label": "Divider",
+      "default": "none",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "line", "label": "Line" },
+        { "value": "fade", "label": "Fade" }
+      ]
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 112
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 120
+    }
+  ],
+  "blocks": [
+    {
+      "type": "trust_pillar",
+      "name": "Trust pillar",
+      "settings": [
+        {
+          "type": "text",
+          "id": "value",
+          "default": "92%",
+          "label": "Primary value"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "default": "Customer satisfaction",
+          "label": "Label"
+        },
+        {
+          "type": "text",
+          "id": "detail",
+          "label": "Supporting detail"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SP Quality Standards",
+      "blocks": [
+        {
+          "type": "trust_pillar",
+          "settings": {
+            "value": "92%",
+            "label": "Customer satisfaction"
+          }
+        },
+        {
+          "type": "trust_pillar",
+          "settings": {
+            "value": "GMP Certified",
+            "label": "Produced in audited facilities"
+          }
+        },
+        {
+          "type": "trust_pillar",
+          "settings": {
+            "value": "Third-party tested",
+            "label": "Every batch reviewed for purity and quality"
+          }
+        },
+        {
+          "type": "trust_pillar",
+          "settings": {
+            "value": "Manufacturing standards",
+            "label": "Built around consistency and control"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
