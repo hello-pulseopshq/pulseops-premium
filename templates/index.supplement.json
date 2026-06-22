@@ -229,110 +229,67 @@
         "padding_bottom": 56
       }
     },
-    "sp-benefits": {
-      "type": "sp-benefits",
+    "sp-editorial-differentiation": {
+      "type": "sp-editorial-differentiation",
       "blocks": {
-        "benefit-1": {
-          "type": "benefit",
+        "proof-1": {
+          "type": "proof_point",
           "settings": {
-            "icon": "leaf",
-            "title": "Science-backed formula",
-            "description": "<p>Clinically studied adaptogens, B-vitamins, and probiotics in transparent doses.</p>"
+            "title": "Clean sourcing",
+            "text": "Carefully selected ingredients with no artificial colors, synthetic fillers, or unnecessary compounds."
           }
         },
-        "benefit-2": {
-          "type": "benefit",
+        "proof-2": {
+          "type": "proof_point",
           "settings": {
-            "icon": "truck",
-            "title": "Ships within 24 hours",
-            "description": "<p>Fresh batches fulfilled from our GMP-certified partner facility.</p>"
+            "title": "Purposeful formulation",
+            "text": "Each ingredient has a clear role across energy, gut support, recovery, and immune health."
           }
         },
-        "benefit-3": {
-          "type": "benefit",
+        "proof-3": {
+          "type": "proof_point",
           "settings": {
-            "icon": "shield",
-            "title": "30-day satisfaction guarantee",
-            "description": "<p>Try it for a full month. Not for you? Full refund, no hassle.</p>"
+            "title": "Daily simplicity",
+            "text": "One easy ritual designed to replace complicated stacks and inconsistent supplement routines."
           }
         },
-        "benefit-4": {
-          "type": "benefit",
+        "proof-4": {
+          "type": "proof_point",
           "settings": {
-            "icon": "star",
-            "title": "4.9★ customer approved",
-            "description": "<p>Trusted by 35k+ customers and backed by 8.4k+ verified reviews.</p>"
+            "title": "Quality standards",
+            "text": "Produced with quality controls, batch discipline, and standards customers can feel confident in."
           }
         }
       },
       "block_order": [
-        "benefit-1",
-        "benefit-2",
-        "benefit-3",
-        "benefit-4"
+        "proof-1",
+        "proof-2",
+        "proof-3",
+        "proof-4"
       ],
       "settings": {
-        "heading": "Why customers choose Daily Vitality",
-        "subheading": "<p>Clean ingredients, transparent dosing, and a routine you can actually stick to.</p>",
-        "desktop_columns": "4",
-        "content_alignment": "center",
-        "card_style": "subtle",
-        "mobile_layout": "stack",
-        "sp_surface_style": "alternate",
-        "sp_width_mode": "contained",
-        "padding_top": 64,
-        "padding_bottom": 72
-      }
-    },
-    "sp-features": {
-      "type": "sp-features",
-      "blocks": {
-        "feature-1": {
-          "type": "feature",
-          "settings": {
-            "image": "shopify://shop_images/daily-vitality-capsule-macro.png",
-            "title": "Clean daily energy",
-            "description": "<p>B-vitamin complex and rhodiola help support focus and stamina through your busiest days.</p>",
-            "bullet_1": "No jitters or late-day slump",
-            "bullet_2": "Supports natural energy metabolism",
-            "bullet_3": "Pairs well with morning coffee or tea"
-          }
-        },
-        "feature-2": {
-          "type": "feature",
-          "settings": {
-            "title": "Gut + immune support",
-            "description": "<p>5B CFU probiotics plus prebiotic fiber to support digestion and nutrient absorption.</p>",
-            "bullet_1": "Gentle on sensitive stomachs",
-            "bullet_2": "No artificial fillers or dyes",
-            "bullet_3": "Third-party tested every batch"
-          }
-        },
-        "feature-3": {
-          "type": "feature",
-          "settings": {
-            "title": "Recovery support",
-            "description": "<p>Magnesium glycinate and L-theanine support calm focus, sleep quality, and daily recovery.</p>",
-            "bullet_1": "Helps you wind down at night",
-            "bullet_2": "Supports stress resilience",
-            "bullet_3": "Easy once-daily routine"
-          }
-        }
-      },
-      "block_order": [
-        "feature-1",
-        "feature-2",
-        "feature-3"
-      ],
-      "settings": {
-        "heading": "Key ingredients & daily support",
-        "subheading": "<p>Two capsules each morning — built for energy, gut health, and recovery without the crash.</p>",
-        "content_alignment": "left",
-        "image_ratio": "portrait",
+        "image": "shopify://shop_images/daily-vitality-lab-quality.png",
+        "image_alt": "Daily Vitality quality standards and lab manufacturing environment",
+        "eyebrow": "Why customers choose Daily Vitality",
+        "heading": "<p>Built for consistency, not quick fixes.</p>",
+        "body": "<p>Daily Vitality is designed around the habits people actually keep: simple dosing, clean sourcing, purposeful ingredients, and quality standards you can trust.</p>",
+        "button_label": "Shop Daily Vitality",
+        "button_link": "/products/daily-vitality-complex?view=supplement",
+        "trust_text": "30-day guarantee · Secure checkout",
+        "image_position": "right",
+        "top_spacing": "medium",
+        "bottom_spacing": "large",
+        "show_top_divider": false,
+        "background_tone": "soft",
+        "show_proof_numbers": true,
+        "show_cta_divider": true,
         "sp_surface_style": "default",
-        "sp_width_mode": "contained",
-        "padding_top": 64,
-        "padding_bottom": 72
+        "sp_width_mode": "wide",
+        "sp_section_emphasis": "normal",
+        "sp_divider_style": "none",
+        "color_scheme": "scheme-1",
+        "padding_top": 112,
+        "padding_bottom": 120
       }
     },
     "sp-video-lab-quality": {
@@ -574,8 +531,7 @@
     "sp-hero",
     "sp-editorial-outcomes",
     "sp-metrics",
-    "sp-benefits",
-    "sp-features",
+    "sp-editorial-differentiation",
     "sp-video-lab-quality",
     "sp-scientific-proof",
     "sp-social-proof",

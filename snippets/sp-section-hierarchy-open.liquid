@@ -47,10 +47,16 @@
         assign sp_anchor_id = 'sp-cta'
       when 'sp-editorial-outcomes'
         assign sp_anchor_id = 'sp-outcomes'
+      when 'sp-editorial-differentiation'
+        assign sp_anchor_id = 'sp-ingredients'
     endcase
 
     if sp_anchor_id == blank and section.id contains 'sp-editorial-outcomes'
       assign sp_anchor_id = 'sp-outcomes'
+    endif
+
+    if sp_anchor_id == blank and section.id contains 'sp-editorial-differentiation'
+      assign sp_anchor_id = 'sp-ingredients'
     endif
   endif
 -%}
