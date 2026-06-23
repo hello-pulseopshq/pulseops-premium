@@ -1,0 +1,137 @@
+{%- comment -%}
+  Testimonial stage — integrated editorial quote block.
+
+  Accepts:
+  - section: {Object} parent section
+{%- endcomment -%}
+
+{%- liquid
+  assign slide_count = 0
+  for block in section.blocks
+    assign review_text_stripped = block.settings.review_text | strip_html | strip
+    assign customer_name_stripped = block.settings.customer_name | strip
+    if review_text_stripped != blank or customer_name_stripped != blank
+      assign slide_count = slide_count | plus: 1
+    endif
+  endfor
+  assign auto_rotate_ms = section.settings.stage_auto_rotate | default: 6 | times: 1000
+  assign heading_stripped = section.settings.heading | strip_html | strip
+  assign subheading_stripped = section.settings.subheading | strip_html | strip
+-%}
+
+<div class="sp-social-proof__stage-chapter">
+  {%- if section.settings.eyebrow != blank or heading_stripped != blank or subheading_stripped != blank -%}
+    <header class="sp-social-proof__stage-proof">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="sp-social-proof__eyebrow caption-with-letter-spacing">
+          {{ section.settings.eyebrow | escape }}
+        </p>
+      {%- endif -%}
+      {%- if heading_stripped != blank -%}
+        <p class="sp-social-proof__stage-metric">
+          {{ section.settings.heading }}
+        </p>
+      {%- endif -%}
+      {%- if subheading_stripped != blank -%}
+        <div class="sp-social-proof__subheading rte">
+          {{ section.settings.subheading }}
+        </div>
+      {%- endif -%}
+    </header>
+  {%- endif -%}
+
+  <div
+    class="sp-social-proof__stage-root"
+    data-sp-testimonial-stage
+    data-auto-rotate="{{ auto_rotate_ms }}"
+    {% if slide_count > 1 %}
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="{{ section.settings.heading | strip_html | escape | default: 'Customer testimonials' }}"
+    {% endif %}
+  >
+    <div class="sp-social-proof__stage-viewport">
+      <div class="sp-social-proof__stage-track" data-sp-stage-track>
+        {%- assign active_index = 0 -%}
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign review_text_stripped = block.settings.review_text | strip_html | strip
+            assign customer_name_stripped = block.settings.customer_name | strip
+            assign customer_title_stripped = block.settings.customer_title | strip
+          -%}
+          {%- if review_text_stripped != blank or customer_name_stripped != blank -%}
+            {%- assign active_index = active_index | plus: 1 -%}
+            <article
+              class="sp-social-proof__stage-slide{% if active_index == 1 %} is-active{% endif %}"
+              data-sp-stage-slide
+              id="StageSlide-{{ section.id }}-{{ active_index }}"
+              {{ block.shopify_attributes }}
+              {% unless active_index == 1 %}hidden{% endunless %}
+              aria-hidden="{% if active_index == 1 %}false{% else %}true{% endif %}"
+            >
+              <span class="sp-social-proof__stage-quote-mark" aria-hidden="true">&ldquo;</span>
+
+              {%- if review_text_stripped != blank -%}
+                <blockquote class="sp-social-proof__stage-quote">
+                  <div class="sp-social-proof__stage-quote-text rte">
+                    {{ block.settings.review_text }}
+                  </div>
+                </blockquote>
+              {%- endif -%}
+
+              <div class="sp-social-proof__stage-divider" aria-hidden="true"></div>
+
+              {%- if customer_name_stripped != blank or customer_title_stripped != blank -%}
+                <footer class="sp-social-proof__stage-attribution">
+                  {%- if customer_name_stripped != blank -%}
+                    <cite class="sp-social-proof__stage-name">
+                      &mdash; {{ block.settings.customer_name | escape }}
+                    </cite>
+                  {%- endif -%}
+                  {%- if customer_title_stripped != blank -%}
+                    <p class="sp-social-proof__stage-title caption">
+                      {{ block.settings.customer_title | escape }}
+                    </p>
+                  {%- elsif block.settings.verified -%}
+                    <p class="sp-social-proof__stage-title caption">Verified customer</p>
+                  {%- endif -%}
+                </footer>
+              {%- endif -%}
+            </article>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+
+    {%- if slide_count > 1 -%}
+      <div
+        class="sp-social-proof__stage-dots"
+        role="group"
+        aria-label="Testimonial navigation"
+      >
+        {%- assign dot_index = 0 -%}
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign review_text_stripped = block.settings.review_text | strip_html | strip
+            assign customer_name_stripped = block.settings.customer_name | strip
+          -%}
+          {%- if review_text_stripped != blank or customer_name_stripped != blank -%}
+            {%- assign dot_index = dot_index | plus: 1 -%}
+            <button
+              type="button"
+              class="sp-social-proof__stage-dot{% if dot_index == 1 %} is-active{% endif %}"
+              data-sp-stage-dot
+              data-slide-index="{{ dot_index | minus: 1 }}"
+              aria-label="Testimonial {{ dot_index }} of {{ slide_count }}"
+              {% if dot_index == 1 %}aria-current="true"{% endif %}
+            >
+              <span class="visually-hidden">Testimonial {{ dot_index }} of {{ slide_count }}</span>
+            </button>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    <p class="visually-hidden" aria-live="polite" data-sp-stage-live></p>
+  </div>
+</div>

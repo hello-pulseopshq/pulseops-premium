@@ -416,9 +416,9 @@
           "type": "review",
           "settings": {
             "rating": 5,
-            "review_text": "<p>I finally have steady afternoon energy without extra coffee or jitters.</p>",
-            "customer_name": "Sarah M.",
-            "customer_title": "Austin, TX",
+            "review_text": "<p>Daily Vitality became the one supplement I actually remembered to take every day. It simplified my routine and gave me a level of consistency that felt sustainable instead of overwhelming.</p>",
+            "customer_name": "Maya K.",
+            "customer_title": "Verified purchaser",
             "verified": true
           }
         },
@@ -426,9 +426,9 @@
           "type": "review",
           "settings": {
             "rating": 5,
-            "review_text": "<p>Gentle on my stomach and easy to stay consistent — digestion feels more balanced.</p>",
-            "customer_name": "James T.",
-            "customer_title": "Portland, OR",
+            "review_text": "<p>I noticed steadier energy throughout the afternoon without the crash or jitters. It quickly became one of the easiest parts of my daily wellness routine.</p>",
+            "customer_name": "Sarah L.",
+            "customer_title": "Verified customer",
             "verified": true
           }
         },
@@ -436,9 +436,9 @@
           "type": "review",
           "settings": {
             "rating": 5,
-            "review_text": "<p>Part of my morning routine now. Better recovery days and calmer evenings.</p>",
-            "customer_name": "Emily R.",
-            "customer_title": "Chicago, IL",
+            "review_text": "<p>It's gentle on my stomach, easy to take, and fits naturally into my mornings. I finally found a supplement I could stick with long term.</p>",
+            "customer_name": "James T.",
+            "customer_title": "Verified customer",
             "verified": true
           }
         }
@@ -449,15 +449,19 @@
         "review-3"
       ],
       "settings": {
-        "heading": "8.4k+ verified reviews · 4.9★ average",
-        "subheading": "<p>Real feedback from customers who made Daily Vitality part of their morning routine.</p>",
+        "eyebrow": "Verified customer feedback",
+        "heading": "8.4k+ verified reviews. 4.9★ average rating.",
+        "subheading": "",
+        "layout_style": "stage",
+        "stage_auto_rotate": 6,
         "content_alignment": "center",
-        "desktop_columns": "3",
-        "mobile_layout": "swipe",
-        "sp_surface_style": "alternate",
-        "sp_width_mode": "contained",
-        "padding_top": 64,
-        "padding_bottom": 64
+        "desktop_columns": "2",
+        "mobile_layout": "stack",
+        "sp_surface_style": "default",
+        "sp_width_mode": "full",
+        "sp_divider_style": "none",
+        "padding_top": 100,
+        "padding_bottom": 100
       }
     },
     "sp-faq": {

@@ -1,0 +1,305 @@
+/**
+ * SP Social Proof — Integrated testimonial stage
+ * Token-driven; supplement demo overrides via --sp-proof-*.
+ */
+
+.sp-social-proof--stage {
+  --sp-proof-chapter-max: min(100%, var(--page-width, 112rem));
+  --sp-proof-quote-color: rgb(var(--color-foreground));
+  --sp-proof-eyebrow-color: rgb(var(--color-button, var(--color-foreground)));
+  --sp-proof-metric-color: rgb(var(--color-foreground));
+  --sp-proof-dot-active: rgb(var(--color-button, var(--color-foreground)));
+  --sp-proof-dot-muted: rgba(var(--color-foreground), 0.22);
+  --sp-proof-header-gap: 0.75rem;
+  --sp-proof-intro-margin-bottom: clamp(2rem, 4vw, 3rem);
+  --sp-proof-metric-size: clamp(1.35rem, 1.2vw, 1.65rem);
+  --sp-proof-quote-size: clamp(2.52rem, 2.4vw, 3.85rem);
+  --sp-proof-quote-lh: 1.22;
+  --sp-proof-quote-max: min(100%, 112rem);
+  --sp-proof-mark-size: clamp(5rem, 4.5vw, 6.4rem);
+  --sp-proof-mark-color: rgba(var(--color-button, var(--color-foreground)), 0.45);
+  --sp-proof-mark-margin-bottom: 2rem;
+  --sp-proof-slide-gap: clamp(1.5rem, 2vw, 2rem);
+  --sp-proof-divider-width: 4.5rem;
+  --sp-proof-divider-color: rgba(var(--color-foreground), 0.2);
+  --sp-proof-name-size: clamp(1.45rem, 1.5vw, 1.7rem);
+  --sp-proof-title-size: 1.1rem;
+  --sp-proof-dot-size: 0.65rem;
+  --sp-proof-dot-gap: 0.7rem;
+}
+
+/* ── Chapter container ── */
+
+.sp-social-proof__stage-chapter {
+  width: 100%;
+  max-width: var(--sp-proof-chapter-max);
+  margin-inline: auto;
+}
+
+.sp-social-proof--stage .sp-social-proof__header {
+  display: none;
+}
+
+/* ── Intro (eyebrow + metric) ── */
+
+.sp-social-proof__stage-proof {
+  display: grid;
+  gap: var(--sp-proof-header-gap);
+  justify-items: center;
+  text-align: center;
+  margin: 0 0 var(--sp-proof-intro-margin-bottom);
+}
+
+.sp-social-proof--stage .sp-social-proof__eyebrow {
+  margin: 0;
+  font-size: clamp(1.05rem, 1vw, 1.2rem);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--sp-proof-eyebrow-color);
+}
+
+.sp-social-proof__stage-metric {
+  margin: 0;
+  font-family: var(--font-body-family);
+  font-size: var(--sp-proof-metric-size);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+  color: var(--sp-proof-metric-color);
+}
+
+.sp-social-proof--stage .sp-social-proof__subheading {
+  display: none;
+}
+
+/* ── Quote block ── */
+
+.sp-social-proof__stage-root {
+  width: 100%;
+  max-width: 100%;
+}
+
+.sp-social-proof__stage-root:focus {
+  outline: none;
+}
+
+.sp-social-proof__stage-root:focus-visible {
+  outline: 0.2rem solid var(--sp-proof-focus-ring, rgba(var(--color-foreground), 0.35));
+  outline-offset: 0.4rem;
+  border-radius: 0.4rem;
+}
+
+.sp-social-proof__stage-viewport {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  min-height: 0;
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .sp-social-proof--stage .sp-social-proof__stage-viewport {
+    cursor: grab;
+  }
+
+  .sp-social-proof--stage .sp-social-proof__stage-viewport.is-dragging,
+  .sp-social-proof--stage .sp-social-proof__stage-viewport:active {
+    cursor: grabbing;
+  }
+
+  .sp-social-proof--stage .sp-social-proof__stage-dot {
+    cursor: pointer;
+  }
+}
+
+.sp-social-proof--stage .sp-social-proof__stage-viewport.is-dragging-active {
+  user-select: none;
+  touch-action: none;
+}
+
+.sp-social-proof__stage-track {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  transform: translate3d(-100%, 0, 0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.sp-social-proof__stage-track.is-settling {
+  transition: transform 280ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.sp-social-proof__stage-track.is-dragging {
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sp-social-proof__stage-track.is-settling {
+    transition: none;
+  }
+}
+
+.sp-social-proof__stage-slide {
+  display: grid;
+  flex: 0 0 100%;
+  justify-items: center;
+  gap: var(--sp-proof-slide-gap);
+  margin: 0;
+  text-align: center;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.sp-social-proof__stage-slide[data-sp-stage-slot] {
+  flex: 0 0 100%;
+}
+
+.sp-social-proof__stage-slide.is-active {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sp-social-proof__stage-slide.is-active {
+    animation: none;
+  }
+}
+
+.sp-social-proof__stage-quote-mark {
+  display: block;
+  margin: 0 0 var(--sp-proof-mark-margin-bottom);
+  font-family: var(--font-heading-family);
+  font-size: var(--sp-proof-mark-size);
+  font-weight: 400;
+  line-height: 0.8;
+  letter-spacing: -0.03em;
+  color: var(--sp-proof-mark-color);
+  user-select: none;
+  pointer-events: none;
+}
+
+.sp-social-proof__stage-quote {
+  margin: 0;
+  padding: 0;
+  border: none;
+  width: 100%;
+  max-width: var(--sp-proof-quote-max);
+  margin-inline: auto;
+}
+
+.sp-social-proof__stage-quote-text {
+  margin: 0;
+  font-family: var(--font-heading-family);
+  font-size: var(--sp-proof-quote-size);
+  font-weight: 500;
+  font-style: normal;
+  line-height: var(--sp-proof-quote-lh);
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: var(--sp-proof-quote-color);
+}
+
+.sp-social-proof__stage-quote-text > :first-child {
+  margin-top: 0;
+}
+
+.sp-social-proof__stage-quote-text > :last-child {
+  margin-bottom: 0;
+}
+
+.sp-social-proof__stage-quote-text p {
+  margin: 0;
+  font-style: normal;
+  line-height: var(--sp-proof-quote-lh);
+  letter-spacing: -0.01em;
+}
+
+.sp-social-proof__stage-divider {
+  width: var(--sp-proof-divider-width);
+  height: 0.1rem;
+  background: var(--sp-proof-divider-color);
+  border-radius: 999px;
+}
+
+.sp-social-proof__stage-attribution {
+  display: grid;
+  gap: 0.4rem;
+  justify-items: center;
+  margin: 0;
+}
+
+.sp-social-proof__stage-name {
+  font-family: var(--font-heading-family);
+  font-style: normal;
+  font-size: var(--sp-proof-name-size);
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  color: var(--sp-proof-name-color, var(--sp-proof-quote-color));
+}
+
+.sp-social-proof__stage-title {
+  margin: 0;
+  font-family: var(--font-body-family);
+  font-size: var(--sp-proof-title-size);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  color: var(--sp-proof-attribution-muted, rgba(var(--color-foreground), 0.58));
+}
+
+/* ── Dots ── */
+
+.sp-social-proof__stage-dots {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-proof-dot-gap);
+  padding-top: 1.4rem;
+}
+
+.sp-social-proof__stage-dot {
+  width: var(--sp-proof-dot-size);
+  height: var(--sp-proof-dot-size);
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--sp-proof-dot-muted);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.sp-social-proof__stage-dot.is-active {
+  background: var(--sp-proof-dot-active);
+  transform: scale(1.12);
+}
+
+.sp-social-proof__stage-dot:focus-visible {
+  outline: 0.2rem solid var(--sp-proof-focus-ring, rgba(var(--color-foreground), 0.4));
+  outline-offset: 0.3rem;
+}
+
+/* ── Responsive ── */
+
+@media screen and (max-width: 749px) {
+  .sp-social-proof--stage {
+    --sp-proof-intro-margin-bottom: 2rem;
+    --sp-proof-quote-size: clamp(2.22rem, 6.4vw, 3rem);
+    --sp-proof-quote-lh: 1.25;
+    --sp-proof-quote-max: 100%;
+    --sp-proof-mark-size: clamp(4rem, 12vw, 5rem);
+    --sp-proof-mark-margin-bottom: 1.25rem;
+    --sp-proof-slide-gap: clamp(1.4rem, 4vw, 1.75rem);
+    --sp-proof-divider-width: 3.6rem;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .sp-social-proof--stage {
+    --sp-proof-intro-margin-bottom: 3rem;
+    --sp-proof-quote-max: min(100%, 112rem);
+  }
+}

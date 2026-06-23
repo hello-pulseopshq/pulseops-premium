@@ -213,12 +213,57 @@
   }
 {%- endstyle -%}
 
+{%- liquid
+  assign layout_style = section.settings.layout_style | default: 'grid'
+-%}
+{%- if layout_style == 'stage' -%}
+  {{ 'sp-social-proof-stage.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'sp-testimonial-stage.js' | asset_url }}" defer="defer"></script>
+  {%- liquid
+    assign stage_padding_top = section.settings.padding_top | minus: 16
+    if stage_padding_top < 0
+      assign stage_padding_top = 0
+    endif
+    assign stage_padding_top_mobile = stage_padding_top | times: 0.75 | round: 0
+  -%}
+  {%- style -%}
+    .sp-social-proof--stage {
+      --sp-proof-quote-size: clamp(2.52rem, 2.4vw, 3.85rem);
+    }
+
+    @media screen and (max-width: 749px) {
+      .sp-social-proof--stage {
+        --sp-proof-quote-size: clamp(2.22rem, 6.4vw, 3rem);
+      }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .sp-social-proof--stage .sp-social-proof__stage-dot {
+        cursor: pointer;
+      }
+    }
+
+    .section-{{ section.id }}-padding:has(.sp-social-proof--stage) {
+      padding-top: {{ stage_padding_top_mobile }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding:has(.sp-social-proof--stage) {
+        padding-top: {{ stage_padding_top }}px;
+      }
+    }
+
+  {%- endstyle -%}
+{%- endif -%}
+
 {% render 'sp-section-hierarchy-open', section: section %}
-    <div class="sp-social-proof">
-      {%- liquid
-        assign heading_stripped = section.settings.heading | strip_html | strip
-        assign subheading_stripped = section.settings.subheading | strip_html | strip
-      -%}
+    {%- liquid
+      assign layout_style = section.settings.layout_style | default: 'grid'
+      assign heading_stripped = section.settings.heading | strip_html | strip
+      assign subheading_stripped = section.settings.subheading | strip_html | strip
+    -%}
+    <div class="sp-social-proof{% if layout_style == 'stage' %} sp-social-proof--stage{% endif %}">
+      {%- if layout_style != 'stage' -%}
       {%- if heading_stripped != blank or subheading_stripped != blank -%}
         <header class="sp-social-proof__header sp-social-proof__header--{{ section.settings.content_alignment }}">
           {%- if heading_stripped != blank -%}
@@ -233,6 +278,11 @@
           {%- endif -%}
         </header>
       {%- endif -%}
+      {%- endif -%}
+
+      {%- if layout_style == 'stage' -%}
+        {%- render 'sp-social-proof-stage', section: section -%}
+      {%- else -%}
 
       {%- assign valid_reviews = 0 -%}
       {%- for block in section.blocks -%}
@@ -382,6 +432,7 @@
           Add review blocks to display customer testimonials.
         </div>
       {%- endif -%}
+      {%- endif -%}
     </div>
 {% render 'sp-section-hierarchy-close' %}
 
@@ -396,6 +447,11 @@
   },
   "settings": [
     {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow"
+    },
+    {
       "type": "inline_richtext",
       "id": "heading",
       "default": "Trusted by thousands of happy customers",
@@ -406,6 +462,33 @@
       "id": "subheading",
       "default": "<p>Real reviews from people who use our product every day.</p>",
       "label": "Subheading"
+    },
+    {
+      "type": "select",
+      "id": "layout_style",
+      "label": "Layout style",
+      "default": "grid",
+      "options": [
+        {
+          "value": "grid",
+          "label": "Review grid"
+        },
+        {
+          "value": "stage",
+          "label": "Testimonial stage"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "stage_auto_rotate",
+      "min": 3,
+      "max": 15,
+      "step": 1,
+      "unit": "s",
+      "label": "Auto-rotate interval",
+      "default": 6,
+      "info": "Used when Layout style is Testimonial stage. Pauses on hover or focus."
     },
     {
       "type": "select",

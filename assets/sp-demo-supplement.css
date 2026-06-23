@@ -272,6 +272,60 @@
   padding: 2.4rem 2.2rem 2rem;
 }
 
+/* Reviews: Greenlight-style testimonial chapter (supplement demo) */
+.sp-demo-supplement .sp-social-proof--stage {
+  --sp-proof-chapter-max: var(--sp-supplement-content-max, min(100%, var(--page-width, 120rem)));
+  --sp-proof-quote-max: min(100%, 112rem);
+  --sp-proof-quote-color: rgba(255, 255, 255, 0.95);
+  --sp-proof-name-color: rgba(255, 255, 255, 0.9);
+  --sp-proof-eyebrow-color: rgba(var(--sp-supplement-sage), 0.92);
+  --sp-proof-metric-color: rgba(var(--sp-supplement-cream), 0.72);
+  --sp-proof-mark-color: rgba(var(--sp-supplement-sage), 0.55);
+  --sp-proof-dot-active: rgb(var(--sp-supplement-cream));
+  --sp-proof-dot-muted: rgba(var(--sp-supplement-cream), 0.28);
+  --sp-proof-divider-color: rgba(var(--sp-supplement-cream), 0.22);
+  --sp-proof-attribution-muted: rgba(255, 255, 255, 0.75);
+  --sp-proof-focus-ring: rgba(var(--sp-supplement-cream), 0.45);
+}
+
+.sp-demo-supplement .shopify-section:has(.sp-social-proof--stage) {
+  background: rgb(var(--sp-supplement-green-deep));
+}
+
+.sp-demo-supplement .sp-section--surface-alternate:has(.sp-social-proof--stage),
+.sp-demo-supplement .sp-section--surface-default:has(.sp-social-proof--stage) {
+  background: transparent;
+}
+
+.sp-demo-supplement .sp-social-proof--stage .sp-social-proof__eyebrow {
+  color: rgba(var(--sp-supplement-sage), 0.92);
+}
+
+.sp-demo-supplement .sp-social-proof--stage .sp-social-proof__stage-metric {
+  display: none;
+}
+
+.sp-demo-supplement .sp-social-proof--stage .sp-social-proof__stage-metric,
+.sp-demo-supplement .sp-social-proof--stage .sp-social-proof__stage-title {
+  font-family: var(--sp-font-body, var(--font-body-family));
+}
+
+.sp-demo-supplement .sp-social-proof--stage .sp-social-proof__stage-quote-mark,
+.sp-demo-supplement .sp-social-proof--stage .sp-social-proof__stage-quote-text,
+.sp-demo-supplement .sp-social-proof--stage .sp-social-proof__stage-quote-text p {
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.sp-demo-supplement .sp-social-proof--stage .sp-social-proof__stage-name {
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.sp-demo-supplement .sp-social-proof--stage .sp-social-proof__stage-title {
+  color: rgba(255, 255, 255, 0.75);
+}
+
 .sp-demo-supplement .sp-scientific-proof__icon {
   color: rgb(var(--sp-supplement-green));
 }
