@@ -1,7 +1,7 @@
 /**
  * Smooth-scroll anchor navigation for single-product / demo storefronts.
  * Supplement homepage: Benefits formerly targeted #sp-benefits; resolves to
- * #sp-ingredients when that section is absent (editorial differentiation chapter).
+ * #sp-ingredients when that section is absent (ingredients spotlight chapter).
  */
 (function () {
   const ANCHOR_IDS = ['sp-benefits', 'sp-ingredients', 'sp-science', 'sp-reviews', 'sp-faq', 'sp-cta'];
@@ -22,7 +22,8 @@
   function ensureAnchorIds() {
     const classMap = {
       '.sp-benefits': 'sp-benefits',
-      '.sp-editorial-differentiation': 'sp-ingredients',
+      '.sp-ingredients-spotlight': 'sp-ingredients',
+      '.sp-editorial-differentiation': 'sp-differentiation',
       '.sp-features': 'sp-ingredients',
       '.sp-scientific-proof': 'sp-science',
       '.sp-social-proof': 'sp-reviews',

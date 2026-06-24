@@ -177,6 +177,143 @@
         "padding_bottom": 104
       }
     },
+    "sp-ingredients-spotlight": {
+      "type": "sp-ingredients-spotlight",
+      "blocks": {
+        "trust-1": {
+          "type": "trust_point",
+          "settings": {
+            "text": "Clinically studied ingredients"
+          }
+        },
+        "trust-2": {
+          "type": "trust_point",
+          "settings": {
+            "text": "Effective doses, not fillers"
+          }
+        },
+        "trust-3": {
+          "type": "trust_point",
+          "settings": {
+            "text": "Third-party tested for purity"
+          }
+        },
+        "ingredient-1": {
+          "type": "ingredient",
+          "settings": {
+            "name": "B-Vitamin Complex",
+            "role": "For Daily Energy & Focus",
+            "description": "<p>Activated forms of B6, B12, folate and more to support cellular energy and mental clarity.</p>"
+          }
+        },
+        "ingredient-2": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Rhodiola Rosea",
+            "role": "For Stress Resilience",
+            "description": "<p>A clinically studied adaptogen selected to support resilience during daily stress and fatigue.</p>"
+          }
+        },
+        "ingredient-3": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Probiotic Blend",
+            "role": "For Gut Balance",
+            "description": "<p>Clinically studied strains selected to support digestion, nutrient absorption, and regularity.</p>"
+          }
+        },
+        "ingredient-4": {
+          "type": "ingredient",
+          "settings": {
+            "name": "Magnesium Glycinate",
+            "role": "For Recovery & Relaxation",
+            "description": "<p>A highly absorbable form of magnesium selected to support muscle recovery, relaxation, and sleep quality.</p>"
+          }
+        },
+        "ingredient-5": {
+          "type": "ingredient",
+          "settings": {
+            "name": "L-Theanine",
+            "role": "For Calm Focus",
+            "description": "<p>Supports relaxation without drowsiness and helps maintain calm, sustained attention.</p>"
+          }
+        },
+        "ingredient-6": {
+          "type": "ingredient",
+          "settings": {
+            "name": "BioPerine®",
+            "role": "For Better Absorption",
+            "description": "<p>Black pepper extract selected to support bioavailability of key nutrients.</p>"
+          }
+        },
+        "commitment-1": {
+          "type": "commitment",
+          "settings": {
+            "label": "Clean & Non-GMO"
+          }
+        },
+        "commitment-2": {
+          "type": "commitment",
+          "settings": {
+            "label": "Third-Party Tested"
+          }
+        },
+        "commitment-3": {
+          "type": "commitment",
+          "settings": {
+            "label": "Made in GMP Facilities"
+          }
+        },
+        "commitment-4": {
+          "type": "commitment",
+          "settings": {
+            "label": "No Fillers or Binders"
+          }
+        },
+        "commitment-5": {
+          "type": "commitment",
+          "settings": {
+            "label": "30-Day Guarantee"
+          }
+        }
+      },
+      "block_order": [
+        "trust-1",
+        "trust-2",
+        "trust-3",
+        "ingredient-1",
+        "ingredient-2",
+        "ingredient-3",
+        "ingredient-4",
+        "ingredient-5",
+        "ingredient-6",
+        "commitment-1",
+        "commitment-2",
+        "commitment-3",
+        "commitment-4",
+        "commitment-5"
+      ],
+      "settings": {
+        "eyebrow": "WHAT'S INSIDE DAILY VITALITY",
+        "heading": "<p>Purposeful ingredients.<br>Real results.</p>",
+        "body": "<p>A science-backed formula featuring clinically studied ingredients in effective amounts—working together to support energy, gut health, recovery, and daily vitality.</p>",
+        "image": "shopify://shop_images/Ingredient_Flat_Lay.png",
+        "image_alt": "Daily Vitality ingredient flat lay with capsules and whole-food sources",
+        "button_label": "See full formula & amounts",
+        "button_link": "/products/daily-vitality-complex?view=supplement",
+        "microcopy": "",
+        "grid_heading": "KEY INGREDIENTS. CLEAR PURPOSE.",
+        "commitment_heading": "Our commitment to you",
+        "background_tone": "soft",
+        "sp_surface_style": "default",
+        "sp_width_mode": "wide",
+        "sp_section_emphasis": "normal",
+        "sp_divider_style": "none",
+        "color_scheme": "scheme-1",
+        "padding_top": 88,
+        "padding_bottom": 88
+      }
+    },
     "sp-metrics": {
       "type": "sp-metrics",
       "blocks": {
@@ -550,6 +687,7 @@
     "demo-visual-treatment",
     "sp-hero",
     "sp-editorial-outcomes",
+    "sp-ingredients-spotlight",
     "sp-metrics",
     "sp-editorial-differentiation",
     "sp-quality-standards",

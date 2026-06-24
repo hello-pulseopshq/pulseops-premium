@@ -1,0 +1,1237 @@
+/**
+
+ * SP Ingredients Spotlight — premium editorial ingredients chapter
+
+ * Desktop: copy left, flat-lay media right, 2-column ingredient grid, commitment strip
+
+ * Mobile: stacked copy → media → single-column grid → scrollable commitments
+
+ */
+
+
+
+/* ── Section shell tones ── */
+
+
+
+.sp-ingredients-spotlight-shell--tone-soft.gradient,
+
+.sp-ingredients-spotlight-shell--tone-soft {
+
+  background: rgba(var(--color-foreground), 0.025);
+
+  background-image: none;
+
+}
+
+
+
+.sp-ingredients-spotlight-shell--tone-contrast.gradient,
+
+.sp-ingredients-spotlight-shell--tone-contrast {
+
+  background: rgba(var(--color-foreground), 0.05);
+
+  background-image: none;
+
+}
+
+
+
+.sp-demo-supplement .sp-ingredients-spotlight-shell--tone-soft.gradient,
+
+.sp-demo-supplement .sp-ingredients-spotlight-shell--tone-soft {
+
+  background: rgb(var(--sp-supplement-ivory, var(--color-background)));
+
+  background-image: none;
+
+}
+
+
+
+.sp-demo-supplement .sp-ingredients-spotlight-shell--tone-contrast.gradient,
+
+.sp-demo-supplement .sp-ingredients-spotlight-shell--tone-contrast {
+
+  background: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.04);
+
+  background-image: none;
+
+}
+
+
+
+/* ── Root ── */
+
+
+
+.sp-ingredients-spotlight {
+
+  --sp-is-gap-xs: clamp(1.1rem, 1.8vw, 1.45rem);
+
+  --sp-is-gap-sm: clamp(1.45rem, 2.2vw, 1.82rem);
+
+  --sp-is-gap-md: clamp(1.8rem, 2.7vw, 2.55rem);
+
+  --sp-is-gap-lg: clamp(2.4rem, 3.5vw, 3.65rem);
+
+  --sp-is-gap-hero-to-matrix: clamp(2.75rem, 3.8vw, 4.05rem);
+
+  --sp-is-gap-matrix-to-commitment: clamp(2.82rem, 3.96vw, 4.22rem);
+
+  --sp-is-media-min-height: clamp(28rem, 72vw, 38rem);
+
+  --sp-is-heading-size: clamp(3.6rem, 8.2vw, 5.4rem);
+
+  --sp-is-heading-leading: 0.98;
+
+  --sp-is-accent: rgb(var(--color-button));
+
+  --sp-is-accent-deep: rgb(var(--color-foreground));
+
+  --sp-is-card-shadow: 0 0.8rem 2.4rem rgba(var(--color-shadow), 0.06);
+
+  --sp-is-row-divider: rgba(var(--color-foreground), 0.12);
+
+  --sp-is-row-padding-y: clamp(1.25rem, 1.85vw, 1.65rem);
+
+  --sp-is-row-padding-x: clamp(1.1rem, 1.9vw, 2.1rem);
+
+  --sp-is-col-gutter: clamp(1.35rem, 2.1vw, 2.45rem);
+
+  --sp-is-row-gap: clamp(0.65rem, 1vw, 0.85rem);
+
+  --sp-is-copy-gap: clamp(0.28rem, 0.5vw, 0.42rem);
+
+  --sp-is-thumb-size: 56px;
+
+  display: grid;
+
+  gap: 0;
+
+}
+
+
+
+.sp-demo-supplement .sp-ingredients-spotlight {
+
+  --sp-is-accent: rgb(var(--sp-supplement-green, var(--color-button)));
+
+  --sp-is-accent-deep: rgb(var(--sp-supplement-green-deep, var(--color-foreground)));
+
+  --sp-is-card-shadow: var(--sp-hero-surface-card-shadow, 0 0.8rem 2.4rem rgba(var(--color-shadow), 0.06));
+
+  --sp-is-row-divider: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.14);
+
+}
+
+
+
+/* ── Hero split ── */
+
+
+
+.sp-ingredients-spotlight__hero {
+
+  display: grid;
+
+  gap: var(--sp-is-gap-md);
+
+  align-items: stretch;
+
+}
+
+
+
+.sp-ingredients-spotlight__content {
+
+  order: 1;
+
+  display: grid;
+
+  gap: var(--sp-is-gap-xs);
+
+  align-content: start;
+
+  min-width: 0;
+
+}
+
+
+
+.sp-ingredients-spotlight__media {
+
+  order: 2;
+
+  display: flex;
+
+  flex-direction: column;
+
+  min-width: 0;
+
+}
+
+
+
+.sp-ingredients-spotlight__media-frame {
+
+  position: relative;
+
+  display: block;
+
+  flex: 1;
+
+  width: 100%;
+
+  min-height: var(--sp-is-media-min-height);
+
+  border-radius: clamp(0.8rem, 1.2vw, 1.2rem);
+
+  overflow: hidden;
+
+  border: 0.1rem solid rgba(var(--color-foreground), 0.06);
+
+  box-shadow: var(--sp-is-card-shadow);
+
+  background: rgba(var(--color-foreground), 0.03);
+
+}
+
+
+
+.sp-ingredients-spotlight__media-frame--placeholder {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+}
+
+
+
+.sp-ingredients-spotlight__media-frame .sp-ingredients-spotlight__media-image,
+
+.sp-ingredients-spotlight__media-frame img {
+
+  position: absolute;
+
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+
+}
+
+
+
+.sp-demo-supplement .sp-ingredients-spotlight__media-frame img,
+
+.sp-demo-supplement .sp-ingredients-spotlight__media-frame .sp-ingredients-spotlight__media-image {
+
+  object-position: center 45%;
+
+}
+
+
+
+/* ── Typography ── */
+
+
+
+.sp-ingredients-spotlight__eyebrow {
+
+  margin: 0;
+
+  width: fit-content;
+
+  font-size: 1.1rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+
+  line-height: 1.35;
+
+  text-transform: uppercase;
+
+  color: var(--sp-is-accent-deep);
+
+}
+
+
+
+.sp-ingredients-spotlight__heading {
+
+  margin: 0;
+
+  max-width: none;
+
+  font-size: var(--sp-is-heading-size);
+
+  font-weight: 700;
+
+  line-height: var(--sp-is-heading-leading);
+
+  letter-spacing: -0.04em;
+
+  color: var(--sp-is-accent-deep);
+
+}
+
+
+
+.sp-ingredients-spotlight__heading p {
+
+  margin: 0;
+
+}
+
+
+
+.sp-demo-supplement .sp-ingredients-spotlight__heading,
+
+.sp-demo-supplement .sp-ingredients-spotlight__heading p {
+
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+
+  max-width: var(--sp-hero-headline-measure, min(100%, 44rem));
+
+  letter-spacing: -0.045em;
+
+  line-height: 0.98;
+
+  color: rgb(var(--sp-hero-headline-ink, var(--sp-type-ink, var(--color-foreground))));
+
+  font-weight: 800;
+
+}
+
+
+
+.sp-ingredients-spotlight__body {
+
+  margin: 0;
+
+  max-width: 40rem;
+
+  font-size: clamp(1.55rem, 1.45vw, 1.85rem);
+
+  line-height: 1.6;
+
+  font-weight: 500;
+
+  color: rgba(var(--color-foreground), 0.78);
+
+}
+
+
+
+.sp-demo-supplement .sp-ingredients-spotlight__body {
+
+  font-size: clamp(1.7rem, 1.65vw, 1.85rem);
+
+  line-height: 1.6;
+
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.88);
+
+}
+
+
+
+.sp-ingredients-spotlight__body p {
+
+  margin: 0;
+
+}
+
+
+
+/* ── Trust mini-points ── */
+
+
+
+.sp-ingredients-spotlight__trust-list {
+
+  display: grid;
+
+  gap: 0.75rem;
+
+  margin: clamp(0.4rem, 1vw, 0.8rem) 0 0;
+
+  padding: 0;
+
+  list-style: none;
+
+}
+
+
+
+.sp-ingredients-spotlight__trust-item {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 0.75rem;
+
+  min-width: 0;
+
+}
+
+
+
+.sp-ingredients-spotlight__trust-mark {
+
+  flex: 0 0 auto;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 1.8rem;
+
+  height: 1.8rem;
+
+  margin-top: 0.15rem;
+
+  border-radius: 50%;
+
+  background: rgba(var(--color-button), 0.12);
+
+  color: var(--sp-is-accent);
+
+}
+
+
+
+.sp-ingredients-spotlight__trust-mark svg {
+
+  width: 1rem;
+
+  height: 1rem;
+
+}
+
+
+
+.sp-ingredients-spotlight__trust-text {
+
+  font-size: clamp(1.28rem, 1.2vw, 1.42rem);
+
+  line-height: 1.45;
+
+  font-weight: 600;
+
+  color: rgba(var(--color-foreground), 0.82);
+
+}
+
+
+
+.sp-demo-supplement .sp-ingredients-spotlight__trust-text {
+
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.86);
+
+}
+
+
+
+/* ── CTA stack ── */
+
+
+
+.sp-ingredients-spotlight__actions {
+
+  display: grid;
+
+  gap: 0.85rem;
+
+  justify-items: start;
+
+  margin-top: clamp(0.8rem, 1.5vw, 1.4rem);
+
+}
+
+
+
+.sp-ingredients-spotlight__button {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: var(--sp-hero-cta-min-height, 4.8rem);
+
+  min-width: min(100%, 28rem);
+
+  padding: 0 2.4rem;
+
+  border-radius: 999px;
+
+  font-size: clamp(1.35rem, 1.25vw, 1.5rem);
+
+  font-weight: 650;
+
+  letter-spacing: -0.01em;
+
+  text-decoration: none;
+
+  white-space: normal;
+
+  text-align: center;
+
+}
+
+
+
+.sp-demo-supplement .sp-ingredients-spotlight__button {
+
+  background: rgb(var(--sp-supplement-green-deep, var(--color-button)));
+
+  color: rgb(var(--sp-supplement-ivory, var(--color-background)));
+
+  border: none;
+
+  box-shadow: 0 0.6rem 1.8rem rgba(var(--sp-supplement-green-deep, var(--color-shadow)), 0.22);
+
+}
+
+
+
+.sp-demo-supplement .sp-ingredients-spotlight__button:hover {
+
+  filter: brightness(1.06);
+
+}
+
+
+
+.sp-ingredients-spotlight__microcopy {
+
+  margin: 0;
+
+  font-size: clamp(1.15rem, 1.1vw, 1.28rem);
+
+  line-height: 1.45;
+
+  font-weight: 500;
+
+  color: rgba(var(--color-foreground), 0.62);
+
+}
+
+
+
+.sp-demo-supplement .sp-ingredients-spotlight__microcopy {
+
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.68);
+
+}
+
+
+
+/* ── Ingredient editorial rows ── */
+
+
+
+.sp-ingredients-spotlight__grid-section {
+
+  display: grid;
+
+  gap: clamp(1.85rem, 2.9vw, 2.65rem);
+
+  margin-top: var(--sp-is-gap-hero-to-matrix);
+
+}
+
+
+
+.sp-ingredients-spotlight__grid-header {
+
+  display: grid;
+
+  justify-items: center;
+
+  gap: clamp(0.85rem, 1.4vw, 1.15rem);
+
+}
+
+
+
+.sp-ingredients-spotlight__grid-heading {
+
+  margin: 0;
+
+  font-size: clamp(1.05rem, 0.95vw, 1.18rem);
+
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+
+  line-height: 1.35;
+
+  text-transform: uppercase;
+
+  text-align: center;
+
+  color: var(--sp-is-accent-deep);
+
+}
+
+
+
+.sp-ingredients-spotlight__grid-header::after {
+
+  content: '';
+
+  display: block;
+
+  width: clamp(2.8rem, 4vw, 3.6rem);
+
+  height: 0.1rem;
+
+  background: var(--sp-is-row-divider);
+
+}
+
+
+
+.sp-ingredients-spotlight__grid {
+
+  display: grid;
+
+  grid-template-columns: minmax(0, 1fr);
+
+  gap: 0;
+
+  margin: 0;
+
+  padding: 0;
+
+  list-style: none;
+
+}
+
+
+
+.sp-ingredients-spotlight__item {
+
+  min-width: 0;
+
+  border-bottom: 0.1rem solid var(--sp-is-row-divider);
+
+}
+
+
+
+.sp-ingredients-spotlight__item-row {
+
+  display: grid;
+
+  grid-template-columns: var(--sp-is-thumb-size) minmax(0, 1fr);
+
+  align-items: start;
+
+  gap: var(--sp-is-row-gap);
+
+  padding: var(--sp-is-row-padding-y) 0;
+
+}
+
+
+
+.sp-ingredients-spotlight__item-media {
+
+  position: relative;
+
+  isolation: isolate;
+
+  flex: 0 0 auto;
+
+  width: var(--sp-is-thumb-size);
+
+  height: var(--sp-is-thumb-size);
+
+  border-radius: 50%;
+
+  overflow: hidden;
+
+  background: rgba(var(--color-foreground), 0.03);
+
+}
+
+
+
+.sp-ingredients-spotlight__item-media--placeholder {
+
+  border: 0.1rem solid rgba(var(--color-foreground), 0.08);
+
+  background: rgba(var(--color-foreground), 0.025);
+
+}
+
+
+
+.sp-demo-supplement .sp-ingredients-spotlight__item-media--placeholder {
+
+  border-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.1);
+
+  background: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.03);
+
+}
+
+
+
+.sp-ingredients-spotlight__item-media-empty {
+
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+}
+
+
+
+.sp-ingredients-spotlight__item-image,
+
+.sp-ingredients-spotlight__item-media img {
+
+  position: relative;
+
+  inset: auto;
+
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  object-position: center;
+
+}
+
+
+
+.sp-ingredients-spotlight__item-copy {
+
+  display: grid;
+
+  gap: var(--sp-is-copy-gap);
+
+  min-width: 0;
+
+}
+
+
+
+.sp-ingredients-spotlight__item-name {
+
+  margin: 0;
+
+  font-size: clamp(2.02rem, 1.9vw, 2.4rem);
+
+  font-weight: 800;
+
+  line-height: 1.1;
+
+  letter-spacing: -0.032em;
+
+  color: var(--sp-is-accent-deep);
+
+}
+
+
+
+.sp-demo-supplement .sp-ingredients-spotlight__item-name {
+
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+
+  color: rgb(var(--sp-supplement-green-deep, var(--sp-type-ink, var(--color-foreground))));
+
+}
+
+
+
+.sp-ingredients-spotlight__item-role {
+
+  margin: 0;
+
+  font-size: clamp(1.18rem, 1.08vw, 1.32rem);
+
+  font-weight: 600;
+
+  letter-spacing: 0.002em;
+
+  line-height: 1.34;
+
+  text-transform: none;
+
+  color: rgba(var(--color-foreground), 0.78);
+
+}
+
+
+
+.sp-demo-supplement .sp-ingredients-spotlight__item-role {
+
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.8);
+
+}
+
+
+
+.sp-ingredients-spotlight__item-description {
+
+  margin: 0;
+
+  max-width: 32rem;
+
+  font-size: clamp(1.14rem, 1.04vw, 1.26rem);
+
+  line-height: 1.5;
+
+  font-weight: 400;
+
+  color: rgba(var(--color-foreground), 0.58);
+
+}
+
+
+
+.sp-demo-supplement .sp-ingredients-spotlight__item-description {
+
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.64);
+
+}
+
+
+
+.sp-ingredients-spotlight__item-description p {
+
+  margin: 0;
+
+}
+
+
+
+/* ── Commitment strip ── */
+
+
+
+.sp-ingredients-spotlight__commitment {
+
+  display: grid;
+
+  gap: clamp(0.45rem, 0.7vw, 0.62rem);
+
+  width: 100%;
+
+  margin-top: var(--sp-is-gap-matrix-to-commitment);
+
+  padding: clamp(0.95rem, 1.4vw, 1.2rem) clamp(1.25rem, 2vw, 1.75rem);
+
+  border-radius: clamp(0.65rem, 1vw, 0.85rem);
+
+  border: 0.1rem solid rgba(var(--color-foreground), 0.05);
+
+  background: rgba(var(--color-background), 0.4);
+
+  box-shadow: none;
+
+  text-align: center;
+
+}
+
+
+
+.sp-demo-supplement .sp-ingredients-spotlight__commitment {
+
+  border-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.08);
+
+  background: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.035);
+
+}
+
+
+
+.sp-ingredients-spotlight__commitment-heading {
+
+  margin: 0;
+
+  width: 100%;
+
+  font-size: clamp(1.38rem, 1.28vw, 1.52rem);
+
+  font-weight: 750;
+
+  line-height: 1.22;
+
+  letter-spacing: -0.022em;
+
+  text-align: center;
+
+  color: var(--sp-is-accent-deep);
+
+}
+
+
+
+.sp-demo-supplement .sp-ingredients-spotlight__commitment-heading {
+
+  color: rgb(var(--sp-supplement-green-deep, var(--sp-type-ink, var(--color-foreground))));
+
+}
+
+
+
+.sp-ingredients-spotlight__commitment-list {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: clamp(0.55rem, 1vw, 0.75rem);
+
+  margin: 0;
+
+  padding: 0;
+
+  list-style: none;
+
+}
+
+
+
+.sp-ingredients-spotlight__commitment-item {
+
+  flex: 1 1 auto;
+
+  min-width: min(100%, 12.5rem);
+
+}
+
+
+
+.sp-ingredients-spotlight__commitment-label {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 100%;
+
+  min-height: 2.75rem;
+
+  padding: 0.5rem 0.85rem;
+
+  border-radius: 0.55rem;
+
+  border: 0.1rem solid rgba(var(--color-foreground), 0.05);
+
+  background: rgba(var(--color-background), 0.35);
+
+  font-size: clamp(1.05rem, 0.98vw, 1.16rem);
+
+  font-weight: 600;
+
+  line-height: 1.28;
+
+  text-align: center;
+
+  color: rgba(var(--color-foreground), 0.86);
+
+}
+
+
+
+.sp-demo-supplement .sp-ingredients-spotlight__commitment-label {
+
+  background: rgba(var(--sp-supplement-ivory, var(--color-background)), 0.55);
+
+  border-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.07);
+
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.88);
+
+}
+
+
+
+/* ── Desktop layout ── */
+
+
+
+@media screen and (min-width: 990px) {
+
+  .sp-ingredients-spotlight {
+
+    --sp-is-thumb-size: 64px;
+
+  }
+
+
+
+  .sp-ingredients-spotlight__hero {
+
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+
+    gap: var(--sp-is-gap-lg);
+
+    align-items: center;
+
+  }
+
+
+
+  .sp-ingredients-spotlight__content {
+
+    order: 1;
+
+    padding-right: clamp(0.5rem, 2vw, 2rem);
+
+  }
+
+
+
+  .sp-ingredients-spotlight__media {
+
+    order: 2;
+
+  }
+
+
+
+  .sp-ingredients-spotlight__media-frame {
+
+    min-height: clamp(34rem, 42vw, 42rem);
+
+  }
+
+
+
+  .sp-ingredients-spotlight__grid {
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  }
+
+
+
+  .sp-ingredients-spotlight__item:nth-child(odd) {
+
+    border-right: 0.1rem solid var(--sp-is-row-divider);
+
+  }
+
+
+
+  .sp-ingredients-spotlight__item:nth-last-child(-n + 2) {
+
+    border-bottom: none;
+
+  }
+
+
+
+  .sp-ingredients-spotlight__item-row {
+
+    padding: var(--sp-is-row-padding-y) var(--sp-is-row-padding-x);
+
+  }
+
+
+
+  .sp-ingredients-spotlight__item:nth-child(odd) .sp-ingredients-spotlight__item-row {
+
+    padding-right: var(--sp-is-col-gutter);
+
+  }
+
+
+
+  .sp-ingredients-spotlight__item:nth-child(even) .sp-ingredients-spotlight__item-row {
+
+    padding-left: var(--sp-is-col-gutter);
+
+  }
+
+
+
+  .sp-ingredients-spotlight__commitment-list {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+
+    gap: 0;
+
+    align-items: stretch;
+
+  }
+
+
+
+  .sp-ingredients-spotlight__commitment-item {
+
+    min-width: 0;
+
+    padding: 0 clamp(0.55rem, 0.9vw, 0.8rem);
+
+  }
+
+
+
+  .sp-ingredients-spotlight__commitment-item:not(:first-child) {
+
+    border-left: 0.1rem solid rgba(var(--color-foreground), 0.06);
+
+  }
+
+
+
+  .sp-demo-supplement .sp-ingredients-spotlight__commitment-item:not(:first-child) {
+
+    border-left-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.08);
+
+  }
+
+
+
+  .sp-ingredients-spotlight__commitment-label {
+
+    min-height: 2.5rem;
+
+    padding: 0.45rem 0.65rem;
+
+    border: none;
+
+    border-radius: 0;
+
+    background: transparent;
+
+    box-shadow: none;
+
+    font-weight: 600;
+
+  }
+
+
+
+  .sp-demo-supplement .sp-ingredients-spotlight__commitment-label {
+
+    border: none;
+
+    background: transparent;
+
+  }
+
+}
+
+
+
+/* ── Mobile refinements ── */
+
+
+
+@media screen and (max-width: 989px) {
+
+  .sp-ingredients-spotlight {
+
+    --sp-is-gap-hero-to-matrix: clamp(2.05rem, 2.3vw, 3.1rem);
+
+    --sp-is-gap-matrix-to-commitment: clamp(2.16rem, 3.15vw, 3.29rem);
+
+  }
+
+
+
+  .sp-ingredients-spotlight__item-name {
+
+    font-size: clamp(1.93rem, 5.6vw, 2.2rem);
+
+  }
+
+
+
+  .sp-ingredients-spotlight__item-role {
+
+    font-size: clamp(1.14rem, 3.3vw, 1.26rem);
+
+  }
+
+
+
+  .sp-ingredients-spotlight__commitment-list {
+
+    flex-wrap: nowrap;
+
+    overflow-x: auto;
+
+    overscroll-behavior-x: contain;
+
+    scroll-snap-type: x mandatory;
+
+    -webkit-overflow-scrolling: touch;
+
+    padding-bottom: 0.35rem;
+
+    margin-inline: calc(-1 * var(--page-width-margin, 1.5rem));
+
+    padding-inline: var(--page-width-margin, 1.5rem);
+
+    scrollbar-width: none;
+
+  }
+
+
+
+  .sp-ingredients-spotlight__commitment-list::-webkit-scrollbar {
+
+    display: none;
+
+  }
+
+
+
+  .sp-ingredients-spotlight__commitment-item {
+
+    flex: 0 0 auto;
+
+    min-width: min(72vw, 16rem);
+
+    scroll-snap-align: start;
+
+  }
+
+
+
+  .sp-ingredients-spotlight__button {
+
+    width: 100%;
+
+    min-width: 0;
+
+  }
+
+}
+
+

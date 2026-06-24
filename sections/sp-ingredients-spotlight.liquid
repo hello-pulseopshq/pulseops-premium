@@ -1,0 +1,529 @@
+{{ 'sp-ingredients-spotlight.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign shell_class = 'sp-ingredients-spotlight-shell sp-ingredients-spotlight-shell--tone-' | append: section.settings.background_tone
+
+  assign image_alt = section.settings.image_alt | strip
+  if image_alt == blank and section.settings.image != blank
+    assign image_alt = section.settings.image.alt | escape
+  endif
+  if image_alt == blank
+    assign image_alt = section.settings.heading | strip_html | escape
+  endif
+
+  assign show_cta = false
+  if section.settings.button_label != blank and section.settings.button_link != blank
+    assign show_cta = true
+  endif
+
+  assign heading_stripped = section.settings.heading | strip_html | strip
+-%}
+
+{% render 'sp-section-hierarchy-open', section: section, anchor_id: 'sp-ingredients', extra_class: shell_class %}
+  <div
+    class="sp-ingredients-spotlight"
+    aria-label="{{ heading_stripped | default: 'Ingredients spotlight' | escape }}"
+  >
+    {%- comment -%} Hero: section settings only — never repeated per block {%- endcomment -%}
+    <div class="sp-ingredients-spotlight__hero{% render 'sp-motion-class', type: 'stagger' %}" data-sp-stagger>
+      <div class="sp-ingredients-spotlight__content{% render 'sp-motion-class', type: 'stagger-item' %}">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="sp-ingredients-spotlight__eyebrow caption-with-letter-spacing">
+            {{ section.settings.eyebrow | escape }}
+          </p>
+        {%- endif -%}
+
+        {%- if section.settings.heading != blank -%}
+          <h2 class="sp-ingredients-spotlight__heading{% render 'sp-motion-class', type: 'fade-up' %}">
+            {{ section.settings.heading }}
+          </h2>
+        {%- endif -%}
+
+        {%- if section.settings.body != blank -%}
+          <div class="sp-ingredients-spotlight__body rte">
+            {{ section.settings.body }}
+          </div>
+        {%- endif -%}
+
+        {%- assign trust_count = 0 -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'trust_point' and block.settings.text != blank -%}
+            {%- assign trust_count = trust_count | plus: 1 -%}
+          {%- endif -%}
+        {%- endfor -%}
+
+        {%- if trust_count > 0 -%}
+          <ul class="sp-ingredients-spotlight__trust-list" role="list">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'trust_point' and block.settings.text != blank -%}
+                <li class="sp-ingredients-spotlight__trust-item" {{ block.shopify_attributes }}>
+                  <span class="sp-ingredients-spotlight__trust-mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </span>
+                  <span class="sp-ingredients-spotlight__trust-text">{{ block.settings.text | escape }}</span>
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+
+        {%- if show_cta -%}
+          <div class="sp-ingredients-spotlight__actions">
+            <a
+              href="{{ section.settings.button_link }}"
+              class="sp-ingredients-spotlight__button button button--primary{% render 'sp-motion-class', type: 'hover-button' %}"
+            >
+              {{ section.settings.button_label | escape }}
+            </a>
+            {%- if section.settings.microcopy != blank -%}
+              <p class="sp-ingredients-spotlight__microcopy">
+                {{ section.settings.microcopy | escape }}
+              </p>
+            {%- endif -%}
+          </div>
+        {%- elsif section.settings.microcopy != blank -%}
+          <div class="sp-ingredients-spotlight__actions">
+            <p class="sp-ingredients-spotlight__microcopy">
+              {{ section.settings.microcopy | escape }}
+            </p>
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="sp-ingredients-spotlight__media{% render 'sp-motion-class', type: 'stagger-item' %}">
+        {%- if section.settings.image != blank -%}
+          <div class="sp-ingredients-spotlight__media-frame">
+            {{
+              section.settings.image
+              | image_url: width: 2200
+              | image_tag:
+                widths: '550, 750, 1100, 1500, 1800, 2200',
+                sizes: '(min-width: 990px) 46vw, 100vw',
+                alt: image_alt,
+                loading: 'lazy',
+                class: 'sp-image sp-ingredients-spotlight__media-image'
+            }}
+          </div>
+        {%- else -%}
+          <div class="sp-ingredients-spotlight__media-frame sp-ingredients-spotlight__media-frame--placeholder">
+            {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- assign ingredient_count = 0 -%}
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'ingredient' -%}
+        {%- assign name_stripped = block.settings.name | strip -%}
+        {%- assign role_stripped = block.settings.role | strip -%}
+        {%- assign desc_stripped = block.settings.description | strip_html | strip -%}
+        {%- if name_stripped != blank or role_stripped != blank or desc_stripped != blank -%}
+          {%- assign ingredient_count = ingredient_count | plus: 1 -%}
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- comment -%} Ingredient matrix: ingredient blocks only {%- endcomment -%}
+    {%- if ingredient_count > 0 -%}
+      <div class="sp-ingredients-spotlight__grid-section{% render 'sp-motion-class', type: 'fade-up' %}">
+        {%- if section.settings.grid_heading != blank -%}
+          <div class="sp-ingredients-spotlight__grid-header">
+            <h3 class="sp-ingredients-spotlight__grid-heading">
+              {{ section.settings.grid_heading | escape }}
+            </h3>
+          </div>
+        {%- endif -%}
+
+        <ul class="sp-ingredients-spotlight__grid" role="list">
+          {%- for block in section.blocks -%}
+            {%- unless block.type == 'ingredient' -%}
+              {%- continue -%}
+            {%- endunless -%}
+              {%- liquid
+                assign name_stripped = block.settings.name | strip
+                assign role_stripped = block.settings.role | strip
+                assign desc_stripped = block.settings.description | strip_html | strip
+
+                assign ingredient_image_alt = block.settings.image_alt | strip
+                if ingredient_image_alt == blank and block.settings.image != blank
+                  assign ingredient_image_alt = block.settings.image.alt | escape
+                endif
+                if ingredient_image_alt == blank
+                  assign ingredient_image_alt = name_stripped | escape
+                endif
+              -%}
+              {%- if name_stripped != blank or role_stripped != blank or desc_stripped != blank -%}
+                <li class="sp-ingredients-spotlight__item" {{ block.shopify_attributes }}>
+                  <article class="sp-ingredients-spotlight__item-row">
+                    <div class="sp-ingredients-spotlight__item-media{% if block.settings.image == blank %} sp-ingredients-spotlight__item-media--placeholder{% endif %}">
+                      {%- if block.settings.image != blank -%}
+                        {{
+                          block.settings.image
+                          | image_url: width: 144
+                          | image_tag:
+                            widths: '56, 72, 112, 144',
+                            sizes: '(min-width: 990px) 72px, 56px',
+                            alt: ingredient_image_alt,
+                            loading: 'lazy',
+                            class: 'sp-ingredients-spotlight__item-image'
+                        }}
+                      {%- else -%}
+                        <span class="sp-ingredients-spotlight__item-media-empty" aria-hidden="true"></span>
+                      {%- endif -%}
+                    </div>
+                    <div class="sp-ingredients-spotlight__item-copy">
+                      {%- if name_stripped != blank -%}
+                        <h4 class="sp-ingredients-spotlight__item-name">{{ name_stripped | escape }}</h4>
+                      {%- endif -%}
+                      {%- if role_stripped != blank -%}
+                        <p class="sp-ingredients-spotlight__item-role">{{ role_stripped | escape }}</p>
+                      {%- endif -%}
+                      {%- if desc_stripped != blank -%}
+                        <div class="sp-ingredients-spotlight__item-description rte">
+                          {{ block.settings.description }}
+                        </div>
+                      {%- endif -%}
+                    </div>
+                  </article>
+                </li>
+              {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} Commitment band: commitment blocks only {%- endcomment -%}
+    {%- assign commitment_count = 0 -%}
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'commitment' and block.settings.label != blank -%}
+        {%- assign commitment_count = commitment_count | plus: 1 -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- if commitment_count > 0 -%}
+      <div class="sp-ingredients-spotlight__commitment{% render 'sp-motion-class', type: 'fade-up' %}">
+        {%- if section.settings.commitment_heading != blank -%}
+          <h3 class="sp-ingredients-spotlight__commitment-heading">
+            {{ section.settings.commitment_heading | escape }}
+          </h3>
+        {%- endif -%}
+
+        <ul class="sp-ingredients-spotlight__commitment-list" role="list">
+          {%- for block in section.blocks -%}
+            {%- unless block.type == 'commitment' -%}
+              {%- continue -%}
+            {%- endunless -%}
+            {%- if block.settings.label != blank -%}
+              <li class="sp-ingredients-spotlight__commitment-item" {{ block.shopify_attributes }}>
+                <span class="sp-ingredients-spotlight__commitment-label">{{ block.settings.label | escape }}</span>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+    {%- endif -%}
+  </div>
+{% render 'sp-section-hierarchy-close' %}
+
+{% schema %}
+{
+  "name": "SP Ingredients Spotlight",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "WHAT'S INSIDE DAILY VITALITY"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Purposeful ingredients.<br>Real results.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>A science-backed formula featuring clinically studied ingredients in effective amounts—working together to support energy, gut health, recovery, and daily vitality.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Ingredient flat-lay image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text",
+      "default": "Daily Vitality ingredient flat lay with capsules and whole-food sources"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "See full formula & amounts"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "microcopy",
+      "label": "Microcopy below button",
+      "default": "Transparent. No proprietary blends."
+    },
+    {
+      "type": "text",
+      "id": "grid_heading",
+      "label": "Ingredient grid heading",
+      "default": "KEY INGREDIENTS. CLEAR PURPOSE."
+    },
+    {
+      "type": "text",
+      "id": "commitment_heading",
+      "label": "Commitment strip heading",
+      "default": "Our commitment to you"
+    },
+    {
+      "type": "select",
+      "id": "background_tone",
+      "label": "Background tone",
+      "default": "soft",
+      "options": [
+        { "value": "soft", "label": "Soft ivory" },
+        { "value": "default", "label": "Default" },
+        { "value": "contrast", "label": "Contrast" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Visual hierarchy"
+    },
+    {
+      "type": "select",
+      "id": "sp_surface_style",
+      "label": "Surface style",
+      "default": "default",
+      "options": [
+        { "value": "default", "label": "Default" },
+        { "value": "alternate", "label": "Alternate" },
+        { "value": "inverse", "label": "Inverse" },
+        { "value": "accent", "label": "Accent" },
+        { "value": "transparent", "label": "Transparent" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "sp_width_mode",
+      "label": "Width mode",
+      "default": "wide",
+      "options": [
+        { "value": "contained", "label": "Contained" },
+        { "value": "wide", "label": "Wide" },
+        { "value": "full", "label": "Full width" },
+        { "value": "bleed", "label": "Bleed" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "sp_section_emphasis",
+      "label": "Section emphasis",
+      "default": "normal",
+      "options": [
+        { "value": "normal", "label": "Normal" },
+        { "value": "elevated", "label": "Elevated" },
+        { "value": "feature", "label": "Feature" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "sp_divider_style",
+      "label": "Divider",
+      "default": "none",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "line", "label": "Line" },
+        { "value": "fade", "label": "Fade" }
+      ]
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 88
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 88
+    }
+  ],
+  "blocks": [
+    {
+      "type": "trust_point",
+      "name": "Trust point",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Clinically studied ingredients"
+        }
+      ]
+    },
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Ingredient name",
+          "default": "Ingredient name"
+        },
+        {
+          "type": "text",
+          "id": "role",
+          "label": "Role line",
+          "default": "For daily support"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Ingredient image"
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Ingredient image alt text"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>Short description of this ingredient and its role in the formula.</p>"
+        }
+      ]
+    },
+    {
+      "type": "commitment",
+      "name": "Commitment item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Third-Party Tested"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "SP Ingredients Spotlight",
+      "blocks": [
+        { "type": "trust_point", "settings": { "text": "Clinically studied ingredients" } },
+        { "type": "trust_point", "settings": { "text": "Effective doses, not fillers" } },
+        { "type": "trust_point", "settings": { "text": "Third-party tested for purity" } },
+        {
+          "type": "ingredient",
+          "settings": {
+            "name": "B-Vitamin Complex",
+            "role": "For Daily Energy & Focus",
+            "description": "<p>Activated forms of B6, B12, folate and more to support cellular energy and mental clarity.</p>"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "name": "Rhodiola Rosea",
+            "role": "For Stress Resilience",
+            "description": "<p>A clinically studied adaptogen selected to support resilience during daily stress and fatigue.</p>"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "name": "Probiotic Blend",
+            "role": "For Gut Balance",
+            "description": "<p>Clinically studied strains selected to support digestion, nutrient absorption, and regularity.</p>"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "name": "Magnesium Glycinate",
+            "role": "For Recovery & Relaxation",
+            "description": "<p>A highly absorbable form of magnesium selected to support muscle recovery, relaxation, and sleep quality.</p>"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "name": "L-Theanine",
+            "role": "For Calm Focus",
+            "description": "<p>Supports relaxation without drowsiness and helps maintain calm, sustained attention.</p>"
+          }
+        },
+        {
+          "type": "ingredient",
+          "settings": {
+            "name": "BioPerine®",
+            "role": "For Better Absorption",
+            "description": "<p>Black pepper extract selected to support bioavailability of key nutrients.</p>"
+          }
+        },
+        { "type": "commitment", "settings": { "label": "Clean & Non-GMO" } },
+        { "type": "commitment", "settings": { "label": "Third-Party Tested" } },
+        { "type": "commitment", "settings": { "label": "Made in GMP Facilities" } },
+        { "type": "commitment", "settings": { "label": "No Fillers or Binders" } },
+        { "type": "commitment", "settings": { "label": "30-Day Guarantee" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
