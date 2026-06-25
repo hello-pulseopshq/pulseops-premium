@@ -361,17 +361,20 @@
         "metric-4"
       ],
       "settings": {
-        "heading": "Trusted by wellness-focused customers",
-        "subheading": "<p>Thousands rely on Daily Vitality Complex for consistent daily support without the afternoon crash.</p>",
-        "content_alignment": "center",
+        "presentation": "editorial_story",
+        "eyebrow": "Community confidence",
+        "heading": "A daily ritual trusted by thousands.",
+        "subheading": "<p>You're joining a growing community of wellness-focused customers who made Daily Vitality part of their morning routine.</p>",
+        "assurance_text": "35k+ customers supported · 4.9★ average · 8.4k+ verified reviews",
+        "content_alignment": "left",
         "desktop_columns": "4",
-        "show_band": true,
-        "show_dividers": true,
-        "mobile_layout": "swipe",
-        "sp_surface_style": "alternate",
-        "sp_divider_style": "line",
-        "padding_top": 56,
-        "padding_bottom": 56
+        "show_band": false,
+        "show_dividers": false,
+        "mobile_layout": "grid",
+        "sp_surface_style": "default",
+        "sp_divider_style": "none",
+        "padding_top": 36,
+        "padding_bottom": 44
       }
     },
     "sp-editorial-differentiation": {

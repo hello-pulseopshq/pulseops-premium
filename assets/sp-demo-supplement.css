@@ -106,7 +106,7 @@
 
 /* Section display typography → assets/sp-demo-supplement-type.css */
 
-.sp-demo-supplement .sp-metrics__heading,
+.sp-demo-supplement .sp-metrics:not(.sp-metrics--editorial-story) .sp-metrics__heading,
 .sp-demo-supplement .sp-social-proof__heading,
 .sp-demo-supplement .sp-scientific-proof__heading,
 .sp-demo-supplement .sp-faq__heading {
@@ -120,12 +120,12 @@
   margin-inline: 0;
 }
 
-.sp-demo-supplement .sp-metrics__label {
+.sp-demo-supplement .sp-metrics:not(.sp-metrics--editorial-story) .sp-metrics__label {
   margin-top: 0.8rem;
   text-transform: uppercase;
 }
 
-.sp-demo-supplement .sp-metrics__value {
+.sp-demo-supplement .sp-metrics:not(.sp-metrics--editorial-story) .sp-metrics__value {
   font-variant-numeric: tabular-nums;
   color: rgb(var(--sp-supplement-green-deep));
 }
@@ -497,7 +497,7 @@ html.sp-demo-supplement.sp-motion-active [data-sp-reveal]:not(.is-revealed):not(
 
 .sp-demo-supplement .sp-benefits__header,
 .sp-demo-supplement .sp-features__header,
-.sp-demo-supplement .sp-metrics__header,
+.sp-demo-supplement .sp-metrics:not(.sp-metrics--editorial-story) .sp-metrics__header,
 .sp-demo-supplement .sp-scientific-proof__header,
 .sp-demo-supplement .sp-social-proof__header,
 .sp-demo-supplement .sp-faq__header {

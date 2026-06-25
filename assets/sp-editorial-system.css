@@ -266,6 +266,7 @@
 
 .sp-demo-supplement #sp-ingredients {
   padding-top: clamp(1.15rem, 1.6vw, 1.45rem);
+  padding-bottom: clamp(1rem, 1.45vw, 1.35rem);
 }
 
 .sp-demo-supplement .sp-editorial-outcomes.sp-editorial-chapter--handoff-out {
@@ -569,5 +570,65 @@
   .sp-demo-supplement .sp-ingredients-spotlight .sp-editorial-cta--quiet-link {
     width: auto;
     min-width: 0;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Community Confidence — Metrics editorial story (supplement demo)
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.sp-demo-supplement .sp-section--surface-alternate:has(.sp-metrics--editorial-story) {
+  background: transparent;
+}
+
+.sp-demo-supplement .sp-metrics--editorial-story {
+  gap: clamp(1.15rem, 1.6vw, 1.45rem);
+}
+
+.sp-demo-supplement .sp-metrics--editorial-story .sp-metrics__intro {
+  max-width: min(100%, 56rem);
+}
+
+.sp-demo-supplement .sp-metrics--editorial-story .sp-metrics__statement {
+  max-width: 20ch;
+  color: rgb(var(--sp-supplement-green-deep, var(--color-foreground)));
+}
+
+.sp-demo-supplement .sp-metrics--editorial-story .sp-metrics__subheading {
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.78);
+}
+
+.sp-demo-supplement .sp-metrics--editorial-story .sp-metrics__proof-moments {
+  border-top-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.1);
+}
+
+.sp-demo-supplement .sp-metrics--editorial-story .sp-metrics__proof-value {
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  font-weight: 800;
+  color: rgb(var(--sp-supplement-green-deep, var(--color-foreground)));
+}
+
+.sp-demo-supplement .sp-metrics--editorial-story .sp-metrics__proof-label {
+  text-transform: none;
+  letter-spacing: 0.015em;
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.72);
+}
+
+.sp-demo-supplement .sp-metrics--editorial-story .sp-metrics__proof-moment + .sp-metrics__proof-moment {
+  border-left-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.1);
+}
+
+.sp-demo-supplement .sp-metrics--editorial-story .sp-metrics__assurance {
+  border-top-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.08);
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.68);
+}
+
+.sp-demo-supplement #sp-differentiation {
+  padding-top: clamp(1.15rem, 1.6vw, 1.45rem);
+}
+
+@media screen and (max-width: 749px) {
+  .sp-demo-supplement .sp-metrics--editorial-story .sp-metrics__proof-moment:nth-child(n + 3) {
+    border-top-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.08);
   }
 }

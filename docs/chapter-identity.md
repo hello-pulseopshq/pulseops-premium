@@ -87,7 +87,7 @@ The narrative framework below defines **identity**, not necessarily final sectio
 | **Emotional goal** | Safety in numbers, social validation |
 | **Visual language** | Editorial data story — typographic stats, softer evidence rhythm, fewer dashboard/card cues |
 | **Conversion role** | Confidence builder — no CTA; earns trust before philosophy/science |
-| **Status** | **Next implementation pass** |
+| **Status** | **Implemented v1 — `supplement-chapter-community-confidence-v1` pending tag** |
 
 **Handoff:** From crowd validation to product thinking (Formulation Philosophy).
 
@@ -279,7 +279,7 @@ Every future chapter implementation must document these six fields **before** CS
 | 01 | Product Introduction | `sp-hero` | What is this? | Locked |
 | 02 | Transformation Story | `sp-editorial-outcomes` | Why should I care? | Mostly locked |
 | 03 | Ingredient Narrative | `sp-ingredients-spotlight` | What is inside? | Mostly locked |
-| 04 | Community Confidence | `sp-metrics` | Do other people trust this? | **Next pass** |
+| 04 | Community Confidence | `sp-metrics` | Do other people trust this? | **Implemented v1 — pending tag** |
 | 05 | Formulation Philosophy | `sp-editorial-differentiation` | What makes this formula different? | Redesign |
 | 06 | Scientific Confidence | `sp-quality-standards` (+ `sp-scientific-proof`) | How do I know it is well made? | Redesign |
 | 07 | Human Story | `sp-social-proof` | What does it actually feel like? | Redesign |
@@ -295,4 +295,4 @@ Every future chapter implementation must document these six fields **before** CS
 |----------------|------|
 | `supplement-editorial-foundation-v1` | Editorial system + Outcomes→Ingredients rhythm |
 | Asset integration pass (may be uncommitted) | Production photography mapping — separate from narrative identity |
-| Next tag target | `supplement-chapter-community-confidence-v1` (Pass 1) |
+| `supplement-chapter-community-confidence-v1` | Community Confidence Pass 1 — implemented, pending tag |

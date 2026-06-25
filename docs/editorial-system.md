@@ -40,7 +40,7 @@ Ten reusable chapter types for the PulseOps Editorial Chapter Library (next phas
 | 02 | **Transformation Chapter** | Outcomes, benefits, before/after story | `sp-editorial-outcomes` |
 | 03 | **Editorial Story / Ingredients Chapter** | What’s inside, purposeful formulation | `sp-ingredients-spotlight` |
 | 04 | **Scientific Narrative** | Mechanism, standards, credibility depth | `sp-scientific-proof`, `sp-quality-standards` (needs redesign) |
-| 05 | **Data Story** | Metrics, stats, quantified proof | `sp-metrics` (needs editorial pass) |
+| 05 | **Data Story / Community Confidence** | Metrics, stats, quantified proof | `sp-metrics` — `editorial_story` presentation implemented (supplement demo); `band` presentation remains legacy default for other demos |
 | 06 | **Cinematic Lifestyle** | Brand world, ritual, aspiration | Partially in hero / ingredients media |
 | 07 | **Human Proof** | Reviews, testimonials, social trust | `sp-social-proof` (needs Human Proof redesign) |
 | 08 | **Founder / Philosophy** | Why we exist, brand POV | Future chapter |
@@ -179,7 +179,7 @@ Token-driven scale on `.sp-editorial-chapter`:
 - Box assurance/commitment content in heavy cards.
 - Center matrix headers like isolated modules — use left-aligned caption rhythm.
 - Chase unrelated Theme Check warnings in legacy Dawn files.
-- Redesign hero/metrics in foundation passes — sequence work by chapter library.
+- Redesign hero in foundation passes — sequence remaining chapter library work (Metrics `editorial_story` v1 complete for supplement demo).
 
 ---
 

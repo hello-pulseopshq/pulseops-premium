@@ -1,0 +1,331 @@
+/**
+ * SP Metrics — band grid (default) + editorial community confidence story
+ */
+
+/* ── Shared tokens ── */
+
+.sp-metrics {
+  --sp-metrics-gap-sm: 1.2rem;
+  --sp-metrics-gap-md: 1.6rem;
+  --sp-metrics-gap-lg: 2.4rem;
+  --sp-metrics-proof-value-size: clamp(2.6rem, 4.2vw, 4rem);
+  --sp-metrics-proof-label-size: clamp(1.02rem, 0.95vw, 1.14rem);
+}
+
+/* ── Band / grid presentation (legacy default) ── */
+
+.sp-metrics__header {
+  margin-bottom: var(--sp-metrics-gap-lg);
+  max-width: 72rem;
+}
+
+.sp-metrics__header--center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.sp-metrics__header--center .sp-metrics__subheading {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sp-metrics__header--left {
+  text-align: left;
+}
+
+.sp-metrics__heading {
+  margin: 0;
+}
+
+.sp-metrics__subheading {
+  margin-top: var(--sp-metrics-gap-sm);
+}
+
+.sp-metrics__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--sp-metrics-gap-md);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sp-metrics__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  padding: 1.6rem 0;
+  text-align: center;
+}
+
+.sp-metrics__list--divided:not(.sp-metrics__list--band) .sp-metrics__item {
+  border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
+}
+
+.sp-metrics__list--band {
+  padding: 2rem 1.6rem;
+  border-radius: var(--media-radius);
+  background: rgba(var(--color-foreground), 0.04);
+  border: 0.1rem solid rgba(var(--color-foreground), 0.08);
+}
+
+.sp-metrics__list--band .sp-metrics__item {
+  padding: 0 1.2rem;
+}
+
+.sp-metrics__value {
+  margin: 0;
+  font-size: clamp(2.8rem, 4.5vw, 4.4rem);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.sp-metrics__label {
+  margin: 0.9rem 0 0;
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+  opacity: 0.82;
+  max-width: 16rem;
+}
+
+.sp-metrics__supporting {
+  margin: 0.5rem 0 0;
+  opacity: 0.62;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  max-width: 18rem;
+}
+
+.sp-metrics__list--swipe {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(70%, 1fr);
+  grid-template-columns: unset;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 0.2rem;
+  scrollbar-width: none;
+}
+
+.sp-metrics__list--swipe::-webkit-scrollbar {
+  display: none;
+}
+
+.sp-metrics__list--swipe .sp-metrics__item {
+  scroll-snap-align: start;
+  padding: 1.2rem 0.8rem;
+}
+
+@media screen and (min-width: 750px) {
+  .sp-metrics__list--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sp-metrics__list--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .sp-metrics__list--4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .sp-metrics__list--5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .sp-metrics__list--6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .sp-metrics__list--swipe {
+    grid-auto-flow: row;
+    grid-auto-columns: initial;
+    overflow-x: visible;
+    scroll-snap-type: none;
+    padding-bottom: 0;
+  }
+
+  .sp-metrics__list--band {
+    padding: 2.8rem 3.2rem;
+  }
+
+  .sp-metrics__list--band.sp-metrics__list--divided .sp-metrics__item + .sp-metrics__item {
+    border-left: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  }
+
+  .sp-metrics__list--band.sp-metrics__list--divided .sp-metrics__item:first-child {
+    padding-left: 0;
+  }
+}
+
+/* ── Editorial story presentation (Community Confidence) ── */
+
+.sp-metrics--editorial-story {
+  display: grid;
+  gap: var(--sp-es-chapter-gap-tight, clamp(1.45rem, 2.2vw, 2rem));
+}
+
+.sp-metrics--editorial-story .sp-metrics__intro {
+  display: grid;
+  gap: clamp(0.65rem, 1vw, 0.85rem);
+  max-width: min(100%, 52rem);
+}
+
+.sp-metrics--editorial-story .sp-metrics__intro--center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.sp-metrics--editorial-story .sp-metrics__intro--left {
+  text-align: left;
+}
+
+.sp-metrics--editorial-story .sp-metrics__eyebrow {
+  margin: 0;
+}
+
+.sp-metrics--editorial-story .sp-metrics__statement {
+  margin: 0;
+  max-width: 18ch;
+}
+
+.sp-metrics--editorial-story .sp-metrics__intro--center .sp-metrics__statement {
+  margin-inline: auto;
+}
+
+.sp-metrics--editorial-story .sp-metrics__subheading {
+  margin: 0;
+  max-width: 42ch;
+  opacity: 0.78;
+}
+
+.sp-metrics--editorial-story .sp-metrics__intro--center .sp-metrics__subheading {
+  margin-inline: auto;
+}
+
+.sp-metrics__proof-moments {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.15rem, 1.8vw, 1.65rem) clamp(1rem, 1.5vw, 1.35rem);
+  margin: 0;
+  padding: clamp(1.15rem, 1.6vw, 1.45rem) 0 0;
+  list-style: none;
+  border-top: 0.1rem solid rgba(var(--color-foreground), 0.1);
+}
+
+.sp-metrics__proof-moment {
+  display: grid;
+  gap: 0.35rem;
+  align-content: start;
+  min-width: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.sp-metrics__proof-value {
+  margin: 0;
+  font-size: var(--sp-metrics-proof-value-size);
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  font-variant-numeric: tabular-nums;
+  color: rgb(var(--color-foreground));
+}
+
+.sp-metrics__proof-label {
+  margin: 0;
+  font-size: var(--sp-metrics-proof-label-size);
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  color: rgba(var(--color-foreground), 0.72);
+  max-width: 14ch;
+}
+
+.sp-metrics__proof-supporting {
+  margin: 0.15rem 0 0;
+  font-size: clamp(0.98rem, 0.9vw, 1.05rem);
+  line-height: 1.4;
+  color: rgba(var(--color-foreground), 0.58);
+}
+
+.sp-metrics__assurance {
+  margin: clamp(0.85rem, 1.2vw, 1.05rem) 0 0;
+  padding-top: clamp(0.85rem, 1.2vw, 1.05rem);
+  border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  font-size: clamp(1.02rem, 0.95vw, 1.12rem);
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  color: rgba(var(--color-foreground), 0.68);
+  max-width: 48ch;
+}
+
+.sp-metrics--editorial-story .sp-metrics__intro--center + .sp-metrics__proof-moments,
+.sp-metrics--editorial-story .sp-metrics__intro--center ~ .sp-metrics__assurance {
+  text-align: center;
+}
+
+.sp-metrics--editorial-story .sp-metrics__intro--center ~ .sp-metrics__proof-moments .sp-metrics__proof-moment {
+  text-align: center;
+}
+
+.sp-metrics--editorial-story .sp-metrics__intro--center ~ .sp-metrics__proof-moments .sp-metrics__proof-label {
+  margin-inline: auto;
+}
+
+.sp-metrics--editorial-story .sp-metrics__intro--center ~ .sp-metrics__assurance {
+  margin-inline: auto;
+}
+
+@media screen and (min-width: 750px) {
+  .sp-metrics__proof-moments {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(1.35rem, 2vw, 2rem);
+    padding-top: clamp(1.35rem, 1.8vw, 1.65rem);
+  }
+
+  .sp-metrics__proof-moments--columns-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sp-metrics__proof-moments--columns-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .sp-metrics__proof-moments--columns-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .sp-metrics__proof-moments--columns-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .sp-metrics__proof-moment + .sp-metrics__proof-moment {
+    padding-left: clamp(1rem, 1.4vw, 1.35rem);
+    border-left: 0.1rem solid rgba(var(--color-foreground), 0.1);
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .sp-metrics--editorial-story .sp-metrics__statement {
+    max-width: none;
+  }
+
+  .sp-metrics__proof-moments {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sp-metrics__proof-moment:nth-child(n + 3) {
+    padding-top: 0.35rem;
+    border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  }
+}

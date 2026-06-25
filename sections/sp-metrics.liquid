@@ -1,119 +1,9 @@
+{{ 'sp-metrics.css' | asset_url | stylesheet_tag }}
+
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  .sp-metrics {
-    --sp-metrics-gap-sm: 1.2rem;
-    --sp-metrics-gap-md: 1.6rem;
-    --sp-metrics-gap-lg: 2.4rem;
-  }
-
-  .sp-metrics__header {
-    margin-bottom: var(--sp-metrics-gap-lg);
-    max-width: 72rem;
-  }
-
-  .sp-metrics__header--center {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-  }
-
-  .sp-metrics__header--center .sp-metrics__subheading {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .sp-metrics__heading {
-    margin: 0;
-  }
-
-  .sp-metrics__subheading {
-    margin-top: var(--sp-metrics-gap-sm);
-  }
-
-  .sp-metrics__list {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--sp-metrics-gap-md);
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .sp-metrics__item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
-    padding: 1.6rem 0;
-    text-align: center;
-  }
-
-  .sp-metrics__list--divided:not(.sp-metrics__list--band) .sp-metrics__item {
-    border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
-  }
-
-  .sp-metrics__list--band {
-    padding: 2rem 1.6rem;
-    border-radius: var(--media-radius);
-    background: rgba(var(--color-foreground), 0.04);
-    border: 0.1rem solid rgba(var(--color-foreground), 0.08);
-  }
-
-  .sp-metrics__list--band .sp-metrics__item {
-    padding: 0 1.2rem;
-  }
-
-  .sp-metrics__value {
-    margin: 0;
-    font-size: clamp(2.8rem, 4.5vw, 4.4rem);
-    font-weight: 600;
-    line-height: 1.02;
-    letter-spacing: -0.04em;
-    font-variant-numeric: tabular-nums;
-  }
-
-  .sp-metrics__label {
-    margin: 0.9rem 0 0;
-    font-size: 1.4rem;
-    font-weight: 400;
-    letter-spacing: 0.02em;
-    line-height: 1.35;
-    opacity: 0.82;
-    max-width: 16rem;
-  }
-
-  .sp-metrics__supporting {
-    margin: 0.5rem 0 0;
-    opacity: 0.62;
-    font-size: 1.2rem;
-    line-height: 1.4;
-    max-width: 18rem;
-  }
-
-  .sp-metrics__list--swipe {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(70%, 1fr);
-    grid-template-columns: unset;
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 0.2rem;
-    scrollbar-width: none;
-  }
-
-  .sp-metrics__list--swipe::-webkit-scrollbar {
-    display: none;
-  }
-
-  .sp-metrics__list--swipe .sp-metrics__item {
-    scroll-snap-align: start;
-    padding: 1.2rem 0.8rem;
   }
 
   @media screen and (min-width: 750px) {
@@ -121,111 +11,141 @@
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
-
-    .sp-metrics__list--2 {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .sp-metrics__list--3 {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .sp-metrics__list--4 {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .sp-metrics__list--5 {
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-    }
-
-    .sp-metrics__list--6 {
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-    }
-
-    .sp-metrics__list--swipe {
-      grid-auto-flow: row;
-      grid-auto-columns: initial;
-      overflow-x: visible;
-      scroll-snap-type: none;
-      padding-bottom: 0;
-    }
-
-    .sp-metrics__list--band {
-      padding: 2.8rem 3.2rem;
-    }
-
-    .sp-metrics__list--band.sp-metrics__list--divided .sp-metrics__item + .sp-metrics__item {
-      border-left: 0.1rem solid rgba(var(--color-foreground), 0.08);
-    }
-
-    .sp-metrics__list--band.sp-metrics__list--divided .sp-metrics__item:first-child {
-      padding-left: 0;
-    }
   }
 {%- endstyle -%}
 
+{%- liquid
+  assign presentation = section.settings.presentation | default: 'band'
+  assign heading_stripped = section.settings.heading | strip_html | strip
+  assign subheading_stripped = section.settings.subheading | strip_html | strip
+  assign eyebrow_stripped = section.settings.eyebrow | strip
+  assign assurance_stripped = section.settings.assurance_text | strip
+
+  assign metrics_columns = section.settings.desktop_columns
+  if section.settings.sp_width_mode == 'contained' or section.settings.sp_width_mode == blank
+    assign metrics_columns_num = metrics_columns | plus: 0
+    if metrics_columns_num > 4
+      assign metrics_columns = '4'
+    endif
+  endif
+
+  assign editorial_root_class = 'sp-metrics sp-editorial-chapter sp-editorial-chapter--spacing-standard sp-editorial-chapter--handoff-in sp-editorial-chapter--handoff-out sp-metrics--editorial-story'
+  if section.settings.content_alignment == 'center'
+    assign editorial_root_class = editorial_root_class | append: ' sp-metrics--editorial-story--center'
+  endif
+
+  assign band_root_class = 'sp-metrics'
+-%}
+
 {% render 'sp-section-hierarchy-open', section: section %}
-  <div
-    class="sp-metrics"
-    aria-label="{{ section.settings.heading | strip_html | default: 'Metrics' | escape }}"
-  >
-    {%- liquid
-      assign heading_stripped = section.settings.heading | strip_html | strip
-      assign subheading_stripped = section.settings.subheading | strip_html | strip
-    -%}
-
-    {%- if heading_stripped != blank or subheading_stripped != blank -%}
-      <header class="sp-metrics__header sp-metrics__header--{{ section.settings.content_alignment }}">
-        {%- if heading_stripped != blank -%}
-          <h2 class="sp-metrics__heading inline-richtext h1{% render 'sp-motion-class', type: 'fade-up' %}">
-            {{ section.settings.heading }}
-          </h2>
-        {%- endif -%}
-        {%- if subheading_stripped != blank -%}
-          <div class="sp-metrics__subheading rte{% render 'sp-motion-class', type: 'fade-up' %}">
-            {{ section.settings.subheading }}
-          </div>
-        {%- endif -%}
-      </header>
-    {%- endif -%}
-
-    {%- liquid
-      assign metrics_columns = section.settings.desktop_columns
-      if section.settings.sp_width_mode == 'contained' or section.settings.sp_width_mode == blank
-        assign metrics_columns_num = metrics_columns | plus: 0
-        if metrics_columns_num > 4
-          assign metrics_columns = '4'
-        endif
-      endif
-    -%}
-
-    <ul
-      class="sp-metrics__list sp-metrics__list--{{ metrics_columns }}{% if section.settings.show_band %} sp-metrics__list--band{% endif %}{% if section.settings.show_dividers %} sp-metrics__list--divided{% endif %}{% if section.settings.mobile_layout == 'swipe' %} sp-metrics__list--swipe{% endif %}{% render 'sp-motion-class', type: 'stagger' %}"
-      data-sp-stagger
-      role="list"
+  {%- if presentation == 'editorial_story' -%}
+    <div
+      class="{{ editorial_root_class }}"
+      aria-label="{{ heading_stripped | default: 'Community confidence' | escape }}"
     >
-      {%- for block in section.blocks -%}
-        {%- liquid
-          assign value_stripped = block.settings.value | strip
-          assign label_stripped = block.settings.label | strip
-          assign supporting_stripped = block.settings.supporting_text | strip
-        -%}
-        {%- if value_stripped != blank or label_stripped != blank -%}
-          <li class="sp-metrics__item{% render 'sp-motion-class', type: 'stagger-item' %}" {{ block.shopify_attributes }}>
-            {%- if value_stripped != blank -%}
-              <p class="sp-metrics__value">{{ block.settings.value | escape }}</p>
-            {%- endif -%}
-            {%- if label_stripped != blank -%}
-              <p class="sp-metrics__label">{{ block.settings.label | escape }}</p>
-            {%- endif -%}
-            {%- if supporting_stripped != blank -%}
-              <p class="sp-metrics__supporting">{{ block.settings.supporting_text | escape }}</p>
-            {%- endif -%}
-          </li>
-        {%- endif -%}
-      {%- endfor -%}
-    </ul>
-  </div>
+      {%- if eyebrow_stripped != blank or heading_stripped != blank or subheading_stripped != blank -%}
+        <header class="sp-metrics__intro sp-metrics__intro--{{ section.settings.content_alignment }}{% render 'sp-motion-class', type: 'fade-up' %}">
+          {%- if eyebrow_stripped != blank -%}
+            <p class="sp-metrics__eyebrow sp-editorial-type--caption caption-with-letter-spacing">
+              {{ section.settings.eyebrow | escape }}
+            </p>
+          {%- endif -%}
+
+          {%- if heading_stripped != blank -%}
+            <h2 class="sp-metrics__statement sp-editorial-type--statement">
+              {{ section.settings.heading }}
+            </h2>
+          {%- endif -%}
+
+          {%- if subheading_stripped != blank -%}
+            <div class="sp-metrics__subheading rte">
+              {{ section.settings.subheading }}
+            </div>
+          {%- endif -%}
+        </header>
+      {%- endif -%}
+
+      <ul
+        class="sp-metrics__proof-moments sp-metrics__proof-moments--columns-{{ metrics_columns }}{% render 'sp-motion-class', type: 'stagger' %}"
+        data-sp-stagger
+        role="list"
+      >
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign value_stripped = block.settings.value | strip
+            assign label_stripped = block.settings.label | strip
+            assign supporting_stripped = block.settings.supporting_text | strip
+          -%}
+          {%- if value_stripped != blank or label_stripped != blank -%}
+            <li class="sp-metrics__proof-moment{% render 'sp-motion-class', type: 'stagger-item' %}" {{ block.shopify_attributes }}>
+              {%- if value_stripped != blank -%}
+                <p class="sp-metrics__proof-value">{{ block.settings.value | escape }}</p>
+              {%- endif -%}
+              {%- if label_stripped != blank -%}
+                <p class="sp-metrics__proof-label">{{ block.settings.label | escape }}</p>
+              {%- endif -%}
+              {%- if supporting_stripped != blank -%}
+                <p class="sp-metrics__proof-supporting">{{ block.settings.supporting_text | escape }}</p>
+              {%- endif -%}
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+
+      {%- if assurance_stripped != blank -%}
+        <p class="sp-metrics__assurance{% render 'sp-motion-class', type: 'fade-up' %}">
+          {{ section.settings.assurance_text | escape }}
+        </p>
+      {%- endif -%}
+    </div>
+  {%- else -%}
+    <div
+      class="{{ band_root_class }}"
+      aria-label="{{ heading_stripped | default: 'Metrics' | escape }}"
+    >
+      {%- if heading_stripped != blank or subheading_stripped != blank -%}
+        <header class="sp-metrics__header sp-metrics__header--{{ section.settings.content_alignment }}">
+          {%- if heading_stripped != blank -%}
+            <h2 class="sp-metrics__heading inline-richtext h1{% render 'sp-motion-class', type: 'fade-up' %}">
+              {{ section.settings.heading }}
+            </h2>
+          {%- endif -%}
+          {%- if subheading_stripped != blank -%}
+            <div class="sp-metrics__subheading rte{% render 'sp-motion-class', type: 'fade-up' %}">
+              {{ section.settings.subheading }}
+            </div>
+          {%- endif -%}
+        </header>
+      {%- endif -%}
+
+      <ul
+        class="sp-metrics__list sp-metrics__list--{{ metrics_columns }}{% if section.settings.show_band %} sp-metrics__list--band{% endif %}{% if section.settings.show_dividers %} sp-metrics__list--divided{% endif %}{% if section.settings.mobile_layout == 'swipe' %} sp-metrics__list--swipe{% endif %}{% render 'sp-motion-class', type: 'stagger' %}"
+        data-sp-stagger
+        role="list"
+      >
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign value_stripped = block.settings.value | strip
+            assign label_stripped = block.settings.label | strip
+            assign supporting_stripped = block.settings.supporting_text | strip
+          -%}
+          {%- if value_stripped != blank or label_stripped != blank -%}
+            <li class="sp-metrics__item{% render 'sp-motion-class', type: 'stagger-item' %}" {{ block.shopify_attributes }}>
+              {%- if value_stripped != blank -%}
+                <p class="sp-metrics__value">{{ block.settings.value | escape }}</p>
+              {%- endif -%}
+              {%- if label_stripped != blank -%}
+                <p class="sp-metrics__label">{{ block.settings.label | escape }}</p>
+              {%- endif -%}
+              {%- if supporting_stripped != blank -%}
+                <p class="sp-metrics__supporting">{{ block.settings.supporting_text | escape }}</p>
+              {%- endif -%}
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    </div>
+  {%- endif -%}
 {% render 'sp-section-hierarchy-close' %}
 
 {% schema %}
@@ -235,6 +155,23 @@
   "class": "section",
   "disabled_on": { "groups": ["header", "footer"] },
   "settings": [
+    {
+      "type": "select",
+      "id": "presentation",
+      "label": "Presentation",
+      "default": "band",
+      "options": [
+        { "value": "band", "label": "Metrics band" },
+        { "value": "editorial_story", "label": "Editorial story" }
+      ],
+      "info": "Editorial story is designed for community confidence chapters — typographic proof without card chrome."
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "info": "Editorial story presentation only."
+    },
     {
       "type": "inline_richtext",
       "id": "heading",
@@ -246,6 +183,12 @@
       "id": "subheading",
       "label": "Subheading",
       "default": "<p>The numbers behind our growing community.</p>"
+    },
+    {
+      "type": "text",
+      "id": "assurance_text",
+      "label": "Assurance line",
+      "info": "Optional quiet line below stats. Editorial story presentation only."
     },
     {
       "type": "select",
@@ -275,20 +218,22 @@
       "type": "checkbox",
       "id": "show_band",
       "label": "Show background band",
-      "default": true
+      "default": true,
+      "info": "Metrics band presentation only."
     },
     {
       "type": "checkbox",
       "id": "show_dividers",
       "label": "Show dividers between metrics",
       "default": true,
-      "info": "Vertical dividers in band layout on desktop. Horizontal rules when band is off."
+      "info": "Metrics band presentation only."
     },
     {
       "type": "select",
       "id": "mobile_layout",
       "label": "Mobile layout",
       "default": "swipe",
+      "info": "Metrics band presentation only.",
       "options": [
         { "value": "grid", "label": "2-column grid" },
         { "value": "swipe", "label": "Swipe" }
