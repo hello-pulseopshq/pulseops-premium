@@ -42,7 +42,7 @@
 {%- liquid
   assign shell_class = 'sp-editorial-differentiation-shell sp-editorial-differentiation-shell--tone-' | append: section.settings.background_tone
 
-  assign root_class = 'sp-editorial-differentiation'
+  assign root_class = 'sp-editorial-differentiation sp-editorial-chapter sp-editorial-chapter--cinematic sp-editorial-chapter--image-led sp-editorial-chapter--spacing-cinematic'
   assign root_class = root_class | append: ' sp-editorial-differentiation--image-' | append: section.settings.image_position
   assign root_class = root_class | append: ' sp-editorial-differentiation--top-spacing-' | append: section.settings.top_spacing
   assign root_class = root_class | append: ' sp-editorial-differentiation--bottom-spacing-' | append: section.settings.bottom_spacing
@@ -82,10 +82,10 @@
       <div class="sp-editorial-differentiation__chapter-divider" aria-hidden="true"></div>
     {%- endif -%}
 
-    <div class="sp-editorial-differentiation__composition{% render 'sp-motion-class', type: 'stagger' %}" data-sp-stagger>
-      <div class="sp-editorial-differentiation__media{% render 'sp-motion-class', type: 'stagger-item' %}">
+    <div class="sp-editorial-differentiation__composition sp-editorial-chapter__lead{% render 'sp-motion-class', type: 'stagger' %}" data-sp-stagger>
+      <div class="sp-editorial-differentiation__media sp-editorial-chapter__media{% render 'sp-motion-class', type: 'stagger-item' %}">
         {%- if section.settings.image != blank -%}
-          <div class="sp-editorial-differentiation__media-frame">
+          <div class="sp-editorial-differentiation__media-frame sp-editorial-media--cinematic">
             {{
               section.settings.image
               | image_url: width: 2200
@@ -107,13 +107,13 @@
       <div class="sp-editorial-differentiation__story{% render 'sp-motion-class', type: 'stagger-item' %}">
         <div class="sp-editorial-differentiation__story-copy">
           {%- if section.settings.eyebrow != blank -%}
-            <p class="sp-editorial-differentiation__eyebrow caption-with-letter-spacing">
+            <p class="sp-editorial-differentiation__eyebrow sp-editorial-type--caption caption-with-letter-spacing">
               {{ section.settings.eyebrow | escape }}
             </p>
           {%- endif -%}
 
           {%- if section.settings.heading != blank -%}
-            <h2 class="sp-editorial-differentiation__heading{% render 'sp-motion-class', type: 'fade-up' %}">
+            <h2 class="sp-editorial-differentiation__heading sp-editorial-type--chapter{% render 'sp-motion-class', type: 'fade-up' %}">
               {{ section.settings.heading }}
             </h2>
           {%- endif -%}
@@ -157,9 +157,9 @@
             {%- endif -%}
             <div class="sp-editorial-differentiation__footer">
               {%- if show_cta -%}
-                <a href="{{ section.settings.button_link }}" class="sp-editorial-differentiation__button button{% render 'sp-motion-class', type: 'hover-button' %}">
+                <a href="{{ section.settings.button_link }}" class="sp-editorial-differentiation__button sp-editorial-cta sp-editorial-cta--quiet-link{% render 'sp-motion-class', type: 'hover-button' %}">
                   <span>{{ section.settings.button_label | escape }}</span>
-                  <span class="sp-editorial-differentiation__button-arrow" aria-hidden="true">→</span>
+                  <span class="sp-editorial-cta__arrow" aria-hidden="true">→</span>
                 </a>
               {%- endif -%}
 

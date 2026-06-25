@@ -466,7 +466,7 @@
 
 
 
-.sp-ingredients-spotlight__button {
+.sp-ingredients-spotlight__button:not(.sp-editorial-cta) {
 
   display: inline-flex;
 
@@ -498,7 +498,7 @@
 
 
 
-.sp-demo-supplement .sp-ingredients-spotlight__button {
+.sp-demo-supplement .sp-ingredients-spotlight__button:not(.sp-editorial-cta) {
 
   background: rgb(var(--sp-supplement-green-deep, var(--color-button)));
 
@@ -512,7 +512,7 @@
 
 
 
-.sp-demo-supplement .sp-ingredients-spotlight__button:hover {
+.sp-demo-supplement .sp-ingredients-spotlight__button:not(.sp-editorial-cta):hover {
 
   filter: brightness(1.06);
 
@@ -1224,7 +1224,7 @@
 
 
 
-  .sp-ingredients-spotlight__button {
+  .sp-ingredients-spotlight__button:not(.sp-editorial-cta) {
 
     width: 100%;
 

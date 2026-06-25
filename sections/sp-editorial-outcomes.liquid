@@ -42,7 +42,7 @@
 {%- liquid
   assign shell_class = 'sp-editorial-outcomes-shell sp-editorial-outcomes-shell--tone-' | append: section.settings.background_tone
 
-  assign root_class = 'sp-editorial-outcomes'
+  assign root_class = 'sp-editorial-outcomes sp-editorial-chapter sp-editorial-chapter--spacing-standard sp-editorial-chapter--handoff-out'
   assign root_class = root_class | append: ' sp-editorial-outcomes--top-spacing-' | append: section.settings.top_spacing
   assign root_class = root_class | append: ' sp-editorial-outcomes--bottom-spacing-' | append: section.settings.bottom_spacing
   assign root_class = root_class | append: ' sp-editorial-outcomes--mobile-cards-' | append: section.settings.mobile_card_layout
@@ -112,7 +112,7 @@
       <div class="sp-editorial-outcomes__story{% render 'sp-motion-class', type: 'stagger-item' %}">
         <div class="sp-editorial-outcomes__story-copy">
           {%- if section.settings.eyebrow != blank -%}
-            <p class="sp-editorial-outcomes__eyebrow caption-with-letter-spacing">
+            <p class="sp-editorial-outcomes__eyebrow sp-editorial-type--caption caption-with-letter-spacing">
               <span class="sp-editorial-outcomes__eyebrow-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                   <path d="M20 4.5C11 4.5 5 9.4 5 15.8c0 2.4 1.4 4.7 3.8 5.7 5.5 2.2 11.7-2.1 11.7-9.3 0-2.2-.3-5-0.5-7.7z"></path>
@@ -124,7 +124,7 @@
           {%- endif -%}
 
           {%- if section.settings.heading != blank -%}
-            <h2 class="sp-editorial-outcomes__heading{% render 'sp-motion-class', type: 'fade-up' %}">
+            <h2 class="sp-editorial-outcomes__heading sp-editorial-type--chapter{% render 'sp-motion-class', type: 'fade-up' %}">
               {{ section.settings.heading }}
             </h2>
           {%- endif -%}
@@ -227,9 +227,9 @@
             {%- endif -%}
             <div class="sp-editorial-outcomes__footer">
               {%- if show_cta -%}
-                <a href="{{ section.settings.button_link }}" class="sp-editorial-outcomes__button button{% render 'sp-motion-class', type: 'hover-button' %}">
+                <a href="{{ section.settings.button_link }}" class="sp-editorial-outcomes__button sp-editorial-cta sp-editorial-cta--quiet-link{% render 'sp-motion-class', type: 'hover-button' %}">
                   <span>{{ section.settings.button_label | escape }}</span>
-                  <span class="sp-editorial-outcomes__button-arrow" aria-hidden="true">→</span>
+                  <span class="sp-editorial-cta__arrow" aria-hidden="true">→</span>
                 </a>
               {%- endif -%}
 
@@ -243,6 +243,10 @@
           </div>
         {%- endif -%}
       </div>
+    </div>
+
+    <div class="sp-editorial-chapter__handoff" aria-hidden="true">
+      <div class="sp-editorial-chapter__chapter-divider"></div>
     </div>
   </div>
 {% render 'sp-section-hierarchy-close' %}

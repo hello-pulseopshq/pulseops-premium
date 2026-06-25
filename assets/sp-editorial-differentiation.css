@@ -309,7 +309,7 @@
   text-align: left;
 }
 
-.sp-editorial-differentiation__button {
+.sp-editorial-differentiation__button:not(.sp-editorial-cta) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -334,7 +334,7 @@
     transform 0.18s ease;
 }
 
-.sp-demo-supplement .sp-editorial-differentiation__button {
+.sp-demo-supplement .sp-editorial-differentiation__button:not(.sp-editorial-cta) {
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
@@ -346,14 +346,14 @@
   box-shadow: 0 0.8rem 2rem rgba(var(--sp-hero-neutral-shadow, var(--sp-supplement-shadow, var(--color-shadow))), 0.12);
 }
 
-.sp-demo-supplement .sp-editorial-differentiation__button::before {
+.sp-demo-supplement .sp-editorial-differentiation__button:not(.sp-editorial-cta)::before {
   content: '';
   flex: 0 0 1.6rem;
   width: 1.6rem;
   order: -1;
 }
 
-.sp-demo-supplement .sp-editorial-differentiation__button > span:first-child {
+.sp-demo-supplement .sp-editorial-differentiation__button:not(.sp-editorial-cta) > span:first-child {
   flex: 1 1 auto;
   min-width: 0;
   text-align: center;
@@ -367,12 +367,12 @@
   width: 1.6rem;
 }
 
-.sp-editorial-differentiation__button:hover {
+.sp-editorial-differentiation__button:not(.sp-editorial-cta):hover {
   background: var(--sp-ed-accent-deep);
   box-shadow: 0 1rem 2.6rem rgba(var(--color-shadow), 0.14);
 }
 
-.sp-demo-supplement .sp-editorial-differentiation__button:hover {
+.sp-demo-supplement .sp-editorial-differentiation__button:not(.sp-editorial-cta):hover {
   background: rgb(var(--sp-supplement-green-deep, var(--color-foreground)));
 }
 
@@ -455,7 +455,7 @@
     width: 100%;
   }
 
-  .sp-editorial-differentiation__button {
+  .sp-editorial-differentiation__button:not(.sp-editorial-cta) {
     width: auto;
     min-width: min(100%, 34rem);
   }
@@ -466,7 +466,7 @@
     max-width: none;
   }
 
-  .sp-demo-supplement .sp-editorial-differentiation__button {
+  .sp-demo-supplement .sp-editorial-differentiation__button:not(.sp-editorial-cta) {
     width: 100%;
     max-width: none;
   }
