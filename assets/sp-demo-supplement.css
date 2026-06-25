@@ -289,7 +289,9 @@
 }
 
 .sp-demo-supplement .shopify-section:has(.sp-social-proof--stage) {
-  background: rgb(var(--sp-supplement-green-deep));
+  background:
+    linear-gradient(180deg, rgba(var(--sp-supplement-green-deep), 0.84) 0%, rgba(var(--sp-supplement-green-deep), 0.94) 100%),
+    url('https://pulseops-labs.myshopify.com/cdn/shop/files/Male_Professional_Lifestyle.png') center 28% / cover no-repeat;
 }
 
 .sp-demo-supplement .sp-section--surface-alternate:has(.sp-social-proof--stage),
@@ -618,13 +620,13 @@ html.sp-demo-supplement.sp-motion-active [data-sp-reveal]:not(.is-revealed):not(
   border-radius: var(--sp-supplement-radius-pill);
 }
 
-/* CTA — product-in-hand lifestyle photography */
+/* CTA — couple wellness lifestyle photography */
 .sp-demo-supplement .sp-cta-offer__card--gradient {
   position: relative;
   overflow: hidden;
   background:
     linear-gradient(180deg, rgba(var(--sp-supplement-green-deep), 0.72) 0%, rgba(var(--sp-supplement-green-deep), 0.88) 100%),
-    url('https://cdn.shopify.com/s/files/1/0959/5594/3739/files/daily-vitality-product-in-hand.png?v=1781868430') center center / cover no-repeat;
+    url('https://pulseops-labs.myshopify.com/cdn/shop/files/Couple_Wellness_Lifestyle.png') center center / cover no-repeat;
   color: rgb(var(--sp-supplement-cream));
   border-color: rgba(var(--sp-supplement-cream), 0.16);
 }
@@ -696,7 +698,7 @@ html.sp-demo-supplement.sp-motion-active [data-sp-reveal]:not(.is-revealed):not(
   .sp-demo-supplement .sp-cta-offer__card--gradient {
     background:
       linear-gradient(180deg, rgba(var(--sp-supplement-green-deep), 0.78) 0%, rgba(var(--sp-supplement-green-deep), 0.94) 100%),
-      url('https://cdn.shopify.com/s/files/1/0959/5594/3739/files/daily-vitality-product-in-hand.png?v=1781868430') 70% center / cover no-repeat;
+      url('https://pulseops-labs.myshopify.com/cdn/shop/files/Couple_Wellness_Lifestyle.png') center 35% / cover no-repeat;
   }
 
   .sp-demo-supplement .sp-features__list {

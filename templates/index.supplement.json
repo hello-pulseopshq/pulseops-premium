@@ -98,6 +98,8 @@
         "show_floating_shipping": false,
         "show_floating_bestseller": false,
         "image_alt": "Daily Vitality Complex premium supplement bottle",
+        "hero_image": "shopify://shop_images/Product_Hero.png",
+        "hero_image_desktop": "shopify://shop_images/Product_Hero.png",
         "layout_preset": "media_focus",
         "desktop_image_position": "right",
         "visual_effects": "premium",
@@ -149,7 +151,7 @@
         "outcome-4"
       ],
       "settings": {
-        "image": "shopify://shop_images/daily-vitality-morning-routine.png",
+        "image": "shopify://shop_images/Morning_Ritual_Lifestyle.png",
         "image_alt": "Daily Vitality morning ritual with supplement bottle on kitchen counter",
         "eyebrow": "Designed for modern wellness",
         "heading": "<p>One habit.<br>Four outcomes.</p>",
@@ -203,6 +205,7 @@
           "settings": {
             "name": "B-Vitamin Complex",
             "role": "For Daily Energy & Focus",
+            "image": "shopify://shop_images/B-Vitamin_Complex.png",
             "description": "<p>Activated forms of B6, B12, folate and more to support cellular energy and mental clarity.</p>"
           }
         },
@@ -211,6 +214,7 @@
           "settings": {
             "name": "Rhodiola Rosea",
             "role": "For Stress Resilience",
+            "image": "shopify://shop_images/Rhodiola_Rosea.png",
             "description": "<p>A clinically studied adaptogen selected to support resilience during daily stress and fatigue.</p>"
           }
         },
@@ -219,6 +223,7 @@
           "settings": {
             "name": "Probiotic Blend",
             "role": "For Gut Balance",
+            "image": "shopify://shop_images/Probiotic_Blend.png",
             "description": "<p>Clinically studied strains selected to support digestion, nutrient absorption, and regularity.</p>"
           }
         },
@@ -227,6 +232,7 @@
           "settings": {
             "name": "Magnesium Glycinate",
             "role": "For Recovery & Relaxation",
+            "image": "shopify://shop_images/Magnesium_Glycinate.png",
             "description": "<p>A highly absorbable form of magnesium selected to support muscle recovery, relaxation, and sleep quality.</p>"
           }
         },
@@ -235,6 +241,7 @@
           "settings": {
             "name": "L-Theanine",
             "role": "For Calm Focus",
+            "image": "shopify://shop_images/L-Theanine.png",
             "description": "<p>Supports relaxation without drowsiness and helps maintain calm, sustained attention.</p>"
           }
         },
@@ -243,6 +250,7 @@
           "settings": {
             "name": "BioPerine®",
             "role": "For Better Absorption",
+            "image": "shopify://shop_images/BioPerine.png",
             "description": "<p>Black pepper extract selected to support bioavailability of key nutrients.</p>"
           }
         },
@@ -471,7 +479,7 @@
         "eyebrow": "Lab grade quality",
         "heading": "<p>Quality without compromise.</p>",
         "body": "<p>Every batch is produced with strict quality controls, manufacturing discipline, and standards designed to support long-term trust.</p>",
-        "image": "shopify://shop_images/daily-vitality-lab-quality.png",
+        "image": "shopify://shop_images/Manufacturing_Lab_Scene.png",
         "image_alt": "Daily Vitality manufacturing and quality control environment",
         "supporting_text": "<p>From sourcing to production, every step is designed to maintain consistency, transparency, and quality.</p>",
         "button_label": "Shop now",
