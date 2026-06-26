@@ -1,0 +1,250 @@
+/**
+ * SP Social Proof — Human story editorial presentation
+ * Portrait-led chapter; quote carousel reuses testimonial stage JS.
+ */
+
+.sp-social-proof--human-story {
+  --sp-hs-gap: clamp(1.35rem, 2vw, 1.85rem);
+  --sp-hs-gap-tight: clamp(0.75rem, 1.1vw, 1rem);
+  --sp-hs-portrait-ratio: 4 / 5;
+  --sp-hs-quote-size: clamp(2.15rem, 2.8vw, 3.35rem);
+  --sp-hs-quote-leading: 1.18;
+}
+
+.sp-social-proof__human-story {
+  display: grid;
+  gap: var(--sp-hs-gap);
+  align-items: stretch;
+}
+
+.sp-social-proof__human-story-portrait {
+  min-width: 0;
+}
+
+.sp-social-proof__human-story-portrait-frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: var(--sp-hs-portrait-ratio);
+  overflow: hidden;
+}
+
+.sp-social-proof__human-story-portrait-image,
+.sp-social-proof__human-story-portrait-frame img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+}
+
+.sp-social-proof__human-story-panel {
+  display: grid;
+  gap: var(--sp-hs-gap-tight);
+  align-content: center;
+  min-width: 0;
+  padding: clamp(0.35rem, 0.8vw, 0.65rem) 0;
+}
+
+.sp-social-proof__human-story-intro {
+  display: grid;
+  gap: clamp(0.55rem, 0.9vw, 0.75rem);
+}
+
+.sp-social-proof__human-story-eyebrow {
+  margin: 0;
+}
+
+.sp-social-proof__human-story-lead {
+  margin: 0;
+  max-width: 16ch;
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.sp-social-proof__human-story-lead p {
+  margin: 0;
+}
+
+.sp-social-proof__human-story-stage {
+  display: grid;
+  gap: clamp(0.85rem, 1.2vw, 1.05rem);
+  width: 100%;
+}
+
+.sp-social-proof__human-story-stage:focus {
+  outline: none;
+}
+
+.sp-social-proof__human-story-stage:focus-visible {
+  outline: 0.2rem solid rgba(var(--color-foreground), 0.25);
+  outline-offset: 0.35rem;
+  border-radius: 0.25rem;
+}
+
+.sp-social-proof--human-story .sp-social-proof__stage-viewport {
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+/* Stage JS expects a 3-slot horizontal track — mirror stage mechanics without stage chrome */
+.sp-social-proof--human-story .sp-social-proof__stage-track {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.sp-social-proof--human-story .sp-social-proof__stage-track.is-settling {
+  transition: transform 280ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.sp-social-proof--human-story .sp-social-proof__stage-track.is-dragging {
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sp-social-proof--human-story .sp-social-proof__stage-track.is-settling {
+    transition: none;
+  }
+}
+
+.sp-social-proof--human-story .sp-social-proof__stage-slide,
+.sp-social-proof--human-story .sp-social-proof__stage-slide[data-sp-stage-slot] {
+  display: grid;
+  flex: 0 0 100%;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  gap: clamp(0.85rem, 1.2vw, 1.05rem);
+}
+
+.sp-social-proof__human-story-slide {
+  display: grid;
+  gap: clamp(0.85rem, 1.2vw, 1.05rem);
+}
+
+.sp-social-proof__human-story-quote {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: var(--sp-hs-quote-size);
+  line-height: var(--sp-hs-quote-leading);
+  letter-spacing: -0.03em;
+  color: rgb(var(--color-foreground));
+}
+
+.sp-social-proof__human-story-quote-text {
+  margin: 0;
+}
+
+.sp-social-proof__human-story-quote-text p {
+  margin: 0;
+}
+
+.sp-social-proof__human-story-attribution {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.sp-social-proof__human-story-name {
+  margin: 0;
+  font-style: normal;
+  font-size: clamp(1.18rem, 1.1vw, 1.32rem);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  color: rgba(var(--color-foreground), 0.88);
+}
+
+.sp-social-proof__human-story-context {
+  margin: 0;
+  font-size: clamp(1.02rem, 0.95vw, 1.12rem);
+  line-height: 1.45;
+  color: rgba(var(--color-foreground), 0.62);
+}
+
+.sp-social-proof__human-story-dots {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.sp-social-proof__human-story-dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(var(--color-foreground), 0.18);
+  transition: background-color 0.18s ease, transform 0.18s ease;
+}
+
+.sp-social-proof__human-story-dot.is-active {
+  background: rgba(var(--color-foreground), 0.72);
+  transform: scale(1.15);
+}
+
+.sp-social-proof__human-story-verification {
+  margin: clamp(0.35rem, 0.7vw, 0.55rem) 0 0;
+  font-size: clamp(0.98rem, 0.92vw, 1.06rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(var(--color-foreground), 0.52);
+}
+
+@media screen and (min-width: 990px) {
+  .sp-social-proof__human-story {
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: clamp(2rem, 3vw, 3.2rem);
+    align-items: center;
+  }
+
+  .sp-social-proof__human-story-portrait-frame {
+    aspect-ratio: 3 / 4;
+    min-height: clamp(38rem, 42vw, 52rem);
+  }
+
+  .sp-social-proof__human-story-panel {
+    padding: clamp(0.5rem, 1vw, 1rem) 0;
+  }
+
+  .sp-social-proof__human-story-quote {
+    max-width: 22ch;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .sp-social-proof__human-story-lead {
+    max-width: none;
+  }
+
+  .sp-social-proof__human-story-quote {
+    max-width: none;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .sp-social-proof--human-story {
+    --sp-hs-portrait-ratio: 5 / 6;
+    --sp-hs-quote-size: clamp(1.95rem, 6.2vw, 2.55rem);
+  }
+
+  .sp-social-proof__human-story-portrait-frame {
+    max-height: min(72vw, 34rem);
+    aspect-ratio: auto;
+    min-height: clamp(24rem, 68vw, 32rem);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .sp-social-proof__human-story-dot {
+    cursor: pointer;
+  }
+}

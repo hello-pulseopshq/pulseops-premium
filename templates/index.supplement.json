@@ -566,9 +566,9 @@
           "type": "review",
           "settings": {
             "rating": 5,
-            "review_text": "<p>Daily Vitality became the one supplement I actually remembered to take every day. It simplified my routine and gave me a level of consistency that felt sustainable instead of overwhelming.</p>",
-            "customer_name": "Maya K.",
-            "customer_title": "Verified purchaser",
+            "review_text": "<p>It fits into my mornings without feeling like another task. I take it with coffee, and it quietly became part of how I start the day.</p>",
+            "customer_name": "Daniel R.",
+            "customer_title": "Product manager · morning routine",
             "verified": true
           }
         },
@@ -578,7 +578,7 @@
             "rating": 5,
             "review_text": "<p>I noticed steadier energy throughout the afternoon without the crash or jitters. It quickly became one of the easiest parts of my daily wellness routine.</p>",
             "customer_name": "Sarah L.",
-            "customer_title": "Verified customer",
+            "customer_title": "Designer · daily wellness",
             "verified": true
           }
         },
@@ -588,7 +588,7 @@
             "rating": 5,
             "review_text": "<p>It's gentle on my stomach, easy to take, and fits naturally into my mornings. I finally found a supplement I could stick with long term.</p>",
             "customer_name": "James T.",
-            "customer_title": "Verified customer",
+            "customer_title": "Consultant · verified purchaser",
             "verified": true
           }
         }
@@ -599,19 +599,23 @@
         "review-3"
       ],
       "settings": {
-        "eyebrow": "Verified customer feedback",
-        "heading": "8.4k+ verified reviews. 4.9★ average rating.",
+        "presentation": "human_story",
+        "eyebrow": "Human proof",
+        "heading": "He made it part of his morning.",
         "subheading": "",
+        "story_image": "shopify://shop_images/Male_Professional_Lifestyle.png",
+        "story_image_alt": "Professional taking Daily Vitality as part of his morning routine",
+        "verification_note": "Verified purchaser",
         "layout_style": "stage",
-        "stage_auto_rotate": 6,
-        "content_alignment": "center",
+        "stage_auto_rotate": 8,
+        "content_alignment": "left",
         "desktop_columns": "2",
         "mobile_layout": "stack",
         "sp_surface_style": "default",
-        "sp_width_mode": "full",
+        "sp_width_mode": "wide",
         "sp_divider_style": "none",
-        "padding_top": 100,
-        "padding_bottom": 100
+        "padding_top": 48,
+        "padding_bottom": 52
       }
     },
     "sp-faq": {

@@ -214,9 +214,13 @@
 {%- endstyle -%}
 
 {%- liquid
+  assign presentation = section.settings.presentation | default: 'auto'
   assign layout_style = section.settings.layout_style | default: 'grid'
 -%}
-{%- if layout_style == 'stage' -%}
+{%- if presentation == 'human_story' -%}
+  {{ 'sp-social-proof-human-story.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'sp-testimonial-stage.js' | asset_url }}" defer="defer"></script>
+{%- elsif layout_style == 'stage' -%}
   {{ 'sp-social-proof-stage.css' | asset_url | stylesheet_tag }}
   <script src="{{ 'sp-testimonial-stage.js' | asset_url }}" defer="defer"></script>
   {%- liquid
@@ -258,11 +262,13 @@
 
 {% render 'sp-section-hierarchy-open', section: section %}
     {%- liquid
-      assign layout_style = section.settings.layout_style | default: 'grid'
       assign heading_stripped = section.settings.heading | strip_html | strip
       assign subheading_stripped = section.settings.subheading | strip_html | strip
     -%}
-    <div class="sp-social-proof{% if layout_style == 'stage' %} sp-social-proof--stage{% endif %}">
+    <div class="sp-social-proof{% if presentation == 'human_story' %} sp-social-proof--human-story{% elsif layout_style == 'stage' %} sp-social-proof--stage{% endif %}">
+      {%- if presentation == 'human_story' -%}
+        {%- render 'sp-social-proof-human-story', section: section -%}
+      {%- else -%}
       {%- if layout_style != 'stage' -%}
       {%- if heading_stripped != blank or subheading_stripped != blank -%}
         <header class="sp-social-proof__header sp-social-proof__header--{{ section.settings.content_alignment }}">
@@ -433,6 +439,7 @@
         </div>
       {%- endif -%}
       {%- endif -%}
+      {%- endif -%}
     </div>
 {% render 'sp-section-hierarchy-close' %}
 
@@ -446,6 +453,17 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+    {
+      "type": "select",
+      "id": "presentation",
+      "label": "Presentation",
+      "default": "auto",
+      "options": [
+        { "value": "auto", "label": "Auto (use layout style)" },
+        { "value": "human_story", "label": "Human story" }
+      ],
+      "info": "Human story is designed for editorial portrait-led proof chapters."
+    },
     {
       "type": "text",
       "id": "eyebrow",
@@ -464,10 +482,33 @@
       "label": "Subheading"
     },
     {
+      "type": "header",
+      "content": "Human story"
+    },
+    {
+      "type": "image_picker",
+      "id": "story_image",
+      "label": "Portrait image",
+      "info": "Human story presentation only."
+    },
+    {
+      "type": "text",
+      "id": "story_image_alt",
+      "label": "Portrait alt text",
+      "info": "Human story presentation only."
+    },
+    {
+      "type": "text",
+      "id": "verification_note",
+      "label": "Verification note",
+      "info": "Quiet verification line. Human story presentation only."
+    },
+    {
       "type": "select",
       "id": "layout_style",
       "label": "Layout style",
       "default": "grid",
+      "info": "Used when Presentation is Auto.",
       "options": [
         {
           "value": "grid",
@@ -488,7 +529,7 @@
       "unit": "s",
       "label": "Auto-rotate interval",
       "default": 6,
-      "info": "Used when Layout style is Testimonial stage. Pauses on hover or focus."
+      "info": "Used when Layout style is Testimonial stage or Human story has multiple quotes."
     },
     {
       "type": "select",

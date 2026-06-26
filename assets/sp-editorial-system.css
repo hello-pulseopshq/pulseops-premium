@@ -802,3 +802,80 @@
     border-top-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.08);
   }
 }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Human Proof — Human story presentation (supplement demo)
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.sp-demo-supplement .shopify-section:has(.sp-social-proof--human-story) {
+  background: rgb(var(--sp-supplement-ivory, var(--color-background)));
+}
+
+.sp-demo-supplement .sp-section--surface-alternate:has(.sp-social-proof--human-story),
+.sp-demo-supplement .sp-section--surface-default:has(.sp-social-proof--human-story) {
+  background: transparent;
+}
+
+.sp-demo-supplement .sp-social-proof--human-story {
+  --sp-hs-quote-size: clamp(2.2rem, 2.6vw, 3.2rem);
+}
+
+.sp-demo-supplement .sp-social-proof--human-story .sp-social-proof__human-story-lead,
+.sp-demo-supplement .sp-social-proof--human-story .sp-social-proof__human-story-lead p {
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  font-weight: 800;
+  color: rgb(var(--sp-supplement-green-deep, var(--color-foreground)));
+}
+
+.sp-demo-supplement .sp-social-proof--human-story .sp-social-proof__human-story-eyebrow {
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.62);
+}
+
+.sp-demo-supplement .sp-social-proof--human-story .sp-social-proof__human-story-portrait-image,
+.sp-demo-supplement .sp-social-proof--human-story .sp-social-proof__human-story-portrait-frame img {
+  object-position: center 20%;
+}
+
+.sp-demo-supplement .sp-social-proof--human-story .sp-social-proof__human-story-quote,
+.sp-demo-supplement .sp-social-proof--human-story .sp-social-proof__human-story-quote-text,
+.sp-demo-supplement .sp-social-proof--human-story .sp-social-proof__human-story-quote-text p {
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  color: rgb(var(--sp-hero-headline-ink, var(--sp-type-ink, var(--color-foreground))));
+}
+
+.sp-demo-supplement .sp-social-proof--human-story .sp-social-proof__human-story-name {
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.9);
+}
+
+.sp-demo-supplement .sp-social-proof--human-story .sp-social-proof__human-story-context {
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.62);
+}
+
+.sp-demo-supplement .sp-social-proof--human-story .sp-social-proof__human-story-dot {
+  background: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.16);
+}
+
+.sp-demo-supplement .sp-social-proof--human-story .sp-social-proof__human-story-dot.is-active {
+  background: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.72);
+}
+
+.sp-demo-supplement .sp-social-proof--human-story .sp-social-proof__human-story-verification {
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.52);
+}
+
+.sp-demo-supplement #sp-faq {
+  padding-top: clamp(1.15rem, 1.6vw, 1.45rem);
+}
+
+@media screen and (max-width: 749px) {
+  .sp-demo-supplement .sp-social-proof--human-story {
+    --sp-hs-quote-size: clamp(1.9rem, 6vw, 2.45rem);
+  }
+
+  .sp-demo-supplement .sp-social-proof--human-story .sp-social-proof__human-story-lead,
+  .sp-demo-supplement .sp-social-proof--human-story .sp-social-proof__human-story-lead p {
+    font-size: clamp(2.35rem, 7.5vw, 3rem);
+    line-height: 0.98;
+  }
+}
