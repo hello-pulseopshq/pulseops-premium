@@ -627,6 +627,81 @@
   padding-top: clamp(1.15rem, 1.6vw, 1.45rem);
 }
 
+.sp-demo-supplement #sp-quality {
+  padding-top: clamp(1.15rem, 1.6vw, 1.45rem);
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Formulation Philosophy — manifesto presentation (supplement demo)
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.sp-demo-supplement .sp-editorial-differentiation--philosophy-manifesto {
+  gap: clamp(1.15rem, 1.6vw, 1.45rem);
+}
+
+.sp-demo-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__manifesto-intro {
+  max-width: min(100%, 62rem);
+}
+
+.sp-demo-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__statement,
+.sp-demo-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__statement p {
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  font-weight: 800;
+  max-width: 18ch;
+  color: rgb(var(--sp-supplement-green-deep, var(--color-foreground)));
+}
+
+.sp-demo-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__manifesto-body {
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.8);
+}
+
+.sp-demo-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__visual-interruption-frame {
+  border-radius: 0;
+}
+
+.sp-demo-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__visual-interruption-image,
+.sp-demo-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__visual-interruption-frame img {
+  object-position: center 38%;
+}
+
+.sp-demo-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__principles {
+  border-top-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.1);
+}
+
+.sp-demo-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__principle-title {
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  color: rgb(var(--sp-supplement-green-deep, var(--color-foreground)));
+}
+
+.sp-demo-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__principle-text {
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.74);
+}
+
+.sp-demo-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__principle + .sp-editorial-differentiation__principle {
+  border-left-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.1);
+}
+
+.sp-demo-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__philosophy-closer {
+  border-top-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.08);
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.64);
+}
+
+.sp-demo-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-cta--quiet-link {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 749px) {
+  .sp-demo-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__statement,
+  .sp-demo-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__statement p {
+    font-size: clamp(2.85rem, 8.5vw, 3.6rem);
+    line-height: 0.98;
+  }
+
+  .sp-demo-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__principle:nth-child(n + 2) {
+    border-top-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.08);
+  }
+}
+
 @media screen and (max-width: 749px) {
   .sp-demo-supplement .sp-metrics--editorial-story .sp-metrics__proof-moment:nth-child(n + 3) {
     border-top-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.08);

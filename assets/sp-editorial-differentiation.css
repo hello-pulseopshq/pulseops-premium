@@ -475,3 +475,163 @@
     margin-top: var(--sp-hero-gap-md, 1.6rem);
   }
 }
+
+/* ── Philosophy manifesto presentation (Formulation Philosophy) ── */
+
+.sp-editorial-differentiation--philosophy-manifesto {
+  --sp-ed-manifesto-gap: clamp(1.35rem, 2vw, 1.85rem);
+  --sp-ed-manifesto-gap-tight: clamp(0.85rem, 1.2vw, 1.1rem);
+  --sp-ed-principle-title-size: clamp(1.55rem, 1.45vw, 1.85rem);
+  --sp-ed-visual-ratio: 16 / 7;
+  display: grid;
+  gap: var(--sp-ed-manifesto-gap);
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__manifesto-intro {
+  display: grid;
+  gap: var(--sp-ed-manifesto-gap-tight);
+  max-width: min(100%, 58rem);
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__eyebrow {
+  margin: 0;
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__statement {
+  margin: 0;
+  max-width: 20ch;
+  font-size: clamp(3rem, 5.2vw, 4.8rem);
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  color: var(--sp-ed-accent-deep);
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__statement p {
+  margin: 0;
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__manifesto-body {
+  margin: 0;
+  max-width: 46ch;
+  font-size: clamp(1.45rem, 1.35vw, 1.72rem);
+  line-height: 1.62;
+  font-weight: 500;
+  color: rgba(var(--color-foreground), 0.78);
+}
+
+.sp-editorial-differentiation__visual-interruption {
+  width: 100%;
+  margin-inline: 0;
+}
+
+.sp-editorial-differentiation__visual-interruption-frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: var(--sp-ed-visual-ratio);
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.sp-editorial-differentiation__visual-interruption-image,
+.sp-editorial-differentiation__visual-interruption-frame img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+.sp-editorial-differentiation__principles {
+  display: grid;
+  gap: clamp(1.35rem, 2vw, 1.85rem);
+  margin: 0;
+  padding: clamp(1.15rem, 1.6vw, 1.45rem) 0 0;
+  list-style: none;
+  border-top: 0.1rem solid rgba(var(--color-foreground), 0.1);
+}
+
+.sp-editorial-differentiation__principle {
+  display: grid;
+  gap: 0.45rem;
+  align-content: start;
+  min-width: 0;
+  padding: 0;
+}
+
+.sp-editorial-differentiation__principle-title {
+  margin: 0;
+  font-size: var(--sp-ed-principle-title-size);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  color: var(--sp-ed-ink);
+}
+
+.sp-editorial-differentiation__principle-text {
+  margin: 0;
+  font-size: clamp(1.22rem, 1.15vw, 1.38rem);
+  line-height: 1.55;
+  font-weight: 500;
+  color: rgba(var(--color-foreground), 0.72);
+  max-width: 34ch;
+}
+
+.sp-editorial-differentiation__philosophy-closer {
+  margin: 0;
+  padding-top: clamp(0.65rem, 1vw, 0.85rem);
+  border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  font-size: clamp(1.08rem, 1vw, 1.18rem);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: rgba(var(--color-foreground), 0.62);
+  max-width: 42ch;
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__cta-shell {
+  margin-top: clamp(0.35rem, 0.8vw, 0.65rem);
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__footer {
+  gap: 0;
+}
+
+@media screen and (min-width: 750px) {
+  .sp-editorial-differentiation--philosophy-manifesto {
+    --sp-ed-visual-ratio: 21 / 8;
+  }
+
+  .sp-editorial-differentiation__principles {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1.5rem, 2.2vw, 2.2rem);
+    padding-top: clamp(1.35rem, 1.8vw, 1.65rem);
+  }
+
+  .sp-editorial-differentiation__principle + .sp-editorial-differentiation__principle {
+    padding-left: clamp(1rem, 1.4vw, 1.35rem);
+    border-left: 0.1rem solid rgba(var(--color-foreground), 0.1);
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .sp-editorial-differentiation--philosophy-manifesto {
+    --sp-ed-visual-ratio: 4 / 3;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__statement {
+    max-width: none;
+  }
+
+  .sp-editorial-differentiation__principle + .sp-editorial-differentiation__principle {
+    padding-top: 0.35rem;
+    border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  }
+
+  .sp-editorial-differentiation__principle-text {
+    max-width: none;
+  }
+}

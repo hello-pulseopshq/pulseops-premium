@@ -383,61 +383,56 @@
         "proof-1": {
           "type": "proof_point",
           "settings": {
-            "title": "Clean sourcing",
-            "text": "Carefully selected ingredients with no artificial colors, synthetic fillers, or unnecessary compounds."
+            "title": "Consistency over intensity",
+            "text": "A formula built for daily rhythm—not dramatic spikes that fade by afternoon."
           }
         },
         "proof-2": {
           "type": "proof_point",
           "settings": {
-            "title": "Purposeful formulation",
-            "text": "Each ingredient has a clear role across energy, gut support, recovery, and immune health."
+            "title": "Synergy over excess",
+            "text": "Every ingredient earns its place. Nothing redundant, nothing added for label padding."
           }
         },
         "proof-3": {
           "type": "proof_point",
           "settings": {
-            "title": "Daily simplicity",
-            "text": "One easy ritual designed to replace complicated stacks and inconsistent supplement routines."
-          }
-        },
-        "proof-4": {
-          "type": "proof_point",
-          "settings": {
-            "title": "Quality standards",
-            "text": "Produced with quality controls, batch discipline, and standards customers can feel confident in."
+            "title": "Daily habit over quick fixes",
+            "text": "One scoop replaces the stack. Simplicity is the point of the design."
           }
         }
       },
       "block_order": [
         "proof-1",
         "proof-2",
-        "proof-3",
-        "proof-4"
+        "proof-3"
       ],
       "settings": {
-        "image": "shopify://shop_images/daily-vitality-lab-quality.png",
-        "image_alt": "Daily Vitality quality standards and lab manufacturing environment",
-        "eyebrow": "Why customers choose Daily Vitality",
-        "heading": "<p>Built for consistency, not quick fixes.</p>",
-        "body": "<p>Daily Vitality is designed around the habits people actually keep: simple dosing, clean sourcing, purposeful ingredients, and quality standards you can trust.</p>",
-        "button_label": "Shop Daily Vitality",
-        "button_link": "/products/daily-vitality-complex?view=supplement",
-        "trust_text": "30-day guarantee · Secure checkout",
+        "presentation": "philosophy_manifesto",
+        "image": "shopify://shop_images/Formulation_Philosophy.png",
+        "image_alt": "Daily Vitality formulation philosophy",
+        "eyebrow": "Formulation philosophy",
+        "heading": "<p>Every choice in this formula serves the ritual—not the label.</p>",
+        "body": "<p>We didn't design Daily Vitality to impress a supplement facts panel. We designed it around how people actually build habits: one calm morning scoop, thoughtful ingredient pairing, and enough synergy that nothing feels excessive.</p>",
+        "philosophy_closing_line": "Intentional formulation for daily life—not another product in the cabinet.",
+        "show_philosophy_image": true,
+        "button_label": "See the full ingredient breakdown",
+        "button_link": "#sp-ingredients",
+        "trust_text": "",
         "image_position": "right",
-        "top_spacing": "medium",
-        "bottom_spacing": "large",
+        "top_spacing": "small",
+        "bottom_spacing": "medium",
         "show_top_divider": false,
-        "background_tone": "soft",
-        "show_proof_numbers": true,
-        "show_cta_divider": true,
+        "background_tone": "default",
+        "show_proof_numbers": false,
+        "show_cta_divider": false,
         "sp_surface_style": "default",
         "sp_width_mode": "wide",
         "sp_section_emphasis": "normal",
         "sp_divider_style": "none",
         "color_scheme": "scheme-1",
-        "padding_top": 112,
-        "padding_bottom": 120
+        "padding_top": 48,
+        "padding_bottom": 56
       }
     },
     "sp-quality-standards": {
