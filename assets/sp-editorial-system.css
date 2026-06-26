@@ -631,6 +631,101 @@
   padding-top: clamp(1.15rem, 1.6vw, 1.45rem);
 }
 
+.sp-demo-supplement #sp-reviews {
+  padding-top: clamp(1.15rem, 1.6vw, 1.45rem);
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Scientific Confidence — Quality documentary presentation (supplement demo)
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.sp-demo-supplement .sp-quality-standards--scientific-confidence {
+  gap: clamp(1.15rem, 1.6vw, 1.45rem);
+}
+
+.sp-demo-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__evidence-intro {
+  max-width: min(100%, 62rem);
+}
+
+.sp-demo-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__statement,
+.sp-demo-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__statement p {
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  font-weight: 800;
+  max-width: 16ch;
+  color: rgb(var(--sp-supplement-green-deep, var(--color-foreground)));
+}
+
+.sp-demo-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__evidence-body {
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.8);
+}
+
+.sp-demo-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__lab-evidence-image,
+.sp-demo-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__lab-evidence-frame img {
+  object-position: center 40%;
+}
+
+.sp-demo-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-checkpoints {
+  border-top-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.1);
+}
+
+.sp-demo-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-step {
+  border-bottom-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.08);
+}
+
+.sp-demo-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-index {
+  color: rgb(var(--sp-supplement-green, var(--color-button)));
+}
+
+.sp-demo-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-title {
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  color: rgb(var(--sp-supplement-green-deep, var(--color-foreground)));
+}
+
+.sp-demo-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-text {
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.74);
+}
+
+.sp-demo-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-meta {
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.58);
+}
+
+.sp-demo-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__evidence-note {
+  border-top-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.08);
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.64);
+}
+
+.sp-demo-supplement .sp-quality-standards--scientific-confidence .sp-editorial-cta--quiet-link {
+  margin-bottom: 0;
+}
+
+.sp-demo-supplement .sp-quality-standards--scientific-confidence .sp-editorial-cta--quiet-link::before {
+  display: none;
+}
+
+@media screen and (min-width: 990px) {
+  .sp-demo-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-step + .sp-quality-standards__process-step {
+    border-left-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.1);
+  }
+}
+
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .sp-demo-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-step:nth-child(odd) {
+    border-right-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.1);
+  }
+
+  .sp-demo-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-step:nth-child(n + 3) {
+    border-top-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.08);
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .sp-demo-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__statement,
+  .sp-demo-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__statement p {
+    font-size: clamp(2.85rem, 8.5vw, 3.6rem);
+    line-height: 0.98;
+  }
+}
+
 /* ══════════════════════════════════════════════════════════════════════════
    Formulation Philosophy — manifesto presentation (supplement demo)
    ══════════════════════════════════════════════════════════════════════════ */

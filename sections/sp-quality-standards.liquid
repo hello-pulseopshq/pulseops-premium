@@ -23,6 +23,22 @@
 
   assign pad_top = section.settings.padding_top | plus: top_extra
   assign pad_bottom = section.settings.padding_bottom | plus: bottom_extra
+
+  assign presentation = section.settings.presentation | default: 'split_editorial'
+  assign shell_class = 'sp-quality-standards-shell sp-quality-standards-shell--tone-' | append: section.settings.background_tone
+
+  assign image_alt = section.settings.image_alt | strip
+  if image_alt == blank and section.settings.image != blank
+    assign image_alt = section.settings.image.alt | escape
+  endif
+  if image_alt == blank
+    assign image_alt = section.settings.heading | strip_html | escape
+  endif
+
+  assign show_cta = false
+  if section.settings.button_label != blank and section.settings.button_link != blank
+    assign show_cta = true
+  endif
 -%}
 
 {%- style -%}
@@ -39,63 +55,225 @@
   }
 {%- endstyle -%}
 
-{%- liquid
-  assign shell_class = 'sp-quality-standards-shell sp-quality-standards-shell--tone-' | append: section.settings.background_tone
-  assign root_class = 'sp-quality-standards'
-  assign root_class = root_class | append: ' sp-quality-standards--top-spacing-' | append: section.settings.top_spacing
-  assign root_class = root_class | append: ' sp-quality-standards--bottom-spacing-' | append: section.settings.bottom_spacing
-
-  assign image_alt = section.settings.image_alt | strip
-  if image_alt == blank and section.settings.image != blank
-    assign image_alt = section.settings.image.alt | escape
-  endif
-  if image_alt == blank
-    assign image_alt = section.settings.heading | strip_html | escape
-  endif
-
-  assign show_cta = false
-  if section.settings.button_label != blank and section.settings.button_link != blank
-    assign show_cta = true
-  endif
--%}
-
 {% render 'sp-section-hierarchy-open', section: section, anchor_id: 'sp-quality', extra_class: shell_class %}
-  <div
-    class="{{ root_class }}"
-    {% if section.settings.heading != blank %}
-      aria-label="{{ section.settings.heading | strip_html | escape }}"
-    {% else %}
-      aria-label="Quality standards"
-    {% endif %}
-  >
-    {%- if section.settings.show_top_divider -%}
-      <div class="sp-quality-standards__chapter-divider" aria-hidden="true"></div>
-    {%- endif -%}
+  {%- if presentation == 'scientific_confidence' -%}
+    {%- liquid
+      assign scientific_root_class = 'sp-quality-standards sp-quality-standards--scientific-confidence sp-editorial-chapter sp-editorial-chapter--spacing-standard sp-editorial-chapter--handoff-in sp-editorial-chapter--handoff-out'
+      if section.settings.show_process_numbers
+        assign scientific_root_class = scientific_root_class | append: ' sp-quality-standards--show-process-numbers'
+      endif
+    -%}
+    <div
+      class="{{ scientific_root_class }}"
+      {% if section.settings.heading != blank %}
+        aria-label="{{ section.settings.heading | strip_html | escape }}"
+      {% else %}
+        aria-label="Scientific confidence"
+      {% endif %}
+    >
+      {%- if section.settings.show_top_divider -%}
+        <div class="sp-quality-standards__chapter-divider" aria-hidden="true"></div>
+      {%- endif -%}
 
-    <div class="sp-quality-standards__composition{% render 'sp-motion-class', type: 'stagger' %}" data-sp-stagger>
-      <div class="sp-quality-standards__story">
-        <header class="sp-quality-standards__story-copy{% render 'sp-motion-class', type: 'stagger-item' %}">
-          {%- if section.settings.eyebrow != blank -%}
-            <p class="sp-quality-standards__eyebrow caption-with-letter-spacing">
-              {{ section.settings.eyebrow | escape }}
-            </p>
-          {%- endif -%}
+      <header class="sp-quality-standards__evidence-intro{% render 'sp-motion-class', type: 'fade-up' %}">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="sp-quality-standards__eyebrow sp-editorial-type--caption caption-with-letter-spacing">
+            {{ section.settings.eyebrow | escape }}
+          </p>
+        {%- endif -%}
 
-          {%- if section.settings.heading != blank -%}
-            <h2 class="sp-quality-standards__heading{% render 'sp-motion-class', type: 'fade-up' %}">
-              {{ section.settings.heading }}
-            </h2>
-          {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="sp-quality-standards__statement sp-editorial-type--statement{% render 'sp-motion-class', type: 'fade-up' %}">
+            {{ section.settings.heading }}
+          </h2>
+        {%- endif -%}
 
-          {%- if section.settings.body != blank -%}
-            <div class="sp-quality-standards__body rte">
-              {{ section.settings.body }}
+        {%- if section.settings.body != blank -%}
+          <div class="sp-quality-standards__evidence-body rte">
+            {{ section.settings.body }}
+          </div>
+        {%- endif -%}
+      </header>
+
+      {%- if section.settings.image != blank -%}
+        <div class="sp-quality-standards__lab-evidence{% render 'sp-motion-class', type: 'fade-up' %}">
+          <div class="sp-quality-standards__lab-evidence-frame">
+            {{
+              section.settings.image
+              | image_url: width: 2400
+              | image_tag:
+                widths: '750, 1100, 1500, 1800, 2200, 2400',
+                sizes: '100vw',
+                alt: image_alt,
+                loading: 'eager',
+                fetchpriority: 'high',
+                class: 'sp-image sp-quality-standards__lab-evidence-image'
+            }}
+          </div>
+        </div>
+      {%- endif -%}
+
+      {%- if section.blocks.size > 0 -%}
+        <ol
+          class="sp-quality-standards__process-checkpoints{% render 'sp-motion-class', type: 'stagger' %}"
+          data-sp-stagger
+        >
+          {%- for block in section.blocks -%}
+            {%- liquid
+              assign title_stripped = block.settings.value | strip
+              assign text_stripped = block.settings.label | strip
+              assign meta_stripped = block.settings.detail | strip
+            -%}
+            {%- if title_stripped != blank or text_stripped != blank -%}
+              <li
+                class="sp-quality-standards__process-step{% render 'sp-motion-class', type: 'stagger-item' %}"
+                {{ block.shopify_attributes }}
+              >
+                {%- if section.settings.show_process_numbers -%}
+                  <span class="sp-quality-standards__process-index" aria-hidden="true">
+                    {%- if forloop.index < 10 -%}0{%- endif -%}{{ forloop.index }}
+                  </span>
+                {%- endif -%}
+                <div class="sp-quality-standards__process-copy">
+                  {%- if title_stripped != blank -%}
+                    <h3 class="sp-quality-standards__process-title">{{ title_stripped | escape }}</h3>
+                  {%- endif -%}
+                  {%- if text_stripped != blank -%}
+                    <p class="sp-quality-standards__process-text">{{ text_stripped | escape }}</p>
+                  {%- endif -%}
+                  {%- if meta_stripped != blank -%}
+                    <p class="sp-quality-standards__process-meta">{{ meta_stripped | escape }}</p>
+                  {%- endif -%}
+                </div>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ol>
+      {%- endif -%}
+
+      {%- if section.settings.supporting_text != blank -%}
+        <div class="sp-quality-standards__evidence-note rte{% render 'sp-motion-class', type: 'fade-up' %}">
+          {{ section.settings.supporting_text }}
+        </div>
+      {%- endif -%}
+
+      {%- if show_cta -%}
+        <div class="sp-quality-standards__footer sp-quality-standards__footer--quiet{% render 'sp-motion-class', type: 'fade-up' %}">
+          <a href="{{ section.settings.button_link }}" class="sp-quality-standards__button sp-editorial-cta sp-editorial-cta--quiet-link{% render 'sp-motion-class', type: 'hover-button' %}">
+            <span>{{ section.settings.button_label | escape }}</span>
+            <span class="sp-editorial-cta__arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      {%- endif -%}
+    </div>
+  {%- else -%}
+    {%- liquid
+      assign root_class = 'sp-quality-standards'
+      assign root_class = root_class | append: ' sp-quality-standards--top-spacing-' | append: section.settings.top_spacing
+      assign root_class = root_class | append: ' sp-quality-standards--bottom-spacing-' | append: section.settings.bottom_spacing
+    -%}
+    <div
+      class="{{ root_class }}"
+      {% if section.settings.heading != blank %}
+        aria-label="{{ section.settings.heading | strip_html | escape }}"
+      {% else %}
+        aria-label="Quality standards"
+      {% endif %}
+    >
+      {%- if section.settings.show_top_divider -%}
+        <div class="sp-quality-standards__chapter-divider" aria-hidden="true"></div>
+      {%- endif -%}
+
+      <div class="sp-quality-standards__composition{% render 'sp-motion-class', type: 'stagger' %}" data-sp-stagger>
+        <div class="sp-quality-standards__story">
+          <header class="sp-quality-standards__story-copy{% render 'sp-motion-class', type: 'stagger-item' %}">
+            {%- if section.settings.eyebrow != blank -%}
+              <p class="sp-quality-standards__eyebrow caption-with-letter-spacing">
+                {{ section.settings.eyebrow | escape }}
+              </p>
+            {%- endif -%}
+
+            {%- if section.settings.heading != blank -%}
+              <h2 class="sp-quality-standards__heading{% render 'sp-motion-class', type: 'fade-up' %}">
+                {{ section.settings.heading }}
+              </h2>
+            {%- endif -%}
+
+            {%- if section.settings.body != blank -%}
+              <div class="sp-quality-standards__body rte">
+                {{ section.settings.body }}
+              </div>
+            {%- endif -%}
+          </header>
+
+          {%- if section.settings.image != blank -%}
+            <div class="sp-quality-standards__media sp-quality-standards__media--mobile{% render 'sp-motion-class', type: 'stagger-item' %}">
+              <div class="sp-quality-standards__media-frame">
+                {{
+                  section.settings.image
+                  | image_url: width: 2400
+                  | image_tag:
+                    widths: '550, 750, 1100, 1500, 1800, 2200, 2400',
+                    sizes: '(min-width: 990px) calc((100vw - 8rem) / 2), 100vw',
+                    alt: image_alt,
+                    loading: 'lazy',
+                    class: 'sp-image sp-quality-standards__media-image'
+                }}
+              </div>
             </div>
           {%- endif -%}
-        </header>
+
+          <div class="sp-quality-standards__story-rest{% render 'sp-motion-class', type: 'stagger-item' %}">
+            {%- if section.blocks.size > 0 -%}
+              <ul class="sp-quality-standards__proof-list" role="list">
+                {%- for block in section.blocks -%}
+                  {%- if block.settings.value != blank or block.settings.label != blank -%}
+                    <li class="sp-quality-standards__proof-item" {{ block.shopify_attributes }}>
+                      <div class="sp-quality-standards__proof-content">
+                        {%- if block.settings.value != blank -%}
+                          <p class="sp-quality-standards__proof-value">{{ block.settings.value | escape }}</p>
+                        {%- endif -%}
+                        {%- if block.settings.label != blank -%}
+                          <p class="sp-quality-standards__proof-label">{{ block.settings.label | escape }}</p>
+                        {%- endif -%}
+                        {%- if block.settings.detail != blank -%}
+                          <p class="sp-quality-standards__proof-detail">{{ block.settings.detail | escape }}</p>
+                        {%- endif -%}
+                      </div>
+                    </li>
+                  {%- endif -%}
+                {%- endfor -%}
+              </ul>
+            {%- endif -%}
+
+            {%- if section.settings.supporting_text != blank -%}
+              <div class="sp-quality-standards__supporting rte{% render 'sp-motion-class', type: 'fade-up' %}">
+                {{ section.settings.supporting_text }}
+              </div>
+            {%- endif -%}
+
+            {%- if show_cta or section.settings.trust_text != blank -%}
+              <div class="sp-quality-standards__footer{% render 'sp-motion-class', type: 'fade-up' %}">
+                {%- if show_cta -%}
+                  <a href="{{ section.settings.button_link }}" class="sp-quality-standards__button button{% render 'sp-motion-class', type: 'hover-button' %}">
+                    <span>{{ section.settings.button_label | escape }}</span>
+                    <span class="sp-quality-standards__button-arrow" aria-hidden="true">→</span>
+                  </a>
+                {%- endif -%}
+
+                {%- if section.settings.trust_text != blank -%}
+                  {%- render 'sp-cta-trust-row',
+                    trust_text: section.settings.trust_text,
+                    wrapper_class: 'sp-quality-standards__trust-row'
+                  -%}
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          </div>
+        </div>
 
         {%- if section.settings.image != blank -%}
-          <div class="sp-quality-standards__media sp-quality-standards__media--mobile{% render 'sp-motion-class', type: 'stagger-item' %}">
+          <div class="sp-quality-standards__media sp-quality-standards__media--desktop{% render 'sp-motion-class', type: 'stagger-item' %}">
             <div class="sp-quality-standards__media-frame">
               {{
                 section.settings.image
@@ -110,74 +288,9 @@
             </div>
           </div>
         {%- endif -%}
-
-        <div class="sp-quality-standards__story-rest{% render 'sp-motion-class', type: 'stagger-item' %}">
-          {%- if section.blocks.size > 0 -%}
-            <ul class="sp-quality-standards__proof-list" role="list">
-              {%- for block in section.blocks -%}
-                {%- if block.settings.value != blank or block.settings.label != blank -%}
-                  <li class="sp-quality-standards__proof-item" {{ block.shopify_attributes }}>
-                    <div class="sp-quality-standards__proof-content">
-                      {%- if block.settings.value != blank -%}
-                        <p class="sp-quality-standards__proof-value">{{ block.settings.value | escape }}</p>
-                      {%- endif -%}
-                      {%- if block.settings.label != blank -%}
-                        <p class="sp-quality-standards__proof-label">{{ block.settings.label | escape }}</p>
-                      {%- endif -%}
-                      {%- if block.settings.detail != blank -%}
-                        <p class="sp-quality-standards__proof-detail">{{ block.settings.detail | escape }}</p>
-                      {%- endif -%}
-                    </div>
-                  </li>
-                {%- endif -%}
-              {%- endfor -%}
-            </ul>
-          {%- endif -%}
-
-          {%- if section.settings.supporting_text != blank -%}
-            <div class="sp-quality-standards__supporting rte{% render 'sp-motion-class', type: 'fade-up' %}">
-              {{ section.settings.supporting_text }}
-            </div>
-          {%- endif -%}
-
-          {%- if show_cta or section.settings.trust_text != blank -%}
-            <div class="sp-quality-standards__footer{% render 'sp-motion-class', type: 'fade-up' %}">
-              {%- if show_cta -%}
-                <a href="{{ section.settings.button_link }}" class="sp-quality-standards__button button{% render 'sp-motion-class', type: 'hover-button' %}">
-                  <span>{{ section.settings.button_label | escape }}</span>
-                  <span class="sp-quality-standards__button-arrow" aria-hidden="true">→</span>
-                </a>
-              {%- endif -%}
-
-              {%- if section.settings.trust_text != blank -%}
-                {%- render 'sp-cta-trust-row',
-                  trust_text: section.settings.trust_text,
-                  wrapper_class: 'sp-quality-standards__trust-row'
-                -%}
-              {%- endif -%}
-            </div>
-          {%- endif -%}
-        </div>
       </div>
-
-      {%- if section.settings.image != blank -%}
-        <div class="sp-quality-standards__media sp-quality-standards__media--desktop{% render 'sp-motion-class', type: 'stagger-item' %}">
-          <div class="sp-quality-standards__media-frame">
-            {{
-              section.settings.image
-              | image_url: width: 2400
-              | image_tag:
-                widths: '550, 750, 1100, 1500, 1800, 2200, 2400',
-                sizes: '(min-width: 990px) calc((100vw - 8rem) / 2), 100vw',
-                alt: image_alt,
-                loading: 'lazy',
-                class: 'sp-image sp-quality-standards__media-image'
-            }}
-          </div>
-        </div>
-      {%- endif -%}
     </div>
-  </div>
+  {%- endif -%}
 {% render 'sp-section-hierarchy-close' %}
 
 {% schema %}
@@ -190,6 +303,17 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+    {
+      "type": "select",
+      "id": "presentation",
+      "label": "Presentation",
+      "default": "split_editorial",
+      "options": [
+        { "value": "split_editorial", "label": "Split editorial" },
+        { "value": "scientific_confidence", "label": "Scientific confidence" }
+      ],
+      "info": "Scientific confidence is designed for manufacturing and testing chapters — documentary layout with process checkpoints."
+    },
     {
       "type": "text",
       "id": "eyebrow",
@@ -226,7 +350,8 @@
       "type": "richtext",
       "id": "supporting_text",
       "default": "<p>From sourcing to production, every step is designed to maintain consistency, transparency, and quality.</p>",
-      "label": "Supporting copy"
+      "label": "Supporting copy",
+      "info": "Evidence note in scientific confidence presentation."
     },
     {
       "type": "header",
@@ -246,11 +371,19 @@
     {
       "type": "text",
       "id": "trust_text",
-      "label": "Trust line"
+      "label": "Trust line",
+      "info": "Split editorial presentation only."
     },
     {
       "type": "header",
       "content": "Chapter layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_process_numbers",
+      "label": "Show process step numbers",
+      "default": true,
+      "info": "Scientific confidence presentation only."
     },
     {
       "type": "select",
@@ -382,18 +515,21 @@
           "type": "text",
           "id": "value",
           "default": "92%",
-          "label": "Primary value"
+          "label": "Primary value",
+          "info": "Checkpoint title in scientific confidence presentation."
         },
         {
           "type": "text",
           "id": "label",
           "default": "Customer satisfaction",
-          "label": "Label"
+          "label": "Label",
+          "info": "Process description in scientific confidence presentation."
         },
         {
           "type": "text",
           "id": "detail",
-          "label": "Supporting detail"
+          "label": "Supporting detail",
+          "info": "Optional evidence meta in scientific confidence presentation."
         }
       ]
     }
