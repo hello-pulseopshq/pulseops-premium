@@ -1,3 +1,10 @@
+{%- liquid
+  assign presentation = section.settings.presentation | default: 'auto'
+-%}
+{%- if presentation == 'future_self' -%}
+  {{ 'sp-cta-offer-future-self.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+{%- unless presentation == 'future_self' -%}
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -111,9 +118,13 @@
     }
   }
 {%- endstyle -%}
+{%- endunless -%}
 
 {% render 'sp-section-hierarchy-open', section: section %}
-    <div class="sp-cta-offer">
+    <div class="sp-cta-offer{% if presentation == 'future_self' %} sp-cta-offer--future-self{% endif %}">
+      {%- if presentation == 'future_self' -%}
+        {%- render 'sp-cta-offer-future-self', section: section -%}
+      {%- else -%}
       {%- liquid
         assign heading_stripped = section.settings.heading | strip_html | strip
         assign subheading_stripped = section.settings.subheading | strip_html | strip
@@ -183,6 +194,7 @@
           Add a heading and CTA button to display your offer.
         </div>
       {%- endif -%}
+      {%- endif -%}
     </div>
 {% render 'sp-section-hierarchy-close' %}
 
@@ -195,6 +207,22 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+    {
+      "type": "select",
+      "id": "presentation",
+      "label": "Presentation",
+      "default": "auto",
+      "options": [
+        { "value": "auto", "label": "Auto (offer card)" },
+        { "value": "future_self", "label": "Future self" }
+      ],
+      "info": "Future self is designed for aspirational editorial conversion finales."
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow"
+    },
     {
       "type": "inline_richtext",
       "id": "heading",
@@ -211,7 +239,14 @@
       "type": "text",
       "id": "offer_text",
       "default": "From $49 — free shipping included",
-      "label": "Offer text"
+      "label": "Offer text",
+      "info": "Offer card: prominent. Future self: secondary detail line."
+    },
+    {
+      "type": "text",
+      "id": "price_text",
+      "label": "Price text",
+      "info": "Future self presentation only. Quiet price line; falls back to Offer text if blank."
     },
     {
       "type": "text",
@@ -229,6 +264,28 @@
       "id": "reassurance_text",
       "default": "30-day money back guarantee",
       "label": "Reassurance text"
+    },
+    {
+      "type": "header",
+      "content": "Future self"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Aspirational image",
+      "info": "Future self presentation only."
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alt text",
+      "info": "Future self presentation only."
+    },
+    {
+      "type": "text",
+      "id": "trust_note",
+      "label": "Trust note",
+      "info": "Quiet secondary trust line. Future self presentation only."
     },
     {
       "type": "header",
@@ -268,7 +325,8 @@
         }
       ],
       "default": "gradient",
-      "label": "Card style"
+      "label": "Card style",
+      "info": "Used when Presentation is Auto."
     },
 {
     "type": "header",

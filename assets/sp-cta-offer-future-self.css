@@ -1,0 +1,227 @@
+/**
+ * SP CTA Offer — Future self cinematic finale
+ * Reusable across vertical demos (.sp-cta-offer--future-self).
+ *
+ * Frame sizing uses aspect-ratio on the canvas (width-proportional height).
+ * Desktop: full-bleed 16:9 cinematic finale. Mobile: portrait-leaning 5:6. */
+
+.sp-cta-offer--future-self {
+  --sp-fs-panel-max: 28rem;
+  --sp-fs-gap: clamp(1.15rem, 1.8vw, 1.55rem);
+}
+
+.sp-cta-offer--future-self .sp-cta-offer__future-self {
+  width: 100%;
+}
+
+.sp-cta-offer--future-self .sp-cta-offer__future-self-canvas {
+  position: relative;
+  display: grid;
+  align-items: end;
+  width: 100%;
+  max-width: 100%;
+  margin-inline: auto;
+  aspect-ratio: 5 / 6;
+  height: auto;
+  min-height: 0;
+  max-height: 82vh;
+  overflow: hidden;
+  border-radius: 0;
+  isolation: isolate;
+}
+
+.sp-cta-offer--future-self .sp-cta-offer__future-self-media {
+  position: absolute;
+  inset: 0;
+}
+
+.sp-cta-offer--future-self .sp-cta-offer__future-self-image,
+.sp-cta-offer--future-self .sp-cta-offer__future-self-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 50%;
+}
+
+.sp-cta-offer--future-self .sp-cta-offer__future-self-image.sp-image {
+  position: absolute;
+  inset: 0;
+}
+
+.sp-cta-offer--future-self .sp-cta-offer__future-self-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(8, 14, 12, 0) 0%,
+      rgba(8, 14, 12, 0.03) 50%,
+      rgba(8, 14, 12, 0.18) 82%,
+      rgba(8, 14, 12, 0.3) 100%
+    );
+  pointer-events: none;
+}
+
+.sp-cta-offer--future-self .sp-cta-offer__future-self-panel {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: var(--sp-fs-gap);
+  width: 100%;
+  max-width: var(--sp-fs-panel-max);
+  padding: 0;
+  margin: 0 clamp(1.2rem, 3vw, 2rem) clamp(1.5rem, 3.5vw, 2.75rem);
+  border: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+.sp-cta-offer--future-self .sp-cta-offer__future-self-eyebrow {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.sp-cta-offer--future-self .sp-cta-offer__future-self-headline {
+  margin: 0;
+  max-width: 12ch;
+  font-size: clamp(2.05rem, 3.4vw, 2.85rem);
+  font-weight: 650;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  color: rgba(255, 255, 255, 0.96);
+  text-shadow: 0 0.12rem 0.85rem rgba(8, 14, 12, 0.28);
+}
+
+.sp-cta-offer--future-self .sp-cta-offer__future-self-headline p {
+  margin: 0;
+}
+
+.sp-cta-offer--future-self .sp-cta-offer__future-self-support {
+  margin: 0;
+  max-width: 30ch;
+  font-size: clamp(1rem, 0.98vw, 1.1rem);
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.sp-cta-offer--future-self .sp-cta-offer__future-self-support p {
+  margin: 0;
+}
+
+.sp-cta-offer--future-self .sp-cta-offer__future-self-actions {
+  padding-top: 0.1rem;
+}
+
+.sp-cta-offer--future-self .sp-cta-offer__future-self-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 4.4rem;
+  padding-inline: 2rem;
+  font-size: clamp(1.18rem, 1.05vw, 1.3rem);
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: none;
+}
+
+.sp-cta-offer--future-self .sp-cta-offer__future-self-foot {
+  margin: 0;
+  max-width: 32ch;
+  font-size: clamp(0.9rem, 0.86vw, 0.98rem);
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.58);
+  text-shadow: 0 0.08rem 0.55rem rgba(8, 14, 12, 0.22);
+}
+
+@media screen and (min-width: 750px) {
+  .sp-cta-offer--future-self {
+    --sp-fs-panel-max: 30rem;
+  }
+
+  .sp-cta-offer--future-self .sp-cta-offer__future-self-canvas {
+    aspect-ratio: 16 / 9;
+    max-height: none;
+  }
+
+  .sp-cta-offer--future-self .sp-cta-offer__future-self-scrim {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(8, 14, 12, 0) 0%,
+        rgba(8, 14, 12, 0.02) 55%,
+        rgba(8, 14, 12, 0.12) 100%
+      ),
+      linear-gradient(
+        90deg,
+        rgba(8, 14, 12, 0.22) 0%,
+        rgba(8, 14, 12, 0.08) 20%,
+        transparent 42%
+      );
+  }
+
+  .sp-cta-offer--future-self .sp-cta-offer__future-self-panel {
+    justify-self: start;
+    margin: 0 0 clamp(2rem, 4.5vw, 3.75rem) clamp(2rem, 5.5vw, 6rem);
+  }
+
+  .sp-cta-offer--future-self .sp-cta-offer__future-self-button {
+    width: auto;
+    min-width: 17.5rem;
+  }
+
+  .sp-cta-offer--future-self .sp-cta-offer__future-self-image,
+  .sp-cta-offer--future-self .sp-cta-offer__future-self-media img {
+    object-position: center 48%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .sp-cta-offer--future-self .sp-cta-offer__future-self-canvas {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    max-height: none;
+  }
+
+  .sp-cta-offer--future-self .sp-cta-offer__future-self-image,
+  .sp-cta-offer--future-self .sp-cta-offer__future-self-media img {
+    object-position: center 48%;
+  }
+
+  .sp-cta-offer--future-self .sp-cta-offer__future-self-panel {    margin-left: clamp(2.5rem, 7vw, 7.5rem);
+    margin-bottom: clamp(2.25rem, 4.5vw, 3.5rem);
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .sp-cta-offer--future-self {
+    --sp-fs-panel-max: none;
+  }
+
+  .sp-cta-offer--future-self .sp-cta-offer__future-self-headline {
+    max-width: 11ch;
+    font-size: clamp(1.95rem, 6.8vw, 2.55rem);
+  }
+
+  .sp-cta-offer--future-self .sp-cta-offer__future-self-panel {
+    margin-bottom: clamp(1.5rem, 5vw, 2.25rem);
+  }
+
+  .sp-cta-offer--future-self .sp-cta-offer__future-self-image,
+  .sp-cta-offer--future-self .sp-cta-offer__future-self-media img {
+    object-position: 58% 46%;
+  }
+
+  .sp-cta-offer--future-self .sp-cta-offer__future-self-scrim {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(8, 14, 12, 0) 0%,
+        rgba(8, 14, 12, 0.05) 45%,
+        rgba(8, 14, 12, 0.2) 76%,
+        rgba(8, 14, 12, 0.32) 100%
+      );
+  }
+}

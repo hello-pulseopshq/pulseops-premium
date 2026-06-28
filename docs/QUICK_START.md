@@ -11,8 +11,10 @@ SP Core is a **hero-product theme** — built for brands with a primary offer an
 
 ```bash
 shopify theme pull   # or clone this repository
-shopify theme dev
+shopify theme dev --theme 183028121915
 ```
+
+Canonical QA theme: **PulseOps Supplement Demo** `#183028121915`. See [CANONICAL-QA-THEME.md](./CANONICAL-QA-THEME.md).
 
 ## Default templates
 
@@ -63,7 +65,7 @@ Flagship demo stores can apply a vertical-specific **shell** (announcement bar, 
 ```bash
 node scripts/apply-demo-shell.mjs supplement
 node scripts/setup-hero-product-menus-api.mjs supplement   # or manual from config/menus/
-shopify theme push --only sections/header-group.json sections/footer-group.json
+shopify theme push --theme 183028121915 --only sections/header-group.json sections/footer-group.json
 ```
 
 Restore core defaults:

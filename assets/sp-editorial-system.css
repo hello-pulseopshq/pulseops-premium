@@ -879,3 +879,77 @@
     line-height: 0.98;
   }
 }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Future Self — Editorial finale presentation (supplement demo)
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.sp-demo-supplement .shopify-section:has(.sp-cta-offer--future-self) {
+  background: transparent;
+}
+
+.sp-demo-supplement .shopify-section:has(.sp-cta-offer--future-self) > .sp-section {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.sp-demo-supplement .sp-section--surface-default:has(.sp-cta-offer--future-self),
+.sp-demo-supplement .sp-section--surface-alternate:has(.sp-cta-offer--future-self) {
+  background: transparent;
+}
+
+.sp-demo-supplement .sp-cta-offer__future-self-canvas {
+  border-radius: 0;
+}
+
+.sp-demo-supplement .sp-section--width-bleed:has(.sp-cta-offer--future-self) .sp-section__inner--bleed,
+.sp-demo-supplement .sp-section--width-full:has(.sp-cta-offer--future-self) .sp-section__inner--full {
+  padding-inline: 0;
+}
+
+.sp-demo-supplement .sp-cta-offer__future-self-headline,
+.sp-demo-supplement .sp-cta-offer__future-self-headline p {
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.96);
+}
+
+.sp-demo-supplement .sp-cta-offer__future-self-support,
+.sp-demo-supplement .sp-cta-offer__future-self-support p {
+  font-family: var(--sp-font-body, var(--font-body-family));
+}
+
+.sp-demo-supplement .sp-cta-offer__future-self-image,
+.sp-demo-supplement .sp-cta-offer__future-self-media img {
+  object-position: center 50%;
+}
+
+.sp-demo-supplement .sp-cta-offer__future-self-button.sp-editorial-cta--primary {
+  background: rgba(var(--sp-supplement-cream, var(--color-background)), 0.94);
+  color: rgb(var(--sp-supplement-green-deep, var(--color-foreground)));
+  border: 0.1rem solid rgba(var(--sp-supplement-cream, var(--color-background)), 0.35);
+  backdrop-filter: blur(0.4rem);
+}
+
+.sp-demo-supplement .sp-cta-offer__future-self-button.sp-editorial-cta--primary:hover,
+.sp-demo-supplement .sp-cta-offer__future-self-button.sp-editorial-cta--primary:focus-visible {
+  background: rgb(var(--sp-supplement-cream, var(--color-background)));
+  color: rgb(var(--sp-supplement-green-deep, var(--color-foreground)));
+}
+
+.sp-demo-supplement .sp-cta-offer__future-self-foot {
+  font-family: var(--sp-font-body, var(--font-body-family));
+  color: rgba(255, 255, 255, 0.54);
+}
+
+.sp-demo-supplement #sp-cta {
+  scroll-margin-top: 6rem;
+}
+
+@media screen and (max-width: 749px) {
+  .sp-demo-supplement .sp-cta-offer__future-self-headline,
+  .sp-demo-supplement .sp-cta-offer__future-self-headline p {
+    font-size: clamp(1.9rem, 6.6vw, 2.45rem);
+    line-height: 1.02;
+  }
+}

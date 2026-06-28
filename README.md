@@ -21,6 +21,7 @@ PulseOps SP Core (Single Product OS) gives merchants a ready-made product narrat
 |---------|-----|--------|
 | **SP Core v1.0** | [`sp-core-v1.0`](https://github.com/hello-pulseopshq/pulseops-premium/releases/tag/sp-core-v1.0) | `912e196` |
 | **Demo Presets v1** | [`demo-presets-v1-release`](https://github.com/hello-pulseopshq/pulseops-premium/releases/tag/demo-presets-v1-release) | `7109c52` |
+| **Supplement Editorial v2** | [`supplement-editorial-v2`](https://github.com/hello-pulseopshq/pulseops-premium/releases/tag/supplement-editorial-v2) | (this release) |
 
 Details: [docs/RELEASES.md](docs/RELEASES.md)
 
@@ -34,15 +35,19 @@ Details: [docs/RELEASES.md](docs/RELEASES.md)
 | [docs/DEMO_PRESETS.md](docs/DEMO_PRESETS.md) | Vertical demo templates |
 | [docs/BETA_PROGRAM.md](docs/BETA_PROGRAM.md) | Merchant beta plan |
 | [docs/RELEASES.md](docs/RELEASES.md) | Release history |
+| [docs/CANONICAL-QA-THEME.md](docs/CANONICAL-QA-THEME.md) | Canonical Shopify QA theme (#183028121915) |
+| [docs/editorial-art-direction.md](docs/editorial-art-direction.md) | Editorial art direction system |
 
 ## Development
 
 Requires [Shopify CLI](https://shopify.dev/docs/themes/tools/cli).
 
+**Canonical QA theme:** PulseOps Supplement Demo `#183028121915` — see [docs/CANONICAL-QA-THEME.md](docs/CANONICAL-QA-THEME.md).
+
 ```bash
 git clone https://github.com/hello-pulseopshq/pulseops-premium.git
 cd pulseops-premium
-shopify theme dev
+shopify theme dev --theme 183028121915
 ```
 
 Validate with:

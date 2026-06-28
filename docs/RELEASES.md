@@ -56,6 +56,21 @@ Concise checkpoints for PulseOps SP Core and demo presets.
 
 ---
 
+## Supplement Editorial v2 (Future Self)
+
+| Field | Value |
+|-------|-------|
+| **Tag** | `supplement-editorial-v2` |
+| **Commit** | (see tag) |
+| **Date** | 2026-06-20 |
+| **Branch** | `main` |
+
+**Summary:** Future Self cinematic CTA finale for supplement homepage — `presentation: future_self`, clean asset, 16:9 desktop frame, zero top gap, no transactional foot line. Editorial art direction doc and canonical QA theme `#183028121915` established.
+
+**Includes:** `assets/sp-cta-offer-future-self.css`, `snippets/sp-cta-offer-future-self.liquid`, `sections/sp-cta-offer.liquid`, `templates/index.supplement.json`, `assets/sp-editorial-system.css`, `docs/editorial-art-direction.md`, `docs/CANONICAL-QA-THEME.md`.
+
+---
+
 ## Legacy tags
 
 | Tag | Commit | Purpose |
@@ -71,4 +86,5 @@ Concise checkpoints for PulseOps SP Core and demo presets.
 | `sp-core-v1.0` | `912e196` | **Current** SP Core production freeze |
 | `demo-presets-v1-release` | `7109c52` | **Current** demo presets release |
 | `supplement-hero-frozen-v1` | `5d939af` | **Current** Supplement Demo hero freeze |
+| `supplement-editorial-v2` | (see tag) | **Current** Future Self + editorial presentation |
 | `SP-Core-Freeze-v1` | `6fcf32b` | Legacy architecture-only freeze |

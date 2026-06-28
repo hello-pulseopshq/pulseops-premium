@@ -1,0 +1,110 @@
+{%- comment -%}
+  Future self — cinematic editorial conversion finale.
+
+  Accepts:
+  - section: {Object} parent section
+{%- endcomment -%}
+
+{%- liquid
+  assign eyebrow_stripped = section.settings.eyebrow | strip
+  assign heading_stripped = section.settings.heading | strip_html | strip
+  assign subheading_stripped = section.settings.subheading | strip_html | strip
+  assign offer_stripped = section.settings.offer_text | strip
+  assign price_stripped = section.settings.price_text | strip
+  assign button_label_stripped = section.settings.button_label | strip
+  assign reassurance_stripped = section.settings.reassurance_text | strip
+  assign trust_note_stripped = section.settings.trust_note | strip
+
+  if price_stripped == blank and offer_stripped != blank
+    assign price_stripped = offer_stripped
+    assign offer_stripped = ''
+  endif
+
+  assign foot_note = ''
+  if price_stripped != blank
+    assign foot_note = price_stripped
+  endif
+  if reassurance_stripped != blank
+    if foot_note != blank
+      assign foot_note = foot_note | append: ' · ' | append: reassurance_stripped
+    else
+      assign foot_note = reassurance_stripped
+    endif
+  endif
+  if trust_note_stripped != blank
+    if foot_note != blank
+      assign foot_note = foot_note | append: ' · ' | append: trust_note_stripped
+    else
+      assign foot_note = trust_note_stripped
+    endif
+  endif
+
+  assign image_alt = section.settings.image_alt | strip
+  if image_alt == blank and section.settings.image != blank
+    assign image_alt = section.settings.image.alt | escape
+  endif
+  if image_alt == blank
+    assign image_alt = 'Couple enjoying their daily wellness ritual' | escape
+  endif
+-%}
+
+<div class="sp-cta-offer__future-self sp-editorial-chapter sp-editorial-chapter--spacing-cinematic sp-editorial-chapter--handoff-in">
+  <div class="sp-cta-offer__future-self-canvas{% render 'sp-motion-class', type: 'fade-up' %}">
+    {%- if section.settings.image != blank -%}
+      <div class="sp-cta-offer__future-self-media">
+        {{
+          section.settings.image
+          | image_url: width: 2400
+          | image_tag:
+            widths: '550, 750, 1100, 1500, 1800, 2200, 2400',
+            sizes: '100vw',
+            alt: image_alt,
+            loading: 'eager',
+            fetchpriority: 'high',
+            class: 'sp-image sp-cta-offer__future-self-image'
+        }}
+      </div>
+    {%- endif -%}
+
+    <div class="sp-cta-offer__future-self-scrim" aria-hidden="true"></div>
+
+    <div class="sp-cta-offer__future-self-panel">
+      {%- if eyebrow_stripped != blank -%}
+        <p class="sp-cta-offer__future-self-eyebrow sp-editorial-type--caption caption-with-letter-spacing">
+          {{ section.settings.eyebrow | escape }}
+        </p>
+      {%- endif -%}
+
+      {%- if heading_stripped != blank -%}
+        <h2 class="sp-cta-offer__future-self-headline sp-editorial-type--statement">
+          {{ section.settings.heading }}
+        </h2>
+      {%- endif -%}
+
+      {%- if subheading_stripped != blank -%}
+        <div class="sp-cta-offer__future-self-support rte">
+          {{ section.settings.subheading }}
+        </div>
+      {%- endif -%}
+
+      {%- if button_label_stripped != blank -%}
+        <div class="sp-cta-offer__future-self-actions">
+          <a
+            {% if section.settings.button_link == blank %}
+              role="link" aria-disabled="true"
+            {% else %}
+              href="{{ section.settings.button_link }}"
+            {% endif %}
+            class="sp-cta-offer__future-self-button sp-editorial-cta sp-editorial-cta--primary{% render 'sp-motion-class', type: 'hover-button' %}"
+          >
+            {{ section.settings.button_label | escape }}
+          </a>
+        </div>
+      {%- endif -%}
+
+      {%- if foot_note != blank -%}
+        <p class="sp-cta-offer__future-self-foot">{{ foot_note | escape }}</p>
+      {%- endif -%}
+    </div>
+  </div>
+</div>

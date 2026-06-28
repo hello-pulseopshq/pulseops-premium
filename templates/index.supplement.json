@@ -684,19 +684,27 @@
     "sp-cta-offer": {
       "type": "sp-cta-offer",
       "settings": {
-        "heading": "Ready to upgrade your daily routine?",
-        "subheading": "<p>Join 35k+ customers who start their mornings with Daily Vitality Complex.</p>",
-        "offer_text": "$49.95 · Free shipping included",
+        "presentation": "future_self",
+        "eyebrow": "",
+        "heading": "Begin with one simple daily ritual.",
+        "subheading": "",
+        "image": "shopify://shop_images/Couple_Wellness_Lifestyle.png",
+        "image_alt": "Couple enjoying their daily wellness ritual together at sunset",
+        "offer_text": "",
+        "price_text": "",
         "button_label": "Start your daily routine",
         "button_link": "/products/daily-vitality-complex?view=supplement",
-        "reassurance_text": "30-day money-back guarantee",
-        "show_badge": true,
-        "badge_text": "Most popular plan",
+        "reassurance_text": "",
+        "trust_note": "",
+        "show_badge": false,
+        "badge_text": "",
         "card_style": "gradient",
-        "sp_surface_style": "inverse",
-        "sp_section_emphasis": "feature",
-        "padding_top": 64,
-        "padding_bottom": 80
+        "sp_surface_style": "default",
+        "sp_width_mode": "bleed",
+        "sp_section_emphasis": "normal",
+        "sp_divider_style": "none",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     }
   },
