@@ -305,6 +305,28 @@
   filter: none;
 }
 
+/* Sprint 7.1b — outcomes cards: editorial list, not widget grid */
+.sp-demo-supplement .sp-editorial-outcomes__card {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  padding: 0;
+  min-height: 0;
+  gap: 0.45rem;
+}
+
+.sp-demo-supplement .sp-editorial-outcomes__card-icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  opacity: 0.72;
+}
+
+.sp-demo-supplement .sp-editorial-outcomes__cards {
+  gap: clamp(1.2rem, 1.8vw, 1.65rem);
+}
+
 /* ══════════════════════════════════════════════════════════════════════════
    Ingredients Spotlight — cinematic image-led chapter (supplement demo)
    ══════════════════════════════════════════════════════════════════════════ */
@@ -599,7 +621,9 @@
 }
 
 .sp-demo-supplement .sp-metrics--editorial-story .sp-metrics__proof-moments {
-  border-top-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.1);
+  border-top: none;
+  padding-top: clamp(0.35rem, 0.6vw, 0.55rem);
+  gap: clamp(1.35rem, 2.4vw, 2.8rem);
 }
 
 .sp-demo-supplement .sp-metrics--editorial-story .sp-metrics__proof-value {
@@ -615,7 +639,8 @@
 }
 
 .sp-demo-supplement .sp-metrics--editorial-story .sp-metrics__proof-moment + .sp-metrics__proof-moment {
-  border-left-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.1);
+  border-left: none;
+  padding-left: 0;
 }
 
 .sp-demo-supplement .sp-metrics--editorial-story .sp-metrics__assurance {
@@ -665,11 +690,12 @@
 }
 
 .sp-demo-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-checkpoints {
-  border-top-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.1);
+  border-top: none;
+  padding-top: clamp(0.35rem, 0.6vw, 0.55rem);
 }
 
 .sp-demo-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-step {
-  border-bottom-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.08);
+  border-bottom-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.06);
 }
 
 .sp-demo-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-index {
@@ -704,7 +730,8 @@
 
 @media screen and (min-width: 990px) {
   .sp-demo-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-step + .sp-quality-standards__process-step {
-    border-left-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.1);
+    border-left: none;
+    padding-left: 0;
   }
 }
 
@@ -773,7 +800,8 @@
 }
 
 .sp-demo-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__principle + .sp-editorial-differentiation__principle {
-  border-left-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.1);
+  border-left: none;
+  padding-left: 0;
 }
 
 .sp-demo-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__philosophy-closer {
@@ -799,7 +827,8 @@
 
 @media screen and (max-width: 749px) {
   .sp-demo-supplement .sp-metrics--editorial-story .sp-metrics__proof-moment:nth-child(n + 3) {
-    border-top-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.08);
+    border-top: none;
+    padding-top: 0;
   }
 }
 
@@ -866,6 +895,24 @@
 
 .sp-demo-supplement #sp-faq {
   padding-top: clamp(1.15rem, 1.6vw, 1.45rem);
+}
+
+.sp-demo-supplement .sp-faq__heading {
+  font-size: clamp(2rem, 2.4vw, 2.35rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  max-width: none;
+  margin-inline: 0;
+}
+
+.sp-demo-supplement .sp-faq__header--left {
+  text-align: left;
+}
+
+.sp-demo-supplement .sp-faq__item {
+  background: transparent;
+  border-radius: 0;
+  border-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.08);
 }
 
 @media screen and (max-width: 749px) {

@@ -401,85 +401,32 @@ html.sp-demo-supplement .sp-hero .sp-hero__eyebrow::before {
   }
 }
 
+.sp-demo-supplement .shopify-section-group-header-group .announcement-bar-section {
+  display: none !important;
+}
+
 .sp-demo-supplement .sp-hero__announcement {
   display: none !important;
 }
 
-.sp-demo-supplement .sp-hero__social-proof {
-  display: flex !important;
-  align-items: center;
-  gap: 0.85rem;
-  margin: 0;
-  padding: 0 !important;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
+/* Proof-reduced hero — product owns; social/float/trust removed via template settings */
+.sp-demo-supplement .sp-hero__float-cards {
+  display: none !important;
 }
 
-.sp-demo-supplement .sp-hero__social-meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.2rem 0.35rem;
+.sp-demo-supplement .sp-hero__headline--highlight-none strong,
+.sp-demo-supplement .sp-hero__headline--highlight-none em,
+.sp-demo-supplement .sp-hero__headline--highlight-none mark,
+html.sp-demo-supplement .sp-hero .sp-hero__headline--highlight-none strong,
+html.sp-demo-supplement .sp-hero .sp-hero__headline--highlight-none em,
+html.sp-demo-supplement .sp-hero .sp-hero__headline--highlight-none mark {
+  color: inherit !important;
+  -webkit-text-fill-color: inherit !important;
+  font-weight: inherit !important;
 }
 
-.sp-demo-supplement .sp-hero__social-rating + .sp-hero__social-reviews::before {
-  content: ' · ';
-  font-weight: 600;
-}
-
-html.sp-demo-supplement .sp-hero .sp-hero__social-proof-stars,
-.sp-demo-supplement .sp-hero__social-proof-stars {
-  font-size: 1.3rem !important;
-  font-weight: 600 !important;
-  line-height: 1.2 !important;
-  letter-spacing: 0.04em !important;
-  color: rgb(var(--sp-supplement-gold)) !important;
-}
-
-html.sp-demo-supplement .sp-hero .sp-hero__social-rating,
-html.sp-demo-supplement .sp-hero .sp-hero__social-reviews,
-html.sp-demo-supplement .sp-hero .sp-hero__social-customers,
-html.sp-demo-supplement .sp-hero .sp-hero__social-text,
-.sp-demo-supplement .sp-hero__social-rating,
-.sp-demo-supplement .sp-hero__social-reviews,
-.sp-demo-supplement .sp-hero__social-customers,
-.sp-demo-supplement .sp-hero__social-text {
-  font-size: var(--sp-hero-trust-line-size, 1.32rem) !important;
-  font-weight: 600 !important;
-  line-height: 1.35 !important;
-  letter-spacing: 0 !important;
-  color: rgba(var(--sp-hero-body-ink), 0.88) !important;
-}
-
-html.sp-demo-supplement .sp-hero .sp-hero__benefit,
-html.sp-demo-supplement .sp-hero .sp-hero__benefit.caption,
-.sp-demo-supplement .sp-hero .sp-hero__benefit,
-.sp-demo-supplement .sp-hero__benefit.caption {
-  font-size: 1.22rem !important;
-  line-height: 1.3 !important;
-  letter-spacing: 0 !important;
-  color: rgba(var(--sp-hero-body-ink), 0.88) !important;
-  font-weight: 600 !important;
-  background: rgba(var(--sp-supplement-card), 0.72) !important;
-  border: 0.1rem solid rgba(var(--sp-supplement-green), 0.09) !important;
-  box-shadow: none !important;
-}
-
-html.sp-demo-supplement .sp-hero .sp-hero__trust-stack-item,
-.sp-demo-supplement .sp-hero__trust-stack-item,
-html.sp-demo-supplement .sp-cta-trust-row__item,
-.sp-demo-supplement .sp-cta-trust-row__item {
-  font-size: var(--sp-hero-trust-line-size, 1.32rem) !important;
-  line-height: 1.45 !important;
-  font-weight: 600 !important;
-  letter-spacing: 0 !important;
-  color: rgba(var(--sp-hero-body-ink), 0.82) !important;
-}
-
-html.sp-demo-supplement .sp-cta-trust-row__icon svg,
-.sp-demo-supplement .sp-cta-trust-row__icon svg {
-  stroke: rgba(var(--sp-hero-body-ink), 0.72) !important;
+.sp-demo-supplement .sp-hero__content {
+  gap: clamp(1.5rem, 2.1vw, 2.25rem);
 }
 
 /* ── CTA pill (neutral shadow, no Dawn pseudo layers) ── */
@@ -552,10 +499,10 @@ html.sp-demo-supplement .sp-hero .sp-hero__button.button:hover .sp-hero__button-
   transform: translateX(0.2rem);
 }
 
-/* ── Review float card ── */
+/* ── Review float card (disabled for proof-reduced supplement demo via settings) ── */
 
 .sp-demo-supplement .sp-hero__float-cards {
-  display: block !important;
+  display: none !important;
 }
 
 .sp-demo-supplement .sp-hero__float-cards--glass .sp-hero__float-card {

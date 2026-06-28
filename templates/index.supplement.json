@@ -24,33 +24,33 @@
         "benefit-chip-1": {
           "type": "benefit_chip",
           "settings": {
-            "benefit_text": "Science-backed formula"
+            "benefit_text": ""
           }
         },
         "benefit-chip-2": {
           "type": "benefit_chip",
           "settings": {
-            "benefit_text": "Free shipping"
+            "benefit_text": ""
           }
         },
         "benefit-chip-3": {
           "type": "benefit_chip",
           "settings": {
-            "benefit_text": "35k+ customers supported"
+            "benefit_text": ""
           }
         },
         "cta-trust-1": {
           "type": "cta_trust_item",
           "settings": {
             "icon": "guarantee",
-            "text": "30-day money-back guarantee"
+            "text": ""
           }
         },
         "cta-trust-2": {
           "type": "cta_trust_item",
           "settings": {
             "icon": "secure",
-            "text": "Secure checkout"
+            "text": ""
           }
         }
       },
@@ -62,22 +62,22 @@
         "cta-trust-2"
       ],
       "settings": {
-        "show_announcement": true,
+        "show_announcement": false,
         "announcement_text": "Subscribe & save 15% · Free shipping on every order →",
         "eyebrow_text": "Premium daily nutrition",
         "headline": "Daily <strong>wellness</strong>, simplified.",
         "subheadline": "A science-backed daily formula designed to support steady energy, digestion, recovery, and everyday vitality.",
         "badge_text": "",
         "heading_size": "hxl",
-        "headline_highlight_style": "gradient",
+        "headline_highlight_style": "none",
         "featured_product": "daily-vitality-complex",
         "price_source": "custom",
         "price_text": "",
-        "show_social_proof": true,
+        "show_social_proof": false,
         "social_proof_text": "",
-        "show_social_rating": true,
+        "show_social_rating": false,
         "social_rating_value": "4.9★",
-        "show_social_review_count": true,
+        "show_social_review_count": false,
         "social_review_count": "8.4k+ verified reviews",
         "show_social_customer_count": false,
         "show_social_avatars": false,
@@ -85,11 +85,11 @@
         "cta_type": "custom_link",
         "cta_label": "Start your 30-day routine",
         "cta_link": "/products/daily-vitality-complex?view=supplement",
-        "show_cta_trust_stack": true,
+        "show_cta_trust_stack": false,
         "show_trust_microcopy": false,
         "show_hero_stats": false,
         "floating_card_style": "glass",
-        "show_floating_review": true,
+        "show_floating_review": false,
         "floating_review_rating": 5,
         "floating_review_text": "Steady energy without the afternoon crash.",
         "floating_review_author": "Sarah M.",
@@ -156,19 +156,19 @@
         "eyebrow": "Designed for modern wellness",
         "heading": "<p>One habit.<br>Four outcomes.</p>",
         "body": "<p>Not another supplement. A daily system that supports energy, focus and recovery in one simple habit.</p>",
-        "stat_1_value": "35k+",
-        "stat_1_label": "Customers supported",
-        "stat_2_value": "4.9★",
-        "stat_2_label": "Average rating",
-        "button_label": "Start your daily routine",
+        "stat_1_value": "",
+        "stat_1_label": "",
+        "stat_2_value": "",
+        "stat_2_label": "",
+        "button_label": "",
         "button_link": "/products/daily-vitality-complex?view=supplement",
-        "trust_text": "30-day money-back guarantee · Secure checkout",
+        "trust_text": "",
         "top_spacing": "small",
         "bottom_spacing": "large",
         "show_top_divider": false,
         "background_tone": "soft",
-        "show_card_numbers": true,
-        "show_cta_divider": true,
+        "show_card_numbers": false,
+        "show_cta_divider": false,
         "mobile_card_layout": "auto",
         "sp_surface_style": "default",
         "sp_width_mode": "wide",
@@ -185,19 +185,19 @@
         "trust-1": {
           "type": "trust_point",
           "settings": {
-            "text": "Clinically studied ingredients"
+            "text": ""
           }
         },
         "trust-2": {
           "type": "trust_point",
           "settings": {
-            "text": "Effective doses, not fillers"
+            "text": ""
           }
         },
         "trust-3": {
           "type": "trust_point",
           "settings": {
-            "text": "Third-party tested for purity"
+            "text": ""
           }
         },
         "ingredient-1": {
@@ -310,8 +310,8 @@
         "button_label": "See full formula & amounts",
         "button_link": "/products/daily-vitality-complex?view=supplement",
         "microcopy": "",
-        "grid_heading": "KEY INGREDIENTS. CLEAR PURPOSE.",
-        "commitment_heading": "Our commitment to you",
+        "grid_heading": "",
+        "commitment_heading": "",
         "background_tone": "soft",
         "sp_surface_style": "default",
         "sp_width_mode": "wide",
@@ -349,8 +349,8 @@
         "metric-4": {
           "type": "metric",
           "settings": {
-            "value": "30-day guarantee",
-            "label": "Money-back guarantee"
+            "value": "",
+            "label": ""
           }
         }
       },
@@ -364,10 +364,10 @@
         "presentation": "editorial_story",
         "eyebrow": "Community confidence",
         "heading": "A daily ritual trusted by thousands.",
-        "subheading": "<p>You're joining a growing community of wellness-focused customers who made Daily Vitality part of their morning routine.</p>",
-        "assurance_text": "35k+ customers supported · 4.9★ average · 8.4k+ verified reviews",
+        "subheading": "",
+        "assurance_text": "",
         "content_alignment": "left",
-        "desktop_columns": "4",
+        "desktop_columns": "3",
         "show_band": false,
         "show_dividers": false,
         "mobile_layout": "grid",
@@ -416,7 +416,7 @@
         "body": "<p>We didn't design Daily Vitality to impress a supplement facts panel. We designed it around how people actually build habits: one calm morning scoop, thoughtful ingredient pairing, and enough synergy that nothing feels excessive.</p>",
         "philosophy_closing_line": "Intentional formulation for daily life—not another product in the cabinet.",
         "show_philosophy_image": true,
-        "button_label": "See the full ingredient breakdown",
+        "button_label": "",
         "button_link": "#sp-ingredients",
         "trust_text": "",
         "image_position": "right",
@@ -484,11 +484,11 @@
         "body": "<p>Every lot moves through documented controls—from raw material identity to final release testing. Calm authority, not marketing claims.</p>",
         "image": "shopify://shop_images/Manufacturing_Lab_Scene.png",
         "image_alt": "Daily Vitality manufacturing and quality control environment",
-        "supporting_text": "<p>GMP-certified facility · Batch-level documentation · Independent laboratory verification</p>",
+        "supporting_text": "",
         "button_label": "",
         "button_link": "",
         "trust_text": "",
-        "show_process_numbers": true,
+        "show_process_numbers": false,
         "top_spacing": "small",
         "bottom_spacing": "medium",
         "show_top_divider": false,
@@ -674,8 +674,8 @@
       ],
       "settings": {
         "heading": "Questions before you start?",
-        "subheading": "<p>Dosage, timing, daily use, and our 30-day guarantee explained.</p>",
-        "content_alignment": "center",
+        "subheading": "",
+        "content_alignment": "left",
         "open_first_item": true,
         "padding_top": 64,
         "padding_bottom": 48
