@@ -27,16 +27,20 @@ Details: [docs/RELEASES.md](docs/RELEASES.md)
 
 ## Documentation
 
+Creative authority flows top-down: **Visual System → Design Language → Editorial Art Direction → Implementation**.
+
 | Doc | Description |
 |-----|-------------|
 | [docs/README.md](docs/README.md) | Documentation index |
+| [docs/pulseops-visual-system-v1.md](docs/pulseops-visual-system-v1.md) | **PulseOps Visual System — highest creative authority** |
+| [docs/pulseops-design-language-v1.md](docs/pulseops-design-language-v1.md) | Visual language chapter |
+| [docs/editorial-art-direction.md](docs/editorial-art-direction.md) | Chapter-level art direction |
 | [docs/QUICK_START.md](docs/QUICK_START.md) | Install and run |
 | [docs/PRODUCT_PAGE_RECIPE.md](docs/PRODUCT_PAGE_RECIPE.md) | Default product page stack |
 | [docs/DEMO_PRESETS.md](docs/DEMO_PRESETS.md) | Vertical demo templates |
 | [docs/BETA_PROGRAM.md](docs/BETA_PROGRAM.md) | Merchant beta plan |
 | [docs/RELEASES.md](docs/RELEASES.md) | Release history |
 | [docs/CANONICAL-QA-THEME.md](docs/CANONICAL-QA-THEME.md) | Canonical Shopify QA theme (#183028121915) |
-| [docs/editorial-art-direction.md](docs/editorial-art-direction.md) | Editorial art direction system |
 
 ## Development
 

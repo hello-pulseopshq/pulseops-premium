@@ -1,8 +1,22 @@
 # PulseOps Editorial Art Direction
 
-**Status:** Creative north star — all premium demos  
-**Checkpoint:** `supplement-chapter-human-proof-v1`  
+**Status:** Chapter-level art direction — all premium demos  
+**Highest authority:** [`pulseops-visual-system-v1.md`](pulseops-visual-system-v1.md) — PulseOps Visual System  
+**Design language:** [`pulseops-design-language-v1.md`](pulseops-design-language-v1.md) — visual language chapter  
+**Checkpoint:** `supplement-editorial-v2`  
 **Companions:** [`editorial-system.md`](editorial-system.md) (build primitives) · [`chapter-identity.md`](chapter-identity.md) (narrative architecture)
+
+### Documentation hierarchy
+
+```
+PulseOps Visual System v1.0
+        ↓
+PulseOps Design Language v1.0
+        ↓
+PulseOps Editorial Art Direction       ← you are here
+        ↓
+Implementation
+```
 
 This document defines **how PulseOps homepages should look and feel** — not how they are built. It is the internal creative-director handbook for every future vertical pack, art direction pass, and motion photography decision.
 
@@ -633,6 +647,8 @@ Based on supplement demo at `supplement-chapter-human-proof-v1`. **Narrative arc
 
 | Artifact | Role |
 |----------|------|
+| [`pulseops-visual-system-v1.md`](pulseops-visual-system-v1.md) | Highest creative authority |
+| [`pulseops-design-language-v1.md`](pulseops-design-language-v1.md) | Visual language chapter |
 | `supplement-editorial-foundation-v1` | Editorial system + early chapter rhythm |
 | `supplement-chapter-community-confidence-v1` | Community Confidence narrative v1 |
 | `supplement-chapter-formulation-philosophy-v1` | Formulation Philosophy narrative v1 |
