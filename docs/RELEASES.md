@@ -71,6 +71,32 @@ Concise checkpoints for PulseOps SP Core and demo presets.
 
 ---
 
+## Supplement Narrative Complete v1
+
+| Field | Value |
+|-------|-------|
+| **Tag** | `supplement-narrative-complete-v1` |
+| **Commit** | (see tag) |
+| **Date** | 2026-06-20 |
+| **Branch** | `main` |
+
+**Summary:** Full Supplement homepage narrative frozen. Sprint 7.1 (hero restraint), 7.1b (mid-page restraint), and 7.1c (ending polish: Human Proof → FAQ → Future Self → Footer) complete. No further narrative redesign before launch — future work is visual craft only.
+
+**Policy:**
+
+> **SUPPLEMENT HOMEPAGE NARRATIVE: FROZEN**
+>
+> No chapter reorder, new sections, narrative copy rewrite, or section redesign unless:
+> - critical bug
+> - accessibility blocker
+> - merchant configurability blocker
+
+**Includes:** `templates/index.supplement.json`, `sections/footer-group.json`, `assets/sp-editorial-system.css`, `assets/sp-demo-supplement-type.css`, [LAUNCH-CHECKLIST.md](./LAUNCH-CHECKLIST.md).
+
+**Prior narrative tags:** `supplement-restraint-pass-v1` (7.1b), `supplement-hero-frozen-v1` (7.1 hero).
+
+---
+
 ## Legacy tags
 
 | Tag | Commit | Purpose |
@@ -87,4 +113,7 @@ Concise checkpoints for PulseOps SP Core and demo presets.
 | `demo-presets-v1-release` | `7109c52` | **Current** demo presets release |
 | `supplement-hero-frozen-v1` | `5d939af` | **Current** Supplement Demo hero freeze |
 | `supplement-editorial-v2` | (see tag) | **Current** Future Self + editorial presentation |
+| `supplement-restraint-pass-v1` | `ee99d87` | Sprint 7.1b homepage restraint pass |
+| `supplement-narrative-complete-v1` | (see tag) | **Current** Full supplement homepage narrative freeze |
+| `pulseops-visual-system-v1` | `91e1c7b` | PulseOps Visual System v1.0 authority |
 | `SP-Core-Freeze-v1` | `6fcf32b` | Legacy architecture-only freeze |

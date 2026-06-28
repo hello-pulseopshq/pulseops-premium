@@ -1000,3 +1000,138 @@
     line-height: 1.02;
   }
 }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Sprint 7.1c — Narrative ending (Human Proof → FAQ → Future Self → Footer)
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.sp-demo-supplement #sp-reviews {
+  padding-bottom: clamp(0.45rem, 0.75vw, 0.65rem);
+}
+
+.sp-demo-supplement .shopify-section:has(.sp-social-proof--human-story) + .shopify-section:has(.sp-faq) {
+  margin-top: 0;
+}
+
+.sp-demo-supplement .shopify-section:has(.sp-faq) {
+  background: rgb(var(--sp-supplement-ivory, var(--color-background)));
+}
+
+.sp-demo-supplement #sp-faq {
+  padding-top: clamp(0.55rem, 0.9vw, 0.75rem);
+  padding-bottom: clamp(0.25rem, 0.45vw, 0.4rem);
+}
+
+.sp-demo-supplement .sp-faq__header {
+  margin-bottom: clamp(1.1rem, 1.8vw, 1.45rem);
+}
+
+.sp-demo-supplement .sp-faq__heading {
+  font-size: clamp(1.55rem, 1.8vw, 1.85rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  max-width: 22ch;
+}
+
+.sp-demo-supplement .sp-faq__list {
+  gap: 0;
+  max-width: min(100%, 52rem);
+}
+
+.sp-demo-supplement .sp-faq__item {
+  background: transparent !important;
+  border-radius: 0 !important;
+  border-inline: none;
+  border-top: none;
+  box-shadow: none;
+  border-bottom-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.07);
+}
+
+.sp-demo-supplement .sp-faq__trigger {
+  border-radius: 0;
+  min-height: auto;
+  padding: 1.05rem 0;
+}
+
+.sp-demo-supplement .sp-faq__item.is-open .sp-faq__trigger {
+  padding-bottom: 0.55rem;
+}
+
+.sp-demo-supplement .sp-faq__icon {
+  color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.42);
+  opacity: 0.85;
+}
+
+.sp-demo-supplement .sp-faq__answer,
+.sp-demo-supplement .sp-faq__answer p {
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.62);
+}
+
+.sp-demo-supplement .shopify-section:has(.sp-faq) + .shopify-section:has(.sp-cta-offer--future-self) {
+  margin-top: 0;
+}
+
+.sp-demo-supplement .shopify-section:has(.sp-cta-offer--future-self) + .shopify-section-group-footer,
+.sp-demo-supplement .shopify-section:has(.sp-cta-offer--future-self) + .shopify-section:has(.footer) {
+  margin-top: 0;
+}
+
+.sp-demo-supplement .footer {
+  margin-top: 0;
+  border-top: none;
+}
+
+.sp-demo-supplement .footer .footer__content-top {
+  padding-bottom: clamp(1.6rem, 2.4vw, 2.2rem);
+}
+
+.sp-demo-supplement .footer-block__heading {
+  font-size: var(--sp-type-caption, 1.1rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(var(--color-foreground), 0.48);
+}
+
+.sp-demo-supplement .footer-block__details-content,
+.sp-demo-supplement .footer-block__details-content p {
+  font-size: var(--sp-type-body-sm, 1.4rem);
+  line-height: 1.55;
+  color: rgba(var(--color-foreground), 0.62);
+}
+
+.sp-demo-supplement .footer-block__details-content a {
+  color: rgba(var(--color-foreground), 0.68);
+  text-decoration-color: rgba(var(--color-foreground), 0.18);
+}
+
+.sp-demo-supplement .footer-block__details-content a:hover,
+.sp-demo-supplement .footer-block__details-content a:focus-visible {
+  color: rgba(var(--color-foreground), 0.82);
+}
+
+.sp-demo-supplement .footer__content-bottom {
+  border-top: 0.1rem solid rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.07);
+  padding-top: clamp(1.2rem, 1.8vw, 1.6rem);
+}
+
+.sp-demo-supplement .footer__copyright,
+.sp-demo-supplement .footer__copyright small {
+  color: rgba(var(--color-foreground), 0.46);
+}
+
+.sp-demo-supplement .footer-block--newsletter,
+.sp-demo-supplement .footer .list-payment {
+  display: none !important;
+}
+
+@media screen and (max-width: 749px) {
+  .sp-demo-supplement .sp-faq__heading {
+    font-size: clamp(1.45rem, 4.8vw, 1.65rem);
+    max-width: none;
+  }
+
+  .sp-demo-supplement .sp-faq__trigger {
+    padding: 0.95rem 0;
+  }
+}

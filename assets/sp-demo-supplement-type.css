@@ -128,7 +128,6 @@ html.sp-demo-supplement.sp-font-variant-c {
 .sp-demo-supplement .sp-metrics__heading,
 .sp-demo-supplement .sp-scientific-proof__heading,
 .sp-demo-supplement .sp-social-proof__heading,
-.sp-demo-supplement .sp-faq__heading,
 .sp-demo-supplement .sp-video h2 {
   font-size: var(--sp-type-display-2);
   font-weight: var(--sp-type-w-display);
@@ -369,12 +368,20 @@ html.sp-demo-supplement.sp-font-variant-c {
    9. FAQ
    ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */
 
+.sp-demo-supplement .sp-faq__heading {
+  font-size: clamp(1.55rem, 1.8vw, 1.85rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  color: rgba(var(--sp-type-ink), 0.88);
+}
+
 .sp-demo-supplement .sp-faq__question {
   font-size: var(--sp-type-ui);
-  font-weight: var(--sp-type-w-heading);
+  font-weight: 500;
   line-height: var(--sp-type-lh-ui);
   letter-spacing: var(--sp-type-track-title);
-  color: rgb(var(--sp-type-ink));
+  color: rgba(var(--sp-type-ink), 0.82);
 }
 
 .sp-demo-supplement .sp-faq__answer,

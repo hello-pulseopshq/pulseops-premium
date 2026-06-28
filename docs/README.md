@@ -29,6 +29,7 @@ Implementation
 | [PRODUCT_PAGE_RECIPE.md](./PRODUCT_PAGE_RECIPE.md) | Default product page section stack |
 | [DEMO_PRESETS.md](./DEMO_PRESETS.md) | Vertical demo templates (v1) |
 | [RELEASES.md](./RELEASES.md) | Release tags and checkpoints |
+| [LAUNCH-CHECKLIST.md](./LAUNCH-CHECKLIST.md) | Launch readiness checklist (post-narrative-freeze) |
 | [CANONICAL-QA-THEME.md](./CANONICAL-QA-THEME.md) | Canonical Shopify QA theme (#183028121915) |
 | [BETA_PROGRAM.md](./BETA_PROGRAM.md) | Merchant beta onboarding plan |
 | [QUICK_START.md](./QUICK_START.md) | Install and run |
