@@ -1,6 +1,5 @@
 /**
- * PulseOps Typography Language — Foundation (Phase IV.1A)
- *
+ * PulseOps Typography Language — Foundation (Phase IV.1A) + Chapter Voices (IV.1B) *
  * Single typography authority for the supplement demo. Voice tokens alias current
  * computed values; IV.1B retargets voices without changing primitive structure.
  *
@@ -33,40 +32,61 @@
    */
   --sp-voice-expressive-size: clamp(4.2rem, 9.5vw, 6.4rem);
 
-  /* Confident + Documentary — both alias chapter tier today (IV.1B splits) */
-  --sp-voice-confident-size: clamp(3.85rem, 8.8vw, 5.8rem);
+  /* Ink temperature (IV.1B) */
+  --sp-voice-ink-primary: rgb(var(--sp-type-ink));
+  --sp-voice-ink-accent: rgb(var(--sp-supplement-green-deep));
+  --sp-voice-ink-cool: rgba(var(--sp-type-body-ink), 0.88);
+  --sp-voice-ink-muted: rgba(var(--sp-type-body-ink), var(--sp-type-muted-opacity, 0.82));
+
+  /* Confident — Editorial Outcomes (strong second chapter, below hero scale) */
+  --sp-voice-confident-size: clamp(3.7rem, 5.2vw, 5.8rem);
+  --sp-voice-confident-size-mobile: clamp(3.15rem, 8.2vw, 4.25rem);
   --sp-voice-confident-weight: 800;
   --sp-voice-confident-lh: 0.98;
-  --sp-voice-confident-track: -0.045em;
+  --sp-voice-confident-track: -0.042em;
+  --sp-voice-confident-ink: rgb(var(--sp-hero-headline-ink, var(--sp-type-ink)));
 
-  --sp-voice-documentary-size: var(--sp-voice-confident-size);
-  --sp-voice-documentary-weight: var(--sp-voice-confident-weight);
-  --sp-voice-documentary-lh: var(--sp-voice-confident-lh);
-  --sp-voice-documentary-track: var(--sp-voice-confident-track);
+  /* Documentary — Ingredients (cooler, smaller than Outcomes) */
+  --sp-voice-documentary-size: clamp(2.85rem, 4.2vw, 4.6rem);
+  --sp-voice-documentary-size-mobile: clamp(2.65rem, 7.5vw, 3.5rem);
+  --sp-voice-documentary-weight: 700;
+  --sp-voice-documentary-lh: 1;
+  --sp-voice-documentary-track: -0.038em;
+  --sp-voice-documentary-ink: rgb(var(--sp-type-ink));
 
-  /* Collective / Manifesto / Precise — alias statement tier today (IV.1B splits) */
-  --sp-voice-collective-size: clamp(2.6rem, 5.2vw, 3.6rem);
+  /* Collective — Community Confidence */
+  --sp-voice-collective-size: clamp(2.4rem, 3.2vw, 3.4rem);
+  --sp-voice-collective-size-mobile: clamp(2.2rem, 7vw, 3rem);
   --sp-voice-collective-weight: 700;
-  --sp-voice-collective-lh: 1.05;
-  --sp-voice-collective-track: -0.035em;
+  --sp-voice-collective-lh: 1.06;
+  --sp-voice-collective-track: -0.03em;
   --sp-voice-collective-measure: 16ch;
+  --sp-voice-collective-ink: rgb(var(--sp-type-ink));
 
-  --sp-voice-collective-moment-size: clamp(2.75rem, 3.6vw, 3.65rem);
-  --sp-voice-collective-moment-size-mobile: clamp(1.95rem, 6vw, 2.45rem);
-  --sp-voice-collective-moment-lh: 0.96;
+  --sp-voice-collective-moment-size: clamp(1.9rem, 2.45vw, 2.28rem);
+  --sp-voice-collective-moment-size-mobile: clamp(1.58rem, 4.4vw, 1.82rem);
+  --sp-voice-collective-moment-weight: 650;
+  --sp-voice-collective-moment-lh: 1.12;
+  --sp-voice-collective-moment-track: -0.015em;
+  --sp-voice-collective-moment-ink: rgb(var(--sp-type-ink));
 
-  --sp-voice-manifesto-size: var(--sp-voice-collective-size);
-  --sp-voice-manifesto-weight: var(--sp-voice-collective-weight);
-  --sp-voice-manifesto-lh: var(--sp-voice-collective-lh);
-  --sp-voice-manifesto-track: var(--sp-voice-collective-track);
+  /* Manifesto — Formulation Philosophy (middle accent owner) */
+  --sp-voice-manifesto-size: clamp(2.75rem, 4.2vw, 3.85rem);
+  --sp-voice-manifesto-size-mobile: clamp(2.85rem, 8.5vw, 3.6rem);
+  --sp-voice-manifesto-weight: 800;
+  --sp-voice-manifesto-lh: 1.04;
+  --sp-voice-manifesto-track: -0.035em;
   --sp-voice-manifesto-measure: 18ch;
+  --sp-voice-manifesto-ink: rgb(var(--sp-supplement-green-deep));
 
-  --sp-voice-precise-size: var(--sp-voice-collective-size);
-  --sp-voice-precise-weight: var(--sp-voice-collective-weight);
-  --sp-voice-precise-lh: var(--sp-voice-collective-lh);
-  --sp-voice-precise-track: var(--sp-voice-collective-track);
+  /* Precise — Scientific Confidence */
+  --sp-voice-precise-size: clamp(2.2rem, 3vw, 3.05rem);
+  --sp-voice-precise-size-mobile: clamp(2.05rem, 6.5vw, 2.8rem);
+  --sp-voice-precise-weight: 650;
+  --sp-voice-precise-lh: 1.08;
+  --sp-voice-precise-track: -0.025em;
   --sp-voice-precise-measure: 16ch;
-
+  --sp-voice-precise-ink: rgba(var(--sp-type-body-ink), 0.92);
   /* Emotional — Human Proof */
   --sp-voice-emotional-lead-size: clamp(2.4rem, 4vw, 3.4rem);
   --sp-voice-emotional-lead-weight: 800;
@@ -137,4 +157,111 @@
     font-size: var(--sp-voice-minimal-size-mobile);
     max-width: var(--sp-voice-minimal-measure-mobile);
   }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Chapter voice modifiers (IV.1B)
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.sp-demo-supplement .sp-editorial-type--chapter--confident,
+.sp-demo-supplement .sp-editorial-type--chapter--confident p {
+  font-size: var(--sp-voice-confident-size);
+  font-weight: var(--sp-voice-confident-weight);
+  line-height: var(--sp-voice-confident-lh);
+  letter-spacing: var(--sp-voice-confident-track);
+  color: var(--sp-voice-confident-ink);
+}
+
+.sp-demo-supplement .sp-editorial-type--chapter--documentary,
+.sp-demo-supplement .sp-editorial-type--chapter--documentary p {
+  font-size: var(--sp-voice-documentary-size);
+  font-weight: var(--sp-voice-documentary-weight);
+  line-height: var(--sp-voice-documentary-lh);
+  letter-spacing: var(--sp-voice-documentary-track);
+  color: var(--sp-voice-documentary-ink);
+}
+
+.sp-demo-supplement .sp-editorial-type--statement--collective,
+.sp-demo-supplement .sp-editorial-type--statement--collective p {
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  font-size: var(--sp-voice-collective-size);
+  font-weight: var(--sp-voice-collective-weight);
+  line-height: var(--sp-voice-collective-lh);
+  letter-spacing: var(--sp-voice-collective-track);
+  max-width: var(--sp-voice-collective-measure);
+  color: var(--sp-voice-collective-ink);
+}
+
+.sp-demo-supplement .sp-editorial-type--statement--manifesto,
+.sp-demo-supplement .sp-editorial-type--statement--manifesto p {
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  font-size: var(--sp-voice-manifesto-size);
+  font-weight: var(--sp-voice-manifesto-weight);
+  line-height: var(--sp-voice-manifesto-lh);
+  letter-spacing: var(--sp-voice-manifesto-track);
+  max-width: var(--sp-voice-manifesto-measure);
+  color: var(--sp-voice-manifesto-ink);
+}
+
+.sp-demo-supplement .sp-editorial-type--statement--precise,
+.sp-demo-supplement .sp-editorial-type--statement--precise p {
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  font-size: var(--sp-voice-precise-size);
+  font-weight: var(--sp-voice-precise-weight);
+  line-height: var(--sp-voice-precise-lh);
+  letter-spacing: var(--sp-voice-precise-track);
+  max-width: var(--sp-voice-precise-measure);
+  color: var(--sp-voice-precise-ink);
+}
+
+.sp-demo-supplement .sp-editorial-type--moment {
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  font-size: var(--sp-voice-collective-moment-size);
+  font-weight: var(--sp-voice-collective-moment-weight);
+  line-height: var(--sp-voice-collective-moment-lh);
+  letter-spacing: var(--sp-voice-collective-moment-track);
+  color: var(--sp-voice-collective-moment-ink);
+}
+
+@media screen and (max-width: 749px) {
+  .sp-demo-supplement .sp-editorial-type--chapter--confident,
+  .sp-demo-supplement .sp-editorial-type--chapter--confident p {
+    font-size: var(--sp-voice-confident-size-mobile);
+  }
+
+  .sp-demo-supplement .sp-editorial-type--chapter--documentary,
+  .sp-demo-supplement .sp-editorial-type--chapter--documentary p {
+    font-size: var(--sp-voice-documentary-size-mobile);
+  }
+
+  .sp-demo-supplement .sp-editorial-type--statement--collective,
+  .sp-demo-supplement .sp-editorial-type--statement--collective p {
+    font-size: var(--sp-voice-collective-size-mobile);
+  }
+
+  .sp-demo-supplement .sp-editorial-type--statement--manifesto,
+  .sp-demo-supplement .sp-editorial-type--statement--manifesto p {
+    font-size: var(--sp-voice-manifesto-size-mobile);
+  }
+
+  .sp-demo-supplement .sp-editorial-type--statement--precise,
+  .sp-demo-supplement .sp-editorial-type--statement--precise p {
+    font-size: var(--sp-voice-precise-size-mobile);
+  }
+
+  .sp-demo-supplement .sp-editorial-type--moment {
+    font-size: var(--sp-voice-collective-moment-size-mobile);
+  }
+}
+
+/* Scientific Confidence — crisp checkpoint hierarchy (IV.1B) */
+.sp-demo-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-title {
+  font-weight: 600;
+  color: var(--sp-voice-ink-primary);
+}
+
+.sp-demo-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-meta {
+  font-size: clamp(0.98rem, 0.9vw, 1.08rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }

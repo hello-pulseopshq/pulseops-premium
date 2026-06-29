@@ -124,6 +124,10 @@
 
   --sp-is-row-divider: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.14);
 
+  --sp-is-heading-size: var(--sp-voice-documentary-size);
+
+  --sp-is-heading-leading: var(--sp-voice-documentary-lh);
+
 }
 
 
@@ -306,13 +310,13 @@
 
   max-width: var(--sp-hero-headline-measure, min(100%, 44rem));
 
-  letter-spacing: -0.045em;
+  letter-spacing: var(--sp-voice-documentary-track, -0.038em);
 
-  line-height: 0.98;
+  line-height: var(--sp-voice-documentary-lh, 1);
 
-  color: rgb(var(--sp-hero-headline-ink, var(--sp-type-ink, var(--color-foreground))));
+  color: var(--sp-voice-documentary-ink);
 
-  font-weight: 800;
+  font-weight: var(--sp-voice-documentary-weight, 700);
 
 }
 

@@ -499,12 +499,12 @@
 
 .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__statement {
   margin: 0;
-  max-width: 20ch;
-  font-size: clamp(3rem, 5.2vw, 4.8rem);
-  font-weight: 700;
-  line-height: 0.98;
-  letter-spacing: -0.045em;
-  color: var(--sp-ed-accent-deep);
+  max-width: var(--sp-voice-manifesto-measure, 18ch);
+  font-size: var(--sp-voice-manifesto-size);
+  font-weight: var(--sp-voice-manifesto-weight);
+  line-height: var(--sp-voice-manifesto-lh);
+  letter-spacing: var(--sp-voice-manifesto-track);
+  color: var(--sp-voice-manifesto-ink);
 }
 
 .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__statement p {
@@ -624,6 +624,7 @@
 
   .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__statement {
     max-width: none;
+    font-size: var(--sp-voice-manifesto-size-mobile);
   }
 
   .sp-editorial-differentiation__principle + .sp-editorial-differentiation__principle {

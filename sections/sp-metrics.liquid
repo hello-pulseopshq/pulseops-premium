@@ -52,7 +52,7 @@
           {%- endif -%}
 
           {%- if heading_stripped != blank -%}
-            <h2 class="sp-metrics__statement sp-editorial-type--statement">
+            <h2 class="sp-metrics__statement sp-editorial-type--statement sp-editorial-type--statement--collective">
               {{ section.settings.heading }}
             </h2>
           {%- endif -%}
@@ -79,7 +79,7 @@
           {%- if value_stripped != blank or label_stripped != blank -%}
             <li class="sp-metrics__proof-moment{% render 'sp-motion-class', type: 'stagger-item' %}" {{ block.shopify_attributes }}>
               {%- if value_stripped != blank -%}
-                <p class="sp-metrics__proof-value">{{ block.settings.value | escape }}</p>
+                <p class="sp-metrics__proof-value sp-editorial-type--moment">{{ block.settings.value | escape }}</p>
               {%- endif -%}
               {%- if label_stripped != blank -%}
                 <p class="sp-metrics__proof-label">{{ block.settings.label | escape }}</p>

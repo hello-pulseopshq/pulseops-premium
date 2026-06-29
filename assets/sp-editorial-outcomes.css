@@ -488,7 +488,7 @@
   }
 
   .sp-demo-supplement .sp-editorial-outcomes {
-    --sp-eo-heading-size: clamp(4.91rem, 6.81vw, 8.32rem);
+    --sp-eo-heading-size: var(--sp-voice-confident-size);
   }
 
   .sp-editorial-outcomes__stat:not(:first-child) {
@@ -547,16 +547,17 @@
 /* ── Supplement demo: hero-derived second-chapter scale ── */
 
 .sp-demo-supplement .sp-editorial-outcomes {
-  --sp-eo-heading-size: clamp(4.63rem, 6.43vw, 7.85rem);
+  --sp-eo-heading-size: var(--sp-voice-confident-size);
+  --sp-eo-heading-leading: var(--sp-voice-confident-lh);
 }
 
 .sp-demo-supplement .sp-editorial-outcomes__heading,
 .sp-demo-supplement .sp-editorial-outcomes__heading p {
   font-family: var(--sp-font-heading, var(--font-heading-family));
   color: rgb(var(--sp-hero-headline-ink, var(--sp-type-ink, var(--color-foreground))));
-  font-weight: 800;
-  letter-spacing: -0.045em;
-  line-height: 0.95;
+  font-weight: var(--sp-voice-confident-weight, 800);
+  letter-spacing: var(--sp-voice-confident-track, -0.042em);
+  line-height: var(--sp-voice-confident-lh, 0.98);
   max-width: var(--sp-hero-headline-measure, min(100%, 44rem));
 }
 
@@ -565,6 +566,10 @@
 }
 
 @media screen and (max-width: 749px) {
+  .sp-demo-supplement .sp-editorial-outcomes {
+    --sp-eo-heading-size: var(--sp-voice-confident-size-mobile);
+  }
+
   .sp-editorial-outcomes__heading {
     max-width: none;
   }
