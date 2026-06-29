@@ -162,6 +162,10 @@
 
 }
 
+.sp-demo-supplement .sp-ingredients-spotlight__content {
+  gap: var(--sp-rhythm-gap-stack-tight);
+}
+
 
 
 .sp-ingredients-spotlight__media {
@@ -342,9 +346,11 @@
 
 .sp-demo-supplement .sp-ingredients-spotlight__body {
 
+  max-width: var(--sp-rhythm-measure-documentary);
+
   font-size: clamp(1.7rem, 1.65vw, 1.85rem);
 
-  line-height: 1.6;
+  line-height: var(--sp-rhythm-lh-documentary);
 
   color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.88);
 
@@ -821,6 +827,10 @@
 
 
 .sp-demo-supplement .sp-ingredients-spotlight__item-description {
+
+  max-width: var(--sp-rhythm-measure-matrix);
+
+  line-height: var(--sp-rhythm-lh-documentary-matrix);
 
   color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.64);
 

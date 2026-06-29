@@ -145,6 +145,15 @@
   width: 100%;
 }
 
+.sp-demo-supplement .sp-editorial-outcomes__story-copy {
+  gap: var(--sp-rhythm-gap-stack-tight);
+}
+
+.sp-demo-supplement .sp-editorial-outcomes__stats,
+.sp-demo-supplement .sp-editorial-outcomes__cards {
+  margin-top: var(--sp-rhythm-gap-stack-extend);
+}
+
 /* ── Typography ── */
 
 .sp-editorial-outcomes__eyebrow {
@@ -198,9 +207,9 @@
 }
 
 .sp-demo-supplement .sp-editorial-outcomes__body {
-  max-width: 40rem;
+  max-width: var(--sp-rhythm-measure-warm);
   font-size: clamp(1.7rem, 1.65vw, 1.85rem);
-  line-height: 1.6;
+  line-height: var(--sp-rhythm-lh-warm);
   color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.88);
 }
 
@@ -362,6 +371,10 @@
 }
 
 .sp-demo-supplement .sp-editorial-outcomes__card-title {
+  line-height: var(--sp-rhythm-lh-outcome-card-title);
+}
+
+.sp-demo-supplement .sp-editorial-outcomes__card-title {
   font-family: var(--sp-font-heading, var(--font-heading-family));
 }
 
@@ -374,6 +387,8 @@
 }
 
 .sp-demo-supplement .sp-editorial-outcomes__card-text {
+  max-width: var(--sp-rhythm-measure-outcome-card);
+  line-height: var(--sp-rhythm-lh-outcome-card-body);
   color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.88);
 }
 

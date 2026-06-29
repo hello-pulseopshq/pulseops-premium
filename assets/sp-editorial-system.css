@@ -361,7 +361,7 @@
 }
 
 .sp-demo-supplement .sp-ingredients-spotlight.sp-editorial-chapter--cinematic .sp-ingredients-spotlight__body {
-  max-width: 34rem;
+  max-width: var(--sp-rhythm-measure-documentary);
 }
 
 .sp-demo-supplement .sp-ingredients-spotlight.sp-editorial-chapter--cinematic .sp-ingredients-spotlight__actions {

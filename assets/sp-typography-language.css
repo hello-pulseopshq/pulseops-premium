@@ -1,5 +1,5 @@
 /**
- * PulseOps Typography Language — Foundation (Phase IV.1A) + Chapter Voices (IV.1B) *
+ * PulseOps Typography Language — Foundation (IV.1A) + Chapter Voices (IV.1B) + Rhythm (IV.1C) *
  * Single typography authority for the supplement demo. Voice tokens alias current
  * computed values; IV.1B retargets voices without changing primitive structure.
  *
@@ -124,8 +124,38 @@
   --sp-voice-whisper-lh: 1.55;
 
   /* Shared rhythm slots (alias global primitives; IV.1C retargets) */
-  --sp-voice-lh-body: var(--sp-type-lh-body, 1.6);
+  --sp-voice-lh-body: var(--sp-rhythm-lh-warm, var(--sp-type-lh-body, 1.6));
   --sp-voice-lh-display: var(--sp-type-lh-display, 1.04);
+
+  /* IV.1C — Editorial rhythm (measure, line-height, vertical cadence) */
+  --sp-rhythm-gap-intro: clamp(0.58rem, 0.88vw, 0.78rem);
+  --sp-rhythm-gap-stack-tight: clamp(0.78rem, 1.15vw, 1.02rem);
+  --sp-rhythm-gap-stack-extend: clamp(0.42rem, 0.65vw, 0.58rem);
+  --sp-rhythm-gap-paragraph: clamp(0.82rem, 1.05vw, 0.98rem);
+  --sp-rhythm-gap-rail: clamp(0.38rem, 0.55vw, 0.48rem);
+
+  --sp-rhythm-lh-warm: 1.65;
+  --sp-rhythm-lh-documentary: 1.58;
+  --sp-rhythm-lh-documentary-matrix: 1.52;
+  --sp-rhythm-lh-collective: 1.55;
+  --sp-rhythm-lh-manifesto: 1.68;
+  --sp-rhythm-lh-precise: 1.58;
+  --sp-rhythm-lh-precise-step: 1.56;
+
+  --sp-rhythm-measure-warm: 44ch;
+  --sp-rhythm-measure-documentary: 46ch;
+  --sp-rhythm-measure-matrix: 36ch;
+  --sp-rhythm-measure-collective-sub: 40ch;
+  --sp-rhythm-measure-collective-assurance: 44ch;
+  --sp-rhythm-measure-collective-label: 15ch;
+  --sp-rhythm-measure-manifesto: 48ch;
+  --sp-rhythm-measure-manifesto-rail: 38ch;
+  --sp-rhythm-measure-precise: 46ch;
+  --sp-rhythm-measure-precise-step: 44ch;
+
+  --sp-rhythm-lh-outcome-card-title: 1.28;
+  --sp-rhythm-lh-outcome-card-body: 1.52;
+  --sp-rhythm-measure-outcome-card: 30ch;
 }
 
 /* Editorial primitive aliases — bridge --sp-es-type-* to voice layer */
@@ -264,4 +294,15 @@
   font-size: clamp(0.98rem, 0.9vw, 1.08rem);
   letter-spacing: 0.04em;
   text-transform: uppercase;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Editorial rhythm (IV.1C) — paragraph cadence (measure/lh wired in section CSS)
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.sp-demo-supplement .sp-editorial-outcomes__body p + p,
+.sp-demo-supplement .sp-ingredients-spotlight__body p + p,
+.sp-demo-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__evidence-body p + p,
+.sp-demo-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__manifesto-body p + p {
+  margin-top: var(--sp-rhythm-gap-paragraph);
 }

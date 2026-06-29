@@ -423,7 +423,7 @@
 
 .sp-quality-standards--scientific-confidence {
   --sp-qs-sci-gap: clamp(1.35rem, 2vw, 1.85rem);
-  --sp-qs-sci-gap-tight: clamp(0.85rem, 1.2vw, 1.1rem);
+  --sp-qs-sci-gap-tight: var(--sp-rhythm-gap-intro, clamp(0.85rem, 1.2vw, 1.1rem));
   --sp-qs-lab-ratio: 16 / 8;
   display: grid;
   gap: var(--sp-qs-sci-gap);
@@ -460,6 +460,11 @@
   line-height: 1.62;
   font-weight: 500;
   color: rgba(var(--color-foreground), 0.78);
+}
+
+.sp-demo-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__evidence-body {
+  max-width: var(--sp-rhythm-measure-precise);
+  line-height: var(--sp-rhythm-lh-precise);
 }
 
 .sp-quality-standards__lab-evidence {
@@ -501,6 +506,10 @@
   gap: 0.55rem;
   padding: clamp(1.15rem, 1.6vw, 1.45rem) 0;
   border-bottom: 0.1rem solid var(--sp-qs-divider);
+}
+
+.sp-demo-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-step {
+  gap: var(--sp-rhythm-gap-rail);
 }
 
 .sp-quality-standards__process-step:last-child {
@@ -549,6 +558,11 @@
   font-weight: 500;
   color: rgba(var(--color-foreground), 0.74);
   max-width: 52ch;
+}
+
+.sp-demo-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-text {
+  max-width: var(--sp-rhythm-measure-precise-step);
+  line-height: var(--sp-rhythm-lh-precise-step);
 }
 
 .sp-quality-standards__process-meta {
