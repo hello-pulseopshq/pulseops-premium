@@ -21,7 +21,6 @@ Dawn’s global **Media** settings (`media_radius`, shadow) remain the corner-ra
 | `assets/sp-image-experience.css` | Frame utilities, aspect ratios, placeholders, reveal |
 | `assets/sp-image-experience.js` | Marks `.sp-image-loaded` + `.sp-media-frame--loaded` on load/error |
 | `snippets/sp-image.liquid` | Standard frame + image render |
-| `snippets/sp-image-class.liquid` | Liquid class helper (mirrors `sp-motion-class`) |
 | `snippets/sp-image-boot.liquid` | Noscript fallback — images always visible |
 | `layout/theme.liquid` | CSS/JS load, `data-sp-image-reveal`, CSS tokens |
 | `config/settings_schema.json` | **SP Image Experience** theme settings |

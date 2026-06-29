@@ -20,47 +20,8 @@
     },
     "sp-hero": {
       "type": "sp-hero",
-      "blocks": {
-        "benefit-chip-1": {
-          "type": "benefit_chip",
-          "settings": {
-            "benefit_text": ""
-          }
-        },
-        "benefit-chip-2": {
-          "type": "benefit_chip",
-          "settings": {
-            "benefit_text": ""
-          }
-        },
-        "benefit-chip-3": {
-          "type": "benefit_chip",
-          "settings": {
-            "benefit_text": ""
-          }
-        },
-        "cta-trust-1": {
-          "type": "cta_trust_item",
-          "settings": {
-            "icon": "guarantee",
-            "text": ""
-          }
-        },
-        "cta-trust-2": {
-          "type": "cta_trust_item",
-          "settings": {
-            "icon": "secure",
-            "text": ""
-          }
-        }
-      },
-      "block_order": [
-        "benefit-chip-1",
-        "benefit-chip-2",
-        "benefit-chip-3",
-        "cta-trust-1",
-        "cta-trust-2"
-      ],
+      "blocks": {},
+      "block_order": [],
       "settings": {
         "show_announcement": false,
         "announcement_text": "Subscribe & save 15% · Free shipping on every order →",
@@ -182,24 +143,6 @@
     "sp-ingredients-spotlight": {
       "type": "sp-ingredients-spotlight",
       "blocks": {
-        "trust-1": {
-          "type": "trust_point",
-          "settings": {
-            "text": ""
-          }
-        },
-        "trust-2": {
-          "type": "trust_point",
-          "settings": {
-            "text": ""
-          }
-        },
-        "trust-3": {
-          "type": "trust_point",
-          "settings": {
-            "text": ""
-          }
-        },
         "ingredient-1": {
           "type": "ingredient",
           "settings": {
@@ -253,42 +196,9 @@
             "image": "shopify://shop_images/BioPerine.png",
             "description": "<p>Black pepper extract selected to support bioavailability of key nutrients.</p>"
           }
-        },
-        "commitment-1": {
-          "type": "commitment",
-          "settings": {
-            "label": "Clean & Non-GMO"
-          }
-        },
-        "commitment-2": {
-          "type": "commitment",
-          "settings": {
-            "label": "Third-Party Tested"
-          }
-        },
-        "commitment-3": {
-          "type": "commitment",
-          "settings": {
-            "label": "Made in GMP Facilities"
-          }
-        },
-        "commitment-4": {
-          "type": "commitment",
-          "settings": {
-            "label": "No Fillers or Binders"
-          }
-        },
-        "commitment-5": {
-          "type": "commitment",
-          "settings": {
-            "label": "30-Day Guarantee"
-          }
         }
       },
       "block_order": [
-        "trust-1",
-        "trust-2",
-        "trust-3",
         "ingredient-1",
         "ingredient-2",
         "ingredient-3",
@@ -340,20 +250,12 @@
             "value": "Two capsules",
             "label": "One routine, every morning"
           }
-        },
-        "metric-4": {
-          "type": "metric",
-          "settings": {
-            "value": "",
-            "label": ""
-          }
         }
       },
       "block_order": [
         "metric-1",
         "metric-2",
-        "metric-3",
-        "metric-4"
+        "metric-3"
       ],
       "settings": {
         "presentation": "editorial_story",
@@ -495,63 +397,6 @@
         "color_scheme": "scheme-1",
         "padding_top": 48,
         "padding_bottom": 56
-      }
-    },
-    "sp-scientific-proof": {
-      "type": "sp-scientific-proof",
-      "disabled": true,
-      "blocks": {
-        "proof-1": {
-          "type": "proof",
-          "settings": {
-            "statistic": "92%",
-            "presentation": "statistic",
-            "description": "<p>Of participants reported improved daily energy in an 8-week consumer study.</p>",
-            "icon": "chart",
-            "source": "Independent consumer study",
-            "footnote": ""
-          }
-        },
-        "proof-2": {
-          "type": "proof",
-          "settings": {
-            "statistic": "GMP certified",
-            "presentation": "certification",
-            "description": "<p>Produced in a GMP-certified facility with batch-level testing.</p>",
-            "icon": "shield",
-            "source": "Manufacturing certification",
-            "footnote": ""
-          }
-        },
-        "proof-3": {
-          "type": "proof",
-          "settings": {
-            "statistic": "Third-party tested",
-            "presentation": "certification",
-            "description": "<p>Every batch tested for purity, potency, and heavy metals.</p>",
-            "icon": "certificate",
-            "source": "Independent laboratory",
-            "footnote": ""
-          }
-        }
-      },
-      "block_order": [
-        "proof-1",
-        "proof-2",
-        "proof-3"
-      ],
-      "settings": {
-        "heading": "Backed by quality standards",
-        "subheading": "<p>Every bottle is manufactured under strict quality controls you can trust.</p>",
-        "content_alignment": "center",
-        "desktop_columns": "3",
-        "card_style": "elevated",
-        "mobile_layout": "swipe",
-        "sp_surface_style": "default",
-        "sp_width_mode": "contained",
-        "sp_divider_style": "line",
-        "padding_top": 64,
-        "padding_bottom": 48
       }
     },
     "sp-social-proof": {
@@ -711,7 +556,6 @@
     "sp-metrics",
     "sp-editorial-differentiation",
     "sp-quality-standards",
-    "sp-scientific-proof",
     "sp-social-proof",
     "sp-faq",
     "sp-cta-offer"

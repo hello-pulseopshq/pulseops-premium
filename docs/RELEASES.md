@@ -108,6 +108,41 @@ Concise checkpoints for PulseOps SP Core and demo presets.
 
 ---
 
+## Phase III Complete — Architecture, Narrative, Composition, Buyer Journey, and Hygiene Locked
+
+| Field | Value |
+|-------|-------|
+| **Tag** | `pulseops-phase-iii-complete` |
+| **Commit** | (see tag) |
+| **Date** | 2026-06-20 |
+| **Branch** | `main` |
+
+**Summary:** Formal close of Phase III (Foundation). All architectural and narrative layers locked; Phase III.5 codebase hygiene audit complete with safe template and documentation cleanup. **Next phase: Phase IV — Craftsmanship.**
+
+**Locked layers:**
+
+| Layer | Tag / reference |
+|-------|-------------------|
+| SP Core Architecture | `sp-core-v1.0` |
+| Supplement Narrative | `supplement-narrative-complete-v1` |
+| Composition Language | Sprint 7.2 · `supplement-composition-role-sharpening-v1` |
+| Buyer Journey | Sprint 7.2b |
+| Platform Architecture v1 | `pulseops-architecture-v1` |
+| Codebase hygiene baseline | [`CODEBASE-HYGIENE-AUDIT-v1.md`](./CODEBASE-HYGIENE-AUDIT-v1.md) |
+
+**Phase III.5 hygiene fixes (zero render change):**
+
+- Removed deprecated disabled `sp-scientific-proof` from supplement template
+- Removed orphan empty blocks from `index.supplement.json`
+- Deleted unreferenced `snippets/sp-image-class.liquid`
+- Published codebase hygiene audit
+
+**Next phase:** **Phase IV — Craftsmanship · Sprint IV.1 Typography Language** (Supplement canonical demo; no architecture revisit)
+
+**Includes:** [`CODEBASE-HYGIENE-AUDIT-v1.md`](./CODEBASE-HYGIENE-AUDIT-v1.md), `templates/index.supplement.json`, `docs/README.md`, `docs/SP-IMAGE-EXPERIENCE.md`
+
+---
+
 ## Supplement Composition & Role Sharpening v1
 
 | Field | Value |
@@ -161,7 +196,8 @@ Concise checkpoints for PulseOps SP Core and demo presets.
 
 | Tag | Commit | Purpose |
 |-----|--------|---------|
-| `pulseops-architecture-v1` | (see tag) | **Current** — Platform architecture v1 LOCKED |
+| `pulseops-phase-iii-complete` | (see tag) | **Current** — Phase III complete; hygiene locked |
+| `pulseops-architecture-v1` | (see tag) | Platform architecture v1 LOCKED |
 | `supplement-composition-role-sharpening-v1` | `48f1d77` | Sprint 7.2 + 7.2b composition and buyer journey |
 | `sp-core-v1.0` | `912e196` | SP Core production freeze |
 | `demo-presets-v1-release` | `7109c52` | Demo presets release |

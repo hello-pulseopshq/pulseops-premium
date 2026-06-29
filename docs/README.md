@@ -17,6 +17,7 @@ Implementation
 | Doc | Description |
 |-----|-------------|
 | [**PULSEOPS-ARCHITECTURE-v1.md**](PULSEOPS-ARCHITECTURE-v1.md) | **Architecture v1 — LOCKED platform IA and buyer journey** |
+| [CODEBASE-HYGIENE-AUDIT-v1.md](CODEBASE-HYGIENE-AUDIT-v1.md) | Phase III.5 codebase hygiene audit |
 | [**pulseops-visual-system-v1.md**](pulseops-visual-system-v1.md) | **Visual System — permanent creative operating system** |
 | [ARCHITECTURE-FREEZE-REVIEW.md](ARCHITECTURE-FREEZE-REVIEW.md) | Sprint 7.2.5 validation record |
 | [pulseops-design-language-v1.md](pulseops-design-language-v1.md) | Visual language chapter (typography, surface, photography, layout) |
