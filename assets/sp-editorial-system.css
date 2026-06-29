@@ -380,7 +380,7 @@
 }
 
 @media screen and (min-width: 990px) {
-  .sp-demo-supplement .sp-ingredients-spotlight.sp-editorial-chapter--image-led .sp-ingredients-spotlight__hero {
+  .sp-demo-supplement .sp-ingredients-spotlight.sp-editorial-chapter--image-led:not(.sp-composition--gallery-immersion) .sp-ingredients-spotlight__hero {
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
     column-gap: clamp(1.25rem, 2vw, 2rem);
@@ -607,13 +607,25 @@
   gap: clamp(1.15rem, 1.6vw, 1.45rem);
 }
 
+.sp-demo-supplement .sp-composition--typographic-band.sp-metrics--editorial-story {
+  gap: 0;
+}
+
 .sp-demo-supplement .sp-metrics--editorial-story .sp-metrics__intro {
   max-width: min(100%, 56rem);
+}
+
+.sp-demo-supplement .sp-composition--typographic-band .sp-metrics__intro {
+  max-width: none;
 }
 
 .sp-demo-supplement .sp-metrics--editorial-story .sp-metrics__statement {
   max-width: 20ch;
   color: rgb(var(--sp-supplement-green-deep, var(--color-foreground)));
+}
+
+.sp-demo-supplement .sp-composition--typographic-band .sp-metrics__statement {
+  max-width: 16ch;
 }
 
 .sp-demo-supplement .sp-metrics--editorial-story .sp-metrics__subheading {
@@ -624,6 +636,11 @@
   border-top: none;
   padding-top: clamp(0.35rem, 0.6vw, 0.55rem);
   gap: clamp(1.35rem, 2.4vw, 2.8rem);
+}
+
+.sp-demo-supplement .sp-composition--typographic-band .sp-metrics__proof-moments {
+  padding-top: 0;
+  gap: clamp(1.25rem, 2vw, 2rem);
 }
 
 .sp-demo-supplement .sp-metrics--editorial-story .sp-metrics__proof-value {
@@ -761,6 +778,10 @@
   gap: clamp(1.15rem, 1.6vw, 1.45rem);
 }
 
+.sp-demo-supplement .sp-composition--linear-manifesto.sp-editorial-differentiation--philosophy-manifesto {
+  gap: clamp(1.35rem, 2vw, 1.85rem);
+}
+
 .sp-demo-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__manifesto-intro {
   max-width: min(100%, 62rem);
 }
@@ -802,6 +823,11 @@
 .sp-demo-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__principle + .sp-editorial-differentiation__principle {
   border-left: none;
   padding-left: 0;
+}
+
+.sp-demo-supplement .sp-composition--linear-manifesto .sp-editorial-differentiation__principle + .sp-editorial-differentiation__principle {
+  border-left: 0.24rem solid rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.12);
+  padding-left: clamp(2.75rem, 4.5vw, 5rem);
 }
 
 .sp-demo-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__philosophy-closer {

@@ -58,7 +58,7 @@
 {% render 'sp-section-hierarchy-open', section: section, anchor_id: 'sp-quality', extra_class: shell_class %}
   {%- if presentation == 'scientific_confidence' -%}
     {%- liquid
-      assign scientific_root_class = 'sp-quality-standards sp-quality-standards--scientific-confidence sp-editorial-chapter sp-editorial-chapter--spacing-standard sp-editorial-chapter--handoff-in sp-editorial-chapter--handoff-out'
+      assign scientific_root_class = 'sp-quality-standards sp-composition sp-composition--evidence-panel sp-quality-standards--scientific-confidence sp-editorial-chapter sp-editorial-chapter--spacing-standard sp-editorial-chapter--handoff-in sp-editorial-chapter--handoff-out'
       if section.settings.show_process_numbers
         assign scientific_root_class = scientific_root_class | append: ' sp-quality-standards--show-process-numbers'
       endif

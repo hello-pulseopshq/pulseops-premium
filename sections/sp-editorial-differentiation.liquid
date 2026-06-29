@@ -60,7 +60,7 @@
 {% render 'sp-section-hierarchy-open', section: section, anchor_id: 'sp-differentiation', extra_class: shell_class %}
   {%- if presentation == 'philosophy_manifesto' -%}
     {%- liquid
-      assign philosophy_root_class = 'sp-editorial-differentiation sp-editorial-differentiation--philosophy-manifesto sp-editorial-chapter sp-editorial-chapter--spacing-standard sp-editorial-chapter--handoff-in sp-editorial-chapter--handoff-out'
+      assign philosophy_root_class = 'sp-editorial-differentiation sp-composition sp-composition--linear-manifesto sp-editorial-differentiation--philosophy-manifesto sp-editorial-chapter sp-editorial-chapter--spacing-standard sp-editorial-chapter--handoff-in sp-editorial-chapter--handoff-out'
       if section.settings.show_cta_divider
         assign philosophy_root_class = philosophy_root_class | append: ' sp-editorial-differentiation--show-cta-divider'
       endif

@@ -215,7 +215,7 @@
             "name": "Rhodiola Rosea",
             "role": "For Stress Resilience",
             "image": "shopify://shop_images/Rhodiola_Rosea.png",
-            "description": "<p>A clinically studied adaptogen selected to support resilience during daily stress and fatigue.</p>"
+            "description": "<p>An adaptogen included for daily stress resilience—not stimulant energy spikes.</p>"
           }
         },
         "ingredient-3": {
@@ -224,7 +224,7 @@
             "name": "Probiotic Blend",
             "role": "For Gut Balance",
             "image": "shopify://shop_images/Probiotic_Blend.png",
-            "description": "<p>Clinically studied strains selected to support digestion, nutrient absorption, and regularity.</p>"
+            "description": "<p>Selected strains to support digestion, nutrient absorption, and regularity.</p>"
           }
         },
         "ingredient-4": {
@@ -294,17 +294,12 @@
         "ingredient-3",
         "ingredient-4",
         "ingredient-5",
-        "ingredient-6",
-        "commitment-1",
-        "commitment-2",
-        "commitment-3",
-        "commitment-4",
-        "commitment-5"
+        "ingredient-6"
       ],
       "settings": {
-        "eyebrow": "WHAT'S INSIDE DAILY VITALITY",
-        "heading": "<p>Purposeful ingredients.<br>Real results.</p>",
-        "body": "<p>A science-backed formula featuring clinically studied ingredients in effective amounts—working together to support energy, gut health, recovery, and daily vitality.</p>",
+        "eyebrow": "WHAT YOU TAKE EACH MORNING",
+        "heading": "<p>Six ingredients.<br>Two capsules. One serving.</p>",
+        "body": "<p>Every active in Daily Vitality is listed here with its role in your daily serving—no proprietary blends, no hidden stack. Full amounts and sourcing notes live on the formula page.</p>",
         "image": "shopify://shop_images/Ingredient_Flat_Lay.png",
         "image_alt": "Daily Vitality ingredient flat lay with capsules and whole-food sources",
         "button_label": "See full formula & amounts",
@@ -318,8 +313,8 @@
         "sp_section_emphasis": "normal",
         "sp_divider_style": "none",
         "color_scheme": "scheme-1",
-        "padding_top": 88,
-        "padding_bottom": 88
+        "padding_top": 72,
+        "padding_bottom": 64
       }
     },
     "sp-metrics": {
@@ -328,22 +323,22 @@
         "metric-1": {
           "type": "metric",
           "settings": {
-            "value": "35k+",
-            "label": "Customers supported"
+            "value": "One daily ritual",
+            "label": "Built for consistency"
           }
         },
         "metric-2": {
           "type": "metric",
           "settings": {
-            "value": "4.9★",
-            "label": "Average rating"
+            "value": "Daily, not occasionally",
+            "label": "Designed for long-term habits"
           }
         },
         "metric-3": {
           "type": "metric",
           "settings": {
-            "value": "8.4k+",
-            "label": "Verified reviews"
+            "value": "Two capsules",
+            "label": "One routine, every morning"
           }
         },
         "metric-4": {
@@ -363,8 +358,8 @@
       "settings": {
         "presentation": "editorial_story",
         "eyebrow": "Community confidence",
-        "heading": "A daily ritual trusted by thousands.",
-        "subheading": "",
+        "heading": "People like you made it a morning habit.",
+        "subheading": "<p>Not a popularity contest—simplicity people return to, morning after morning.</p>",
         "assurance_text": "",
         "content_alignment": "left",
         "desktop_columns": "3",
@@ -373,8 +368,8 @@
         "mobile_layout": "grid",
         "sp_surface_style": "default",
         "sp_divider_style": "none",
-        "padding_top": 36,
-        "padding_bottom": 44
+        "padding_top": 28,
+        "padding_bottom": 32
       }
     },
     "sp-editorial-differentiation": {
@@ -384,21 +379,21 @@
           "type": "proof_point",
           "settings": {
             "title": "Consistency over intensity",
-            "text": "A formula built for daily rhythm—not dramatic spikes that fade by afternoon."
+            "text": "We design for the morning you can repeat—not the week you white-knuckle through."
           }
         },
         "proof-2": {
           "type": "proof_point",
           "settings": {
-            "title": "Synergy over excess",
-            "text": "Every ingredient earns its place. Nothing redundant, nothing added for label padding."
+            "title": "Restraint over accumulation",
+            "text": "Most people do not need another bottle in the cabinet. They need one ritual they will actually keep."
           }
         },
         "proof-3": {
           "type": "proof_point",
           "settings": {
-            "title": "Daily habit over quick fixes",
-            "text": "One scoop replaces the stack. Simplicity is the point of the design."
+            "title": "One system over a stack",
+            "text": "Two capsules replace the scattered stack. Simplicity is the product—not an afterthought."
           }
         }
       },
@@ -413,8 +408,8 @@
         "image_alt": "Daily Vitality formulation philosophy",
         "eyebrow": "Formulation philosophy",
         "heading": "<p>Every choice in this formula serves the ritual—not the label.</p>",
-        "body": "<p>We didn't design Daily Vitality to impress a supplement facts panel. We designed it around how people actually build habits: one calm morning scoop, thoughtful ingredient pairing, and enough synergy that nothing feels excessive.</p>",
-        "philosophy_closing_line": "Intentional formulation for daily life—not another product in the cabinet.",
+        "body": "<p>We did not set out to win the supplement facts panel. We set out to solve supplement overload: one calm morning ritual, fewer decisions, and a daily system people can follow without thinking about it twice.</p>",
+        "philosophy_closing_line": "Not more ingredients—a better daily system you can keep.",
         "show_philosophy_image": true,
         "button_label": "",
         "button_link": "#sp-ingredients",
@@ -431,8 +426,8 @@
         "sp_section_emphasis": "normal",
         "sp_divider_style": "none",
         "color_scheme": "scheme-1",
-        "padding_top": 48,
-        "padding_bottom": 56
+        "padding_top": 52,
+        "padding_bottom": 52
       }
     },
     "sp-quality-standards": {
@@ -481,10 +476,10 @@
         "presentation": "scientific_confidence",
         "eyebrow": "Scientific confidence",
         "heading": "<p>Manufacturing and testing you can verify.</p>",
-        "body": "<p>Every lot moves through documented controls—from raw material identity to final release testing. Calm authority, not marketing claims.</p>",
+        "body": "<p>Every lot moves through documented controls—from raw material identity to final release testing. This is where claims meet evidence: clean label standards, third-party batch release, and GMP manufacturing you can trace.</p>",
         "image": "shopify://shop_images/Manufacturing_Lab_Scene.png",
         "image_alt": "Daily Vitality manufacturing and quality control environment",
-        "supporting_text": "",
+        "supporting_text": "<p>Clean &amp; non-GMO. No fillers or binders. Third-party tested every batch. Made in GMP-certified facilities.</p>",
         "button_label": "",
         "button_link": "",
         "trust_text": "",

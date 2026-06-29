@@ -1,0 +1,542 @@
+/**
+ * PulseOps Composition System
+ * Reusable chapter silhouettes — satisfies Visual System §3 composition contract.
+ * Activate via .sp-composition + .sp-composition--{archetype} on chapter roots.
+ */
+
+/* ── Tokens ── */
+
+.sp-composition {
+  --sp-comp-gap-tight: clamp(1.1rem, 1.6vw, 1.45rem);
+  --sp-comp-gap-standard: clamp(1.65rem, 2.4vw, 2.2rem);
+  --sp-comp-gap-wide: clamp(2.2rem, 3.2vw, 3rem);
+  --sp-comp-ledger-rule: rgba(var(--color-foreground), 0.1);
+  --sp-comp-inset-max: min(100%, 42rem);
+}
+
+.sp-demo-supplement .sp-composition {
+  --sp-comp-ledger-rule: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.12);
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Archetype 1 — Split transformation (Editorial Outcomes)
+   Owner: story photograph + vertical outcome ledger
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.sp-composition--split-transformation .sp-editorial-outcomes__composition {
+  align-items: stretch;
+}
+
+@media screen and (min-width: 750px) {
+  .sp-composition--split-transformation .sp-editorial-outcomes__composition {
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+    gap: clamp(2.4rem, 3.2vw, 3.8rem);
+  }
+
+  .sp-composition--split-transformation .sp-editorial-outcomes__cards,
+  .sp-composition--split-transformation.sp-editorial-outcomes--mobile-cards-auto .sp-editorial-outcomes__cards,
+  .sp-composition--split-transformation.sp-editorial-outcomes--mobile-cards-two_column .sp-editorial-outcomes__cards,
+  .sp-composition--split-transformation.sp-editorial-outcomes--mobile-cards-stack .sp-editorial-outcomes__cards {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    border-top: 0.1rem solid var(--sp-comp-ledger-rule);
+  }
+
+  .sp-composition--split-transformation .sp-editorial-outcomes__item {
+    border-bottom: 0.1rem solid var(--sp-comp-ledger-rule);
+  }
+
+  .sp-composition--split-transformation .sp-editorial-outcomes__item:last-child {
+    border-bottom: none;
+  }
+
+  .sp-composition--split-transformation .sp-editorial-outcomes__card {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: clamp(0.85rem, 1.2vw, 1.1rem);
+    min-height: 0;
+    padding: clamp(1rem, 1.35vw, 1.25rem) 0;
+  }
+
+  .sp-composition--split-transformation .sp-editorial-outcomes__card-meta {
+    min-height: 0;
+    flex-shrink: 0;
+  }
+
+  .sp-composition--split-transformation .sp-editorial-outcomes__card-icon {
+    width: 2.6rem;
+    height: 2.6rem;
+  }
+
+  .sp-composition--split-transformation .sp-editorial-outcomes__card-icon svg {
+    width: 1.35rem;
+    height: 1.35rem;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .sp-composition--split-transformation .sp-editorial-outcomes__cards {
+    gap: 0;
+    border-top: 0.1rem solid var(--sp-comp-ledger-rule);
+  }
+
+  .sp-composition--split-transformation .sp-editorial-outcomes__item {
+    border-bottom: 0.1rem solid var(--sp-comp-ledger-rule);
+  }
+
+  .sp-composition--split-transformation .sp-editorial-outcomes__card {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0.85rem;
+    padding: 0.95rem 0;
+    min-height: 0;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Archetype 2 — Gallery immersion (Ingredients)
+   Owner: flat-lay band + specimen tile grid
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.sp-composition--gallery-immersion.sp-ingredients-spotlight {
+  gap: clamp(1.25rem, 1.8vw, 1.65rem);
+}
+
+.sp-composition--gallery-immersion .sp-ingredients-spotlight__hero {
+  display: grid;
+  gap: clamp(1.15rem, 1.6vw, 1.45rem);
+}
+
+.sp-composition--gallery-immersion .sp-ingredients-spotlight__content {
+  order: 1;
+  max-width: min(100%, 38rem);
+}
+
+.sp-composition--gallery-immersion .sp-ingredients-spotlight__media {
+  order: 2;
+  width: 100%;
+}
+
+.sp-composition--gallery-immersion .sp-ingredients-spotlight__media-frame {
+  min-height: clamp(18rem, 48vw, 26rem);
+  border-radius: 0;
+}
+
+.sp-composition--gallery-immersion .sp-ingredients-spotlight__chapter-body {
+  margin-top: 0;
+}
+
+.sp-composition--gallery-immersion .sp-ingredients-spotlight__item {
+  border-bottom: none;
+}
+
+.sp-composition--gallery-immersion .sp-ingredients-spotlight__item-row {
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(0.65rem, 1vw, 0.85rem);
+  padding: 0;
+  height: 100%;
+}
+
+.sp-composition--gallery-immersion .sp-ingredients-spotlight__item-media {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: clamp(0.35rem, 0.6vw, 0.55rem);
+}
+
+.sp-composition--gallery-immersion .sp-ingredients-spotlight__item-media img {
+  object-fit: cover;
+}
+
+@media screen and (min-width: 750px) {
+  .sp-composition--gallery-immersion .sp-ingredients-spotlight__media {
+    width: 100vw;
+    max-width: 100vw;
+    margin-inline: calc(50% - 50vw);
+  }
+
+  .sp-composition--gallery-immersion .sp-ingredients-spotlight__media-frame {
+    min-height: clamp(20rem, 26vw, 28rem);
+    aspect-ratio: 21 / 8;
+  }
+
+  .sp-composition--gallery-immersion .sp-ingredients-spotlight__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1.35rem, 2vw, 2rem);
+  }
+
+  .sp-composition--gallery-immersion .sp-ingredients-spotlight__grid .sp-ingredients-spotlight__item:nth-child(n + 4) {
+    grid-column: span 1;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .sp-composition--gallery-immersion .sp-ingredients-spotlight__hero {
+    grid-template-columns: minmax(0, 0.42fr) minmax(0, 1fr);
+    align-items: end;
+    column-gap: clamp(2rem, 3vw, 3.2rem);
+  }
+
+  .sp-composition--gallery-immersion .sp-ingredients-spotlight__content {
+    grid-column: 1;
+    grid-row: 1;
+    max-width: none;
+    padding-bottom: clamp(0.5rem, 1vw, 1rem);
+  }
+
+  .sp-composition--gallery-immersion .sp-ingredients-spotlight__media {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100vw;
+    margin-inline: calc(50% - 50vw);
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .sp-composition--gallery-immersion .sp-ingredients-spotlight__media-frame {
+    min-height: clamp(16rem, 44vw, 22rem);
+    aspect-ratio: 16 / 10;
+  }
+
+  .sp-composition--gallery-immersion .sp-ingredients-spotlight__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1rem, 3vw, 1.35rem);
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Archetype 3 — Typographic band (Community Confidence)
+   Owner: numerals as horizontal editorial proof band
+   Reference density: evidence-panel clarity
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.sp-composition--typographic-band.sp-metrics--editorial-story {
+  gap: 0;
+}
+
+.sp-composition--typographic-band .sp-metrics__proof-moments {
+  border-top: none;
+  padding-top: 0;
+}
+
+.sp-composition--typographic-band .sp-metrics__intro {
+  margin: 0;
+}
+
+@media screen and (min-width: 750px) {
+  .sp-composition--typographic-band.sp-metrics--editorial-story {
+    display: grid;
+    grid-template-columns: minmax(0, 0.4fr) minmax(0, 0.6fr);
+    align-items: stretch;
+    column-gap: 0;
+    padding: clamp(1.35rem, 2vw, 1.85rem) clamp(1.65rem, 2.4vw, 2.35rem);
+    border-block: 0.1rem solid var(--sp-comp-ledger-rule);
+    background: rgba(var(--color-foreground), 0.018);
+  }
+
+  .sp-demo-supplement .sp-composition--typographic-band.sp-metrics--editorial-story {
+    background: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.025);
+  }
+
+  .sp-composition--typographic-band .sp-metrics__intro {
+    display: grid;
+    gap: clamp(0.55rem, 0.85vw, 0.75rem);
+    max-width: none;
+    align-self: center;
+    padding: clamp(0.35rem, 0.6vw, 0.55rem) clamp(1.35rem, 2vw, 2rem) clamp(0.35rem, 0.6vw, 0.55rem) 0;
+    border-right: 0.1rem solid var(--sp-comp-ledger-rule);
+  }
+
+  .sp-composition--typographic-band .sp-metrics__statement {
+    max-width: 16ch;
+  }
+
+  .sp-composition--typographic-band .sp-metrics__proof-moments {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: center;
+    align-content: center;
+    gap: clamp(1.25rem, 2vw, 2rem);
+    padding: clamp(0.85rem, 1.2vw, 1.15rem) 0 clamp(0.85rem, 1.2vw, 1.15rem) clamp(1.35rem, 2vw, 2rem);
+    border-top: none;
+    border-bottom: none;
+  }
+
+  .sp-composition--typographic-band .sp-metrics__proof-moment {
+    display: grid;
+    gap: clamp(0.35rem, 0.55vw, 0.5rem);
+    padding: clamp(0.35rem, 0.55vw, 0.5rem) 0;
+  }
+
+  .sp-composition--typographic-band .sp-metrics__proof-moment + .sp-metrics__proof-moment {
+    border-left: 0.1rem solid var(--sp-comp-ledger-rule);
+    padding-left: clamp(1rem, 1.5vw, 1.35rem);
+  }
+
+  .sp-composition--typographic-band .sp-metrics__proof-value {
+    font-size: clamp(2.75rem, 3.6vw, 3.65rem);
+    line-height: 0.96;
+  }
+
+  .sp-composition--typographic-band .sp-metrics__proof-label {
+    font-size: clamp(1.02rem, 0.95vw, 1.12rem);
+    max-width: 12ch;
+  }
+
+  .sp-composition--typographic-band .sp-metrics__assurance {
+    grid-column: 1 / -1;
+    margin-top: clamp(0.85rem, 1.2vw, 1.05rem);
+    padding-top: clamp(0.85rem, 1.2vw, 1.05rem);
+    border-top: 0.1rem solid var(--sp-comp-ledger-rule);
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .sp-composition--typographic-band.sp-metrics--editorial-story {
+    padding: clamp(1.15rem, 3.5vw, 1.45rem);
+    border-block: 0.1rem solid var(--sp-comp-ledger-rule);
+    background: rgba(var(--color-foreground), 0.018);
+  }
+
+  .sp-demo-supplement .sp-composition--typographic-band.sp-metrics--editorial-story {
+    background: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.025);
+  }
+
+  .sp-composition--typographic-band .sp-metrics__intro {
+    padding-bottom: clamp(0.85rem, 2.5vw, 1.05rem);
+    border-bottom: 0.1rem solid var(--sp-comp-ledger-rule);
+  }
+
+  .sp-composition--typographic-band .sp-metrics__statement {
+    max-width: none;
+  }
+
+  .sp-composition--typographic-band .sp-metrics__proof-moments {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(0.75rem, 2.5vw, 1rem);
+    padding-top: clamp(0.85rem, 2.5vw, 1.05rem);
+    border-top: none;
+  }
+
+  .sp-composition--typographic-band .sp-metrics__proof-value {
+    font-size: clamp(1.95rem, 6vw, 2.45rem);
+  }
+
+  .sp-composition--typographic-band .sp-metrics__proof-label {
+    font-size: clamp(0.95rem, 2.8vw, 1.05rem);
+    line-height: 1.3;
+    max-width: none;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Archetype 4 — Linear manifesto (Formulation Philosophy)
+   Owner: words — inset image + alternating principle rails
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.sp-composition--linear-manifesto.sp-editorial-differentiation--philosophy-manifesto {
+  gap: clamp(1.35rem, 2vw, 1.85rem);
+}
+
+.sp-composition--linear-manifesto .sp-editorial-differentiation__manifesto-intro {
+  max-width: min(100%, 52rem);
+}
+
+.sp-composition--linear-manifesto .sp-editorial-differentiation__visual-interruption {
+  max-width: min(100%, 54rem);
+  width: 100%;
+}
+
+.sp-composition--linear-manifesto .sp-editorial-differentiation__visual-interruption-frame {
+  aspect-ratio: 16 / 9;
+}
+
+.sp-composition--linear-manifesto .sp-editorial-differentiation__principles {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(1.65rem, 2.4vw, 2.2rem);
+  margin-top: clamp(0.35rem, 0.6vw, 0.55rem);
+  padding-top: clamp(1.35rem, 2vw, 1.65rem);
+  border-top: 0.1rem solid var(--sp-comp-ledger-rule);
+}
+
+.sp-composition--linear-manifesto .sp-editorial-differentiation__principle {
+  padding: clamp(1rem, 1.4vw, 1.25rem) 0 clamp(1rem, 1.4vw, 1.25rem)
+    clamp(1.5rem, 2.4vw, 2.6rem);
+  border-left: 0.24rem solid var(--sp-comp-ledger-rule);
+}
+
+.sp-composition--linear-manifesto .sp-editorial-differentiation__principle-title {
+  font-size: clamp(1.65rem, 1.55vw, 1.95rem);
+}
+
+.sp-composition--linear-manifesto .sp-editorial-differentiation__principle-text {
+  max-width: 38ch;
+  font-size: clamp(1.28rem, 1.2vw, 1.42rem);
+  line-height: 1.55;
+}
+
+.sp-composition--linear-manifesto .sp-editorial-differentiation__principle + .sp-editorial-differentiation__principle {
+  border-left-width: 0.24rem;
+  border-top: none;
+  padding-left: clamp(2.75rem, 4.5vw, 5rem);
+}
+
+.sp-composition--linear-manifesto .sp-editorial-differentiation__philosophy-closer {
+  margin-top: clamp(0.35rem, 0.6vw, 0.55rem);
+  padding-top: clamp(1.15rem, 1.6vw, 1.45rem);
+  max-width: min(100%, 46rem);
+}
+
+@media screen and (min-width: 750px) {
+  .sp-composition--linear-manifesto .sp-editorial-differentiation__visual-interruption-frame {
+    aspect-ratio: 16 / 9;
+    max-width: none;
+    min-height: clamp(22rem, 28vw, 30rem);
+  }
+
+  .sp-composition--linear-manifesto .sp-editorial-differentiation__principles {
+    max-width: min(100%, 58rem);
+  }
+
+  .sp-composition--linear-manifesto .sp-editorial-differentiation__principle + .sp-editorial-differentiation__principle {
+    border-left: 0.24rem solid var(--sp-comp-ledger-rule);
+    padding-top: clamp(1rem, 1.4vw, 1.25rem);
+  }
+
+  .sp-composition--linear-manifesto .sp-editorial-differentiation__principle:nth-child(even) {
+    margin-left: clamp(2.5rem, 6vw, 6.5rem);
+    max-width: calc(100% - clamp(2.5rem, 6vw, 6.5rem));
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .sp-composition--linear-manifesto .sp-editorial-differentiation__visual-interruption-frame {
+    aspect-ratio: 16 / 10;
+    min-height: clamp(14rem, 42vw, 18rem);
+  }
+
+  .sp-composition--linear-manifesto .sp-editorial-differentiation__principle + .sp-editorial-differentiation__principle {
+    padding-left: clamp(1.75rem, 5vw, 2.25rem);
+  }
+
+  .sp-composition--linear-manifesto .sp-editorial-differentiation__principle:nth-child(even) {
+    margin-left: clamp(1rem, 4vw, 1.75rem);
+    max-width: calc(100% - clamp(1rem, 4vw, 1.75rem));
+  }
+
+  .sp-composition--linear-manifesto .sp-editorial-differentiation__principle-text {
+    max-width: none;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Archetype 5 — Evidence panel (Scientific Confidence)
+   Owner: documentary lab frame + vertical process rail
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.sp-composition--evidence-panel.sp-quality-standards--scientific-confidence {
+  gap: var(--sp-comp-gap-standard);
+}
+
+@media screen and (min-width: 990px) {
+  .sp-composition--evidence-panel.sp-quality-standards--scientific-confidence {
+    display: grid;
+    grid-template-columns: minmax(0, 0.52fr) minmax(0, 0.48fr);
+    grid-template-areas:
+      'intro intro'
+      'lab process'
+      'note note'
+      'footer footer';
+    column-gap: clamp(2rem, 3vw, 3.2rem);
+    row-gap: var(--sp-comp-gap-standard);
+    align-items: start;
+  }
+
+  .sp-composition--evidence-panel .sp-quality-standards__evidence-intro {
+    grid-area: intro;
+    max-width: min(100%, 46rem);
+  }
+
+  .sp-composition--evidence-panel .sp-quality-standards__lab-evidence {
+    grid-area: lab;
+    align-self: stretch;
+  }
+
+  .sp-composition--evidence-panel .sp-quality-standards__lab-evidence-frame {
+    min-height: 100%;
+    aspect-ratio: auto;
+    height: 100%;
+  }
+
+  .sp-composition--evidence-panel .sp-quality-standards__process-checkpoints {
+    grid-area: process;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    padding-top: 0;
+    border-top: none;
+    align-self: stretch;
+    border-left: 0.1rem solid var(--sp-comp-ledger-rule);
+    padding-left: clamp(1.35rem, 2vw, 2rem);
+  }
+
+  .sp-composition--evidence-panel .sp-quality-standards__process-step {
+    padding: clamp(0.95rem, 1.3vw, 1.15rem) 0;
+    border-bottom: 0.1rem solid var(--sp-comp-ledger-rule);
+  }
+
+  .sp-composition--evidence-panel .sp-quality-standards__process-step:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .sp-composition--evidence-panel .sp-quality-standards__process-step + .sp-quality-standards__process-step {
+    border-left: none;
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+  .sp-composition--evidence-panel .sp-quality-standards__evidence-note {
+    grid-area: note;
+  }
+
+  .sp-composition--evidence-panel .sp-quality-standards__footer--quiet {
+    grid-area: footer;
+  }
+}
+
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .sp-composition--evidence-panel .sp-quality-standards__lab-evidence-frame {
+    aspect-ratio: 16 / 10;
+  }
+
+  .sp-composition--evidence-panel .sp-quality-standards__process-checkpoints {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .sp-composition--evidence-panel .sp-quality-standards__process-step {
+    padding: clamp(0.95rem, 1.3vw, 1.15rem) 0;
+    border-bottom: 0.1rem solid var(--sp-comp-ledger-rule);
+    border-right: none;
+    border-top: none;
+  }
+
+  .sp-composition--evidence-panel .sp-quality-standards__process-step:nth-child(n + 3) {
+    border-top: none;
+    padding-top: clamp(0.95rem, 1.3vw, 1.15rem);
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .sp-composition--evidence-panel .sp-quality-standards__lab-evidence-frame {
+    aspect-ratio: 16 / 10;
+  }
+
+  .sp-composition--evidence-panel .sp-quality-standards__process-checkpoints {
+    border-top: 0.1rem solid var(--sp-comp-ledger-rule);
+    padding-top: clamp(0.85rem, 1.2vw, 1.05rem);
+  }
+}
