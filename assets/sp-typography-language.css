@@ -1,0 +1,140 @@
+/**
+ * PulseOps Typography Language — Foundation (Phase IV.1A)
+ *
+ * Single typography authority for the supplement demo. Voice tokens alias current
+ * computed values; IV.1B retargets voices without changing primitive structure.
+ *
+ * Load order: after sp-demo-supplement.css, before sp-editorial-system.css.
+ * Authority: docs/TYPOGRAPHY-LANGUAGE-FOUNDATION.md
+ *
+ * Ownership (do not duplicate without updating this file):
+ *   Hero display          → sp-demo-supplement-hero.css (frozen)
+ *   Voice tokens          → this file
+ *   Editorial primitives  → sp-editorial-system.css (.sp-editorial-type--*)
+ *   Composition measure   → sp-composition-system.css (layout + band clamps)
+ *   Global primitives     → sp-demo-supplement-type.css (--sp-type-*)
+ *   Section micro-type    → sp-* section CSS (matrix, checkpoints, cards)
+ *   Future Self finale    → sp-cta-offer-future-self.css (consumes --sp-voice-minimal-*)
+ *   Human Proof quote     → sp-social-proof-human-story.css (consumes --sp-voice-emotional-*)
+ */
+
+/* ── Voice foundation tokens ── */
+
+.sp-demo-supplement {
+  /* Caption / label (shared eyebrow tier) */
+  --sp-voice-caption-size: clamp(1.05rem, 0.95vw, 1.18rem);
+  --sp-voice-caption-weight: 700;
+  --sp-voice-caption-track: 0.14em;
+  --sp-voice-caption-lh: 1.35;
+
+  /*
+   * Expressive — Hero only. Reference slot; hero CSS remains frozen and does
+   * not consume these tokens in IV.1A.
+   */
+  --sp-voice-expressive-size: clamp(4.2rem, 9.5vw, 6.4rem);
+
+  /* Confident + Documentary — both alias chapter tier today (IV.1B splits) */
+  --sp-voice-confident-size: clamp(3.85rem, 8.8vw, 5.8rem);
+  --sp-voice-confident-weight: 800;
+  --sp-voice-confident-lh: 0.98;
+  --sp-voice-confident-track: -0.045em;
+
+  --sp-voice-documentary-size: var(--sp-voice-confident-size);
+  --sp-voice-documentary-weight: var(--sp-voice-confident-weight);
+  --sp-voice-documentary-lh: var(--sp-voice-confident-lh);
+  --sp-voice-documentary-track: var(--sp-voice-confident-track);
+
+  /* Collective / Manifesto / Precise — alias statement tier today (IV.1B splits) */
+  --sp-voice-collective-size: clamp(2.6rem, 5.2vw, 3.6rem);
+  --sp-voice-collective-weight: 700;
+  --sp-voice-collective-lh: 1.05;
+  --sp-voice-collective-track: -0.035em;
+  --sp-voice-collective-measure: 16ch;
+
+  --sp-voice-collective-moment-size: clamp(2.75rem, 3.6vw, 3.65rem);
+  --sp-voice-collective-moment-size-mobile: clamp(1.95rem, 6vw, 2.45rem);
+  --sp-voice-collective-moment-lh: 0.96;
+
+  --sp-voice-manifesto-size: var(--sp-voice-collective-size);
+  --sp-voice-manifesto-weight: var(--sp-voice-collective-weight);
+  --sp-voice-manifesto-lh: var(--sp-voice-collective-lh);
+  --sp-voice-manifesto-track: var(--sp-voice-collective-track);
+  --sp-voice-manifesto-measure: 18ch;
+
+  --sp-voice-precise-size: var(--sp-voice-collective-size);
+  --sp-voice-precise-weight: var(--sp-voice-collective-weight);
+  --sp-voice-precise-lh: var(--sp-voice-collective-lh);
+  --sp-voice-precise-track: var(--sp-voice-collective-track);
+  --sp-voice-precise-measure: 16ch;
+
+  /* Emotional — Human Proof */
+  --sp-voice-emotional-lead-size: clamp(2.4rem, 4vw, 3.4rem);
+  --sp-voice-emotional-lead-weight: 800;
+  --sp-voice-emotional-lead-lh: 0.98;
+  --sp-voice-emotional-lead-track: -0.04em;
+  --sp-voice-emotional-lead-measure: 16ch;
+
+  --sp-voice-emotional-quote-size: clamp(2.2rem, 2.6vw, 3.2rem);
+  --sp-voice-emotional-quote-size-mobile: clamp(1.9rem, 6vw, 2.45rem);
+  --sp-voice-emotional-quote-lh: 1.18;
+  --sp-voice-emotional-quote-track: -0.03em;
+
+  /* Minimal — Future Self finale */
+  --sp-voice-minimal-size: clamp(2.05rem, 3.4vw, 2.85rem);
+  --sp-voice-minimal-size-mobile: clamp(1.9rem, 6.6vw, 2.45rem);
+  --sp-voice-minimal-weight: 650;
+  --sp-voice-minimal-lh: 1.02;
+  --sp-voice-minimal-track: -0.03em;
+  --sp-voice-minimal-measure: 12ch;
+  --sp-voice-minimal-measure-mobile: 11ch;
+  --sp-voice-minimal-ink: rgba(255, 255, 255, 0.96);
+
+  /* Quiet — FAQ utility heading */
+  --sp-voice-quiet-size: clamp(1.55rem, 1.8vw, 1.85rem);
+  --sp-voice-quiet-size-mobile: clamp(1.45rem, 4.8vw, 1.65rem);
+  --sp-voice-quiet-weight: 600;
+  --sp-voice-quiet-lh: 1.2;
+  --sp-voice-quiet-track: -0.015em;
+  --sp-voice-quiet-measure: 22ch;
+
+  /* Whisper — Footer / utility body (aliases global primitives) */
+  --sp-voice-whisper-size: var(--sp-type-body-sm, 1.35rem);
+  --sp-voice-whisper-heading-size: var(--sp-type-caption, 1.15rem);
+  --sp-voice-whisper-weight: 500;
+  --sp-voice-whisper-lh: 1.55;
+
+  /* Shared rhythm slots (alias global primitives; IV.1C retargets) */
+  --sp-voice-lh-body: var(--sp-type-lh-body, 1.6);
+  --sp-voice-lh-display: var(--sp-type-lh-display, 1.04);
+}
+
+/* Editorial primitive aliases — bridge --sp-es-type-* to voice layer */
+.sp-editorial-chapter {
+  --sp-es-type-hero: var(--sp-voice-expressive-size, clamp(4.2rem, 9.5vw, 6.4rem));
+  --sp-es-type-chapter: var(--sp-voice-confident-size, clamp(3.85rem, 8.8vw, 5.8rem));
+  --sp-es-type-statement: var(--sp-voice-collective-size, clamp(2.6rem, 5.2vw, 3.6rem));
+  --sp-es-type-quote: var(--sp-voice-emotional-quote-size, clamp(2rem, 3.6vw, 2.75rem));
+  --sp-es-type-caption: var(--sp-voice-caption-size, clamp(1.05rem, 0.95vw, 1.18rem));
+}
+
+/*
+ * Future Self — statement class on headline is semantic only; finale CSS owns
+ * typography. Lock winning values here so cascade order cannot regress IV.1A.
+ */
+.sp-demo-supplement .sp-cta-offer--future-self .sp-cta-offer__future-self-headline.sp-editorial-type--statement,
+.sp-demo-supplement .sp-cta-offer--future-self .sp-cta-offer__future-self-headline.sp-editorial-type--statement p {
+  font-size: var(--sp-voice-minimal-size);
+  font-weight: var(--sp-voice-minimal-weight);
+  line-height: var(--sp-voice-minimal-lh);
+  letter-spacing: var(--sp-voice-minimal-track);
+  max-width: var(--sp-voice-minimal-measure);
+  color: var(--sp-voice-minimal-ink);
+}
+
+@media screen and (max-width: 749px) {
+  .sp-demo-supplement .sp-cta-offer--future-self .sp-cta-offer__future-self-headline.sp-editorial-type--statement,
+  .sp-demo-supplement .sp-cta-offer--future-self .sp-cta-offer__future-self-headline.sp-editorial-type--statement p {
+    font-size: var(--sp-voice-minimal-size-mobile);
+    max-width: var(--sp-voice-minimal-measure-mobile);
+  }
+}

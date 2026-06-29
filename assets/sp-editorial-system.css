@@ -1,6 +1,9 @@
 /**
  * SP Editorial System — reusable premium chapter layer
  * Scoped polish under .sp-demo-supplement; base tokens work for any SP editorial chapter.
+ *
+ * Typography: --sp-es-type-* aliases live in sp-typography-language.css (IV.1A).
+ * This file owns editorial primitive classes (.sp-editorial-type--*) and chapter spacing.
  */
 
 /* ── Design tokens (chapter root) ── */
@@ -10,11 +13,6 @@
   --sp-es-chapter-gap-standard: clamp(2.2rem, 3.2vw, 3.2rem);
   --sp-es-chapter-gap-cinematic: clamp(3.2rem, 4.8vw, 5.2rem);
   --sp-es-chapter-gap: var(--sp-es-chapter-gap-standard);
-  --sp-es-type-hero: clamp(4.2rem, 9.5vw, 6.4rem);
-  --sp-es-type-chapter: clamp(3.85rem, 8.8vw, 5.8rem);
-  --sp-es-type-statement: clamp(2.6rem, 5.2vw, 3.6rem);
-  --sp-es-type-quote: clamp(2rem, 3.6vw, 2.75rem);
-  --sp-es-type-caption: clamp(1.05rem, 0.95vw, 1.18rem);
   --sp-es-media-radius-contained: clamp(0.8rem, 1.2vw, 1.2rem);
   --sp-es-media-radius-cinematic: clamp(0.35rem, 0.7vw, 0.65rem);
   --sp-es-ink: rgb(var(--color-foreground));
@@ -76,6 +74,7 @@
 
 /* ── Type scale helpers ── */
 
+/* Primitive classes consume --sp-es-type-* (voice aliases in sp-typography-language.css) */
 .sp-editorial-type--hero {
   font-size: var(--sp-es-type-hero);
   font-weight: 800;
@@ -85,16 +84,16 @@
 
 .sp-editorial-type--chapter {
   font-size: var(--sp-es-type-chapter);
-  font-weight: 800;
-  line-height: 0.98;
-  letter-spacing: -0.045em;
+  font-weight: var(--sp-voice-confident-weight, 800);
+  line-height: var(--sp-voice-confident-lh, 0.98);
+  letter-spacing: var(--sp-voice-confident-track, -0.045em);
 }
 
 .sp-editorial-type--statement {
   font-size: var(--sp-es-type-statement);
-  font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.035em;
+  font-weight: var(--sp-voice-collective-weight, 700);
+  line-height: var(--sp-voice-collective-lh, 1.05);
+  letter-spacing: var(--sp-voice-collective-track, -0.035em);
 }
 
 .sp-editorial-type--quote {
@@ -106,9 +105,9 @@
 
 .sp-editorial-type--caption {
   font-size: var(--sp-es-type-caption);
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  line-height: 1.35;
+  font-weight: var(--sp-voice-caption-weight, 700);
+  letter-spacing: var(--sp-voice-caption-track, 0.14em);
+  line-height: var(--sp-voice-caption-lh, 1.35);
   text-transform: uppercase;
 }
 
@@ -872,7 +871,7 @@
 }
 
 .sp-demo-supplement .sp-social-proof--human-story {
-  --sp-hs-quote-size: clamp(2.2rem, 2.6vw, 3.2rem);
+  --sp-hs-quote-size: var(--sp-voice-emotional-quote-size, clamp(2.2rem, 2.6vw, 3.2rem));
 }
 
 .sp-demo-supplement .sp-social-proof--human-story .sp-social-proof__human-story-lead,
@@ -943,7 +942,7 @@
 
 @media screen and (max-width: 749px) {
   .sp-demo-supplement .sp-social-proof--human-story {
-    --sp-hs-quote-size: clamp(1.9rem, 6vw, 2.45rem);
+    --sp-hs-quote-size: var(--sp-voice-emotional-quote-size-mobile, clamp(1.9rem, 6vw, 2.45rem));
   }
 
   .sp-demo-supplement .sp-social-proof--human-story .sp-social-proof__human-story-lead,
@@ -980,13 +979,6 @@
   padding-inline: 0;
 }
 
-.sp-demo-supplement .sp-cta-offer__future-self-headline,
-.sp-demo-supplement .sp-cta-offer__future-self-headline p {
-  font-family: var(--sp-font-heading, var(--font-heading-family));
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.96);
-}
-
 .sp-demo-supplement .sp-cta-offer__future-self-support,
 .sp-demo-supplement .sp-cta-offer__future-self-support p {
   font-family: var(--sp-font-body, var(--font-body-family));
@@ -1019,13 +1011,7 @@
   scroll-margin-top: 6rem;
 }
 
-@media screen and (max-width: 749px) {
-  .sp-demo-supplement .sp-cta-offer__future-self-headline,
-  .sp-demo-supplement .sp-cta-offer__future-self-headline p {
-    font-size: clamp(1.9rem, 6.6vw, 2.45rem);
-    line-height: 1.02;
-  }
-}
+/* Future Self headline typography → sp-typography-language.css + sp-cta-offer-future-self.css */
 
 /* ══════════════════════════════════════════════════════════════════════════
    Sprint 7.1c — Narrative ending (Human Proof → FAQ → Future Self → Footer)
@@ -1053,10 +1039,10 @@
 }
 
 .sp-demo-supplement .sp-faq__heading {
-  font-size: clamp(1.55rem, 1.8vw, 1.85rem);
-  font-weight: 600;
-  letter-spacing: -0.015em;
-  max-width: 22ch;
+  font-size: var(--sp-voice-quiet-size, clamp(1.55rem, 1.8vw, 1.85rem));
+  font-weight: var(--sp-voice-quiet-weight, 600);
+  letter-spacing: var(--sp-voice-quiet-track, -0.015em);
+  max-width: var(--sp-voice-quiet-measure, 22ch);
 }
 
 .sp-demo-supplement .sp-faq__list {
@@ -1153,7 +1139,7 @@
 
 @media screen and (max-width: 749px) {
   .sp-demo-supplement .sp-faq__heading {
-    font-size: clamp(1.45rem, 4.8vw, 1.65rem);
+    font-size: var(--sp-voice-quiet-size-mobile, clamp(1.45rem, 4.8vw, 1.65rem));
     max-width: none;
   }
 

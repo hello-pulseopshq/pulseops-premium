@@ -24,7 +24,7 @@
 
   --sp-supplement-section-gap: 0.4rem;
 
-  /* Typography tokens → assets/sp-demo-supplement-type.css */
+  /* Typography tokens → assets/sp-typography-language.css + sp-demo-supplement-type.css */
   --sp-supplement-content-max: min(100%, var(--page-width, 120rem));
   --sp-supplement-content-narrow: min(100%, 72rem);
   --sp-supplement-hero-media-ratio: 100%;

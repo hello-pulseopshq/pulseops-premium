@@ -1,8 +1,11 @@
 ﻿/**
- * Supplement Demo ΓÇö Typography System
- * Reusable tokens + application rules for .sp-demo-supplement only.
- * Load after sp-demo-supplement.css via snippets/sp-demo-supplement-head.liquid.
- * Hero display scale overrides remain in sp-demo-supplement-hero.css.
+ * Supplement Demo — Typography System
+ * Global primitives (--sp-type-*) for .sp-demo-supplement only.
+ * Load after sp-typography-language.css via snippets/sp-demo-supplement-head.liquid.
+ *
+ * Voice tokens (--sp-voice-*) → sp-typography-language.css (authority)
+ * Editorial classes → sp-editorial-system.css
+ * Hero display scale → sp-demo-supplement-hero.css (frozen)
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Inter:wght@500;600;700;800&display=swap');
@@ -138,6 +141,7 @@ html.sp-demo-supplement.sp-font-variant-c {
 }
 
 .sp-demo-supplement .sp-cta-offer__heading {
+  /* Card presentation only — not Future Self (.sp-cta-offer__future-self-headline) */
   font-size: var(--sp-type-display-1);
   font-weight: var(--sp-type-w-display);
   letter-spacing: var(--sp-type-track-display);

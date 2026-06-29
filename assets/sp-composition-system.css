@@ -2,6 +2,9 @@
  * PulseOps Composition System
  * Reusable chapter silhouettes — satisfies Visual System §3 composition contract.
  * Activate via .sp-composition + .sp-composition--{archetype} on chapter roots.
+ *
+ * Typography: composition owns layout measure and band clamps only. Voice tokens
+ * live in sp-typography-language.css; archetype font-size clamps alias those tokens.
  */
 
 /* ── Tokens ── */
@@ -274,8 +277,8 @@
   }
 
   .sp-composition--typographic-band .sp-metrics__proof-value {
-    font-size: clamp(2.75rem, 3.6vw, 3.65rem);
-    line-height: 0.96;
+    font-size: var(--sp-voice-collective-moment-size, clamp(2.75rem, 3.6vw, 3.65rem));
+    line-height: var(--sp-voice-collective-moment-lh, 0.96);
   }
 
   .sp-composition--typographic-band .sp-metrics__proof-label {
@@ -320,7 +323,7 @@
   }
 
   .sp-composition--typographic-band .sp-metrics__proof-value {
-    font-size: clamp(1.95rem, 6vw, 2.45rem);
+    font-size: var(--sp-voice-collective-moment-size-mobile, clamp(1.95rem, 6vw, 2.45rem));
   }
 
   .sp-composition--typographic-band .sp-metrics__proof-label {

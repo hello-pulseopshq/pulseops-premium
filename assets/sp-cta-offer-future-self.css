@@ -2,6 +2,8 @@
  * SP CTA Offer — Future self cinematic finale
  * Reusable across vertical demos (.sp-cta-offer--future-self).
  *
+ * Typography authority for Future Self finale (IV.1A).
+ * Consumes --sp-voice-minimal-* from sp-typography-language.css.
  * Frame sizing uses aspect-ratio on the canvas (width-proportional height).
  * Desktop: full-bleed 16:9 cinematic finale. Mobile: portrait-leaning 5:6. */
 
@@ -84,12 +86,13 @@
 
 .sp-cta-offer--future-self .sp-cta-offer__future-self-headline {
   margin: 0;
-  max-width: 12ch;
-  font-size: clamp(2.05rem, 3.4vw, 2.85rem);
-  font-weight: 650;
-  line-height: 1.02;
-  letter-spacing: -0.03em;
-  color: rgba(255, 255, 255, 0.96);
+  max-width: var(--sp-voice-minimal-measure, 12ch);
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  font-size: var(--sp-voice-minimal-size, clamp(2.05rem, 3.4vw, 2.85rem));
+  font-weight: var(--sp-voice-minimal-weight, 650);
+  line-height: var(--sp-voice-minimal-lh, 1.02);
+  letter-spacing: var(--sp-voice-minimal-track, -0.03em);
+  color: var(--sp-voice-minimal-ink, rgba(255, 255, 255, 0.96));
   text-shadow: 0 0.12rem 0.85rem rgba(8, 14, 12, 0.28);
 }
 
@@ -201,8 +204,8 @@
   }
 
   .sp-cta-offer--future-self .sp-cta-offer__future-self-headline {
-    max-width: 11ch;
-    font-size: clamp(1.95rem, 6.8vw, 2.55rem);
+    max-width: var(--sp-voice-minimal-measure-mobile, 11ch);
+    font-size: var(--sp-voice-minimal-size-mobile, clamp(1.95rem, 6.8vw, 2.55rem));
   }
 
   .sp-cta-offer--future-self .sp-cta-offer__future-self-panel {
