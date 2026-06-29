@@ -90,9 +90,9 @@
 
   --sp-is-accent-deep: rgb(var(--color-foreground));
 
-  --sp-is-card-shadow: 0 0.8rem 2.4rem rgba(var(--color-shadow), 0.06);
+  --sp-is-card-shadow: var(--sp-surface-elevated-shadow-contained, 0 0.8rem 2.4rem rgba(var(--color-shadow), 0.06));
 
-  --sp-is-row-divider: rgba(var(--color-foreground), 0.12);
+  --sp-is-row-divider: var(--sp-surface-divider-matrix, rgba(var(--color-foreground), 0.12));
 
   --sp-is-row-padding-y: clamp(1.25rem, 1.85vw, 1.65rem);
 
@@ -120,9 +120,9 @@
 
   --sp-is-accent-deep: rgb(var(--sp-supplement-green-deep, var(--color-foreground)));
 
-  --sp-is-card-shadow: var(--sp-hero-surface-card-shadow, 0 0.8rem 2.4rem rgba(var(--color-shadow), 0.06));
+  --sp-is-card-shadow: var(--sp-surface-elevated-shadow-glass, var(--sp-hero-surface-card-shadow, 0 0.8rem 2.4rem rgba(var(--color-shadow), 0.06)));
 
-  --sp-is-row-divider: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.14);
+  --sp-is-row-divider: var(--sp-surface-divider-matrix-supplement, rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.14));
 
   --sp-is-heading-size: var(--sp-voice-documentary-size);
 

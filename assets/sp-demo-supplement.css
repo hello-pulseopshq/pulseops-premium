@@ -1,9 +1,10 @@
-﻿/**
+/**
  * Daily Vitality — flagship supplement demo brand layer
  * Scoped to .sp-demo-supplement on <html> (supplement template suffix).
  */
 
 /* ── Premium wellness design tokens ── */
+/* Surface tokens → assets/sp-surface-language.css (IV.2A). Palette primitives remain here. */
 .sp-demo-supplement {
   --sp-supplement-ivory: 252, 250, 246;
   --sp-supplement-cream: var(--sp-supplement-ivory);

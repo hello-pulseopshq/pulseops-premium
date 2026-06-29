@@ -20,13 +20,13 @@
 
 .sp-demo-supplement .sp-editorial-outcomes-shell--tone-soft.gradient,
 .sp-demo-supplement .sp-editorial-outcomes-shell--tone-soft {
-  background: rgb(var(--sp-supplement-ivory, var(--color-background)));
+  background: var(--sp-surface-chapter-soft, rgb(var(--sp-supplement-ivory, var(--color-background))));
   background-image: none;
 }
 
 .sp-demo-supplement .sp-editorial-outcomes-shell--tone-contrast.gradient,
 .sp-demo-supplement .sp-editorial-outcomes-shell--tone-contrast {
-  background: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.04);
+  background: var(--sp-surface-chapter-contrast, rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.04));
   background-image: none;
 }
 
@@ -42,7 +42,7 @@
   --sp-eo-heading-leading: 0.95;
   --sp-eo-card-bg: rgba(var(--color-background), 0.88);
   --sp-eo-card-border: rgba(var(--color-foreground), 0.08);
-  --sp-eo-card-shadow: 0 1rem 3.2rem rgba(var(--color-shadow), 0.07);
+  --sp-eo-card-shadow: var(--sp-surface-elevated-shadow-soft, 0 1rem 3.2rem rgba(var(--color-shadow), 0.07));
   --sp-eo-ink: rgb(var(--color-foreground));
   --sp-eo-accent: rgb(var(--color-button));
   --sp-eo-accent-deep: rgb(var(--color-foreground));
@@ -55,9 +55,9 @@
 }
 
 .sp-demo-supplement .sp-editorial-outcomes {
-  --sp-eo-card-bg: var(--sp-hero-surface-card-bg);
-  --sp-eo-card-border: var(--sp-hero-surface-card-border);
-  --sp-eo-card-shadow: var(--sp-hero-surface-card-shadow);
+  --sp-eo-card-bg: var(--sp-surface-elevated-fill-glass, var(--sp-hero-surface-card-bg));
+  --sp-eo-card-border: var(--sp-surface-elevated-border-glass, var(--sp-hero-surface-card-border));
+  --sp-eo-card-shadow: var(--sp-surface-elevated-shadow-glass, var(--sp-hero-surface-card-shadow));
   --sp-eo-ink: rgb(var(--sp-type-ink, var(--color-foreground)));
   --sp-eo-accent: rgb(var(--sp-supplement-green, var(--color-button)));
   --sp-eo-accent-deep: rgb(var(--sp-supplement-green-deep, var(--color-foreground)));

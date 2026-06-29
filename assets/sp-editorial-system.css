@@ -3,6 +3,7 @@
  * Scoped polish under .sp-demo-supplement; base tokens work for any SP editorial chapter.
  *
  * Typography: --sp-es-type-* aliases live in sp-typography-language.css (IV.1A).
+ * Surface: --sp-es-media-radius-* aliases live in sp-surface-language.css (IV.2A).
  * This file owns editorial primitive classes (.sp-editorial-type--*) and chapter spacing.
  */
 
@@ -13,8 +14,8 @@
   --sp-es-chapter-gap-standard: clamp(2.2rem, 3.2vw, 3.2rem);
   --sp-es-chapter-gap-cinematic: clamp(3.2rem, 4.8vw, 5.2rem);
   --sp-es-chapter-gap: var(--sp-es-chapter-gap-standard);
-  --sp-es-media-radius-contained: clamp(0.8rem, 1.2vw, 1.2rem);
-  --sp-es-media-radius-cinematic: clamp(0.35rem, 0.7vw, 0.65rem);
+  --sp-es-media-radius-contained: var(--sp-surface-radius-contained, clamp(0.8rem, 1.2vw, 1.2rem));
+  --sp-es-media-radius-cinematic: var(--sp-surface-radius-cinematic, clamp(0.35rem, 0.7vw, 0.65rem));
   --sp-es-ink: rgb(var(--color-foreground));
   --sp-es-ink-muted: rgba(var(--color-foreground), 0.72);
   --sp-es-accent: rgb(var(--color-button));

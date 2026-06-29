@@ -37,7 +37,7 @@
   --sp-qs-media-min-height: clamp(32rem, 88vw, 40rem);
   --sp-qs-proof-row-padding: clamp(1.65rem, 2.5vw, 2.15rem);
   --sp-qs-cta-gap: clamp(3.2rem, 4.5vw, 4.8rem);
-  --sp-qs-divider: rgba(var(--color-foreground), 0.1);
+  --sp-qs-divider: var(--sp-surface-divider-neutral, rgba(var(--color-foreground), 0.1));
   --sp-qs-accent: rgb(var(--color-button));
   --sp-qs-accent-deep: rgb(var(--color-foreground));
   display: grid;
@@ -45,7 +45,7 @@
 }
 
 .sp-demo-supplement .sp-quality-standards {
-  --sp-qs-divider: rgba(var(--sp-hero-body-ink, var(--color-foreground)), 0.12);
+  --sp-qs-divider: var(--sp-surface-divider-editorial, rgba(var(--sp-hero-body-ink, var(--color-foreground)), 0.12));
   --sp-qs-accent: rgb(var(--sp-supplement-green, var(--color-button)));
   --sp-qs-accent-deep: rgb(var(--sp-supplement-green-deep, var(--color-foreground)));
   --sp-qs-gap-md: clamp(1.65rem, 2.2vw, 2.55rem);

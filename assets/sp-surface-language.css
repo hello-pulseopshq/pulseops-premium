@@ -1,0 +1,88 @@
+/**
+ * PulseOps Surface Language — Foundation (Phase IV.2A)
+ *
+ * Single surface authority for the supplement demo. Tokens alias current computed
+ * values; IV.2B retargets material expression without changing architecture.
+ *
+ * Load order: after sp-typography-language.css, before sp-editorial-system.css.
+ * Authority: docs/SURFACE-LANGUAGE-FOUNDATION.md
+ *
+ * Ownership (do not duplicate without updating this file):
+ *   L0 canvas / brand palette     → sp-demo-supplement.css (palette) + this file (aliases)
+ *   L0 hero arrival canvas         → sp-demo-supplement-hero.css (frozen)
+ *   L1 section utilities           → sp-visual-hierarchy.css (.sp-section--surface-*)
+ *   L1 chapter shell tones         → section shell classes (IV.2B consolidates)
+ *   L2 composition surfaces        → sp-composition-system.css (consumes ledger tokens)
+ *   L3 elevated glass material     → hero defines; consumers alias --sp-surface-elevated-*
+ *   L4 cinematic / inverse         → section CSS (Future Self, stage, bleed frames)
+ *   Commerce card shells           → sp-commerce-premium.css, sp-storefront-polish.css
+ */
+
+/* ── Surface foundation tokens ── */
+
+.sp-demo-supplement {
+  /*
+   * L0 — Canvas
+   * Editorial chapter ground. Hero arrival uses a separate warm slot (frozen).
+   */
+  --sp-surface-canvas-ivory: var(--sp-supplement-ivory, 252, 250, 246);
+  --sp-surface-canvas-cream: var(--sp-supplement-cream, var(--sp-surface-canvas-ivory));
+  --sp-surface-canvas-hero: var(--sp-hero-canvas, 247, 242, 234);
+
+  /* L1 — Chapter field fills (shell tones + section tints) */
+  --sp-surface-chapter-soft-generic: rgba(var(--color-foreground), 0.025);
+  --sp-surface-chapter-contrast-generic: rgba(var(--color-foreground), 0.05);
+  --sp-surface-chapter-soft: rgb(var(--sp-surface-canvas-ivory));
+  --sp-surface-chapter-contrast: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.04);
+  --sp-surface-chapter-alternate-opacity: var(--sp-surface-alt-opacity, 0.04);
+  --sp-surface-chapter-accent-opacity: var(--sp-surface-accent-opacity, 0.1);
+
+  /* L2 — Composition ledger / band punctuation */
+  --sp-surface-ledger-rule: rgba(var(--color-foreground), 0.1);
+  --sp-surface-ledger-rule-supplement: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.12);
+  --sp-surface-band-fill-generic: rgba(var(--color-foreground), 0.018);
+  --sp-surface-band-fill-supplement: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.025);
+
+  /* Dividers — narrative rules between reading blocks */
+  --sp-surface-divider-neutral: rgba(var(--color-foreground), 0.1);
+  --sp-surface-divider-editorial: rgba(var(--sp-hero-body-ink, var(--color-foreground)), 0.12);
+  --sp-surface-divider-matrix: rgba(var(--color-foreground), 0.12);
+  --sp-surface-divider-matrix-supplement: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.14);
+
+  /* L3 — Elevated material (glass reading cards; Hero accent, Outcomes consumer) */
+  --sp-surface-elevated-fill: var(--sp-supplement-card, 255, 255, 255);
+  --sp-surface-elevated-fill-glass: var(--sp-hero-surface-card-bg, rgba(255, 255, 255, 0.72));
+  --sp-surface-elevated-border-glass: var(--sp-hero-surface-card-border, rgba(255, 255, 255, 0.62));
+  --sp-surface-elevated-shadow-glass: var(
+    --sp-hero-surface-card-shadow,
+    0 1rem 2.8rem rgba(var(--sp-hero-neutral-shadow, 28, 32, 30), 0.1),
+    inset 0 0.1rem 0 rgba(255, 255, 255, 0.65)
+  );
+  --sp-surface-elevated-shadow-soft: 0 1rem 3.2rem rgba(var(--color-shadow), 0.07);
+  --sp-surface-elevated-shadow-contained: 0 0.8rem 2.4rem rgba(var(--color-shadow), 0.06);
+
+  /* Radius ownership */
+  --sp-surface-radius-sm: var(--sp-supplement-radius-sm, 0.6rem);
+  --sp-surface-radius-md: var(--sp-supplement-radius-md, 1rem);
+  --sp-surface-radius-lg: var(--sp-supplement-radius-lg, 1.4rem);
+  --sp-surface-radius-xl: var(--sp-supplement-radius-xl, 1.8rem);
+  --sp-surface-radius-pill: var(--sp-supplement-radius-pill, 999px);
+  --sp-surface-radius-elevated: var(--sp-hero-surface-card-radius, var(--sp-surface-radius-lg));
+  --sp-surface-radius-contained: clamp(0.8rem, 1.2vw, 1.2rem);
+  --sp-surface-radius-cinematic: clamp(0.35rem, 0.7vw, 0.65rem);
+
+  /* Elevation — shadow RGB sources (not tuned in IV.2A) */
+  --sp-surface-shadow-brand: var(--sp-supplement-shadow, 20, 45, 34);
+  --sp-surface-shadow-neutral: var(--sp-hero-neutral-shadow, 28, 32, 30);
+  --sp-surface-emphasis-elevated-opacity: var(--sp-emphasis-elevated-opacity, 0.08);
+
+  /* Containment — reading-width caps for inset panels (composition uses layout) */
+  --sp-surface-contain-inset: min(100%, 42rem);
+  --sp-surface-contain-narrow: min(100%, 72rem);
+}
+
+/* Editorial primitive aliases — bridge chapter tokens to surface layer */
+.sp-editorial-chapter {
+  --sp-es-media-radius-contained: var(--sp-surface-radius-contained);
+  --sp-es-media-radius-cinematic: var(--sp-surface-radius-cinematic);
+}

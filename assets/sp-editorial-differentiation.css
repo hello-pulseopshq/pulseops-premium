@@ -43,7 +43,7 @@
   --sp-ed-ink: rgb(var(--color-foreground));
   --sp-ed-accent: rgb(var(--color-button));
   --sp-ed-accent-deep: rgb(var(--color-foreground));
-  --sp-ed-proof-divider: rgba(var(--color-foreground), 0.1);
+  --sp-ed-proof-divider: var(--sp-surface-divider-neutral, rgba(var(--color-foreground), 0.1));
   --sp-ed-proof-row-padding: clamp(1.65rem, 2.5vw, 2.15rem);
   --sp-ed-cta-gap: clamp(3.2rem, 4.5vw, 4.8rem);
   display: grid;
@@ -54,7 +54,7 @@
   --sp-ed-ink: rgb(var(--sp-type-ink, var(--color-foreground)));
   --sp-ed-accent: rgb(var(--sp-supplement-green, var(--color-button)));
   --sp-ed-accent-deep: rgb(var(--sp-supplement-green-deep, var(--color-foreground)));
-  --sp-ed-proof-divider: rgba(var(--sp-hero-body-ink, var(--color-foreground)), 0.12);
+  --sp-ed-proof-divider: var(--sp-surface-divider-editorial, rgba(var(--sp-hero-body-ink, var(--color-foreground)), 0.12));
   --sp-ed-gap-md: clamp(1.65rem, 2.2vw, 2.55rem);
 }
 
