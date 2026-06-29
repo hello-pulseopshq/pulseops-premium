@@ -113,7 +113,7 @@ Concise checkpoints for PulseOps SP Core and demo presets.
 | Field | Value |
 |-------|-------|
 | **Tag** | `pulseops-phase-iii-complete` |
-| **Commit** | (see tag) |
+| **Commit** | `8e6dd84f8e1b25c81939b0be56c97431ed778a32` |
 | **Date** | 2026-06-20 |
 | **Branch** | `main` |
 
@@ -196,7 +196,7 @@ Concise checkpoints for PulseOps SP Core and demo presets.
 
 | Tag | Commit | Purpose |
 |-----|--------|---------|
-| `pulseops-phase-iii-complete` | (see tag) | **Current** — Phase III complete; hygiene locked |
+| `pulseops-phase-iii-complete` | `8e6dd84` | **Current** — Phase III complete; hygiene locked |
 | `pulseops-architecture-v1` | (see tag) | Platform architecture v1 LOCKED |
 | `supplement-composition-role-sharpening-v1` | `48f1d77` | Sprint 7.2 + 7.2b composition and buyer journey |
 | `sp-core-v1.0` | `912e196` | SP Core production freeze |
