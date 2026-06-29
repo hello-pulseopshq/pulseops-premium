@@ -20,7 +20,7 @@
 
 .sp-demo-supplement .sp-editorial-outcomes-shell--tone-soft.gradient,
 .sp-demo-supplement .sp-editorial-outcomes-shell--tone-soft {
-  background: var(--sp-surface-chapter-soft, rgb(var(--sp-supplement-ivory, var(--color-background))));
+  background: var(--sp-surface-material-paper-field, var(--sp-surface-chapter-soft, rgb(var(--sp-supplement-ivory, var(--color-background)))));
   background-image: none;
 }
 
@@ -43,6 +43,7 @@
   --sp-eo-card-bg: rgba(var(--color-background), 0.88);
   --sp-eo-card-border: rgba(var(--color-foreground), 0.08);
   --sp-eo-card-shadow: var(--sp-surface-elevated-shadow-soft, 0 1rem 3.2rem rgba(var(--color-shadow), 0.07));
+  --sp-eo-card-filter: blur(12px) saturate(1.08);
   --sp-eo-ink: rgb(var(--color-foreground));
   --sp-eo-accent: rgb(var(--color-button));
   --sp-eo-accent-deep: rgb(var(--color-foreground));
@@ -55,9 +56,10 @@
 }
 
 .sp-demo-supplement .sp-editorial-outcomes {
-  --sp-eo-card-bg: var(--sp-surface-elevated-fill-glass, var(--sp-hero-surface-card-bg));
-  --sp-eo-card-border: var(--sp-surface-elevated-border-glass, var(--sp-hero-surface-card-border));
-  --sp-eo-card-shadow: var(--sp-surface-elevated-shadow-glass, var(--sp-hero-surface-card-shadow));
+  --sp-eo-card-bg: var(--sp-surface-material-paper-card-fill, var(--sp-surface-elevated-fill-glass, var(--sp-hero-surface-card-bg)));
+  --sp-eo-card-border: var(--sp-surface-material-paper-card-border, var(--sp-surface-elevated-border-glass, var(--sp-hero-surface-card-border)));
+  --sp-eo-card-shadow: var(--sp-surface-material-paper-card-shadow, var(--sp-surface-elevated-shadow-glass, var(--sp-hero-surface-card-shadow)));
+  --sp-eo-card-filter: var(--sp-surface-material-paper-filter, none);
   --sp-eo-ink: rgb(var(--sp-type-ink, var(--color-foreground)));
   --sp-eo-accent: rgb(var(--sp-supplement-green, var(--color-button)));
   --sp-eo-accent-deep: rgb(var(--sp-supplement-green-deep, var(--color-foreground)));
@@ -309,8 +311,8 @@
   background: var(--sp-eo-card-bg);
   border: 0.1rem solid var(--sp-eo-card-border);
   box-shadow: var(--sp-eo-card-shadow);
-  backdrop-filter: blur(12px) saturate(1.08);
-  -webkit-backdrop-filter: blur(12px) saturate(1.08);
+  backdrop-filter: var(--sp-eo-card-filter);
+  -webkit-backdrop-filter: var(--sp-eo-card-filter);
 }
 
 .sp-editorial-outcomes__card-meta {
@@ -577,7 +579,7 @@
 }
 
 .sp-demo-supplement .sp-editorial-outcomes__card {
-  border-color: rgba(var(--sp-supplement-green, var(--color-button)), 0.09);
+  border-color: var(--sp-surface-material-paper-card-border, rgba(var(--sp-supplement-green, var(--color-button)), 0.09));
 }
 
 @media screen and (max-width: 749px) {

@@ -18,13 +18,13 @@
 
 .sp-demo-supplement .sp-quality-standards-shell--tone-soft.gradient,
 .sp-demo-supplement .sp-quality-standards-shell--tone-soft {
-  background: rgb(var(--sp-supplement-ivory, var(--color-background)));
+  background: var(--sp-surface-material-dossier-field, var(--sp-surface-chapter-contrast, rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.04)));
   background-image: none;
 }
 
 .sp-demo-supplement .sp-quality-standards-shell--tone-contrast.gradient,
 .sp-demo-supplement .sp-quality-standards-shell--tone-contrast {
-  background: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.04);
+  background: var(--sp-surface-material-dossier-field, var(--sp-surface-chapter-contrast, rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.04)));
   background-image: none;
 }
 
@@ -45,7 +45,7 @@
 }
 
 .sp-demo-supplement .sp-quality-standards {
-  --sp-qs-divider: var(--sp-surface-divider-editorial, rgba(var(--sp-hero-body-ink, var(--color-foreground)), 0.12));
+  --sp-qs-divider: var(--sp-surface-material-dossier-rule, var(--sp-surface-divider-editorial, rgba(var(--sp-hero-body-ink, var(--color-foreground)), 0.12)));
   --sp-qs-accent: rgb(var(--sp-supplement-green, var(--color-button)));
   --sp-qs-accent-deep: rgb(var(--sp-supplement-green-deep, var(--color-foreground)));
   --sp-qs-gap-md: clamp(1.65rem, 2.2vw, 2.55rem);

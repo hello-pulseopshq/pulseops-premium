@@ -37,6 +37,32 @@
   --sp-surface-chapter-alternate-opacity: var(--sp-surface-alt-opacity, 0.04);
   --sp-surface-chapter-accent-opacity: var(--sp-surface-accent-opacity, 0.1);
 
+  /* IV.2B — Material expression (restrained chapter materials) */
+  --sp-surface-material-paper-field: rgb(var(--sp-surface-canvas-ivory));
+  --sp-surface-material-paper-card-fill: rgba(var(--sp-surface-elevated-fill), 0.58);
+  --sp-surface-material-paper-card-border: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.055);
+  --sp-surface-material-paper-card-shadow: 0 0.45rem 1.6rem rgba(var(--sp-surface-shadow-brand), 0.025);
+  --sp-surface-material-paper-filter: none;
+
+  --sp-surface-material-museum-field: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.025);
+  --sp-surface-material-museum-frame-fill: rgba(var(--sp-surface-canvas-ivory), 0.42);
+  --sp-surface-material-museum-frame-border: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.05);
+  --sp-surface-material-museum-depth: none;
+  --sp-surface-material-museum-rule: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.105);
+  --sp-surface-material-museum-tile-fill: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.022);
+
+  --sp-surface-material-magazine-band: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.018);
+  --sp-surface-material-magazine-rule: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.085);
+
+  --sp-surface-material-manifesto-field: rgb(var(--sp-surface-canvas-ivory));
+  --sp-surface-material-manifesto-rule: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.095);
+  --sp-surface-material-manifesto-rule-soft: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.065);
+
+  --sp-surface-material-dossier-field: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.032);
+  --sp-surface-material-dossier-rule: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.075);
+  --sp-surface-material-dossier-rule-strong: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.095);
+  --sp-surface-material-dossier-note-fill: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.018);
+
   /* L2 — Composition ledger / band punctuation */
   --sp-surface-ledger-rule: rgba(var(--color-foreground), 0.1);
   --sp-surface-ledger-rule-supplement: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.12);
@@ -53,11 +79,9 @@
   --sp-surface-elevated-fill: var(--sp-supplement-card, 255, 255, 255);
   --sp-surface-elevated-fill-glass: var(--sp-hero-surface-card-bg, rgba(255, 255, 255, 0.72));
   --sp-surface-elevated-border-glass: var(--sp-hero-surface-card-border, rgba(255, 255, 255, 0.62));
-  --sp-surface-elevated-shadow-glass: var(
-    --sp-hero-surface-card-shadow,
-    0 1rem 2.8rem rgba(var(--sp-hero-neutral-shadow, 28, 32, 30), 0.1),
-    inset 0 0.1rem 0 rgba(255, 255, 255, 0.65)
-  );
+  --sp-surface-elevated-shadow-glass: var(--sp-hero-surface-card-shadow,
+      0 1rem 2.8rem rgba(var(--sp-hero-neutral-shadow, 28, 32, 30), 0.1),
+      inset 0 0.1rem 0 rgba(255, 255, 255, 0.65));
   --sp-surface-elevated-shadow-soft: 0 1rem 3.2rem rgba(var(--color-shadow), 0.07);
   --sp-surface-elevated-shadow-contained: 0 0.8rem 2.4rem rgba(var(--color-shadow), 0.06);
 

@@ -20,13 +20,13 @@
 
 .sp-demo-supplement .sp-editorial-differentiation-shell--tone-soft.gradient,
 .sp-demo-supplement .sp-editorial-differentiation-shell--tone-soft {
-  background: rgb(var(--sp-supplement-ivory, var(--color-background)));
+  background: var(--sp-surface-material-manifesto-field, var(--sp-surface-chapter-soft, rgb(var(--sp-supplement-ivory, var(--color-background)))));
   background-image: none;
 }
 
 .sp-demo-supplement .sp-editorial-differentiation-shell--tone-contrast.gradient,
 .sp-demo-supplement .sp-editorial-differentiation-shell--tone-contrast {
-  background: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.04);
+  background: var(--sp-surface-material-manifesto-field, var(--sp-surface-chapter-soft, rgb(var(--sp-supplement-ivory, var(--color-background)))));
   background-image: none;
 }
 
@@ -54,7 +54,7 @@
   --sp-ed-ink: rgb(var(--sp-type-ink, var(--color-foreground)));
   --sp-ed-accent: rgb(var(--sp-supplement-green, var(--color-button)));
   --sp-ed-accent-deep: rgb(var(--sp-supplement-green-deep, var(--color-foreground)));
-  --sp-ed-proof-divider: var(--sp-surface-divider-editorial, rgba(var(--sp-hero-body-ink, var(--color-foreground)), 0.12));
+  --sp-ed-proof-divider: var(--sp-surface-material-manifesto-rule, var(--sp-surface-divider-editorial, rgba(var(--sp-hero-body-ink, var(--color-foreground)), 0.12)));
   --sp-ed-gap-md: clamp(1.65rem, 2.2vw, 2.55rem);
 }
 

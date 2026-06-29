@@ -42,7 +42,7 @@
 
 .sp-demo-supplement .sp-ingredients-spotlight-shell--tone-soft {
 
-  background: rgb(var(--sp-supplement-ivory, var(--color-background)));
+  background: var(--sp-surface-material-museum-field, var(--sp-surface-chapter-contrast, rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.04)));
 
   background-image: none;
 
@@ -54,7 +54,7 @@
 
 .sp-demo-supplement .sp-ingredients-spotlight-shell--tone-contrast {
 
-  background: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.04);
+  background: var(--sp-surface-material-museum-field, var(--sp-surface-chapter-contrast, rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.04)));
 
   background-image: none;
 
@@ -120,9 +120,9 @@
 
   --sp-is-accent-deep: rgb(var(--sp-supplement-green-deep, var(--color-foreground)));
 
-  --sp-is-card-shadow: var(--sp-surface-elevated-shadow-glass, var(--sp-hero-surface-card-shadow, 0 0.8rem 2.4rem rgba(var(--color-shadow), 0.06)));
+  --sp-is-card-shadow: var(--sp-surface-material-museum-depth, var(--sp-surface-elevated-shadow-contained, none));
 
-  --sp-is-row-divider: var(--sp-surface-divider-matrix-supplement, rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.14));
+  --sp-is-row-divider: var(--sp-surface-material-museum-rule, var(--sp-surface-divider-matrix-supplement, rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.14)));
 
   --sp-is-heading-size: var(--sp-voice-documentary-size);
 
@@ -198,11 +198,11 @@
 
   overflow: hidden;
 
-  border: 0.1rem solid rgba(var(--color-foreground), 0.06);
+  border: 0.1rem solid var(--sp-surface-material-museum-frame-border, rgba(var(--color-foreground), 0.06));
 
   box-shadow: var(--sp-is-card-shadow);
 
-  background: rgba(var(--color-foreground), 0.03);
+  background: var(--sp-surface-material-museum-frame-fill, rgba(var(--color-foreground), 0.03));
 
 }
 
@@ -680,7 +680,7 @@
 
   overflow: hidden;
 
-  background: rgba(var(--color-foreground), 0.03);
+  background: var(--sp-surface-material-museum-tile-fill, rgba(var(--color-foreground), 0.03));
 
 }
 
@@ -698,9 +698,9 @@
 
 .sp-demo-supplement .sp-ingredients-spotlight__item-media--placeholder {
 
-  border-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.1);
+  border-color: var(--sp-surface-material-museum-frame-border, rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.1));
 
-  background: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.03);
+  background: var(--sp-surface-material-museum-tile-fill, rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.03));
 
 }
 
@@ -878,9 +878,9 @@
 
 .sp-demo-supplement .sp-ingredients-spotlight__commitment {
 
-  border-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.08);
+  border-color: var(--sp-surface-material-museum-frame-border, rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.08));
 
-  background: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.035);
+  background: var(--sp-surface-material-museum-tile-fill, rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.035));
 
 }
 
