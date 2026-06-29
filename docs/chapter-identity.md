@@ -2,6 +2,8 @@
 
 Narrative blueprint for the supplement homepage as an **editorial conversation**, not a stack of Shopify sections.
 
+**Architecture status:** **LOCKED** — see [`PULSEOPS-ARCHITECTURE-v1.md`](PULSEOPS-ARCHITECTURE-v1.md) (tag `pulseops-architecture-v1`)
+
 **Checkpoint:** `supplement-editorial-foundation-v1`  
 **Companion:** [`docs/editorial-system.md`](editorial-system.md) — tokens, classes, CTA rules, build primitives  
 **Scope:** `templates/index.supplement.json` supplement homepage only; Dawn/default unaffected
@@ -87,7 +89,7 @@ The narrative framework below defines **identity**, not necessarily final sectio
 | **Emotional goal** | Safety in numbers, social validation |
 | **Visual language** | Editorial data story — typographic stats, softer evidence rhythm, fewer dashboard/card cues |
 | **Conversion role** | Confidence builder — no CTA; earns trust before philosophy/science |
-| **Status** | **Implemented v1 — `supplement-chapter-community-confidence-v1` pending tag** |
+| **Status** | **Architecture frozen** |
 
 **Handoff:** From crowd validation to product thinking (Formulation Philosophy).
 
@@ -104,7 +106,7 @@ The narrative framework below defines **identity**, not necessarily final sectio
 | **Emotional goal** | Belief in product thinking |
 | **Visual language** | Philosophy-led composition, formulation principles — **not** another proof split identical to Outcomes/Quality |
 | **Conversion role** | Belief deepening — quiet editorial link optional |
-| **Status** | **Needs redesign** |
+| **Status** | **Architecture frozen** |
 
 **Handoff:** From “why we’re different” to “how we make it” (Scientific Confidence).
 
@@ -121,7 +123,7 @@ The narrative framework below defines **identity**, not necessarily final sectio
 | **Emotional goal** | Trust, precision, safety |
 | **Visual language** | Lab/manufacturing narrative, testing process, quality assurance — scientific editorial, not certification cards |
 | **Conversion role** | Credibility anchor — optional quiet shop link |
-| **Status** | **Needs redesign** |
+| **Status** | **Architecture frozen** |
 
 **Handoff:** From institutional trust to personal experience (Human Story).
 
@@ -138,7 +140,7 @@ The narrative framework below defines **identity**, not necessarily final sectio
 | **Emotional goal** | Emotional proof, identification, confidence |
 | **Visual language** | Cinematic testimonial stage, person-led story — fewer review-widget cues (stars grid, card chrome) |
 | **Conversion role** | Emotional validation — no shop CTA |
-| **Status** | **Needs redesign** |
+| **Status** | **Architecture frozen** |
 
 **Handoff:** From felt experience to commitment (Future Self).
 
@@ -155,7 +157,7 @@ The narrative framework below defines **identity**, not necessarily final sectio
 | **Emotional goal** | Commitment, calm momentum |
 | **Visual language** | Aspirational lifestyle, minimal offer, confident conversion |
 | **Conversion role** | Primary conversion — second high-intent moment on page |
-| **Status** | **Needs refinement** |
+| **Status** | **Architecture frozen** — craftsmanship polish may continue |
 
 **Handoff:** From decision to practical clearance (Utility Support).
 
@@ -170,7 +172,7 @@ The narrative framework below defines **identity**, not necessarily final sectio
 | **Emotional goal** | Reassurance, friction removal |
 | **Visual language** | Quiet, compact, non-dominant — accordion utility, not a chapter headline competing with CTA |
 | **Conversion role** | Objection handling — supports conversion, does not replace it |
-| **Status** | **Keep functional** — density/rhythm polish only |
+| **Status** | **Architecture frozen** — functional; craftsmanship polish may continue |
 
 **Handoff:** Implicit close toward footer (Brand Close).
 
@@ -185,11 +187,13 @@ The narrative framework below defines **identity**, not necessarily final sectio
 | **Emotional goal** | Trust, completeness |
 | **Visual language** | Custom premium footer — brand-owned, not Dawn-inherited |
 | **Conversion role** | Persistent trust + navigation — no hard sell |
-| **Status** | **Needs refinement** |
+| **Status** | **Architecture frozen** — craftsmanship polish may continue |
 
 ---
 
 ## 3. Chapter overlap audit
+
+**Status (2026-06-20):** Overlaps resolved in Sprint 7.2 (composition) and Sprint 7.2b (buyer journey). Retained below for historical reference.
 
 ### Critical overlaps (same question, different wrappers)
 
@@ -224,6 +228,8 @@ The narrative framework below defines **identity**, not necessarily final sectio
 ---
 
 ## 4. Implementation order
+
+**Status (2026-06-20):** Complete. Architecture frozen — see [`PULSEOPS-ARCHITECTURE-v1.md`](PULSEOPS-ARCHITECTURE-v1.md).
 
 Recommended passes — each pass defines chapter identity **before** visual redesign, then implements using `sp-editorial-system.css` primitives.
 
@@ -279,13 +285,13 @@ Every future chapter implementation must document these six fields **before** CS
 | 01 | Product Introduction | `sp-hero` | What is this? | Locked |
 | 02 | Transformation Story | `sp-editorial-outcomes` | Why should I care? | Mostly locked |
 | 03 | Ingredient Narrative | `sp-ingredients-spotlight` | What is inside? | Mostly locked |
-| 04 | Community Confidence | `sp-metrics` | Do other people trust this? | **Implemented v1 — pending tag** |
-| 05 | Formulation Philosophy | `sp-editorial-differentiation` | What makes this formula different? | Redesign |
-| 06 | Scientific Confidence | `sp-quality-standards` (+ `sp-scientific-proof`) | How do I know it is well made? | Redesign |
-| 07 | Human Story | `sp-social-proof` | What does it actually feel like? | Redesign |
-| 08 | Future Self | `sp-cta-offer` | Am I ready to start? | Refine |
-| 09 | Utility Support | `sp-faq` | What practical concerns remain? | Functional |
-| 10 | Brand Close | `footer` | Is this a real brand? | Refine |
+| 04 | Community Confidence | `sp-metrics` | Will people like me stick with this? | Architecture frozen |
+| 05 | Formulation Philosophy | `sp-editorial-differentiation` | Why is this approach different? | Architecture frozen |
+| 06 | Scientific Confidence | `sp-quality-standards` (+ `sp-scientific-proof` disabled) | Why should I trust the claims? | Architecture frozen |
+| 07 | Human Story | `sp-social-proof` | Can I picture myself succeeding? | Architecture frozen |
+| 08 | Future Self | `sp-cta-offer` | What happens if I commit? | Architecture frozen |
+| 09 | Utility Support | `sp-faq` | What is still stopping me? | Architecture frozen |
+| 10 | Brand Close | `footer` | Is this a real brand? | Architecture frozen |
 
 ---
 
@@ -295,4 +301,5 @@ Every future chapter implementation must document these six fields **before** CS
 |----------------|------|
 | `supplement-editorial-foundation-v1` | Editorial system + Outcomes→Ingredients rhythm |
 | Asset integration pass (may be uncommitted) | Production photography mapping — separate from narrative identity |
-| `supplement-chapter-community-confidence-v1` | Community Confidence Pass 1 — implemented, pending tag |
+| `supplement-composition-role-sharpening-v1` | Sprint 7.2 + 7.2b composition and buyer journey |
+| `pulseops-architecture-v1` | **Current** — Platform architecture v1 LOCKED |

@@ -1,6 +1,8 @@
 # PulseOps Supplement Demo — Launch Checklist
 
-Governance checkpoint for launch readiness. Use after narrative freeze (`supplement-narrative-complete-v1`).
+Governance checkpoint for launch readiness. Use after architecture freeze (`pulseops-architecture-v1`).
+
+**Architecture authority:** [`PULSEOPS-ARCHITECTURE-v1.md`](PULSEOPS-ARCHITECTURE-v1.md) — **LOCKED**
 
 **Canonical theme:** PulseOps Supplement Demo `#183028121915`  
 **Preview:** `https://pulseops-labs.myshopify.com/?preview_theme_id=183028121915&view=supplement`
@@ -23,15 +25,18 @@ Governance checkpoint for launch readiness. Use after narrative freeze (`supplem
 | Item | Status | Notes |
 |------|--------|-------|
 | Working tree clean after milestone | ⬜ | Verify `git status` after seal |
-| Tags pushed to origin | ⬜ | `supplement-narrative-complete-v1` |
+| Tags pushed to origin | ⬜ | `pulseops-architecture-v1`, `supplement-composition-role-sharpening-v1` |
 | Rollback points documented | ✅ | See [RELEASES.md](./RELEASES.md) |
+| Architecture milestone tagged | ⬜ | `pulseops-architecture-v1` |
 | Narrative milestone tagged | ✅ | `supplement-narrative-complete-v1` |
 
 **Rollback tags (narrative arc):**
 
 | Tag | Purpose |
 |-----|---------|
-| `supplement-narrative-complete-v1` | **Current** — full homepage narrative frozen |
+| `pulseops-architecture-v1` | **Current** — platform architecture v1 LOCKED |
+| `supplement-composition-role-sharpening-v1` | Sprint 7.2 + 7.2b composition and buyer journey |
+| `supplement-narrative-complete-v1` | Full homepage narrative frozen |
 | `supplement-restraint-pass-v1` | Sprint 7.1b mid-page restraint |
 | `supplement-hero-frozen-v1` | Hero architecture freeze |
 | `supplement-editorial-v2` | Future Self finale |
@@ -51,36 +56,41 @@ Governance checkpoint for launch readiness. Use after narrative freeze (`supplem
 
 ---
 
-## C. Homepage Narrative
+## C. Homepage Narrative & Architecture
 
-**Frozen as of `supplement-narrative-complete-v1`. No narrative redesign before launch.**
+**Frozen as of `pulseops-architecture-v1`. No architecture redesign before launch.**
 
 | # | Chapter | Role | Status |
 |---|---------|------|--------|
-| 1 | Hero | Arrival | ✅ Frozen |
-| 2 | Editorial Outcomes | Promise | ✅ Frozen |
-| 3 | Ingredients | Substance | ✅ Frozen |
-| 4 | Community Confidence | Social proof (restrained) | ✅ Frozen |
-| 5 | Formulation Philosophy | Manifesto | ✅ Frozen |
-| 6 | Scientific Confidence | Evidence | ✅ Frozen |
-| 7 | Human Proof | Reflection | ✅ Frozen |
-| 8 | FAQ | Reassurance (utility whisper) | ✅ Frozen |
-| 9 | Future Self | Commitment | ✅ Frozen |
-| 10 | Footer | Brand close | ✅ Frozen |
+| 1 | Hero | Arrival | ✅ Architecture frozen |
+| 2 | Editorial Outcomes | Promise | ✅ Architecture frozen |
+| 3 | Ingredients | Substance | ✅ Architecture frozen |
+| 4 | Community Confidence | Habit adoption | ✅ Architecture frozen |
+| 5 | Formulation Philosophy | Manifesto | ✅ Architecture frozen |
+| 6 | Scientific Confidence | Evidence | ✅ Architecture frozen |
+| 7 | Human Proof | Reflection | ✅ Architecture frozen |
+| 8 | FAQ | Reassurance (utility whisper) | ✅ Architecture frozen |
+| 9 | Future Self | Commitment | ✅ Architecture frozen |
+| 10 | Footer | Brand close | ✅ Architecture frozen |
 
 | Item | Status | Notes |
 |------|--------|-------|
 | Chapter order frozen | ✅ | `templates/index.supplement.json` |
-| Chapter roles frozen | ✅ | See [chapter-identity.md](./chapter-identity.md), [editorial-art-direction.md](./editorial-art-direction.md) |
+| Buyer journey frozen | ✅ | [`PULSEOPS-ARCHITECTURE-v1.md`](PULSEOPS-ARCHITECTURE-v1.md) §5 |
+| Composition language frozen | ✅ | Sprint 7.2 · `sp-composition-system.css` |
+| Chapter roles frozen | ✅ | [chapter-identity.md](./chapter-identity.md), [editorial-art-direction.md](./editorial-art-direction.md) |
 | No new sections before launch | ✅ | Policy |
 | No section reorder before launch | ✅ | Policy |
 | No narrative copy rewrite before launch | ✅ | Policy — bug fixes only |
 
-**Sprint history (narrative):**
+**Sprint history (architecture):**
 
 - Sprint 7.1 — Hero proof reduction ✅
 - Sprint 7.1b — Homepage restraint pass ✅
 - Sprint 7.1c — Narrative ending polish ✅
+- Sprint 7.2 — Composition language ✅
+- Sprint 7.2b — Buyer journey role sharpening ✅
+- Sprint 7.2.5 — Architecture freeze validation ✅
 
 ---
 
@@ -90,7 +100,7 @@ Governance checkpoint for launch readiness. Use after narrative freeze (`supplem
 
 | Area | Status | Notes |
 |------|--------|-------|
-| Composition language | — | Mid-page split-layout silhouette repetition |
+| Composition language | ✅ | Sprint 7.2 complete — architecture frozen |
 | Typography | — | Display scale refinement across chapters |
 | Surfaces | — | Surface punctuation arc |
 | Photography cohesion | — | Grade consistency across chapters |
@@ -165,16 +175,11 @@ Authority: [pulseops-visual-system-v1.md](./pulseops-visual-system-v1.md)
 
 ## Next recommended checkpoint
 
-**Launch Checkpoint 1 — Core UX audit**
+**Phase IV — Craftsmanship · Sprint IV.1 Typography Language**
 
-After narrative freeze, run a full Core UX pass (Section E) against theme `#183028121915`:
+Architecture is LOCKED per [`PULSEOPS-ARCHITECTURE-v1.md`](PULSEOPS-ARCHITECTURE-v1.md). Proceed with typographic voice per chapter within frozen composition silhouettes — no chapter order, buyer journey, or composition changes.
 
-1. Header / mobile nav / anchor scroll
-2. PDP supplement template end-to-end
-3. Cart drawer + checkout entry
-4. Footer link resolution
-
-Capture Playwright at desktop `1536×1024` and mobile `390×844`. File issues as craftsmanship or UX bugs — not narrative redesigns.
+Parallel track: **Launch Checkpoint 1 — Core UX audit** (Section E) against theme `#183028121915`.
 
 ---
 
@@ -184,4 +189,5 @@ Capture Playwright at desktop `1536×1024` and mobile `390×844`. File issues as
 - [RELEASES.md](./RELEASES.md)
 - [chapter-identity.md](./chapter-identity.md)
 - [editorial-art-direction.md](./editorial-art-direction.md)
+- [PULSEOPS-ARCHITECTURE-v1.md](./PULSEOPS-ARCHITECTURE-v1.md)
 - [pulseops-visual-system-v1.md](./pulseops-visual-system-v1.md)

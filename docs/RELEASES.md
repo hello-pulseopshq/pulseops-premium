@@ -71,6 +71,58 @@ Concise checkpoints for PulseOps SP Core and demo presets.
 
 ---
 
+---
+
+## Architecture Freeze v1
+
+| Field | Value |
+|-------|-------|
+| **Tag** | `pulseops-architecture-v1` |
+| **Commit** | (see tag) |
+| **Date** | 2026-06-20 |
+| **Branch** | `main` |
+
+**Summary:** Official PulseOps Architecture v1 freeze. Homepage information architecture, buyer journey, chapter ownership, composition language, and narrative sequence are **LOCKED** for all demo packs and craftsmanship sprints.
+
+**Policy:**
+
+> **PULSEOPS ARCHITECTURE v1: LOCKED**
+>
+> No chapter reorder, new sections, buyer journey changes, or composition archetype changes unless:
+> - documented v2 architecture proposal
+> - written rationale
+> - multi-viewpoint review
+> - new architecture version tag
+
+**Major achievements:**
+
+- SP Core Architecture frozen (`sp-core-v1.0`)
+- Supplement narrative architecture frozen (`supplement-narrative-complete-v1`)
+- Composition Language — five middle archetypes + distinct Hero/Human/Finale grammars (Sprint 7.2)
+- Buyer Journey Role Sharpening — unique objection per chapter (Sprint 7.2b)
+- Architecture Freeze Validation — five-viewpoint approval (Sprint 7.2.5)
+
+**Includes:** [`PULSEOPS-ARCHITECTURE-v1.md`](./PULSEOPS-ARCHITECTURE-v1.md), [`ARCHITECTURE-FREEZE-REVIEW.md`](./ARCHITECTURE-FREEZE-REVIEW.md), synced `chapter-identity.md`, `LAUNCH-CHECKLIST.md`, `RELEASES.md`.
+
+**Reference implementation commit:** `48f1d7798c7ef70855c5b6b24337dccc7da6474f` · tag `supplement-composition-role-sharpening-v1`
+
+---
+
+## Supplement Composition & Role Sharpening v1
+
+| Field | Value |
+|-------|-------|
+| **Tag** | `supplement-composition-role-sharpening-v1` |
+| **Commit** | `48f1d77` |
+| **Date** | 2026-06-20 |
+| **Branch** | `main` |
+
+**Summary:** Sprint 7.2 composition language + Sprint 7.2b buyer journey role sharpening. Distinct middle-chapter silhouettes; substance / habit / philosophy / evidence ownership separated.
+
+**Includes:** `assets/sp-composition-system.css`, section composition classes, `templates/index.supplement.json` copy/settings.
+
+---
+
 ## Supplement Narrative Complete v1
 
 | Field | Value |
@@ -109,11 +161,13 @@ Concise checkpoints for PulseOps SP Core and demo presets.
 
 | Tag | Commit | Purpose |
 |-----|--------|---------|
-| `sp-core-v1.0` | `912e196` | **Current** SP Core production freeze |
-| `demo-presets-v1-release` | `7109c52` | **Current** demo presets release |
-| `supplement-hero-frozen-v1` | `5d939af` | **Current** Supplement Demo hero freeze |
-| `supplement-editorial-v2` | (see tag) | **Current** Future Self + editorial presentation |
+| `pulseops-architecture-v1` | (see tag) | **Current** — Platform architecture v1 LOCKED |
+| `supplement-composition-role-sharpening-v1` | `48f1d77` | Sprint 7.2 + 7.2b composition and buyer journey |
+| `sp-core-v1.0` | `912e196` | SP Core production freeze |
+| `demo-presets-v1-release` | `7109c52` | Demo presets release |
+| `supplement-hero-frozen-v1` | `5d939af` | Supplement Demo hero freeze |
+| `supplement-editorial-v2` | (see tag) | Future Self + editorial presentation |
 | `supplement-restraint-pass-v1` | `ee99d87` | Sprint 7.1b homepage restraint pass |
-| `supplement-narrative-complete-v1` | (see tag) | **Current** Full supplement homepage narrative freeze |
+| `supplement-narrative-complete-v1` | (see tag) | Full supplement homepage narrative freeze |
 | `pulseops-visual-system-v1` | `91e1c7b` | PulseOps Visual System v1.0 authority |
 | `SP-Core-Freeze-v1` | `6fcf32b` | Legacy architecture-only freeze |

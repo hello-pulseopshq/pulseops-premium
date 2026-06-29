@@ -39,7 +39,7 @@ Ten reusable chapter types for the PulseOps Editorial Chapter Library (next phas
 | 01 | **Hero Chapter** | Establish product, promise, primary conversion | `sp-hero` |
 | 02 | **Transformation Chapter** | Outcomes, benefits, before/after story | `sp-editorial-outcomes` |
 | 03 | **Editorial Story / Ingredients Chapter** | What’s inside, purposeful formulation | `sp-ingredients-spotlight` |
-| 04 | **Scientific Narrative** | Mechanism, standards, credibility depth | `sp-scientific-proof`, `sp-quality-standards` (needs redesign) |
+| 04 | **Scientific Narrative** | Mechanism, standards, credibility depth | `sp-quality-standards` — architecture frozen; `sp-scientific-proof` deprecated (disabled) |
 | 05 | **Data Story / Community Confidence** | Metrics, stats, quantified proof | `sp-metrics` — `editorial_story` presentation implemented (supplement demo); `band` presentation remains legacy default for other demos |
 | 06 | **Cinematic Lifestyle** | Brand world, ritual, aspiration | Partially in hero / ingredients media |
 | 07 | **Human Proof** | Reviews, testimonials, social trust | `sp-social-proof` (needs Human Proof redesign) |

@@ -116,7 +116,7 @@ Type **changes voice** as the story progresses:
 EXPRESSIVE  → Hero
 CONFIDENT   → Transformation
 DOCUMENTARY → Ingredients
-NUMERIC     → Community Confidence
+COLLECTIVE  → Community Confidence
 MANIFESTO   → Philosophy
 PRECISE     → Scientific Confidence
 EMOTIONAL   → Human Proof

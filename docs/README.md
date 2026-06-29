@@ -1,10 +1,10 @@
 # PulseOps SP Core — Documentation
 
-## Creative authority (read in order)
-
-PulseOps creative standards flow top-down. Lower layers inherit from higher layers.
+## Platform authority (read in order)
 
 ```
+PulseOps Architecture v1.0           ← LOCKED — homepage IA, buyer journey, composition
+        ↓
 PulseOps Visual System v1.0          ← highest creative authority
         ↓
 PulseOps Design Language v1.0
@@ -16,7 +16,9 @@ Implementation
 
 | Doc | Description |
 |-----|-------------|
+| [**PULSEOPS-ARCHITECTURE-v1.md**](PULSEOPS-ARCHITECTURE-v1.md) | **Architecture v1 — LOCKED platform IA and buyer journey** |
 | [**pulseops-visual-system-v1.md**](pulseops-visual-system-v1.md) | **Visual System — permanent creative operating system** |
+| [ARCHITECTURE-FREEZE-REVIEW.md](ARCHITECTURE-FREEZE-REVIEW.md) | Sprint 7.2.5 validation record |
 | [pulseops-design-language-v1.md](pulseops-design-language-v1.md) | Visual language chapter (typography, surface, photography, layout) |
 | [editorial-art-direction.md](editorial-art-direction.md) | Chapter-level art direction and rhythm |
 | [chapter-identity.md](chapter-identity.md) | Narrative architecture and chapter roles |
@@ -34,7 +36,7 @@ Implementation
 | [BETA_PROGRAM.md](./BETA_PROGRAM.md) | Merchant beta onboarding plan |
 | [QUICK_START.md](./QUICK_START.md) | Install and run |
 
-## Platform architecture (frozen at SP Core v1.0)
+## Platform architecture (frozen at Architecture v1.0 + SP Core v1.0)
 
 | Doc | Description |
 |-----|-------------|

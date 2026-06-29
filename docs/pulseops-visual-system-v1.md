@@ -23,7 +23,8 @@ Implementation                       ← editorial-system, motion, schema, theme
 
 | Layer | Document | Role |
 |-------|----------|------|
-| **Visual System** | This document | Philosophy, composition, grammar, systems, principles, governance |
+| **Architecture** | [`PULSEOPS-ARCHITECTURE-v1.md`](PULSEOPS-ARCHITECTURE-v1.md) | **LOCKED** — homepage IA, buyer journey, composition, chapter ownership |
+| **Visual System** | This document | Philosophy, composition grammar, systems, principles, governance |
 | **Design Language** | [`pulseops-design-language-v1.md`](pulseops-design-language-v1.md) | Typographic, surface, photography, layout, interaction, and conversion language |
 | **Editorial Art Direction** | [`editorial-art-direction.md`](editorial-art-direction.md) | Per-chapter art direction, rhythm, motion, photography direction |
 | **Implementation** | [`editorial-system.md`](editorial-system.md) · [`SP-MOTION.md`](SP-MOTION.md) · theme code | How the system is built |
@@ -262,7 +263,7 @@ This matters because ownership prevents the most common premium failure: **every
 | **Hero** | Product | The visitor must know what this is in one glance. Packaging, form, signature object — unmistakable. |
 | **Editorial Outcomes** | Story | Ritual and transformation — the moment of use, not the SKU. Lifestyle serves narrative, not catalog. |
 | **Ingredients** | Object | Substance as still life — flat-lay, macro, tactile tableau. Craft made visible. |
-| **Community Confidence** | Numbers | Collective trust as typographic editorial — numerals at scale, labels whispering. |
+| **Community Confidence** | Typographic collective voice | Collective habit and adoption as editorial type — proof moments at scale, labels whispering; numerals optional. |
 | **Formulation Philosophy** | Words | Point of view as manifesto — philosophy made readable before it is argued. |
 | **Scientific Confidence** | Evidence | Process and proof as documentary — lab, environment, making visible. |
 | **Human Proof** | Person | One human voice — portrait, quote, attribution. Not star grids. |
@@ -279,7 +280,7 @@ This matters because ownership prevents the most common premium failure: **every
 Examples:
 
 - Hero: social proof row competes with product → remove or subordinate
-- Community Confidence: photography competes with numerals → remove photography
+- Community Confidence: photography competes with typographic proof moments → remove photography
 - Human Proof: star rating headline competes with portrait → remove stars from headline role
 - Future Self: price stack competes with atmosphere → remove transactional foot line
 - FAQ: display-scale headline competes with finale gravity → shrink to utility voice
@@ -289,7 +290,7 @@ Examples:
 Each chapter **yields** to the next through a different grammar:
 
 ```
-Product → Story → Object → Numbers → Words → Evidence → Person → Atmosphere → Questions → Brand
+Product → Story → Object → Collective voice → Words → Evidence → Person → Atmosphere → Questions → Brand
 ```
 
 If two consecutive chapters share an owner type (e.g., two story-led splits), the handoff fails. Grammar must change — not just copy.
@@ -471,7 +472,7 @@ Type **changes voice** as the story progresses. Two consecutive chapters with th
 | **Expressive** | Hero | Largest scale; one promise; minimal subcopy |
 | **Confident** | Editorial Outcomes | Statement headline; rhythmic outcome copy |
 | **Documentary** | Ingredients | Caption rhythm; matrix labels quiet |
-| **Numeric** | Community Confidence | Numerals at scale; labels whisper |
+| **Collective** | Community Confidence | Editorial proof moments at scale; labels whisper |
 | **Manifesto** | Formulation Philosophy | Wider measure; fewer words; more breath |
 | **Precise** | Scientific Confidence | Cool, factual, caption-led |
 | **Emotional** | Human Proof | Quote scale; attribution quiet |
