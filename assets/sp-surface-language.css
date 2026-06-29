@@ -41,22 +41,22 @@
   --sp-surface-material-paper-field: rgb(var(--sp-surface-canvas-ivory));
   --sp-surface-material-paper-card-fill: rgba(var(--sp-surface-elevated-fill), 0.58);
   --sp-surface-material-paper-card-border: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.055);
-  --sp-surface-material-paper-card-shadow: 0 0.45rem 1.6rem rgba(var(--sp-surface-shadow-brand), 0.025);
+  --sp-surface-material-paper-card-shadow: none;
   --sp-surface-material-paper-filter: none;
 
   --sp-surface-material-museum-field: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.025);
   --sp-surface-material-museum-frame-fill: rgba(var(--sp-surface-canvas-ivory), 0.42);
   --sp-surface-material-museum-frame-border: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.05);
   --sp-surface-material-museum-depth: none;
-  --sp-surface-material-museum-rule: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.105);
+  --sp-surface-material-museum-rule: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.08);
   --sp-surface-material-museum-tile-fill: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.022);
 
-  --sp-surface-material-magazine-band: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.018);
-  --sp-surface-material-magazine-rule: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.085);
+  --sp-surface-material-magazine-band: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.014);
+  --sp-surface-material-magazine-rule: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.06);
 
   --sp-surface-material-manifesto-field: rgb(var(--sp-surface-canvas-ivory));
-  --sp-surface-material-manifesto-rule: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.095);
-  --sp-surface-material-manifesto-rule-soft: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.065);
+  --sp-surface-material-manifesto-rule: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.07);
+  --sp-surface-material-manifesto-rule-soft: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.045);
 
   --sp-surface-material-dossier-field: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.032);
   --sp-surface-material-dossier-rule: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.075);
