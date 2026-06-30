@@ -3,27 +3,47 @@
 ## Platform authority (read in order)
 
 ```
+PulseOps Design System               ← constitutional overview and entry point
+        ↓
 PulseOps Architecture v1.0           ← LOCKED — homepage IA, buyer journey, composition
         ↓
-PulseOps Visual System v1.0          ← highest creative authority
+Narrative
         ↓
-PulseOps Design Language v1.0
+Composition
         ↓
-PulseOps Editorial Art Direction
+Typography
+        ↓
+Surface
+        ↓
+Photography
+        ↓
+Interaction
+        ↓
+Motion (planned)
         ↓
 Implementation
 ```
 
 | Doc | Description |
 |-----|-------------|
+| [**pulseops-design-system.md**](pulseops-design-system.md) | **Canonical entry point and constitutional overview** |
 | [**PULSEOPS-ARCHITECTURE-v1.md**](PULSEOPS-ARCHITECTURE-v1.md) | **Architecture v1 — LOCKED platform IA and buyer journey** |
 | [CODEBASE-HYGIENE-AUDIT-v1.md](CODEBASE-HYGIENE-AUDIT-v1.md) | Phase III.5 codebase hygiene audit |
-| [**pulseops-visual-system-v1.md**](pulseops-visual-system-v1.md) | **Visual System — permanent creative operating system** |
-| [ARCHITECTURE-FREEZE-REVIEW.md](ARCHITECTURE-FREEZE-REVIEW.md) | Sprint 7.2.5 validation record |
+| [chapter-identity.md](chapter-identity.md) | Narrative architecture and chapter roles |
+| [editorial-system.md](editorial-system.md) | Composition and editorial primitives |
+| [TYPOGRAPHY-LANGUAGE-FOUNDATION.md](TYPOGRAPHY-LANGUAGE-FOUNDATION.md) | Typography language foundation |
+| [SURFACE-LANGUAGE-FOUNDATION.md](SURFACE-LANGUAGE-FOUNDATION.md) | Surface language foundation |
+| [photography-language.md](photography-language.md) | Photography foundation |
+| [photography-expression.md](photography-expression.md) | Photography expression |
+| [photography-systems.md](photography-systems.md) | Photography systems |
+| [interaction-language.md](interaction-language.md) | Interaction foundation |
+| [interaction-expression.md](interaction-expression.md) | Interaction expression |
+| [interaction-systems.md](interaction-systems.md) | Interaction systems |
+| [SP-MOTION.md](SP-MOTION.md) | Motion documentation (planned language track) |
+| [pulseops-visual-system-v1.md](pulseops-visual-system-v1.md) | Visual operating system |
 | [pulseops-design-language-v1.md](pulseops-design-language-v1.md) | Visual language chapter (typography, surface, photography, layout) |
 | [editorial-art-direction.md](editorial-art-direction.md) | Chapter-level art direction and rhythm |
-| [chapter-identity.md](chapter-identity.md) | Narrative architecture and chapter roles |
-| [editorial-system.md](editorial-system.md) | Implementation primitives |
+| [ARCHITECTURE-FREEZE-REVIEW.md](ARCHITECTURE-FREEZE-REVIEW.md) | Sprint 7.2.5 validation record |
 
 ## Getting started
 

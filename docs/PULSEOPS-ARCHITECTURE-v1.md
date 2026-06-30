@@ -9,9 +9,11 @@
 | **Reference commit** | `48f1d7798c7ef70855c5b6b24337dccc7da6474f` |
 | **Governance tag** | `pulseops-architecture-v1` |
 
-**Authority:** This document is the highest-level **architecture** reference for the PulseOps platform — homepage information architecture, buyer journey, chapter ownership, composition language, and narrative sequence.
+**System authority:** Start with [`pulseops-design-system.md`](pulseops-design-system.md) for the PulseOps language stack, ownership hierarchy, and craftsmanship lifecycle.
 
-**Creative authority** remains [`pulseops-visual-system-v1.md`](pulseops-visual-system-v1.md). Architecture governs *what chapters exist and why*; the Visual System governs *how they look and feel* within frozen silhouettes.
+**Architecture authority:** This document is the highest-level **architecture** reference for the PulseOps platform — homepage information architecture, buyer journey, chapter ownership, composition language, and narrative sequence.
+
+**Visual expression:** [`pulseops-visual-system-v1.md`](pulseops-visual-system-v1.md) governs how the frozen architecture looks and feels within established silhouettes.
 
 **Validation:** [`ARCHITECTURE-FREEZE-REVIEW.md`](ARCHITECTURE-FREEZE-REVIEW.md) (Sprint 7.2.5)
 
@@ -54,10 +56,8 @@ The following layers are **permanently frozen** at Architecture v1:
 | Composition Language | ✓ Frozen | Sprint 7.2 · `sp-composition-system.css` |
 | Buyer Journey | ✓ Frozen | Sprint 7.2b |
 | Homepage Information Architecture | ✓ Frozen | `templates/index.supplement.json` order |
-| Chapter Ownership | ✓ Frozen | Visual System §4 + this document §3 |
+| Chapter Ownership | ✓ Frozen | Design System language stack + this document §3 |
 | Editorial Progression | ✓ Frozen | Hero → Footer sequence |
-
-**Not frozen (active craftsmanship tracks):** typography, surfaces, photography grade, motion, interaction, footer brand close, Core UX, accessibility, merchant documentation.
 
 ---
 
@@ -174,26 +174,9 @@ Craftsmanship sprints (typography, surfaces, motion) operate **within** frozen a
 
 ---
 
-## 8. Roadmap
+## 8. Governance
 
-| Track | Status |
-|-------|--------|
-| **Architecture** | **LOCKED** |
-| **Craftsmanship** | **ACTIVE** |
-| **Merchant Experience** | PENDING |
-| **Shopify Readiness** | PENDING |
-| **Commercial Launch** | PENDING |
-
-### Active craftsmanship sequence
-
-**Phase IV — Craftsmanship**
-
-| Sprint | Focus | Architecture revisit |
-|--------|-------|---------------------|
-| **IV.1 Typography Language** | Typographic voice per chapter, scale, measure, numeral hierarchy | **Not permitted** |
-| IV.2+ | Surfaces, photography, motion, interaction | **Not permitted** |
-
-Parallel non-craft tracks: Core UX audit, accessibility, performance, merchant documentation — per [`LAUNCH-CHECKLIST.md`](LAUNCH-CHECKLIST.md).
+Architecture is frozen within the PulseOps Design System language stack. Future language work must follow [`pulseops-design-system.md`](pulseops-design-system.md) and may not reopen Architecture without the amendment process above.
 
 ---
 
@@ -201,6 +184,7 @@ Parallel non-craft tracks: Core UX audit, accessibility, performance, merchant d
 
 | Document | Role |
 |----------|------|
+| [`pulseops-design-system.md`](pulseops-design-system.md) | Constitutional overview and language stack |
 | [`pulseops-visual-system-v1.md`](pulseops-visual-system-v1.md) | Creative operating system |
 | [`pulseops-design-language-v1.md`](pulseops-design-language-v1.md) | Visual language expression |
 | [`chapter-identity.md`](chapter-identity.md) | Chapter narrative definitions |

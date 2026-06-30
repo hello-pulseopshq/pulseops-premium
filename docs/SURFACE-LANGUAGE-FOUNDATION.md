@@ -5,6 +5,7 @@
 **Status:** Implemented (foundation only — zero visual intent)  
 **Canonical QA:** PulseOps Supplement Demo `#183028121915`  
 **Typography baseline:** `pulseops-typography-rhythm-v1` (`2bbcbf3`)
+**System authority:** [`pulseops-design-system.md`](pulseops-design-system.md) defines the PulseOps language stack and ownership hierarchy.
 
 ---
 

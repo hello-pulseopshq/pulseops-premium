@@ -5,6 +5,7 @@
 **Status:** Implemented (foundation only — zero visual intent)  
 **Canonical QA:** PulseOps Supplement Demo `#183028121915`  
 **Audit baseline:** [`TYPOGRAPHY-LANGUAGE-AUDIT-v1.md`](TYPOGRAPHY-LANGUAGE-AUDIT-v1.md)
+**System authority:** [`pulseops-design-system.md`](pulseops-design-system.md) defines the PulseOps language stack and ownership hierarchy.
 
 ---
 

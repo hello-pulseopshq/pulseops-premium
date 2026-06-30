@@ -4,6 +4,7 @@
 **Status:** Documentation only - no implementation  
 **Foundation:** [`photography-language.md`](photography-language.md)  
 **Frozen dependencies:** Architecture, Narrative, Composition, Typography, Surface, Photography Foundation  
+**System authority:** [`pulseops-design-system.md`](pulseops-design-system.md) defines the PulseOps language stack and ownership hierarchy.
 
 ---
 

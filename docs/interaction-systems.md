@@ -5,6 +5,7 @@
 **Foundation:** [`interaction-language.md`](interaction-language.md)
 **Expression:** [`interaction-expression.md`](interaction-expression.md)
 **Frozen dependencies:** Architecture, Narrative, Composition, Typography, Surface, Photography, Interaction Foundation, Interaction Expression
+**System authority:** [`pulseops-design-system.md`](pulseops-design-system.md) defines the PulseOps language stack and ownership hierarchy.
 
 ---
 

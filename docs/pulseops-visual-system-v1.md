@@ -1,18 +1,21 @@
 # PulseOps Visual System v1.0
 
-**Status:** Highest creative authority — permanent visual operating system  
+**Status:** Visual authority — permanent visual operating system
 **Scope:** All PulseOps themes, demos, assets, interactions, photography, merchant guidance, and design reviews  
-**Horizon:** Five years minimum — this document outranks every homepage, demo, section, and implementation habit  
+**System authority:** [`pulseops-design-system.md`](pulseops-design-system.md) defines the repository language stack and ownership hierarchy.
+**Horizon:** Five years minimum — this document governs visual expression within the PulseOps Design System
 **Version:** 1.0 · 2026-06-20
 
 ---
 
 ## Documentation hierarchy
 
-PulseOps creative authority flows in one direction. Lower layers inherit from higher layers. Nothing below may contradict anything above.
+PulseOps visual authority flows in one direction beneath the PulseOps Design System. Lower visual layers inherit from higher visual layers. Nothing below may contradict anything above.
 
 ```
-PulseOps Visual System v1.0          ← you are here
+PulseOps Design System               ← constitutional overview
+        ↓
+PulseOps Visual System v1.0          ← visual authority
         ↓
 PulseOps Design Language v1.0        ← visual language chapter (refined expression)
         ↓
@@ -23,13 +26,14 @@ Implementation                       ← editorial-system, motion, schema, theme
 
 | Layer | Document | Role |
 |-------|----------|------|
+| **Design System** | [`pulseops-design-system.md`](pulseops-design-system.md) | Constitutional overview, language stack, governance |
 | **Architecture** | [`PULSEOPS-ARCHITECTURE-v1.md`](PULSEOPS-ARCHITECTURE-v1.md) | **LOCKED** — homepage IA, buyer journey, composition, chapter ownership |
 | **Visual System** | This document | Philosophy, composition grammar, systems, principles, governance |
 | **Design Language** | [`pulseops-design-language-v1.md`](pulseops-design-language-v1.md) | Typographic, surface, photography, layout, interaction, and conversion language |
 | **Editorial Art Direction** | [`editorial-art-direction.md`](editorial-art-direction.md) | Per-chapter art direction, rhythm, motion, photography direction |
 | **Implementation** | [`editorial-system.md`](editorial-system.md) · [`SP-MOTION.md`](SP-MOTION.md) · theme code | How the system is built |
 
-When documents conflict, **this document wins**. When this document is silent, Design Language wins. When Design Language is silent, Editorial Art Direction wins. Implementation conforms to all three.
+When visual expression documents conflict, **this document wins**. When this document is silent, Design Language wins. When Design Language is silent, Editorial Art Direction wins. Implementation conforms to all three.
 
 ---
 
@@ -858,7 +862,7 @@ Permanent list of things PulseOps should **never** become. If a proposed feature
 
 ## Section 13 — Governance
 
-This Visual System is the **highest creative authority** in the PulseOps repository. It governs what gets built, shot, uploaded, and approved — for years.
+This Visual System is the visual authority within the PulseOps Design System. It governs what gets built, shot, uploaded, and approved as visual expression — for years.
 
 ### The conformance question
 
@@ -945,4 +949,4 @@ PulseOps is built for **calm editorial conviction** that outlasts platform fashi
 
 ---
 
-*PulseOps Visual System v1.0 — the highest creative authority. Not implementation. Not CSS. Not homepage redesign. The visual operating system for the next five years.*
+*PulseOps Visual System v1.0 — visual authority. Not implementation. Not CSS. Not homepage redesign. The visual operating system for the next five years.*

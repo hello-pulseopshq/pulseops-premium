@@ -2,15 +2,18 @@
 
 **Status:** Visual language chapter — permanent creative standard  
 **Scope:** All PulseOps premium themes, all vertical demos, all future sections  
-**Authority:** [`pulseops-visual-system-v1.md`](pulseops-visual-system-v1.md) — highest creative authority; this document expresses visual language within that system  
+**System authority:** [`pulseops-design-system.md`](pulseops-design-system.md) — constitutional overview and language stack
+**Visual authority:** [`pulseops-visual-system-v1.md`](pulseops-visual-system-v1.md) — visual operating system; this document expresses visual language within that system
 **Companions:** [`editorial-art-direction.md`](editorial-art-direction.md) (chapter expression) · [`chapter-identity.md`](chapter-identity.md) (narrative roles) · [`editorial-system.md`](editorial-system.md) (build primitives)
 
 ### Documentation hierarchy
 
 ```
+PulseOps Design System
+        ↓
 PulseOps Visual System v1.0
         ↓
-PulseOps Design Language v1.0          ← you are here
+PulseOps Design Language v1.0          ← visual expression guide
         ↓
 PulseOps Editorial Art Direction
         ↓

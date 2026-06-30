@@ -27,12 +27,26 @@ Details: [docs/RELEASES.md](docs/RELEASES.md)
 
 ## Documentation
 
-Creative authority flows top-down: **Visual System → Design Language → Editorial Art Direction → Implementation**.
+Start with the **PulseOps Design System**. It is the constitutional overview for the repository: why the system exists, how languages relate, how authority flows, and how future languages are created.
+
+Recommended reading order:
+
+1. PulseOps Design System
+2. Architecture
+3. Narrative
+4. Composition
+5. Typography
+6. Surface
+7. Photography
+8. Interaction
+9. Motion (planned)
+10. Implementation documentation
 
 | Doc | Description |
 |-----|-------------|
 | [docs/README.md](docs/README.md) | Documentation index |
-| [docs/pulseops-visual-system-v1.md](docs/pulseops-visual-system-v1.md) | **PulseOps Visual System — highest creative authority** |
+| [docs/pulseops-design-system.md](docs/pulseops-design-system.md) | **Constitutional overview and canonical entry point** |
+| [docs/pulseops-visual-system-v1.md](docs/pulseops-visual-system-v1.md) | PulseOps visual operating system |
 | [docs/pulseops-design-language-v1.md](docs/pulseops-design-language-v1.md) | Visual language chapter |
 | [docs/editorial-art-direction.md](docs/editorial-art-direction.md) | Chapter-level art direction |
 | [docs/QUICK_START.md](docs/QUICK_START.md) | Install and run |

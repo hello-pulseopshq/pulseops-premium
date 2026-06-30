@@ -4,6 +4,8 @@ Narrative blueprint for the supplement homepage as an **editorial conversation**
 
 **Architecture status:** **LOCKED** — see [`PULSEOPS-ARCHITECTURE-v1.md`](PULSEOPS-ARCHITECTURE-v1.md) (tag `pulseops-architecture-v1`)
 
+**System authority:** Start with [`pulseops-design-system.md`](pulseops-design-system.md) for the PulseOps language stack and ownership hierarchy.
+
 **Checkpoint:** `supplement-editorial-foundation-v1`  
 **Companion:** [`docs/editorial-system.md`](editorial-system.md) — tokens, classes, CTA rules, build primitives  
 **Scope:** `templates/index.supplement.json` supplement homepage only; Dawn/default unaffected

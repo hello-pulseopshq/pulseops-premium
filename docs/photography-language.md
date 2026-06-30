@@ -4,6 +4,7 @@
 **Status:** Foundation only — no implementation  
 **Scope:** PulseOps photography philosophy across all verticals  
 **Frozen dependencies:** Architecture, Narrative, Composition, Typography, Surface  
+**System authority:** [`pulseops-design-system.md`](pulseops-design-system.md) defines the PulseOps language stack and ownership hierarchy.
 
 ---
 
@@ -394,18 +395,8 @@ Anti-patterns matter because they define the edge of the language. PulseOps phot
 
 ---
 
-## Roadmap
+## Related Documents
 
-```
-IV.3A  Photography Foundation     philosophy and principles
-   ↓
-IV.3B  Photography Expression     chapter-level identity and visual tone
-   ↓
-IV.3C  Photography Systems        repeatable governance for image use
-   ↓
-IV.3D  Photography Restraint      remove visual excess, preserve photographic truth
-   ↓
-Photography Freeze
-```
-
-This foundation is intended to hold across Supplement, Skincare, Coffee, Outdoor, Electronics, Creator, Lifestyle, Pet, and future PulseOps verticals.
+- [`pulseops-design-system.md`](pulseops-design-system.md) - Constitutional overview and craftsmanship lifecycle
+- [`photography-expression.md`](photography-expression.md) - Chapter-level photographic identity
+- [`photography-systems.md`](photography-systems.md) - Photography governance and decision framework

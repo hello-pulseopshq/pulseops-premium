@@ -4,6 +4,7 @@
 **Status:** Foundation only - no implementation
 **Scope:** PulseOps interaction philosophy across all verticals
 **Frozen dependencies:** Architecture, Narrative, Composition, Typography, Surface, Photography
+**System authority:** [`pulseops-design-system.md`](pulseops-design-system.md) defines the PulseOps language stack and ownership hierarchy.
 
 ---
 
