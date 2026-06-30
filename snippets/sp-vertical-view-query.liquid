@@ -1,0 +1,40 @@
+{%- comment -%}
+  SP Vertical — returns the ?view=<suffix> query string for the active vertical,
+  or blank when no vertical is active (production stores: byte-identical empty output).
+
+  Used by header logo/cart links and footer brand link to keep users inside the
+  supplement (or other pack) vertical experience.
+
+  Cart-page fallback: when the cart contains only the registered vertical product, treat the
+  session as supplement even though cart has no template suffix.
+{%- endcomment -%}
+{%- liquid
+  capture sp_vertical_active
+    render 'sp-pack-registry', field: 'active'
+  endcapture
+
+  if sp_vertical_active == blank and request.page_type == 'cart' and cart.item_count > 0
+    capture sp_vertical_cart_handle
+      render 'sp-pack-registry', field: 'product_handle', vertical: 'supplement'
+    endcapture
+    if sp_vertical_cart_handle != blank
+      assign sp_vertical_brand_only = true
+      for item in cart.items
+        unless item.product.handle == sp_vertical_cart_handle
+          assign sp_vertical_brand_only = false
+          break
+        endunless
+      endfor
+      if sp_vertical_brand_only
+        assign sp_vertical_active = 'supplement'
+      endif
+    endif
+  endif
+
+  assign sp_vertical_view_query = ''
+  if sp_vertical_active != blank
+    assign sp_vertical_view_query = '?view=' | append: sp_vertical_active
+  endif
+
+  echo sp_vertical_view_query
+-%}

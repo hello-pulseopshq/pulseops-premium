@@ -1,11 +1,11 @@
 /**
- * Daily Vitality — flagship supplement demo brand layer
- * Scoped to .sp-demo-supplement on <html> (supplement template suffix).
+ * Daily Vitality — flagship supplement vertical brand layer
+ * Scoped to .sp-supplement on <html> (supplement template suffix).
  */
 
 /* ── Premium wellness design tokens ── */
 /* Surface tokens → assets/sp-surface-language.css (IV.2A). Palette primitives remain here. */
-.sp-demo-supplement {
+.sp-supplement {
   --sp-supplement-ivory: 252, 250, 246;
   --sp-supplement-cream: var(--sp-supplement-ivory);
   --sp-supplement-charcoal: 28, 32, 30;
@@ -25,7 +25,7 @@
 
   --sp-supplement-section-gap: 0.4rem;
 
-  /* Typography tokens → assets/sp-typography-language.css + sp-demo-supplement-type.css */
+  /* Typography tokens → assets/sp-typography-language.css + sp-supplement-type.css */
   --sp-supplement-content-max: min(100%, var(--page-width, 120rem));
   --sp-supplement-content-narrow: min(100%, 72rem);
   --sp-supplement-hero-media-ratio: 100%;
@@ -41,17 +41,17 @@
   --buttons-radius: var(--sp-supplement-radius-pill);
 }
 
-.sp-demo-supplement.gradient {
+.sp-supplement.gradient {
   background: rgb(var(--sp-supplement-cream));
 }
 
 /* Wordmark */
-.sp-demo-supplement .header__heading-link .header__heading-logo {
+.sp-supplement .header__heading-link .header__heading-logo {
   display: none !important;
 }
 
-.sp-demo-supplement .header__heading-link > .h2,
-.sp-demo-supplement .header__heading-link > span.h2 {
+.sp-supplement .header__heading-link > .h2,
+.sp-supplement .header__heading-link > span.h2 {
   position: relative;
   display: inline-block;
   width: auto;
@@ -62,8 +62,8 @@
   overflow: hidden;
 }
 
-.sp-demo-supplement .header__heading-link > .h2::after,
-.sp-demo-supplement .header__heading-link > span.h2::after {
+.sp-supplement .header__heading-link > .h2::after,
+.sp-supplement .header__heading-link > span.h2::after {
   content: 'Daily Vitality';
   display: inline-block;
   font-size: 2rem;
@@ -74,65 +74,65 @@
 }
 
 @media screen and (max-width: 749px) {
-  .sp-demo-supplement .header__heading-link > .h2::after,
-  .sp-demo-supplement .header__heading-link > span.h2::after {
+  .sp-supplement .header__heading-link > .h2::after,
+  .sp-supplement .header__heading-link > span.h2::after {
     font-size: 1.8rem;
   }
 }
 
-/* Account entry points — hidden in the demo.
-   Storefront customer accounts are not provisioned on the demo store, so the
+/* Account entry points — hidden in the vertical preview.
+   Storefront customer accounts are not provisioned on the vertical preview store, so the
    login route errors. Hiding the account icon (desktop) and the mobile menu
-   account link keeps the demo free of broken routes. Re-enable by removing
+   account link keeps the vertical preview free of broken routes. Re-enable by removing
    this block once customer accounts are configured in Admin. */
-.sp-demo-supplement .header__icon--account,
-.sp-demo-supplement .menu-drawer__account {
+.sp-supplement .header__icon--account,
+.sp-supplement .menu-drawer__account {
   display: none !important;
 }
 
 /* Header + announcement */
-.sp-demo-supplement .announcement-bar {
+.sp-supplement .announcement-bar {
   background: rgb(var(--sp-supplement-green-deep));
   color: rgb(var(--sp-supplement-cream));
 }
 
-.sp-demo-supplement .header-wrapper {
+.sp-supplement .header-wrapper {
   border-bottom: none;
 }
 
-.sp-demo-supplement .header__inline-menu .header__menu-item--anchor.is-active > a::after,
-.sp-demo-supplement .header__inline-menu .header__menu-item--anchor.is-active > span::after {
+.sp-supplement .header__inline-menu .header__menu-item--anchor.is-active > a::after,
+.sp-supplement .header__inline-menu .header__menu-item--anchor.is-active > span::after {
   background: rgb(var(--sp-supplement-gold));
 }
 
-/* Section display typography → assets/sp-demo-supplement-type.css */
+/* Section display typography → assets/sp-supplement-type.css */
 
-.sp-demo-supplement .sp-metrics:not(.sp-metrics--editorial-story) .sp-metrics__heading,
-.sp-demo-supplement .sp-social-proof__heading,
-.sp-demo-supplement .sp-scientific-proof__heading,
-.sp-demo-supplement .sp-faq__heading {
+.sp-supplement .sp-metrics:not(.sp-metrics--editorial-story) .sp-metrics__heading,
+.sp-supplement .sp-social-proof__heading,
+.sp-supplement .sp-scientific-proof__heading,
+.sp-supplement .sp-faq__heading {
   max-width: 22ch;
   margin-inline: auto;
 }
 
-.sp-demo-supplement .sp-features__header--left .sp-features__heading,
-.sp-demo-supplement .sp-video__body:not(.sp-video__body--split) .sp-video__content h2 {
+.sp-supplement .sp-features__header--left .sp-features__heading,
+.sp-supplement .sp-video__body:not(.sp-video__body--split) .sp-video__content h2 {
   max-width: 16ch;
   margin-inline: 0;
 }
 
-.sp-demo-supplement .sp-metrics:not(.sp-metrics--editorial-story) .sp-metrics__label {
+.sp-supplement .sp-metrics:not(.sp-metrics--editorial-story) .sp-metrics__label {
   margin-top: 0.8rem;
   text-transform: uppercase;
 }
 
-.sp-demo-supplement .sp-metrics:not(.sp-metrics--editorial-story) .sp-metrics__value {
+.sp-supplement .sp-metrics:not(.sp-metrics--editorial-story) .sp-metrics__value {
   font-variant-numeric: tabular-nums;
   color: rgb(var(--sp-supplement-green-deep));
 }
 
-/* ── Buttons + CTAs (visual; type → sp-demo-supplement-type.css) ── */
-.sp-demo-supplement .button--primary {
+/* ── Buttons + CTAs (visual; type → sp-supplement-type.css) ── */
+.sp-supplement .button--primary {
   background: rgb(var(--sp-supplement-green));
   border-color: rgb(var(--sp-supplement-green));
   border-radius: var(--sp-supplement-radius-pill);
@@ -145,24 +145,24 @@
     transform 0.15s ease;
 }
 
-.sp-demo-supplement .button--primary:hover {
+.sp-supplement .button--primary:hover {
   background: rgb(var(--sp-supplement-green-deep));
   border-color: rgb(var(--sp-supplement-green-deep));
   box-shadow: 0 0.6rem 2rem rgba(var(--sp-supplement-shadow), 0.18);
 }
 
-.sp-demo-supplement .button--primary:focus-visible {
+.sp-supplement .button--primary:focus-visible {
   outline: 0.2rem solid rgba(var(--sp-supplement-amber), 0.55);
   outline-offset: 0.2rem;
 }
 
-.sp-demo-supplement .button--secondary {
+.sp-supplement .button--secondary {
   border-radius: var(--sp-supplement-radius-pill);
   transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 /* PDP product media */
-.sp-demo-supplement.template-product .product__media-wrapper {
+.sp-supplement.template-product .product__media-wrapper {
   max-width: 52rem;
   margin-inline: auto;
   padding: clamp(2rem, 3vw, 3.2rem);
@@ -176,45 +176,45 @@
   box-shadow: 0 1.6rem 4.8rem rgba(var(--sp-supplement-shadow), 0.1);
 }
 
-.sp-demo-supplement.template-product .product__media-item img {
+.sp-supplement.template-product .product__media-item img {
   filter: drop-shadow(0 1.2rem 2.4rem rgba(var(--sp-supplement-shadow), 0.18));
 }
 
-.sp-demo-supplement.template-product .product__media-item img[src*='snowboard'],
-.sp-demo-supplement.template-product .product__media-item img[src*='Main_b13ad453'] {
+.sp-supplement.template-product .product__media-item img[src*='snowboard'],
+.sp-supplement.template-product .product__media-item img[src*='Main_b13ad453'] {
   opacity: 0;
   position: absolute;
   pointer-events: none;
 }
 
-.sp-demo-supplement.template-product .product__info-container {
+.sp-supplement.template-product .product__info-container {
   gap: 1.6rem;
 }
 
-.sp-demo-supplement .sp-video__content > header,
-.sp-demo-supplement .sp-video__body > .sp-video__content:first-child {
+.sp-supplement .sp-video__content > header,
+.sp-supplement .sp-video__body > .sp-video__content:first-child {
   margin-bottom: 1.6rem;
 }
 
-.sp-demo-supplement .cart-drawer .cart-item__image {
+.sp-supplement .cart-drawer .cart-item__image {
   border-radius: var(--sp-supplement-radius-sm);
   background: rgba(var(--sp-supplement-sage), 0.12);
 }
 
-.sp-demo-supplement.template-product .product__media-item img[src*='daily-vitality'],
-.sp-demo-supplement.template-product .product__media-item img[src*='sp-demo-daily-vitality'] {
+.sp-supplement.template-product .product__media-item img[src*='daily-vitality'],
+.sp-supplement.template-product .product__media-item img[src*='sp-supplement-daily-vitality'] {
   opacity: 1;
   position: relative;
 }
 
-.sp-demo-supplement .sp-sticky-atc__media-image[src*='snowboard'] {
+.sp-supplement .sp-sticky-atc__media-image[src*='snowboard'] {
   display: none !important;
 }
 
 /* ── Card system — differentiated hierarchy ── */
 
 /* Benefits: numbered editorial tiles */
-.sp-demo-supplement .sp-benefits__card {
+.sp-supplement .sp-benefits__card {
   background: rgb(var(--sp-supplement-card));
   border: 0.1rem solid rgba(var(--sp-supplement-green), 0.1);
   box-shadow: 0 0.4rem 1.6rem rgba(var(--sp-supplement-shadow), 0.05);
@@ -223,7 +223,7 @@
 }
 
 /* Features: editorial rows, not boxed cards */
-.sp-demo-supplement .sp-features__feature {
+.sp-supplement .sp-features__feature {
   background: transparent;
   border: none;
   box-shadow: none;
@@ -232,22 +232,22 @@
   border-bottom: 0.1rem solid rgba(var(--sp-supplement-green), 0.1);
 }
 
-.sp-demo-supplement .sp-features__feature:last-child {
+.sp-supplement .sp-features__feature:last-child {
   border-bottom: none;
   padding-bottom: 0;
 }
 
-.sp-demo-supplement .sp-features__feature:has(.sp-features__media img[src*='daily-vitality']) {
+.sp-supplement .sp-features__feature:has(.sp-features__media img[src*='daily-vitality']) {
   padding: 0;
   border-bottom: none;
 }
 
 /* Scientific proof: stat hero + certification badges */
-.sp-demo-supplement .sp-scientific-proof__card {
+.sp-supplement .sp-scientific-proof__card {
   border-radius: var(--sp-supplement-radius-md);
 }
 
-.sp-demo-supplement .sp-scientific-proof__card:not(.sp-scientific-proof__card--certification) {
+.sp-supplement .sp-scientific-proof__card:not(.sp-scientific-proof__card--certification) {
   background: rgb(var(--sp-supplement-card));
   border: 0.1rem solid rgba(var(--sp-supplement-green), 0.1);
   box-shadow: 0 1rem 3.2rem rgba(var(--sp-supplement-shadow), 0.08);
@@ -255,7 +255,7 @@
   padding-top: 2.4rem;
 }
 
-.sp-demo-supplement .sp-scientific-proof__card--certification {
+.sp-supplement .sp-scientific-proof__card--certification {
   background: rgba(var(--sp-supplement-sage), 0.1);
   border: 0.1rem solid rgba(var(--sp-supplement-green), 0.12);
   box-shadow: none;
@@ -263,7 +263,7 @@
 }
 
 /* Reviews: quote-forward cards */
-.sp-demo-supplement .sp-social-proof__card {
+.sp-supplement .sp-social-proof__card {
   background: rgb(var(--sp-supplement-card));
   border: none;
   border-radius: var(--sp-supplement-radius-lg);
@@ -273,8 +273,8 @@
   padding: 2.4rem 2.2rem 2rem;
 }
 
-/* Reviews: Greenlight-style testimonial chapter (supplement demo) */
-.sp-demo-supplement .sp-social-proof--stage {
+/* Reviews: Greenlight-style testimonial chapter (supplement vertical) */
+.sp-supplement .sp-social-proof--stage {
   --sp-proof-chapter-max: var(--sp-supplement-content-max, min(100%, var(--page-width, 120rem)));
   --sp-proof-quote-max: min(100%, 112rem);
   --sp-proof-quote-color: rgba(255, 255, 255, 0.95);
@@ -289,283 +289,283 @@
   --sp-proof-focus-ring: rgba(var(--sp-supplement-cream), 0.45);
 }
 
-.sp-demo-supplement .shopify-section:has(.sp-social-proof--stage) {
+.sp-supplement .shopify-section:has(.sp-social-proof--stage) {
   background:
     linear-gradient(180deg, rgba(var(--sp-supplement-green-deep), 0.84) 0%, rgba(var(--sp-supplement-green-deep), 0.94) 100%),
     url('https://pulseops-labs.myshopify.com/cdn/shop/files/Male_Professional_Lifestyle.png') center 28% / cover no-repeat;
 }
 
-.sp-demo-supplement .sp-section--surface-alternate:has(.sp-social-proof--stage),
-.sp-demo-supplement .sp-section--surface-default:has(.sp-social-proof--stage) {
+.sp-supplement .sp-section--surface-alternate:has(.sp-social-proof--stage),
+.sp-supplement .sp-section--surface-default:has(.sp-social-proof--stage) {
   background: transparent;
 }
 
-.sp-demo-supplement .sp-social-proof--stage .sp-social-proof__eyebrow {
+.sp-supplement .sp-social-proof--stage .sp-social-proof__eyebrow {
   color: rgba(var(--sp-supplement-sage), 0.92);
 }
 
-.sp-demo-supplement .sp-social-proof--stage .sp-social-proof__stage-metric {
+.sp-supplement .sp-social-proof--stage .sp-social-proof__stage-metric {
   display: none;
 }
 
-.sp-demo-supplement .sp-social-proof--stage .sp-social-proof__stage-metric,
-.sp-demo-supplement .sp-social-proof--stage .sp-social-proof__stage-title {
+.sp-supplement .sp-social-proof--stage .sp-social-proof__stage-metric,
+.sp-supplement .sp-social-proof--stage .sp-social-proof__stage-title {
   font-family: var(--sp-font-body, var(--font-body-family));
 }
 
-.sp-demo-supplement .sp-social-proof--stage .sp-social-proof__stage-quote-mark,
-.sp-demo-supplement .sp-social-proof--stage .sp-social-proof__stage-quote-text,
-.sp-demo-supplement .sp-social-proof--stage .sp-social-proof__stage-quote-text p {
+.sp-supplement .sp-social-proof--stage .sp-social-proof__stage-quote-mark,
+.sp-supplement .sp-social-proof--stage .sp-social-proof__stage-quote-text,
+.sp-supplement .sp-social-proof--stage .sp-social-proof__stage-quote-text p {
   font-family: var(--sp-font-heading, var(--font-heading-family));
   color: rgba(255, 255, 255, 0.95);
 }
 
-.sp-demo-supplement .sp-social-proof--stage .sp-social-proof__stage-name {
+.sp-supplement .sp-social-proof--stage .sp-social-proof__stage-name {
   font-family: var(--sp-font-heading, var(--font-heading-family));
   color: rgba(255, 255, 255, 0.9);
 }
 
-.sp-demo-supplement .sp-social-proof--stage .sp-social-proof__stage-title {
+.sp-supplement .sp-social-proof--stage .sp-social-proof__stage-title {
   color: rgba(255, 255, 255, 0.75);
 }
 
-.sp-demo-supplement .sp-scientific-proof__icon {
+.sp-supplement .sp-scientific-proof__icon {
   color: rgb(var(--sp-supplement-green));
 }
 
 /* Editorial numbered benefit cards */
-.sp-demo-supplement .sp-benefits__list {
+.sp-supplement .sp-benefits__list {
   counter-reset: sp-benefit;
 }
 
-.sp-demo-supplement .sp-benefits__item {
+.sp-supplement .sp-benefits__item {
   counter-increment: sp-benefit;
 }
 
-.sp-demo-supplement .sp-benefits__icon {
+.sp-supplement .sp-benefits__icon {
   display: none;
 }
 
-.sp-demo-supplement .sp-benefits__card::before {
+.sp-supplement .sp-benefits__card::before {
   content: counter(sp-benefit, decimal-leading-zero);
   display: block;
   margin-bottom: 0.6rem;
   color: rgb(var(--sp-supplement-amber));
 }
 
-.sp-demo-supplement .sp-features__check {
+.sp-supplement .sp-features__check {
   color: rgb(var(--sp-supplement-green));
 }
 
-.sp-demo-supplement .sp-scientific-proof__stat {
+.sp-supplement .sp-scientific-proof__stat {
   color: rgb(var(--sp-supplement-green-deep));
   letter-spacing: -0.02em;
 }
 
-.sp-demo-supplement .sp-social-proof__rating {
+.sp-supplement .sp-social-proof__rating {
   color: rgb(var(--sp-supplement-amber));
 }
 
-.sp-demo-supplement .sp-social-proof__verified {
+.sp-supplement .sp-social-proof__verified {
   color: rgb(var(--sp-supplement-green));
 }
 
 /* ── Metrics band ── */
-.sp-demo-supplement .sp-metrics__list--band {
+.sp-supplement .sp-metrics__list--band {
   background: rgba(var(--sp-supplement-card), 0.72);
   border-block: 0.1rem solid rgba(var(--sp-supplement-green), 0.08);
 }
 
-.sp-demo-supplement .sp-metrics__list--divided .sp-metrics__item + .sp-metrics__item {
+.sp-supplement .sp-metrics__list--divided .sp-metrics__item + .sp-metrics__item {
   border-color: rgba(var(--sp-supplement-green), 0.1);
 }
 
 /* ── FAQ ── */
-.sp-demo-supplement .sp-faq__item {
+.sp-supplement .sp-faq__item {
   border-radius: var(--sp-supplement-radius-md);
   border-color: rgba(var(--sp-supplement-green), 0.12);
   background: rgb(var(--sp-supplement-card));
 }
 
-.sp-demo-supplement .sp-faq__trigger {
+.sp-supplement .sp-faq__trigger {
   border-radius: var(--sp-supplement-radius-md);
 }
 
-.sp-demo-supplement .sp-faq__icon {
+.sp-supplement .sp-faq__icon {
   color: rgb(var(--sp-supplement-green));
 }
 
 /* ── Layout alignment QA ── */
 
-/* Motion reveal disabled on supplement demo — prevents empty below-fold sections */
-html.sp-demo-supplement.sp-motion-active .sp-reveal:not(.is-revealed):not(.sp-reveal--static),
-html.sp-demo-supplement.sp-motion-active [data-sp-reveal]:not(.is-revealed):not(.sp-reveal--static),
-.sp-demo-supplement .sp-reveal:not(.is-revealed),
-.sp-demo-supplement [data-sp-reveal]:not(.is-revealed) {
+/* Motion reveal disabled on supplement vertical — prevents empty below-fold sections */
+html.sp-supplement.sp-motion-active .sp-reveal:not(.is-revealed):not(.sp-reveal--static),
+html.sp-supplement.sp-motion-active [data-sp-reveal]:not(.is-revealed):not(.sp-reveal--static),
+.sp-supplement .sp-reveal:not(.is-revealed),
+.sp-supplement [data-sp-reveal]:not(.is-revealed) {
   opacity: 1 !important;
   transform: none !important;
   visibility: visible !important;
 }
 
-.sp-demo-supplement .sp-section__inner--contained,
-.sp-demo-supplement .sp-section__inner--wide {
+.sp-supplement .sp-section__inner--contained,
+.sp-supplement .sp-section__inner--wide {
   max-width: var(--sp-supplement-content-max);
 }
 
-.sp-demo-supplement .sp-section__inner--wide {
+.sp-supplement .sp-section__inner--wide {
   max-width: var(--sp-supplement-content-max);
 }
 
-.sp-demo-supplement .sp-video__body--split {
+.sp-supplement .sp-video__body--split {
   align-items: center;
   gap: clamp(2.4rem, 4vw, 4rem);
 }
 
-.sp-demo-supplement .sp-video__media {
+.sp-supplement .sp-video__media {
   max-width: 100%;
 }
 
-.sp-demo-supplement .sp-features__list {
+.sp-supplement .sp-features__list {
   gap: clamp(4rem, 6vw, 6rem);
   max-width: var(--sp-supplement-content-narrow);
   margin-inline: auto;
 }
 
-.sp-demo-supplement .sp-features__feature:has(.sp-features__media img[src*='daily-vitality']) {
+.sp-supplement .sp-features__feature:has(.sp-features__media img[src*='daily-vitality']) {
   gap: clamp(2rem, 3vw, 3.2rem);
 }
 
-.sp-demo-supplement .sp-features__feature:has(.sp-features__media img[src*='daily-vitality']) .sp-features__media {
+.sp-supplement .sp-features__feature:has(.sp-features__media img[src*='daily-vitality']) .sp-features__media {
   max-width: min(42rem, 100%);
   margin-inline: auto;
   width: 100%;
 }
 
-.sp-demo-supplement .sp-features__feature:has(.sp-features__media img[src*='daily-vitality']) .sp-media-frame::before {
+.sp-supplement .sp-features__feature:has(.sp-features__media img[src*='daily-vitality']) .sp-media-frame::before {
   padding-bottom: var(--sp-supplement-feature-media-ratio) !important;
 }
 
-.sp-demo-supplement .sp-features__feature:has(.sp-features__media img[src*='daily-vitality']) .sp-features__content {
+.sp-supplement .sp-features__feature:has(.sp-features__media img[src*='daily-vitality']) .sp-features__content {
   max-width: 42rem;
   margin-inline: auto;
   text-align: center;
 }
 
-.sp-demo-supplement .sp-features__feature:has(.sp-features__media img[src*='daily-vitality']) .sp-features__bullets {
+.sp-supplement .sp-features__feature:has(.sp-features__media img[src*='daily-vitality']) .sp-features__bullets {
   text-align: left;
 }
 
 @media screen and (min-width: 750px) {
-  .sp-demo-supplement .sp-benefits__list--2,
-  .sp-demo-supplement .sp-benefits__list--3,
-  .sp-demo-supplement .sp-benefits__list--4 {
+  .sp-supplement .sp-benefits__list--2,
+  .sp-supplement .sp-benefits__list--3,
+  .sp-supplement .sp-benefits__list--4 {
     align-items: stretch;
   }
 
-  .sp-demo-supplement .sp-benefits__card {
+  .sp-supplement .sp-benefits__card {
     height: 100%;
   }
 
-  .sp-demo-supplement .sp-scientific-proof__list--3 .sp-scientific-proof__item,
-  .sp-demo-supplement .sp-social-proof__list .sp-social-proof__item {
+  .sp-supplement .sp-scientific-proof__list--3 .sp-scientific-proof__item,
+  .sp-supplement .sp-social-proof__list .sp-social-proof__item {
     height: 100%;
   }
 
-  .sp-demo-supplement .sp-scientific-proof__card,
-  .sp-demo-supplement .sp-social-proof__card {
+  .sp-supplement .sp-scientific-proof__card,
+  .sp-supplement .sp-social-proof__card {
     height: 100%;
   }
 }
 
-.sp-demo-supplement .sp-cta-offer__inner,
-.sp-demo-supplement .sp-cta-offer__card {
+.sp-supplement .sp-cta-offer__inner,
+.sp-supplement .sp-cta-offer__card {
   max-width: var(--sp-supplement-content-narrow);
   margin-inline: auto;
 }
 
-.sp-demo-supplement .sp-cta-offer__card {
+.sp-supplement .sp-cta-offer__card {
   padding: clamp(3.2rem, 5vw, 5.6rem);
 }
 
-.sp-demo-supplement.template-product .product {
+.sp-supplement.template-product .product {
   column-gap: clamp(3.2rem, 5vw, 5.6rem);
   row-gap: clamp(2.4rem, 4vw, 4rem);
 }
 
-.sp-demo-supplement.template-product .product__info-wrapper {
+.sp-supplement.template-product .product__info-wrapper {
   padding-top: 0.8rem;
 }
 
-.sp-demo-supplement .sp-benefits__header,
-.sp-demo-supplement .sp-features__header,
-.sp-demo-supplement .sp-metrics:not(.sp-metrics--editorial-story) .sp-metrics__header,
-.sp-demo-supplement .sp-scientific-proof__header,
-.sp-demo-supplement .sp-social-proof__header,
-.sp-demo-supplement .sp-faq__header {
+.sp-supplement .sp-benefits__header,
+.sp-supplement .sp-features__header,
+.sp-supplement .sp-metrics:not(.sp-metrics--editorial-story) .sp-metrics__header,
+.sp-supplement .sp-scientific-proof__header,
+.sp-supplement .sp-social-proof__header,
+.sp-supplement .sp-faq__header {
   margin-bottom: var(--sp-supplement-section-header-gap);
 }
 
 /* ── Section rhythm ── */
-.sp-demo-supplement .shopify-section:has(.sp-metrics),
-.sp-demo-supplement .shopify-section:has(.sp-benefits),
-.sp-demo-supplement .shopify-section:has(.sp-features),
-.sp-demo-supplement .shopify-section:has(.sp-scientific-proof),
-.sp-demo-supplement .shopify-section:has(.sp-social-proof),
-.sp-demo-supplement .shopify-section:has(.sp-faq) {
+.sp-supplement .shopify-section:has(.sp-metrics),
+.sp-supplement .shopify-section:has(.sp-benefits),
+.sp-supplement .shopify-section:has(.sp-features),
+.sp-supplement .shopify-section:has(.sp-scientific-proof),
+.sp-supplement .shopify-section:has(.sp-social-proof),
+.sp-supplement .shopify-section:has(.sp-faq) {
   scroll-margin-top: 8rem;
 }
 
-.sp-demo-supplement .sp-section--surface-alternate {
+.sp-supplement .sp-section--surface-alternate {
   background: rgba(var(--sp-supplement-sage), 0.08);
 }
 
-.sp-demo-supplement .sp-section--emphasis-elevated {
+.sp-supplement .sp-section--emphasis-elevated {
   box-shadow: inset 0 0.1rem 0 rgba(var(--sp-supplement-green), 0.06);
 }
 
-.sp-demo-supplement .sp-section--surface-inverse {
+.sp-supplement .sp-section--surface-inverse {
   --color-background: var(--sp-supplement-green-deep);
   --color-foreground: var(--sp-supplement-cream);
   --color-button: var(--sp-supplement-cream);
   --color-button-label: var(--sp-supplement-green-deep);
 }
 
-.sp-demo-supplement .sp-cta-offer__card {
+.sp-supplement .sp-cta-offer__card {
   border-radius: var(--sp-supplement-radius-xl);
 }
 
-.sp-demo-supplement .sp-cta-offer__badge {
+.sp-supplement .sp-cta-offer__badge {
   background: rgba(var(--sp-supplement-amber), 0.18);
   color: rgb(var(--sp-supplement-charcoal));
   border-radius: var(--sp-supplement-radius-pill);
 }
 
 /* Footer */
-.sp-demo-supplement .footer {
+.sp-supplement .footer {
   background: rgb(var(--sp-supplement-cream));
   border-top: 0.1rem solid rgba(var(--sp-supplement-green), 0.12);
 }
 
-.sp-demo-supplement .footer__list-social,
-.sp-demo-supplement .footer .list-social {
+.sp-supplement .footer__list-social,
+.sp-supplement .footer .list-social {
   display: none !important;
 }
 
-.sp-demo-supplement .footer .newsletter-form__field-wrapper .field__input {
+.sp-supplement .footer .newsletter-form__field-wrapper .field__input {
   border-radius: var(--sp-supplement-radius-sm);
 }
 
-.sp-demo-supplement .footer .newsletter-form__button {
+.sp-supplement .footer .newsletter-form__button {
   border-radius: var(--sp-supplement-radius-sm);
 }
 
-.sp-demo-supplement .footer__copyright a {
+.sp-supplement .footer__copyright a {
   font-size: 0;
   line-height: 0;
   color: transparent;
 }
 
-.sp-demo-supplement .footer__copyright a::after {
+.sp-supplement .footer__copyright a::after {
   content: 'Daily Vitality';
   font-size: 1.2rem;
   line-height: 1.5;
@@ -573,9 +573,9 @@ html.sp-demo-supplement.sp-motion-active [data-sp-reveal]:not(.is-revealed):not(
 }
 
 /* Collapse hidden feature media so neutral preset does not reserve blank blocks */
-.sp-demo-supplement .sp-features__media,
-.sp-demo-supplement .sp-features__image-wrapper,
-.sp-demo-supplement .sp-features__media .sp-media-frame {
+.sp-supplement .sp-features__media,
+.sp-supplement .sp-features__image-wrapper,
+.sp-supplement .sp-features__media .sp-media-frame {
   display: none !important;
   min-height: 0 !important;
   height: 0 !important;
@@ -585,9 +585,9 @@ html.sp-demo-supplement.sp-motion-active [data-sp-reveal]:not(.is-revealed):not(
 }
 
 /* Reveal configured supplement ingredient / macro photography */
-.sp-demo-supplement .sp-features__feature:has(.sp-features__media img[src*='daily-vitality']) .sp-features__media,
-.sp-demo-supplement .sp-features__feature:has(.sp-features__media img[src*='daily-vitality']) .sp-features__image-wrapper,
-.sp-demo-supplement .sp-features__feature:has(.sp-features__media img[src*='daily-vitality']) .sp-features__media .sp-media-frame {
+.sp-supplement .sp-features__feature:has(.sp-features__media img[src*='daily-vitality']) .sp-features__media,
+.sp-supplement .sp-features__feature:has(.sp-features__media img[src*='daily-vitality']) .sp-features__image-wrapper,
+.sp-supplement .sp-features__feature:has(.sp-features__media img[src*='daily-vitality']) .sp-features__media .sp-media-frame {
   display: block !important;
   height: auto !important;
   min-height: unset !important;
@@ -596,33 +596,33 @@ html.sp-demo-supplement.sp-motion-active [data-sp-reveal]:not(.is-revealed):not(
   overflow: visible;
 }
 
-.sp-demo-supplement .sp-features__feature:has(.sp-features__media img[src*='daily-vitality']) .sp-features__image-wrapper {
+.sp-supplement .sp-features__feature:has(.sp-features__media img[src*='daily-vitality']) .sp-features__image-wrapper {
   border-radius: var(--sp-supplement-radius-md);
   overflow: hidden;
   box-shadow: 0 1.2rem 3.6rem rgba(var(--sp-supplement-shadow), 0.12);
 }
 
-.sp-demo-supplement .sp-sticky-atc__bar {
+.sp-supplement .sp-sticky-atc__bar {
   border-top: 0.1rem solid rgba(var(--sp-supplement-green), 0.1);
   backdrop-filter: blur(1.2rem);
 }
 
-.sp-demo-supplement .sp-sticky-atc .button--primary {
+.sp-supplement .sp-sticky-atc .button--primary {
   min-height: 4.4rem;
 }
 
-.sp-demo-supplement .cart-drawer,
-.sp-demo-supplement .drawer__inner {
+.sp-supplement .cart-drawer,
+.sp-supplement .drawer__inner {
   border-radius: var(--sp-supplement-radius-lg) 0 0 var(--sp-supplement-radius-lg);
 }
 
-.sp-demo-supplement .cart-drawer .button--primary,
-.sp-demo-supplement .cart__checkout-button {
+.sp-supplement .cart-drawer .button--primary,
+.sp-supplement .cart__checkout-button {
   border-radius: var(--sp-supplement-radius-pill);
 }
 
 /* CTA — couple wellness lifestyle photography */
-.sp-demo-supplement .sp-cta-offer__card--gradient {
+.sp-supplement .sp-cta-offer__card--gradient {
   position: relative;
   overflow: hidden;
   background:
@@ -632,49 +632,49 @@ html.sp-demo-supplement.sp-motion-active [data-sp-reveal]:not(.is-revealed):not(
   border-color: rgba(var(--sp-supplement-cream), 0.16);
 }
 
-.sp-demo-supplement .sp-cta-offer__card--gradient .sp-cta-offer__heading,
-.sp-demo-supplement .sp-cta-offer__card--gradient .sp-cta-offer__subheading,
-.sp-demo-supplement .sp-cta-offer__card--gradient .sp-cta-offer__offer,
-.sp-demo-supplement .sp-cta-offer__card--gradient .sp-cta-offer__reassurance {
+.sp-supplement .sp-cta-offer__card--gradient .sp-cta-offer__heading,
+.sp-supplement .sp-cta-offer__card--gradient .sp-cta-offer__subheading,
+.sp-supplement .sp-cta-offer__card--gradient .sp-cta-offer__offer,
+.sp-supplement .sp-cta-offer__card--gradient .sp-cta-offer__reassurance {
   color: rgb(var(--sp-supplement-cream));
 }
 
-.sp-demo-supplement .sp-cta-offer__card--gradient .sp-cta-offer__subheading,
-.sp-demo-supplement .sp-cta-offer__card--gradient .sp-cta-offer__reassurance {
+.sp-supplement .sp-cta-offer__card--gradient .sp-cta-offer__subheading,
+.sp-supplement .sp-cta-offer__card--gradient .sp-cta-offer__reassurance {
   opacity: 0.92;
 }
 
-.sp-demo-supplement .sp-cta-offer__card--gradient .sp-cta-offer__badge {
+.sp-supplement .sp-cta-offer__card--gradient .sp-cta-offer__badge {
   background: rgba(var(--sp-supplement-cream), 0.14);
   color: rgb(var(--sp-supplement-cream));
   backdrop-filter: blur(0.8rem);
 }
 
-.sp-demo-supplement .sp-cta-offer__card:not(.sp-cta-offer__card--gradient) .sp-cta-offer__badge {
+.sp-supplement .sp-cta-offer__card:not(.sp-cta-offer__card--gradient) .sp-cta-offer__badge {
   background: rgba(var(--sp-supplement-amber), 0.16);
   color: rgb(var(--sp-supplement-charcoal));
 }
 
-.sp-demo-supplement .sp-cta-offer__card--gradient .button--primary {
+.sp-supplement .sp-cta-offer__card--gradient .button--primary {
   background: rgb(var(--sp-supplement-cream));
   color: rgb(var(--sp-supplement-green-deep));
   border-color: rgb(var(--sp-supplement-cream));
 }
 
 /* Homepage video sections — motion photography (silent autoplay loop) */
-.sp-demo-supplement .sp-video__media {
+.sp-supplement .sp-video__media {
   border-radius: var(--sp-supplement-radius-md);
   overflow: hidden;
   box-shadow: 0 1.2rem 3.6rem rgba(var(--sp-supplement-shadow), 0.12);
 }
 
-.sp-demo-supplement .sp-video__media .sp-video__motion {
+.sp-supplement .sp-video__media .sp-video__motion {
   object-fit: cover;
   object-position: var(--sp-video-focal, center);
   pointer-events: none;
 }
 
-.sp-demo-supplement .sp-video__media .sp-video__motion-fallback {
+.sp-supplement .sp-video__media .sp-video__motion-fallback {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -683,67 +683,67 @@ html.sp-demo-supplement.sp-motion-active [data-sp-reveal]:not(.is-revealed):not(
   object-position: var(--sp-video-focal, center);
 }
 
-.sp-demo-supplement .sp-video__media .sp-video__motion::-webkit-media-controls,
-.sp-demo-supplement .sp-video__media .sp-video__motion::-webkit-media-controls-enclosure {
+.sp-supplement .sp-video__media .sp-video__motion::-webkit-media-controls,
+.sp-supplement .sp-video__media .sp-video__motion::-webkit-media-controls-enclosure {
   display: none !important;
 }
 
-/* Hide unrelated demo product imagery on homepage featured areas */
-.sp-demo-supplement img[src*='snowboard']:not(img),
-.sp-demo-supplement img[src*='gift-card']:not(img),
-.sp-demo-supplement img[src*='ski-wax']:not(img) {
+/* Hide unrelated placeholder product imagery on homepage featured areas */
+.sp-supplement img[src*='snowboard']:not(img),
+.sp-supplement img[src*='gift-card']:not(img),
+.sp-supplement img[src*='ski-wax']:not(img) {
   display: none !important;
 }
 
 @media screen and (max-width: 749px) {
-  .sp-demo-supplement .sp-cta-offer__card--gradient {
+  .sp-supplement .sp-cta-offer__card--gradient {
     background:
       linear-gradient(180deg, rgba(var(--sp-supplement-green-deep), 0.78) 0%, rgba(var(--sp-supplement-green-deep), 0.94) 100%),
       url('https://pulseops-labs.myshopify.com/cdn/shop/files/Couple_Wellness_Lifestyle.png') center 35% / cover no-repeat;
   }
 
-  .sp-demo-supplement .sp-features__list {
+  .sp-supplement .sp-features__list {
     gap: 2.4rem;
   }
 
-  .sp-demo-supplement .sp-metrics__grid {
+  .sp-supplement .sp-metrics__grid {
     gap: 1.2rem;
   }
 
-  .sp-demo-supplement .sp-benefits__card,
-  .sp-demo-supplement .sp-social-proof__card {
+  .sp-supplement .sp-benefits__card,
+  .sp-supplement .sp-social-proof__card {
     padding: 1.8rem 1.6rem;
   }
 
-  .sp-demo-supplement .sp-benefits__list,
-  .sp-demo-supplement .sp-social-proof__list {
+  .sp-supplement .sp-benefits__list,
+  .sp-supplement .sp-social-proof__list {
     gap: 1.2rem;
   }
 
-  .sp-demo-supplement .sp-sticky-atc__bar {
+  .sp-supplement .sp-sticky-atc__bar {
     padding-bottom: max(1rem, env(safe-area-inset-bottom, 0px));
   }
 
-  .sp-demo-supplement .sp-sticky-atc .button--primary {
+  .sp-supplement .sp-sticky-atc .button--primary {
     min-height: 4.8rem;
     width: 100%;
   }
 
-  .sp-demo-supplement .sp-features__feature {
+  .sp-supplement .sp-features__feature {
     padding-bottom: 2.4rem !important;
   }
 
-  .sp-demo-supplement .sp-features__feature:has(.sp-features__media img[src*='daily-vitality']) .sp-features__content {
+  .sp-supplement .sp-features__feature:has(.sp-features__media img[src*='daily-vitality']) .sp-features__content {
     text-align: left;
     margin-inline: 0;
     max-width: none;
   }
 
-  .sp-demo-supplement.template-product .product__media-wrapper {
+  .sp-supplement.template-product .product__media-wrapper {
     padding: 1.6rem;
   }
 
-  .sp-demo-supplement .sp-benefits__list--swipe {
+  .sp-supplement .sp-benefits__list--swipe {
     grid-auto-flow: row;
     grid-auto-columns: unset;
     grid-template-columns: 1fr;
@@ -751,9 +751,9 @@ html.sp-demo-supplement.sp-motion-active [data-sp-reveal]:not(.is-revealed):not(
     scroll-snap-type: none;
   }
 
-  .sp-demo-supplement .sp-media-frame:has(img[src*='snowboard']),
-  .sp-demo-supplement .sp-media-frame:has(img[src*='gift-card']),
-  .sp-demo-supplement .sp-media-frame:has(img[src*='ski-wax']) {
+  .sp-supplement .sp-media-frame:has(img[src*='snowboard']),
+  .sp-supplement .sp-media-frame:has(img[src*='gift-card']),
+  .sp-supplement .sp-media-frame:has(img[src*='ski-wax']) {
     display: none !important;
     min-height: 0 !important;
     height: 0 !important;
@@ -761,17 +761,17 @@ html.sp-demo-supplement.sp-motion-active [data-sp-reveal]:not(.is-revealed):not(
     padding: 0 !important;
   }
 
-  .sp-demo-supplement .sp-media-frame:has(img[src*='snowboard'])::before,
-  .sp-demo-supplement .sp-media-frame:has(img[src*='gift-card'])::before,
-  .sp-demo-supplement .sp-media-frame:has(img[src*='ski-wax'])::before {
+  .sp-supplement .sp-media-frame:has(img[src*='snowboard'])::before,
+  .sp-supplement .sp-media-frame:has(img[src*='gift-card'])::before,
+  .sp-supplement .sp-media-frame:has(img[src*='ski-wax'])::before {
     display: none !important;
     padding: 0 !important;
   }
 
-  .sp-demo-supplement [data-sp-sticky-atc].is-visible {
+  .sp-supplement [data-sp-sticky-atc].is-visible {
     padding-bottom: calc(var(--sp-sticky-atc-safe-bottom, 0px) + env(safe-area-inset-bottom, 0px));
   }
 }
 
-/* Supplement typography → assets/sp-demo-supplement-type.css (via sp-demo-supplement-head.liquid) */
-/* Supplement hero → assets/sp-demo-supplement-hero.css (via sections/sp-hero.liquid) */
+/* Supplement typography → assets/sp-supplement-type.css (via sp-supplement-head.liquid) */
+/* Supplement hero → assets/sp-supplement-hero.css (via sections/sp-hero.liquid) */

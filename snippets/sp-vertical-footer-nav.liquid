@@ -1,15 +1,15 @@
 {%- comment -%}
-  SP Demo — supplement footer navigation list.
-  Replaces the Admin menu-driven nav for the supplement vertical demo to ensure
+  SP Vertical — supplement footer navigation list.
+  Replaces the Admin menu-driven nav for the supplement vertical to ensure
   anchor links are correct and no Admin menu sync is required.
 
   Resolved via sp-pack-registry (field: 'footer_nav') and rendered by
   sections/footer.liquid inside the link_list block type. The core footer
   section never names a vertical — it renders whatever snippet the registry returns.
 
-  To update supplement demo footer links, edit ONLY this snippet.
+  To update supplement vertical footer links, edit ONLY this snippet.
 {%- endcomment -%}
-{%- capture sp_demo_view_qs -%}{%- render 'sp-demo-view-query' -%}{%- endcapture -%}
+{%- capture sp_vertical_view_qs -%}{%- render 'sp-vertical-view-query' -%}{%- endcapture -%}
 <ul class="footer-block__details-content list-unstyled">
   <li>
     <a href="#sp-ingredients" class="link link--text list-menu__item list-menu__item--link">Benefits</a>
@@ -27,9 +27,9 @@
     <a href="#sp-faq" class="link link--text list-menu__item list-menu__item--link">FAQ</a>
   </li>
   <li>
-    <a href="/pages/contact{{ sp_demo_view_qs }}" class="link link--text list-menu__item list-menu__item--link">Contact</a>
+    <a href="/pages/contact{{ sp_vertical_view_qs }}" class="link link--text list-menu__item list-menu__item--link">Contact</a>
   </li>
   <li>
-    <a href="/policies/refund-policy{{ sp_demo_view_qs }}" class="link link--text list-menu__item list-menu__item--link">Shipping &amp; Returns</a>
+    <a href="/policies/refund-policy{{ sp_vertical_view_qs }}" class="link link--text list-menu__item list-menu__item--link">Shipping &amp; Returns</a>
   </li>
 </ul>

@@ -1,11 +1,11 @@
-﻿/**
+/**
  * Supplement Demo — Typography System
- * Global primitives (--sp-type-*) for .sp-demo-supplement only.
- * Load after sp-typography-language.css via snippets/sp-demo-supplement-head.liquid.
+ * Global primitives (--sp-type-*) for .sp-supplement only.
+ * Load after sp-typography-language.css via snippets/sp-supplement-head.liquid.
  *
  * Voice tokens (--sp-voice-*) → sp-typography-language.css (authority)
  * Editorial classes → sp-editorial-system.css
- * Hero display scale → sp-demo-supplement-hero.css (frozen)
+ * Hero display scale → sp-supplement-hero.css (frozen)
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Inter:wght@500;600;700;800&display=swap');
@@ -14,7 +14,7 @@
    1. TOKENS
    ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */
 
-.sp-demo-supplement {
+.sp-supplement {
   --sp-font-heading: var(--font-heading-family);
   --sp-font-body: var(--font-body-family);
 
@@ -63,19 +63,19 @@
 }
 
 /* Variant A (current system): theme-default families */
-html.sp-demo-supplement.sp-font-variant-a {
+html.sp-supplement.sp-font-variant-a {
   --sp-font-heading: var(--font-heading-family);
   --sp-font-body: var(--font-body-family);
 }
 
 /* Variant B: Fraunces headings + Inter body */
-html.sp-demo-supplement.sp-font-variant-b {
+html.sp-supplement.sp-font-variant-b {
   --sp-font-heading: 'Fraunces', Georgia, serif;
   --sp-font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 /* Variant C: Cormorant Garamond headings + Inter body */
-html.sp-demo-supplement.sp-font-variant-c {
+html.sp-supplement.sp-font-variant-c {
   --sp-font-heading: 'Cormorant Garamond', Georgia, serif;
   --sp-font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
@@ -84,24 +84,24 @@ html.sp-demo-supplement.sp-font-variant-c {
    2. BASE + RTE
    ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */
 
-.sp-demo-supplement body {
+.sp-supplement body {
   font-family: var(--sp-font-body);
   color: rgba(var(--sp-type-body-ink), var(--sp-type-muted-opacity));
   font-weight: var(--sp-type-w-body);
 }
 
-.sp-demo-supplement .rte,
-.sp-demo-supplement .rte p {
+.sp-supplement .rte,
+.sp-supplement .rte p {
   font-family: var(--sp-font-body);
   line-height: var(--sp-type-lh-body);
   color: rgba(var(--sp-type-body-ink), var(--sp-type-muted-opacity));
 }
 
-.sp-demo-supplement .rte p {
+.sp-supplement .rte p {
   font-weight: var(--sp-type-w-body);
 }
 
-.sp-demo-supplement .rte strong {
+.sp-supplement .rte strong {
   font-weight: var(--sp-type-w-subhead);
   color: rgb(var(--sp-type-ink));
 }
@@ -110,28 +110,28 @@ html.sp-demo-supplement.sp-font-variant-c {
    3. HEADINGS (H1ΓÇôH3 + section display)
    ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */
 
-.sp-demo-supplement h1,
-.sp-demo-supplement .h1,
-.sp-demo-supplement h2,
-.sp-demo-supplement .h2 {
+.sp-supplement h1,
+.sp-supplement .h1,
+.sp-supplement h2,
+.sp-supplement .h2 {
   font-family: var(--sp-font-heading);
   color: rgb(var(--sp-type-ink));
 }
 
-.sp-demo-supplement h3,
-.sp-demo-supplement .h3,
-.sp-demo-supplement h4,
-.sp-demo-supplement .h4 {
+.sp-supplement h3,
+.sp-supplement .h3,
+.sp-supplement h4,
+.sp-supplement .h4 {
   font-family: var(--sp-font-heading);
   color: rgb(var(--sp-type-ink));
 }
 
-.sp-demo-supplement .sp-benefits__heading,
-.sp-demo-supplement .sp-features__heading,
-.sp-demo-supplement .sp-metrics__heading,
-.sp-demo-supplement .sp-scientific-proof__heading,
-.sp-demo-supplement .sp-social-proof__heading,
-.sp-demo-supplement .sp-video h2 {
+.sp-supplement .sp-benefits__heading,
+.sp-supplement .sp-features__heading,
+.sp-supplement .sp-metrics__heading,
+.sp-supplement .sp-scientific-proof__heading,
+.sp-supplement .sp-social-proof__heading,
+.sp-supplement .sp-video h2 {
   font-size: var(--sp-type-display-2);
   font-weight: var(--sp-type-w-display);
   letter-spacing: var(--sp-type-track-display);
@@ -140,7 +140,7 @@ html.sp-demo-supplement.sp-font-variant-c {
   color: rgb(var(--sp-type-ink));
 }
 
-.sp-demo-supplement .sp-cta-offer__heading {
+.sp-supplement .sp-cta-offer__heading {
   /* Card presentation only — not Future Self (.sp-cta-offer__future-self-headline) */
   font-size: var(--sp-type-display-1);
   font-weight: var(--sp-type-w-display);
@@ -150,12 +150,12 @@ html.sp-demo-supplement.sp-font-variant-c {
   color: rgb(var(--sp-type-ink));
 }
 
-.sp-demo-supplement .sp-benefits__subheading,
-.sp-demo-supplement .sp-features__subheading,
-.sp-demo-supplement .sp-metrics__subheading,
-.sp-demo-supplement .sp-scientific-proof__subheading,
-.sp-demo-supplement .sp-social-proof__subheading,
-.sp-demo-supplement .sp-faq__subheading {
+.sp-supplement .sp-benefits__subheading,
+.sp-supplement .sp-features__subheading,
+.sp-supplement .sp-metrics__subheading,
+.sp-supplement .sp-scientific-proof__subheading,
+.sp-supplement .sp-social-proof__subheading,
+.sp-supplement .sp-faq__subheading {
   font-size: var(--sp-type-body-lg);
   font-weight: var(--sp-type-w-body);
   line-height: var(--sp-type-lh-body);
@@ -166,24 +166,24 @@ html.sp-demo-supplement.sp-font-variant-c {
    4. EYEBROWS + CAPTIONS
    ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */
 
-.sp-demo-supplement .sp-video__hook,
-.sp-demo-supplement .sp-cta-offer__badge {
+.sp-supplement .sp-video__hook,
+.sp-supplement .sp-cta-offer__badge {
   font-size: var(--sp-type-eyebrow);
   font-weight: var(--sp-type-w-heading);
   letter-spacing: var(--sp-type-track-eyebrow);
   text-transform: uppercase;
 }
 
-.sp-demo-supplement .sp-video__hook {
+.sp-supplement .sp-video__hook {
   color: rgb(var(--sp-supplement-green-deep));
 }
 
-.sp-demo-supplement .sp-cta-offer__badge {
+.sp-supplement .sp-cta-offer__badge {
   font-weight: var(--sp-type-w-subhead);
   letter-spacing: var(--sp-type-track-caption);
 }
 
-.sp-demo-supplement .caption:not(.sp-hero *) {
+.sp-supplement .caption:not(.sp-hero *) {
   font-size: var(--sp-type-caption);
   font-weight: var(--sp-type-w-ui);
   letter-spacing: var(--sp-type-track-caption);
@@ -195,21 +195,21 @@ html.sp-demo-supplement.sp-font-variant-c {
    5. NAVIGATION
    ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */
 
-.sp-demo-supplement .header__inline-menu .header__menu-item,
-.sp-demo-supplement .header__inline-menu .header__menu-item > span,
-.sp-demo-supplement .header__inline-menu .header__menu-item > a,
-.sp-demo-supplement .menu-drawer__menu-item .link {
+.sp-supplement .header__inline-menu .header__menu-item,
+.sp-supplement .header__inline-menu .header__menu-item > span,
+.sp-supplement .header__inline-menu .header__menu-item > a,
+.sp-supplement .menu-drawer__menu-item .link {
   font-weight: var(--sp-type-w-subhead) !important;
   color: rgba(var(--sp-type-body-ink), var(--sp-type-muted-opacity)) !important;
 }
 
-.sp-demo-supplement .header__inline-menu .header__menu-item:hover,
-.sp-demo-supplement .header__inline-menu .header__menu-item:hover > span,
-.sp-demo-supplement .menu-drawer__menu-item .link:hover {
+.sp-supplement .header__inline-menu .header__menu-item:hover,
+.sp-supplement .header__inline-menu .header__menu-item:hover > span,
+.sp-supplement .menu-drawer__menu-item .link:hover {
   color: rgb(var(--sp-type-ink)) !important;
 }
 
-.sp-demo-supplement .announcement-bar__message {
+.sp-supplement .announcement-bar__message {
   font-size: var(--sp-type-caption);
   font-weight: var(--sp-type-w-subhead);
   letter-spacing: var(--sp-type-track-caption);
@@ -219,10 +219,10 @@ html.sp-demo-supplement.sp-font-variant-c {
    6. BUTTONS
    ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */
 
-.sp-demo-supplement .button,
-.sp-demo-supplement .shopify-challenge__button,
-.sp-demo-supplement .customer button,
-.sp-demo-supplement button.button {
+.sp-supplement .button,
+.sp-supplement .shopify-challenge__button,
+.sp-supplement .customer button,
+.sp-supplement button.button {
   font-family: var(--sp-font-body);
   font-size: var(--sp-type-button);
   font-weight: var(--sp-type-w-button);
@@ -230,12 +230,12 @@ html.sp-demo-supplement.sp-font-variant-c {
   line-height: 1.2;
 }
 
-.sp-demo-supplement .button--primary,
-.sp-demo-supplement .product-form__submit {
+.sp-supplement .button--primary,
+.sp-supplement .product-form__submit {
   font-weight: var(--sp-type-w-button);
 }
 
-.sp-demo-supplement .button--secondary {
+.sp-supplement .button--secondary {
   font-weight: var(--sp-type-w-subhead);
 }
 
@@ -243,21 +243,21 @@ html.sp-demo-supplement.sp-font-variant-c {
    7. CHIPS + BADGES
    ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */
 
-.sp-demo-supplement .sp-scientific-proof__card--certification .sp-scientific-proof__stat {
+.sp-supplement .sp-scientific-proof__card--certification .sp-scientific-proof__stat {
   font-size: var(--sp-type-ui);
   font-weight: var(--sp-type-w-subhead);
   letter-spacing: var(--sp-type-track-caption);
 }
 
-.sp-demo-supplement .sp-social-proof__verified,
-.sp-demo-supplement .sp-social-proof__title {
+.sp-supplement .sp-social-proof__verified,
+.sp-supplement .sp-social-proof__title {
   font-size: var(--sp-type-caption) !important;
   font-weight: var(--sp-type-w-heading) !important;
   letter-spacing: var(--sp-type-track-caption) !important;
   line-height: 1.35 !important;
 }
 
-.sp-demo-supplement .sp-social-proof__verified {
+.sp-supplement .sp-social-proof__verified {
   color: rgb(var(--sp-supplement-green-deep)) !important;
 }
 
@@ -265,14 +265,14 @@ html.sp-demo-supplement.sp-font-variant-c {
    8. CARDS + REVIEWS
    ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */
 
-.sp-demo-supplement .sp-benefits__card::before {
+.sp-supplement .sp-benefits__card::before {
   font-size: var(--sp-type-eyebrow);
   font-weight: var(--sp-type-w-heading);
   letter-spacing: var(--sp-type-track-eyebrow);
 }
 
-.sp-demo-supplement .sp-benefits__title,
-.sp-demo-supplement .sp-features__title {
+.sp-supplement .sp-benefits__title,
+.sp-supplement .sp-features__title {
   font-size: var(--sp-type-title-sm);
   font-weight: var(--sp-type-w-heading);
   letter-spacing: var(--sp-type-track-title);
@@ -280,44 +280,44 @@ html.sp-demo-supplement.sp-font-variant-c {
   color: rgb(var(--sp-type-ink));
 }
 
-.sp-demo-supplement .sp-features__title {
+.sp-supplement .sp-features__title {
   font-size: var(--sp-type-title-md);
 }
 
-.sp-demo-supplement .sp-benefits__description,
-.sp-demo-supplement .sp-features__text,
-.sp-demo-supplement .sp-features__bullets li {
+.sp-supplement .sp-benefits__description,
+.sp-supplement .sp-features__text,
+.sp-supplement .sp-features__bullets li {
   font-size: var(--sp-type-body-sm);
   font-weight: var(--sp-type-w-body);
   line-height: var(--sp-type-lh-body);
   color: rgba(var(--sp-type-body-ink), var(--sp-type-muted-opacity));
 }
 
-.sp-demo-supplement .sp-social-proof__review {
+.sp-supplement .sp-social-proof__review {
   font-size: var(--sp-type-body-lg);
   font-weight: var(--sp-type-w-body);
   line-height: var(--sp-type-lh-body);
   color: rgba(var(--sp-type-body-ink), 0.88);
 }
 
-.sp-demo-supplement .sp-social-proof__name {
+.sp-supplement .sp-social-proof__name {
   font-size: var(--sp-type-ui);
   font-weight: var(--sp-type-w-heading);
   letter-spacing: var(--sp-type-track-title);
   color: rgb(var(--sp-type-ink));
 }
 
-.sp-demo-supplement .sp-social-proof--stage .sp-social-proof__stage-metric {
+.sp-supplement .sp-social-proof--stage .sp-social-proof__stage-metric {
   font-weight: 500;
   letter-spacing: -0.012em;
 }
 
-.sp-demo-supplement .sp-social-proof--stage .sp-social-proof__stage-quote-mark {
+.sp-supplement .sp-social-proof--stage .sp-social-proof__stage-quote-mark {
   font-weight: 400;
 }
 
-.sp-demo-supplement .sp-social-proof--stage .sp-social-proof__stage-quote-text,
-.sp-demo-supplement .sp-social-proof--stage .sp-social-proof__stage-quote-text p {
+.sp-supplement .sp-social-proof--stage .sp-social-proof__stage-quote-text,
+.sp-supplement .sp-social-proof--stage .sp-social-proof__stage-quote-text p {
   font-family: var(--sp-font-heading, var(--font-heading-family));
   font-weight: 500;
   line-height: 1.22;
@@ -325,33 +325,33 @@ html.sp-demo-supplement.sp-font-variant-c {
   color: rgba(255, 255, 255, 0.95);
 }
 
-.sp-demo-supplement .sp-social-proof--stage .sp-social-proof__stage-name {
+.sp-supplement .sp-social-proof--stage .sp-social-proof__stage-name {
   font-weight: 650;
   color: rgba(255, 255, 255, 0.9);
 }
 
-.sp-demo-supplement .sp-social-proof--stage .sp-social-proof__stage-title {
+.sp-supplement .sp-social-proof--stage .sp-social-proof__stage-title {
   font-weight: 500;
   letter-spacing: 0.02em;
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.75);
 }
 
-.sp-demo-supplement .sp-metrics__value {
+.sp-supplement .sp-metrics__value {
   font-size: var(--sp-type-stat);
   font-weight: var(--sp-type-w-display);
   letter-spacing: var(--sp-type-track-display);
   line-height: 1;
 }
 
-.sp-demo-supplement .sp-metrics__label {
+.sp-supplement .sp-metrics__label {
   font-size: var(--sp-type-ui);
   font-weight: var(--sp-type-w-subhead);
   letter-spacing: var(--sp-type-track-caption);
   color: rgba(var(--sp-type-body-ink), var(--sp-type-muted-soft-opacity));
 }
 
-.sp-demo-supplement .sp-scientific-proof__card:not(.sp-scientific-proof__card--certification) .sp-scientific-proof__stat {
+.sp-supplement .sp-scientific-proof__card:not(.sp-scientific-proof__card--certification) .sp-scientific-proof__stat {
   font-size: clamp(3.2rem, 4vw, 4.8rem);
   font-weight: var(--sp-type-w-display);
   line-height: 1;
@@ -359,11 +359,11 @@ html.sp-demo-supplement.sp-font-variant-c {
   color: rgb(var(--sp-supplement-green-deep));
 }
 
-.sp-demo-supplement .sp-scientific-proof__card--certification .sp-scientific-proof__stat {
+.sp-supplement .sp-scientific-proof__card--certification .sp-scientific-proof__stat {
   text-transform: uppercase;
 }
 
-.sp-demo-supplement .sp-scientific-proof__stat {
+.sp-supplement .sp-scientific-proof__stat {
   color: rgb(var(--sp-supplement-green-deep));
   letter-spacing: var(--sp-type-track-title);
 }
@@ -372,7 +372,7 @@ html.sp-demo-supplement.sp-font-variant-c {
    9. FAQ
    ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */
 
-.sp-demo-supplement .sp-faq__heading {
+.sp-supplement .sp-faq__heading {
   font-size: clamp(1.55rem, 1.8vw, 1.85rem);
   font-weight: 600;
   letter-spacing: -0.015em;
@@ -380,7 +380,7 @@ html.sp-demo-supplement.sp-font-variant-c {
   color: rgba(var(--sp-type-ink), 0.88);
 }
 
-.sp-demo-supplement .sp-faq__question {
+.sp-supplement .sp-faq__question {
   font-size: var(--sp-type-ui);
   font-weight: 500;
   line-height: var(--sp-type-lh-ui);
@@ -388,8 +388,8 @@ html.sp-demo-supplement.sp-font-variant-c {
   color: rgba(var(--sp-type-ink), 0.82);
 }
 
-.sp-demo-supplement .sp-faq__answer,
-.sp-demo-supplement .sp-faq__answer p {
+.sp-supplement .sp-faq__answer,
+.sp-supplement .sp-faq__answer p {
   font-size: var(--sp-type-body-sm);
   font-weight: var(--sp-type-w-body);
   line-height: var(--sp-type-lh-body);
@@ -400,8 +400,8 @@ html.sp-demo-supplement.sp-font-variant-c {
    10. PDP
    ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */
 
-.sp-demo-supplement.template-product .product__title,
-.sp-demo-supplement.template-product .product__title h1 {
+.sp-supplement.template-product .product__title,
+.sp-supplement.template-product .product__title h1 {
   font-size: var(--sp-type-title-lg);
   font-weight: var(--sp-type-w-display);
   letter-spacing: var(--sp-type-track-display);
@@ -409,34 +409,34 @@ html.sp-demo-supplement.sp-font-variant-c {
   color: rgb(var(--sp-type-ink));
 }
 
-.sp-demo-supplement.template-product .price-item--regular,
-.sp-demo-supplement.template-product .price__regular .price-item--last {
+.sp-supplement.template-product .price-item--regular,
+.sp-supplement.template-product .price__regular .price-item--last {
   font-size: var(--sp-type-price-lg);
   font-weight: var(--sp-type-w-heading);
   letter-spacing: var(--sp-type-track-title);
   color: rgb(var(--sp-supplement-green-deep));
 }
 
-.sp-demo-supplement.template-product .product__description,
-.sp-demo-supplement.template-product .product__description p {
+.sp-supplement.template-product .product__description,
+.sp-supplement.template-product .product__description p {
   font-size: var(--sp-type-body-md);
   font-weight: var(--sp-type-w-body);
   line-height: var(--sp-type-lh-body);
   color: rgba(var(--sp-type-body-ink), var(--sp-type-muted-opacity));
 }
 
-.sp-demo-supplement.template-product .product-form__submit {
+.sp-supplement.template-product .product-form__submit {
   font-size: var(--sp-type-button);
 }
 
-.sp-demo-supplement .sp-sticky-atc__title {
+.sp-supplement .sp-sticky-atc__title {
   font-size: var(--sp-type-ui);
   font-weight: var(--sp-type-w-heading);
   letter-spacing: var(--sp-type-track-title);
   color: rgb(var(--sp-type-ink));
 }
 
-.sp-demo-supplement .sp-sticky-atc__price {
+.sp-supplement .sp-sticky-atc__price {
   font-size: var(--sp-type-price-md);
   font-weight: var(--sp-type-w-heading);
   color: rgb(var(--sp-supplement-green-deep));
@@ -446,15 +446,15 @@ html.sp-demo-supplement.sp-font-variant-c {
    11. CART (drawer + page)
    ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */
 
-.sp-demo-supplement .cart-drawer .drawer__heading,
-.sp-demo-supplement .cart-drawer .cart__empty-text {
+.sp-supplement .cart-drawer .drawer__heading,
+.sp-supplement .cart-drawer .cart__empty-text {
   font-size: var(--sp-type-title-md);
   font-weight: var(--sp-type-w-heading);
   letter-spacing: var(--sp-type-track-title);
   color: rgb(var(--sp-type-ink));
 }
 
-.sp-demo-supplement .cart-drawer .cart-item__name {
+.sp-supplement .cart-drawer .cart-item__name {
   font-size: var(--sp-type-ui);
   font-weight: var(--sp-type-w-subhead);
   letter-spacing: var(--sp-type-track-title);
@@ -462,42 +462,42 @@ html.sp-demo-supplement.sp-font-variant-c {
   color: rgb(var(--sp-type-ink));
 }
 
-.sp-demo-supplement .cart-drawer .product-option,
-.sp-demo-supplement .cart-drawer .cart-item__final-price {
+.sp-supplement .cart-drawer .product-option,
+.sp-supplement .cart-drawer .cart-item__final-price {
   font-size: var(--sp-type-body-sm);
   font-weight: var(--sp-type-w-subhead);
   color: rgba(var(--sp-type-body-ink), var(--sp-type-muted-opacity));
 }
 
-.sp-demo-supplement .cart-drawer .totals__total-value,
-.sp-demo-supplement .cart-drawer .totals__subtotal-value {
+.sp-supplement .cart-drawer .totals__total-value,
+.sp-supplement .cart-drawer .totals__subtotal-value {
   font-size: var(--sp-type-ui);
   font-weight: var(--sp-type-w-heading);
   color: rgb(var(--sp-supplement-green-deep));
 }
 
-.sp-demo-supplement .cart-drawer .cart__checkout-button,
-.sp-demo-supplement .cart-drawer .cart__view-cart-button {
+.sp-supplement .cart-drawer .cart__checkout-button,
+.sp-supplement .cart-drawer .cart__view-cart-button {
   font-size: var(--sp-type-button);
   font-weight: var(--sp-type-w-button);
   letter-spacing: var(--sp-type-track-button);
 }
 
-.sp-demo-supplement .cart-drawer .tax-note,
-.sp-demo-supplement .cart-drawer .discounts__discount {
+.sp-supplement .cart-drawer .tax-note,
+.sp-supplement .cart-drawer .discounts__discount {
   font-size: var(--sp-type-caption);
   font-weight: var(--sp-type-w-body);
   color: rgba(var(--sp-type-body-ink), var(--sp-type-muted-soft-opacity));
 }
 
-.sp-demo-supplement .sp-cart-page-trust__item,
-.sp-demo-supplement .sp-cart-page-trust__item strong {
+.sp-supplement .sp-cart-page-trust__item,
+.sp-supplement .sp-cart-page-trust__item strong {
   font-size: var(--sp-type-body-sm);
   font-weight: var(--sp-type-w-body);
   line-height: var(--sp-type-lh-body);
 }
 
-.sp-demo-supplement .sp-cart-page-trust__item strong {
+.sp-supplement .sp-cart-page-trust__item strong {
   font-weight: var(--sp-type-w-heading);
   color: rgb(var(--sp-supplement-green-deep));
 }
@@ -506,22 +506,22 @@ html.sp-demo-supplement.sp-font-variant-c {
    12. CTA OFFER + FOOTER
    ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */
 
-.sp-demo-supplement .sp-cta-offer__subheading,
-.sp-demo-supplement .sp-cta-offer__body {
+.sp-supplement .sp-cta-offer__subheading,
+.sp-supplement .sp-cta-offer__body {
   font-size: var(--sp-type-body-lg);
   font-weight: var(--sp-type-w-body);
   line-height: var(--sp-type-lh-body);
   color: rgba(var(--sp-type-body-ink), var(--sp-type-muted-opacity));
 }
 
-.sp-demo-supplement .footer-block__heading {
+.sp-supplement .footer-block__heading {
   font-size: var(--sp-type-ui);
   font-weight: var(--sp-type-w-heading);
   letter-spacing: var(--sp-type-track-title);
   color: rgb(var(--sp-type-ink));
 }
 
-.sp-demo-supplement .footer-block__details-content {
+.sp-supplement .footer-block__details-content {
   font-size: var(--sp-type-body-sm);
   font-weight: var(--sp-type-w-body);
   line-height: var(--sp-type-lh-body);

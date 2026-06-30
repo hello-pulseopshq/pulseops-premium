@@ -149,9 +149,9 @@ async function main() {
   }
 
   // Upload product image from theme asset URL (after theme push)
-  const imageUrl = `https://${STORE}/cdn/shop/files/sp-demo-daily-vitality-product.svg`;
+  const imageUrl = `https://${STORE}/cdn/shop/files/sp-supplement-daily-vitality-product.svg`;
   // Try staged upload from local file instead
-  const svgPath = path.join(__dirname, '..', 'assets', 'sp-demo-daily-vitality-product.svg');
+  const svgPath = path.join(__dirname, '..', 'assets', 'sp-supplement-daily-vitality-product.svg');
   const svgBase64 = fs.readFileSync(svgPath).toString('base64');
 
   await gql(

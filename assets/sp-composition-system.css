@@ -18,7 +18,7 @@
   --sp-comp-inset-max: var(--sp-surface-contain-inset, min(100%, 42rem));
 }
 
-.sp-demo-supplement .sp-composition {
+.sp-supplement .sp-composition {
   --sp-comp-ledger-rule: var(--sp-surface-ledger-rule-supplement, rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.12));
 }
 
@@ -238,7 +238,7 @@
     background: var(--sp-surface-band-fill-generic, rgba(var(--color-foreground), 0.018));
   }
 
-  .sp-demo-supplement .sp-composition--typographic-band.sp-metrics--editorial-story {
+  .sp-supplement .sp-composition--typographic-band.sp-metrics--editorial-story {
     --sp-comp-ledger-rule: var(--sp-surface-material-magazine-rule, var(--sp-surface-ledger-rule-supplement));
     background: var(--sp-surface-material-magazine-band, var(--sp-surface-band-fill-supplement));
   }
@@ -303,7 +303,7 @@
     background: var(--sp-surface-band-fill-generic, rgba(var(--color-foreground), 0.018));
   }
 
-  .sp-demo-supplement .sp-composition--typographic-band.sp-metrics--editorial-story {
+  .sp-supplement .sp-composition--typographic-band.sp-metrics--editorial-story {
     --sp-comp-ledger-rule: var(--sp-surface-material-magazine-rule, var(--sp-surface-ledger-rule-supplement));
     background: var(--sp-surface-material-magazine-band, var(--sp-surface-band-fill-supplement));
   }

@@ -4,11 +4,11 @@
   Usage:
   {% render 'header-drawer' %}
 {% endcomment %}
-{%- capture sp_demo_active_drawer -%}{%- render 'sp-pack-registry', field: 'active' -%}{%- endcapture -%}
-{%- if sp_demo_active_drawer == blank -%}
-  {%- capture sp_demo_view_qs_drawer -%}{%- render 'sp-demo-view-query' -%}{%- endcapture -%}
-  {%- if sp_demo_view_qs_drawer contains 'view=supplement' -%}
-    {%- assign sp_demo_active_drawer = 'supplement' -%}
+{%- capture sp_vertical_active_drawer -%}{%- render 'sp-pack-registry', field: 'active' -%}{%- endcapture -%}
+{%- if sp_vertical_active_drawer == blank -%}
+  {%- capture sp_vertical_view_qs_drawer -%}{%- render 'sp-vertical-view-query' -%}{%- endcapture -%}
+  {%- if sp_vertical_view_qs_drawer contains 'view=supplement' -%}
+    {%- assign sp_vertical_active_drawer = 'supplement' -%}
   {%- endif -%}
 {%- endif -%}
 
@@ -143,7 +143,7 @@
             </ul>
           </nav>
           <div class="menu-drawer__utility-links">
-            {%- if shop.customer_accounts_enabled and sp_demo_active_drawer == blank -%}
+            {%- if shop.customer_accounts_enabled and sp_vertical_active_drawer == blank -%}
               <a
                 href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
                 class="menu-drawer__account link focus-inset h5 medium-hide large-up-hide"

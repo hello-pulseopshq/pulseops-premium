@@ -179,7 +179,7 @@
   max-width: min(100%, 52rem);
 }
 
-.sp-demo-supplement .sp-metrics--editorial-story .sp-metrics__intro {
+.sp-supplement .sp-metrics--editorial-story .sp-metrics__intro {
   gap: var(--sp-rhythm-gap-intro);
 }
 
@@ -211,7 +211,7 @@
   opacity: 0.78;
 }
 
-.sp-demo-supplement .sp-metrics--editorial-story .sp-metrics__subheading {
+.sp-supplement .sp-metrics--editorial-story .sp-metrics__subheading {
   max-width: var(--sp-rhythm-measure-collective-sub);
   line-height: var(--sp-rhythm-lh-collective);
   opacity: 0.78;
@@ -260,7 +260,7 @@
   max-width: 14ch;
 }
 
-.sp-demo-supplement .sp-metrics--editorial-story .sp-metrics__proof-label {
+.sp-supplement .sp-metrics--editorial-story .sp-metrics__proof-label {
   max-width: var(--sp-rhythm-measure-collective-label);
   line-height: var(--sp-rhythm-lh-collective);
 }
@@ -284,7 +284,7 @@
   max-width: 48ch;
 }
 
-.sp-demo-supplement .sp-metrics--editorial-story .sp-metrics__assurance {
+.sp-supplement .sp-metrics--editorial-story .sp-metrics__assurance {
   max-width: var(--sp-rhythm-measure-collective-assurance);
   line-height: var(--sp-rhythm-lh-collective);
 }

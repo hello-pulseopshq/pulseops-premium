@@ -1,14 +1,14 @@
 {%- comment -%}
   ============================================================================
-  SP PACK REGISTRY — single source of truth for demo / pack vertical identity
+  SP PACK REGISTRY — single source of truth for pack vertical identity
   ============================================================================
 
   This is the ONLY file in the theme that maps a template suffix to a vertical
-  identity and its demo content (brand name, product handle, CSS classes,
+  identity and its vertical content (brand name, product handle, CSS classes,
   browser titles, fallback assets, etc.).
 
   Core theme files (layout/theme.liquid, sections/*.liquid, snippets/cart-*.liquid)
-  MUST NOT reference "supplement", "Daily Vitality", demo product handles, or
+  MUST NOT reference "supplement", "Daily Vitality", vertical product handles, or
   any other vertical-specific string directly. They ask this registry instead.
 
   ──────────────────────────────────────────────────────────────────────────
@@ -30,9 +30,9 @@
   Any consumer that needs to conditionally render a snippet based on the active
   vertical MUST use a static `case` statement keyed on the `active` field:
 
-    {%- capture sp_demo_active -%}{%- render 'sp-pack-registry', field: 'active' -%}{%- endcapture -%}
-    {%- case sp_demo_active -%}
-      {%- when 'supplement' -%}{%- render 'sp-demo-supplement-head' -%}
+    {%- capture sp_vertical_active -%}{%- render 'sp-pack-registry', field: 'active' -%}{%- endcapture -%}
+    {%- case sp_vertical_active -%}
+      {%- when 'supplement' -%}{%- render 'sp-supplement-head' -%}
     {%- endcase -%}
 
   String values returned by the registry (brand_name, product_handle, etc.) work
@@ -43,17 +43,17 @@
   ──────────────────────────────────────────────────────────────────────────
     active                 → vertical id (e.g. 'supplement') or blank
     html_class             → classes to add to <html> (no leading space)
-    brand_name             → demo brand/store name
-    product_handle         → primary demo product handle
+    brand_name             → vertical brand/store name
+    product_handle         → primary vertical product handle
     title_index            → <title> for the homepage
     title_cart             → <title> for the cart page
     title_product_suffix   → string appended after product.title in <title>
     footer_hidden_links    → comma list of footer link labels to hide (lowercase)
     footer_nav             → snippet name that renders the vertical's footer nav
-    head_snippet           → snippet name rendered before </head> for demo assets
+    head_snippet           → snippet name rendered before </head> for vertical assets
     hide_blank_feature_media → 'true' if SP Features should drop empty media slots
     hero_fallback_tokens   → comma list of image-url tokens that trigger the
-                             hero fallback image (placeholder/demo art detection)
+                             hero fallback image (placeholder art detection)
     hero_fallback_image    → asset filename used as the hero fallback image
 
   ──────────────────────────────────────────────────────────────────────────
@@ -80,7 +80,7 @@
         when 'active'
           echo 'supplement'
         when 'html_class'
-          echo 'sp-demo-visual-neutral sp-demo-supplement'
+          echo 'sp-vertical-visual-neutral sp-supplement'
         when 'brand_name'
           echo 'Daily Vitality'
         when 'product_handle'
@@ -94,15 +94,15 @@
         when 'footer_hidden_links'
           echo 'energy,daily vitality'
         when 'footer_nav'
-          echo 'sp-demo-footer-nav'
+          echo 'sp-vertical-footer-nav'
         when 'head_snippet'
-          echo 'sp-demo-supplement-head'
+          echo 'sp-supplement-head'
         when 'hide_blank_feature_media'
           echo 'true'
         when 'hero_fallback_tokens'
           echo 'snowboard,gift-card,ski-wax,Main_b13ad453'
         when 'hero_fallback_image'
-          echo 'sp-demo-daily-vitality-product.svg'
+          echo 'sp-supplement-daily-vitality-product.svg'
       endcase
   endcase
 -%}

@@ -47,5 +47,5 @@ LiquidHTMLSyntaxError:
 #   files are ignored for this rule only. The rule stays active for every other file.
 OrphanedSnippet:
   ignore:
-    - snippets/sp-demo-footer-nav.liquid
-    - snippets/sp-demo-supplement-head.liquid
+    - snippets/sp-vertical-footer-nav.liquid
+    - snippets/sp-supplement-head.liquid

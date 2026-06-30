@@ -38,9 +38,9 @@
 
 
 
-.sp-demo-supplement .sp-ingredients-spotlight-shell--tone-soft.gradient,
+.sp-supplement .sp-ingredients-spotlight-shell--tone-soft.gradient,
 
-.sp-demo-supplement .sp-ingredients-spotlight-shell--tone-soft {
+.sp-supplement .sp-ingredients-spotlight-shell--tone-soft {
 
   background: var(--sp-surface-material-museum-field, var(--sp-surface-chapter-contrast, rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.04)));
 
@@ -50,9 +50,9 @@
 
 
 
-.sp-demo-supplement .sp-ingredients-spotlight-shell--tone-contrast.gradient,
+.sp-supplement .sp-ingredients-spotlight-shell--tone-contrast.gradient,
 
-.sp-demo-supplement .sp-ingredients-spotlight-shell--tone-contrast {
+.sp-supplement .sp-ingredients-spotlight-shell--tone-contrast {
 
   background: var(--sp-surface-material-museum-field, var(--sp-surface-chapter-contrast, rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.04)));
 
@@ -114,7 +114,7 @@
 
 
 
-.sp-demo-supplement .sp-ingredients-spotlight {
+.sp-supplement .sp-ingredients-spotlight {
 
   --sp-is-accent: rgb(var(--sp-supplement-green, var(--color-button)));
 
@@ -162,7 +162,7 @@
 
 }
 
-.sp-demo-supplement .sp-ingredients-spotlight__content {
+.sp-supplement .sp-ingredients-spotlight__content {
   gap: var(--sp-rhythm-gap-stack-tight);
 }
 
@@ -242,9 +242,9 @@
 
 
 
-.sp-demo-supplement .sp-ingredients-spotlight__media-frame img,
+.sp-supplement .sp-ingredients-spotlight__media-frame img,
 
-.sp-demo-supplement .sp-ingredients-spotlight__media-frame .sp-ingredients-spotlight__media-image {
+.sp-supplement .sp-ingredients-spotlight__media-frame .sp-ingredients-spotlight__media-image {
 
   object-position: center 45%;
 
@@ -306,9 +306,9 @@
 
 
 
-.sp-demo-supplement .sp-ingredients-spotlight__heading,
+.sp-supplement .sp-ingredients-spotlight__heading,
 
-.sp-demo-supplement .sp-ingredients-spotlight__heading p {
+.sp-supplement .sp-ingredients-spotlight__heading p {
 
   font-family: var(--sp-font-heading, var(--font-heading-family));
 
@@ -344,7 +344,7 @@
 
 
 
-.sp-demo-supplement .sp-ingredients-spotlight__body {
+.sp-supplement .sp-ingredients-spotlight__body {
 
   max-width: var(--sp-rhythm-measure-documentary);
 
@@ -450,7 +450,7 @@
 
 
 
-.sp-demo-supplement .sp-ingredients-spotlight__trust-text {
+.sp-supplement .sp-ingredients-spotlight__trust-text {
 
   color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.86);
 
@@ -508,7 +508,7 @@
 
 
 
-.sp-demo-supplement .sp-ingredients-spotlight__button:not(.sp-editorial-cta) {
+.sp-supplement .sp-ingredients-spotlight__button:not(.sp-editorial-cta) {
 
   background: rgb(var(--sp-supplement-green-deep, var(--color-button)));
 
@@ -522,7 +522,7 @@
 
 
 
-.sp-demo-supplement .sp-ingredients-spotlight__button:not(.sp-editorial-cta):hover {
+.sp-supplement .sp-ingredients-spotlight__button:not(.sp-editorial-cta):hover {
 
   filter: brightness(1.06);
 
@@ -546,7 +546,7 @@
 
 
 
-.sp-demo-supplement .sp-ingredients-spotlight__microcopy {
+.sp-supplement .sp-ingredients-spotlight__microcopy {
 
   color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.68);
 
@@ -696,7 +696,7 @@
 
 
 
-.sp-demo-supplement .sp-ingredients-spotlight__item-media--placeholder {
+.sp-supplement .sp-ingredients-spotlight__item-media--placeholder {
 
   border-color: var(--sp-surface-material-museum-frame-border, rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.1));
 
@@ -770,7 +770,7 @@
 
 
 
-.sp-demo-supplement .sp-ingredients-spotlight__item-name {
+.sp-supplement .sp-ingredients-spotlight__item-name {
 
   font-family: var(--sp-font-heading, var(--font-heading-family));
 
@@ -800,7 +800,7 @@
 
 
 
-.sp-demo-supplement .sp-ingredients-spotlight__item-role {
+.sp-supplement .sp-ingredients-spotlight__item-role {
 
   color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.8);
 
@@ -826,7 +826,7 @@
 
 
 
-.sp-demo-supplement .sp-ingredients-spotlight__item-description {
+.sp-supplement .sp-ingredients-spotlight__item-description {
 
   max-width: var(--sp-rhythm-measure-matrix);
 
@@ -876,7 +876,7 @@
 
 
 
-.sp-demo-supplement .sp-ingredients-spotlight__commitment {
+.sp-supplement .sp-ingredients-spotlight__commitment {
 
   border-color: var(--sp-surface-material-museum-frame-border, rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.08));
 
@@ -908,7 +908,7 @@
 
 
 
-.sp-demo-supplement .sp-ingredients-spotlight__commitment-heading {
+.sp-supplement .sp-ingredients-spotlight__commitment-heading {
 
   color: rgb(var(--sp-supplement-green-deep, var(--sp-type-ink, var(--color-foreground))));
 
@@ -978,7 +978,7 @@
 
 
 
-.sp-demo-supplement .sp-ingredients-spotlight__commitment-label {
+.sp-supplement .sp-ingredients-spotlight__commitment-label {
 
   background: rgba(var(--sp-supplement-ivory, var(--color-background)), 0.55);
 
@@ -1122,7 +1122,7 @@
 
 
 
-  .sp-demo-supplement .sp-ingredients-spotlight__commitment-item:not(:first-child) {
+  .sp-supplement .sp-ingredients-spotlight__commitment-item:not(:first-child) {
 
     border-left-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.08);
 
@@ -1150,7 +1150,7 @@
 
 
 
-  .sp-demo-supplement .sp-ingredients-spotlight__commitment-label {
+  .sp-supplement .sp-ingredients-spotlight__commitment-label {
 
     border: none;
 

@@ -37,10 +37,10 @@ The codebase is **clean enough for Phase IV (Craftsmanship) on the Supplement ca
 
 **Healthy patterns**
 
-- Clear load order via `snippets/sp-demo-supplement-head.liquid`: presets → supplement → editorial → composition → type
+- Clear load order via `snippets/sp-supplement-head.liquid`: presets → supplement → editorial → composition → type
 - Composition archetypes centralized in `sp-composition-system.css` (543 lines)
 - Global tokens in `snippets/sp-root-tokens.liquid` (single `:root` injection point)
-- Supplement overrides scoped under `.sp-demo-supplement`
+- Supplement overrides scoped under `.sp-supplement`
 
 **Issues found**
 
@@ -48,8 +48,8 @@ The codebase is **clean enough for Phase IV (Craftsmanship) on the Supplement ca
 |-------|----------|--------|
 | Dual styling paths for middle chapters | **High** | Section CSS (`sp-metrics.css`, `sp-editorial-differentiation.css`, etc.) **and** composition overrides in `sp-editorial-system.css` both target same chapters |
 | Legacy `image-led` rules retained | **Medium** | `sp-editorial-system.css` still carries pre-7.2 image-led paths guarded by `:not(.sp-composition--gallery-immersion)` — dead weight for Supplement |
-| `!important` concentration in hero demo CSS | **Medium** | ~100 uses in `sp-demo-supplement-hero.css`; ~58 in `section-sp-hero.css` — intentional override layer but hard to maintain |
-| Competing `--media-radius` definitions | **Low** | Set in `sp-demo-supplement.css`, `sp-commerce-premium.css`, Dawn `base.css` — cascade-resolved but not single source |
+| `!important` concentration in hero demo CSS | **Medium** | ~100 uses in `sp-supplement-hero.css`; ~58 in `section-sp-hero.css` — intentional override layer but hard to maintain |
+| Competing `--media-radius` definitions | **Low** | Set in `sp-supplement.css`, `sp-commerce-premium.css`, Dawn `base.css` — cascade-resolved but not single source |
 | Per-section padding in Liquid `{%- style -%}` blocks | **Low** | Duplicates pattern across 10+ sections; not wrong, but repeated boilerplate |
 | Dawn component CSS bulk | **Cosmetic** | ~60 inherited files; expected for Shopify theme base — not PulseOps debt |
 
@@ -128,7 +128,7 @@ The codebase is **clean enough for Phase IV (Craftsmanship) on the Supplement ca
 | Multiple independent `IntersectionObserver` implementations | **Medium** | `sp-motion.js`, `sp-anchor-nav.js`, `sp-sticky-atc.js`, `sp-results.js`, `sp-hero.js` — no shared observer utility |
 | `sp-testimonial-stage.js` complexity | **Medium** | 420+ lines; carousel + drag + autopause — works but high maintenance surface |
 | `MutationObserver` on cart/notification in sticky ATC | **Low** | Necessary for visibility; no leak if section removed (re-init on load) |
-| `sp-demo-routing.js` only on supplement head | **Low** | Correct scoping |
+| `sp-vertical-routing.js` only on supplement head | **Low** | Correct scoping |
 
 **Recommendation:** Observer consolidation is a deferred refactor — zero user benefit in Phase IV.
 
@@ -147,7 +147,7 @@ The codebase is **clean enough for Phase IV (Craftsmanship) on the Supplement ca
 | Composition silhouettes | `sp-composition-system.css` | ✅ |
 | Editorial primitives | `sp-editorial-system.css` | ⚠️ Contains supplement-specific composition overrides |
 | Global SP settings tokens | `sp-root-tokens.liquid` | ✅ |
-| Supplement typography | `sp-demo-supplement-type.css` | ✅ Scoped |
+| Supplement typography | `sp-supplement-type.css` | ✅ Scoped |
 | Motion | `sp-motion.css` + `settings.sp_motion_style` | ✅ |
 
 **Issues**

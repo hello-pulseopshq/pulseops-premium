@@ -1,15 +1,15 @@
 {%- comment -%}
-  SP Demo — <head> assets for the supplement vertical demo.
+  SP Supplement — <head> assets for the supplement vertical.
   Rendered by layout/theme.liquid only when sp-pack-registry resolves
-  'head_snippet' to this snippet (i.e. the supplement demo is active), so no
+  'head_snippet' to this snippet (i.e. the supplement vertical is active), so no
   vertical/suffix check is needed here.
 {%- endcomment -%}
-{{ 'sp-demo-presets.css' | asset_url | stylesheet_tag }}
-{{ 'sp-demo-supplement.css' | asset_url | stylesheet_tag }}
+{{ 'sp-vertical-presets.css' | asset_url | stylesheet_tag }}
+{{ 'sp-supplement.css' | asset_url | stylesheet_tag }}
 {{ 'sp-typography-language.css' | asset_url | stylesheet_tag }}
 {{ 'sp-surface-language.css' | asset_url | stylesheet_tag }}
 {{ 'sp-editorial-system.css' | asset_url | stylesheet_tag }}
 {{ 'sp-composition-system.css' | asset_url | stylesheet_tag }}
-{{ 'sp-demo-supplement-type.css' | asset_url | stylesheet_tag }}
-<script src="{{ 'sp-demo-routing.js' | asset_url }}" defer="defer"></script>
+{{ 'sp-supplement-type.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'sp-vertical-routing.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'sp-anchor-nav.js' | asset_url }}" defer="defer"></script>

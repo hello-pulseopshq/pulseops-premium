@@ -1,11 +1,11 @@
 /**
- * SP Demo routing — preserve ?view= and preview_theme_id on internal navigation.
- * Loaded only on active demo verticals (e.g. supplement). Keeps merchants inside
- * the flagship demo when clicking logo, cart, footer brand, or announcement links.
+ * SP Vertical routing — preserve ?view= and preview_theme_id on internal navigation.
+ * Loaded only on active verticals (e.g. supplement). Keeps merchants inside
+ * the flagship vertical when clicking logo, cart, footer brand, or announcement links.
  */
 (function () {
-  const VIEW_KEY = 'sp_demo_view';
-  const PREVIEW_KEY = 'sp_demo_preview_theme_id';
+  const VIEW_KEY = 'sp_vertical_view';
+  const PREVIEW_KEY = 'sp_vertical_preview_theme_id';
 
   function readParams() {
     const params = new URLSearchParams(window.location.search);

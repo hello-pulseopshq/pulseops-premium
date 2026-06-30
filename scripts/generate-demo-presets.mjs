@@ -121,13 +121,13 @@ function trustBlocks(d) {
 
 function neutralVisualSection(d) {
   if (d.visualMode !== 'neutral') return {};
-  const classScript = `<script>document.documentElement.classList.add('sp-demo-visual-neutral','sp-demo-${d.id}');</script>`;
+  const classScript = `<script>document.documentElement.classList.add('sp-vertical-visual-neutral','sp-vertical-${d.id}');</script>`;
   const customLiquid =
     d.id === 'supplement'
       ? classScript
-      : `{{ 'sp-demo-presets.css' | asset_url | stylesheet_tag }}${classScript}`;
+      : `{{ 'sp-vertical-presets.css' | asset_url | stylesheet_tag }}${classScript}`;
   return {
-    'demo-visual-treatment': {
+    'vertical-visual-treatment': {
       type: 'custom-liquid',
       settings: {
         custom_liquid: customLiquid,
@@ -141,7 +141,7 @@ function neutralVisualSection(d) {
 
 function neutralVisualOrder(d, baseOrder) {
   if (d.visualMode !== 'neutral') return baseOrder;
-  return ['demo-visual-treatment', ...baseOrder];
+  return ['vertical-visual-treatment', ...baseOrder];
 }
 
 function heroSettings(d) {

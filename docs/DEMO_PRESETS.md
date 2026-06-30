@@ -32,7 +32,7 @@ Copy, pricing, and visuals are coherent for merchant showcase. These presets use
 | `electronics` | Electronics / Gadget | MagCharge Pro Stand | $129.00 |
 | `lifestyle` | Apparel / Lifestyle | Essential Fleece Hoodie | $68.00 |
 
-**Neutral visual treatment:** Hero media and feature image columns are hidden via `assets/sp-demo-presets.css`, scoped by `demo-visual-treatment` custom-liquid sections in each template. Feature rows render as card-heavy, bullet-led content blocks.
+**Neutral visual treatment:** Hero media and feature image columns are hidden via `assets/sp-vertical-presets.css`, scoped by `vertical-visual-treatment` custom-liquid sections in each template. Feature rows render as card-heavy, bullet-led content blocks.
 
 ### Secondary / internal (presets 6–10)
 
@@ -96,7 +96,7 @@ For homepage presets 1–5, no `featured_product` handle is used — hero pricin
 
 ```bash
 git checkout demo-presets-v1
-shopify theme push --only "templates/index.*.json" "templates/product.*.json" assets/sp-demo-presets.css --theme 182855336251
+shopify theme push --only "templates/index.*.json" "templates/product.*.json" assets/sp-vertical-presets.css --theme 182855336251
 ```
 
 ## Regenerate
@@ -121,7 +121,7 @@ shopify theme push --only sections/header-group.json sections/footer-group.json 
 Supplement header nav: **Daily Vitality · Energy · Reviews · FAQ**  
 Supplement announcement: **4.9★ · 8,400+ reviews · 30-day guarantee**
 
-**Branding note:** The supplement preview uses a CSS wordmark (`Daily Vitality`) on `?view=supplement` / `product.supplement` via `assets/sp-demo-supplement.css`. The Shopify store name (`pulseops-labs`) is unchanged in Admin — update **Settings → Store details** or upload a theme logo for a merchant-native wordmark. Browser tab titles may still show the store name until changed in Admin.
+**Branding note:** The supplement preview uses a CSS wordmark (`Daily Vitality`) on `?view=supplement` / `product.supplement` via `assets/sp-supplement.css`. The Shopify store name (`pulseops-labs`) is unchanged in Admin — update **Settings → Store details** or upload a theme logo for a merchant-native wordmark. Browser tab titles may still show the store name until changed in Admin.
 
 ## Image limitations
 

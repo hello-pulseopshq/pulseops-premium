@@ -1,5 +1,5 @@
 /**
- * Smooth-scroll anchor navigation for single-product / demo storefronts.
+ * Smooth-scroll anchor navigation for single-product / vertical storefronts.
  * Supplement homepage: Benefits formerly targeted #sp-benefits; resolves to
  * #sp-ingredients when that section is absent (ingredients spotlight chapter).
  */

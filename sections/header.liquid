@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="{{ 'component-mega-menu.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- endif -%}
 
-{%- capture sp_header_brand -%}{%- render 'sp-demo-brand-name' -%}{%- endcapture -%}
+{%- capture sp_header_brand -%}{%- render 'sp-vertical-brand-name' -%}{%- endcapture -%}
 
 <style>
   header-drawer {
@@ -129,18 +129,18 @@
     endif
 
     comment
-      SP Demo routing — preserve the active demo vertical (?view=...) on internal
+      SP Vertical routing — preserve the active vertical (?view=...) on internal
       header navigation so the logo/cart never drop users back onto the default
-      storefront. See snippets/sp-demo-view-query.liquid.
+      storefront. See snippets/sp-vertical-view-query.liquid.
     endcomment
     capture sp_view_qs
-      render 'sp-demo-view-query'
+      render 'sp-vertical-view-query'
     endcapture
-    capture sp_demo_active_header
+    capture sp_vertical_active_header
       render 'sp-pack-registry', field: 'active'
     endcapture
-    if sp_demo_active_header == blank and sp_view_qs contains 'view=supplement'
-      assign sp_demo_active_header = 'supplement'
+    if sp_vertical_active_header == blank and sp_view_qs contains 'view=supplement'
+      assign sp_vertical_active_header = 'supplement'
     endif
   -%}
   <header class="header header--{{ section.settings.logo_position }} header--mobile-{{ section.settings.mobile_logo_position }} page-width{% if section.settings.menu_type_desktop == 'drawer' %} drawer-menu{% endif %}{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}">
@@ -250,7 +250,7 @@
       </div>
       {% render 'header-search', input_id: 'Search-In-Modal' %}
 
-      {%- if shop.customer_accounts_enabled and sp_demo_active_header == blank -%}
+      {%- if shop.customer_accounts_enabled and sp_vertical_active_header == blank -%}
         <a
           href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
           class="header__icon header__icon--account link focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}"

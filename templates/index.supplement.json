@@ -9,10 +9,10 @@
  */
 {
   "sections": {
-    "demo-visual-treatment": {
+    "vertical-visual-treatment": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "<script>document.documentElement.classList.add('sp-demo-visual-neutral','sp-demo-supplement');</script>",
+        "custom_liquid": "<script>document.documentElement.classList.add('sp-vertical-visual-neutral','sp-supplement');</script>",
         "color_scheme": "scheme-1",
         "padding_top": 0,
         "padding_bottom": 0
@@ -549,7 +549,7 @@
     }
   },
   "order": [
-    "demo-visual-treatment",
+    "vertical-visual-treatment",
     "sp-hero",
     "sp-editorial-outcomes",
     "sp-ingredients-spotlight",

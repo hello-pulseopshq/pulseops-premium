@@ -18,14 +18,14 @@
   background-image: none;
 }
 
-.sp-demo-supplement .sp-editorial-differentiation-shell--tone-soft.gradient,
-.sp-demo-supplement .sp-editorial-differentiation-shell--tone-soft {
+.sp-supplement .sp-editorial-differentiation-shell--tone-soft.gradient,
+.sp-supplement .sp-editorial-differentiation-shell--tone-soft {
   background: var(--sp-surface-material-manifesto-field, var(--sp-surface-chapter-soft, rgb(var(--sp-supplement-ivory, var(--color-background)))));
   background-image: none;
 }
 
-.sp-demo-supplement .sp-editorial-differentiation-shell--tone-contrast.gradient,
-.sp-demo-supplement .sp-editorial-differentiation-shell--tone-contrast {
+.sp-supplement .sp-editorial-differentiation-shell--tone-contrast.gradient,
+.sp-supplement .sp-editorial-differentiation-shell--tone-contrast {
   background: var(--sp-surface-material-manifesto-field, var(--sp-surface-chapter-soft, rgb(var(--sp-supplement-ivory, var(--color-background)))));
   background-image: none;
 }
@@ -50,7 +50,7 @@
   gap: var(--sp-ed-gap-sm);
 }
 
-.sp-demo-supplement .sp-editorial-differentiation {
+.sp-supplement .sp-editorial-differentiation {
   --sp-ed-ink: rgb(var(--sp-type-ink, var(--color-foreground)));
   --sp-ed-accent: rgb(var(--sp-supplement-green, var(--color-button)));
   --sp-ed-accent-deep: rgb(var(--sp-supplement-green-deep, var(--color-foreground)));
@@ -126,8 +126,8 @@
   object-position: center;
 }
 
-.sp-demo-supplement .sp-editorial-differentiation__media-frame img,
-.sp-demo-supplement .sp-editorial-differentiation__media-frame .sp-editorial-differentiation__media-image {
+.sp-supplement .sp-editorial-differentiation__media-frame img,
+.sp-supplement .sp-editorial-differentiation__media-frame .sp-editorial-differentiation__media-image {
   object-position: center 42%;
 }
 
@@ -172,8 +172,8 @@
   margin: 0;
 }
 
-.sp-demo-supplement .sp-editorial-differentiation__heading,
-.sp-demo-supplement .sp-editorial-differentiation__heading p {
+.sp-supplement .sp-editorial-differentiation__heading,
+.sp-supplement .sp-editorial-differentiation__heading p {
   font-family: var(--sp-font-heading, var(--font-heading-family));
   max-width: var(--sp-hero-headline-measure, min(100%, 44rem));
   letter-spacing: -0.045em;
@@ -191,7 +191,7 @@
   color: rgba(var(--color-foreground), 0.78);
 }
 
-.sp-demo-supplement .sp-editorial-differentiation__body {
+.sp-supplement .sp-editorial-differentiation__body {
   max-width: 40rem;
   font-size: clamp(1.7rem, 1.65vw, 1.85rem);
   line-height: 1.6;
@@ -266,7 +266,7 @@
   color: var(--sp-ed-ink);
 }
 
-.sp-demo-supplement .sp-editorial-differentiation__proof-title {
+.sp-supplement .sp-editorial-differentiation__proof-title {
   color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.92);
 }
 
@@ -278,7 +278,7 @@
   color: rgba(var(--color-foreground), 0.72);
 }
 
-.sp-demo-supplement .sp-editorial-differentiation__proof-text {
+.sp-supplement .sp-editorial-differentiation__proof-text {
   color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.76);
 }
 
@@ -334,7 +334,7 @@
     transform 0.18s ease;
 }
 
-.sp-demo-supplement .sp-editorial-differentiation__button:not(.sp-editorial-cta) {
+.sp-supplement .sp-editorial-differentiation__button:not(.sp-editorial-cta) {
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
@@ -346,20 +346,20 @@
   box-shadow: 0 0.8rem 2rem rgba(var(--sp-hero-neutral-shadow, var(--sp-supplement-shadow, var(--color-shadow))), 0.12);
 }
 
-.sp-demo-supplement .sp-editorial-differentiation__button:not(.sp-editorial-cta)::before {
+.sp-supplement .sp-editorial-differentiation__button:not(.sp-editorial-cta)::before {
   content: '';
   flex: 0 0 1.6rem;
   width: 1.6rem;
   order: -1;
 }
 
-.sp-demo-supplement .sp-editorial-differentiation__button:not(.sp-editorial-cta) > span:first-child {
+.sp-supplement .sp-editorial-differentiation__button:not(.sp-editorial-cta) > span:first-child {
   flex: 1 1 auto;
   min-width: 0;
   text-align: center;
 }
 
-.sp-demo-supplement .sp-editorial-differentiation__button-arrow {
+.sp-supplement .sp-editorial-differentiation__button-arrow {
   flex: 0 0 auto;
   display: inline-flex;
   align-items: center;
@@ -372,7 +372,7 @@
   box-shadow: 0 1rem 2.6rem rgba(var(--color-shadow), 0.14);
 }
 
-.sp-demo-supplement .sp-editorial-differentiation__button:not(.sp-editorial-cta):hover {
+.sp-supplement .sp-editorial-differentiation__button:not(.sp-editorial-cta):hover {
   background: rgb(var(--sp-supplement-green-deep, var(--color-foreground)));
 }
 
@@ -396,13 +396,13 @@
     --sp-ed-cta-gap: clamp(4.5rem, 5vw, 5rem);
   }
 
-  .sp-demo-supplement .sp-editorial-differentiation {
+  .sp-supplement .sp-editorial-differentiation {
     --sp-ed-heading-size: clamp(4.6rem, 5vw, 7rem);
     --sp-ed-heading-leading: 0.98;
   }
 
-  .sp-demo-supplement .sp-editorial-differentiation__heading,
-  .sp-demo-supplement .sp-editorial-differentiation__heading p {
+  .sp-supplement .sp-editorial-differentiation__heading,
+  .sp-supplement .sp-editorial-differentiation__heading p {
     line-height: 0.98;
   }
 
@@ -466,7 +466,7 @@
     max-width: none;
   }
 
-  .sp-demo-supplement .sp-editorial-differentiation__button:not(.sp-editorial-cta) {
+  .sp-supplement .sp-editorial-differentiation__button:not(.sp-editorial-cta) {
     width: 100%;
     max-width: none;
   }
@@ -520,7 +520,7 @@
   color: rgba(var(--color-foreground), 0.78);
 }
 
-.sp-demo-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__manifesto-body {
+.sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__manifesto-body {
   max-width: var(--sp-rhythm-measure-manifesto);
   line-height: var(--sp-rhythm-lh-manifesto);
 }
@@ -567,7 +567,7 @@
   padding: 0;
 }
 
-.sp-demo-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__principle {
+.sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__principle {
   gap: var(--sp-rhythm-gap-rail);
 }
 
@@ -589,7 +589,7 @@
   max-width: 34ch;
 }
 
-.sp-demo-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__principle-text {
+.sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__principle-text {
   max-width: var(--sp-rhythm-measure-manifesto-rail);
   line-height: var(--sp-rhythm-lh-manifesto);
 }

@@ -1,6 +1,6 @@
-﻿{{ 'section-sp-hero.css' | asset_url | stylesheet_tag }}
+{{ 'section-sp-hero.css' | asset_url | stylesheet_tag }}
 {%- if template.suffix == 'supplement' -%}
-  {{ 'sp-demo-supplement-hero.css' | asset_url | stylesheet_tag }}
+  {{ 'sp-supplement-hero.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
 
 {%- style -%}
@@ -56,7 +56,7 @@
   endif
 
   # SP hero fallback image resolution — vertical-agnostic, driven by sp-pack-registry.
-  # Some demo / dev stores still surface Dawn placeholder art (snowboard, gift-card,
+  # Some dev stores still surface Dawn placeholder art (snowboard, gift-card,
   # etc.) on the featured product. The registry supplies the detection tokens and the
   # replacement asset per vertical, so this core logic carries no vertical-specific
   # strings. Returns blank for verticals with no fallback configured, where this is a no-op.
@@ -630,7 +630,7 @@
     {
       "type": "inline_richtext",
       "id": "social_proof_text",
-      "default": "4.9â˜… Â· 12,000+ reviews",
+      "default": "4.9 stars - 12,000+ reviews",
       "label": "Social proof text"
     },
     {

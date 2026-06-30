@@ -1,17 +1,17 @@
 /**
  * PulseOps Typography Language — Foundation (IV.1A) + Chapter Voices (IV.1B) + Rhythm (IV.1C) *
- * Single typography authority for the supplement demo. Voice tokens alias current
+ * Single typography authority for the supplement vertical. Voice tokens alias current
  * computed values; IV.1B retargets voices without changing primitive structure.
  *
- * Load order: after sp-demo-supplement.css, before sp-editorial-system.css.
+ * Load order: after sp-supplement.css, before sp-editorial-system.css.
  * Authority: docs/TYPOGRAPHY-LANGUAGE-FOUNDATION.md
  *
  * Ownership (do not duplicate without updating this file):
- *   Hero display          → sp-demo-supplement-hero.css (frozen)
+ *   Hero display          → sp-supplement-hero.css (frozen)
  *   Voice tokens          → this file
  *   Editorial primitives  → sp-editorial-system.css (.sp-editorial-type--*)
  *   Composition measure   → sp-composition-system.css (layout + band clamps)
- *   Global primitives     → sp-demo-supplement-type.css (--sp-type-*)
+ *   Global primitives     → sp-supplement-type.css (--sp-type-*)
  *   Section micro-type    → sp-* section CSS (matrix, checkpoints, cards)
  *   Future Self finale    → sp-cta-offer-future-self.css (consumes --sp-voice-minimal-*)
  *   Human Proof quote     → sp-social-proof-human-story.css (consumes --sp-voice-emotional-*)
@@ -19,7 +19,7 @@
 
 /* ── Voice foundation tokens ── */
 
-.sp-demo-supplement {
+.sp-supplement {
   /* Caption / label (shared eyebrow tier) */
   --sp-voice-caption-size: clamp(1.05rem, 0.95vw, 1.18rem);
   --sp-voice-caption-weight: 700;
@@ -171,8 +171,8 @@
  * Future Self — statement class on headline is semantic only; finale CSS owns
  * typography. Lock winning values here so cascade order cannot regress IV.1A.
  */
-.sp-demo-supplement .sp-cta-offer--future-self .sp-cta-offer__future-self-headline.sp-editorial-type--statement,
-.sp-demo-supplement .sp-cta-offer--future-self .sp-cta-offer__future-self-headline.sp-editorial-type--statement p {
+.sp-supplement .sp-cta-offer--future-self .sp-cta-offer__future-self-headline.sp-editorial-type--statement,
+.sp-supplement .sp-cta-offer--future-self .sp-cta-offer__future-self-headline.sp-editorial-type--statement p {
   font-size: var(--sp-voice-minimal-size);
   font-weight: var(--sp-voice-minimal-weight);
   line-height: var(--sp-voice-minimal-lh);
@@ -182,8 +182,8 @@
 }
 
 @media screen and (max-width: 749px) {
-  .sp-demo-supplement .sp-cta-offer--future-self .sp-cta-offer__future-self-headline.sp-editorial-type--statement,
-  .sp-demo-supplement .sp-cta-offer--future-self .sp-cta-offer__future-self-headline.sp-editorial-type--statement p {
+  .sp-supplement .sp-cta-offer--future-self .sp-cta-offer__future-self-headline.sp-editorial-type--statement,
+  .sp-supplement .sp-cta-offer--future-self .sp-cta-offer__future-self-headline.sp-editorial-type--statement p {
     font-size: var(--sp-voice-minimal-size-mobile);
     max-width: var(--sp-voice-minimal-measure-mobile);
   }
@@ -193,8 +193,8 @@
    Chapter voice modifiers (IV.1B)
    ══════════════════════════════════════════════════════════════════════════ */
 
-.sp-demo-supplement .sp-editorial-type--chapter--confident,
-.sp-demo-supplement .sp-editorial-type--chapter--confident p {
+.sp-supplement .sp-editorial-type--chapter--confident,
+.sp-supplement .sp-editorial-type--chapter--confident p {
   font-size: var(--sp-voice-confident-size);
   font-weight: var(--sp-voice-confident-weight);
   line-height: var(--sp-voice-confident-lh);
@@ -202,8 +202,8 @@
   color: var(--sp-voice-confident-ink);
 }
 
-.sp-demo-supplement .sp-editorial-type--chapter--documentary,
-.sp-demo-supplement .sp-editorial-type--chapter--documentary p {
+.sp-supplement .sp-editorial-type--chapter--documentary,
+.sp-supplement .sp-editorial-type--chapter--documentary p {
   font-size: var(--sp-voice-documentary-size);
   font-weight: var(--sp-voice-documentary-weight);
   line-height: var(--sp-voice-documentary-lh);
@@ -211,8 +211,8 @@
   color: var(--sp-voice-documentary-ink);
 }
 
-.sp-demo-supplement .sp-editorial-type--statement--collective,
-.sp-demo-supplement .sp-editorial-type--statement--collective p {
+.sp-supplement .sp-editorial-type--statement--collective,
+.sp-supplement .sp-editorial-type--statement--collective p {
   font-family: var(--sp-font-heading, var(--font-heading-family));
   font-size: var(--sp-voice-collective-size);
   font-weight: var(--sp-voice-collective-weight);
@@ -222,8 +222,8 @@
   color: var(--sp-voice-collective-ink);
 }
 
-.sp-demo-supplement .sp-editorial-type--statement--manifesto,
-.sp-demo-supplement .sp-editorial-type--statement--manifesto p {
+.sp-supplement .sp-editorial-type--statement--manifesto,
+.sp-supplement .sp-editorial-type--statement--manifesto p {
   font-family: var(--sp-font-heading, var(--font-heading-family));
   font-size: var(--sp-voice-manifesto-size);
   font-weight: var(--sp-voice-manifesto-weight);
@@ -233,8 +233,8 @@
   color: var(--sp-voice-manifesto-ink);
 }
 
-.sp-demo-supplement .sp-editorial-type--statement--precise,
-.sp-demo-supplement .sp-editorial-type--statement--precise p {
+.sp-supplement .sp-editorial-type--statement--precise,
+.sp-supplement .sp-editorial-type--statement--precise p {
   font-family: var(--sp-font-heading, var(--font-heading-family));
   font-size: var(--sp-voice-precise-size);
   font-weight: var(--sp-voice-precise-weight);
@@ -244,7 +244,7 @@
   color: var(--sp-voice-precise-ink);
 }
 
-.sp-demo-supplement .sp-editorial-type--moment {
+.sp-supplement .sp-editorial-type--moment {
   font-family: var(--sp-font-heading, var(--font-heading-family));
   font-size: var(--sp-voice-collective-moment-size);
   font-weight: var(--sp-voice-collective-moment-weight);
@@ -254,43 +254,43 @@
 }
 
 @media screen and (max-width: 749px) {
-  .sp-demo-supplement .sp-editorial-type--chapter--confident,
-  .sp-demo-supplement .sp-editorial-type--chapter--confident p {
+  .sp-supplement .sp-editorial-type--chapter--confident,
+  .sp-supplement .sp-editorial-type--chapter--confident p {
     font-size: var(--sp-voice-confident-size-mobile);
   }
 
-  .sp-demo-supplement .sp-editorial-type--chapter--documentary,
-  .sp-demo-supplement .sp-editorial-type--chapter--documentary p {
+  .sp-supplement .sp-editorial-type--chapter--documentary,
+  .sp-supplement .sp-editorial-type--chapter--documentary p {
     font-size: var(--sp-voice-documentary-size-mobile);
   }
 
-  .sp-demo-supplement .sp-editorial-type--statement--collective,
-  .sp-demo-supplement .sp-editorial-type--statement--collective p {
+  .sp-supplement .sp-editorial-type--statement--collective,
+  .sp-supplement .sp-editorial-type--statement--collective p {
     font-size: var(--sp-voice-collective-size-mobile);
   }
 
-  .sp-demo-supplement .sp-editorial-type--statement--manifesto,
-  .sp-demo-supplement .sp-editorial-type--statement--manifesto p {
+  .sp-supplement .sp-editorial-type--statement--manifesto,
+  .sp-supplement .sp-editorial-type--statement--manifesto p {
     font-size: var(--sp-voice-manifesto-size-mobile);
   }
 
-  .sp-demo-supplement .sp-editorial-type--statement--precise,
-  .sp-demo-supplement .sp-editorial-type--statement--precise p {
+  .sp-supplement .sp-editorial-type--statement--precise,
+  .sp-supplement .sp-editorial-type--statement--precise p {
     font-size: var(--sp-voice-precise-size-mobile);
   }
 
-  .sp-demo-supplement .sp-editorial-type--moment {
+  .sp-supplement .sp-editorial-type--moment {
     font-size: var(--sp-voice-collective-moment-size-mobile);
   }
 }
 
 /* Scientific Confidence — crisp checkpoint hierarchy (IV.1B) */
-.sp-demo-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-title {
+.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-title {
   font-weight: 600;
   color: var(--sp-voice-ink-primary);
 }
 
-.sp-demo-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-meta {
+.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-meta {
   font-size: clamp(0.98rem, 0.9vw, 1.08rem);
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -300,9 +300,9 @@
    Editorial rhythm (IV.1C) — paragraph cadence (measure/lh wired in section CSS)
    ══════════════════════════════════════════════════════════════════════════ */
 
-.sp-demo-supplement .sp-editorial-outcomes__body p + p,
-.sp-demo-supplement .sp-ingredients-spotlight__body p + p,
-.sp-demo-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__evidence-body p + p,
-.sp-demo-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__manifesto-body p + p {
+.sp-supplement .sp-editorial-outcomes__body p + p,
+.sp-supplement .sp-ingredients-spotlight__body p + p,
+.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__evidence-body p + p,
+.sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__manifesto-body p + p {
   margin-top: var(--sp-rhythm-gap-paragraph);
 }

@@ -1,4 +1,4 @@
-﻿{{ 'section-sp-results.css' | asset_url | stylesheet_tag }}
+{{ 'section-sp-results.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -218,7 +218,7 @@
                       </div>
                     {%- else -%}
                       <div class="sp-results__value sp-results__value--before" aria-hidden="true">
-                        <span aria-hidden="true">â€”</span>
+                        <span aria-hidden="true">-</span>
                       </div>
                     {%- endif -%}
 
@@ -236,7 +236,7 @@
                       </div>
                     {%- else -%}
                       <div class="sp-results__value sp-results__value--after" aria-hidden="true">
-                        <span aria-hidden="true">â€”</span>
+                        <span aria-hidden="true">-</span>
                       </div>
                     {%- endif -%}
                   </div>

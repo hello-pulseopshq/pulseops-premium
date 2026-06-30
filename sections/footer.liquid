@@ -92,10 +92,10 @@
                       Dynamic render-by-variable silently no-ops in Liquid; use case instead.
                       Add one `when` branch per new pack/vertical below.
                     {%- endcomment -%}
-                    {%- capture sp_demo_active_nav -%}{%- render 'sp-pack-registry', field: 'active' -%}{%- endcapture -%}
-                    {%- case sp_demo_active_nav -%}
+                    {%- capture sp_vertical_active_nav -%}{%- render 'sp-pack-registry', field: 'active' -%}{%- endcapture -%}
+                    {%- case sp_vertical_active_nav -%}
                       {%- when 'supplement' -%}
-                        {%- render 'sp-demo-footer-nav' -%}
+                        {%- render 'sp-vertical-footer-nav' -%}
                     {%- else -%}
                       {%- if block.settings.menu != blank -%}
                       <ul class="footer-block__details-content list-unstyled">
@@ -311,7 +311,7 @@
     <div class="footer__content-bottom-wrapper page-width{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}">
       <div class="footer__copyright caption">
         <small class="copyright__content"
-          >&copy; {{ 'now' | date: '%Y' }}, {% capture sp_footer_brand %}{% render 'sp-demo-brand-name' %}{% endcapture %}{% capture sp_footer_view_qs %}{% render 'sp-demo-view-query' %}{% endcapture %}<a href="{{ routes.root_url }}{{ sp_footer_view_qs }}">{{ sp_footer_brand | escape }}</a>
+          >&copy; {{ 'now' | date: '%Y' }}, {% capture sp_footer_brand %}{% render 'sp-vertical-brand-name' %}{% endcapture %}{% capture sp_footer_view_qs %}{% render 'sp-vertical-view-query' %}{% endcapture %}<a href="{{ routes.root_url }}{{ sp_footer_view_qs }}">{{ sp_footer_brand | escape }}</a>
         </small>
         <small class="copyright__content">{{ powered_by_link }}</small>
         {%- if section.settings.show_policy -%}

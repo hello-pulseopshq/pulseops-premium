@@ -1,4 +1,4 @@
-﻿{%- liquid
+{%- liquid
   assign is_product_page = false
   if request.page_type == 'product'
     assign is_product_page = true
@@ -217,7 +217,7 @@
                     {% if variant.available == false %}disabled{% endif %}
                   >
                     {{ variant.title | escape -}}
-                    {%- unless variant.available %} â€” {{ 'products.product.sold_out' | t }}{% endunless %}
+                    {%- unless variant.available %} - {{ 'products.product.sold_out' | t }}{% endunless %}
                   </option>
                 {%- endfor -%}
               </select>

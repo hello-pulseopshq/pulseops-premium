@@ -1,9 +1,9 @@
 {
   "sections": {
-    "demo-visual-treatment": {
+    "vertical-visual-treatment": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "{{ 'sp-demo-presets.css' | asset_url | stylesheet_tag }}<script>document.documentElement.classList.add('sp-demo-visual-neutral','sp-demo-skincare');</script>",
+        "custom_liquid": "{{ 'sp-vertical-presets.css' | asset_url | stylesheet_tag }}<script>document.documentElement.classList.add('sp-vertical-visual-neutral','sp-vertical-skincare');</script>",
         "padding_top": 0,
         "padding_bottom": 0,
         "color_scheme": "scheme-1"
@@ -394,7 +394,7 @@
     }
   },
   "order": [
-    "demo-visual-treatment",
+    "vertical-visual-treatment",
     "sp-hero",
     "sp-metrics",
     "sp-benefits",

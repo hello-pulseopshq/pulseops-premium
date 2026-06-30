@@ -1,6 +1,6 @@
 <!doctype html>
 <html
-  class="no-js{%- render 'sp-demo-html-class' -%}"
+  class="no-js{%- render 'sp-vertical-html-class' -%}"
   lang="{{ request.locale.iso_code }}"
   data-sp-motion="{{ settings.sp_motion_style | default: 'balanced' }}"
   data-sp-image-reveal="{% if settings.sp_image_progressive_reveal %}true{% else %}false{% endif %}"
@@ -20,12 +20,12 @@
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
 
-    {%- capture sp_browser_title -%}{%- render 'sp-demo-page-title' -%}{%- endcapture -%}
+    {%- capture sp_browser_title -%}{%- render 'sp-vertical-page-title' -%}{%- endcapture -%}
     {%- assign sp_browser_title = sp_browser_title | strip -%}
     {%- if sp_browser_title != blank -%}
-      {%- assign sp_is_demo_title = true -%}
+      {%- assign sp_is_vertical_title = true -%}
     {%- else -%}
-      {%- assign sp_is_demo_title = false -%}
+      {%- assign sp_is_vertical_title = false -%}
       {%- assign sp_browser_title = page_title -%}
     {%- endif -%}
 
@@ -33,7 +33,7 @@
       {{ sp_browser_title }}
       {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
       {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-      {%- unless sp_is_demo_title or sp_browser_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+      {%- unless sp_is_vertical_title or sp_browser_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
     </title>
 
     {% if page_description %}
@@ -321,15 +321,15 @@
     </script>
 
     {%- comment -%}
-      SP Demo head assets — static case dispatch on the active vertical.
+      SP Vertical head assets — static case dispatch on the active vertical.
       Dynamic render-by-variable is a Liquid limitation (silently no-ops in this context),
       so we use a case statement keyed on the active registry value instead.
       Add one `when` branch per new pack/vertical below.
     {%- endcomment -%}
-    {%- capture sp_demo_active_head -%}{%- render 'sp-pack-registry', field: 'active' -%}{%- endcapture -%}
-    {%- case sp_demo_active_head -%}
+    {%- capture sp_vertical_active_head -%}{%- render 'sp-pack-registry', field: 'active' -%}{%- endcapture -%}
+    {%- case sp_vertical_active_head -%}
       {%- when 'supplement' -%}
-        {%- render 'sp-demo-supplement-head' -%}
+        {%- render 'sp-supplement-head' -%}
     {%- endcase -%}
   </head>
 

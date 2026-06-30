@@ -1,15 +1,15 @@
 /**
  * PulseOps Surface Language — Foundation (Phase IV.2A)
  *
- * Single surface authority for the supplement demo. Tokens alias current computed
+ * Single surface authority for the supplement vertical. Tokens alias current computed
  * values; IV.2B retargets material expression without changing architecture.
  *
  * Load order: after sp-typography-language.css, before sp-editorial-system.css.
  * Authority: docs/SURFACE-LANGUAGE-FOUNDATION.md
  *
  * Ownership (do not duplicate without updating this file):
- *   L0 canvas / brand palette     → sp-demo-supplement.css (palette) + this file (aliases)
- *   L0 hero arrival canvas         → sp-demo-supplement-hero.css (frozen)
+ *   L0 canvas / brand palette     → sp-supplement.css (palette) + this file (aliases)
+ *   L0 hero arrival canvas         → sp-supplement-hero.css (frozen)
  *   L1 section utilities           → sp-visual-hierarchy.css (.sp-section--surface-*)
  *   L1 chapter shell tones         → section shell classes (IV.2B consolidates)
  *   L2 composition surfaces        → sp-composition-system.css (consumes ledger tokens)
@@ -20,7 +20,7 @@
 
 /* ── Surface foundation tokens ── */
 
-.sp-demo-supplement {
+.sp-supplement {
   /*
    * L0 — Canvas
    * Editorial chapter ground. Hero arrival uses a separate warm slot (frozen).
