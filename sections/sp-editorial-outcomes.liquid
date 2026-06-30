@@ -87,8 +87,8 @@
       <div class="sp-editorial-outcomes__chapter-divider" aria-hidden="true"></div>
     {%- endif -%}
 
-    <div class="sp-editorial-outcomes__composition{% render 'sp-motion-class', type: 'stagger' %}" data-sp-stagger>
-      <div class="sp-editorial-outcomes__media{% render 'sp-motion-class', type: 'stagger-item' %}">
+    <div class="sp-editorial-outcomes__composition">
+      <div class="sp-editorial-outcomes__media{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
         {%- if section.settings.image != blank -%}
           <div class="sp-editorial-outcomes__media-frame">
             {{
@@ -109,7 +109,7 @@
         {%- endif -%}
       </div>
 
-      <div class="sp-editorial-outcomes__story{% render 'sp-motion-class', type: 'stagger-item' %}">
+      <div class="sp-editorial-outcomes__story{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
         <div class="sp-editorial-outcomes__story-copy">
           {%- if section.settings.eyebrow != blank -%}
             <p class="sp-editorial-outcomes__eyebrow sp-editorial-type--caption caption-with-letter-spacing">
@@ -124,7 +124,7 @@
           {%- endif -%}
 
           {%- if section.settings.heading != blank -%}
-            <h2 class="sp-editorial-outcomes__heading sp-editorial-type--chapter sp-editorial-type--chapter--confident{% render 'sp-motion-class', type: 'fade-up' %}">
+            <h2 class="sp-editorial-outcomes__heading sp-editorial-type--chapter sp-editorial-type--chapter--confident{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
               {{ section.settings.heading }}
             </h2>
           {%- endif -%}
@@ -163,11 +163,11 @@
         </div>
 
         {%- if section.blocks.size > 0 -%}
-          <ul class="sp-editorial-outcomes__cards{% render 'sp-motion-class', type: 'stagger' %}" data-sp-stagger role="list">
+          <ul class="sp-editorial-outcomes__cards" role="list">
             {%- for block in section.blocks -%}
               {%- if block.settings.title != blank or block.settings.text != blank -%}
-                <li class="sp-editorial-outcomes__item{% render 'sp-motion-class', type: 'stagger-item' %}" {{ block.shopify_attributes }}>
-                  <article class="sp-editorial-outcomes__card{% render 'sp-motion-class', type: 'hover-card-subtle' %}">
+                <li class="sp-editorial-outcomes__item{% render 'sp-motion-class', type: 'fade-in-quiet' %}" {{ block.shopify_attributes }}>
+                  <article class="sp-editorial-outcomes__card">
                     <div class="sp-editorial-outcomes__card-meta">
                       {%- if section.settings.show_card_numbers -%}
                         <span class="sp-editorial-outcomes__card-index" aria-hidden="true"></span>

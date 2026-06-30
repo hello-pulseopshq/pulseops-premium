@@ -225,9 +225,9 @@
       {% endif %}
     >
       <div class="sp-hero__content-wrapper">
-        <div class="sp-hero__content sp-hero__content--{{ section.settings.content_alignment }} sp-hero__content--desktop-{{ section.settings.desktop_content_alignment }}{% render 'sp-motion-class', type: 'stagger' %}" data-sp-stagger>
+        <div class="sp-hero__content sp-hero__content--{{ section.settings.content_alignment }} sp-hero__content--desktop-{{ section.settings.desktop_content_alignment }}">
           {%- if section.settings.show_announcement and section.settings.announcement_text != blank -%}
-            <p class="sp-hero__announcement sp-hero__slot--announcement caption{% render 'sp-motion-class', type: 'stagger-item' %}">
+            <p class="sp-hero__announcement sp-hero__slot--announcement caption">
               <span class="sp-hero__announcement-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                   <path d="M12 3.5 4.5 7v6.2c0 4.5 2.8 8.6 7.5 9.8 4.7-1.2 7.5-5.3 7.5-9.8V7z"></path>
@@ -241,13 +241,13 @@
           {%- render 'sp-hero-social-proof', section: section -%}
 
           {%- if section.settings.eyebrow_text != blank -%}
-            <p class="sp-hero__eyebrow sp-hero__slot--eyebrow caption-with-letter-spacing{% render 'sp-motion-class', type: 'stagger-item' %}">
+            <p class="sp-hero__eyebrow sp-hero__slot--eyebrow caption-with-letter-spacing">
               {{ section.settings.eyebrow_text }}
             </p>
           {%- endif -%}
 
           {%- if section.settings.badge_text != blank -%}
-            <p class="sp-hero__badge sp-hero__slot--badge caption{% render 'sp-motion-class', type: 'stagger-item' %}">
+            <p class="sp-hero__badge sp-hero__slot--badge caption">
               {{ section.settings.badge_text }}
             </p>
           {%- endif -%}
@@ -255,13 +255,13 @@
           {%- render 'sp-hero-headline', section: section, heading_tag: heading_tag -%}
 
           {%- if section.settings.subheadline != blank -%}
-            <p class="sp-hero__subheadline sp-hero__slot--subheadline rte{% render 'sp-motion-class', type: 'stagger-item' %}">
+            <p class="sp-hero__subheadline sp-hero__slot--subheadline rte">
               {{ section.settings.subheadline }}
             </p>
           {%- endif -%}
 
           {%- if benefit_chip_blocks.size > 0 -%}
-            <ul class="sp-hero__benefits sp-hero__slot--benefits list-unstyled{% render 'sp-motion-class', type: 'stagger-item' %}" role="list">
+            <ul class="sp-hero__benefits sp-hero__slot--benefits list-unstyled" role="list">
               {%- for block in benefit_chip_blocks -%}
                 {%- if block.settings.benefit_text != blank -%}
                   <li class="sp-hero__benefit caption" {{ block.shopify_attributes }}>
@@ -278,7 +278,7 @@
           {%- if show_product_price -%}
             {%- assign price_variant = pricing_product.selected_or_first_available_variant -%}
             {%- if price_variant != blank -%}
-              <p class="sp-hero__price sp-hero__slot--price subtitle{% render 'sp-motion-class', type: 'stagger-item' %}">
+              <p class="sp-hero__price sp-hero__slot--price subtitle">
                 {%- if price_variant.compare_at_price > price_variant.price -%}
                   <s class="sp-hero__price-compare">
                     {{ price_variant.compare_at_price | money }}
@@ -291,13 +291,13 @@
               </p>
             {%- endif -%}
           {%- elsif section.settings.price_text != blank -%}
-            <p class="sp-hero__price sp-hero__slot--price subtitle{% render 'sp-motion-class', type: 'stagger-item' %}">
+            <p class="sp-hero__price sp-hero__slot--price subtitle">
               {{ section.settings.price_text }}
             </p>
           {%- endif -%}
 
           {%- if show_hero_stats -%}
-            <ul class="sp-hero__stats sp-hero__slot--stats list-unstyled{% render 'sp-motion-class', type: 'stagger-item' %}" role="list" aria-label="Highlights">
+            <ul class="sp-hero__stats sp-hero__slot--stats list-unstyled" role="list" aria-label="Highlights">
               {%- if section.settings.stat_1_value != blank -%}
                 <li class="sp-hero__stat">
                   <p class="sp-hero__stat-value h4">{{ section.settings.stat_1_value }}</p>
@@ -328,7 +328,7 @@
           {%- endif -%}
 
           {%- if section.settings.cta_label != blank or cta_type == 'add_to_cart' or cta_type == 'buy_now' -%}
-            <div class="sp-hero__cta sp-hero__slot--cta{% render 'sp-motion-class', type: 'stagger-item' %}" data-sp-hero-cta-anchor>
+            <div class="sp-hero__cta sp-hero__slot--cta" data-sp-hero-cta-anchor>
               {%- render 'sp-hero-cta',
                 section: section,
                 cta_product: cta_product,
@@ -344,7 +344,7 @@
           {%- render 'sp-hero-trust-stack', section: section -%}
 
           {%- if show_trust_microcopy -%}
-            <ul class="sp-hero__trust-microcopy sp-hero__slot--trust-microcopy list-unstyled{% render 'sp-motion-class', type: 'stagger-item' %}" role="list">
+            <ul class="sp-hero__trust-microcopy sp-hero__slot--trust-microcopy list-unstyled" role="list">
               {%- if section.settings.trust_microcopy_1 != blank -%}
                 <li class="sp-hero__trust-microcopy-item caption">
                   <span class="sp-hero__trust-microcopy-icon" aria-hidden="true">
@@ -379,7 +379,7 @@
           {%- endif -%}
 
           {%- if section.settings.show_reassurance_row and trust_item_blocks.size > 0 -%}
-            <ul class="sp-hero__trust-row sp-hero__slot--trust-row list-unstyled{% render 'sp-motion-class', type: 'stagger-item' %}" role="list">
+            <ul class="sp-hero__trust-row sp-hero__slot--trust-row list-unstyled" role="list">
               {%- for block in trust_item_blocks -%}
                 {%- if block.settings.text != blank -%}
                   <li class="sp-hero__trust-item caption" {{ block.shopify_attributes }}>
@@ -415,7 +415,7 @@
           {%- render 'sp-hero-logos', section: section -%}
 
           {%- if show_scroll_cue -%}
-            <a href="{{ section.settings.scroll_cue_link }}" class="sp-hero__scroll-cue sp-hero__slot--scroll-cue caption{% render 'sp-motion-class', type: 'stagger-item' %}">
+            <a href="{{ section.settings.scroll_cue_link }}" class="sp-hero__scroll-cue sp-hero__slot--scroll-cue caption">
               <span>{{ section.settings.scroll_cue_text | escape }}</span>
               <span class="sp-hero__scroll-cue-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -434,7 +434,7 @@
           style="--sp-hero-ratio-mobile: {{ mobile_ratio | round: 2 }}%; --sp-hero-ratio-desktop: {{ desktop_ratio | round: 2 }}%; --sp-hero-focal-mobile: {{ hero_focal_mobile }}; --sp-hero-focal-desktop: {{ hero_focal_desktop }};"
         >
           <div class="sp-hero__media-inner">
-            <div class="sp-hero__media-frame sp-media-frame sp-media-frame--custom{% render 'sp-motion-class', type: 'fade-in' %}">
+            <div class="sp-hero__media-frame sp-media-frame sp-media-frame--custom{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
               {%- render 'sp-hero-media',
                 sp_hero_fallback: sp_hero_fallback,
                 sp_hero_fallback_image: sp_hero_fallback_image,

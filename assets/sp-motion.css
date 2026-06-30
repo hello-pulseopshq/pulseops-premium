@@ -51,6 +51,10 @@ html.sp-motion-active:not(.shopify-design-mode) [data-sp-reveal='fade-in']:not(.
   transform: translate3d(0, 0, 0);
 }
 
+html.sp-motion-active:not(.shopify-design-mode) .sp-reveal--quiet:not(.is-revealed):not(.sp-reveal--static) {
+  transition-duration: var(--sp-motion-duration-fast), var(--sp-motion-duration-fast);
+}
+
 .sp-reveal.is-revealed,
 [data-sp-reveal].is-revealed,
 .sp-reveal--static {
@@ -120,6 +124,10 @@ html.sp-motion-active [data-sp-stagger] > .sp-stagger__item.sp-reveal {
 
   html.sp-motion-active:not([data-sp-motion='disabled']) .sp-hover-button:hover {
     transform: translate3d(0, calc(var(--sp-motion-button-shift) * -1), 0);
+  }
+
+  html.sp-motion-active:not([data-sp-motion='disabled']) .sp-hover-button--quiet:hover {
+    transform: none;
   }
 
   html.sp-motion-active:not([data-sp-motion='disabled']) .sp-hover-button:active {

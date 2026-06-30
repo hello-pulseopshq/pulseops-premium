@@ -49,7 +49,7 @@
 -%}
 
 <div class="sp-cta-offer__future-self sp-editorial-chapter sp-editorial-chapter--spacing-cinematic sp-editorial-chapter--handoff-in">
-  <div class="sp-cta-offer__future-self-canvas{% render 'sp-motion-class', type: 'fade-up' %}">
+  <div class="sp-cta-offer__future-self-canvas">
     {%- if section.settings.image != blank -%}
       <div class="sp-cta-offer__future-self-media">
         {{
@@ -59,8 +59,7 @@
             widths: '550, 750, 1100, 1500, 1800, 2200, 2400',
             sizes: '100vw',
             alt: image_alt,
-            loading: 'eager',
-            fetchpriority: 'high',
+            loading: 'lazy',
             class: 'sp-image sp-cta-offer__future-self-image'
         }}
       </div>
@@ -95,7 +94,7 @@
             {% else %}
               href="{{ section.settings.button_link }}"
             {% endif %}
-            class="sp-cta-offer__future-self-button sp-editorial-cta sp-editorial-cta--primary{% render 'sp-motion-class', type: 'hover-button' %}"
+            class="sp-cta-offer__future-self-button sp-editorial-cta sp-editorial-cta--primary"
           >
             {{ section.settings.button_label | escape }}
           </a>

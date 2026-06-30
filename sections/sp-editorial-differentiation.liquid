@@ -77,7 +77,7 @@
         <div class="sp-editorial-differentiation__chapter-divider" aria-hidden="true"></div>
       {%- endif -%}
 
-      <header class="sp-editorial-differentiation__manifesto-intro{% render 'sp-motion-class', type: 'fade-up' %}">
+      <header class="sp-editorial-differentiation__manifesto-intro{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
         {%- if section.settings.eyebrow != blank -%}
           <p class="sp-editorial-differentiation__eyebrow sp-editorial-type--caption caption-with-letter-spacing">
             {{ section.settings.eyebrow | escape }}
@@ -85,7 +85,7 @@
         {%- endif -%}
 
         {%- if section.settings.heading != blank -%}
-          <h2 class="sp-editorial-differentiation__statement sp-editorial-type--statement sp-editorial-type--statement--manifesto{% render 'sp-motion-class', type: 'fade-up' %}">
+          <h2 class="sp-editorial-differentiation__statement sp-editorial-type--statement sp-editorial-type--statement--manifesto{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
             {{ section.settings.heading }}
           </h2>
         {%- endif -%}
@@ -98,7 +98,7 @@
       </header>
 
       {%- if section.settings.show_philosophy_image and section.settings.image != blank -%}
-        <div class="sp-editorial-differentiation__visual-interruption{% render 'sp-motion-class', type: 'fade-up' %}">
+        <div class="sp-editorial-differentiation__visual-interruption{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
           <div class="sp-editorial-differentiation__visual-interruption-frame">
             {{
               section.settings.image
@@ -116,8 +116,7 @@
 
       {%- if section.blocks.size > 0 -%}
         <ul
-          class="sp-editorial-differentiation__principles{% render 'sp-motion-class', type: 'stagger' %}"
-          data-sp-stagger
+          class="sp-editorial-differentiation__principles"
           role="list"
         >
           {%- for block in section.blocks -%}
@@ -127,7 +126,7 @@
             -%}
             {%- if title_stripped != blank or text_stripped != blank -%}
               <li
-                class="sp-editorial-differentiation__principle{% render 'sp-motion-class', type: 'stagger-item' %}"
+                class="sp-editorial-differentiation__principle{% render 'sp-motion-class', type: 'fade-in-quiet' %}"
                 {{ block.shopify_attributes }}
               >
                 {%- if title_stripped != blank -%}
@@ -143,18 +142,18 @@
       {%- endif -%}
 
       {%- if philosophy_closing_stripped != blank -%}
-        <p class="sp-editorial-differentiation__philosophy-closer{% render 'sp-motion-class', type: 'fade-up' %}">
+        <p class="sp-editorial-differentiation__philosophy-closer{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
           {{ section.settings.philosophy_closing_line | escape }}
         </p>
       {%- endif -%}
 
       {%- if show_cta -%}
-        <div class="sp-editorial-differentiation__cta-shell{% render 'sp-motion-class', type: 'fade-up' %}">
+        <div class="sp-editorial-differentiation__cta-shell{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
           {%- if section.settings.show_cta_divider -%}
             <div class="sp-editorial-differentiation__cta-divider" aria-hidden="true"></div>
           {%- endif -%}
           <div class="sp-editorial-differentiation__footer">
-            <a href="{{ section.settings.button_link }}" class="sp-editorial-differentiation__button sp-editorial-cta sp-editorial-cta--quiet-link{% render 'sp-motion-class', type: 'hover-button' %}">
+            <a href="{{ section.settings.button_link }}" class="sp-editorial-differentiation__button sp-editorial-cta sp-editorial-cta--quiet-link{% render 'sp-motion-class', type: 'hover-button-quiet' %}">
               <span>{{ section.settings.button_label | escape }}</span>
               <span class="sp-editorial-cta__arrow" aria-hidden="true">→</span>
             </a>

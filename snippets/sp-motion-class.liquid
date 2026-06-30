@@ -7,7 +7,7 @@
     <a class="button{% render 'sp-motion-class', type: 'hover-button' %}">
 
   Types:
-    fade-in | fade-up | stagger | stagger-item | hover-card | hover-card-subtle | hover-image | hover-button
+    fade-in | fade-in-quiet | fade-up | stagger | stagger-item | hover-card | hover-card-subtle | hover-image | hover-button | hover-button-quiet
 
   Returns empty string when motion is disabled.
 {%- endcomment -%}
@@ -19,6 +19,8 @@
   case type
     when 'fade-in'
       assign output = ' sp-reveal sp-reveal--fade-in'
+    when 'fade-in-quiet'
+      assign output = ' sp-reveal sp-reveal--fade-in sp-reveal--quiet'
     when 'fade-up'
       assign output = ' sp-reveal sp-reveal--fade-up'
     when 'stagger'
@@ -33,6 +35,8 @@
       assign output = ' sp-hover-image'
     when 'hover-button'
       assign output = ' sp-hover-button'
+    when 'hover-button-quiet'
+      assign output = ' sp-hover-button sp-hover-button--quiet'
   endcase
   endunless
 

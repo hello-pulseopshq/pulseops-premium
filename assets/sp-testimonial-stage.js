@@ -22,7 +22,9 @@ class SpTestimonialStage {
 
     this.slideTemplates = sourceSlides.map((slide) => slide.cloneNode(true));
     this.count = this.slideTemplates.length;
-    this.interval = Math.max(5000, parseInt(root.dataset.autoRotate || '6000', 10));
+    const requestedInterval = parseInt(root.dataset.autoRotate || '0', 10);
+    this.autoRotate = requestedInterval > 0;
+    this.interval = this.autoRotate ? Math.max(5000, requestedInterval) : 0;
     this.index = 0;
     this.timer = null;
     this.paused = false;
@@ -53,7 +55,7 @@ class SpTestimonialStage {
     window.addEventListener('blur', this.onWindowBlur);
     document.addEventListener('visibilitychange', this.onVisibilityChange);
 
-    if (!this.reducedMotion) this.start();
+    if (this.autoRotate && !this.reducedMotion) this.start();
   }
 
   wrap(value) {
@@ -182,13 +184,14 @@ class SpTestimonialStage {
     }
   }
 
-  goToIndex(targetIndex) {
+  goToIndex(targetIndex, announce = false) {
     const nextIndex = this.wrap(targetIndex);
     if (nextIndex === this.index || this.isAnimating) return;
 
     this.index = nextIndex;
     this.populateSlots();
     this.setPosition(-100, 0, 'instant');
+    if (announce) this.updateDots(true);
   }
 
   updateDots(announce) {
@@ -203,7 +206,9 @@ class SpTestimonialStage {
     });
 
     if (announce && this.live) {
-      const quote = this.slots.current.querySelector('.sp-social-proof__stage-quote-text');
+      const quote = this.slots.current.querySelector(
+        '.sp-social-proof__stage-quote-text, .sp-social-proof__human-story-quote-text',
+      );
       if (quote) this.live.textContent = quote.textContent.trim();
     }
   }
@@ -212,8 +217,8 @@ class SpTestimonialStage {
     this.dots.forEach((dot) => {
       dot.addEventListener('click', () => {
         const target = parseInt(dot.dataset.slideIndex || '0', 10);
-        this.goToIndex(target);
-        if (!this.reducedMotion) this.restart();
+        this.goToIndex(target, true);
+        if (this.autoRotate && !this.reducedMotion) this.restart();
       });
     });
 
@@ -243,13 +248,13 @@ class SpTestimonialStage {
       if (event.key === 'ArrowLeft') {
         event.preventDefault();
         this.goPrev(true);
-        if (!this.reducedMotion) this.restart();
+        if (this.autoRotate && !this.reducedMotion) this.restart();
       }
 
       if (event.key === 'ArrowRight') {
         event.preventDefault();
         this.goNext(true);
-        if (!this.reducedMotion) this.restart();
+        if (this.autoRotate && !this.reducedMotion) this.restart();
       }
     });
   }
@@ -358,13 +363,13 @@ class SpTestimonialStage {
 
       if (deltaX <= -this.dragThreshold) {
         this.settleTo('next');
-        if (!this.reducedMotion) this.restart();
+        if (this.autoRotate && !this.reducedMotion) this.restart();
         return;
       }
 
       if (deltaX >= this.dragThreshold) {
         this.settleTo('prev');
-        if (!this.reducedMotion) this.restart();
+        if (this.autoRotate && !this.reducedMotion) this.restart();
         return;
       }
 
@@ -384,6 +389,7 @@ class SpTestimonialStage {
   }
 
   start() {
+    if (!this.autoRotate) return;
     this.stop();
     this.timer = window.setInterval(() => {
       if (!this.paused && !this.isAnimating && !this.isPointerDown) {
@@ -393,7 +399,7 @@ class SpTestimonialStage {
   }
 
   restart() {
-    if (this.reducedMotion) return;
+    if (!this.autoRotate || this.reducedMotion) return;
     this.start();
   }
 

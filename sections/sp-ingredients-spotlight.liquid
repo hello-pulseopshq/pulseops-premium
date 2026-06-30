@@ -39,8 +39,8 @@
     aria-label="{{ heading_stripped | default: 'Ingredients spotlight' | escape }}"
   >
     {%- comment -%} Hero: section settings only — never repeated per block {%- endcomment -%}
-    <div class="sp-ingredients-spotlight__hero sp-editorial-chapter__lead{% render 'sp-motion-class', type: 'stagger' %}" data-sp-stagger>
-      <div class="sp-ingredients-spotlight__content{% render 'sp-motion-class', type: 'stagger-item' %}">
+    <div class="sp-ingredients-spotlight__hero sp-editorial-chapter__lead">
+      <div class="sp-ingredients-spotlight__content{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
         {%- if section.settings.eyebrow != blank -%}
           <p class="sp-ingredients-spotlight__eyebrow sp-editorial-type--caption caption-with-letter-spacing">
             {{ section.settings.eyebrow | escape }}
@@ -48,7 +48,7 @@
         {%- endif -%}
 
         {%- if section.settings.heading != blank -%}
-          <h2 class="sp-ingredients-spotlight__heading sp-editorial-type--chapter sp-editorial-type--chapter--documentary{% render 'sp-motion-class', type: 'fade-up' %}">
+          <h2 class="sp-ingredients-spotlight__heading sp-editorial-type--chapter sp-editorial-type--chapter--documentary{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
             {{ section.settings.heading }}
           </h2>
         {%- endif -%}
@@ -87,7 +87,7 @@
           <div class="sp-ingredients-spotlight__actions">
             <a
               href="{{ section.settings.button_link }}"
-              class="sp-ingredients-spotlight__button sp-editorial-cta sp-editorial-cta--quiet-link{% render 'sp-motion-class', type: 'hover-button' %}"
+              class="sp-ingredients-spotlight__button sp-editorial-cta sp-editorial-cta--quiet-link{% render 'sp-motion-class', type: 'hover-button-quiet' %}"
             >
               <span>{{ section.settings.button_label | escape }}</span>
               <span class="sp-editorial-cta__arrow" aria-hidden="true">→</span>
@@ -107,7 +107,7 @@
         {%- endif -%}
       </div>
 
-      <div class="sp-ingredients-spotlight__media sp-editorial-chapter__media{% render 'sp-motion-class', type: 'stagger-item' %}">
+      <div class="sp-ingredients-spotlight__media sp-editorial-chapter__media{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
         {%- if section.settings.image != blank -%}
           <div class="sp-ingredients-spotlight__media-frame sp-editorial-media--cinematic">
             {{
@@ -155,7 +155,7 @@
 
     {%- comment -%} Ingredient matrix: ingredient blocks only {%- endcomment -%}
     {%- if ingredient_count > 0 -%}
-      <div class="sp-ingredients-spotlight__grid-section{% render 'sp-motion-class', type: 'fade-up' %}">
+      <div class="sp-ingredients-spotlight__grid-section{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
         {%- if section.settings.grid_heading != blank -%}
           <div class="sp-ingredients-spotlight__grid-header">
             <h3 class="sp-ingredients-spotlight__grid-heading sp-editorial-type--caption">
@@ -224,7 +224,7 @@
 
     {%- comment -%} Commitment assurance: commitment blocks only {%- endcomment -%}
     {%- if commitment_count > 0 -%}
-      <div class="sp-ingredients-spotlight__commitment{% render 'sp-motion-class', type: 'fade-up' %}">
+      <div class="sp-ingredients-spotlight__commitment{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
         {%- if section.settings.commitment_heading != blank -%}
           <h3 class="sp-ingredients-spotlight__commitment-heading">
             {{ section.settings.commitment_heading | escape }}

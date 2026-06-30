@@ -15,7 +15,11 @@
     endif
   endfor
 
-  assign auto_rotate_ms = section.settings.stage_auto_rotate | default: 6 | times: 1000
+  assign auto_rotate_seconds = section.settings.stage_auto_rotate | default: 0 | plus: 0
+  assign auto_rotate_ms = 0
+  if auto_rotate_seconds > 0
+    assign auto_rotate_ms = auto_rotate_seconds | times: 1000
+  endif
   assign eyebrow_stripped = section.settings.eyebrow | strip
   assign heading_stripped = section.settings.heading | strip_html | strip
   assign verification_stripped = section.settings.verification_note | strip
@@ -31,7 +35,7 @@
 
 <div class="sp-social-proof__human-story sp-editorial-chapter sp-editorial-chapter--spacing-standard sp-editorial-chapter--handoff-in sp-editorial-chapter--handoff-out">
   {%- if section.settings.story_image != blank -%}
-    <div class="sp-social-proof__human-story-portrait{% render 'sp-motion-class', type: 'fade-up' %}">
+    <div class="sp-social-proof__human-story-portrait{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
       <div class="sp-social-proof__human-story-portrait-frame">
         {{
           section.settings.story_image
@@ -40,15 +44,14 @@
             widths: '550, 750, 1100, 1500, 1800, 2200',
             sizes: '(min-width: 990px) 48vw, 100vw',
             alt: story_image_alt,
-            loading: 'eager',
-            fetchpriority: 'high',
+            loading: 'lazy',
             class: 'sp-image sp-social-proof__human-story-portrait-image'
         }}
       </div>
     </div>
   {%- endif -%}
 
-  <div class="sp-social-proof__human-story-panel{% render 'sp-motion-class', type: 'fade-up' %}">
+  <div class="sp-social-proof__human-story-panel{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
     {%- if eyebrow_stripped != blank or heading_stripped != blank -%}
       <header class="sp-social-proof__human-story-intro">
         {%- if eyebrow_stripped != blank -%}

@@ -75,7 +75,7 @@
         <div class="sp-quality-standards__chapter-divider" aria-hidden="true"></div>
       {%- endif -%}
 
-      <header class="sp-quality-standards__evidence-intro{% render 'sp-motion-class', type: 'fade-up' %}">
+      <header class="sp-quality-standards__evidence-intro{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
         {%- if section.settings.eyebrow != blank -%}
           <p class="sp-quality-standards__eyebrow sp-editorial-type--caption caption-with-letter-spacing">
             {{ section.settings.eyebrow | escape }}
@@ -83,7 +83,7 @@
         {%- endif -%}
 
         {%- if section.settings.heading != blank -%}
-          <h2 class="sp-quality-standards__statement sp-editorial-type--statement sp-editorial-type--statement--precise{% render 'sp-motion-class', type: 'fade-up' %}">
+          <h2 class="sp-quality-standards__statement sp-editorial-type--statement sp-editorial-type--statement--precise{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
             {{ section.settings.heading }}
           </h2>
         {%- endif -%}
@@ -96,7 +96,7 @@
       </header>
 
       {%- if section.settings.image != blank -%}
-        <div class="sp-quality-standards__lab-evidence{% render 'sp-motion-class', type: 'fade-up' %}">
+        <div class="sp-quality-standards__lab-evidence{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
           <div class="sp-quality-standards__lab-evidence-frame">
             {{
               section.settings.image
@@ -105,8 +105,7 @@
                 widths: '750, 1100, 1500, 1800, 2200, 2400',
                 sizes: '100vw',
                 alt: image_alt,
-                loading: 'eager',
-                fetchpriority: 'high',
+                loading: 'lazy',
                 class: 'sp-image sp-quality-standards__lab-evidence-image'
             }}
           </div>
@@ -115,8 +114,7 @@
 
       {%- if section.blocks.size > 0 -%}
         <ol
-          class="sp-quality-standards__process-checkpoints{% render 'sp-motion-class', type: 'stagger' %}"
-          data-sp-stagger
+          class="sp-quality-standards__process-checkpoints"
         >
           {%- for block in section.blocks -%}
             {%- liquid
@@ -126,7 +124,7 @@
             -%}
             {%- if title_stripped != blank or text_stripped != blank -%}
               <li
-                class="sp-quality-standards__process-step{% render 'sp-motion-class', type: 'stagger-item' %}"
+                class="sp-quality-standards__process-step{% render 'sp-motion-class', type: 'fade-in-quiet' %}"
                 {{ block.shopify_attributes }}
               >
                 {%- if section.settings.show_process_numbers -%}
@@ -152,14 +150,14 @@
       {%- endif -%}
 
       {%- if section.settings.supporting_text != blank -%}
-        <div class="sp-quality-standards__evidence-note rte{% render 'sp-motion-class', type: 'fade-up' %}">
+        <div class="sp-quality-standards__evidence-note rte{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
           {{ section.settings.supporting_text }}
         </div>
       {%- endif -%}
 
       {%- if show_cta -%}
-        <div class="sp-quality-standards__footer sp-quality-standards__footer--quiet{% render 'sp-motion-class', type: 'fade-up' %}">
-          <a href="{{ section.settings.button_link }}" class="sp-quality-standards__button sp-editorial-cta sp-editorial-cta--quiet-link{% render 'sp-motion-class', type: 'hover-button' %}">
+        <div class="sp-quality-standards__footer sp-quality-standards__footer--quiet{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
+          <a href="{{ section.settings.button_link }}" class="sp-quality-standards__button sp-editorial-cta sp-editorial-cta--quiet-link{% render 'sp-motion-class', type: 'hover-button-quiet' %}">
             <span>{{ section.settings.button_label | escape }}</span>
             <span class="sp-editorial-cta__arrow" aria-hidden="true">→</span>
           </a>

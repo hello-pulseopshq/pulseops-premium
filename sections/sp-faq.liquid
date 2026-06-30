@@ -169,12 +169,12 @@
       {%- if heading_stripped != blank or subheading_stripped != blank -%}
         <header class="sp-faq__header sp-faq__header--{{ section.settings.content_alignment }}">
           {%- if heading_stripped != blank -%}
-            <h2 class="sp-faq__heading inline-richtext h1{% render 'sp-motion-class', type: 'fade-up' %}">
+            <h2 class="sp-faq__heading inline-richtext h1">
               {{ section.settings.heading }}
             </h2>
           {%- endif -%}
           {%- if subheading_stripped != blank -%}
-            <div class="sp-faq__subheading rte{% render 'sp-motion-class', type: 'fade-up' %}">
+            <div class="sp-faq__subheading rte">
               {{ section.settings.subheading }}
             </div>
           {%- endif -%}
@@ -190,7 +190,7 @@
       {%- endfor -%}
 
       {%- if valid_items > 0 -%}
-        <ul class="sp-faq__list{% render 'sp-motion-class', type: 'stagger' %}" data-sp-stagger data-sp-faq-list>
+        <ul class="sp-faq__list" data-sp-faq-list>
           {%- assign first_valid_item = true -%}
           {%- for block in section.blocks -%}
             {%- liquid
@@ -206,7 +206,7 @@
               {%- assign panel_id = 'SpFaq-panel-' | append: section.id | append: '-' | append: block.id -%}
               {%- assign trigger_id = 'SpFaq-trigger-' | append: section.id | append: '-' | append: block.id -%}
               <li
-                class="sp-faq__item{% if is_first_open %} is-open{% endif %}{% render 'sp-motion-class', type: 'stagger-item' %}"
+                class="sp-faq__item{% if is_first_open %} is-open{% endif %}"
                 {{ block.shopify_attributes }}
               >
                 <h3 class="sp-faq__item-heading h4">
