@@ -266,35 +266,7 @@ Completion confirms progress or closure. Its goal is calm assurance.
 
 ---
 
-## 11. Interaction Hierarchy
-
-Not every behavior deserves equal authority.
-
-### Primary Interaction
-
-Primary interaction advances the main decision or path. It may dominate when the visitor is ready to act, confirm, compare, or purchase.
-
-### Secondary Interaction
-
-Secondary interaction supports exploration or clarification. It should remain available without competing with primary action.
-
-### Passive Interaction
-
-Passive interaction responds to attention or context without demanding commitment. It should help the page feel legible, not busy.
-
-### System Interaction
-
-System interaction communicates state, constraint, confirmation, or recovery. It should be direct, calm, and trustworthy.
-
-### Background Interaction
-
-Background interaction supports the experience without becoming a foreground behavior. It should never ask for attention unless something meaningful changes.
-
-Interaction hierarchy should follow decision importance. The most important behavior is the one that reduces the visitor's next uncertainty.
-
----
-
-## 12. Progressive Disclosure
+## 11. Progressive Disclosure
 
 Progressive disclosure should make complexity feel manageable.
 
@@ -314,7 +286,7 @@ Disclosure is wrong when it conceals risk, hides cost, delays truth, or forces i
 
 ---
 
-## 13. Trust Behaviors
+## 12. Trust Behaviors
 
 Trust is built through predictable behavior.
 
@@ -335,7 +307,7 @@ Premium confidence comes from the visitor feeling in control. The interface shou
 
 ---
 
-## 14. Interaction Anti-Patterns
+## 13. Interaction Anti-Patterns
 
 PulseOps intentionally avoids:
 
@@ -359,7 +331,7 @@ Anti-patterns matter because they define the edge of the language. PulseOps inte
 
 ---
 
-## 15. Relationship With Existing Languages
+## 14. Relationship With Existing Languages
 
 Interaction complements the frozen PulseOps languages. It does not replace them.
 
@@ -393,7 +365,7 @@ Motion is a later language. Interaction defines whether behavior should exist; M
 
 ---
 
-## 16. Guiding Rules
+## 15. Guiding Rules
 
 1. Interaction should clarify before it delights.
 2. The fastest path is usually the best path.
@@ -427,21 +399,3 @@ Motion is a later language. Interaction defines whether behavior should exist; M
 - Homepage redesign
 - Vertical-specific behavior specifications
 - Current interaction QA
-
----
-
-## Roadmap
-
-```
-IV.4A  Interaction Foundation     philosophy and principles
-   ->
-IV.4B  Interaction Expression     chapter-level behavior identity
-   ->
-IV.4C  Interaction Systems        repeatable governance for behavior
-   ->
-IV.4D  Interaction Restraint      remove behavioral excess, preserve clarity
-   ->
-Interaction Freeze
-```
-
-This foundation is intended to hold across Supplement, Coffee, Skincare, Electronics, Outdoor, Lifestyle, Pet, Creator, and future PulseOps verticals.

@@ -657,24 +657,6 @@ Energy should never rise to create excitement for its own sake. It rises for ins
 
 ---
 
-## Interaction Consistency Rules
-
-1. Behavior should follow narrative.
-2. Every chapter must own one dominant interaction role.
-3. Interaction should become quieter as confidence grows.
-4. Feedback should always reduce uncertainty.
-5. Behavior should never compete with reading.
-6. Interaction should respect Typography and Photography ownership.
-7. Every interaction must have narrative purpose.
-8. Disclosure should clarify instead of creating suspense.
-9. Utility chapters should prioritize speed over atmosphere.
-10. Evidence chapters should reward inspection without dramatizing proof.
-11. Human chapters should protect dignity.
-12. Closing chapters should reduce behavioral pressure.
-13. If behavior needs motion to be understood, the behavior is not clear enough.
-
----
-
 ## Out Of Scope For IV.4B
 
 - Animations
@@ -696,4 +678,4 @@ Energy should never rise to create excitement for its own sake. It rises for ins
 
 Interaction Expression is complete when every homepage chapter has a clear behavioral identity, every behavior supports the frozen narrative role, and the full sequence reads as one coherent PulseOps interaction language.
 
-Future Interaction Systems work must build from this expression map rather than reopening chapter behavior identity.
+Future Interaction work must build from this expression map rather than reopening chapter behavior identity.
