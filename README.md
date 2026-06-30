@@ -39,13 +39,14 @@ Recommended reading order:
 6. Surface
 7. Photography
 8. Interaction
-9. Motion (planned)
+9. Motion
 10. Implementation documentation
 
 | Doc | Description |
 |-----|-------------|
 | [docs/README.md](docs/README.md) | Documentation index |
 | [docs/pulseops-design-system.md](docs/pulseops-design-system.md) | **Constitutional overview and canonical entry point** |
+| [docs/design-conformance-qa.md](docs/design-conformance-qa.md) | Design Conformance QA and certification framework |
 | [docs/pulseops-visual-system-v1.md](docs/pulseops-visual-system-v1.md) | PulseOps visual operating system |
 | [docs/pulseops-design-language-v1.md](docs/pulseops-design-language-v1.md) | Visual language chapter |
 | [docs/editorial-art-direction.md](docs/editorial-art-direction.md) | Chapter-level art direction |

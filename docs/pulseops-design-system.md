@@ -90,7 +90,7 @@ Photography gives the system visual truth.
 
 Interaction gives the system behavior.
 
-Motion, when added, will communicate behavioral change without redefining behavior.
+Motion communicates behavioral change without redefining behavior.
 
 The existing visual Design Language guide describes how PulseOps should look and feel once these governed languages are operating together. It is an expression reference, not a substitute for the individual language authorities.
 
@@ -259,7 +259,15 @@ No future language becomes part of PulseOps until it completes the full craftsma
 
 ---
 
-## 11. Definition Of Done
+## 11. Operational QA
+
+Design Conformance QA verifies that pages, sections, components, merchant experiences, and vertical packs conform to the frozen languages.
+
+Use [`design-conformance-qa.md`](design-conformance-qa.md) after language decisions are frozen and before remediation begins. QA identifies deviations; implementation fixes happen in later remediation sprints.
+
+---
+
+## 12. Definition Of Done
 
 PulseOps Design System is complete when a new contributor can understand:
 

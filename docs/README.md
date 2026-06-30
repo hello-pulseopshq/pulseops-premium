@@ -19,7 +19,7 @@ Photography
         ↓
 Interaction
         ↓
-Motion (planned)
+Motion
         ↓
 Implementation
 ```
@@ -27,6 +27,7 @@ Implementation
 | Doc | Description |
 |-----|-------------|
 | [**pulseops-design-system.md**](pulseops-design-system.md) | **Canonical entry point and constitutional overview** |
+| [design-conformance-qa.md](design-conformance-qa.md) | Design Conformance QA and certification framework |
 | [**PULSEOPS-ARCHITECTURE-v1.md**](PULSEOPS-ARCHITECTURE-v1.md) | **Architecture v1 — LOCKED platform IA and buyer journey** |
 | [CODEBASE-HYGIENE-AUDIT-v1.md](CODEBASE-HYGIENE-AUDIT-v1.md) | Phase III.5 codebase hygiene audit |
 | [chapter-identity.md](chapter-identity.md) | Narrative architecture and chapter roles |
@@ -39,7 +40,9 @@ Implementation
 | [interaction-language.md](interaction-language.md) | Interaction foundation |
 | [interaction-expression.md](interaction-expression.md) | Interaction expression |
 | [interaction-systems.md](interaction-systems.md) | Interaction systems |
-| [SP-MOTION.md](SP-MOTION.md) | Motion documentation (planned language track) |
+| [motion-language.md](motion-language.md) | Motion foundation |
+| [motion-expression.md](motion-expression.md) | Motion expression |
+| [SP-MOTION.md](SP-MOTION.md) | Motion implementation documentation |
 | [pulseops-visual-system-v1.md](pulseops-visual-system-v1.md) | Visual operating system |
 | [pulseops-design-language-v1.md](pulseops-design-language-v1.md) | Visual language chapter (typography, surface, photography, layout) |
 | [editorial-art-direction.md](editorial-art-direction.md) | Chapter-level art direction and rhythm |
