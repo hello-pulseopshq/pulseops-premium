@@ -4,8 +4,8 @@
     "theme_name": "PulseOps SP Core",
     "theme_version": "1.0.0",
     "theme_author": "PulseOps Labs",
-    "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
-    "theme_support_url": "https://support.shopify.com/"
+    "theme_documentation_url": "https://pulseops.example.com/theme-documentation-todo",
+    "theme_support_url": "https://pulseops.example.com/theme-support-todo"
   },
   {
     "name": "t:settings_schema.logo.name",

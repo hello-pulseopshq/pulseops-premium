@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="theme-color" content="">
+    <meta name="theme-color" content="{{ settings.color_schemes.first.settings.background }}">
     <link rel="canonical" href="{{ canonical_url }}">
 
     {%- if settings.favicon != blank -%}
@@ -21,6 +21,7 @@
     {%- endunless -%}
 
     {%- capture sp_browser_title -%}{%- render 'sp-demo-page-title' -%}{%- endcapture -%}
+    {%- assign sp_browser_title = sp_browser_title | strip -%}
     {%- if sp_browser_title != blank -%}
       {%- assign sp_is_demo_title = true -%}
     {%- else -%}
