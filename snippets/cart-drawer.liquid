@@ -17,7 +17,7 @@
   }
 </style>
 
-<cart-drawer class="drawer{% if cart == empty %} is-empty{% endif %}">
+<cart-drawer class="drawer{% if cart == empty %} is-empty{% endif %}" inert>
   <div id="CartDrawer" class="cart-drawer">
     <div id="CartDrawer-Overlay" class="cart-drawer__overlay"></div>
     <div
@@ -467,7 +467,7 @@
                 </table>
               </div>
             {%- endif -%}
-            <p id="CartDrawer-LiveRegionText" class="visually-hidden" role="status"></p>
+            <p id="CartDrawer-LiveRegionText" class="visually-hidden" role="status" aria-live="polite" aria-atomic="true"></p>
             <p id="CartDrawer-LineItemStatus" class="visually-hidden" aria-hidden="true" role="status">
               {{ 'accessibility.loading' | t }}
             </p>
@@ -587,7 +587,9 @@
           {%- assign sp_cart_trust_text = settings.sp_cart_trust_text | default: '30-day money-back guarantee · Secure checkout' -%}
           {%- if sp_cart_trust_text != blank -%}
             <p class="sp-cart-drawer__trust caption">
-              {{ 'icon-lock.svg' | inline_asset_content }}
+              <span aria-hidden="true">
+                {{ 'icon-lock.svg' | inline_asset_content }}
+              </span>
               <span>{{ sp_cart_trust_text }}</span>
             </p>
           {%- endif -%}

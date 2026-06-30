@@ -95,8 +95,10 @@
       data-show-compare-at-price="{{ section.settings.show_compare_at_price }}"
       data-money-format="{{ shop.money_format | escape }}"
       data-currency-code-enabled="{{ settings.currency_code_enabled }}"
+      data-product-title="{{ product.title | escape }}"
       {% if button_label_stripped != blank %}data-button-label="{{ button_label_stripped | escape }}"{% endif %}
       aria-hidden="true"
+      inert
     >
       {%- unless section.settings.sp_divider_style == 'none' -%}
         <div class="sp-section__divider sp-section__divider--{{ section.settings.sp_divider_style }}" aria-hidden="true"></div>
@@ -226,7 +228,13 @@
         {%- endif -%}
 
         <div class="sp-sticky-atc__right">
-          <product-form class="sp-sticky-atc__form" data-section-id="{{ section.id }}" data-hide-errors="true">
+          <product-form class="sp-sticky-atc__form" data-section-id="{{ section.id }}" data-hide-errors="false">
+            <div class="product-form__error-message-wrapper" role="alert" hidden>
+              <span class="svg-wrapper">
+                {{- 'icon-error.svg' | inline_asset_content -}}
+              </span>
+              <span class="product-form__error-message"></span>
+            </div>
             {%- form 'product',
               product,
               id: sticky_form_id,

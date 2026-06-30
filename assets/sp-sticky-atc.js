@@ -213,9 +213,25 @@ class SpStickyAtc {
 
   setVisible(show) {
     if (this.isVisible === show) return;
+    if (!show && this.root.contains(document.activeElement)) {
+      this.returnFocusFromHiddenBar();
+    }
     this.isVisible = show;
     this.root.classList.toggle('is-visible', show);
     this.root.setAttribute('aria-hidden', show ? 'false' : 'true');
+    this.root.toggleAttribute('inert', !show);
+  }
+
+  returnFocusFromHiddenBar() {
+    const mainButton = this.mainSectionId ? document.getElementById(`ProductSubmitButton-${this.mainSectionId}`) : null;
+    if (mainButton && !mainButton.disabled && mainButton.offsetParent !== null) {
+      mainButton.focus({ preventScroll: true });
+      return;
+    }
+
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+    }
   }
 
   onMainVariantChange({ data }) {
@@ -433,6 +449,10 @@ class SpStickyAtc {
     }
 
     this.submitLabel.textContent = labelText;
+    if (labelText) {
+      const productTitle = this.root.dataset.productTitle?.trim();
+      this.submitButton.setAttribute('aria-label', productTitle ? `${labelText}: ${productTitle}` : labelText);
+    }
   }
 
   updateImage(variant) {

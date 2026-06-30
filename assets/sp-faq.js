@@ -37,6 +37,7 @@ class SpFaq {
 
     trigger.setAttribute('aria-expanded', 'true');
     panel.setAttribute('aria-hidden', 'false');
+    panel.removeAttribute('inert');
     item.classList.add('is-open');
   }
 
@@ -47,6 +48,7 @@ class SpFaq {
 
     trigger.setAttribute('aria-expanded', 'false');
     panel.setAttribute('aria-hidden', 'true');
+    panel.setAttribute('inert', '');
     item.classList.remove('is-open');
   }
 }

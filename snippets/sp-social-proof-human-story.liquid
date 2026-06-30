@@ -23,6 +23,7 @@
   assign eyebrow_stripped = section.settings.eyebrow | strip
   assign heading_stripped = section.settings.heading | strip_html | strip
   assign verification_stripped = section.settings.verification_note | strip
+  assign human_story_heading_id = 'HumanStoryHeading-' | append: section.id
 
   assign story_image_alt = section.settings.story_image_alt | strip
   if story_image_alt == blank and section.settings.story_image != blank
@@ -61,7 +62,7 @@
         {%- endif -%}
 
         {%- if heading_stripped != blank -%}
-          <h2 class="sp-social-proof__human-story-lead sp-editorial-type--statement">
+          <h2 id="{{ human_story_heading_id }}" class="sp-social-proof__human-story-lead sp-editorial-type--statement">
             {{ section.settings.heading }}
           </h2>
         {%- endif -%}
@@ -75,7 +76,11 @@
       {% if slide_count > 1 %}
         role="region"
         aria-roledescription="carousel"
-        aria-label="{{ section.settings.eyebrow | default: 'Human proof' | escape }}"
+        {% if heading_stripped != blank %}
+          aria-labelledby="{{ human_story_heading_id }}"
+        {% else %}
+          aria-label="{{ section.settings.eyebrow | default: 'Human proof' | escape }}"
+        {% endif %}
       {% endif %}
     >
       <div class="sp-social-proof__stage-viewport">

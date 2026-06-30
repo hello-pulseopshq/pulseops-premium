@@ -237,6 +237,7 @@ class CartItems extends HTMLElement {
 
     const cartStatus =
       document.getElementById('cart-live-region-text') || document.getElementById('CartDrawer-LiveRegionText');
+    if (cartStatus) cartStatus.textContent = message;
     cartStatus.setAttribute('aria-hidden', false);
 
     setTimeout(() => {

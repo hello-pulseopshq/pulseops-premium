@@ -68,6 +68,13 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
   transform: translateX(0);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .drawer,
+  .drawer__inner {
+    transition: none;
+  }
+}
+
 .drawer__header {
   position: relative;
   padding: 1.5rem 0;

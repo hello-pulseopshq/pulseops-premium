@@ -157,6 +157,14 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sp-faq__item,
+    .sp-faq__icon-line--vertical,
+    .sp-faq__panel {
+      transition: none;
+    }
+  }
 {%- endstyle -%}
 
 {% render 'sp-section-hierarchy-open', section: section %}
@@ -233,6 +241,7 @@
                   role="region"
                   aria-labelledby="{{ trigger_id }}"
                   aria-hidden="{% if is_first_open %}false{% else %}true{% endif %}"
+                  {% unless is_first_open %}inert{% endunless %}
                 >
                   <div class="sp-faq__panel-inner">
                     {%- if answer_stripped != blank -%}

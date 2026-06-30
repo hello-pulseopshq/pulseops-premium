@@ -14,7 +14,7 @@
       assign slide_count = slide_count | plus: 1
     endif
   endfor
-  assign auto_rotate_ms = section.settings.stage_auto_rotate | default: 6 | times: 1000
+  assign auto_rotate_ms = section.settings.stage_auto_rotate | default: 0 | times: 1000
   assign heading_stripped = section.settings.heading | strip_html | strip
   assign subheading_stripped = section.settings.subheading | strip_html | strip
 -%}
