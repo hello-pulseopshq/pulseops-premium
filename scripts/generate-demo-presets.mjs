@@ -121,11 +121,9 @@ function trustBlocks(d) {
 
 function neutralVisualSection(d) {
   if (d.visualMode !== 'neutral') return {};
+  if (d.id === 'supplement') return {};
   const classScript = `<script>document.documentElement.classList.add('sp-vertical-visual-neutral','sp-vertical-${d.id}');</script>`;
-  const customLiquid =
-    d.id === 'supplement'
-      ? classScript
-      : `{{ 'sp-vertical-presets.css' | asset_url | stylesheet_tag }}${classScript}`;
+  const customLiquid = `{{ 'sp-vertical-presets.css' | asset_url | stylesheet_tag }}${classScript}`;
   return {
     'vertical-visual-treatment': {
       type: 'custom-liquid',
@@ -141,6 +139,7 @@ function neutralVisualSection(d) {
 
 function neutralVisualOrder(d, baseOrder) {
   if (d.visualMode !== 'neutral') return baseOrder;
+  if (d.id === 'supplement') return baseOrder;
   return ['vertical-visual-treatment', ...baseOrder];
 }
 

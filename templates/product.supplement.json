@@ -9,15 +9,6 @@
  */
 {
   "sections": {
-    "vertical-visual-treatment": {
-      "type": "custom-liquid",
-      "settings": {
-        "custom_liquid": "<script>document.documentElement.classList.add('sp-vertical-visual-neutral','sp-supplement');</script>",
-        "color_scheme": "scheme-1",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
     "main": {
       "type": "main-product",
       "blocks": {
@@ -444,7 +435,6 @@
     }
   },
   "order": [
-    "vertical-visual-treatment",
     "main",
     "sp-trust-icons",
     "sp-benefits",

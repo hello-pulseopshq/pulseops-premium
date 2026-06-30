@@ -1,7 +1,4 @@
 {{ 'section-sp-hero.css' | asset_url | stylesheet_tag }}
-{%- if template.suffix == 'supplement' -%}
-  {{ 'sp-supplement-hero.css' | asset_url | stylesheet_tag }}
-{%- endif -%}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
