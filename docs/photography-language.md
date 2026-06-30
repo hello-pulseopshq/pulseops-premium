@@ -227,55 +227,7 @@ When a photograph conflicts with a frozen language, the photograph changes. It m
 
 ---
 
-## 8. Photography Hierarchy
-
-PulseOps imagery has hierarchy. Not every image should behave like a hero, and not every product image should sell with equal force.
-
-### Hero Imagery
-
-Hero imagery introduces the product and the world.
-
-It must be immediately legible, confident, and calm. The product should be unmistakable without turning the frame into a catalog cutout. Hero imagery establishes trust at entry: packaging, form, light, and environment should tell the visitor what this is and why it belongs in their attention.
-
-### Editorial Imagery
-
-Editorial imagery gives the product a life.
-
-It supports transformation, ritual, use, context, and point of view. The product may be present, but the subject is often the moment around it. Editorial imagery should feel authored, not staged for a product tile.
-
-### Scientific Imagery
-
-Scientific imagery makes evidence visible.
-
-It should communicate process, verification, material handling, testing, production, or documentation. The tone is cooler, quieter, and more observational. It should never feel like a fake lab scene created for marketing theater.
-
-### Product Imagery
-
-Product imagery explains object truth.
-
-It clarifies packaging, scale, form, texture, ingredients, mechanisms, or use. It can be isolated, environmental, macro, or studio-led, but it must remain connected to the product's actual role in the story.
-
-### Lifestyle Imagery
-
-Lifestyle imagery shows believable use and belonging.
-
-It should not perform aspiration so loudly that the product disappears. The person, environment, and product should share the same emotional reality. Lifestyle imagery is strongest when it feels like a scene observed mid-life, not a pose held for conversion.
-
-### Supporting Imagery
-
-Supporting imagery provides detail.
-
-It may show ingredients, texture, tools, packaging marks, documents, hands, surfaces, or environment fragments. Supporting imagery should deepen trust and rhythm without competing with chapter owners.
-
-### Atmospheric Imagery
-
-Atmospheric imagery creates the emotional close.
-
-It is used sparingly. It carries light, place, scale, and aspiration with minimal UI interference. Atmospheric imagery should feel earned by the narrative, not added as a decorative finale.
-
----
-
-## 9. Editorial Photography Philosophy
+## 8. Editorial Photography Philosophy
 
 PulseOps editorial photography is documentary in spirit and premium in restraint.
 
@@ -289,7 +241,7 @@ Quiet confidence is the goal. The frame should not beg for attention. It should 
 
 ---
 
-## 10. Product Photography Philosophy
+## 9. Product Photography Philosophy
 
 Product photography should make the product understandable and desirable without detaching it from reality.
 
@@ -323,7 +275,7 @@ Environmental imagery shows where the product belongs. The setting should add me
 
 ---
 
-## 11. Human Photography Philosophy
+## 10. Human Photography Philosophy
 
 People in PulseOps photography should feel credible before they feel aspirational.
 
@@ -337,7 +289,7 @@ Human proof is strongest when it feels personal rather than performative. The vi
 
 ---
 
-## 12. Scientific Photography Philosophy
+## 11. Scientific Photography Philosophy
 
 Scientific photography is evidence language.
 
@@ -351,7 +303,7 @@ The best scientific image feels like a page from a technical dossier: clear, spe
 
 ---
 
-## 13. Relationship To Existing Languages
+## 12. Relationship To Existing Languages
 
 Photography complements the frozen PulseOps languages. It does not replace them.
 
@@ -383,7 +335,7 @@ Photography gives the page life. Surface gives that life a place to rest.
 
 ---
 
-## 14. Photography Anti-Patterns
+## 13. Photography Anti-Patterns
 
 Photography intentionally avoids:
 
@@ -406,7 +358,7 @@ Anti-patterns matter because they define the edge of the language. PulseOps phot
 
 ---
 
-## 15. Guiding Rules
+## 14. Guiding Rules
 
 1. Photograph relationships, not objects alone.
 2. The product must belong to a believable world.
@@ -445,9 +397,9 @@ Anti-patterns matter because they define the edge of the language. PulseOps phot
 ## Roadmap
 
 ```
-IV.3A  Photography Foundation     philosophy and governance
+IV.3A  Photography Foundation     philosophy and principles
    ↓
-IV.3B  Photography Expression     chapter-level image roles and visual tone
+IV.3B  Photography Expression     chapter-level identity and visual tone
    ↓
 IV.3C  Photography Systems        repeatable governance for image use
    ↓

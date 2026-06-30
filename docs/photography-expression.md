@@ -728,27 +728,6 @@ Surface provides the closing page. Photography should not add visual competition
 
 ---
 
-## Chapter Dominance
-
-This table governs visual ownership when photography, typography, surface, and narrative all compete for attention.
-
-| Chapter | Primary Owner | Secondary Support |
-|---------|---------------|-------------------|
-| Hero | Product | Environment |
-| Editorial Outcomes | Person | Product |
-| Ingredients | Object | Space |
-| Community Confidence | Collective | Typography |
-| Formulation Philosophy | Words | Objects |
-| Scientific Confidence | Evidence | Process |
-| Human Proof | Person | Routine |
-| FAQ | Typography | Silence |
-| Future Self | Environment | Atmosphere |
-| Footer | Brand | Silence |
-
-If a photograph changes the primary owner of a chapter, the photograph is outside the language. Support may enrich the chapter, but it must not take command.
-
----
-
 ## Photography Progression
 
 Photography evolves with the frozen homepage narrative:
