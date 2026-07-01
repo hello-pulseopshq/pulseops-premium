@@ -79,7 +79,6 @@
 -%}
 
 {%- if show_bar or request.design_mode -%}
-  {{ 'component-price.css' | asset_url | stylesheet_tag }}
   {{ 'section-sp-sticky-atc.css' | asset_url | stylesheet_tag }}
 
   {%- if show_bar -%}
@@ -289,7 +288,6 @@
       </script>
     </div>
 
-    <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'sp-sticky-atc.js' | asset_url }}" defer="defer"></script>
   {%- elsif request.design_mode -%}
     <div class="sp-sticky-atc sp-sticky-atc-{{ section.id }} {% render 'sp-section-hierarchy-surface', section: section %}">
