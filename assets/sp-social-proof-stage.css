@@ -221,7 +221,7 @@
   width: var(--sp-proof-divider-width);
   height: 0.1rem;
   background: var(--sp-proof-divider-color);
-  border-radius: 999px;
+  border-radius: var(--sp-supplement-radius-pill, 999px);
 }
 
 .sp-social-proof__stage-attribution {

@@ -31,19 +31,66 @@
   endif
 
   assign heading_stripped = section.settings.heading | strip_html | strip
+
+  assign eyebrow_display = section.settings.eyebrow | strip
+  if eyebrow_display contains 'INGREDIENTS'
+    assign eyebrow_suffix = eyebrow_display | split: 'INGREDIENTS' | last
+    assign eyebrow_display = 'INGREDIENTS' | append: eyebrow_suffix
+  endif
+
+  assign formula_strip_link = section.settings.formula_strip_link
+  if formula_strip_link == blank
+    assign formula_strip_link = section.settings.button_link
+  endif
+
+  assign show_formula_strip = false
+  if section.settings.formula_strip_text != blank
+    assign show_formula_strip = true
+  endif
+
+  assign featured_block = blank
+  assign featured_index = 0
+  assign ingredient_count = 0
+
+  for block in section.blocks
+    if block.type == 'ingredient'
+      assign name_stripped = block.settings.name | strip
+      assign role_stripped = block.settings.role | strip
+      assign desc_stripped = block.settings.description | strip_html | strip
+      if name_stripped != blank or role_stripped != blank or desc_stripped != blank
+        assign ingredient_count = ingredient_count | plus: 1
+        if featured_block == blank
+          assign featured_block = block
+        endif
+      endif
+    endif
+  endfor
+
+  assign trust_count = 0
+  for block in section.blocks
+    if block.type == 'trust_point' and block.settings.text != blank
+      assign trust_count = trust_count | plus: 1
+    endif
+  endfor
+
+  assign commitment_count = 0
+  for block in section.blocks
+    if block.type == 'commitment' and block.settings.label != blank
+      assign commitment_count = commitment_count | plus: 1
+    endif
+  endfor
 -%}
 
 {% render 'sp-section-hierarchy-open', section: section, anchor_id: 'sp-ingredients', extra_class: shell_class %}
   <div
-    class="sp-ingredients-spotlight sp-composition sp-composition--gallery-immersion sp-editorial-chapter sp-editorial-chapter--cinematic sp-editorial-chapter--spacing-standard sp-editorial-chapter--handoff-in"
+    class="sp-ingredients-spotlight sp-editorial-chapter sp-editorial-chapter--image-led sp-editorial-chapter--spacing-standard sp-editorial-chapter--handoff-in sp-ingredients-spotlight--editorial"
     aria-label="{{ heading_stripped | default: 'Ingredients spotlight' | escape }}"
   >
-    {%- comment -%} Hero: section settings only — never repeated per block {%- endcomment -%}
     <div class="sp-ingredients-spotlight__hero sp-editorial-chapter__lead">
       <div class="sp-ingredients-spotlight__content{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
         {%- if section.settings.eyebrow != blank -%}
           <p class="sp-ingredients-spotlight__eyebrow sp-editorial-type--caption caption-with-letter-spacing">
-            {{ section.settings.eyebrow | escape }}
+            {{ eyebrow_display | escape }}
           </p>
         {%- endif -%}
 
@@ -59,30 +106,6 @@
           </div>
         {%- endif -%}
 
-        {%- assign trust_count = 0 -%}
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'trust_point' and block.settings.text != blank -%}
-            {%- assign trust_count = trust_count | plus: 1 -%}
-          {%- endif -%}
-        {%- endfor -%}
-
-        {%- if trust_count > 0 -%}
-          <ul class="sp-ingredients-spotlight__trust-list" role="list">
-            {%- for block in section.blocks -%}
-              {%- if block.type == 'trust_point' and block.settings.text != blank -%}
-                <li class="sp-ingredients-spotlight__trust-item" {{ block.shopify_attributes }}>
-                  <span class="sp-ingredients-spotlight__trust-mark" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M5 13l4 4L19 7"></path>
-                    </svg>
-                  </span>
-                  <span class="sp-ingredients-spotlight__trust-text">{{ block.settings.text | escape }}</span>
-                </li>
-              {%- endif -%}
-            {%- endfor -%}
-          </ul>
-        {%- endif -%}
-
         {%- if show_cta -%}
           <div class="sp-ingredients-spotlight__actions">
             <a
@@ -92,30 +115,49 @@
               <span>{{ section.settings.button_label | escape }}</span>
               <span class="sp-editorial-cta__arrow" aria-hidden="true">→</span>
             </a>
-            {%- if section.settings.microcopy != blank -%}
-              <p class="sp-ingredients-spotlight__microcopy">
-                {{ section.settings.microcopy | escape }}
-              </p>
-            {%- endif -%}
           </div>
-        {%- elsif section.settings.microcopy != blank -%}
-          <div class="sp-ingredients-spotlight__actions">
-            <p class="sp-ingredients-spotlight__microcopy">
-              {{ section.settings.microcopy | escape }}
-            </p>
-          </div>
+        {%- endif -%}
+
+        {%- if trust_count > 0 -%}
+          <ul class="sp-ingredients-spotlight__trust-list" role="list">
+            {%- assign trust_index = 0 -%}
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'trust_point' and block.settings.text != blank -%}
+                {%- assign trust_index = trust_index | plus: 1 -%}
+                <li class="sp-ingredients-spotlight__trust-item" {{ block.shopify_attributes }}>
+                  <span class="sp-ingredients-spotlight__trust-icon sp-ingredients-spotlight__trust-icon--{{ trust_index | modulo: 3 }}" aria-hidden="true">
+                    {%- case trust_index | modulo: 3 -%}
+                      {%- when 1 -%}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3c-4 6-7 9-7 12a7 7 0 0 0 14 0c0-3-3-6-7-12Z"></path><path d="M12 11v6"></path></svg>
+                      {%- when 2 -%}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3 4 7v6c0 5 3.5 8 8 8s8-3 8-8V7l-8-4Z"></path></svg>
+                      {%- else -%}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="2.5"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg>
+                    {%- endcase -%}
+                  </span>
+                  <span class="sp-ingredients-spotlight__trust-text">{{ block.settings.text | escape }}</span>
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+
+        {%- if section.settings.microcopy != blank and show_cta == false -%}
+          <p class="sp-ingredients-spotlight__microcopy">
+            {{ section.settings.microcopy | escape }}
+          </p>
         {%- endif -%}
       </div>
 
       <div class="sp-ingredients-spotlight__media sp-editorial-chapter__media{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
         {%- if section.settings.image != blank -%}
-          <div class="sp-ingredients-spotlight__media-frame sp-editorial-media--cinematic">
+          <div class="sp-ingredients-spotlight__media-frame">
             {{
               section.settings.image
               | image_url: width: 2200
               | image_tag:
                 widths: '550, 750, 1100, 1500, 1800, 2200',
-                sizes: '(min-width: 990px) 46vw, 100vw',
+                sizes: '(min-width: 990px) 58vw, 100vw',
                 alt: image_alt,
                 loading: 'lazy',
                 class: 'sp-image sp-ingredients-spotlight__media-image'
@@ -129,31 +171,59 @@
       </div>
     </div>
 
-    {%- assign ingredient_count = 0 -%}
-    {%- for block in section.blocks -%}
-      {%- if block.type == 'ingredient' -%}
-        {%- assign name_stripped = block.settings.name | strip -%}
-        {%- assign role_stripped = block.settings.role | strip -%}
-        {%- assign desc_stripped = block.settings.description | strip_html | strip -%}
-        {%- if name_stripped != blank or role_stripped != blank or desc_stripped != blank -%}
-          {%- assign ingredient_count = ingredient_count | plus: 1 -%}
+    {%- if featured_block != blank -%}
+      {%- liquid
+        assign featured_name = featured_block.settings.name | strip
+        assign featured_role = featured_block.settings.role | strip
+        assign featured_desc = featured_block.settings.description
+        assign featured_benefit_1 = featured_block.settings.benefit_1 | strip
+        assign featured_benefit_2 = featured_block.settings.benefit_2 | strip
+        assign featured_benefit_3 = featured_block.settings.benefit_3 | strip
+      -%}
+      <aside
+        class="sp-ingredients-spotlight__featured{% render 'sp-motion-class', type: 'fade-in-quiet' %}"
+        aria-label="{{ section.settings.featured_label | default: 'Featured ingredient' | escape }}"
+      >
+        {%- if section.settings.featured_label != blank -%}
+          <p class="sp-ingredients-spotlight__featured-label sp-editorial-type--caption caption-with-letter-spacing">
+            {{ section.settings.featured_label | escape }}
+          </p>
         {%- endif -%}
-      {%- endif -%}
-    {%- endfor -%}
 
-    {%- assign commitment_count = 0 -%}
-    {%- for block in section.blocks -%}
-      {%- if block.type == 'commitment' and block.settings.label != blank -%}
-        {%- assign commitment_count = commitment_count | plus: 1 -%}
-      {%- endif -%}
-    {%- endfor -%}
+        {%- if featured_name != blank -%}
+          <h3 class="sp-ingredients-spotlight__featured-name">{{ featured_name | escape }}</h3>
+        {%- endif -%}
 
-    {%- comment -%} Ingredient matrix + commitment: one editorial chapter body {%- endcomment -%}
-    {%- if ingredient_count > 0 or commitment_count > 0 -%}
+        {%- if featured_role != blank -%}
+          <p class="sp-ingredients-spotlight__featured-role">{{ featured_role | escape }}</p>
+        {%- endif -%}
+
+        {%- if featured_desc != blank -%}
+          <div class="sp-ingredients-spotlight__featured-description rte">
+            {{ featured_desc }}
+          </div>
+        {%- endif -%}
+
+        {%- if featured_benefit_1 != blank or featured_benefit_2 != blank or featured_benefit_3 != blank -%}
+          <ul class="sp-ingredients-spotlight__featured-benefits" role="list">
+            {%- if featured_benefit_1 != blank -%}
+              <li class="sp-ingredients-spotlight__featured-benefit">{{ featured_benefit_1 | escape }}</li>
+            {%- endif -%}
+            {%- if featured_benefit_2 != blank -%}
+              <li class="sp-ingredients-spotlight__featured-benefit">{{ featured_benefit_2 | escape }}</li>
+            {%- endif -%}
+            {%- if featured_benefit_3 != blank -%}
+              <li class="sp-ingredients-spotlight__featured-benefit">{{ featured_benefit_3 | escape }}</li>
+            {%- endif -%}
+          </ul>
+        {%- endif -%}
+      </aside>
+    {%- endif -%}
+
+    {%- if ingredient_count > 0 or show_formula_strip or commitment_count > 0 -%}
       <div class="sp-editorial-chapter__body sp-ingredients-spotlight__chapter-body">
     {%- endif -%}
 
-    {%- comment -%} Ingredient matrix: ingredient blocks only {%- endcomment -%}
     {%- if ingredient_count > 0 -%}
       <div class="sp-ingredients-spotlight__grid-section{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
         {%- if section.settings.grid_heading != blank -%}
@@ -165,65 +235,74 @@
         {%- endif -%}
 
         <ul class="sp-ingredients-spotlight__grid" role="list">
+          {%- assign ingredient_index = 0 -%}
           {%- for block in section.blocks -%}
             {%- unless block.type == 'ingredient' -%}
               {%- continue -%}
             {%- endunless -%}
-              {%- liquid
-                assign name_stripped = block.settings.name | strip
-                assign role_stripped = block.settings.role | strip
-                assign desc_stripped = block.settings.description | strip_html | strip
-
-                assign ingredient_image_alt = block.settings.image_alt | strip
-                if ingredient_image_alt == blank and block.settings.image != blank
-                  assign ingredient_image_alt = block.settings.image.alt | escape
-                endif
-                if ingredient_image_alt == blank
-                  assign ingredient_image_alt = name_stripped | escape
-                endif
-              -%}
-              {%- if name_stripped != blank or role_stripped != blank or desc_stripped != blank -%}
-                <li class="sp-ingredients-spotlight__item" {{ block.shopify_attributes }}>
-                  <article class="sp-ingredients-spotlight__item-row">
-                    <div class="sp-ingredients-spotlight__item-media{% if block.settings.image == blank %} sp-ingredients-spotlight__item-media--placeholder{% endif %}">
-                      {%- if block.settings.image != blank -%}
-                        {{
-                          block.settings.image
-                          | image_url: width: 144
-                          | image_tag:
-                            widths: '56, 72, 112, 144',
-                            sizes: '(min-width: 990px) 72px, 56px',
-                            alt: ingredient_image_alt,
-                            loading: 'lazy',
-                            class: 'sp-ingredients-spotlight__item-image'
-                        }}
+            {%- liquid
+              assign name_stripped = block.settings.name | strip
+              assign role_stripped = block.settings.role | strip
+              assign desc_stripped = block.settings.description | strip_html | strip
+            -%}
+            {%- if name_stripped != blank or role_stripped != blank or desc_stripped != blank -%}
+              {%- assign ingredient_index = ingredient_index | plus: 1 -%}
+              <li
+                class="sp-ingredients-spotlight__item{% if featured_block != blank and block.id == featured_block.id %} sp-ingredients-spotlight__item--featured-source{% endif %}"
+                {{ block.shopify_attributes }}
+              >
+                <article class="sp-ingredients-spotlight__item-row">
+                  <span
+                    class="sp-ingredients-spotlight__item-icon sp-ingredients-spotlight__item-icon--{{ ingredient_index | modulo: 3 }}"
+                    aria-hidden="true"
+                  >
+                    {%- case ingredient_index | modulo: 3 -%}
+                      {%- when 1 -%}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3c-4 6-7 9-7 12a7 7 0 0 0 14 0c0-3-3-6-7-12Z"></path><path d="M12 11v6"></path></svg>
+                      {%- when 2 -%}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3 4 7v6c0 5 3.5 8 8 8s8-3 8-8V7l-8-4Z"></path></svg>
                       {%- else -%}
-                        <span class="sp-ingredients-spotlight__item-media-empty" aria-hidden="true"></span>
-                      {%- endif -%}
-                    </div>
-                    <div class="sp-ingredients-spotlight__item-copy">
-                      {%- if name_stripped != blank -%}
-                        <h4 class="sp-ingredients-spotlight__item-name">{{ name_stripped | escape }}</h4>
-                      {%- endif -%}
-                      {%- if role_stripped != blank -%}
-                        <p class="sp-ingredients-spotlight__item-role">{{ role_stripped | escape }}</p>
-                      {%- endif -%}
-                      {%- if desc_stripped != blank -%}
-                        <div class="sp-ingredients-spotlight__item-description rte">
-                          {{ block.settings.description }}
-                        </div>
-                      {%- endif -%}
-                    </div>
-                  </article>
-                </li>
-              {%- endif -%}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="2.5"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg>
+                    {%- endcase -%}
+                  </span>
+                  <div class="sp-ingredients-spotlight__item-copy">
+                    {%- if name_stripped != blank -%}
+                      <h4 class="sp-ingredients-spotlight__item-name">{{ name_stripped | escape }}</h4>
+                    {%- endif -%}
+                    {%- if desc_stripped != blank -%}
+                      <div class="sp-ingredients-spotlight__item-description rte">
+                        {{ block.settings.description }}
+                      </div>
+                    {%- elsif role_stripped != blank -%}
+                      <p class="sp-ingredients-spotlight__item-description sp-ingredients-spotlight__item-description--role">
+                        {{ role_stripped | escape }}
+                      </p>
+                    {%- endif -%}
+                  </div>
+                </article>
+              </li>
+            {%- endif -%}
           {%- endfor -%}
         </ul>
       </div>
     {%- endif -%}
 
-    {%- comment -%} Commitment assurance: commitment blocks only {%- endcomment -%}
-    {%- if commitment_count > 0 -%}
+    {%- if show_formula_strip -%}
+      <div class="sp-ingredients-spotlight__formula-strip{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
+        <p class="sp-ingredients-spotlight__formula-strip-text">
+          {{ section.settings.formula_strip_text | escape }}
+        </p>
+        {%- if section.settings.formula_strip_link_label != blank and formula_strip_link != blank -%}
+          <a
+            href="{{ formula_strip_link }}"
+            class="sp-ingredients-spotlight__formula-strip-link sp-editorial-cta sp-editorial-cta--quiet-link{% render 'sp-motion-class', type: 'hover-button-quiet' %}"
+          >
+            <span>{{ section.settings.formula_strip_link_label | escape }}</span>
+            <span class="sp-editorial-cta__arrow" aria-hidden="true">→</span>
+          </a>
+        {%- endif -%}
+      </div>
+    {%- elsif commitment_count > 0 -%}
       <div class="sp-ingredients-spotlight__commitment{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
         {%- if section.settings.commitment_heading != blank -%}
           <h3 class="sp-ingredients-spotlight__commitment-heading">
@@ -246,7 +325,7 @@
       </div>
     {%- endif -%}
 
-    {%- if ingredient_count > 0 or commitment_count > 0 -%}
+    {%- if ingredient_count > 0 or show_formula_strip or commitment_count > 0 -%}
       </div>
     {%- endif -%}
   </div>
@@ -312,6 +391,31 @@
       "id": "grid_heading",
       "label": "Ingredient grid heading",
       "default": "KEY INGREDIENTS. CLEAR PURPOSE."
+    },
+    {
+      "type": "text",
+      "id": "featured_label",
+      "label": "Featured ingredient label",
+      "default": "Featured ingredient",
+      "info": "Mobile featured card only. Uses the first ingredient block."
+    },
+    {
+      "type": "text",
+      "id": "formula_strip_text",
+      "label": "Formula reassurance text",
+      "default": "No fillers. No unnecessary additives. Just pure ingredients for real results."
+    },
+    {
+      "type": "text",
+      "id": "formula_strip_link_label",
+      "label": "Formula strip link label",
+      "default": "View complete formula"
+    },
+    {
+      "type": "url",
+      "id": "formula_strip_link",
+      "label": "Formula strip link",
+      "info": "Falls back to the main button link when blank."
     },
     {
       "type": "text",
@@ -456,6 +560,22 @@
           "id": "description",
           "label": "Description",
           "default": "<p>Short description of this ingredient and its role in the formula.</p>"
+        },
+        {
+          "type": "text",
+          "id": "benefit_1",
+          "label": "Featured benefit 1",
+          "info": "First ingredient block only. Mobile featured card."
+        },
+        {
+          "type": "text",
+          "id": "benefit_2",
+          "label": "Featured benefit 2"
+        },
+        {
+          "type": "text",
+          "id": "benefit_3",
+          "label": "Featured benefit 3"
         }
       ]
     },

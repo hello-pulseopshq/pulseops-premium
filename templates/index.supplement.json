@@ -134,62 +134,85 @@
     "sp-ingredients-spotlight": {
       "type": "sp-ingredients-spotlight",
       "blocks": {
+        "trust-1": {
+          "type": "trust_point",
+          "settings": {
+            "text": "Clinically studied"
+          }
+        },
+        "trust-2": {
+          "type": "trust_point",
+          "settings": {
+            "text": "Third-party tested"
+          }
+        },
+        "trust-3": {
+          "type": "trust_point",
+          "settings": {
+            "text": "Trusted by 50,000+ daily"
+          }
+        },
         "ingredient-1": {
           "type": "ingredient",
           "settings": {
-            "name": "B-Vitamin Complex",
-            "role": "For Daily Energy & Focus",
-            "image": "shopify://shop_images/B-Vitamin_Complex.png",
-            "description": "<p>Activated forms of B6, B12, folate and more to support cellular energy and mental clarity.</p>"
+            "name": "Ashwagandha",
+            "role": "Root extract",
+            "description": "<p>Supports stress resilience and calm focus.</p>",
+            "benefit_1": "Reduces stress and tension",
+            "benefit_2": "Supports energy and stamina",
+            "benefit_3": "Promotes balance and recovery"
           }
         },
         "ingredient-2": {
           "type": "ingredient",
           "settings": {
-            "name": "Rhodiola Rosea",
-            "role": "For Stress Resilience",
-            "image": "shopify://shop_images/Rhodiola_Rosea.png",
-            "description": "<p>An adaptogen included for daily stress resilience—not stimulant energy spikes.</p>"
+            "name": "Magnesium",
+            "role": "",
+            "image": "shopify://shop_images/Magnesium_Glycinate.png",
+            "description": "<p>Supports muscle function and daily recovery.</p>"
           }
         },
         "ingredient-3": {
           "type": "ingredient",
           "settings": {
             "name": "Probiotic Blend",
-            "role": "For Gut Balance",
+            "role": "",
             "image": "shopify://shop_images/Probiotic_Blend.png",
-            "description": "<p>Selected strains to support digestion, nutrient absorption, and regularity.</p>"
+            "description": "<p>Supports gut health and immune function.</p>"
           }
         },
         "ingredient-4": {
           "type": "ingredient",
           "settings": {
-            "name": "Magnesium Glycinate",
-            "role": "For Recovery & Relaxation",
-            "image": "shopify://shop_images/Magnesium_Glycinate.png",
-            "description": "<p>A highly absorbable form of magnesium selected to support muscle recovery, relaxation, and sleep quality.</p>"
+            "name": "Rhodiola Rosea",
+            "role": "",
+            "image": "shopify://shop_images/Rhodiola_Rosea.png",
+            "description": "<p>Enhances mental clarity and helps fight fatigue.</p>"
           }
         },
         "ingredient-5": {
           "type": "ingredient",
           "settings": {
-            "name": "L-Theanine",
-            "role": "For Calm Focus",
-            "image": "shopify://shop_images/L-Theanine.png",
-            "description": "<p>Supports relaxation without drowsiness and helps maintain calm, sustained attention.</p>"
+            "name": "B-Complex",
+            "role": "",
+            "image": "shopify://shop_images/B-Vitamin_Complex.png",
+            "description": "<p>Supports energy metabolism and reduces tiredness.</p>"
           }
         },
         "ingredient-6": {
           "type": "ingredient",
           "settings": {
-            "name": "BioPerine®",
-            "role": "For Better Absorption",
-            "image": "shopify://shop_images/BioPerine.png",
-            "description": "<p>Black pepper extract selected to support bioavailability of key nutrients.</p>"
+            "name": "L-Theanine",
+            "role": "",
+            "image": "shopify://shop_images/L-Theanine.png",
+            "description": "<p>Promotes calm focus and cognitive performance.</p>"
           }
         }
       },
       "block_order": [
+        "trust-1",
+        "trust-2",
+        "trust-3",
         "ingredient-1",
         "ingredient-2",
         "ingredient-3",
@@ -198,15 +221,19 @@
         "ingredient-6"
       ],
       "settings": {
-        "eyebrow": "WHAT YOU TAKE EACH MORNING",
-        "heading": "<p>Six ingredients.<br>Two capsules. One serving.</p>",
-        "body": "<p>Every active in Daily Vitality is listed with its role in your serving—no proprietary blends, no hidden stack. Full amounts and sourcing notes live on the formula page.</p>",
+        "eyebrow": "03 INGREDIENTS —",
+        "heading": "<p>Nature, selected with intention.</p>",
+        "body": "<p>Every ingredient has a role. Nothing is included simply to increase the label.</p>",
         "image": "shopify://shop_images/Ingredient_Flat_Lay.png",
         "image_alt": "Daily Vitality ingredient flat lay with capsules and whole-food sources",
-        "button_label": "See full formula & amounts",
+        "button_label": "Explore the formulation",
         "button_link": "/products/daily-vitality-complex?view=supplement",
         "microcopy": "",
-        "grid_heading": "",
+        "grid_heading": "KEY INGREDIENTS & THEIR ROLE",
+        "featured_label": "Featured ingredient",
+        "formula_strip_text": "",
+        "formula_strip_link_label": "",
+        "formula_strip_link": "",
         "commitment_heading": "",
         "background_tone": "soft",
         "sp_surface_style": "default",
@@ -214,8 +241,8 @@
         "sp_section_emphasis": "normal",
         "sp_divider_style": "none",
         "color_scheme": "scheme-1",
-        "padding_top": 72,
-        "padding_bottom": 92
+        "padding_top": 64,
+        "padding_bottom": 72
       }
     },
     "sp-metrics": {

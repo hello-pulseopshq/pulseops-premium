@@ -429,7 +429,7 @@
   min-height: var(--sp-hero-cta-min-height, 4.8rem);
   margin-bottom: 1rem;
   padding: 0 2.4rem;
-  border-radius: 999px;
+  border-radius: var(--sp-supplement-radius-pill, 999px);
   background: var(--sp-eo-accent);
   color: rgb(var(--color-button-label, 255, 255, 255));
   font-size: 1.45rem;

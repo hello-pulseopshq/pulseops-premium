@@ -169,14 +169,16 @@
 /* ── Editorial story presentation (Community Confidence) ── */
 
 .sp-metrics--editorial-story {
+  --sp-metrics-proof-value-size: clamp(1.72rem, 2vw, 2.35rem);
+  --sp-metrics-proof-label-size: clamp(1.04rem, 0.95vw, 1.14rem);
   display: grid;
-  gap: var(--sp-es-chapter-gap-tight, clamp(1.45rem, 2.2vw, 2rem));
+  gap: clamp(2rem, 3vw, 2.8rem);
 }
 
 .sp-metrics--editorial-story .sp-metrics__intro {
   display: grid;
-  gap: clamp(0.65rem, 1vw, 0.85rem);
-  max-width: min(100%, 52rem);
+  gap: clamp(0.85rem, 1.2vw, 1.1rem);
+  max-width: min(100%, 58rem);
 }
 
 .sp-supplement .sp-metrics--editorial-story .sp-metrics__intro {
@@ -198,7 +200,7 @@
 
 .sp-metrics--editorial-story .sp-metrics__statement {
   margin: 0;
-  max-width: 18ch;
+  max-width: 14ch;
 }
 
 .sp-metrics--editorial-story .sp-metrics__intro--center .sp-metrics__statement {
@@ -224,11 +226,11 @@
 .sp-metrics__proof-moments {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(1.15rem, 1.8vw, 1.65rem) clamp(1rem, 1.5vw, 1.35rem);
+  gap: clamp(1.35rem, 2vw, 1.85rem) clamp(1.1rem, 1.6vw, 1.45rem);
   margin: 0;
-  padding: clamp(1.15rem, 1.6vw, 1.45rem) 0 0;
+  padding: clamp(1.55rem, 2.1vw, 2rem) 0 0;
   list-style: none;
-  border-top: 0.1rem solid var(--sp-surface-ledger-rule, rgba(var(--color-foreground), 0.1));
+  border-top: 0.1rem solid var(--sp-surface-ledger-rule, rgba(var(--color-foreground), 0.08));
 }
 
 .sp-metrics__proof-moment {
@@ -243,9 +245,9 @@
 .sp-metrics__proof-value {
   margin: 0;
   font-size: var(--sp-metrics-proof-value-size);
-  font-weight: 700;
-  line-height: 0.98;
-  letter-spacing: -0.045em;
+  font-weight: 650;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
   font-variant-numeric: tabular-nums;
   color: rgb(var(--color-foreground));
 }
@@ -273,10 +275,10 @@
 }
 
 .sp-metrics__assurance {
-  margin: clamp(0.85rem, 1.2vw, 1.05rem) 0 0;
-  padding-top: clamp(0.85rem, 1.2vw, 1.05rem);
+  margin: clamp(0.25rem, 0.7vw, 0.55rem) 0 0;
+  padding-top: clamp(1.05rem, 1.35vw, 1.35rem);
   border-top: 0.1rem solid var(--sp-surface-ledger-rule, rgba(var(--color-foreground), 0.08));
-  font-size: clamp(1.02rem, 0.95vw, 1.12rem);
+  font-size: clamp(1.08rem, 1vw, 1.2rem);
   font-weight: 500;
   line-height: 1.45;
   letter-spacing: 0.01em;
@@ -318,7 +320,7 @@
   }
 
   .sp-metrics__proof-moments--columns-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.95fr) minmax(0, 1.05fr);
   }
 
   .sp-metrics__proof-moments--columns-5 {
@@ -331,7 +333,7 @@
 
   .sp-metrics__proof-moment + .sp-metrics__proof-moment {
     padding-left: clamp(1rem, 1.4vw, 1.35rem);
-    border-left: 0.1rem solid rgba(var(--color-foreground), 0.1);
+    border-left: 0.1rem solid rgba(var(--color-foreground), 0.07);
   }
 }
 
@@ -341,11 +343,11 @@
   }
 
   .sp-metrics__proof-moments {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr);
   }
 
-  .sp-metrics__proof-moment:nth-child(n + 3) {
-    padding-top: 0.35rem;
+  .sp-metrics__proof-moment + .sp-metrics__proof-moment {
+    padding-top: 0.85rem;
     border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
   }
 }

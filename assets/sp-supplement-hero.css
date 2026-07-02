@@ -1,7 +1,7 @@
 /**
- * Supplement Demo — Hero clean reset
+ * Supplement vertical — Hero clean reset
  * Single source of truth for .sp-supplement hero + header canvas.
- * Loaded after section-sp-hero.css from sections/sp-hero.liquid.
+ * Loaded by snippets/sp-supplement-head.liquid after the generic Hero section CSS.
  */
 
 html.sp-supplement {
@@ -30,6 +30,7 @@ html.sp-supplement {
     0 1rem 2.8rem rgba(var(--sp-hero-neutral-shadow), 0.1),
     inset 0 0.1rem 0 rgba(255, 255, 255, 0.65);
   --sp-hero-surface-card-radius: 1.4rem;
+  --sp-hero-z-sticky-header: 4;
 }
 
 /* ── Full-width warm ivory canvas (body, header, hero) ── */
@@ -78,7 +79,7 @@ html.sp-supplement.gradient {
 .sp-supplement .section-header.shopify-section.shopify-section-header-sticky {
   position: sticky;
   top: 0;
-  z-index: 4;
+  z-index: var(--sp-hero-z-sticky-header);
 }
 
 .sp-supplement .section-header.shopify-section::before,
@@ -443,7 +444,7 @@ html.sp-supplement .sp-hero .sp-hero__cta .button.button--primary {
   min-height: 5.8rem;
   padding: 0 2.4rem 0 3rem !important;
   border: none !important;
-  border-radius: 999px !important;
+  border-radius: var(--sp-supplement-radius-pill, 999px) !important;
   background-color: rgb(var(--sp-supplement-green)) !important;
   color: rgb(var(--sp-supplement-cream)) !important;
   box-shadow: 0 0.8rem 2rem rgba(var(--sp-hero-neutral-shadow), 0.12) !important;

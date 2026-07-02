@@ -293,7 +293,7 @@
   min-height: var(--sp-hero-cta-min-height, 4.8rem);
   margin-bottom: 1rem;
   padding: 0 2.4rem;
-  border-radius: 999px;
+  border-radius: var(--sp-supplement-radius-pill, 999px);
   background: var(--sp-qs-accent);
   color: rgb(var(--color-button-label, 255, 255, 255));
   font-size: 1.45rem;
@@ -422,7 +422,7 @@
 /* ── Scientific confidence presentation ── */
 
 .sp-quality-standards--scientific-confidence {
-  --sp-qs-sci-gap: clamp(1.35rem, 2vw, 1.85rem);
+  --sp-qs-sci-gap: clamp(1.85rem, 2.7vw, 2.65rem);
   --sp-qs-sci-gap-tight: var(--sp-rhythm-gap-intro, clamp(0.85rem, 1.2vw, 1.1rem));
   --sp-qs-lab-ratio: 16 / 8;
   display: grid;
@@ -432,7 +432,7 @@
 .sp-quality-standards--scientific-confidence .sp-quality-standards__evidence-intro {
   display: grid;
   gap: var(--sp-qs-sci-gap-tight);
-  max-width: min(100%, 58rem);
+  max-width: min(100%, 62rem);
 }
 
 .sp-quality-standards--scientific-confidence .sp-quality-standards__eyebrow {
@@ -494,7 +494,7 @@
   display: grid;
   gap: 0;
   margin: 0;
-  padding: clamp(1.15rem, 1.6vw, 1.45rem) 0 0;
+  padding: clamp(1.6rem, 2.1vw, 2.05rem) 0 0;
   list-style: none;
   border-top: 0.1rem solid var(--sp-qs-divider);
   counter-reset: sp-qs-process;
@@ -519,21 +519,21 @@
 
 .sp-quality-standards--show-process-numbers .sp-quality-standards__process-step {
   grid-template-columns: auto minmax(0, 1fr);
-  gap: clamp(1rem, 1.5vw, 1.35rem);
+  gap: clamp(1.1rem, 1.7vw, 1.55rem);
   align-items: start;
 }
 
 .sp-quality-standards__process-index {
   display: block;
-  min-width: 2.4rem;
+  min-width: 2.6rem;
   padding-top: 0.15rem;
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
   line-height: 1.2;
-  color: var(--sp-qs-accent);
+  color: var(--sp-qs-accent-deep);
   font-variant-numeric: tabular-nums;
-  opacity: 0.88;
+  opacity: 0.78;
 }
 
 .sp-quality-standards__process-copy {
@@ -544,7 +544,7 @@
 
 .sp-quality-standards__process-title {
   margin: 0;
-  font-size: clamp(1.42rem, 1.32vw, 1.62rem);
+  font-size: clamp(1.48rem, 1.36vw, 1.72rem);
   font-weight: 700;
   line-height: 1.28;
   letter-spacing: -0.02em;
@@ -566,20 +566,21 @@
 }
 
 .sp-quality-standards__process-meta {
-  margin: 0.1rem 0 0;
-  font-size: clamp(1.02rem, 0.95vw, 1.12rem);
-  line-height: 1.45;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  color: rgba(var(--color-foreground), 0.58);
+  margin: 0.18rem 0 0;
+  font-size: clamp(0.98rem, 0.92vw, 1.08rem);
+  line-height: 1.35;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(var(--color-foreground), 0.52);
 }
 
 .sp-quality-standards__evidence-note {
   margin: 0;
-  padding-top: clamp(0.75rem, 1.1vw, 0.95rem);
+  padding-top: clamp(1rem, 1.35vw, 1.25rem);
   border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
   max-width: 48ch;
-  font-size: clamp(1.05rem, 0.98vw, 1.15rem);
+  font-size: clamp(1.08rem, 1vw, 1.2rem);
   line-height: 1.5;
   font-weight: 500;
   color: rgba(var(--color-foreground), 0.64);
@@ -617,8 +618,8 @@
 
   .sp-quality-standards__process-checkpoints {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: clamp(1.35rem, 2vw, 2rem);
-    padding-top: clamp(1.35rem, 1.8vw, 1.65rem);
+    gap: clamp(1.55rem, 2.2vw, 2.25rem);
+    padding-top: clamp(1.7rem, 2.1vw, 2rem);
   }
 
   .sp-quality-standards__process-step {
@@ -645,7 +646,7 @@
 @media screen and (min-width: 990px) {
   .sp-quality-standards__process-checkpoints {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: clamp(1.25rem, 1.8vw, 1.85rem);
+    gap: clamp(1.45rem, 2vw, 2.05rem);
   }
 
   .sp-quality-standards__process-step:nth-child(odd) {

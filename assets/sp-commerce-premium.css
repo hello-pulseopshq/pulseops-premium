@@ -34,7 +34,7 @@
 
 .sp-cart-drawer__shipping-track {
   height: 0.4rem;
-  border-radius: 999px;
+  border-radius: var(--sp-supplement-radius-pill, 999px);
   background: rgba(var(--color-foreground), 0.1);
   overflow: hidden;
 }
@@ -70,14 +70,14 @@
 .cart-drawer .cart__checkout-button {
   font-weight: 600;
   min-height: 5rem;
-  border-radius: 999px;
+  border-radius: var(--sp-supplement-radius-pill, 999px);
 }
 
 .sp-cart-drawer__continue {
   width: 100%;
   margin-top: 0.8rem;
   min-height: 4.4rem;
-  border-radius: 999px;
+  border-radius: var(--sp-supplement-radius-pill, 999px);
 }
 
 .sp-cart-drawer__trust {
