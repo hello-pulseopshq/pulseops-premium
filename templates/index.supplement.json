@@ -200,7 +200,7 @@
       "settings": {
         "eyebrow": "WHAT YOU TAKE EACH MORNING",
         "heading": "<p>Six ingredients.<br>Two capsules. One serving.</p>",
-        "body": "<p>Every active in Daily Vitality is listed here with its role in your daily serving—no proprietary blends, no hidden stack. Full amounts and sourcing notes live on the formula page.</p>",
+        "body": "<p>Every active in Daily Vitality is listed with its role in your serving—no proprietary blends, no hidden stack. Full amounts and sourcing notes live on the formula page.</p>",
         "image": "shopify://shop_images/Ingredient_Flat_Lay.png",
         "image_alt": "Daily Vitality ingredient flat lay with capsules and whole-food sources",
         "button_label": "See full formula & amounts",
@@ -215,7 +215,7 @@
         "sp_divider_style": "none",
         "color_scheme": "scheme-1",
         "padding_top": 72,
-        "padding_bottom": 64
+        "padding_bottom": 92
       }
     },
     "sp-metrics": {
@@ -224,22 +224,22 @@
         "metric-1": {
           "type": "metric",
           "settings": {
-            "value": "One daily ritual",
-            "label": "Built for consistency"
+            "value": "One serving",
+            "label": "Clear enough to remember"
           }
         },
         "metric-2": {
           "type": "metric",
           "settings": {
-            "value": "Daily, not occasionally",
-            "label": "Designed for long-term habits"
+            "value": "Two capsules",
+            "label": "No stack to manage"
           }
         },
         "metric-3": {
           "type": "metric",
           "settings": {
-            "value": "Two capsules",
-            "label": "One routine, every morning"
+            "value": "Every morning",
+            "label": "Repeatable without overthinking"
           }
         }
       },
@@ -251,9 +251,9 @@
       "settings": {
         "presentation": "editorial_story",
         "eyebrow": "Routine confidence",
-        "heading": "A morning routine designed to be repeatable.",
-        "subheading": "<p>No inflated claims—just a simple serving, clear roles, and a habit that can fit into everyday mornings.</p>",
-        "assurance_text": "",
+        "heading": "Simple enough to keep.",
+        "subheading": "<p>After the formula comes the part that matters most: a serving that can fit into the morning without becoming another decision.</p>",
+        "assurance_text": "No intensity cycle. No cabinet full of bottles. Just a calm daily rhythm you can return to.",
         "content_alignment": "left",
         "desktop_columns": "3",
         "show_band": false,
@@ -261,8 +261,8 @@
         "mobile_layout": "grid",
         "sp_surface_style": "default",
         "sp_divider_style": "none",
-        "padding_top": 28,
-        "padding_bottom": 32
+        "padding_top": 68,
+        "padding_bottom": 76
       }
     },
     "sp-editorial-differentiation": {
@@ -272,21 +272,21 @@
           "type": "proof_point",
           "settings": {
             "title": "Consistency over intensity",
-            "text": "We design for the morning you can repeat—not the week you white-knuckle through."
+            "text": "Designed for the kind of morning that actually happens."
           }
         },
         "proof-2": {
           "type": "proof_point",
           "settings": {
             "title": "Restraint over accumulation",
-            "text": "Most people do not need another bottle in the cabinet. They need one ritual they will actually keep."
+            "text": "Less to manage, fewer decisions, more room to stay consistent."
           }
         },
         "proof-3": {
           "type": "proof_point",
           "settings": {
             "title": "One system over a stack",
-            "text": "Two capsules replace the scattered stack. Simplicity is the product—not an afterthought."
+            "text": "The formula earns its place by making the habit easier to keep."
           }
         }
       },
@@ -300,9 +300,9 @@
         "image": "shopify://shop_images/Formulation_Philosophy.png",
         "image_alt": "Daily Vitality formulation philosophy",
         "eyebrow": "Formulation philosophy",
-        "heading": "<p>Every choice in this formula serves the ritual—not the label.</p>",
-        "body": "<p>We did not set out to win the supplement facts panel. We set out to solve supplement overload: one calm morning ritual, fewer decisions, and a daily system people can follow without thinking about it twice.</p>",
-        "philosophy_closing_line": "Not more ingredients—a better daily system you can keep.",
+        "heading": "<p>Every choice serves the ritual—not the label.</p>",
+        "body": "<p>We did not set out to win the supplement facts panel. We set out to reduce supplement overload: fewer decisions, clearer roles, and a formula that feels calm enough to keep.</p>",
+        "philosophy_closing_line": "Not more to take. Less to think about.",
         "show_philosophy_image": true,
         "button_label": "",
         "button_link": "#sp-ingredients",
@@ -319,8 +319,8 @@
         "sp_section_emphasis": "normal",
         "sp_divider_style": "none",
         "color_scheme": "scheme-1",
-        "padding_top": 52,
-        "padding_bottom": 52
+        "padding_top": 60,
+        "padding_bottom": 68
       }
     },
     "sp-quality-standards": {
@@ -329,33 +329,33 @@
         "pillar-1": {
           "type": "trust_pillar",
           "settings": {
-            "value": "Identity verification",
-            "label": "Each ingredient lot confirmed against specification before blending.",
-            "detail": "Incoming raw materials"
+            "value": "Raw material identity",
+            "label": "Each incoming lot is matched against specification before blending.",
+            "detail": "01 · Incoming verification"
           }
         },
         "pillar-2": {
           "type": "trust_pillar",
           "settings": {
-            "value": "Purity screening",
-            "label": "Heavy metals, microbes, and adulterants tested to established limits.",
-            "detail": "Contaminant panel"
+            "value": "Contaminant screening",
+            "label": "Heavy metals, microbes, and adulterants are checked against established limits.",
+            "detail": "02 · Purity panel"
           }
         },
         "pillar-3": {
           "type": "trust_pillar",
           "settings": {
             "value": "Potency validation",
-            "label": "Active compounds verified to meet label claim prior to release.",
-            "detail": "Batch release testing"
+            "label": "Active compounds are verified against label claim before release.",
+            "detail": "03 · Batch assay"
           }
         },
         "pillar-4": {
           "type": "trust_pillar",
           "settings": {
-            "value": "Third-party lot release",
-            "label": "Independent certificates issued for every production batch.",
-            "detail": "GMP-certified facility"
+            "value": "Lot release review",
+            "label": "Independent documentation supports every production batch.",
+            "detail": "04 · GMP release"
           }
         }
       },
@@ -367,16 +367,16 @@
       ],
       "settings": {
         "presentation": "scientific_confidence",
-        "eyebrow": "Scientific confidence",
-        "heading": "<p>Manufacturing and testing you can verify.</p>",
-        "body": "<p>Every lot moves through documented controls—from raw material identity to final release testing. This is where claims meet evidence: clean label standards, third-party batch release, and GMP manufacturing you can trace.</p>",
+        "eyebrow": "Evidence file",
+        "heading": "<p>Documented controls from raw material to release.</p>",
+        "body": "<p>Every lot moves through a defined quality path: identity checks, contaminant screening, potency validation, and release documentation before it reaches your routine.</p>",
         "image": "shopify://shop_images/Manufacturing_Lab_Scene.png",
         "image_alt": "Daily Vitality manufacturing and quality control environment",
-        "supporting_text": "<p>Clean &amp; non-GMO. No fillers or binders. Third-party tested every batch. Made in GMP-certified facilities.</p>",
+        "supporting_text": "<p>Clean &amp; non-GMO. No unnecessary fillers or binders. Third-party tested every batch. Made in GMP-certified facilities.</p>",
         "button_label": "Review formula evidence",
         "button_link": "/products/daily-vitality-complex?view=supplement",
         "trust_text": "",
-        "show_process_numbers": false,
+        "show_process_numbers": true,
         "top_spacing": "small",
         "bottom_spacing": "medium",
         "show_top_divider": false,
@@ -386,8 +386,8 @@
         "sp_section_emphasis": "normal",
         "sp_divider_style": "none",
         "color_scheme": "scheme-1",
-        "padding_top": 48,
-        "padding_bottom": 56
+        "padding_top": 76,
+        "padding_bottom": 76
       }
     },
     "sp-social-proof": {
@@ -434,6 +434,7 @@
         "eyebrow": "Human proof",
         "heading": "They made it part of their morning.",
         "subheading": "",
+        "human_story_layout": "editorial_portrait",
         "story_image": "shopify://shop_images/Male_Professional_Lifestyle.png",
         "story_image_alt": "Professional taking Daily Vitality as part of his morning routine",
         "verification_note": "Verified purchaser",
@@ -445,7 +446,7 @@
         "sp_surface_style": "default",
         "sp_width_mode": "wide",
         "sp_divider_style": "none",
-        "padding_top": 44,
+        "padding_top": 64,
         "padding_bottom": 36
       }
     },

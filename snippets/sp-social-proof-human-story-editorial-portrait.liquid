@@ -1,0 +1,174 @@
+{%- comment -%}
+  Human story — Editorial Portrait flagship layout.
+
+  Accepts:
+  - section: {Object} parent section
+{%- endcomment -%}
+
+{%- liquid
+  assign eyebrow_stripped = section.settings.eyebrow | strip
+  assign heading_stripped = section.settings.heading | strip_html | strip
+  assign subheading_stripped = section.settings.subheading | strip_html | strip
+  assign verification_stripped = section.settings.verification_note | strip
+  assign human_story_heading_id = 'HumanStoryHeading-' | append: section.id
+
+  assign primary_block = blank
+  assign fragment_count = 0
+
+  for block in section.blocks
+    assign review_text_stripped = block.settings.review_text | strip_html | strip
+    assign customer_name_stripped = block.settings.customer_name | strip
+    if review_text_stripped != blank or customer_name_stripped != blank
+      if primary_block == blank
+        assign primary_block = block
+      endif
+      assign fragment_count = fragment_count | plus: 1
+    endif
+  endfor
+
+  assign primary_review_text = ''
+  assign primary_customer_name = ''
+  assign primary_customer_title = ''
+  if primary_block != blank
+    assign primary_review_text = primary_block.settings.review_text | strip_html | strip
+    assign primary_customer_name = primary_block.settings.customer_name | strip
+    assign primary_customer_title = primary_block.settings.customer_title | strip
+  endif
+
+  assign story_image_alt = section.settings.story_image_alt | strip
+  if story_image_alt == blank and section.settings.story_image != blank
+    assign story_image_alt = section.settings.story_image.alt | escape
+  endif
+  if story_image_alt == blank
+    assign story_image_alt = 'Customer lifestyle portrait' | escape
+  endif
+
+  assign fragments_heading = subheading_stripped
+  if fragments_heading == blank
+    assign fragments_heading = 'More stories from our community'
+  endif
+-%}
+
+<div class="sp-social-proof__human-story sp-social-proof__human-story--editorial-portrait sp-editorial-chapter sp-editorial-chapter--spacing-standard sp-editorial-chapter--handoff-in sp-editorial-chapter--handoff-out">
+  {%- if heading_stripped != blank -%}
+    <h2 id="{{ human_story_heading_id }}" class="visually-hidden">{{ section.settings.heading }}</h2>
+  {%- endif -%}
+
+  <div class="sp-hs-ep-spread{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
+    {%- if section.settings.story_image != blank -%}
+      <div class="sp-hs-ep-portrait">
+        <div class="sp-hs-ep-portrait-frame">
+          {{
+            section.settings.story_image
+            | image_url: width: 2200
+            | image_tag:
+              widths: '550, 750, 1100, 1500, 1800, 2200',
+              sizes: '(min-width: 990px) 52vw, 100vw',
+              alt: story_image_alt,
+              loading: 'lazy',
+              class: 'sp-image sp-hs-ep-portrait-image'
+          }}
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- if primary_review_text != blank or primary_customer_name != blank or eyebrow_stripped != blank -%}
+      <div
+        class="sp-hs-ep-panel"
+        {% if heading_stripped != blank %}
+          aria-labelledby="{{ human_story_heading_id }}"
+        {% else %}
+          aria-label="{{ section.settings.eyebrow | default: 'Human proof' | escape }}"
+        {% endif %}
+      >
+        {%- if eyebrow_stripped != blank -%}
+          <p class="sp-hs-ep-eyebrow sp-editorial-type--caption caption-with-letter-spacing">
+            {{ section.settings.eyebrow | escape }}
+          </p>
+        {%- endif -%}
+
+        {%- if primary_review_text != blank -%}
+          <blockquote class="sp-hs-ep-quote sp-editorial-type--quote">
+            <span class="sp-hs-ep-quote-mark" aria-hidden="true">&ldquo;</span>
+            <div class="sp-hs-ep-quote-text rte">
+              {{ primary_block.settings.review_text }}
+            </div>
+          </blockquote>
+        {%- endif -%}
+
+        {%- if primary_customer_name != blank or primary_customer_title != blank or verification_stripped != blank or primary_block.settings.verified -%}
+          <div class="sp-hs-ep-attribution-block">
+            <span class="sp-hs-ep-divider" aria-hidden="true"></span>
+
+            {%- if primary_customer_name != blank or primary_customer_title != blank -%}
+              <footer class="sp-hs-ep-attribution">
+                {%- if primary_customer_name != blank -%}
+                  <cite class="sp-hs-ep-name">
+                    {{ primary_customer_name | escape }}
+                  </cite>
+                {%- endif -%}
+                {%- if primary_customer_title != blank -%}
+                  <p class="sp-hs-ep-context">
+                    {{ primary_customer_title | escape }}
+                  </p>
+                {%- endif -%}
+              </footer>
+            {%- endif -%}
+
+            {%- if verification_stripped != blank -%}
+              <p class="sp-hs-ep-verification">
+                {{ section.settings.verification_note | escape }}
+              </p>
+            {%- elsif primary_block != blank and primary_block.settings.verified -%}
+              <p class="sp-hs-ep-verification">Verified purchaser</p>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+
+  {%- if fragment_count > 0 -%}
+    <div
+      class="sp-hs-ep-fragments{% render 'sp-motion-class', type: 'fade-in-quiet' %}"
+      role="list"
+      aria-label="{{ fragments_heading | escape }}"
+    >
+      <p class="sp-hs-ep-fragments-heading sp-editorial-type--caption caption-with-letter-spacing">
+        {{ fragments_heading | escape }}
+      </p>
+
+      <div class="sp-hs-ep-fragments-list" role="presentation">
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign review_text_stripped = block.settings.review_text | strip_html | strip
+            assign customer_name_stripped = block.settings.customer_name | strip
+          -%}
+          {%- if review_text_stripped != blank or customer_name_stripped != blank -%}
+            <article
+              class="sp-hs-ep-fragment"
+              role="listitem"
+              {% if primary_block != blank and block.id == primary_block.id %}
+                aria-hidden="true"
+              {% endif %}
+              {{ block.shopify_attributes }}
+            >
+              <span class="sp-hs-ep-fragment-mark" aria-hidden="true">&ldquo;</span>
+              {%- if customer_name_stripped != blank -%}
+                <p class="sp-hs-ep-fragment-name">{{ customer_name_stripped | escape }}</p>
+              {%- endif -%}
+              {%- if review_text_stripped != blank -%}
+                <p class="sp-hs-ep-fragment-text" aria-hidden="true">
+                  {{ review_text_stripped | truncate: 120 }}
+                </p>
+                {%- unless primary_block != blank and block.id == primary_block.id -%}
+                  <span class="visually-hidden">{{ review_text_stripped }}</span>
+                {%- endunless -%}
+              {%- endif -%}
+            </article>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- endif -%}
+</div>

@@ -216,10 +216,15 @@
 {%- liquid
   assign presentation = section.settings.presentation | default: 'auto'
   assign layout_style = section.settings.layout_style | default: 'grid'
+  assign human_story_layout = section.settings.human_story_layout | default: 'portrait'
 -%}
 {%- if presentation == 'human_story' -%}
   {{ 'sp-social-proof-human-story.css' | asset_url | stylesheet_tag }}
-  <script src="{{ 'sp-testimonial-stage.js' | asset_url }}" defer="defer"></script>
+  {%- if human_story_layout == 'editorial_portrait' -%}
+    {{ 'sp-social-proof-human-story-editorial-portrait.css' | asset_url | stylesheet_tag }}
+  {%- else -%}
+    <script src="{{ 'sp-testimonial-stage.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
 {%- elsif layout_style == 'stage' -%}
   {{ 'sp-social-proof-stage.css' | asset_url | stylesheet_tag }}
   <script src="{{ 'sp-testimonial-stage.js' | asset_url }}" defer="defer"></script>
@@ -265,9 +270,13 @@
       assign heading_stripped = section.settings.heading | strip_html | strip
       assign subheading_stripped = section.settings.subheading | strip_html | strip
     -%}
-    <div class="sp-social-proof{% if presentation == 'human_story' %} sp-social-proof--human-story{% elsif layout_style == 'stage' %} sp-social-proof--stage{% endif %}">
+    <div class="sp-social-proof{% if presentation == 'human_story' %} sp-social-proof--human-story{% if human_story_layout == 'editorial_portrait' %} sp-social-proof--human-story-editorial-portrait{% endif %}{% elsif layout_style == 'stage' %} sp-social-proof--stage{% endif %}">
       {%- if presentation == 'human_story' -%}
-        {%- render 'sp-social-proof-human-story', section: section -%}
+        {%- if human_story_layout == 'editorial_portrait' -%}
+          {%- render 'sp-social-proof-human-story-editorial-portrait', section: section -%}
+        {%- else -%}
+          {%- render 'sp-social-proof-human-story', section: section -%}
+        {%- endif -%}
       {%- else -%}
       {%- if layout_style != 'stage' -%}
       {%- if heading_stripped != blank or subheading_stripped != blank -%}
@@ -496,6 +505,23 @@
       "id": "story_image_alt",
       "label": "Portrait alt text",
       "info": "Human story presentation only."
+    },
+    {
+      "type": "select",
+      "id": "human_story_layout",
+      "label": "Human story layout",
+      "default": "portrait",
+      "info": "Human story presentation only.",
+      "options": [
+        {
+          "value": "portrait",
+          "label": "Portrait + quote"
+        },
+        {
+          "value": "editorial_portrait",
+          "label": "Editorial Portrait"
+        }
+      ]
     },
     {
       "type": "text",
