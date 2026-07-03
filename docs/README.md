@@ -1,3 +1,23 @@
+# PulseOps Premium Theme Platform
+
+> Premium editorial commerce platform for Shopify.
+
+## Documentation Reading Order
+
+If you are contributing to PulseOps, read these documents in order.
+
+1. Production Constitution
+2. Production Playbook
+3. PulseOps Design System
+4. PulseOps Architecture
+5. Chapter Identity
+6. Design Languages
+7. Creative Standards
+8. Implementation Standards
+
+The README intentionally acts as the navigation hub for the entire platform.
+
+
 # PulseOps SP Core — Documentation
 
 ## Platform authority (read in order)
@@ -68,3 +88,222 @@ Implementation
 | [SP-MOTION.md](./SP-MOTION.md) | Motion system |
 | [MOTION_ARCHITECTURE.md](./MOTION_ARCHITECTURE.md) | Motion architecture |
 | [SP-IMAGE-EXPERIENCE.md](./SP-IMAGE-EXPERIENCE.md) | Image experience system |
+
+
+# PulseOps Premium Theme Platform
+
+## Start Here
+
+If you are new to the project, read the documentation in this order.
+
+```
+Production Constitution
+        ↓
+Production Playbook
+        ↓
+PulseOps Design System
+        ↓
+PulseOps Architecture
+        ↓
+Chapter Identity
+        ↓
+Design Languages
+
+    Typography
+    Surface
+    Photography
+    Interaction
+    Motion
+
+        ↓
+Creative Standards
+
+    Shopify Sidekick Concept Generation Standard
+
+        ↓
+Production Standards
+
+    Annotated Mockup Standard
+    Cursor Prompt Standard
+    Cursor Implementation Standard
+    Implementation Quality Rules
+    Chapter Quality Checklist
+
+        ↓
+Implementation
+```
+
+---
+
+# Production Governance
+
+| Document | Purpose |
+|----------|---------|
+| Production Constitution | Highest-level production philosophy |
+| Production Playbook | End-to-end production workflow |
+| PulseOps Design System | Design language stack and governance |
+| PulseOps Architecture | Frozen platform architecture |
+| Chapter Identity | Narrative responsibilities of every chapter |
+
+---
+
+# Design Languages
+
+Read in order.
+
+1. Typography Language
+2. Surface Language
+3. Photography Language
+4. Interaction Language
+5. Motion Language
+
+These documents define the permanent PulseOps design languages.
+
+---
+
+# Creative Standards
+
+| Document | Purpose |
+|----------|---------|
+| Shopify Sidekick Concept Generation Standard | Creative exploration workflow |
+| Annotated Mockup Standard | Annotation methodology |
+
+---
+
+# Implementation Standards
+
+| Document | Purpose |
+|----------|---------|
+| Cursor Prompt Standard | Canonical implementation prompt |
+| Cursor Implementation Standard | Cursor implementation workflow |
+| Implementation Quality Rules | Engineering craftsmanship |
+| Chapter Quality Checklist | Final review checklist |
+
+---
+
+# Production Workflow
+
+Every flagship chapter follows:
+
+Review
+
+↓
+
+Concept Exploration
+
+↓
+
+Concept Selection
+
+↓
+
+Blueprint
+
+↓
+
+Desktop Mockup
+
+↓
+
+Desktop Review
+
+↓
+
+Desktop Approval
+
+↓
+
+Mobile Mockup
+
+↓
+
+Mobile Review
+
+↓
+
+Mobile Approval
+
+↓
+
+Annotated Mockups
+
+↓
+
+Cursor Implementation
+
+↓
+
+Visual Review
+
+↓
+
+One Refinement Sprint
+
+↓
+
+Freeze Hygiene
+
+↓
+
+Freeze
+
+↓
+
+Commit
+
+↓
+
+Tag
+
+↓
+
+Retrospective
+
+↓
+
+Governance Update
+
+---
+
+# Current Project Status
+
+Current flagship
+
+✅ Supplement Demo
+
+Current quality target
+
+9.5+/10
+
+Current workflow
+
+Finish Supplement Demo
+
+↓
+
+Freeze
+
+↓
+
+Skincare Demo
+
+↓
+
+Coffee Demo
+
+↓
+
+Electronics Demo
+
+↓
+
+Additional Premium Vertical Packs
+
+---
+
+# Principle
+
+Governance evolves only after completing flagship chapters.
+
+Do not create new governance documents unless a completed flagship chapter reveals a genuine gap in the production system.
+
