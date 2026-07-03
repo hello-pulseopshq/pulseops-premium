@@ -101,7 +101,7 @@
         {%- endif -%}
 
         {%- if section.settings.body != blank -%}
-          <div class="sp-ingredients-spotlight__body rte">
+          <div class="sp-ingredients-spotlight__body">
             {{ section.settings.body }}
           </div>
         {%- endif -%}
@@ -270,7 +270,7 @@
                       <h4 class="sp-ingredients-spotlight__item-name">{{ name_stripped | escape }}</h4>
                     {%- endif -%}
                     {%- if desc_stripped != blank -%}
-                      <div class="sp-ingredients-spotlight__item-description rte">
+                      <div class="sp-ingredients-spotlight__item-description">
                         {{ block.settings.description }}
                       </div>
                     {%- elsif role_stripped != blank -%}
