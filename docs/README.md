@@ -1,94 +1,3 @@
-# PulseOps Premium Theme Platform
-
-> Premium editorial commerce platform for Shopify.
-
-## Documentation Reading Order
-
-If you are contributing to PulseOps, read these documents in order.
-
-1. Production Constitution
-2. Production Playbook
-3. PulseOps Design System
-4. PulseOps Architecture
-5. Chapter Identity
-6. Design Languages
-7. Creative Standards
-8. Implementation Standards
-
-The README intentionally acts as the navigation hub for the entire platform.
-
-
-# PulseOps SP Core — Documentation
-
-## Platform authority (read in order)
-
-```
-PulseOps Design System               ← constitutional overview and entry point
-        ↓
-PulseOps Architecture v1.0           ← LOCKED — homepage IA, buyer journey, composition
-        ↓
-Narrative
-        ↓
-Composition
-        ↓
-Typography
-        ↓
-Surface
-        ↓
-Photography
-        ↓
-Interaction
-        ↓
-Motion
-        ↓
-Implementation
-```
-
-| Doc | Description |
-|-----|-------------|
-| [**pulseops-design-system.md**](pulseops-design-system.md) | **Canonical entry point and constitutional overview** |
-| [design-conformance-qa.md](design-conformance-qa.md) | Design Conformance QA and certification framework |
-| [**PULSEOPS-ARCHITECTURE-v1.md**](PULSEOPS-ARCHITECTURE-v1.md) | **Architecture v1 — LOCKED platform IA and buyer journey** |
-| [CODEBASE-HYGIENE-AUDIT-v1.md](CODEBASE-HYGIENE-AUDIT-v1.md) | Phase III.5 codebase hygiene audit |
-| [chapter-identity.md](chapter-identity.md) | Narrative architecture and chapter roles |
-| [editorial-system.md](editorial-system.md) | Composition and editorial primitives |
-| [TYPOGRAPHY-LANGUAGE-FOUNDATION.md](TYPOGRAPHY-LANGUAGE-FOUNDATION.md) | Typography language foundation |
-| [SURFACE-LANGUAGE-FOUNDATION.md](SURFACE-LANGUAGE-FOUNDATION.md) | Surface language foundation |
-| [photography-language.md](photography-language.md) | Photography foundation |
-| [photography-expression.md](photography-expression.md) | Photography expression |
-| [photography-systems.md](photography-systems.md) | Photography systems |
-| [interaction-language.md](interaction-language.md) | Interaction foundation |
-| [interaction-expression.md](interaction-expression.md) | Interaction expression |
-| [interaction-systems.md](interaction-systems.md) | Interaction systems |
-| [motion-language.md](motion-language.md) | Motion foundation |
-| [motion-expression.md](motion-expression.md) | Motion expression |
-| [SP-MOTION.md](SP-MOTION.md) | Motion implementation documentation |
-| [pulseops-visual-system-v1.md](pulseops-visual-system-v1.md) | Visual operating system |
-| [pulseops-design-language-v1.md](pulseops-design-language-v1.md) | Visual language chapter (typography, surface, photography, layout) |
-| [editorial-art-direction.md](editorial-art-direction.md) | Chapter-level art direction and rhythm |
-| [ARCHITECTURE-FREEZE-REVIEW.md](ARCHITECTURE-FREEZE-REVIEW.md) | Sprint 7.2.5 validation record |
-
-## Getting started
-
-| Doc | Description |
-|-----|-------------|
-| [PRODUCT_PAGE_RECIPE.md](./PRODUCT_PAGE_RECIPE.md) | Default product page section stack |
-| [DEMO_PRESETS.md](./DEMO_PRESETS.md) | Vertical demo templates (v1) |
-| [RELEASES.md](./RELEASES.md) | Release tags and checkpoints |
-| [LAUNCH-CHECKLIST.md](./LAUNCH-CHECKLIST.md) | Launch readiness checklist (post-narrative-freeze) |
-| [CANONICAL-QA-THEME.md](./CANONICAL-QA-THEME.md) | Canonical Shopify QA theme (#183028121915) |
-| [BETA_PROGRAM.md](./BETA_PROGRAM.md) | Merchant beta onboarding plan |
-| [QUICK_START.md](./QUICK_START.md) | Install and run |
-
-## Platform architecture (frozen at Architecture v1.0 + SP Core v1.0)
-
-| Doc | Description |
-|-----|-------------|
-| [SP-VISUAL-HIERARCHY.md](./SP-VISUAL-HIERARCHY.md) | Visual hierarchy system |
-| [SP-MOTION.md](./SP-MOTION.md) | Motion system |
-| [MOTION_ARCHITECTURE.md](./MOTION_ARCHITECTURE.md) | Motion architecture |
-| [SP-IMAGE-EXPERIENCE.md](./SP-IMAGE-EXPERIENCE.md) | Image experience system |
-
 
 # PulseOps Premium Theme Platform
 
@@ -130,6 +39,11 @@ Production Standards
     Chapter Quality Checklist
 
         ↓
+
+Implementation Architecture
+
+        ↓
+
 Implementation
 ```
 
@@ -197,7 +111,7 @@ Concept Selection
 
 ↓
 
-Blueprint
+Concept Translation
 
 ↓
 
@@ -225,7 +139,15 @@ Mobile Approval
 
 ↓
 
+Blueprint
+
+↓
+
 Annotated Mockups
+
+↓
+
+Cursor Implementation Package
 
 ↓
 
@@ -237,11 +159,11 @@ Visual Review
 
 ↓
 
-One Refinement Sprint
+Refinement Sprint
 
 ↓
 
-Freeze Hygiene
+Freeze Hygiene Sprint
 
 ↓
 
@@ -249,11 +171,7 @@ Freeze
 
 ↓
 
-Commit
-
-↓
-
-Tag
+Commit / Tag
 
 ↓
 
@@ -303,7 +221,65 @@ Additional Premium Vertical Packs
 
 # Principle
 
-Governance evolves only after completing flagship chapters.
+Governance evolves only when completed flagship chapters or Architecture Hygiene Sprints reveal recurring patterns that improve the long-term production system.
 
-Do not create new governance documents unless a completed flagship chapter reveals a genuine gap in the production system.
+Avoid creating governance documents for one-off implementation problems.
 
+Governance should become more stable over time.
+
+---
+
+# Implementation Architecture Governance
+
+These documents define how the PulseOps implementation architecture is owned, validated, maintained, and evolved over time.
+
+They complement the Production Standards and should be consulted before any architecture cleanup or structural refactoring.
+
+Read in order.
+
+| Document | Purpose |
+|----------|---------|
+| [CSS Ownership Matrix](./architecture/CSS-OWNERSHIP.md) | Defines ownership of every visual responsibility |
+| [Cascade Validation Standard](./architecture/CASCADE-VALIDATION-STANDARD.md) | Defines CSS validation methodology |
+| [Architecture Cleanup Playbook](./architecture/CLEANUP-PLAYBOOK.md) | Safe architecture cleanup methodology |
+| [Architecture Cleanup Sprint Standard](./architecture/ARCHITECTURE-CLEANUP-SPRINT-STANDARD.md) | Cleanup sprint workflow |
+| [CSS Layer Diagram](./architecture/CSS-LAYER-DIAGRAM.md) | Implementation layer hierarchy |
+| [Architectural Decisions](./architecture/ARCHITECTURAL_DECISIONS.md) | Historical architectural reasoning |
+| [Architecture Hygiene Guide](./architecture/ARCHITECTURE-HYGIENE-GUIDE.md) | Long-term implementation architecture philosophy |
+| Architecture Hygiene Reports | Generated during Architecture Cleanup Sprints. Located under `.audit/architecture-hygiene/` |
+
+---
+
+# Governance Evolution
+
+PulseOps governance evolves deliberately.
+
+New governance documents should be created only when completed flagship chapters or Architecture Hygiene Sprints reveal recurring patterns that improve the long-term production system.
+
+The preferred order of improvement is:
+
+Customer Experience
+
+↓
+
+Production Workflow
+
+↓
+
+Design System
+
+↓
+
+Architecture
+
+↓
+
+Implementation Standards
+
+↓
+
+Implementation Architecture
+
+↓
+
+Platform
