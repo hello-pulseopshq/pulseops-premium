@@ -24,78 +24,8 @@
 
 /* ══════════════════════════════════════════════════════════════════════════
    Archetype 1 — Split transformation (Editorial Outcomes)
-   Owner: story photograph + vertical outcome ledger
+   Presentation owner: assets/sp-editorial-outcomes.css (AC-2)
    ══════════════════════════════════════════════════════════════════════════ */
-
-.sp-composition--split-transformation .sp-editorial-outcomes__composition {
-  align-items: stretch;
-}
-
-@media screen and (min-width: 750px) {
-  .sp-composition--split-transformation .sp-editorial-outcomes__composition {
-    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
-    gap: clamp(2.4rem, 3.2vw, 3.8rem);
-  }
-
-  .sp-composition--split-transformation .sp-editorial-outcomes__cards,
-  .sp-composition--split-transformation.sp-editorial-outcomes--mobile-cards-auto .sp-editorial-outcomes__cards,
-  .sp-composition--split-transformation.sp-editorial-outcomes--mobile-cards-two_column .sp-editorial-outcomes__cards,
-  .sp-composition--split-transformation.sp-editorial-outcomes--mobile-cards-stack .sp-editorial-outcomes__cards {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0;
-    border-top: 0.1rem solid var(--sp-comp-ledger-rule);
-  }
-
-  .sp-composition--split-transformation .sp-editorial-outcomes__item {
-    border-bottom: 0.1rem solid var(--sp-comp-ledger-rule);
-  }
-
-  .sp-composition--split-transformation .sp-editorial-outcomes__item:last-child {
-    border-bottom: none;
-  }
-
-  .sp-composition--split-transformation .sp-editorial-outcomes__card {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: clamp(0.85rem, 1.2vw, 1.1rem);
-    min-height: 0;
-    padding: clamp(1rem, 1.35vw, 1.25rem) 0;
-  }
-
-  .sp-composition--split-transformation .sp-editorial-outcomes__card-meta {
-    min-height: 0;
-    flex-shrink: 0;
-  }
-
-  .sp-composition--split-transformation .sp-editorial-outcomes__card-icon {
-    width: 2.6rem;
-    height: 2.6rem;
-  }
-
-  .sp-composition--split-transformation .sp-editorial-outcomes__card-icon svg {
-    width: 1.35rem;
-    height: 1.35rem;
-  }
-}
-
-@media screen and (max-width: 749px) {
-  .sp-composition--split-transformation .sp-editorial-outcomes__cards {
-    gap: 0;
-    border-top: 0.1rem solid var(--sp-comp-ledger-rule);
-  }
-
-  .sp-composition--split-transformation .sp-editorial-outcomes__item {
-    border-bottom: 0.1rem solid var(--sp-comp-ledger-rule);
-  }
-
-  .sp-composition--split-transformation .sp-editorial-outcomes__card {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 0.85rem;
-    padding: 0.95rem 0;
-    min-height: 0;
-  }
-}
 
 /* ══════════════════════════════════════════════════════════════════════════
    Archetype 2 — Gallery immersion (Ingredients)
@@ -210,12 +140,12 @@
 
 /* ══════════════════════════════════════════════════════════════════════════
    Archetype 3 — Typographic band (Community Confidence)
-   Owner: numerals as horizontal editorial proof band
-   Reference density: evidence-panel clarity
+   Owner: centered editorial spread + horizontal proof metrics band
+   Reference: approved Community Confidence annotated mockups
    ══════════════════════════════════════════════════════════════════════════ */
 
 .sp-composition--typographic-band.sp-metrics--editorial-story {
-  gap: 0;
+  gap: clamp(2.75rem, 4vw, 3.75rem);
 }
 
 .sp-composition--typographic-band .sp-metrics__proof-moments {
@@ -230,109 +160,47 @@
 @media screen and (min-width: 750px) {
   .sp-composition--typographic-band.sp-metrics--editorial-story {
     display: grid;
-    grid-template-columns: minmax(0, 0.4fr) minmax(0, 0.6fr);
-    align-items: stretch;
-    column-gap: 0;
-    padding: clamp(1.35rem, 2vw, 1.85rem) clamp(1.65rem, 2.4vw, 2.35rem);
-    border-block: 0.1rem solid var(--sp-comp-ledger-rule);
-    background: var(--sp-surface-band-fill-generic, rgba(var(--color-foreground), 0.018));
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    padding: 0;
+    border: 0;
+    background: transparent;
   }
 
   .sp-supplement .sp-composition--typographic-band.sp-metrics--editorial-story {
-    --sp-comp-ledger-rule: var(--sp-surface-material-magazine-rule, var(--sp-surface-ledger-rule-supplement));
-    background: var(--sp-surface-material-magazine-band, var(--sp-surface-band-fill-supplement));
+    background: transparent;
   }
 
   .sp-composition--typographic-band .sp-metrics__intro {
-    display: grid;
-    gap: clamp(0.55rem, 0.85vw, 0.75rem);
-    max-width: none;
-    align-self: center;
-    padding: clamp(0.35rem, 0.6vw, 0.55rem) clamp(1.35rem, 2vw, 2rem) clamp(0.35rem, 0.6vw, 0.55rem) 0;
-    border-right: 0.1rem solid var(--sp-comp-ledger-rule);
-  }
-
-  .sp-composition--typographic-band .sp-metrics__statement {
-    max-width: 16ch;
+    max-width: min(100%, 68rem);
+    padding: 0;
+    border: 0;
   }
 
   .sp-composition--typographic-band .sp-metrics__proof-moments {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    align-items: center;
-    align-content: center;
-    gap: clamp(1.25rem, 2vw, 2rem);
-    padding: clamp(0.85rem, 1.2vw, 1.15rem) 0 clamp(0.85rem, 1.2vw, 1.15rem) clamp(1.35rem, 2vw, 2rem);
-    border-top: none;
-    border-bottom: none;
-  }
-
-  .sp-composition--typographic-band .sp-metrics__proof-moment {
-    display: grid;
-    gap: clamp(0.35rem, 0.55vw, 0.5rem);
-    padding: clamp(0.35rem, 0.55vw, 0.5rem) 0;
-  }
-
-  .sp-composition--typographic-band .sp-metrics__proof-moment + .sp-metrics__proof-moment {
-    border-left: 0.1rem solid var(--sp-comp-ledger-rule);
-    padding-left: clamp(1rem, 1.5vw, 1.35rem);
-  }
-
-  .sp-composition--typographic-band .sp-metrics__proof-value {
-    font-size: var(--sp-voice-collective-moment-size, clamp(2.75rem, 3.6vw, 3.65rem));
-    line-height: var(--sp-voice-collective-moment-lh, 0.96);
-  }
-
-  .sp-composition--typographic-band .sp-metrics__proof-label {
-    font-size: clamp(1.02rem, 0.95vw, 1.12rem);
-    max-width: 12ch;
-  }
-
-  .sp-composition--typographic-band .sp-metrics__assurance {
-    grid-column: 1 / -1;
-    margin-top: clamp(0.85rem, 1.2vw, 1.05rem);
-    padding-top: clamp(0.85rem, 1.2vw, 1.05rem);
-    border-top: 0.1rem solid var(--sp-comp-ledger-rule);
+    padding: 0;
+    border: 0;
   }
 }
 
 @media screen and (max-width: 749px) {
   .sp-composition--typographic-band.sp-metrics--editorial-story {
-    padding: clamp(1.15rem, 3.5vw, 1.45rem);
-    border-block: 0.1rem solid var(--sp-comp-ledger-rule);
-    background: var(--sp-surface-band-fill-generic, rgba(var(--color-foreground), 0.018));
+    padding: 0;
+    border: 0;
+    background: transparent;
   }
 
   .sp-supplement .sp-composition--typographic-band.sp-metrics--editorial-story {
-    --sp-comp-ledger-rule: var(--sp-surface-material-magazine-rule, var(--sp-surface-ledger-rule-supplement));
-    background: var(--sp-surface-material-magazine-band, var(--sp-surface-band-fill-supplement));
+    background: transparent;
   }
 
   .sp-composition--typographic-band .sp-metrics__intro {
-    padding-bottom: clamp(0.85rem, 2.5vw, 1.05rem);
-    border-bottom: 0.1rem solid var(--sp-comp-ledger-rule);
-  }
-
-  .sp-composition--typographic-band .sp-metrics__statement {
-    max-width: none;
+    padding: 0;
+    border: 0;
   }
 
   .sp-composition--typographic-band .sp-metrics__proof-moments {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: clamp(0.75rem, 2.5vw, 1rem);
-    padding-top: clamp(0.85rem, 2.5vw, 1.05rem);
-    border-top: none;
-  }
-
-  .sp-composition--typographic-band .sp-metrics__proof-value {
-    font-size: var(--sp-voice-collective-moment-size-mobile, clamp(1.95rem, 6vw, 2.45rem));
-  }
-
-  .sp-composition--typographic-band .sp-metrics__proof-label {
-    font-size: clamp(0.95rem, 2.8vw, 1.05rem);
-    line-height: 1.3;
-    max-width: none;
+    border-top: 0;
   }
 }
 

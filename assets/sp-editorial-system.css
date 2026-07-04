@@ -258,73 +258,12 @@
 
 /* ══════════════════════════════════════════════════════════════════════════
    Outcomes → Ingredients handoff (supplement vertical)
+   Editorial Outcomes presentation: assets/sp-editorial-outcomes.css (AC-2)
    ══════════════════════════════════════════════════════════════════════════ */
-
-.sp-supplement #sp-outcomes {
-  padding-bottom: clamp(1.15rem, 1.6vw, 1.45rem);
-}
 
 .sp-supplement #sp-ingredients {
   padding-top: clamp(1.15rem, 1.6vw, 1.45rem);
   padding-bottom: clamp(1rem, 1.45vw, 1.35rem);
-}
-
-.sp-supplement .sp-editorial-outcomes.sp-editorial-chapter--handoff-out {
-  gap: var(--sp-es-chapter-gap-tight);
-}
-
-.sp-supplement .sp-editorial-outcomes .sp-editorial-cta--quiet-link {
-  margin-bottom: 0.35rem;
-}
-
-.sp-supplement .sp-editorial-outcomes__cta-shell {
-  margin-top: clamp(1rem, 1.6vw, 1.45rem);
-  padding-top: 0;
-}
-
-.sp-supplement .sp-editorial-outcomes--show-cta-divider .sp-editorial-outcomes__cta-divider {
-  display: none;
-}
-
-.sp-supplement .sp-editorial-outcomes__footer {
-  justify-items: start;
-  text-align: left;
-}
-
-.sp-supplement .sp-editorial-outcomes__footer .sp-cta-trust-row {
-  justify-content: flex-start;
-}
-
-.sp-supplement .sp-editorial-outcomes .sp-editorial-cta--quiet-link {
-  background: transparent;
-  box-shadow: none;
-  filter: none;
-}
-
-.sp-supplement .sp-editorial-outcomes .sp-editorial-cta--quiet-link:hover {
-  filter: none;
-}
-
-/* Sprint 7.1b — outcomes cards: editorial list, not widget grid */
-.sp-supplement .sp-editorial-outcomes__card {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  padding: 0;
-  min-height: 0;
-  gap: 0.45rem;
-}
-
-.sp-supplement .sp-editorial-outcomes__card-icon {
-  width: 2.4rem;
-  height: 2.4rem;
-  opacity: 0.72;
-}
-
-.sp-supplement .sp-editorial-outcomes__cards {
-  gap: clamp(1.2rem, 1.8vw, 1.65rem);
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -604,27 +543,19 @@
 }
 
 .sp-supplement .sp-metrics--editorial-story {
-  gap: clamp(1.15rem, 1.6vw, 1.45rem);
+  gap: clamp(2.75rem, 4vw, 3.75rem);
 }
 
 .sp-supplement .sp-composition--typographic-band.sp-metrics--editorial-story {
-  gap: 0;
+  gap: clamp(2.75rem, 4vw, 3.75rem);
 }
 
 .sp-supplement .sp-metrics--editorial-story .sp-metrics__intro {
-  max-width: min(100%, 56rem);
+  max-width: min(100%, 68rem);
 }
 
 .sp-supplement .sp-composition--typographic-band .sp-metrics__intro {
-  max-width: none;
-}
-
-.sp-supplement .sp-metrics--editorial-story .sp-metrics__statement {
-  max-width: var(--sp-voice-collective-measure);
-}
-
-.sp-supplement .sp-composition--typographic-band .sp-metrics__statement {
-  max-width: var(--sp-voice-collective-measure);
+  max-width: min(100%, 68rem);
 }
 
 .sp-supplement .sp-metrics--editorial-story .sp-metrics__subheading {
@@ -634,32 +565,51 @@
 .sp-supplement .sp-metrics--editorial-story .sp-metrics__proof-moments {
   border-top: none;
   padding-top: clamp(0.35rem, 0.6vw, 0.55rem);
-  gap: clamp(1.35rem, 2.4vw, 2.8rem);
+  gap: clamp(1.65rem, 2.35vw, 2.35rem);
+  max-width: none;
 }
 
 .sp-supplement .sp-composition--typographic-band .sp-metrics__proof-moments {
-  padding-top: 0;
-  gap: clamp(1.25rem, 2vw, 2rem);
+  padding-top: clamp(0.35rem, 0.6vw, 0.55rem);
+  gap: clamp(1.65rem, 2.35vw, 2.35rem);
+  max-width: none;
 }
 
 .sp-supplement .sp-metrics--editorial-story .sp-metrics__proof-value {
-  font-family: inherit;
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  font-size: clamp(3.15rem, 4.5vw, 4.35rem);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
 }
 
 .sp-supplement .sp-metrics--editorial-story .sp-metrics__proof-label {
-  text-transform: none;
-  letter-spacing: 0.015em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.72);
 }
 
 .sp-supplement .sp-metrics--editorial-story .sp-metrics__proof-moment + .sp-metrics__proof-moment {
-  border-left: none;
-  padding-left: 0;
+  border-left-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.08);
 }
 
-.sp-supplement .sp-metrics--editorial-story .sp-metrics__assurance {
-  border-top-color: var(--sp-surface-material-magazine-rule, rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.08));
-  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.68);
+.sp-supplement .sp-metrics--editorial-story .sp-metrics__cta-shell {
+  margin-top: clamp(0.85rem, 1.2vw, 1.15rem);
+}
+
+.sp-supplement .sp-metrics--editorial-story .sp-editorial-cta--quiet-link {
+  margin-bottom: 0;
+  font-size: clamp(1.35rem, 1.2vw, 1.48rem);
+}
+
+.sp-supplement .sp-metrics--editorial-story .sp-editorial-cta--quiet-link:hover,
+.sp-supplement .sp-metrics--editorial-story .sp-editorial-cta--quiet-link:focus-visible {
+  text-decoration-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.45);
+}
+
+@media screen and (max-width: 749px) {
+  .sp-supplement .sp-metrics--editorial-story {
+    gap: clamp(2.25rem, 5.5vw, 2.85rem);
+  }
 }
 
 .sp-supplement #sp-differentiation {
@@ -832,13 +782,6 @@
 @media screen and (max-width: 749px) {
   .sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__principle:nth-child(n + 2) {
     border-top-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.08);
-  }
-}
-
-@media screen and (max-width: 749px) {
-  .sp-supplement .sp-metrics--editorial-story .sp-metrics__proof-moment:nth-child(n + 3) {
-    border-top: none;
-    padding-top: 0;
   }
 }
 

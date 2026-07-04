@@ -591,3 +591,141 @@
     max-width: none;
   }
 }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   AC-2 — Split Transformation presentation owner
+   Migrated from sp-composition-system.css (archetype) and
+   sp-editorial-system.css (supplement vertical polish).
+   Section CSS is the sole owner of Editorial Outcomes presentation.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.sp-composition--split-transformation .sp-editorial-outcomes__composition {
+  align-items: stretch;
+}
+
+@media screen and (min-width: 750px) {
+  .sp-composition--split-transformation .sp-editorial-outcomes__composition {
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+    gap: clamp(2.4rem, 3.2vw, 3.8rem);
+  }
+
+  .sp-composition--split-transformation .sp-editorial-outcomes__cards,
+  .sp-composition--split-transformation.sp-editorial-outcomes--mobile-cards-auto .sp-editorial-outcomes__cards,
+  .sp-composition--split-transformation.sp-editorial-outcomes--mobile-cards-two_column .sp-editorial-outcomes__cards,
+  .sp-composition--split-transformation.sp-editorial-outcomes--mobile-cards-stack .sp-editorial-outcomes__cards {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    border-top: 0.1rem solid var(--sp-comp-ledger-rule);
+  }
+
+  .sp-composition--split-transformation .sp-editorial-outcomes__item {
+    border-bottom: 0.1rem solid var(--sp-comp-ledger-rule);
+  }
+
+  .sp-composition--split-transformation .sp-editorial-outcomes__item:last-child {
+    border-bottom: none;
+  }
+
+  .sp-composition--split-transformation .sp-editorial-outcomes__card {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: clamp(0.85rem, 1.2vw, 1.1rem);
+    min-height: 0;
+    padding: clamp(1rem, 1.35vw, 1.25rem) 0;
+  }
+
+  .sp-composition--split-transformation .sp-editorial-outcomes__card-meta {
+    min-height: 0;
+    flex-shrink: 0;
+  }
+
+  .sp-composition--split-transformation .sp-editorial-outcomes__card-icon {
+    width: 2.6rem;
+    height: 2.6rem;
+  }
+
+  .sp-composition--split-transformation .sp-editorial-outcomes__card-icon svg {
+    width: 1.35rem;
+    height: 1.35rem;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .sp-composition--split-transformation .sp-editorial-outcomes__cards {
+    gap: 0;
+    border-top: 0.1rem solid var(--sp-comp-ledger-rule);
+  }
+
+  .sp-composition--split-transformation .sp-editorial-outcomes__item {
+    border-bottom: 0.1rem solid var(--sp-comp-ledger-rule);
+  }
+
+  .sp-composition--split-transformation .sp-editorial-outcomes__card {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0.85rem;
+    padding: 0.95rem 0;
+    min-height: 0;
+  }
+}
+
+.sp-supplement #sp-outcomes {
+  padding-bottom: clamp(1.15rem, 1.6vw, 1.45rem);
+}
+
+.sp-supplement .sp-editorial-outcomes.sp-editorial-chapter--handoff-out {
+  gap: var(--sp-es-chapter-gap-tight);
+}
+
+.sp-supplement .sp-editorial-outcomes .sp-editorial-cta--quiet-link {
+  margin-bottom: 0.35rem;
+}
+
+.sp-supplement .sp-editorial-outcomes__cta-shell {
+  margin-top: clamp(1rem, 1.6vw, 1.45rem);
+  padding-top: 0;
+}
+
+.sp-supplement .sp-editorial-outcomes--show-cta-divider .sp-editorial-outcomes__cta-divider {
+  display: none;
+}
+
+.sp-supplement .sp-editorial-outcomes__footer {
+  justify-items: start;
+  text-align: left;
+}
+
+.sp-supplement .sp-editorial-outcomes__footer .sp-cta-trust-row {
+  justify-content: flex-start;
+}
+
+.sp-supplement .sp-editorial-outcomes .sp-editorial-cta--quiet-link {
+  background: transparent;
+  box-shadow: none;
+  filter: none;
+}
+
+.sp-supplement .sp-editorial-outcomes .sp-editorial-cta--quiet-link:hover {
+  filter: none;
+}
+
+.sp-supplement .sp-editorial-outcomes__card {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  padding: 0;
+  min-height: 0;
+  gap: 0.45rem;
+}
+
+.sp-supplement .sp-editorial-outcomes__card-icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  opacity: 0.72;
+}
+
+.sp-supplement .sp-editorial-outcomes__cards {
+  gap: clamp(1.2rem, 1.8vw, 1.65rem);
+}

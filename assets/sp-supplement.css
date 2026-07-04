@@ -27,6 +27,7 @@
 
   /* Typography tokens → assets/sp-typography-language.css + sp-supplement-type.css */
   --sp-supplement-content-max: min(100%, var(--page-width, 120rem));
+  --sp-supplement-content-wide: min(100%, calc(var(--page-width, 120rem) + var(--sp-width-wide-offset, 8rem)));
   --sp-supplement-content-narrow: min(100%, 72rem);
   --sp-supplement-hero-media-ratio: 100%;
   --sp-supplement-feature-media-ratio: 72%;
@@ -407,13 +408,12 @@ html.sp-supplement.sp-motion-active [data-sp-reveal]:not(.is-revealed):not(.sp-r
   visibility: visible !important;
 }
 
-.sp-supplement .sp-section__inner--contained,
-.sp-supplement .sp-section__inner--wide {
+.sp-supplement .sp-section__inner--contained {
   max-width: var(--sp-supplement-content-max);
 }
 
 .sp-supplement .sp-section__inner--wide {
-  max-width: var(--sp-supplement-content-max);
+  max-width: var(--sp-supplement-content-wide);
 }
 
 .sp-supplement .sp-video__body--split {

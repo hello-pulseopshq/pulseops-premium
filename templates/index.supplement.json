@@ -251,45 +251,65 @@
         "metric-1": {
           "type": "metric",
           "settings": {
-            "value": "One serving",
-            "label": "Clear enough to remember"
+            "value": "98%",
+            "label": "Noticeable difference",
+            "supporting_text": "Felt a positive change within 30 days."
           }
         },
         "metric-2": {
           "type": "metric",
           "settings": {
-            "value": "Two capsules",
-            "label": "No stack to manage"
+            "value": "50K+",
+            "label": "Active community",
+            "supporting_text": "Members building better routines together."
           }
         },
         "metric-3": {
           "type": "metric",
           "settings": {
-            "value": "Every morning",
-            "label": "Repeatable without overthinking"
+            "value": "4.9/5",
+            "label": "Verified satisfaction",
+            "supporting_text": "Average rating from thousands of reviews."
+          }
+        },
+        "metric-4": {
+          "type": "metric",
+          "settings": {
+            "value": "92%",
+            "label": "Reorder rate",
+            "supporting_text": "Continue their daily ritual month after month."
           }
         }
       },
       "block_order": [
         "metric-1",
         "metric-2",
-        "metric-3"
+        "metric-3",
+        "metric-4"
       ],
       "settings": {
         "presentation": "editorial_story",
-        "eyebrow": "Routine confidence",
-        "heading": "Simple enough to keep.",
-        "subheading": "<p>After the formula comes the part that matters most: a serving that can fit into the morning without becoming another decision.</p>",
-        "assurance_text": "No intensity cycle. No cabinet full of bottles. Just a calm daily rhythm you can return to.",
-        "content_alignment": "left",
-        "desktop_columns": "3",
+        "eyebrow": "A community of consistent choices",
+        "heading": "Trusted by thousands. Chosen every day.",
+        "subheading": "<p>Real people. Real routines. Real results. Our community chooses consistency—and sees the difference over time.</p>",
+        "assurance_text": "",
+        "show_proof_strip": true,
+        "proof_strip_text": "Join thousands who've made consistency their advantage.",
+        "proof_strip_caption": "REAL PEOPLE. REAL STORIES. REAL RESULTS.",
+        "proof_strip_overflow": "+50K",
+        "show_cta": true,
+        "button_label": "Explore their stories",
+        "button_link": "#sp-reviews",
+        "content_alignment": "center",
+        "desktop_columns": "4",
         "show_band": false,
         "show_dividers": false,
         "mobile_layout": "grid",
         "sp_surface_style": "default",
+        "sp_width_mode": "wide",
         "sp_divider_style": "none",
-        "padding_top": 68,
-        "padding_bottom": 76
+        "padding_top": 88,
+        "padding_bottom": 96
       }
     },
     "sp-editorial-differentiation": {

@@ -19,7 +19,31 @@
   assign heading_stripped = section.settings.heading | strip_html | strip
   assign subheading_stripped = section.settings.subheading | strip_html | strip
   assign eyebrow_stripped = section.settings.eyebrow | strip
-  assign assurance_stripped = section.settings.assurance_text | strip
+  assign proof_strip_text_stripped = section.settings.proof_strip_text | strip
+  assign proof_strip_caption_stripped = section.settings.proof_strip_caption | strip
+  assign proof_strip_overflow_stripped = section.settings.proof_strip_overflow | strip
+  assign button_label_stripped = section.settings.button_label | strip
+
+  assign proof_avatar_count = 0
+  for i in (1..6)
+    assign avatar_key = 'proof_avatar_' | append: i
+    assign avatar_image = section.settings[avatar_key]
+    if avatar_image != blank
+      assign proof_avatar_count = proof_avatar_count | plus: 1
+    endif
+  endfor
+
+  assign show_proof_strip = false
+  if section.settings.show_proof_strip
+    if proof_avatar_count > 0 or proof_strip_text_stripped != blank or proof_strip_caption_stripped != blank or proof_strip_overflow_stripped != blank
+      assign show_proof_strip = true
+    endif
+  endif
+
+  assign show_cta = false
+  if section.settings.show_cta and button_label_stripped != blank and section.settings.button_link != blank
+    assign show_cta = true
+  endif
 
   assign metrics_columns = section.settings.desktop_columns
   if section.settings.sp_width_mode == 'contained' or section.settings.sp_width_mode == blank
@@ -37,7 +61,7 @@
   assign band_root_class = 'sp-metrics'
 -%}
 
-{% render 'sp-section-hierarchy-open', section: section %}
+{% render 'sp-section-hierarchy-open', section: section, anchor_id: 'sp-community' %}
   {%- if presentation == 'editorial_story' -%}
     <div
       class="{{ editorial_root_class }}"
@@ -58,7 +82,7 @@
           {%- endif -%}
 
           {%- if subheading_stripped != blank -%}
-            <div class="sp-metrics__subheading rte">
+            <div class="sp-metrics__subheading">
               {{ section.settings.subheading }}
             </div>
           {%- endif -%}
@@ -78,24 +102,73 @@
           -%}
           {%- if value_stripped != blank or label_stripped != blank -%}
             <li class="sp-metrics__proof-moment{% render 'sp-motion-class', type: 'stagger-item' %}" {{ block.shopify_attributes }}>
-              {%- if value_stripped != blank -%}
-                <p class="sp-metrics__proof-value sp-editorial-type--moment">{{ block.settings.value | escape }}</p>
-              {%- endif -%}
-              {%- if label_stripped != blank -%}
-                <p class="sp-metrics__proof-label">{{ block.settings.label | escape }}</p>
-              {%- endif -%}
-              {%- if supporting_stripped != blank -%}
-                <p class="sp-metrics__proof-supporting">{{ block.settings.supporting_text | escape }}</p>
-              {%- endif -%}
+              <div class="sp-metrics__proof-moment-inner">
+                {%- if value_stripped != blank -%}
+                  <p class="sp-metrics__proof-value sp-editorial-type--moment">{{ block.settings.value | escape }}</p>
+                {%- endif -%}
+                <div class="sp-metrics__proof-copy">
+                  {%- if label_stripped != blank -%}
+                    <p class="sp-metrics__proof-label">{{ block.settings.label | escape }}</p>
+                  {%- endif -%}
+                  {%- if supporting_stripped != blank -%}
+                    <p class="sp-metrics__proof-supporting">{{ block.settings.supporting_text | escape }}</p>
+                  {%- endif -%}
+                </div>
+              </div>
             </li>
           {%- endif -%}
         {%- endfor -%}
       </ul>
 
-      {%- if assurance_stripped != blank -%}
-        <p class="sp-metrics__assurance{% render 'sp-motion-class', type: 'fade-up' %}">
-          {{ section.settings.assurance_text | escape }}
-        </p>
+      {%- if show_proof_strip -%}
+        <div class="sp-metrics__proof-strip{% render 'sp-motion-class', type: 'fade-up' %}">
+          {%- if proof_avatar_count > 0 or proof_strip_overflow_stripped != blank -%}
+            <ul class="sp-metrics__proof-strip-avatars" role="list" aria-label="Community member avatars">
+              {%- for i in (1..6) -%}
+                {%- assign avatar_key = 'proof_avatar_' | append: i -%}
+                {%- assign avatar_image = section.settings[avatar_key] -%}
+                {%- if avatar_image != blank -%}
+                  <li class="sp-metrics__proof-strip-avatar sp-media-frame sp-media-frame--circle sp-media-frame--intrinsic">
+                    {%- render 'sp-image',
+                      image: avatar_image,
+                      img_only: true,
+                      alt: '',
+                      widths: '48, 96',
+                      sizes: '40px',
+                      image_width: 96,
+                      loading: 'lazy'
+                    -%}
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
+              {%- if proof_strip_overflow_stripped != blank -%}
+                <li class="sp-metrics__proof-strip-overflow" aria-hidden="true">
+                  <span>{{ proof_strip_overflow_stripped | escape }}</span>
+                </li>
+              {%- endif -%}
+            </ul>
+          {%- endif -%}
+
+          {%- if proof_strip_text_stripped != blank -%}
+            <p class="sp-metrics__proof-strip-text">{{ proof_strip_text_stripped | escape }}</p>
+          {%- endif -%}
+
+          {%- if proof_strip_caption_stripped != blank -%}
+            <p class="sp-metrics__proof-strip-caption">{{ proof_strip_caption_stripped | escape }}</p>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      {%- if show_cta -%}
+        <div class="sp-metrics__cta-shell{% render 'sp-motion-class', type: 'fade-up' %}">
+          <a
+            href="{{ section.settings.button_link }}"
+            class="sp-metrics__button sp-editorial-cta sp-editorial-cta--quiet-link{% render 'sp-motion-class', type: 'hover-button-quiet' %}"
+          >
+            <span class="sp-metrics__button-icon sp-editorial-cta__arrow" aria-hidden="true">→</span>
+            <span>{{ button_label_stripped | escape }}</span>
+          </a>
+        </div>
       {%- endif -%}
     </div>
   {%- else -%}
@@ -188,7 +261,89 @@
       "type": "text",
       "id": "assurance_text",
       "label": "Assurance line",
-      "info": "Optional quiet line below stats. Editorial story presentation only."
+      "info": "Legacy editorial field — superseded by proof strip in Community Confidence layout."
+    },
+    {
+      "type": "header",
+      "content": "Proof strip",
+      "info": "Editorial story presentation only."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_proof_strip",
+      "label": "Show proof strip",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "proof_strip_text",
+      "label": "Proof strip text",
+      "default": "Join thousands who've made consistency their advantage."
+    },
+    {
+      "type": "text",
+      "id": "proof_strip_caption",
+      "label": "Proof strip caption",
+      "default": "REAL PEOPLE. REAL STORIES. REAL RESULTS."
+    },
+    {
+      "type": "text",
+      "id": "proof_strip_overflow",
+      "label": "Overflow count",
+      "default": "+50K",
+      "info": "Shown after avatars when the community exceeds visible faces."
+    },
+    {
+      "type": "image_picker",
+      "id": "proof_avatar_1",
+      "label": "Avatar 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "proof_avatar_2",
+      "label": "Avatar 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "proof_avatar_3",
+      "label": "Avatar 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "proof_avatar_4",
+      "label": "Avatar 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "proof_avatar_5",
+      "label": "Avatar 5"
+    },
+    {
+      "type": "image_picker",
+      "id": "proof_avatar_6",
+      "label": "Avatar 6"
+    },
+    {
+      "type": "header",
+      "content": "Continuation link",
+      "info": "Editorial story presentation only."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cta",
+      "label": "Show continuation link",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Link label",
+      "default": "Explore their stories"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Link destination"
     },
     {
       "type": "select",
