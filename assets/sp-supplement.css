@@ -110,8 +110,7 @@
 
 .sp-supplement .sp-metrics:not(.sp-metrics--editorial-story) .sp-metrics__heading,
 .sp-supplement .sp-social-proof__heading,
-.sp-supplement .sp-scientific-proof__heading,
-.sp-supplement .sp-faq__heading {
+.sp-supplement .sp-scientific-proof__heading {
   max-width: 22ch;
   margin-inline: auto;
 }
@@ -381,20 +380,7 @@
   border-color: rgba(var(--sp-supplement-green), 0.1);
 }
 
-/* ── FAQ ── */
-.sp-supplement .sp-faq__item {
-  border-radius: var(--sp-supplement-radius-md);
-  border-color: rgba(var(--sp-supplement-green), 0.12);
-  background: rgb(var(--sp-supplement-card));
-}
-
-.sp-supplement .sp-faq__trigger {
-  border-radius: var(--sp-supplement-radius-md);
-}
-
-.sp-supplement .sp-faq__icon {
-  color: rgb(var(--sp-supplement-green));
-}
+/* FAQ presentation → assets/sp-faq.css (AC-8) */
 
 /* ── Layout alignment QA ── */
 
@@ -500,8 +486,7 @@ html.sp-supplement.sp-motion-active [data-sp-reveal]:not(.is-revealed):not(.sp-r
 .sp-supplement .sp-features__header,
 .sp-supplement .sp-metrics:not(.sp-metrics--editorial-story) .sp-metrics__header,
 .sp-supplement .sp-scientific-proof__header,
-.sp-supplement .sp-social-proof__header,
-.sp-supplement .sp-faq__header {
+.sp-supplement .sp-social-proof__header {
   margin-bottom: var(--sp-supplement-section-header-gap);
 }
 

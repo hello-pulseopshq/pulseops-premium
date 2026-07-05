@@ -334,27 +334,7 @@
 
 /* Human Story → sp-social-proof-human-story-editorial-portrait.css + sp-social-proof-human-story.css (AC-7) */
 
-.sp-supplement #sp-faq {
-  padding-top: clamp(1.15rem, 1.6vw, 1.45rem);
-}
-
-.sp-supplement .sp-faq__heading {
-  font-size: clamp(2rem, 2.4vw, 2.35rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  max-width: none;
-  margin-inline: 0;
-}
-
-.sp-supplement .sp-faq__header--left {
-  text-align: left;
-}
-
-.sp-supplement .sp-faq__item {
-  background: transparent;
-  border-radius: 0;
-  border-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.08);
-}
+/* FAQ → sp-faq.css (AC-8) */
 
 /* ══════════════════════════════════════════════════════════════════════════
    Future Self — Editorial finale presentation (supplement vertical)
@@ -420,65 +400,8 @@
 /* ══════════════════════════════════════════════════════════════════════════
    Sprint 7.1c — Narrative ending (Human Proof → FAQ → Future Self → Footer)
    Human Story shell/handoff → sp-social-proof-human-story-editorial-portrait.css (AC-7)
+   FAQ presentation → sp-faq.css (AC-8)
    ══════════════════════════════════════════════════════════════════════════ */
-
-.sp-supplement .shopify-section:has(.sp-faq) {
-  background: rgb(var(--sp-supplement-ivory, var(--color-background)));
-}
-
-.sp-supplement #sp-faq {
-  padding-top: clamp(0.55rem, 0.9vw, 0.75rem);
-  padding-bottom: clamp(0.25rem, 0.45vw, 0.4rem);
-}
-
-.sp-supplement .sp-faq__header {
-  margin-bottom: clamp(1.1rem, 1.8vw, 1.45rem);
-}
-
-.sp-supplement .sp-faq__heading {
-  font-size: var(--sp-voice-quiet-size, clamp(1.55rem, 1.8vw, 1.85rem));
-  font-weight: var(--sp-voice-quiet-weight, 600);
-  letter-spacing: var(--sp-voice-quiet-track, -0.015em);
-  max-width: var(--sp-voice-quiet-measure, 22ch);
-}
-
-.sp-supplement .sp-faq__list {
-  gap: 0;
-  max-width: min(100%, 52rem);
-}
-
-.sp-supplement .sp-faq__item {
-  background: transparent !important;
-  border-radius: 0 !important;
-  border-inline: none;
-  border-top: none;
-  box-shadow: none;
-  border-bottom-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.07);
-}
-
-.sp-supplement .sp-faq__trigger {
-  border-radius: 0;
-  min-height: auto;
-  padding: 1.05rem 0;
-}
-
-.sp-supplement .sp-faq__item.is-open .sp-faq__trigger {
-  padding-bottom: 0.55rem;
-}
-
-.sp-supplement .sp-faq__icon {
-  color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.42);
-  opacity: 0.85;
-}
-
-.sp-supplement .sp-faq__answer,
-.sp-supplement .sp-faq__answer p {
-  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.62);
-}
-
-.sp-supplement .shopify-section:has(.sp-faq) + .shopify-section:has(.sp-cta-offer--future-self) {
-  margin-top: 0;
-}
 
 .sp-supplement .shopify-section:has(.sp-cta-offer--future-self) + .shopify-section-group-footer,
 .sp-supplement .shopify-section:has(.sp-cta-offer--future-self) + .shopify-section:has(.footer) {
@@ -532,15 +455,4 @@
 .sp-supplement .footer-block--newsletter,
 .sp-supplement .footer .list-payment {
   display: none !important;
-}
-
-@media screen and (max-width: 749px) {
-  .sp-supplement .sp-faq__heading {
-    font-size: var(--sp-voice-quiet-size-mobile, clamp(1.45rem, 4.8vw, 1.65rem));
-    max-width: none;
-  }
-
-  .sp-supplement .sp-faq__trigger {
-    padding: 0.95rem 0;
-  }
 }
