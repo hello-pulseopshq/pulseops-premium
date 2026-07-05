@@ -11,6 +11,71 @@
   --sp-hs-quote-leading: 1.18;
 }
 
+/* ═══════════════════════════════════════════════════════════════════════════
+   AC-7 — Human Story portrait carousel supplement polish
+   Migrated from sp-editorial-system.css — wins on portrait layout merchants
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.sp-supplement .sp-social-proof--human-story {
+  --sp-hs-quote-size: var(--sp-voice-emotional-quote-size, clamp(2.2rem, 2.6vw, 3.2rem));
+}
+
+.sp-supplement .sp-social-proof--human-story .sp-social-proof__human-story-lead,
+.sp-supplement .sp-social-proof--human-story .sp-social-proof__human-story-lead p {
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  font-weight: 800;
+  color: rgb(var(--sp-supplement-green-deep, var(--color-foreground)));
+}
+
+.sp-supplement .sp-social-proof--human-story .sp-social-proof__human-story-eyebrow {
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.62);
+}
+
+.sp-supplement .sp-social-proof--human-story .sp-social-proof__human-story-portrait-image,
+.sp-supplement .sp-social-proof--human-story .sp-social-proof__human-story-portrait-frame img {
+  object-position: center 20%;
+}
+
+.sp-supplement .sp-social-proof--human-story .sp-social-proof__human-story-quote,
+.sp-supplement .sp-social-proof--human-story .sp-social-proof__human-story-quote-text,
+.sp-supplement .sp-social-proof--human-story .sp-social-proof__human-story-quote-text p {
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  color: rgb(var(--sp-hero-headline-ink, var(--sp-type-ink, var(--color-foreground))));
+}
+
+.sp-supplement .sp-social-proof--human-story .sp-social-proof__human-story-name {
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.9);
+}
+
+.sp-supplement .sp-social-proof--human-story .sp-social-proof__human-story-context {
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.62);
+}
+
+.sp-supplement .sp-social-proof--human-story .sp-social-proof__human-story-dot {
+  background: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.16);
+}
+
+.sp-supplement .sp-social-proof--human-story .sp-social-proof__human-story-dot.is-active {
+  background: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.72);
+}
+
+.sp-supplement .sp-social-proof--human-story .sp-social-proof__human-story-verification {
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.52);
+}
+
+@media screen and (max-width: 749px) {
+  .sp-supplement .sp-social-proof--human-story {
+    --sp-hs-quote-size: var(--sp-voice-emotional-quote-size-mobile, clamp(1.9rem, 6vw, 2.45rem));
+  }
+
+  .sp-supplement .sp-social-proof--human-story .sp-social-proof__human-story-lead,
+  .sp-supplement .sp-social-proof--human-story .sp-social-proof__human-story-lead p {
+    font-size: clamp(2.35rem, 7.5vw, 3rem);
+    line-height: 0.98;
+  }
+}
+
 .sp-social-proof__human-story {
   display: grid;
   gap: var(--sp-hs-gap);

@@ -13,6 +13,29 @@
   --sp-hs-ep-rule: rgba(var(--color-foreground), 0.12);
 }
 
+/* ═══════════════════════════════════════════════════════════════════════════
+   AC-7 — Human Story shell + narrative handoff (browser-winning supplement)
+   Migrated from sp-editorial-system.css — editorial_portrait demo
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.sp-supplement .shopify-section:has(.sp-social-proof--human-story) {
+  background: rgb(var(--sp-supplement-ivory, var(--color-background)));
+}
+
+.sp-supplement .sp-section--surface-alternate:has(.sp-social-proof--human-story),
+.sp-supplement .sp-section--surface-default:has(.sp-social-proof--human-story) {
+  background: transparent;
+}
+
+.sp-supplement #sp-reviews {
+  padding-top: clamp(1.15rem, 1.6vw, 1.45rem);
+  padding-bottom: clamp(0.45rem, 0.75vw, 0.65rem);
+}
+
+.sp-supplement .shopify-section:has(.sp-social-proof--human-story) + .shopify-section:has(.sp-faq) {
+  margin-top: 0;
+}
+
 .sp-social-proof__human-story--editorial-portrait {
   display: grid;
   grid-template-columns: minmax(0, 1fr);

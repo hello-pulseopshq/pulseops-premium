@@ -332,74 +332,7 @@
 
 /* Scientific Confidence → sp-quality-standards.css (AC-6) */
 
-.sp-supplement #sp-reviews {
-  padding-top: clamp(1.15rem, 1.6vw, 1.45rem);
-}
-
-/* Scientific Confidence → sp-quality-standards.css (AC-6) */
-
-/* Formulation Philosophy (manifesto) → sp-editorial-differentiation.css (AC-5) */
-
-/* ══════════════════════════════════════════════════════════════════════════
-   Human Proof — Human story presentation (supplement vertical)
-   ══════════════════════════════════════════════════════════════════════════ */
-
-.sp-supplement .shopify-section:has(.sp-social-proof--human-story) {
-  background: rgb(var(--sp-supplement-ivory, var(--color-background)));
-}
-
-.sp-supplement .sp-section--surface-alternate:has(.sp-social-proof--human-story),
-.sp-supplement .sp-section--surface-default:has(.sp-social-proof--human-story) {
-  background: transparent;
-}
-
-.sp-supplement .sp-social-proof--human-story {
-  --sp-hs-quote-size: var(--sp-voice-emotional-quote-size, clamp(2.2rem, 2.6vw, 3.2rem));
-}
-
-.sp-supplement .sp-social-proof--human-story .sp-social-proof__human-story-lead,
-.sp-supplement .sp-social-proof--human-story .sp-social-proof__human-story-lead p {
-  font-family: var(--sp-font-heading, var(--font-heading-family));
-  font-weight: 800;
-  color: rgb(var(--sp-supplement-green-deep, var(--color-foreground)));
-}
-
-.sp-supplement .sp-social-proof--human-story .sp-social-proof__human-story-eyebrow {
-  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.62);
-}
-
-.sp-supplement .sp-social-proof--human-story .sp-social-proof__human-story-portrait-image,
-.sp-supplement .sp-social-proof--human-story .sp-social-proof__human-story-portrait-frame img {
-  object-position: center 20%;
-}
-
-.sp-supplement .sp-social-proof--human-story .sp-social-proof__human-story-quote,
-.sp-supplement .sp-social-proof--human-story .sp-social-proof__human-story-quote-text,
-.sp-supplement .sp-social-proof--human-story .sp-social-proof__human-story-quote-text p {
-  font-family: var(--sp-font-heading, var(--font-heading-family));
-  color: rgb(var(--sp-hero-headline-ink, var(--sp-type-ink, var(--color-foreground))));
-}
-
-.sp-supplement .sp-social-proof--human-story .sp-social-proof__human-story-name {
-  font-family: var(--sp-font-heading, var(--font-heading-family));
-  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.9);
-}
-
-.sp-supplement .sp-social-proof--human-story .sp-social-proof__human-story-context {
-  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.62);
-}
-
-.sp-supplement .sp-social-proof--human-story .sp-social-proof__human-story-dot {
-  background: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.16);
-}
-
-.sp-supplement .sp-social-proof--human-story .sp-social-proof__human-story-dot.is-active {
-  background: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.72);
-}
-
-.sp-supplement .sp-social-proof--human-story .sp-social-proof__human-story-verification {
-  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.52);
-}
+/* Human Story → sp-social-proof-human-story-editorial-portrait.css + sp-social-proof-human-story.css (AC-7) */
 
 .sp-supplement #sp-faq {
   padding-top: clamp(1.15rem, 1.6vw, 1.45rem);
@@ -421,18 +354,6 @@
   background: transparent;
   border-radius: 0;
   border-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.08);
-}
-
-@media screen and (max-width: 749px) {
-  .sp-supplement .sp-social-proof--human-story {
-    --sp-hs-quote-size: var(--sp-voice-emotional-quote-size-mobile, clamp(1.9rem, 6vw, 2.45rem));
-  }
-
-  .sp-supplement .sp-social-proof--human-story .sp-social-proof__human-story-lead,
-  .sp-supplement .sp-social-proof--human-story .sp-social-proof__human-story-lead p {
-    font-size: clamp(2.35rem, 7.5vw, 3rem);
-    line-height: 0.98;
-  }
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
@@ -498,15 +419,8 @@
 
 /* ══════════════════════════════════════════════════════════════════════════
    Sprint 7.1c — Narrative ending (Human Proof → FAQ → Future Self → Footer)
+   Human Story shell/handoff → sp-social-proof-human-story-editorial-portrait.css (AC-7)
    ══════════════════════════════════════════════════════════════════════════ */
-
-.sp-supplement #sp-reviews {
-  padding-bottom: clamp(0.45rem, 0.75vw, 0.65rem);
-}
-
-.sp-supplement .shopify-section:has(.sp-social-proof--human-story) + .shopify-section:has(.sp-faq) {
-  margin-top: 0;
-}
 
 .sp-supplement .shopify-section:has(.sp-faq) {
   background: rgb(var(--sp-supplement-ivory, var(--color-background)));
