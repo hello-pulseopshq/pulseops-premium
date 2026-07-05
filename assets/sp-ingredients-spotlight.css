@@ -755,12 +755,6 @@
     border-radius: 0;
   }
 
-  .sp-ingredients-spotlight__hero {
-    grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
-    gap: clamp(1.15rem, 1.75vw, 1.55rem);
-    align-items: stretch;
-  }
-
   .sp-ingredients-spotlight__content {
     align-self: center;
     padding-right: clamp(0.5rem, 1.1vw, 1rem);

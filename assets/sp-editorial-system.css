@@ -256,13 +256,11 @@
   );
 }
 
-/* ══════════════════════════════════════════════════════════════════════════
-   Outcomes → Ingredients handoff / Ingredients presentation
-   Owner: assets/sp-ingredients-spotlight.css (AC-3.1)
-   ══════════════════════════════════════════════════════════════════════════ */
+/* Ingredients presentation → assets/sp-ingredients-spotlight.css (AC-3.1) */
 
 /* ══════════════════════════════════════════════════════════════════════════
-   Editorial Differentiation — cinematic chapter (supplement vertical)
+   Editorial Differentiation — cinematic / image-led (alternate presentations)
+   Not active on supplement homepage (philosophy_manifesto). Retained for merchant configurability.
    ══════════════════════════════════════════════════════════════════════════ */
 
 .sp-supplement .sp-editorial-differentiation.sp-editorial-chapter--cinematic {
@@ -327,22 +325,15 @@
   }
 }
 
-/* Community Confidence (Metrics editorial story) → sp-metrics.css (AC-4) */
-/* Formulation Philosophy (linear manifesto) → sp-editorial-differentiation.css (AC-5) */
-
+/* Community Confidence → sp-metrics.css (AC-4) */
+/* Formulation Philosophy → sp-editorial-differentiation.css (AC-5) */
 /* Scientific Confidence → sp-quality-standards.css (AC-6) */
-
-/* Human Story → sp-social-proof-human-story-editorial-portrait.css + sp-social-proof-human-story.css (AC-7) */
-
+/* Human Story → sp-social-proof-human-story-editorial-portrait.css (AC-7) */
 /* FAQ → sp-faq.css (AC-8) */
-
 /* Future Self → sp-cta-offer-future-self.css (AC-9) */
 
 /* ══════════════════════════════════════════════════════════════════════════
-   Sprint 7.1c — Narrative ending (Human Proof → FAQ → Future Self → Footer)
-   Human Story shell/handoff → sp-social-proof-human-story-editorial-portrait.css (AC-7)
-   FAQ presentation → sp-faq.css (AC-8)
-   Future Self presentation → sp-cta-offer-future-self.css (AC-9)
+   Narrative ending — footer presentation (supplement vertical)
    ══════════════════════════════════════════════════════════════════════════ */
 
 .sp-supplement .footer {

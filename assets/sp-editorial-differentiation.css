@@ -788,17 +788,6 @@
   .sp-editorial-differentiation--philosophy-manifesto {
     --sp-ed-visual-ratio: 21 / 8;
   }
-
-  .sp-editorial-differentiation__principles {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: clamp(1.25rem, 1.8vw, 1.75rem);
-    padding-top: clamp(1.7rem, 2.1vw, 2rem);
-  }
-
-  .sp-editorial-differentiation__principle + .sp-editorial-differentiation__principle {
-    padding-left: clamp(1rem, 1.4vw, 1.35rem);
-    border-left: 0.1rem solid rgba(var(--color-foreground), 0.07);
-  }
 }
 
 @media screen and (max-width: 749px) {

@@ -11,10 +11,7 @@
   --sp-hs-quote-leading: 1.18;
 }
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   AC-7 — Human Story portrait carousel supplement polish
-   Migrated from sp-editorial-system.css — wins on portrait layout merchants
-   ═══════════════════════════════════════════════════════════════════════════ */
+/* Portrait carousel layout — not active on supplement homepage (editorial_portrait). Retained for merchant configurability. */
 
 .sp-supplement .sp-social-proof--human-story {
   --sp-hs-quote-size: var(--sp-voice-emotional-quote-size, clamp(2.2rem, 2.6vw, 3.2rem));

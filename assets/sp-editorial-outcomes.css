@@ -512,12 +512,6 @@
     padding-left: 1.2rem;
   }
 
-  .sp-editorial-outcomes__composition {
-    grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
-    gap: clamp(2.2rem, 2.9vw, 3.65rem);
-    align-items: stretch;
-  }
-
   .sp-editorial-outcomes__media {
     align-self: stretch;
     width: 100%;
@@ -536,14 +530,6 @@
     align-content: start;
     align-self: stretch;
     width: 100%;
-  }
-
-  .sp-editorial-outcomes__cards,
-  .sp-editorial-outcomes--mobile-cards-auto .sp-editorial-outcomes__cards,
-  .sp-editorial-outcomes--mobile-cards-two_column .sp-editorial-outcomes__cards,
-  .sp-editorial-outcomes--mobile-cards-stack .sp-editorial-outcomes__cards {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: clamp(0.9rem, 1.25vw, 1.27rem);
   }
 
   .sp-editorial-outcomes__footer {

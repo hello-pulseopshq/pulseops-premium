@@ -368,7 +368,6 @@
   font-size: clamp(1.55rem, 1.45vw, 1.85rem);
   line-height: 1.6;
   font-weight: 500;
-  color: rgba(var(--color-foreground), 0.78);
 }
 
 .sp-supplement .sp-metrics--editorial-story .sp-metrics__subheading {
@@ -388,7 +387,6 @@
 .sp-metrics__proof-moments {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 0;
   width: 100%;
   max-width: none;
   margin: 0;
@@ -433,11 +431,6 @@
   line-height: 1.35;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(var(--color-foreground), 0.72);
-}
-
-.sp-supplement .sp-metrics--editorial-story .sp-metrics__proof-label {
-  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.72);
 }
 
 .sp-metrics__proof-supporting {
