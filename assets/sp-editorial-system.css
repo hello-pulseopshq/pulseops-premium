@@ -328,10 +328,7 @@
 }
 
 /* Community Confidence (Metrics editorial story) → sp-metrics.css (AC-4) */
-
-.sp-supplement #sp-differentiation {
-  padding-top: clamp(1.15rem, 1.6vw, 1.45rem);
-}
+/* Formulation Philosophy (linear manifesto) → sp-editorial-differentiation.css (AC-5) */
 
 .sp-supplement #sp-quality {
   padding-top: clamp(1.15rem, 1.6vw, 1.45rem);
@@ -430,77 +427,7 @@
   }
 }
 
-/* ══════════════════════════════════════════════════════════════════════════
-   Formulation Philosophy — manifesto presentation (supplement vertical)
-   ══════════════════════════════════════════════════════════════════════════ */
-
-.sp-supplement .sp-editorial-differentiation--philosophy-manifesto {
-  gap: clamp(1.15rem, 1.6vw, 1.45rem);
-}
-
-.sp-supplement .sp-composition--linear-manifesto.sp-editorial-differentiation--philosophy-manifesto {
-  gap: clamp(1.35rem, 2vw, 1.85rem);
-}
-
-.sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__manifesto-intro {
-  max-width: min(100%, 62rem);
-}
-
-.sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__statement,
-.sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__statement p {
-  font-family: var(--sp-font-heading, var(--font-heading-family));
-}
-
-.sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__manifesto-body {
-  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.8);
-}
-
-.sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__visual-interruption-frame {
-  border-radius: 0;
-}
-
-.sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__visual-interruption-image,
-.sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__visual-interruption-frame img {
-  object-position: center 38%;
-}
-
-.sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__principles {
-  border-top-color: var(--sp-surface-material-manifesto-rule, rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.1));
-}
-
-.sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__principle-title {
-  font-family: var(--sp-font-heading, var(--font-heading-family));
-  color: rgb(var(--sp-supplement-green-deep, var(--color-foreground)));
-}
-
-.sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__principle-text {
-  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.74);
-}
-
-.sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__principle + .sp-editorial-differentiation__principle {
-  border-left: none;
-  padding-left: 0;
-}
-
-.sp-supplement .sp-composition--linear-manifesto .sp-editorial-differentiation__principle + .sp-editorial-differentiation__principle {
-  border-left: 0.24rem solid var(--sp-surface-material-manifesto-rule, rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.12));
-  padding-left: clamp(2.75rem, 4.5vw, 5rem);
-}
-
-.sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__philosophy-closer {
-  border-top-color: var(--sp-surface-material-manifesto-rule-soft, rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.08));
-  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.64);
-}
-
-.sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-cta--quiet-link {
-  margin-bottom: 0;
-}
-
-@media screen and (max-width: 749px) {
-  .sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__principle:nth-child(n + 2) {
-    border-top-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.08);
-  }
-}
+/* Formulation Philosophy (manifesto) → sp-editorial-differentiation.css (AC-5) */
 
 /* ══════════════════════════════════════════════════════════════════════════
    Human Proof — Human story presentation (supplement vertical)
