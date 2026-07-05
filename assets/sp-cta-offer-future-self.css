@@ -140,6 +140,61 @@
   text-shadow: 0 0.08rem 0.55rem rgba(8, 14, 12, 0.22);
 }
 
+/* ═══════════════════════════════════════════════════════════════════════════
+   AC-9 — Future Self supplement presentation (browser-winning)
+   Migrated from sp-editorial-system.css
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.sp-supplement .shopify-section:has(.sp-cta-offer--future-self) {
+  background: transparent;
+}
+
+.sp-supplement .shopify-section:has(.sp-cta-offer--future-self) > .sp-section {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.sp-supplement .sp-section--surface-default:has(.sp-cta-offer--future-self),
+.sp-supplement .sp-section--surface-alternate:has(.sp-cta-offer--future-self) {
+  background: transparent;
+}
+
+.sp-supplement .sp-section--width-bleed:has(.sp-cta-offer--future-self) .sp-section__inner--bleed,
+.sp-supplement .sp-section--width-full:has(.sp-cta-offer--future-self) .sp-section__inner--full {
+  padding-inline: 0;
+}
+
+.sp-supplement .sp-cta-offer__future-self-support,
+.sp-supplement .sp-cta-offer__future-self-support p {
+  font-family: var(--sp-font-body, var(--font-body-family));
+}
+
+.sp-supplement .sp-cta-offer__future-self-button.sp-editorial-cta--primary {
+  background: rgba(var(--sp-supplement-cream, var(--color-background)), 0.94);
+  color: rgb(var(--sp-supplement-green-deep, var(--color-foreground)));
+  border: 0.1rem solid rgba(var(--sp-supplement-cream, var(--color-background)), 0.35);
+  backdrop-filter: blur(0.4rem);
+}
+
+.sp-supplement .sp-cta-offer__future-self-button.sp-editorial-cta--primary:hover,
+.sp-supplement .sp-cta-offer__future-self-button.sp-editorial-cta--primary:focus-visible {
+  background: rgb(var(--sp-supplement-cream, var(--color-background)));
+  color: rgb(var(--sp-supplement-green-deep, var(--color-foreground)));
+}
+
+.sp-supplement .sp-cta-offer__future-self-foot {
+  font-family: var(--sp-font-body, var(--font-body-family));
+}
+
+.sp-supplement #sp-cta {
+  scroll-margin-top: 6rem;
+}
+
+.sp-supplement .shopify-section:has(.sp-cta-offer--future-self) + .shopify-section-group-footer,
+.sp-supplement .shopify-section:has(.sp-cta-offer--future-self) + .shopify-section:has(.footer) {
+  margin-top: 0;
+}
+
 @media screen and (min-width: 750px) {
   .sp-cta-offer--future-self {
     --sp-fs-panel-max: 30rem;

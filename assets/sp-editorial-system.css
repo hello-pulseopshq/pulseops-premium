@@ -336,77 +336,14 @@
 
 /* FAQ → sp-faq.css (AC-8) */
 
-/* ══════════════════════════════════════════════════════════════════════════
-   Future Self — Editorial finale presentation (supplement vertical)
-   ══════════════════════════════════════════════════════════════════════════ */
-
-.sp-supplement .shopify-section:has(.sp-cta-offer--future-self) {
-  background: transparent;
-}
-
-.sp-supplement .shopify-section:has(.sp-cta-offer--future-self) > .sp-section {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.sp-supplement .sp-section--surface-default:has(.sp-cta-offer--future-self),
-.sp-supplement .sp-section--surface-alternate:has(.sp-cta-offer--future-self) {
-  background: transparent;
-}
-
-.sp-supplement .sp-cta-offer__future-self-canvas {
-  border-radius: 0;
-}
-
-.sp-supplement .sp-section--width-bleed:has(.sp-cta-offer--future-self) .sp-section__inner--bleed,
-.sp-supplement .sp-section--width-full:has(.sp-cta-offer--future-self) .sp-section__inner--full {
-  padding-inline: 0;
-}
-
-.sp-supplement .sp-cta-offer__future-self-support,
-.sp-supplement .sp-cta-offer__future-self-support p {
-  font-family: var(--sp-font-body, var(--font-body-family));
-}
-
-.sp-supplement .sp-cta-offer__future-self-image,
-.sp-supplement .sp-cta-offer__future-self-media img {
-  object-position: center 50%;
-}
-
-.sp-supplement .sp-cta-offer__future-self-button.sp-editorial-cta--primary {
-  background: rgba(var(--sp-supplement-cream, var(--color-background)), 0.94);
-  color: rgb(var(--sp-supplement-green-deep, var(--color-foreground)));
-  border: 0.1rem solid rgba(var(--sp-supplement-cream, var(--color-background)), 0.35);
-  backdrop-filter: blur(0.4rem);
-}
-
-.sp-supplement .sp-cta-offer__future-self-button.sp-editorial-cta--primary:hover,
-.sp-supplement .sp-cta-offer__future-self-button.sp-editorial-cta--primary:focus-visible {
-  background: rgb(var(--sp-supplement-cream, var(--color-background)));
-  color: rgb(var(--sp-supplement-green-deep, var(--color-foreground)));
-}
-
-.sp-supplement .sp-cta-offer__future-self-foot {
-  font-family: var(--sp-font-body, var(--font-body-family));
-  color: rgba(255, 255, 255, 0.54);
-}
-
-.sp-supplement #sp-cta {
-  scroll-margin-top: 6rem;
-}
-
-/* Future Self headline typography → sp-typography-language.css + sp-cta-offer-future-self.css */
+/* Future Self → sp-cta-offer-future-self.css (AC-9) */
 
 /* ══════════════════════════════════════════════════════════════════════════
    Sprint 7.1c — Narrative ending (Human Proof → FAQ → Future Self → Footer)
    Human Story shell/handoff → sp-social-proof-human-story-editorial-portrait.css (AC-7)
    FAQ presentation → sp-faq.css (AC-8)
+   Future Self presentation → sp-cta-offer-future-self.css (AC-9)
    ══════════════════════════════════════════════════════════════════════════ */
-
-.sp-supplement .shopify-section:has(.sp-cta-offer--future-self) + .shopify-section-group-footer,
-.sp-supplement .shopify-section:has(.sp-cta-offer--future-self) + .shopify-section:has(.footer) {
-  margin-top: 0;
-}
 
 .sp-supplement .footer {
   margin-top: 0;
