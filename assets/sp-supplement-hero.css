@@ -1,7 +1,7 @@
 /**
  * Supplement vertical — Hero clean reset
  * Single source of truth for .sp-supplement hero + header canvas.
- * Loaded by snippets/sp-supplement-head.liquid after the generic Hero section CSS.
+ * Loaded by sections/sp-hero.liquid after section-sp-hero.css when supplement pack is active.
  */
 
 html.sp-supplement {

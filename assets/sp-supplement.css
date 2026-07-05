@@ -759,4 +759,4 @@ html.sp-supplement.sp-motion-active [data-sp-reveal]:not(.is-revealed):not(.sp-r
 }
 
 /* Supplement typography → assets/sp-supplement-type.css (via sp-supplement-head.liquid) */
-/* Supplement hero → assets/sp-supplement-hero.css (via sections/sp-hero.liquid) */
+/* Supplement hero → assets/sp-supplement-hero.css (sections/sp-hero.liquid, after section-sp-hero.css) */

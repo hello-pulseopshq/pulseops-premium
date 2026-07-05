@@ -2,8 +2,8 @@
    SP Hero — static component styles
    Extracted from sections/sp-hero.liquid {%- style -%} block.
    Section-ID-scoped padding rules remain inline in the section file.
-   Demo-specific rules (html.sp-supplement .sp-hero etc.) live in
-   assets/sp-supplement.css — do not add them here.
+   Supplement vertical hero presentation lives in assets/sp-supplement-hero.css
+   (loaded by sections/sp-hero.liquid after this file). Do not add demo rules here.
    ============================================================================= */
 
 .sp-hero {

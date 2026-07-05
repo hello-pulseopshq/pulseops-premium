@@ -1,4 +1,8 @@
 {{ 'section-sp-hero.css' | asset_url | stylesheet_tag }}
+{%- capture sp_vertical_active -%}{%- render 'sp-pack-registry', field: 'active' -%}{%- endcapture -%}
+{%- if sp_vertical_active == 'supplement' -%}
+  {{ 'sp-supplement-hero.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
