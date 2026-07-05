@@ -421,6 +421,194 @@
 
 /* ── Scientific confidence presentation ── */
 
+/* ── AC-6 owner block — supplement Scientific Confidence (browser-winning behaviour) ──
+   Migrated from sp-editorial-system.css + sp-composition-system.css (evidence-panel).
+   Inserted before responsive overrides; do not append at file end. ── */
+
+.sp-supplement #sp-quality {
+  padding-top: clamp(1.15rem, 1.6vw, 1.45rem);
+}
+
+.sp-composition--evidence-panel.sp-quality-standards--scientific-confidence {
+  gap: var(--sp-comp-gap-standard);
+}
+
+.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__evidence-intro {
+  max-width: min(100%, 62rem);
+}
+
+.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__statement,
+.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__statement p {
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+}
+
+.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__evidence-body {
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.8);
+}
+
+.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__lab-evidence-image,
+.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__lab-evidence-frame img {
+  object-position: center 40%;
+}
+
+.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-checkpoints {
+  border-top: none;
+  padding-top: clamp(0.35rem, 0.6vw, 0.55rem);
+}
+
+.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-step {
+  border-bottom-color: var(--sp-surface-material-dossier-rule, rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.06));
+}
+
+.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-index {
+  color: rgb(var(--sp-supplement-green, var(--color-button)));
+}
+
+.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-title {
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+}
+
+.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-text {
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.74);
+}
+
+.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-meta {
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.58);
+}
+
+.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__evidence-note {
+  border-top-color: var(--sp-surface-material-dossier-rule, rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.08));
+  background: var(--sp-surface-material-dossier-note-fill, transparent);
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.64);
+}
+
+.sp-supplement .sp-quality-standards--scientific-confidence .sp-editorial-cta--quiet-link {
+  margin-bottom: 0;
+}
+
+.sp-supplement .sp-quality-standards--scientific-confidence .sp-editorial-cta--quiet-link::before {
+  display: none;
+}
+
+@media screen and (min-width: 990px) {
+  .sp-composition--evidence-panel.sp-quality-standards--scientific-confidence {
+    display: grid;
+    grid-template-columns: minmax(0, 0.52fr) minmax(0, 0.48fr);
+    grid-template-areas:
+      'intro intro'
+      'lab process'
+      'note note'
+      'footer footer';
+    column-gap: clamp(2rem, 3vw, 3.2rem);
+    row-gap: var(--sp-comp-gap-standard);
+    align-items: start;
+  }
+
+  .sp-composition--evidence-panel .sp-quality-standards__evidence-intro {
+    grid-area: intro;
+    max-width: min(100%, 46rem);
+  }
+
+  .sp-composition--evidence-panel .sp-quality-standards__lab-evidence {
+    grid-area: lab;
+    align-self: stretch;
+  }
+
+  .sp-composition--evidence-panel .sp-quality-standards__lab-evidence-frame {
+    min-height: 100%;
+    aspect-ratio: auto;
+    height: 100%;
+  }
+
+  .sp-composition--evidence-panel .sp-quality-standards__process-checkpoints {
+    grid-area: process;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    padding-top: 0;
+    border-top: none;
+    align-self: stretch;
+    border-left: 0.1rem solid var(--sp-comp-ledger-rule);
+    padding-left: clamp(1.35rem, 2vw, 2rem);
+  }
+
+  .sp-composition--evidence-panel .sp-quality-standards__process-step {
+    padding: clamp(0.95rem, 1.3vw, 1.15rem) 0;
+    border-bottom: 0.1rem solid var(--sp-comp-ledger-rule);
+  }
+
+  .sp-composition--evidence-panel .sp-quality-standards__process-step:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .sp-composition--evidence-panel .sp-quality-standards__process-step + .sp-quality-standards__process-step {
+    border-left: none;
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+  .sp-composition--evidence-panel .sp-quality-standards__evidence-note {
+    grid-area: note;
+  }
+
+  .sp-composition--evidence-panel .sp-quality-standards__footer--quiet {
+    grid-area: footer;
+  }
+
+  .sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-step + .sp-quality-standards__process-step {
+    border-left: none;
+    padding-left: 0;
+  }
+}
+
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .sp-composition--evidence-panel .sp-quality-standards__lab-evidence-frame {
+    aspect-ratio: 16 / 10;
+  }
+
+  .sp-composition--evidence-panel .sp-quality-standards__process-checkpoints {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .sp-composition--evidence-panel .sp-quality-standards__process-step {
+    padding: clamp(0.95rem, 1.3vw, 1.15rem) 0;
+    border-bottom: 0.1rem solid var(--sp-comp-ledger-rule);
+    border-right: none;
+    border-top: none;
+  }
+
+  .sp-composition--evidence-panel .sp-quality-standards__process-step:nth-child(n + 3) {
+    border-top: none;
+    padding-top: clamp(0.95rem, 1.3vw, 1.15rem);
+  }
+
+  .sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-step:nth-child(odd) {
+    border-right-color: var(--sp-surface-material-dossier-rule-strong, rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.1));
+  }
+
+  .sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-step:nth-child(n + 3) {
+    border-top-color: var(--sp-surface-material-dossier-rule, rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.08));
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .sp-composition--evidence-panel .sp-quality-standards__lab-evidence-frame {
+    aspect-ratio: 16 / 10;
+  }
+
+  .sp-composition--evidence-panel .sp-quality-standards__process-checkpoints {
+    border-top: 0.1rem solid var(--sp-comp-ledger-rule);
+    padding-top: clamp(0.85rem, 1.2vw, 1.05rem);
+  }
+
+  .sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__statement,
+  .sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__statement p {
+    line-height: var(--sp-voice-precise-lh);
+  }
+}
+
 .sp-quality-standards--scientific-confidence {
   --sp-qs-sci-gap: clamp(1.85rem, 2.7vw, 2.65rem);
   --sp-qs-sci-gap-tight: var(--sp-rhythm-gap-intro, clamp(0.85rem, 1.2vw, 1.1rem));
