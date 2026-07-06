@@ -123,6 +123,26 @@ Do only the work required.
 
 ---
 
+## Principle 6
+
+Declare scope before implementation.
+
+Implementation should begin by identifying:
+
+• implementation owner
+
+• files to modify
+
+• reason for each modification
+
+Scope should not expand silently during implementation.
+
+Unexpected cross-owner changes require explicit justification.
+
+Local implementation is preferred over platform-wide modification.
+
+---
+
 # CSS Architecture
 
 ## Ownership

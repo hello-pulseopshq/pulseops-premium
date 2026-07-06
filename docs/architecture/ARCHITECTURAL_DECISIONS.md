@@ -281,6 +281,7 @@ be understandable years later
 | ADR-006 | Accepted | Community Confidence Cascade Lessons |
 | ADR-007 | Accepted | Hero Ownership Simplification |
 | ADR-008 | Accepted | Editorial System Decomposition |
+| ADR-009 | Accepted | Dedicated Flagship Chapter Extraction |
 
 ---
 
@@ -589,6 +590,84 @@ Smaller shared systems.
 Clearer architecture.
 
 Simpler cascade.
+
+---
+
+# ADR-009
+
+## Title
+
+Dedicated Flagship Chapter Extraction
+
+### Decision Status
+
+Accepted
+
+### Implementation Status
+
+Complete (Community Confidence — supplement homepage)
+
+### Context
+
+Community Confidence began as an `editorial_story` presentation inside the generic `sp-metrics` section. The chapter evolved beyond a reusable metrics band:
+
+- a unique buyer question (collective habit adoption)
+- a unique editorial identity (typographic band, Morning Index)
+- unique merchant configuration (evidence rows, community statement, avatars)
+- unique CSS ownership requirements (single presentation owner)
+
+Hosting the chapter inside `sp-metrics` created schema confusion, duplicate CSS paths, and presentation branches that fought cascade validation.
+
+### Decision
+
+When a flagship chapter evolves beyond a generic reusable presentation, it may graduate into its own dedicated section.
+
+**Criteria for extraction:**
+
+- unique buyer question
+- unique editorial identity
+- unique merchant configuration
+- unique implementation ownership
+
+**Objective:**
+
+- single ownership
+- clean architecture
+- simpler implementation
+- better maintainability
+
+This does **not** imply every chapter requires a dedicated section. Generic reusable sections remain preferred unless the flagship chapter has clearly evolved into its own editorial system.
+
+**Community Confidence implementation:**
+
+| Role | Owner |
+|------|-------|
+| Section | `sections/sp-community-confidence.liquid` |
+| CSS | `assets/sp-community-confidence.css` |
+| Anchor | `#sp-community` |
+| Supplement template | `templates/index.supplement.json` → `sp-community-confidence` |
+
+`sp-metrics` is restored as a generic reusable metrics component for other demo templates. It no longer hosts Community Confidence or `editorial_story`.
+
+### Consequences
+
+Positive
+
+- one section, one CSS file, one schema for Community Confidence
+- no presentation branch inside `sp-metrics`
+- clearer merchant theme editor experience
+- governance and implementation aligned
+
+Negative
+
+- supplement template migration required
+- historical docs referencing `sp-metrics` + `editorial_story` require synchronization
+
+### Alternatives Considered
+
+Keep Community Confidence as `sp-metrics` with `presentation: editorial_story` and improved preset labeling.
+
+Rejected — continued dual ownership and presentation branching.
 
 ---
 

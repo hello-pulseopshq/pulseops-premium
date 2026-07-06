@@ -186,11 +186,11 @@ Override chain
 Example
 
 ```
-.sp-metrics__heading
+.sp-community-confidence__heading
 
 ↓
 
-sp-metrics.css
+sp-community-confidence.css
 
 ↓
 
@@ -222,7 +222,7 @@ supplement.css
 
 ↓
 
-sp-metrics.css
+sp-community-confidence.css
 
 ↓
 
@@ -290,7 +290,7 @@ Example
 ```
 Owner
 
-sp-metrics.css
+sp-community-confidence.css
 ```
 
 ---

@@ -86,7 +86,7 @@ The narrative framework below defines **identity**, not necessarily final sectio
 
 | Field | Definition |
 |-------|------------|
-| **Current section** | `sp-metrics` |
+| **Current section** | `sp-community-confidence` (`#sp-community`) |
 | **Visitor question** | Do other people trust this? |
 | **Emotional goal** | Safety in numbers, social validation |
 | **Visual language** | Editorial data story — typographic stats, softer evidence rhythm, fewer dashboard/card cues |
@@ -202,8 +202,8 @@ The narrative framework below defines **identity**, not necessarily final sectio
 | Overlap | Chapters involved | Shared failure mode | Resolution direction |
 |---------|-------------------|---------------------|----------------------|
 | **Trust / product proof** | Formulation Philosophy (`sp-editorial-differentiation`) + Scientific Confidence (`sp-quality-standards`, `sp-scientific-proof`) | Both answer “can I trust this product?” with split layouts, proof lists, and lab imagery | Differentiate: Philosophy = *thinking*; Science = *making*. Merge or demote `sp-scientific-proof` card grid into Quality narrative |
-| **Social proof vs data** | Community Confidence (`sp-metrics`) vs Hero social proof | Hero already shows rating/review count; Metrics repeats numbers in widget UI | Metrics becomes editorial *community* story, not duplicate hero stats |
-| **Human proof vs community** | Human Story (`sp-social-proof`) vs Community Confidence | Reviews quote satisfaction; Metrics cites 35k+ / 4.9★ | Metrics = scale; Reviews = felt experience — must feel like different chapters |
+| **Social proof vs data** | Community Confidence (`sp-community-confidence`) vs Hero social proof | Hero already shows rating/review count; community chapter repeats adoption proof | Community Confidence = editorial habit voice, not duplicate hero stats |
+| **Human proof vs community** | Human Story (`sp-social-proof`) vs Community Confidence | Reviews quote satisfaction; Community Confidence cites collective adoption | Community Confidence = scale; Human Story = felt experience — must feel like different chapters |
 
 ### Structural repetition (same geometry, different copy)
 
@@ -217,7 +217,7 @@ The narrative framework below defines **identity**, not necessarily final sectio
 
 | Chapter | Gap |
 |---------|-----|
-| **Community Confidence** | `sp-metrics` reads as KPI dashboard (dividers, swipe band, centered widget grid) — not “people like me trust this” |
+| **Community Confidence** | *(Resolved)* — migrated to dedicated `sp-community-confidence`; generic `sp-metrics` no longer hosts this chapter |
 | **Human Story** | Testimonial stage is strong directionally but still labeled/structured like a reviews widget (eyebrow, carousel dots, card idioms) |
 | **Brand Close** | Dawn footer breaks premium editorial close — typography, density, and nav feel inherited |
 
@@ -237,7 +237,7 @@ Recommended passes — each pass defines chapter identity **before** visual rede
 
 | Pass | Chapter identity | Section(s) | Why this order |
 |------|------------------|------------|----------------|
-| **Pass 1** | Community Confidence | `sp-metrics` | Largest remaining seam after Ingredients; fixes “widget stack” mid-page; unlocks cleaner handoff to Philosophy |
+| **Pass 1** | Community Confidence | `sp-community-confidence` | **Complete** — dedicated flagship section; `sp-metrics` restored as generic reusable metrics |
 | **Pass 2** | Formulation Philosophy | `sp-editorial-differentiation` | Separates “different thinking” from science before Quality redesign |
 | **Pass 3** | Scientific Confidence | `sp-quality-standards`, `sp-scientific-proof` | Consolidate trust/science into one narrative after Philosophy is distinct |
 | **Pass 4** | Human Story | `sp-social-proof` | Emotional beat after rational trust is established |
@@ -287,7 +287,7 @@ Every future chapter implementation must document these six fields **before** CS
 | 01 | Product Introduction | `sp-hero` | What is this? | Locked |
 | 02 | Transformation Story | `sp-editorial-outcomes` | Why should I care? | Mostly locked |
 | 03 | Ingredient Narrative | `sp-ingredients-spotlight` | What is inside? | Mostly locked |
-| 04 | Community Confidence | `sp-metrics` | Will people like me stick with this? | Architecture frozen |
+| 04 | Community Confidence | `sp-community-confidence` | Will people like me stick with this? | Architecture frozen |
 | 05 | Formulation Philosophy | `sp-editorial-differentiation` | Why is this approach different? | Architecture frozen |
 | 06 | Scientific Confidence | `sp-quality-standards` (+ `sp-scientific-proof` disabled) | Why should I trust the claims? | Architecture frozen |
 | 07 | Human Story | `sp-social-proof` | Can I picture myself succeeding? | Architecture frozen |

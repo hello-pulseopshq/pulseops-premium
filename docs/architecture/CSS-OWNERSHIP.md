@@ -146,7 +146,7 @@ Section CSS owns Community Confidence spacing.
 
 Breakpoint ownership
 
-sp-metrics.css defines the desktop, tablet, and mobile spacing values.
+sp-community-confidence.css defines the desktop, tablet, and mobile spacing values.
 ```
 
 The breakpoint model never changes architectural ownership.
@@ -174,7 +174,7 @@ Example:
 ```text
 Owner
 
-assets/sp-metrics.css
+assets/sp-community-confidence.css
         ↓
 Base
         ↓
@@ -184,6 +184,8 @@ Tablet media query
         ↓
 Mobile media query
 ```
+
+**Generic metrics (non–Community Confidence):** `assets/sp-metrics.css` owns the reusable SP Metrics section only.
 
 ## Rule
 
@@ -196,7 +198,9 @@ Do not create a separate ownership layer by placing responsive fixes in:
 - Composition System CSS
 - Unrelated section CSS
 
-If a responsive value belongs to Community Confidence, it belongs in `assets/sp-metrics.css`.
+If a responsive value belongs to Community Confidence, it belongs in `assets/sp-community-confidence.css`.
+
+If a responsive value belongs to generic metrics (`sp-metrics`), it belongs in `assets/sp-metrics.css`.
 
 If a responsive value belongs to Ingredients, it belongs in `assets/sp-ingredients-spotlight.css`.
 
@@ -552,7 +556,8 @@ This table reflects the canonical Supplement homepage as implemented today and t
 | Hero | `sections/sp-hero.liquid` | `assets/section-sp-hero.css` + `assets/sp-supplement-hero.css` | Section CSS owns hero presentation; vertical CSS expresses supplement hero only | Migration required |
 | Editorial Outcomes | `sections/sp-editorial-outcomes.liquid` | `assets/sp-editorial-outcomes.css` + composition/editorial secondary rules | `assets/sp-editorial-outcomes.css` | Partial |
 | Ingredients | `sections/sp-ingredients-spotlight.liquid` | `assets/sp-ingredients-spotlight.css` + editorial shadow rules | `assets/sp-ingredients-spotlight.css` | Partial |
-| Community Confidence | `sections/sp-metrics.liquid` | `assets/sp-metrics.css` + composition/editorial secondary rules | `assets/sp-metrics.css` | Partial |
+| Community Confidence | `sections/sp-community-confidence.liquid` | `assets/sp-community-confidence.css` | `assets/sp-community-confidence.css` | Complete |
+| Generic metrics | `sections/sp-metrics.liquid` | `assets/sp-metrics.css` | `assets/sp-metrics.css` | Complete |
 | Formulation Philosophy | `sections/sp-editorial-differentiation.liquid` | `assets/sp-editorial-differentiation.css` + composition/editorial secondary rules | `assets/sp-editorial-differentiation.css` | Partial |
 | Scientific Confidence | `sections/sp-quality-standards.liquid` | `assets/sp-quality-standards.css` + composition/editorial secondary rules | `assets/sp-quality-standards.css` | Partial |
 | Human Story | `sections/sp-social-proof.liquid` | `assets/sp-social-proof-human-story.css` + `assets/sp-social-proof-human-story-editorial-portrait.css` + inline shared CSS | `assets/sp-social-proof-human-story-editorial-portrait.css` as canonical portrait owner | Migration required |

@@ -566,7 +566,7 @@ Composition
 
 ↓
 
-sp-metrics.css
+sp-community-confidence.css
 
 ↓
 
@@ -576,6 +576,8 @@ Supplement expression
 
 Mobile refinement
 ```
+
+**Generic metrics** (`sp-metrics`) follow the same cascade through `sp-metrics.css` — not Community Confidence.
 
 Not
 
@@ -659,7 +661,7 @@ This table reflects the canonical Supplement homepage as implemented today and t
 | Design Languages | `assets/sp-typography-language.css`, `assets/sp-surface-language.css`, `assets/sp-motion.css`, `assets/sp-image-experience.css` |
 | Composition | `assets/sp-composition-system.css` |
 | Editorial | `assets/sp-editorial-system.css` |
-| Section CSS | `assets/section-sp-hero.css`, `assets/sp-editorial-outcomes.css`, `assets/sp-ingredients-spotlight.css`, `assets/sp-metrics.css`, `assets/sp-editorial-differentiation.css`, `assets/sp-quality-standards.css`, `assets/sp-social-proof-human-story-editorial-portrait.css`, `assets/sp-cta-offer-future-self.css` |
+| Section CSS | `assets/section-sp-hero.css`, `assets/sp-editorial-outcomes.css`, `assets/sp-ingredients-spotlight.css`, `assets/sp-community-confidence.css`, `assets/sp-metrics.css`, `assets/sp-editorial-differentiation.css`, `assets/sp-quality-standards.css`, `assets/sp-social-proof-human-story-editorial-portrait.css`, `assets/sp-cta-offer-future-self.css` |
 | Inline section CSS requiring migration | `sections/sp-faq.liquid` |
 | Vertical Expression | `assets/sp-supplement.css`, `assets/sp-supplement-hero.css`, `assets/sp-supplement-type.css` |
 | Responsive | Section-local media queries inside the owning section CSS file |

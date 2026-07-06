@@ -100,6 +100,60 @@ Treat the supplied mockups exactly like an approved Figma design.
 Your job is to faithfully reproduce those mockups using the existing PulseOps architecture, design system, and design tokens.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ARCHITECTURE PRE-FLIGHT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Before editing code:
+
+1. Identify the implementation owner(s).
+
+2. List every file you intend to modify.
+
+3. Explain why each file requires modification.
+
+4. Confirm that each modified file is within its architectural ownership.
+
+5. If implementation requires modifying a shared system or another chapter's owner, explain why before making changes.
+
+Default assumption:
+
+Implementation should remain local.
+
+Cross-owner changes are exceptions.
+
+If more than one presentation owner is required, justify it explicitly before implementation.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ACTIVATION VERIFICATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Before visual review, confirm that the implementation is actually active.
+
+Verify:
+
+1. The correct Shopify preview theme.
+
+2. The correct template.
+
+3. The correct section is rendered.
+
+4. The correct stylesheet is loaded.
+
+5. The previous implementation is no longer present.
+
+Report:
+
+• Preview URL
+
+• Section root selector
+
+• Stylesheet owner
+
+• Files pushed (or running via `shopify theme dev`)
+
+Do not begin visual review until Activation Verification passes.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SOURCE OF TRUTH
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -285,6 +339,17 @@ Do NOT touch:
 - accessibility infrastructure
 - unrelated CSS
 
+Do not modify additional files during implementation unless they were declared in the Architecture Pre-flight.
+
+If additional files become necessary during implementation:
+
+• stop
+• explain why
+• update the file list
+• then continue
+
+Do not silently expand implementation scope.
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 VISUAL ACCEPTANCE CRITERIA
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -310,6 +375,32 @@ Cross-device:
 
 Do not stop at technical correctness.
 Stop only when visual fidelity is high.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ARCHITECTURE VALIDATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Before finishing, confirm:
+
+- No duplicate presentation ownership introduced.
+
+- Existing ownership preserved.
+
+- Shared systems modified only when justified.
+
+- Merchant configurability preserved.
+
+- No chapter leaked styling into another chapter.
+
+- No implementation convenience changes were made outside the approved scope.
+
+Report:
+
+Files Modified
+
+Owner
+
+Reason
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 VALIDATION

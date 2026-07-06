@@ -70,7 +70,7 @@ Final homepage sequence — active render path. Section keys map to Shopify sect
 | 1 | **Hero** | `sp-hero` | Product introduction and primary conversion | Why should I care? | Hero (media-focus) | Product |
 | 2 | **Editorial Outcomes** | `sp-editorial-outcomes` | Life-fit and transformation promise | How does this fit into my life? | Split Transformation | Story |
 | 3 | **Substance** | `sp-ingredients-spotlight` | Formula transparency and serving clarity | What am I actually taking? | Gallery Immersion | Object |
-| 4 | **Community Confidence** | `sp-metrics` | Collective habit and adoption voice | Will people like me actually stick with this? | Typographic Band | Typographic collective voice |
+| 4 | **Community Confidence** | `sp-community-confidence` | Collective habit and adoption voice | Will people like me actually stick with this? | Typographic Band | Typographic collective voice |
 | 5 | **Formulation Philosophy** | `sp-editorial-differentiation` | Brand point of view and differentiation | Why is this approach different from every other supplement? | Linear Manifesto | Words |
 | 6 | **Scientific Confidence** | `sp-quality-standards` | Process, QA, and manufacturing trust | Why should I trust the claims? | Evidence Panel | Evidence |
 | 7 | **Human Proof** | `sp-social-proof` | Personal identification and felt experience | Can I picture myself succeeding? | Human Stage | Person |

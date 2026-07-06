@@ -409,7 +409,7 @@ Sprint IV.1 Typography Language is complete when:
 | Hero | `sp-hero__headline` | `sp-demo-supplement-hero.css`, `section-sp-hero.css` |
 | Outcomes | `sp-editorial-type--chapter` | `sp-editorial-outcomes.css`, `sp-editorial-system.css` |
 | Ingredients | `sp-editorial-type--chapter` | `sp-ingredients-spotlight.css`, `sp-composition-system.css` |
-| Community | `sp-editorial-type--statement`, `sp-metrics__proof-*` | `sp-metrics.css`, `sp-composition-system.css`, `sp-editorial-system.css` |
+| Community | `sp-community-confidence__*`, `sp-editorial-type--statement` | `sp-community-confidence.css`, `sp-composition-system.css`, `sp-editorial-system.css` |
 | Philosophy | `sp-editorial-type--statement` | `sp-composition-system.css`, `sp-editorial-system.css` |
 | Scientific | `sp-editorial-type--statement` | `sp-quality-standards.css`, `sp-editorial-system.css` |
 | Human Proof | human-story classes | `sp-social-proof-human-story.css`, `sp-editorial-system.css` |

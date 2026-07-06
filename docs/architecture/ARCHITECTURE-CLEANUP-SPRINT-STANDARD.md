@@ -380,7 +380,7 @@ Ownership Migration
 
 Example
 
-Move Community Confidence presentation from Editorial System into sp-metrics.css.
+Extract Community Confidence from generic `sp-metrics` into dedicated `sp-community-confidence` section and `sp-community-confidence.css` (ADR-009).
 
 ---
 

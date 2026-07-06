@@ -40,7 +40,7 @@ Ten reusable chapter types for the PulseOps Editorial Chapter Library (next phas
 | 02 | **Transformation Chapter** | Outcomes, benefits, before/after story | `sp-editorial-outcomes` |
 | 03 | **Editorial Story / Ingredients Chapter** | What’s inside, purposeful formulation | `sp-ingredients-spotlight` |
 | 04 | **Scientific Narrative** | Mechanism, standards, credibility depth | `sp-quality-standards` — architecture frozen; `sp-scientific-proof` deprecated (disabled) |
-| 05 | **Data Story / Community Confidence** | Metrics, stats, quantified proof | `sp-metrics` — `editorial_story` presentation implemented (supplement demo); `band` presentation remains legacy default for other demos |
+| 05 | **Community Confidence** | Collective habit and adoption proof | Editorial proof moments, community statement | None (typographic) | `sp-community-confidence` — dedicated flagship section (`#sp-community`); `sp-metrics` is generic metrics for other templates |
 | 06 | **Cinematic Lifestyle** | Brand world, ritual, aspiration | Partially in hero / ingredients media |
 | 07 | **Human Proof** | Reviews, testimonials, social trust | `sp-social-proof` (needs Human Proof redesign) |
 | 08 | **Founder / Philosophy** | Why we exist, brand POV | Future chapter |
@@ -179,7 +179,7 @@ Token-driven scale on `.sp-editorial-chapter`:
 - Box assurance/commitment content in heavy cards.
 - Center matrix headers like isolated modules — use left-aligned caption rhythm.
 - Chase unrelated Theme Check warnings in legacy Dawn files.
-- Redesign hero in foundation passes — sequence remaining chapter library work (Metrics `editorial_story` v1 complete for supplement demo).
+- Community Confidence dedicated section complete for supplement demo (`sp-community-confidence`). Remaining chapter library work follows Architecture Cleanup Sprints.
 
 ---
 

@@ -80,7 +80,7 @@ Remaining issues are **governance and hygiene** (disabled ghost section in templ
 | **Hero** | Product introduction + primary CTA | Promise, product, price context | Hero product shot | Clear — `sp-hero` |
 | **Editorial Outcomes** | Life-fit story | Outcome cards, ritual copy | Lifestyle / in-use | Clear — outcomes preset |
 | **Ingredients** | Formula transparency | Ingredient blocks, serving clarity | Flat-lay / specimen | Clear — matrix + CTA |
-| **Community Confidence** | Collective adoption voice | Editorial proof moments | None (typographic) | **Moderate** — section type is `sp-metrics`; merchant must learn presentation = `editorial_story` |
+| **Community Confidence** | Collective adoption voice | Editorial proof moments | None (typographic) | Clear — `sp-community-confidence` (`#sp-community`) |
 | **Formulation Philosophy** | Brand/manifesto POV | Principle rails, closing line | Formulation/editorial still | **Moderate** — section named `sp-editorial-differentiation` |
 | **Scientific Confidence** | QA / manufacturing trust | Process checkpoints, supporting text | Lab / documentary | Clear — `scientific_confidence` preset |
 | **Human Proof** | One-person story | Quote, portrait, attribution | Portrait / stage | Clear — `human_story` preset |
@@ -89,12 +89,12 @@ Remaining issues are **governance and hygiene** (disabled ghost section in templ
 
 **Confusion points (architectural, not visual):**
 
-1. **`sp-metrics` hosts Community Confidence** — the schema name suggests KPI widgets; the architecture role is editorial habit voice. Merchants need preset labeling or theme-editor grouping, not a new section.
-2. **`sp-editorial-differentiation` hosts Formulation Philosophy** — name implies comparison, not manifesto. Same resolution: merchant-facing preset name, not structural change.
+1. ~~**`sp-metrics` hosts Community Confidence**~~ — **Resolved (ADR-009).** Community Confidence is `sp-community-confidence`; `sp-metrics` is generic metrics only.
+2. **`sp-editorial-differentiation` hosts Formulation Philosophy** — name implies comparison, not manifesto. Merchant-facing preset name, not structural change.
 3. **`sp-scientific-proof` disabled but present in template order** — visible in theme editor as a ghost section; may confuse merchants (“should I enable this?”). Architectural hygiene item, not a rendered failure.
 4. **`chapter-identity.md`** — synchronized to Architecture v1 frozen status.
 
-**Verdict:** Every chapter has a clear editing purpose in the rendered homepage. Schema naming lag is the main merchant-facing architecture gap — address through documentation and preset labels, not chapter redesign.
+**Verdict:** Every chapter has a clear editing purpose in the rendered homepage. Community Confidence schema naming is aligned (`sp-community-confidence`). Remaining merchant-facing naming lag: `sp-editorial-differentiation` (Formulation Philosophy).
 
 ---
 
@@ -108,7 +108,7 @@ Remaining issues are **governance and hygiene** (disabled ghost section in templ
 
 **Reusability:** Composition classes attach to presentation modes — vertical demos can swap photography and copy without new layout logic. Strong platform signal.
 
-**Merchant flexibility:** Template JSON + section schemas preserve configurability. Presentation presets (`editorial_story`, `philosophy_manifesto`, `scientific_confidence`, `human_story`, `future_self`) encode architecture without hardcoding demo copy in Liquid.
+**Merchant flexibility:** Template JSON + section schemas preserve configurability. Presentation presets (`philosophy_manifesto`, `scientific_confidence`, `human_story`, `future_self`) encode architecture without hardcoding demo copy in Liquid. Community Confidence uses dedicated section `sp-community-confidence` (ADR-009), not a presentation preset.
 
 **Premium paid theme bar:** Architecture meets the bar. Craftsmanship gaps (typography refinement, surface arc, motion, footer brand close) are polish — explicitly deferred to post-freeze sprints per `LAUNCH-CHECKLIST.md` Section D.
 
@@ -180,7 +180,7 @@ Only genuine **architectural** weaknesses — craftsmanship excluded per sprint 
 | # | Weakness | Severity | Recommended action | Blocks freeze? |
 |---|----------|----------|-------------------|----------------|
 | 1 | **Disabled `sp-scientific-proof` remains in template order** | Low | Remove from `order` array or document as deprecated optional module in merchant guide | No — not rendered |
-| 2 | **Section schema names misalign with chapter identity** (`sp-metrics`, `sp-editorial-differentiation`) | Low | Merchant-facing preset labels + docs; optional schema `name` strings only | No |
+| 2 | **Section schema names misalign with chapter identity** (`sp-editorial-differentiation`) | Low | Merchant-facing preset labels + docs; optional schema `name` strings only | No |
 | 3 | **`chapter-identity.md` status table** | Medium | Synced in Architecture Freeze governance sprint | No |
 | 4 | **Visual System Community owner = “Numbers” vs editorial phrase proof moments** | Low | Amend Visual System v1.1 note: owner is **typographic collective voice**; numerals optional, not required | No |
 | 5 | **Regulated-vertical bias in Scientific + Substance slots** | Low | Document vertical guidance: which chapters merchants may compress, never delete | No |
@@ -236,7 +236,7 @@ If frozen, **Phase IV · Sprint IV.1 — Typography Language** may proceed **wit
 | 1 | `sp-hero` | Hero | Media-focus hero | Why should I care? |
 | 2 | `sp-editorial-outcomes` | Outcomes | `split-transformation` | How does this fit my life? |
 | 3 | `sp-ingredients-spotlight` | Substance | `gallery-immersion` | What am I actually taking? |
-| 4 | `sp-metrics` | Community | `typographic-band` | Will people like me stick with this? |
+| 4 | `sp-community-confidence` | Community | `typographic-band` | Will people like me stick with this? |
 | 5 | `sp-editorial-differentiation` | Philosophy | `linear-manifesto` | Why is this approach different? |
 | 6 | `sp-quality-standards` | Scientific | `evidence-panel` | Why should I trust the claims? |
 | — | `sp-scientific-proof` | *(disabled)* | — | — |

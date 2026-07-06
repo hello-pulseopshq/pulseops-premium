@@ -625,7 +625,7 @@ Based on supplement demo at `supplement-chapter-human-proof-v1`. **Narrative arc
 | Chapter | Why |
 |---------|-----|
 | **Narrative sequence** | Hero → … → Human Proof → FAQ → CTA order is correct |
-| **Chapter identity architecture** | One question per chapter; presentations (`editorial_story`, `philosophy_manifesto`, `scientific_confidence`, `human_story`) |
+| **Chapter identity architecture** | One question per chapter; presentations (`philosophy_manifesto`, `scientific_confidence`, `human_story`); Community Confidence = dedicated `sp-community-confidence` (ADR-009) |
 | **Human Proof direction** | Portrait-led, person before quote — first chapter that feels magazine-native |
 | **Ingredients flat-lay opener** | Clear visual owner; strong category teaching moment |
 | **Scientific Confidence consolidation** | Disabled duplicate certification grid — correct narrative call |

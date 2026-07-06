@@ -46,7 +46,7 @@ The codebase is **clean enough for Phase IV (Craftsmanship) on the Supplement ca
 
 | Issue | Severity | Detail |
 |-------|----------|--------|
-| Dual styling paths for middle chapters | **High** | Section CSS (`sp-metrics.css`, `sp-editorial-differentiation.css`, etc.) **and** composition overrides in `sp-editorial-system.css` both target same chapters |
+| Dual styling paths for middle chapters | **High** | Section CSS (`sp-community-confidence.css`, `sp-editorial-differentiation.css`, etc.) **and** composition overrides in `sp-editorial-system.css` both target same chapters |
 | Legacy `image-led` rules retained | **Medium** | `sp-editorial-system.css` still carries pre-7.2 image-led paths guarded by `:not(.sp-composition--gallery-immersion)` — dead weight for Supplement |
 | `!important` concentration in hero demo CSS | **Medium** | ~100 uses in `sp-supplement-hero.css`; ~58 in `section-sp-hero.css` — intentional override layer but hard to maintain |
 | Competing `--media-radius` definitions | **Low** | Set in `sp-supplement.css`, `sp-commerce-premium.css`, Dawn `base.css` — cascade-resolved but not single source |
@@ -63,7 +63,7 @@ The codebase is **clean enough for Phase IV (Craftsmanship) on the Supplement ca
 
 **Healthy patterns**
 
-- Presentation modes encode architecture: `editorial_story`, `philosophy_manifesto`, `scientific_confidence`, `human_story`, `future_self`
+- Presentation modes encode architecture: `philosophy_manifesto`, `scientific_confidence`, `human_story`, `future_self` (Community Confidence uses dedicated `sp-community-confidence`, not a presentation preset)
 - Hierarchy wrappers: `sp-section-hierarchy-open/close`, `sp-section-hierarchy-surface`
 - Reusable snippets: `sp-image`, `sp-motion-class`, `sp-hero-media`, `sp-cta-offer-future-self`
 - No hardcoded supplement copy in Liquid (demo content lives in JSON)
@@ -72,7 +72,7 @@ The codebase is **clean enough for Phase IV (Craftsmanship) on the Supplement ca
 
 | Issue | Severity | Detail |
 |-------|----------|--------|
-| Section file names ≠ chapter identity | **High** | `sp-metrics` = Community Confidence; `sp-editorial-differentiation` = Formulation Philosophy — merchant/schema mismatch |
+| Section file names ≠ chapter identity | **High** | `sp-editorial-differentiation` = Formulation Philosophy — merchant/schema mismatch; ~~`sp-metrics` = Community Confidence~~ **resolved (ADR-009)** → `sp-community-confidence` |
 | `sp-scientific-proof.liquid` still active in other templates | **Medium** | Section exists; deprecated for Supplement architecture only |
 | Inline `{%- style -%}` per section | **Medium** | Padding/scoping duplicated; increases diff noise |
 | `sp-features.liquid` unused assign | **Low** | Theme Check: `features_frame_class` assigned but unused |
@@ -187,18 +187,19 @@ The codebase is **clean enough for Phase IV (Craftsmanship) on the Supplement ca
 | Layer | Example | Where |
 |-------|---------|-------|
 | **Platform / editorial** | Community Confidence | Architecture docs, merchant copy |
-| **Implementation** | `sp-metrics`, `SP Metrics` | File names, schema |
-| **Presentation** | `editorial_story` | Section settings |
+| **Implementation** | `sp-community-confidence`, `SP Community Confidence` | File names, schema |
+| **Anchor** | `#sp-community` | Template JSON, hierarchy wrapper |
 
-**Key mismatches**
+**Remaining mismatches (non–Community Confidence)**
 
 | Editorial name | Implementation name | Schema label | Severity |
 |----------------|---------------------|--------------|----------|
-| Community Confidence | `sp-metrics` | SP Metrics | **High** |
 | Formulation Philosophy | `sp-editorial-differentiation` | SP Why Choose | **High** |
 | Substance / Ingredients | `sp-ingredients-spotlight` | SP Ingredients Spotlight | **Medium** |
 | Scientific Confidence | `sp-quality-standards` | SP Quality Standards | **Medium** |
 | Human Proof | `sp-social-proof` | SP Social Proof | **Medium** |
+
+**Resolved (ADR-009):** Community Confidence → `sp-community-confidence` / `SP Community Confidence` — aligned with editorial name.
 
 **Justified:** Implementation names are stable API surface — renaming files would break templates. **Fix path:** schema `name` + preset labels only.
 
@@ -210,13 +211,13 @@ The codebase is **clean enough for Phase IV (Craftsmanship) on the Supplement ca
 |----|----------|----------|----------------|-----------------|------|
 | C-01 | **Critical** | `templates/index.*.json` (non-supplement) | Architecture v1 only on Supplement; platform rule violated for 9 demos | Demo Pack Migration sprint | High |
 | C-02 | **High** | CSS: section + composition dual paths | Cascade debugging hard; Phase IV typography may fight overrides | Incremental CSS consolidation | Medium |
-| C-03 | **High** | Schema names: metrics, differentiation | Merchant editor confusion | Update schema `name` strings + docs | Low |
+| C-03 | **High** | Schema names: differentiation (~~metrics~~ resolved for Community Confidence) | Merchant editor confusion | Update schema `name` strings + docs | Low |
 | C-04 | **High** | `sp-scientific-proof` in product templates | Legacy trust pattern vs frozen IA | Migrate with demo packs | Medium |
 | L-01 | **Medium** | `sp-editorial-system.css` legacy image-led | Dead code weight (~200 lines guarded) | Remove after confirming no demo uses image-led | Low |
 | L-02 | **Medium** | 5× separate IntersectionObserver JS | Maintenance duplication | Shared observer utility (deferred) | Medium |
 | L-03 | **Medium** | Hero CSS `!important` density | Hard to override safely in Phase IV | Typography sprint scoped overrides | Low |
 | L-04 | **Medium** | `sp-features.liquid` unused variable | Theme Check warning | Remove unused assign | Low |
-| L-05 | **Medium** | Metrics `band` vs `editorial_story` split | Two presentation codepaths | Deprecate band when demos migrate | Medium |
+| L-05 | **Medium** | Generic `sp-metrics` band presentation | Legacy demo templates only; Community Confidence extracted to `sp-community-confidence` (ADR-009) | Migrate legacy demos to generic metrics or dedicated sections as needed | Medium |
 | T-01 | **Low** | `index.supplement.json` orphan blocks | Editor noise, JSON bloat | **Fixed** | None |
 | T-02 | **Low** | Disabled `sp-scientific-proof` in supplement order | Editor ghost section | **Fixed** — removed | None |
 | S-01 | **Low** | `snippets/sp-image-class.liquid` orphan | Dead code | **Fixed** — deleted | None |
