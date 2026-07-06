@@ -15,35 +15,8 @@
 {%- endstyle -%}
 
 {%- liquid
-  assign presentation = section.settings.presentation | default: 'band'
   assign heading_stripped = section.settings.heading | strip_html | strip
   assign subheading_stripped = section.settings.subheading | strip_html | strip
-  assign eyebrow_stripped = section.settings.eyebrow | strip
-  assign proof_strip_text_stripped = section.settings.proof_strip_text | strip
-  assign proof_strip_caption_stripped = section.settings.proof_strip_caption | strip
-  assign proof_strip_overflow_stripped = section.settings.proof_strip_overflow | strip
-  assign button_label_stripped = section.settings.button_label | strip
-
-  assign proof_avatar_count = 0
-  for i in (1..6)
-    assign avatar_key = 'proof_avatar_' | append: i
-    assign avatar_image = section.settings[avatar_key]
-    if avatar_image != blank
-      assign proof_avatar_count = proof_avatar_count | plus: 1
-    endif
-  endfor
-
-  assign show_proof_strip = false
-  if section.settings.show_proof_strip
-    if proof_avatar_count > 0 or proof_strip_text_stripped != blank or proof_strip_caption_stripped != blank or proof_strip_overflow_stripped != blank
-      assign show_proof_strip = true
-    endif
-  endif
-
-  assign show_cta = false
-  if section.settings.show_cta and button_label_stripped != blank and section.settings.button_link != blank
-    assign show_cta = true
-  endif
 
   assign metrics_columns = section.settings.desktop_columns
   if section.settings.sp_width_mode == 'contained' or section.settings.sp_width_mode == blank
@@ -52,173 +25,55 @@
       assign metrics_columns = '4'
     endif
   endif
-
-  assign editorial_root_class = 'sp-metrics sp-composition sp-composition--typographic-band sp-editorial-chapter sp-editorial-chapter--spacing-standard sp-editorial-chapter--handoff-in sp-editorial-chapter--handoff-out sp-metrics--editorial-story'
-  if section.settings.content_alignment == 'center'
-    assign editorial_root_class = editorial_root_class | append: ' sp-metrics--editorial-story--center'
-  endif
-
-  assign band_root_class = 'sp-metrics'
 -%}
 
-{% render 'sp-section-hierarchy-open', section: section, anchor_id: 'sp-community' %}
-  {%- if presentation == 'editorial_story' -%}
-    <div
-      class="{{ editorial_root_class }}"
-      aria-label="{{ heading_stripped | default: 'Community confidence' | escape }}"
+{% render 'sp-section-hierarchy-open', section: section %}
+  <div
+    class="sp-metrics"
+    aria-label="{{ heading_stripped | default: 'Metrics' | escape }}"
+  >
+    {%- if heading_stripped != blank or subheading_stripped != blank -%}
+      <header class="sp-metrics__header sp-metrics__header--{{ section.settings.content_alignment }}">
+        {%- if heading_stripped != blank -%}
+          <h2 class="sp-metrics__heading inline-richtext h1{% render 'sp-motion-class', type: 'fade-up' %}">
+            {{ section.settings.heading }}
+          </h2>
+        {%- endif -%}
+        {%- if subheading_stripped != blank -%}
+          <div class="sp-metrics__subheading rte{% render 'sp-motion-class', type: 'fade-up' %}">
+            {{ section.settings.subheading }}
+          </div>
+        {%- endif -%}
+      </header>
+    {%- endif -%}
+
+    <ul
+      class="sp-metrics__list sp-metrics__list--{{ metrics_columns }}{% if section.settings.show_band %} sp-metrics__list--band{% endif %}{% if section.settings.show_dividers %} sp-metrics__list--divided{% endif %}{% if section.settings.mobile_layout == 'swipe' %} sp-metrics__list--swipe{% endif %}{% render 'sp-motion-class', type: 'stagger' %}"
+      data-sp-stagger
+      role="list"
     >
-      {%- if eyebrow_stripped != blank or heading_stripped != blank or subheading_stripped != blank -%}
-        <header class="sp-metrics__intro sp-metrics__intro--{{ section.settings.content_alignment }}{% render 'sp-motion-class', type: 'fade-up' %}">
-          {%- if eyebrow_stripped != blank -%}
-            <p class="sp-metrics__eyebrow sp-editorial-type--caption caption-with-letter-spacing">
-              {{ section.settings.eyebrow | escape }}
-            </p>
-          {%- endif -%}
-
-          {%- if heading_stripped != blank -%}
-            <h2 class="sp-metrics__statement sp-editorial-type--statement sp-editorial-type--statement--collective">
-              {{ section.settings.heading }}
-            </h2>
-          {%- endif -%}
-
-          {%- if subheading_stripped != blank -%}
-            <div class="sp-metrics__subheading">
-              {{ section.settings.subheading }}
-            </div>
-          {%- endif -%}
-        </header>
-      {%- endif -%}
-
-      <ul
-        class="sp-metrics__proof-moments sp-metrics__proof-moments--columns-{{ metrics_columns }}{% render 'sp-motion-class', type: 'stagger' %}"
-        data-sp-stagger
-        role="list"
-      >
-        {%- for block in section.blocks -%}
-          {%- liquid
-            assign value_stripped = block.settings.value | strip
-            assign label_stripped = block.settings.label | strip
-            assign supporting_stripped = block.settings.supporting_text | strip
-          -%}
-          {%- if value_stripped != blank or label_stripped != blank -%}
-            <li class="sp-metrics__proof-moment{% render 'sp-motion-class', type: 'stagger-item' %}" {{ block.shopify_attributes }}>
-              <div class="sp-metrics__proof-moment-inner">
-                {%- if value_stripped != blank -%}
-                  <p class="sp-metrics__proof-value sp-editorial-type--moment">{{ block.settings.value | escape }}</p>
-                {%- endif -%}
-                <div class="sp-metrics__proof-copy">
-                  {%- if label_stripped != blank -%}
-                    <p class="sp-metrics__proof-label">{{ block.settings.label | escape }}</p>
-                  {%- endif -%}
-                  {%- if supporting_stripped != blank -%}
-                    <p class="sp-metrics__proof-supporting">{{ block.settings.supporting_text | escape }}</p>
-                  {%- endif -%}
-                </div>
-              </div>
-            </li>
-          {%- endif -%}
-        {%- endfor -%}
-      </ul>
-
-      {%- if show_proof_strip -%}
-        <div class="sp-metrics__proof-strip{% render 'sp-motion-class', type: 'fade-up' %}">
-          {%- if proof_avatar_count > 0 or proof_strip_overflow_stripped != blank -%}
-            <ul class="sp-metrics__proof-strip-avatars" role="list" aria-label="Community member avatars">
-              {%- for i in (1..6) -%}
-                {%- assign avatar_key = 'proof_avatar_' | append: i -%}
-                {%- assign avatar_image = section.settings[avatar_key] -%}
-                {%- if avatar_image != blank -%}
-                  <li class="sp-metrics__proof-strip-avatar sp-media-frame sp-media-frame--circle sp-media-frame--intrinsic">
-                    {%- render 'sp-image',
-                      image: avatar_image,
-                      img_only: true,
-                      alt: '',
-                      widths: '48, 96',
-                      sizes: '40px',
-                      image_width: 96,
-                      loading: 'lazy'
-                    -%}
-                  </li>
-                {%- endif -%}
-              {%- endfor -%}
-              {%- if proof_strip_overflow_stripped != blank -%}
-                <li class="sp-metrics__proof-strip-overflow" aria-hidden="true">
-                  <span>{{ proof_strip_overflow_stripped | escape }}</span>
-                </li>
-              {%- endif -%}
-            </ul>
-          {%- endif -%}
-
-          {%- if proof_strip_text_stripped != blank -%}
-            <p class="sp-metrics__proof-strip-text">{{ proof_strip_text_stripped | escape }}</p>
-          {%- endif -%}
-
-          {%- if proof_strip_caption_stripped != blank -%}
-            <p class="sp-metrics__proof-strip-caption">{{ proof_strip_caption_stripped | escape }}</p>
-          {%- endif -%}
-        </div>
-      {%- endif -%}
-
-      {%- if show_cta -%}
-        <div class="sp-metrics__cta-shell{% render 'sp-motion-class', type: 'fade-up' %}">
-          <a
-            href="{{ section.settings.button_link }}"
-            class="sp-metrics__button sp-editorial-cta sp-editorial-cta--quiet-link{% render 'sp-motion-class', type: 'hover-button-quiet' %}"
-          >
-            <span class="sp-metrics__button-icon sp-editorial-cta__arrow" aria-hidden="true">→</span>
-            <span>{{ button_label_stripped | escape }}</span>
-          </a>
-        </div>
-      {%- endif -%}
-    </div>
-  {%- else -%}
-    <div
-      class="{{ band_root_class }}"
-      aria-label="{{ heading_stripped | default: 'Metrics' | escape }}"
-    >
-      {%- if heading_stripped != blank or subheading_stripped != blank -%}
-        <header class="sp-metrics__header sp-metrics__header--{{ section.settings.content_alignment }}">
-          {%- if heading_stripped != blank -%}
-            <h2 class="sp-metrics__heading inline-richtext h1{% render 'sp-motion-class', type: 'fade-up' %}">
-              {{ section.settings.heading }}
-            </h2>
-          {%- endif -%}
-          {%- if subheading_stripped != blank -%}
-            <div class="sp-metrics__subheading rte{% render 'sp-motion-class', type: 'fade-up' %}">
-              {{ section.settings.subheading }}
-            </div>
-          {%- endif -%}
-        </header>
-      {%- endif -%}
-
-      <ul
-        class="sp-metrics__list sp-metrics__list--{{ metrics_columns }}{% if section.settings.show_band %} sp-metrics__list--band{% endif %}{% if section.settings.show_dividers %} sp-metrics__list--divided{% endif %}{% if section.settings.mobile_layout == 'swipe' %} sp-metrics__list--swipe{% endif %}{% render 'sp-motion-class', type: 'stagger' %}"
-        data-sp-stagger
-        role="list"
-      >
-        {%- for block in section.blocks -%}
-          {%- liquid
-            assign value_stripped = block.settings.value | strip
-            assign label_stripped = block.settings.label | strip
-            assign supporting_stripped = block.settings.supporting_text | strip
-          -%}
-          {%- if value_stripped != blank or label_stripped != blank -%}
-            <li class="sp-metrics__item{% render 'sp-motion-class', type: 'stagger-item' %}" {{ block.shopify_attributes }}>
-              {%- if value_stripped != blank -%}
-                <p class="sp-metrics__value">{{ block.settings.value | escape }}</p>
-              {%- endif -%}
-              {%- if label_stripped != blank -%}
-                <p class="sp-metrics__label">{{ block.settings.label | escape }}</p>
-              {%- endif -%}
-              {%- if supporting_stripped != blank -%}
-                <p class="sp-metrics__supporting">{{ block.settings.supporting_text | escape }}</p>
-              {%- endif -%}
-            </li>
-          {%- endif -%}
-        {%- endfor -%}
-      </ul>
-    </div>
-  {%- endif -%}
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign value_stripped = block.settings.value | strip
+          assign label_stripped = block.settings.label | strip
+          assign supporting_stripped = block.settings.supporting_text | strip
+        -%}
+        {%- if value_stripped != blank or label_stripped != blank -%}
+          <li class="sp-metrics__item{% render 'sp-motion-class', type: 'stagger-item' %}" {{ block.shopify_attributes }}>
+            {%- if value_stripped != blank -%}
+              <p class="sp-metrics__value">{{ block.settings.value | escape }}</p>
+            {%- endif -%}
+            {%- if label_stripped != blank -%}
+              <p class="sp-metrics__label">{{ block.settings.label | escape }}</p>
+            {%- endif -%}
+            {%- if supporting_stripped != blank -%}
+              <p class="sp-metrics__supporting">{{ block.settings.supporting_text | escape }}</p>
+            {%- endif -%}
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+  </div>
 {% render 'sp-section-hierarchy-close' %}
 
 {% schema %}
@@ -228,23 +83,6 @@
   "class": "section",
   "disabled_on": { "groups": ["header", "footer"] },
   "settings": [
-    {
-      "type": "select",
-      "id": "presentation",
-      "label": "Presentation",
-      "default": "band",
-      "options": [
-        { "value": "band", "label": "Metrics band" },
-        { "value": "editorial_story", "label": "Editorial story" }
-      ],
-      "info": "Editorial story is designed for community confidence chapters — typographic proof without card chrome."
-    },
-    {
-      "type": "text",
-      "id": "eyebrow",
-      "label": "Eyebrow",
-      "info": "Editorial story presentation only."
-    },
     {
       "type": "inline_richtext",
       "id": "heading",
@@ -256,94 +94,6 @@
       "id": "subheading",
       "label": "Subheading",
       "default": "<p>The numbers behind our growing community.</p>"
-    },
-    {
-      "type": "text",
-      "id": "assurance_text",
-      "label": "Assurance line",
-      "info": "Legacy editorial field — superseded by proof strip in Community Confidence layout."
-    },
-    {
-      "type": "header",
-      "content": "Proof strip",
-      "info": "Editorial story presentation only."
-    },
-    {
-      "type": "checkbox",
-      "id": "show_proof_strip",
-      "label": "Show proof strip",
-      "default": true
-    },
-    {
-      "type": "text",
-      "id": "proof_strip_text",
-      "label": "Proof strip text",
-      "default": "Join thousands who've made consistency their advantage."
-    },
-    {
-      "type": "text",
-      "id": "proof_strip_caption",
-      "label": "Proof strip caption",
-      "default": "REAL PEOPLE. REAL STORIES. REAL RESULTS."
-    },
-    {
-      "type": "text",
-      "id": "proof_strip_overflow",
-      "label": "Overflow count",
-      "default": "+50K",
-      "info": "Shown after avatars when the community exceeds visible faces."
-    },
-    {
-      "type": "image_picker",
-      "id": "proof_avatar_1",
-      "label": "Avatar 1"
-    },
-    {
-      "type": "image_picker",
-      "id": "proof_avatar_2",
-      "label": "Avatar 2"
-    },
-    {
-      "type": "image_picker",
-      "id": "proof_avatar_3",
-      "label": "Avatar 3"
-    },
-    {
-      "type": "image_picker",
-      "id": "proof_avatar_4",
-      "label": "Avatar 4"
-    },
-    {
-      "type": "image_picker",
-      "id": "proof_avatar_5",
-      "label": "Avatar 5"
-    },
-    {
-      "type": "image_picker",
-      "id": "proof_avatar_6",
-      "label": "Avatar 6"
-    },
-    {
-      "type": "header",
-      "content": "Continuation link",
-      "info": "Editorial story presentation only."
-    },
-    {
-      "type": "checkbox",
-      "id": "show_cta",
-      "label": "Show continuation link",
-      "default": true
-    },
-    {
-      "type": "text",
-      "id": "button_label",
-      "label": "Link label",
-      "default": "Explore their stories"
-    },
-    {
-      "type": "url",
-      "id": "button_link",
-      "label": "Link destination"
     },
     {
       "type": "select",
@@ -373,22 +123,19 @@
       "type": "checkbox",
       "id": "show_band",
       "label": "Show background band",
-      "default": true,
-      "info": "Metrics band presentation only."
+      "default": true
     },
     {
       "type": "checkbox",
       "id": "show_dividers",
       "label": "Show dividers between metrics",
-      "default": true,
-      "info": "Metrics band presentation only."
+      "default": true
     },
     {
       "type": "select",
       "id": "mobile_layout",
       "label": "Mobile layout",
       "default": "swipe",
-      "info": "Metrics band presentation only.",
       "options": [
         { "value": "grid", "label": "2-column grid" },
         { "value": "swipe", "label": "Swipe" }

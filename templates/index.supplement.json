@@ -11,8 +11,6 @@
   "sections": {
     "sp-hero": {
       "type": "sp-hero",
-      "blocks": {},
-      "block_order": [],
       "settings": {
         "show_announcement": false,
         "announcement_text": "Subscribe & save 15% · Free shipping on every order →",
@@ -22,24 +20,24 @@
         "badge_text": "",
         "heading_size": "hxl",
         "headline_highlight_style": "none",
+        "price_text": "",
         "featured_product": "daily-vitality-complex",
         "price_source": "custom",
-        "price_text": "",
         "show_social_proof": false,
         "social_proof_text": "",
+        "show_rating_stars": false,
         "show_social_rating": false,
         "social_rating_value": "4.9★",
         "show_social_review_count": false,
         "social_review_count": "8.4k+ verified reviews",
         "show_social_customer_count": false,
         "show_social_avatars": false,
-        "show_rating_stars": false,
+        "show_hero_stats": false,
         "cta_type": "custom_link",
         "cta_label": "Start your 30-day routine",
         "cta_link": "/products/daily-vitality-complex?view=supplement",
         "show_cta_trust_stack": false,
         "show_trust_microcopy": false,
-        "show_hero_stats": false,
         "floating_card_style": "glass",
         "show_floating_review": false,
         "floating_review_rating": 5,
@@ -49,9 +47,9 @@
         "floating_review_verified_label": "Verified buyer",
         "show_floating_shipping": false,
         "show_floating_bestseller": false,
-        "image_alt": "Daily Vitality Complex premium supplement bottle",
         "hero_image": "shopify://shop_images/Product_Hero.png",
         "hero_image_desktop": "shopify://shop_images/Product_Hero.png",
+        "image_alt": "Daily Vitality Complex premium supplement bottle",
         "layout_preset": "media_focus",
         "desktop_image_position": "right",
         "visual_effects": "premium",
@@ -245,35 +243,35 @@
         "padding_bottom": 72
       }
     },
-    "sp-metrics": {
-      "type": "sp-metrics",
+    "sp-community-confidence": {
+      "type": "sp-community-confidence",
       "blocks": {
-        "metric-1": {
-          "type": "metric",
+        "evidence-1": {
+          "type": "evidence_row",
           "settings": {
             "value": "98%",
             "label": "Noticeable difference",
             "supporting_text": "Felt a positive change within 30 days."
           }
         },
-        "metric-2": {
-          "type": "metric",
+        "evidence-2": {
+          "type": "evidence_row",
           "settings": {
             "value": "50K+",
             "label": "Active community",
             "supporting_text": "Members building better routines together."
           }
         },
-        "metric-3": {
-          "type": "metric",
+        "evidence-3": {
+          "type": "evidence_row",
           "settings": {
             "value": "4.9/5",
             "label": "Verified satisfaction",
             "supporting_text": "Average rating from thousands of reviews."
           }
         },
-        "metric-4": {
-          "type": "metric",
+        "evidence-4": {
+          "type": "evidence_row",
           "settings": {
             "value": "92%",
             "label": "Reorder rate",
@@ -282,32 +280,29 @@
         }
       },
       "block_order": [
-        "metric-1",
-        "metric-2",
-        "metric-3",
-        "metric-4"
+        "evidence-1",
+        "evidence-2",
+        "evidence-3",
+        "evidence-4"
       ],
       "settings": {
-        "presentation": "editorial_story",
         "eyebrow": "A community of consistent choices",
         "heading": "Trusted by thousands. Chosen every day.",
-        "subheading": "<p>Real people. Real routines. Real results. Our community chooses consistency—and sees the difference over time.</p>",
-        "assurance_text": "",
-        "show_proof_strip": true,
-        "proof_strip_text": "Join thousands who've made consistency their advantage.",
-        "proof_strip_caption": "REAL PEOPLE. REAL STORIES. REAL RESULTS.",
-        "proof_strip_overflow": "+50K",
+        "intro": "<p>Real people. Real routines. Real results. Our community chooses consistency—and sees the difference over time.</p>",
+        "desktop_columns": "4",
+        "show_community_statement": true,
+        "community_statement": "Join thousands who've made consistency their advantage.",
+        "community_statement_caption": "REAL PEOPLE. REAL STORIES. REAL RESULTS.",
+        "community_overflow": "+50K",
         "show_cta": true,
         "button_label": "Explore their stories",
         "button_link": "#sp-reviews",
         "content_alignment": "center",
-        "desktop_columns": "4",
-        "show_band": false,
-        "show_dividers": false,
-        "mobile_layout": "grid",
         "sp_surface_style": "default",
         "sp_width_mode": "wide",
+        "sp_section_emphasis": "normal",
         "sp_divider_style": "none",
+        "color_scheme": "scheme-1",
         "padding_top": 88,
         "padding_bottom": 96
       }
@@ -481,9 +476,9 @@
         "eyebrow": "Human proof",
         "heading": "They made it part of their morning.",
         "subheading": "",
-        "human_story_layout": "editorial_portrait",
         "story_image": "shopify://shop_images/Male_Professional_Lifestyle.png",
         "story_image_alt": "Professional taking Daily Vitality as part of his morning routine",
+        "human_story_layout": "editorial_portrait",
         "verification_note": "Verified purchaser",
         "layout_style": "stage",
         "stage_auto_rotate": 0,
@@ -567,13 +562,13 @@
         "eyebrow": "",
         "heading": "Begin with one simple daily ritual.",
         "subheading": "",
-        "image": "shopify://shop_images/Couple_Wellness_Lifestyle.png",
-        "image_alt": "Couple enjoying their daily wellness ritual together at sunset",
         "offer_text": "",
         "price_text": "",
         "button_label": "Start your daily routine",
         "button_link": "/products/daily-vitality-complex?view=supplement",
         "reassurance_text": "",
+        "image": "shopify://shop_images/Couple_Wellness_Lifestyle.png",
+        "image_alt": "Couple enjoying their daily wellness ritual together at sunset",
         "trust_note": "",
         "show_badge": false,
         "badge_text": "",
@@ -591,7 +586,7 @@
     "sp-hero",
     "sp-editorial-outcomes",
     "sp-ingredients-spotlight",
-    "sp-metrics",
+    "sp-community-confidence",
     "sp-editorial-differentiation",
     "sp-quality-standards",
     "sp-social-proof",

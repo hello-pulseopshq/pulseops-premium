@@ -1,0 +1,460 @@
+{{ 'sp-community-confidence.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign heading_stripped = section.settings.heading | strip_html | strip
+  assign intro_stripped = section.settings.intro | strip_html | strip
+  assign eyebrow_stripped = section.settings.eyebrow | strip
+  assign statement_text_stripped = section.settings.community_statement | strip
+  assign statement_caption_stripped = section.settings.community_statement_caption | strip
+  assign community_overflow_stripped = section.settings.community_overflow | strip
+  assign button_label_stripped = section.settings.button_label | strip
+
+  assign avatar_count = 0
+  for i in (1..6)
+    assign avatar_key = 'avatar_' | append: i
+    assign avatar_image = section.settings[avatar_key]
+    if avatar_image != blank
+      assign avatar_count = avatar_count | plus: 1
+    endif
+  endfor
+
+  assign show_community_statement = false
+  if section.settings.show_community_statement
+    if avatar_count > 0 or statement_text_stripped != blank or statement_caption_stripped != blank or community_overflow_stripped != blank
+      assign show_community_statement = true
+    endif
+  endif
+
+  assign show_cta = false
+  if section.settings.show_cta and button_label_stripped != blank and section.settings.button_link != blank
+    assign show_cta = true
+  endif
+
+  assign evidence_columns = section.settings.desktop_columns
+  if section.settings.sp_width_mode == 'contained' or section.settings.sp_width_mode == blank
+    assign evidence_columns_num = evidence_columns | plus: 0
+    if evidence_columns_num > 4
+      assign evidence_columns = '4'
+    endif
+  endif
+
+  assign root_class = 'sp-community-confidence sp-composition sp-composition--typographic-band sp-editorial-chapter sp-editorial-chapter--spacing-standard sp-editorial-chapter--handoff-in sp-editorial-chapter--handoff-out'
+  if section.settings.content_alignment == 'center'
+    assign root_class = root_class | append: ' sp-community-confidence--center'
+  endif
+-%}
+
+{% render 'sp-section-hierarchy-open', section: section, anchor_id: 'sp-community' %}
+  <div
+    class="{{ root_class }}"
+    aria-label="{{ heading_stripped | default: 'Community confidence' | escape }}"
+  >
+    {%- if eyebrow_stripped != blank or heading_stripped != blank or intro_stripped != blank -%}
+      <header class="sp-community-confidence__intro sp-community-confidence__intro--{{ section.settings.content_alignment }}{% render 'sp-motion-class', type: 'fade-up' %}">
+        {%- if eyebrow_stripped != blank -%}
+          <p class="sp-community-confidence__eyebrow sp-editorial-type--caption caption-with-letter-spacing">
+            {{ section.settings.eyebrow | escape }}
+          </p>
+        {%- endif -%}
+
+        {%- if heading_stripped != blank -%}
+          <h2 class="sp-community-confidence__heading sp-editorial-type--statement sp-editorial-type--statement--collective">
+            {{ section.settings.heading }}
+          </h2>
+        {%- endif -%}
+
+        {%- if intro_stripped != blank -%}
+          <div class="sp-community-confidence__intro-text">
+            {{ section.settings.intro }}
+          </div>
+        {%- endif -%}
+      </header>
+    {%- endif -%}
+
+    <ul
+      class="sp-community-confidence__evidence sp-community-confidence__evidence--columns-{{ evidence_columns }}{% render 'sp-motion-class', type: 'stagger' %}"
+      data-sp-stagger
+      role="list"
+    >
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign value_stripped = block.settings.value | strip
+          assign label_stripped = block.settings.label | strip
+          assign supporting_stripped = block.settings.supporting_text | strip
+        -%}
+        {%- if value_stripped != blank or label_stripped != blank -%}
+          <li class="sp-community-confidence__evidence-row{% render 'sp-motion-class', type: 'stagger-item' %}" {{ block.shopify_attributes }}>
+            <div class="sp-community-confidence__evidence-inner">
+              {%- if value_stripped != blank -%}
+                <p class="sp-community-confidence__evidence-value sp-editorial-type--moment">{{ block.settings.value | escape }}</p>
+              {%- endif -%}
+              <div class="sp-community-confidence__evidence-copy">
+                {%- if label_stripped != blank -%}
+                  <p class="sp-community-confidence__evidence-label">{{ block.settings.label | escape }}</p>
+                {%- endif -%}
+                {%- if supporting_stripped != blank -%}
+                  <p class="sp-community-confidence__evidence-supporting">{{ block.settings.supporting_text | escape }}</p>
+                {%- endif -%}
+              </div>
+            </div>
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+
+    {%- if show_community_statement -%}
+      <div class="sp-community-confidence__community-statement{% render 'sp-motion-class', type: 'fade-up' %}">
+        {%- if avatar_count > 0 or community_overflow_stripped != blank -%}
+          <ul class="sp-community-confidence__avatars" role="list" aria-label="Community member avatars">
+            {%- if avatar_count > 0 -%}
+              {%- for i in (1..6) -%}
+                {%- assign avatar_key = 'avatar_' | append: i -%}
+                {%- assign avatar_image = section.settings[avatar_key] -%}
+                {%- if avatar_image != blank -%}
+                  <li class="sp-community-confidence__avatar sp-media-frame sp-media-frame--circle sp-media-frame--intrinsic">
+                    {%- render 'sp-image',
+                      image: avatar_image,
+                      img_only: true,
+                      alt: '',
+                      widths: '48, 96',
+                      sizes: '40px',
+                      image_width: 96,
+                      loading: 'lazy'
+                    -%}
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
+            {%- else -%}
+              {%- for i in (1..4) -%}
+                <li class="sp-community-confidence__avatar sp-community-confidence__avatar--placeholder" aria-hidden="true"></li>
+              {%- endfor -%}
+            {%- endif -%}
+            {%- if community_overflow_stripped != blank -%}
+              <li class="sp-community-confidence__avatar-overflow" aria-hidden="true">
+                <span>{{ community_overflow_stripped | escape }}</span>
+              </li>
+            {%- endif -%}
+          </ul>
+        {%- endif -%}
+
+        {%- if statement_text_stripped != blank -%}
+          <p class="sp-community-confidence__statement-text">{{ statement_text_stripped | escape }}</p>
+        {%- endif -%}
+
+        {%- if statement_caption_stripped != blank -%}
+          <p class="sp-community-confidence__statement-caption">{{ statement_caption_stripped | escape }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if show_cta -%}
+      <div class="sp-community-confidence__cta-shell{% render 'sp-motion-class', type: 'fade-up' %}">
+        <a
+          href="{{ section.settings.button_link }}"
+          class="sp-community-confidence__button sp-editorial-cta sp-editorial-cta--quiet-link{% render 'sp-motion-class', type: 'hover-button-quiet' %}"
+        >
+          <span class="sp-community-confidence__button-icon sp-editorial-cta__arrow" aria-hidden="true">→</span>
+          <span>{{ button_label_stripped | escape }}</span>
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+{% render 'sp-section-hierarchy-close' %}
+
+{% schema %}
+{
+  "name": "Community Confidence",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": { "groups": ["header", "footer"] },
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "A community of consistent choices"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Trusted by thousands. Chosen every day."
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Introduction",
+      "default": "<p>Real people. Real routines. Real results. Our community chooses consistency—and sees the difference over time.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Morning Index"
+    },
+    {
+      "type": "select",
+      "id": "desktop_columns",
+      "label": "Desktop evidence columns",
+      "default": "4",
+      "info": "Contained width supports up to 4 columns. Use wide or full width for more.",
+      "options": [
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" },
+        { "value": "4", "label": "4" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Community statement"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_community_statement",
+      "label": "Show community statement",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "community_statement",
+      "label": "Statement",
+      "default": "Join thousands who've made consistency their advantage."
+    },
+    {
+      "type": "text",
+      "id": "community_statement_caption",
+      "label": "Statement caption",
+      "default": "REAL PEOPLE. REAL STORIES. REAL RESULTS."
+    },
+    {
+      "type": "text",
+      "id": "community_overflow",
+      "label": "Overflow count",
+      "default": "+50K",
+      "info": "Shown after avatars when the community exceeds visible faces."
+    },
+    {
+      "type": "image_picker",
+      "id": "avatar_1",
+      "label": "Avatar 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "avatar_2",
+      "label": "Avatar 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "avatar_3",
+      "label": "Avatar 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "avatar_4",
+      "label": "Avatar 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "avatar_5",
+      "label": "Avatar 5"
+    },
+    {
+      "type": "image_picker",
+      "id": "avatar_6",
+      "label": "Avatar 6"
+    },
+    {
+      "type": "header",
+      "content": "Continuation link"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cta",
+      "label": "Show continuation link",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Link label",
+      "default": "Explore their stories"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Link destination"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "Content alignment",
+      "default": "center",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Visual hierarchy"
+    },
+    {
+      "type": "select",
+      "id": "sp_surface_style",
+      "label": "Surface style",
+      "default": "default",
+      "info": "Inverse uses the inverse color scheme from Theme settings → SP Visual hierarchy instead of the section Color scheme below.",
+      "options": [
+        { "value": "default", "label": "Default" },
+        { "value": "alternate", "label": "Alternate" },
+        { "value": "inverse", "label": "Inverse" },
+        { "value": "accent", "label": "Accent" },
+        { "value": "transparent", "label": "Transparent" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "sp_width_mode",
+      "label": "Width mode",
+      "default": "wide",
+      "options": [
+        { "value": "contained", "label": "Contained" },
+        { "value": "wide", "label": "Wide" },
+        { "value": "full", "label": "Full width" },
+        { "value": "bleed", "label": "Bleed" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "sp_section_emphasis",
+      "label": "Section emphasis",
+      "default": "normal",
+      "options": [
+        { "value": "normal", "label": "Normal" },
+        { "value": "elevated", "label": "Elevated" },
+        { "value": "feature", "label": "Feature" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "sp_divider_style",
+      "label": "Divider",
+      "default": "none",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "line", "label": "Line" },
+        { "value": "gradient", "label": "Gradient" },
+        { "value": "fade", "label": "Fade" }
+      ]
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "info": "Not applied when Surface style is set to Inverse.",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 88
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 96
+    }
+  ],
+  "blocks": [
+    {
+      "type": "evidence_row",
+      "name": "Evidence row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Evidence value",
+          "default": "98%"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Evidence label",
+          "default": "Noticeable difference"
+        },
+        {
+          "type": "text",
+          "id": "supporting_text",
+          "label": "Supporting text",
+          "default": "Felt a positive change within 30 days."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Community Confidence",
+      "blocks": [
+        {
+          "type": "evidence_row",
+          "settings": {
+            "value": "98%",
+            "label": "Noticeable difference",
+            "supporting_text": "Felt a positive change within 30 days."
+          }
+        },
+        {
+          "type": "evidence_row",
+          "settings": {
+            "value": "50K+",
+            "label": "Active community",
+            "supporting_text": "Members building better routines together."
+          }
+        },
+        {
+          "type": "evidence_row",
+          "settings": {
+            "value": "4.9/5",
+            "label": "Verified satisfaction",
+            "supporting_text": "Average rating from thousands of reviews."
+          }
+        },
+        {
+          "type": "evidence_row",
+          "settings": {
+            "value": "92%",
+            "label": "Reorder rate",
+            "supporting_text": "Continue their daily ritual month after month."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
