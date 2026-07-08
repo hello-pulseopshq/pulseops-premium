@@ -289,7 +289,7 @@ Every future chapter implementation must document these six fields **before** CS
 | 03 | Ingredient Narrative | `sp-ingredients-spotlight` | What is inside? | Mostly locked |
 | 04 | Community Confidence | `sp-community-confidence` | Will people like me stick with this? | Architecture frozen |
 | 05 | Formulation Philosophy | `sp-editorial-differentiation` | Why is this approach different? | Architecture frozen |
-| 06 | Scientific Confidence | `sp-quality-standards` (+ `sp-scientific-proof` disabled) | Why should I trust the claims? | Architecture frozen |
+| 06 | Scientific Confidence | `sp-quality-standards` (Evidence Dossier; `sp-scientific-proof` not on supplement homepage) | Why should I trust the claims? | ✅ Frozen (`pulseops-scientific-confidence-v1`) |
 | 07 | Human Story | `sp-social-proof` | Can I picture myself succeeding? | Architecture frozen |
 | 08 | Future Self | `sp-cta-offer` | What happens if I commit? | Architecture frozen |
 | 09 | Utility Support | `sp-faq` | What is still stopping me? | Architecture frozen |

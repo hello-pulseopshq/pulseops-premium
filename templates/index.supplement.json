@@ -368,57 +368,94 @@
     "sp-quality-standards": {
       "type": "sp-quality-standards",
       "blocks": {
-        "pillar-1": {
-          "type": "trust_pillar",
+        "ledger-1": {
+          "type": "evidence_ledger",
           "settings": {
-            "value": "Raw material identity",
-            "label": "Each incoming lot is matched against specification before blending.",
-            "detail": "01 · Incoming verification"
+            "title": "Third-party testing",
+            "description": "<p>Every batch is independently verified for purity, potency, and safety before release.</p>"
           }
         },
-        "pillar-2": {
-          "type": "trust_pillar",
+        "ledger-2": {
+          "type": "evidence_ledger",
           "settings": {
-            "value": "Contaminant screening",
-            "label": "Heavy metals, microbes, and adulterants are checked against established limits.",
-            "detail": "02 · Purity panel"
+            "title": "GMP manufacturing",
+            "description": "<p>Produced in audited facilities that follow documented Good Manufacturing Practice protocols.</p>"
           }
         },
-        "pillar-3": {
-          "type": "trust_pillar",
+        "ledger-3": {
+          "type": "evidence_ledger",
           "settings": {
-            "value": "Potency validation",
-            "label": "Active compounds are verified against label claim before release.",
-            "detail": "03 · Batch assay"
+            "title": "Ingredient traceability",
+            "description": "<p>Each ingredient is documented from source to finished product with full chain-of-custody records.</p>"
           }
         },
-        "pillar-4": {
-          "type": "trust_pillar",
+        "ledger-4": {
+          "type": "evidence_ledger",
           "settings": {
-            "value": "Lot release review",
-            "label": "Independent documentation supports every production batch.",
-            "detail": "04 · GMP release"
+            "title": "Heavy metal screening",
+            "description": "<p>Every lot is screened for lead, arsenic, cadmium, and mercury against published safety thresholds.</p>"
+          }
+        },
+        "refusal-1": {
+          "type": "refusal_statement",
+          "settings": {
+            "statement": "No proprietary blends"
+          }
+        },
+        "refusal-2": {
+          "type": "refusal_statement",
+          "settings": {
+            "statement": "No hidden fillers"
+          }
+        },
+        "refusal-3": {
+          "type": "refusal_statement",
+          "settings": {
+            "statement": "No unsupported claims"
+          }
+        },
+        "refusal-4": {
+          "type": "refusal_statement",
+          "settings": {
+            "statement": "No compromised sourcing"
           }
         }
       },
       "block_order": [
-        "pillar-1",
-        "pillar-2",
-        "pillar-3",
-        "pillar-4"
+        "ledger-1",
+        "ledger-2",
+        "ledger-3",
+        "ledger-4",
+        "refusal-1",
+        "refusal-2",
+        "refusal-3",
+        "refusal-4"
       ],
       "settings": {
         "presentation": "scientific_confidence",
-        "eyebrow": "Evidence file",
-        "heading": "<p>Documented controls from raw material to release.</p>",
-        "body": "<p>Every lot moves through a defined quality path: identity checks, contaminant screening, potency validation, and release documentation before it reaches your routine.</p>",
+        "eyebrow": "Scientific confidence",
+        "heading": "<p>The Evidence Dossier.</p>",
+        "subheadline": "Evidence you can inspect, not promises you must believe.",
+        "body": "<p>Every claim we make is backed by documented standards, third-party verification, and manufacturing discipline you can trace—not marketing language you must accept on faith.</p>",
+        "show_metadata": true,
+        "metadata_doc_label": "Document No.",
+        "metadata_doc_value": "SC-01",
+        "metadata_updated_label": "Updated",
+        "metadata_updated_value": "Quarterly",
+        "metadata_standards_label": "Verification standards",
+        "metadata_standards_value": "ISO 17025 · GMP · NSF",
         "image": "shopify://shop_images/Manufacturing_Lab_Scene.png",
-        "image_alt": "Daily Vitality manufacturing and quality control environment",
-        "supporting_text": "<p>Clean &amp; non-GMO. No unnecessary fillers or binders. Third-party tested every batch. Made in GMP-certified facilities.</p>",
-        "button_label": "Review formula evidence",
-        "button_link": "/products/daily-vitality-complex?view=supplement",
+        "image_alt": "Quality inspector reviewing production line with clipboard during batch validation",
+        "ledger_label": "Evidence ledger",
+        "refusals_label": "What we refuse",
+        "supporting_text": "",
+        "show_closure": true,
+        "closure_heading": "<p>Confidence is earned through accountability—not marketing.</p>",
+        "closure_tagline": "Documented. Verified. Always.",
+        "show_closure_shield": true,
+        "button_label": "",
+        "button_link": "",
         "trust_text": "",
-        "show_process_numbers": true,
         "top_spacing": "small",
         "bottom_spacing": "medium",
         "show_top_divider": false,
@@ -428,8 +465,8 @@
         "sp_section_emphasis": "normal",
         "sp_divider_style": "none",
         "color_scheme": "scheme-1",
-        "padding_top": 76,
-        "padding_bottom": 76
+        "padding_top": 88,
+        "padding_bottom": 96
       }
     },
     "sp-social-proof": {

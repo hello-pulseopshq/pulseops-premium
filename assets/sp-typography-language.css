@@ -284,13 +284,13 @@
   }
 }
 
-/* Scientific Confidence — crisp checkpoint hierarchy (IV.1B) */
-.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-title {
+/* Scientific Confidence — Evidence Dossier hierarchy (IV.1B) */
+.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__ledger-title {
   font-weight: 600;
   color: var(--sp-voice-ink-primary);
 }
 
-.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-meta {
+.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__dossier-metadata-value {
   font-size: clamp(0.98rem, 0.9vw, 1.08rem);
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -302,7 +302,8 @@
 
 .sp-supplement .sp-editorial-outcomes__body p + p,
 .sp-supplement .sp-ingredients-spotlight__body p + p,
-.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__evidence-body p + p,
+.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__dossier-intro-body p + p,
+.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__ledger-body p + p,
 .sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__manifesto-body p + p {
   margin-top: var(--sp-rhythm-gap-paragraph);
 }

@@ -1,7 +1,7 @@
-/**
- * SP Quality Standards — integrated editorial split chapter
- * Desktop: story left (copy → proof rows → supporting → CTA) + immersive image right
- * Mobile: headline → image → proof rows → supporting → CTA
+﻿/**
+ * SP Quality Standards â€” integrated editorial split chapter
+ * Desktop: story left (copy â†’ proof rows â†’ supporting â†’ CTA) + immersive image right
+ * Mobile: headline â†’ image â†’ proof rows â†’ supporting â†’ CTA
  */
 
 .sp-quality-standards-shell--tone-soft.gradient,
@@ -72,7 +72,7 @@
   );
 }
 
-/* ── Split composition ── */
+/* â”€â”€ Split composition â”€â”€ */
 
 .sp-quality-standards__composition {
   display: grid;
@@ -137,7 +137,7 @@
   object-position: center 42%;
 }
 
-/* ── Typography ── */
+/* â”€â”€ Typography â”€â”€ */
 
 .sp-quality-standards__eyebrow {
   margin: 0;
@@ -187,7 +187,7 @@
   color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.88);
 }
 
-/* ── Editorial proof rows ── */
+/* â”€â”€ Editorial proof rows â”€â”€ */
 
 .sp-quality-standards__proof-list {
   display: grid;
@@ -273,7 +273,7 @@
   margin: 0;
 }
 
-/* ── CTA (Editorial Differentiation scale) ── */
+/* â”€â”€ CTA (Editorial Differentiation scale) â”€â”€ */
 
 .sp-quality-standards__footer {
   display: grid;
@@ -360,7 +360,7 @@
   margin-top: 0;
 }
 
-/* ── Desktop split ── */
+/* â”€â”€ Desktop split â”€â”€ */
 
 @media screen and (min-width: 750px) {
   .sp-quality-standards {
@@ -419,256 +419,193 @@
   }
 }
 
-/* ── Scientific confidence presentation ── */
+/* â”€â”€ Scientific confidence â€” The Evidence Dossier (AC-6) â”€â”€
+   Owner: sections/sp-quality-standards.liquid
+   Visual source: approved annotated desktop + mobile mockups */
 
-/* ── AC-6 owner block — supplement Scientific Confidence (browser-winning behaviour) ──
-   Migrated from sp-editorial-system.css + sp-composition-system.css (evidence-panel).
-   Inserted before responsive overrides; do not append at file end. ── */
-
-.sp-supplement #sp-quality {
-  padding-top: clamp(1.15rem, 1.6vw, 1.45rem);
-}
-
-.sp-composition--evidence-panel.sp-quality-standards--scientific-confidence {
-  gap: var(--sp-comp-gap-standard);
-}
-
-.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__evidence-intro {
-  max-width: min(100%, 62rem);
-}
-
-.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__statement,
-.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__statement p {
-  font-family: var(--sp-font-heading, var(--font-heading-family));
-}
-
-.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__evidence-body {
-  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.8);
-}
-
-.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__lab-evidence-image,
-.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__lab-evidence-frame img {
-  object-position: center 40%;
-}
-
-.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-checkpoints {
-  border-top: none;
-  padding-top: clamp(0.35rem, 0.6vw, 0.55rem);
-}
-
-.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-step {
-  border-bottom-color: var(--sp-surface-material-dossier-rule, rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.06));
-}
-
-.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-index {
-  color: rgb(var(--sp-supplement-green, var(--color-button)));
-}
-
-.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-title {
-  font-family: var(--sp-font-heading, var(--font-heading-family));
-}
-
-.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-text {
-  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.74);
-}
-
-.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-meta {
-  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.58);
-}
-
-.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__evidence-note {
-  border-top-color: var(--sp-surface-material-dossier-rule, rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.08));
-  background: var(--sp-surface-material-dossier-note-fill, transparent);
-  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.64);
-}
-
-.sp-supplement .sp-quality-standards--scientific-confidence .sp-editorial-cta--quiet-link {
-  margin-bottom: 0;
-}
-
-.sp-supplement .sp-quality-standards--scientific-confidence .sp-editorial-cta--quiet-link::before {
-  display: none;
-}
-
-@media screen and (min-width: 990px) {
-  .sp-composition--evidence-panel.sp-quality-standards--scientific-confidence {
-    display: grid;
-    grid-template-columns: minmax(0, 0.52fr) minmax(0, 0.48fr);
-    grid-template-areas:
-      'intro intro'
-      'lab process'
-      'note note'
-      'footer footer';
-    column-gap: clamp(2rem, 3vw, 3.2rem);
-    row-gap: var(--sp-comp-gap-standard);
-    align-items: start;
-  }
-
-  .sp-composition--evidence-panel .sp-quality-standards__evidence-intro {
-    grid-area: intro;
-    max-width: min(100%, 46rem);
-  }
-
-  .sp-composition--evidence-panel .sp-quality-standards__lab-evidence {
-    grid-area: lab;
-    align-self: stretch;
-  }
-
-  .sp-composition--evidence-panel .sp-quality-standards__lab-evidence-frame {
-    min-height: 100%;
-    aspect-ratio: auto;
-    height: 100%;
-  }
-
-  .sp-composition--evidence-panel .sp-quality-standards__process-checkpoints {
-    grid-area: process;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0;
-    padding-top: 0;
-    border-top: none;
-    align-self: stretch;
-    border-left: 0.1rem solid var(--sp-comp-ledger-rule);
-    padding-left: clamp(1.35rem, 2vw, 2rem);
-  }
-
-  .sp-composition--evidence-panel .sp-quality-standards__process-step {
-    padding: clamp(0.95rem, 1.3vw, 1.15rem) 0;
-    border-bottom: 0.1rem solid var(--sp-comp-ledger-rule);
-  }
-
-  .sp-composition--evidence-panel .sp-quality-standards__process-step:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-
-  .sp-composition--evidence-panel .sp-quality-standards__process-step + .sp-quality-standards__process-step {
-    border-left: none;
-    padding-left: 0;
-    margin-left: 0;
-  }
-
-  .sp-composition--evidence-panel .sp-quality-standards__evidence-note {
-    grid-area: note;
-  }
-
-  .sp-composition--evidence-panel .sp-quality-standards__footer--quiet {
-    grid-area: footer;
-  }
-
-  .sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-step + .sp-quality-standards__process-step {
-    border-left: none;
-    padding-left: 0;
-  }
-}
-
-@media screen and (min-width: 750px) and (max-width: 989px) {
-  .sp-composition--evidence-panel .sp-quality-standards__lab-evidence-frame {
-    aspect-ratio: 16 / 10;
-  }
-
-  .sp-composition--evidence-panel .sp-quality-standards__process-checkpoints {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0;
-  }
-
-  .sp-composition--evidence-panel .sp-quality-standards__process-step {
-    padding: clamp(0.95rem, 1.3vw, 1.15rem) 0;
-    border-bottom: 0.1rem solid var(--sp-comp-ledger-rule);
-    border-right: none;
-    border-top: none;
-  }
-
-  .sp-composition--evidence-panel .sp-quality-standards__process-step:nth-child(n + 3) {
-    border-top: none;
-    padding-top: clamp(0.95rem, 1.3vw, 1.15rem);
-  }
-
-  .sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-step:nth-child(odd) {
-    border-right-color: var(--sp-surface-material-dossier-rule-strong, rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.1));
-  }
-
-  .sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-step:nth-child(n + 3) {
-    border-top-color: var(--sp-surface-material-dossier-rule, rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.08));
-  }
-}
-
-@media screen and (max-width: 749px) {
-  .sp-composition--evidence-panel .sp-quality-standards__lab-evidence-frame {
-    aspect-ratio: 16 / 10;
-  }
-
-  .sp-composition--evidence-panel .sp-quality-standards__process-checkpoints {
-    border-top: 0.1rem solid var(--sp-comp-ledger-rule);
-    padding-top: clamp(0.85rem, 1.2vw, 1.05rem);
-  }
-
-  .sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__statement,
-  .sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__statement p {
-    line-height: var(--sp-voice-precise-lh);
-  }
+.sp-supplement #sp-quality.sp-section.gradient,
+.sp-supplement #sp-quality.sp-section {
+  background: rgb(var(--sp-surface-canvas-ivory, var(--sp-supplement-ivory, 252, 250, 246)));
+  background-image: none;
 }
 
 .sp-quality-standards--scientific-confidence {
-  --sp-qs-sci-gap: clamp(1.85rem, 2.7vw, 2.65rem);
-  --sp-qs-sci-gap-tight: var(--sp-rhythm-gap-intro, clamp(0.85rem, 1.2vw, 1.1rem));
-  --sp-qs-lab-ratio: 16 / 8;
-  display: grid;
-  gap: var(--sp-qs-sci-gap);
-}
-
-.sp-quality-standards--scientific-confidence .sp-quality-standards__evidence-intro {
-  display: grid;
-  gap: var(--sp-qs-sci-gap-tight);
-  max-width: min(100%, 62rem);
-}
-
-.sp-quality-standards--scientific-confidence .sp-quality-standards__eyebrow {
-  margin: 0;
-}
-
-.sp-quality-standards--scientific-confidence .sp-quality-standards__statement {
-  margin: 0;
-  max-width: var(--sp-voice-precise-measure, 16ch);
-  font-size: var(--sp-voice-precise-size);
-  font-weight: var(--sp-voice-precise-weight);
-  line-height: var(--sp-voice-precise-lh);
-  letter-spacing: var(--sp-voice-precise-track);
-  color: var(--sp-voice-precise-ink);
-}
-
-.sp-quality-standards--scientific-confidence .sp-quality-standards__statement p {
-  margin: 0;
-}
-
-.sp-quality-standards--scientific-confidence .sp-quality-standards__evidence-body {
-  margin: 0;
-  max-width: 48ch;
-  font-size: clamp(1.45rem, 1.35vw, 1.72rem);
-  line-height: 1.62;
-  font-weight: 500;
-  color: rgba(var(--color-foreground), 0.78);
-}
-
-.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__evidence-body {
-  max-width: var(--sp-rhythm-measure-precise);
-  line-height: var(--sp-rhythm-lh-precise);
-}
-
-.sp-quality-standards__lab-evidence {
+  --sp-sc-gap-chapter: clamp(4rem, 5.85vw, 6.5rem);
+  --sp-sc-gap-block: clamp(2.85rem, 3.85vw, 4.15rem);
+  --sp-sc-gap-tight: clamp(1.05rem, 1.45vw, 1.35rem);
+  --sp-sc-gap-copy: clamp(1.55rem, 2.15vw, 2rem);
+  --sp-sc-gap-headline: clamp(1.55rem, 2.35vw, 2.25rem);
+  --sp-sc-inset-inline: var(--sp-section-padding-inline, 1.6rem);
+  --sp-sc-rule: var(--sp-comp-ledger-rule, rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.12));
+  --sp-sc-ink: rgb(var(--sp-supplement-charcoal, var(--sp-type-ink, var(--color-foreground))));
+  --sp-sc-ink-muted: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.76);
+  --sp-sc-label: rgb(var(--sp-supplement-green, var(--color-button)));
+  --sp-sc-refusal-fill: rgb(221, 219, 214);
+  --sp-sc-refusal-fill: color-mix(
+    in srgb,
+    rgb(var(--sp-surface-canvas-ivory, var(--sp-supplement-ivory, 252, 250, 246))) 82%,
+    rgb(var(--sp-supplement-charcoal, var(--sp-type-ink, var(--color-foreground)))) 18%
+  );
   width: 100%;
+  max-width: none;
+  display: grid;
+  gap: var(--sp-sc-gap-chapter);
 }
 
-.sp-quality-standards__lab-evidence-frame {
+.sp-supplement .sp-quality-standards.sp-quality-standards--scientific-confidence {
+  --sp-qs-gap-sm: var(--sp-sc-gap-chapter);
+  --sp-qs-gap-md: var(--sp-sc-gap-block);
+}
+
+.sp-quality-standards__dossier-label,
+.sp-quality-standards__ledger-label,
+.sp-quality-standards__refusals-label {
+  margin: 0;
+  font-size: clamp(0.98rem, 0.88vw, 1.08rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.35;
+  text-transform: uppercase;
+  color: var(--sp-sc-label);
+}
+
+.sp-quality-standards__dossier-headline,
+.sp-quality-standards__dossier-closure-statement {
+  margin: 0;
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  color: var(--sp-sc-ink);
+}
+
+.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__dossier-headline,
+.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__dossier-headline p {
+  font-size: clamp(3.35rem, 7.2vw, 5.95rem);
+  font-weight: 650;
+  line-height: 0.98;
+  letter-spacing: -0.042em;
+  max-width: 10ch;
+}
+
+.sp-quality-standards__dossier-headline p {
+  margin: 0;
+}
+
+.sp-quality-standards__dossier-subheadline {
+  margin: 0;
+  max-width: 36ch;
+  font-size: clamp(1.08rem, 1.05vw, 1.24rem);
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  line-height: 1.42;
+  text-transform: uppercase;
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.82);
+}
+
+.sp-quality-standards__dossier-intro-body,
+.sp-quality-standards__ledger-body {
+  color: var(--sp-sc-ink-muted);
+  font-size: clamp(1.38rem, 1.22vw, 1.55rem);
+  line-height: 1.64;
+  font-weight: 500;
+}
+
+.sp-quality-standards__dossier-intro-body {
+  max-width: 38ch;
+}
+
+.sp-quality-standards__dossier-intro-body p,
+.sp-quality-standards__ledger-body p {
+  margin: 0;
+}
+
+.sp-quality-standards__dossier-hero {
+  display: grid;
+  gap: var(--sp-sc-gap-block);
+  align-items: stretch;
+}
+
+.sp-quality-standards__dossier-intro {
+  display: grid;
+  gap: 0;
+  align-content: start;
+  min-width: 0;
+  padding-block: clamp(0.35rem, 0.85vw, 0.85rem) 0;
+}
+
+.sp-quality-standards__dossier-label {
+  margin: 0 0 clamp(1.15rem, 1.85vw, 1.55rem);
+}
+
+.sp-quality-standards__dossier-headline {
+  margin: 0 0 var(--sp-sc-gap-headline);
+}
+
+.sp-quality-standards__dossier-subheadline {
+  margin: 0 0 clamp(1.15rem, 1.75vw, 1.55rem);
+}
+
+.sp-quality-standards__dossier-intro-body {
+  margin: 0 0 clamp(1.35rem, 2vw, 1.85rem);
+}
+
+.sp-quality-standards__dossier-metadata {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.85rem, 1.2vw, 1.15rem);
+  margin: 0;
+  padding: clamp(1.25rem, 1.75vw, 1.65rem) 0 0;
+  border-top: 0.1rem solid var(--sp-sc-rule);
+}
+
+.sp-quality-standards__dossier-metadata-item {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+  padding-left: clamp(0.85rem, 1.15vw, 1.05rem);
+  border-left: 0.1rem solid var(--sp-sc-rule);
+}
+
+.sp-quality-standards__dossier-metadata-item:first-child {
+  padding-left: 0;
+  border-left: none;
+}
+
+.sp-quality-standards__dossier-metadata-label {
+  margin: 0;
+  font-size: clamp(0.92rem, 0.84vw, 1rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.35;
+  text-transform: uppercase;
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.52);
+}
+
+.sp-quality-standards__dossier-metadata-value {
+  margin: 0;
+  font-size: clamp(1.02rem, 0.95vw, 1.12rem);
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  line-height: 1.35;
+  text-transform: uppercase;
+  color: var(--sp-sc-ink);
+}
+
+.sp-quality-standards__dossier-media {
+  margin: 0;
+  min-width: 0;
+}
+
+.sp-quality-standards__dossier-media-frame {
   position: relative;
   display: block;
   width: 100%;
-  aspect-ratio: var(--sp-qs-lab-ratio);
+  aspect-ratio: 16 / 10;
   overflow: hidden;
+  border-radius: 0;
+  box-shadow: none;
 }
 
-.sp-quality-standards__lab-evidence-image,
-.sp-quality-standards__lab-evidence-frame img {
+.sp-quality-standards__dossier-media-image,
+.sp-quality-standards__dossier-media-frame img {
   position: absolute;
   inset: 0;
   display: block;
@@ -678,138 +615,515 @@
   object-position: center 42%;
 }
 
-.sp-quality-standards__process-checkpoints {
+.sp-quality-standards__ledger {
+  display: grid;
+  gap: var(--sp-sc-gap-copy);
+}
+
+.sp-quality-standards__ledger-list {
   display: grid;
   gap: 0;
   margin: 0;
-  padding: clamp(1.6rem, 2.1vw, 2.05rem) 0 0;
+  padding: 0;
   list-style: none;
-  border-top: 0.1rem solid var(--sp-qs-divider);
-  counter-reset: sp-qs-process;
 }
 
-.sp-quality-standards__process-step {
+.sp-quality-standards__ledger-item {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 0.55rem;
-  padding: clamp(1.15rem, 1.6vw, 1.45rem) 0;
-  border-bottom: 0.1rem solid var(--sp-qs-divider);
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(1rem, 1.45vw, 1.35rem);
+  align-items: start;
+  padding: clamp(1.35rem, 1.85vw, 1.65rem) 0;
+  border-bottom: 0.1rem solid var(--sp-sc-rule);
 }
 
-.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-step {
-  gap: var(--sp-rhythm-gap-rail);
+.sp-quality-standards__ledger-item:first-child {
+  padding-top: clamp(0.55rem, 0.85vw, 0.75rem);
 }
 
-.sp-quality-standards__process-step:last-child {
+.sp-quality-standards__ledger-item:last-child {
   border-bottom: none;
   padding-bottom: 0;
 }
 
-.sp-quality-standards--show-process-numbers .sp-quality-standards__process-step {
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: clamp(1.1rem, 1.7vw, 1.55rem);
-  align-items: start;
-}
-
-.sp-quality-standards__process-index {
-  display: block;
-  min-width: 2.6rem;
-  padding-top: 0.15rem;
-  font-size: 1rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  line-height: 1.2;
-  color: var(--sp-qs-accent-deep);
+.sp-quality-standards__ledger-index {
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  font-size: clamp(2.85rem, 3.85vw, 3.75rem);
+  font-weight: 650;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.28);
   font-variant-numeric: tabular-nums;
-  opacity: 0.78;
 }
 
-.sp-quality-standards__process-copy {
+.sp-quality-standards__ledger-copy {
   display: grid;
-  gap: 0.4rem;
+  gap: clamp(0.65rem, 0.95vw, 0.85rem);
   min-width: 0;
 }
 
-.sp-quality-standards__process-title {
+.sp-quality-standards__ledger-title {
   margin: 0;
-  font-size: clamp(1.48rem, 1.36vw, 1.72rem);
+  font-size: clamp(1.45rem, 1.35vw, 1.65rem);
   font-weight: 700;
-  line-height: 1.28;
+  line-height: 1.22;
   letter-spacing: -0.02em;
-  color: var(--sp-qs-accent-deep);
+  color: var(--sp-sc-ink);
 }
 
-.sp-quality-standards__process-text {
+.sp-quality-standards__refusals {
+  display: grid;
+  gap: clamp(0.85rem, 1.15vw, 1.05rem);
+  padding: clamp(1.65rem, 2.35vw, 2.45rem) clamp(1.15rem, 1.6vw, 1.45rem);
+  background: var(--sp-sc-refusal-fill);
+}
+
+.sp-quality-standards__refusals-manifesto {
+  display: grid;
+  gap: 0;
   margin: 0;
-  font-size: clamp(1.22rem, 1.14vw, 1.36rem);
+}
+
+.sp-quality-standards__refusals-item {
+  margin: 0;
+  font-size: clamp(1.22rem, 1.08vw, 1.34rem);
   line-height: 1.55;
   font-weight: 500;
-  color: rgba(var(--color-foreground), 0.74);
-  max-width: 52ch;
+  color: var(--sp-sc-ink-muted);
 }
 
-.sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__process-text {
-  max-width: var(--sp-rhythm-measure-precise-step);
-  line-height: var(--sp-rhythm-lh-precise-step);
+.sp-quality-standards__dossier-closure {
+  display: grid;
+  gap: clamp(1.15rem, 1.65vw, 1.45rem);
+  justify-items: center;
+  text-align: center;
+  padding: clamp(2.25rem, 3.2vw, 3.35rem) 0 clamp(0.65rem, 1.1vw, 0.95rem);
 }
 
-.sp-quality-standards__process-meta {
-  margin: 0.18rem 0 0;
-  font-size: clamp(0.98rem, 0.92vw, 1.08rem);
-  line-height: 1.35;
+.sp-quality-standards__dossier-shield {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(2rem, 2.2vw, 2.35rem);
+  height: clamp(2rem, 2.2vw, 2.35rem);
+  color: var(--sp-sc-label);
+}
+
+.sp-quality-standards__dossier-shield svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.sp-quality-standards__dossier-closure-statement,
+.sp-quality-standards__dossier-closure-statement p {
+  max-width: min(100%, 36rem);
+  font-size: clamp(1.85rem, 2.45vw, 2.45rem);
   font-weight: 650;
-  letter-spacing: 0.08em;
+  line-height: 1.14;
+  letter-spacing: -0.022em;
+}
+
+.sp-quality-standards__dossier-closure-statement p {
+  margin: 0;
+}
+
+.sp-quality-standards__dossier-tagline {
+  margin: 0;
+  font-size: clamp(0.92rem, 0.84vw, 1rem);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1.35;
   text-transform: uppercase;
-  color: rgba(var(--color-foreground), 0.52);
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.52);
 }
 
-.sp-quality-standards__evidence-note {
-  margin: 0;
-  padding-top: clamp(1rem, 1.35vw, 1.25rem);
-  border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
-  max-width: 48ch;
-  font-size: clamp(1.08rem, 1vw, 1.2rem);
-  line-height: 1.5;
-  font-weight: 500;
-  color: rgba(var(--color-foreground), 0.64);
-}
-
-.sp-quality-standards__evidence-note p {
-  margin: 0;
-}
-
-.sp-quality-standards__footer--quiet {
-  margin-top: clamp(0.35rem, 0.8vw, 0.65rem);
-}
-
-.sp-quality-standards__footer--quiet .sp-quality-standards__button {
-  width: auto;
-  min-height: 0;
-  margin: 0;
-  padding: 0;
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-  font-size: inherit;
-  font-weight: inherit;
-  color: inherit;
-}
-
-.sp-quality-standards__footer--quiet .sp-quality-standards__button::before {
+.sp-quality-standards__ledger-label {
   display: none;
 }
 
-@media screen and (max-width: 749px) {
+@media screen and (min-width: 990px) {
   .sp-quality-standards--scientific-confidence {
-    --sp-qs-lab-ratio: 4 / 3;
+    --sp-sc-inset-inline: var(--sp-section-padding-inline, 1.6rem);
+    --sp-sc-gap-chapter: clamp(2.35rem, 2.55vw, 2.65rem);
   }
 
-  .sp-quality-standards--scientific-confidence .sp-quality-standards__statement {
-    max-width: none;
-    font-size: var(--sp-voice-precise-size-mobile);
+  .sp-quality-standards__dossier-hero {
+    grid-template-columns: minmax(0, 0.32fr) minmax(0, 0.68fr);
+    gap: clamp(3.15rem, 4.65vw, 4.85rem);
+    align-items: stretch;
+    min-height: clamp(42rem, 48vw, 54rem);
   }
 
-  .sp-quality-standards__process-text {
+  .sp-quality-standards__dossier-intro {
+    padding-block: clamp(1.65rem, 2.65vw, 2.85rem) clamp(1.15rem, 1.75vw, 1.55rem);
+  }
+
+  .sp-quality-standards__dossier-label {
+    margin-bottom: clamp(1.35rem, 2.05vw, 1.85rem);
+  }
+
+  .sp-quality-standards__dossier-headline {
+    margin-bottom: clamp(1.65rem, 2.45vw, 2.35rem);
+  }
+
+  .sp-quality-standards__dossier-subheadline {
+    max-width: 30ch;
+    margin-bottom: clamp(1.35rem, 2.05vw, 1.85rem);
+    font-size: clamp(1.14rem, 1.05vw, 1.32rem);
+    letter-spacing: 0.12em;
+    line-height: 1.36;
+  }
+
+  .sp-quality-standards__dossier-intro-body {
+    max-width: 32ch;
+    margin-bottom: clamp(1.65rem, 2.35vw, 2.15rem);
+    font-size: clamp(1.44rem, 1.15vw, 1.62rem);
+    line-height: 1.7;
+  }
+
+  .sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__dossier-headline,
+  .sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__dossier-headline p {
+    font-size: clamp(4.65rem, 6.75vw, 7.25rem);
+    line-height: 0.94;
+    max-width: 8.5ch;
+  }
+
+  .sp-quality-standards__dossier-metadata {
+    padding-top: clamp(1.45rem, 1.95vw, 1.85rem);
+  }
+
+  .sp-quality-standards__dossier-media {
+    align-self: stretch;
+    margin-right: calc(-1 * var(--sp-sc-inset-inline));
+    width: calc(100% + var(--sp-sc-inset-inline));
+  }
+
+  .sp-quality-standards__dossier-media-frame {
+    aspect-ratio: auto;
+    min-height: clamp(42rem, 48vw, 54rem);
+    height: 100%;
+  }
+
+  .sp-quality-standards__dossier-media-image,
+  .sp-quality-standards__dossier-media-frame img {
+    object-position: center 32%;
+  }
+
+  .sp-quality-standards__ledger {
+    padding-top: clamp(0.15rem, 0.3vw, 0.25rem);
+    padding-bottom: 0;
+  }
+
+  .sp-quality-standards__ledger-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(1.85rem, 2.35vw, 2.35rem);
+    padding-top: clamp(1.65rem, 2.15vw, 2.05rem);
+    padding-bottom: clamp(0.55rem, 0.85vw, 0.75rem);
+    border-top: 0.1rem solid var(--sp-sc-rule);
+  }
+
+  .sp-quality-standards__ledger-item {
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(1.15rem, 1.45vw, 1.35rem);
+    padding: clamp(2.25rem, 2.85vw, 2.65rem) 0 clamp(0.35rem, 0.65vw, 0.55rem);
+    padding-left: clamp(1.75rem, 2.25vw, 2.25rem);
+    border-bottom: none;
+    border-left: 0.1rem solid var(--sp-sc-rule);
+  }
+
+  .sp-quality-standards__ledger-item:first-child {
+    padding-left: 0;
+    border-left: none;
+    padding-top: clamp(2.25rem, 2.85vw, 2.65rem);
+  }
+
+  .sp-quality-standards__ledger-index {
+    font-size: clamp(3.55rem, 3.75vw, 4.35rem);
+    margin-bottom: clamp(0.35rem, 0.65vw, 0.55rem);
+    color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.2);
+  }
+
+  .sp-quality-standards__ledger-copy {
+    gap: clamp(0.85rem, 1.15vw, 1.05rem);
+  }
+
+  .sp-quality-standards__ledger-title {
+    font-size: clamp(1.68rem, 1.52vw, 1.95rem);
+    line-height: 1.16;
+  }
+
+  .sp-quality-standards__ledger-body {
+    font-size: clamp(1.26rem, 1.02vw, 1.4rem);
+    line-height: 1.64;
+  }
+
+  .sp-quality-standards__refusals {
+    display: grid;
+    grid-template-columns: minmax(max-content, auto) minmax(0, 1fr);
+    align-items: start;
+    column-gap: clamp(1.65rem, 2.35vw, 2.45rem);
+    row-gap: clamp(0.55rem, 0.75vw, 0.65rem);
+    width: 100%;
     max-width: none;
+    margin-inline: 0;
+    padding: clamp(1.85rem, 2.35vw, 1.95rem) clamp(1.75rem, 2.35vw, 2.45rem);
+    background: var(--sp-sc-refusal-fill);
+  }
+
+  .sp-quality-standards__refusals-label {
+    align-self: start;
+    margin: 0;
+    padding-top: 0.12em;
+    white-space: nowrap;
+  }
+
+  .sp-quality-standards__refusals-manifesto {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: start;
+    column-gap: clamp(0.85rem, 1.25vw, 1.35rem);
+    width: 100%;
+    min-width: 0;
+  }
+
+  .sp-quality-standards__refusals-item {
+    display: block;
+    font-size: clamp(1.34rem, 1.12vw, 1.52rem);
+    line-height: 1.46;
+    min-width: 0;
+  }
+
+  .sp-quality-standards__refusals-item::before {
+    content: '\2014';
+    margin-right: 0.35em;
+    color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.42);
+  }
+
+  .sp-quality-standards__dossier-closure {
+    padding-top: clamp(1.65rem, 2vw, 1.7rem);
+    padding-bottom: clamp(1.65rem, 2.25vw, 2.15rem);
+    gap: clamp(1.45rem, 2vw, 1.85rem);
+    border-top: 0.1rem solid var(--sp-sc-rule);
+  }
+
+  .sp-quality-standards__dossier-shield {
+    width: clamp(2.25rem, 2.45vw, 2.65rem);
+    height: clamp(2.25rem, 2.45vw, 2.65rem);
+    margin-bottom: clamp(0.35rem, 0.65vw, 0.55rem);
+  }
+
+  .sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__dossier-closure-statement,
+  .sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__dossier-closure-statement p {
+    max-width: min(100%, 46rem);
+    font-size: clamp(2.55rem, 2.95vw, 3.35rem);
+    line-height: 1.08;
+    letter-spacing: -0.026em;
+  }
+
+  .sp-quality-standards__dossier-tagline {
+    margin-top: clamp(0.55rem, 0.95vw, 0.75rem);
+    letter-spacing: 0.2em;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .sp-quality-standards__dossier-hero,
+  .sp-quality-standards__dossier-media-frame {
+    min-height: 52rem;
+  }
+
+  .sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__dossier-headline,
+  .sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__dossier-headline p {
+    font-size: 7.25rem;
+  }
+
+  .sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__dossier-closure-statement,
+  .sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__dossier-closure-statement p {
+    font-size: 3.35rem;
+  }
+}
+
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .sp-quality-standards__dossier-hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sp-quality-standards__dossier-metadata {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .sp-quality-standards__ledger-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1rem, 1.45vw, 1.35rem);
+    padding-top: clamp(0.35rem, 0.8vw, 0.65rem);
+    border-top: 0.1rem solid var(--sp-sc-rule);
+  }
+
+  .sp-quality-standards__ledger-item {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--sp-sc-gap-tight);
+    padding: clamp(1.15rem, 1.55vw, 1.35rem) 0 0;
+    padding-left: clamp(1rem, 1.35vw, 1.25rem);
+    border-bottom: none;
+    border-left: 0.1rem solid var(--sp-sc-rule);
+  }
+
+  .sp-quality-standards__ledger-item:nth-child(odd) {
+    padding-left: 0;
+    border-left: none;
+  }
+
+  .sp-quality-standards__ledger-item:nth-child(-n + 2) {
+    padding-top: clamp(1.15rem, 1.55vw, 1.35rem);
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .sp-supplement #sp-quality .sp-quality-standards--scientific-confidence {
+    --sp-sc-inset-inline: 1.6rem;
+    margin-inline: calc(-1 * var(--sp-section-padding-inline-mobile, 1.2rem));
+    width: calc(100% + (2 * var(--sp-section-padding-inline-mobile, 1.2rem)));
+    padding-inline: var(--sp-sc-inset-inline);
+  }
+
+  .sp-quality-standards__dossier-label {
+    margin-bottom: clamp(1rem, 3vw, 1.25rem);
+  }
+
+  .sp-quality-standards__dossier-headline {
+    margin-bottom: clamp(1.05rem, 3.2vw, 1.35rem);
+  }
+
+  .sp-quality-standards__dossier-subheadline {
+    margin-bottom: clamp(1rem, 3vw, 1.25rem);
+  }
+
+  .sp-quality-standards__dossier-intro-body {
+    margin-bottom: clamp(1.15rem, 3.4vw, 1.45rem);
+  }
+
+  .sp-quality-standards__ledger-label {
+    display: block;
+  }
+
+  .sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__dossier-headline,
+  .sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__dossier-headline p {
+    font-size: clamp(2.65rem, 8.2vw, 3.15rem);
+    max-width: none;
+    line-height: 1;
+  }
+
+  .sp-quality-standards__dossier-subheadline {
+    max-width: none;
+    font-size: clamp(1rem, 2.9vw, 1.12rem);
+    letter-spacing: 0.12em;
+  }
+
+  .sp-quality-standards__dossier-intro-body,
+  .sp-quality-standards__ledger-body {
+    max-width: none;
+    font-size: clamp(1.24rem, 3.6vw, 1.38rem);
+    line-height: 1.6;
+  }
+
+  .sp-quality-standards__dossier-metadata {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(0.65rem, 2vw, 0.85rem);
+  }
+
+  .sp-quality-standards__dossier-metadata-item {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.35rem;
+    padding-left: clamp(0.65rem, 2vw, 0.85rem);
+    padding-bottom: 0;
+    border-left: 0.1rem solid var(--sp-sc-rule);
+    border-bottom: none;
+  }
+
+  .sp-quality-standards__dossier-metadata-item:first-child {
+    padding-left: 0;
+    border-left: none;
+  }
+
+  .sp-quality-standards__dossier-metadata-value {
+    font-size: clamp(0.88rem, 2.4vw, 0.98rem);
+    letter-spacing: 0.04em;
+    word-break: break-word;
+  }
+
+  .sp-quality-standards__dossier-media {
+    margin-inline: calc(-1 * var(--sp-sc-inset-inline));
+    width: calc(100% + (2 * var(--sp-sc-inset-inline)));
+  }
+
+  .sp-quality-standards__dossier-media-frame {
+    aspect-ratio: 16 / 9;
+    min-height: clamp(14.5rem, 56vw, 17.5rem);
+  }
+
+  .sp-quality-standards__ledger-index {
+    font-size: clamp(2.85rem, 8.5vw, 3.35rem);
+    color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.24);
+  }
+
+  .sp-quality-standards__ledger-title {
+    font-size: clamp(1.35rem, 4vw, 1.55rem);
+  }
+
+  .sp-quality-standards__refusals {
+    margin-inline: calc(-1 * var(--sp-sc-inset-inline));
+    width: calc(100% + (2 * var(--sp-sc-inset-inline)));
+    padding: clamp(1.85rem, 5vw, 2.25rem) var(--sp-sc-inset-inline);
+    background: var(--sp-sc-refusal-fill);
+  }
+
+  .sp-quality-standards__refusals-label {
+    margin: 0 0 0.65rem;
+  }
+
+  .sp-quality-standards__refusals-manifesto {
+    gap: 0.65rem;
+  }
+
+  .sp-quality-standards__refusals-item::before {
+    content: '\2014';
+    margin-right: 0.55em;
+    color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.42);
+  }
+
+  .sp-quality-standards__dossier-closure {
+    padding-top: clamp(2.15rem, 5vw, 2.75rem);
+    padding-bottom: clamp(0.45rem, 1.75vw, 0.75rem);
+    gap: clamp(1.15rem, 3.5vw, 1.45rem);
+  }
+
+  .sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__dossier-closure-statement,
+  .sp-supplement .sp-quality-standards--scientific-confidence .sp-quality-standards__dossier-closure-statement p {
+    max-width: min(100%, 27rem);
+    font-size: clamp(1.92rem, 5.8vw, 2.28rem);
+    line-height: 1.12;
+  }
+
+  .sp-quality-standards__dossier-tagline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-inline: calc(-1 * var(--sp-sc-inset-inline));
+    width: calc(100% + (2 * var(--sp-sc-inset-inline)));
+    min-height: 4.4rem;
+    padding: 0.85rem 1.6rem;
+    background: rgb(var(--sp-supplement-green-deep, var(--color-foreground)));
+    color: rgb(var(--sp-supplement-cream, var(--color-button-label, 255, 255, 255)));
+    font-size: clamp(0.92rem, 2.6vw, 1rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sp-quality-standards--scientific-confidence .sp-reveal,
+  .sp-quality-standards--scientific-confidence .sp-stagger__item {
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
 }

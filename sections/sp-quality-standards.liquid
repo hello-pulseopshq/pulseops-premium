@@ -59,9 +59,12 @@
   {%- if presentation == 'scientific_confidence' -%}
     {%- liquid
       assign scientific_root_class = 'sp-quality-standards sp-composition sp-composition--evidence-panel sp-quality-standards--scientific-confidence sp-editorial-chapter sp-editorial-chapter--spacing-standard sp-editorial-chapter--handoff-in sp-editorial-chapter--handoff-out'
-      if section.settings.show_process_numbers
-        assign scientific_root_class = scientific_root_class | append: ' sp-quality-standards--show-process-numbers'
-      endif
+      assign subheadline_stripped = section.settings.subheadline | strip
+      assign ledger_label_stripped = section.settings.ledger_label | strip
+      assign refusals_label_stripped = section.settings.refusals_label | strip
+      assign closure_tagline_stripped = section.settings.closure_tagline | strip
+      assign ledger_label_id = section.id | append: '-ledger-label'
+      assign refusals_label_id = section.id | append: '-refusals-label'
     -%}
     <div
       class="{{ scientific_root_class }}"
@@ -75,93 +78,216 @@
         <div class="sp-quality-standards__chapter-divider" aria-hidden="true"></div>
       {%- endif -%}
 
-      <header class="sp-quality-standards__evidence-intro{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
-        {%- if section.settings.eyebrow != blank -%}
-          <p class="sp-quality-standards__eyebrow sp-editorial-type--caption caption-with-letter-spacing">
-            {{ section.settings.eyebrow | escape }}
-          </p>
-        {%- endif -%}
+      <div class="sp-quality-standards__dossier-hero{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
+        <header class="sp-quality-standards__dossier-intro">
+          {%- if section.settings.eyebrow != blank -%}
+            <p class="sp-quality-standards__dossier-label caption-with-letter-spacing">
+              {{ section.settings.eyebrow | escape }}
+            </p>
+          {%- endif -%}
 
-        {%- if section.settings.heading != blank -%}
-          <h2 class="sp-quality-standards__statement sp-editorial-type--statement sp-editorial-type--statement--precise{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
-            {{ section.settings.heading }}
-          </h2>
-        {%- endif -%}
+          {%- if section.settings.heading != blank -%}
+            <h2 class="sp-quality-standards__dossier-headline">
+              {{ section.settings.heading }}
+            </h2>
+          {%- endif -%}
 
-        {%- if section.settings.body != blank -%}
-          <div class="sp-quality-standards__evidence-body rte">
-            {{ section.settings.body }}
-          </div>
-        {%- endif -%}
-      </header>
+          {%- if subheadline_stripped != blank -%}
+            <p class="sp-quality-standards__dossier-subheadline">
+              {{ subheadline_stripped | escape }}
+            </p>
+          {%- endif -%}
 
-      {%- if section.settings.image != blank -%}
-        <div class="sp-quality-standards__lab-evidence{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
-          <div class="sp-quality-standards__lab-evidence-frame">
-            {{
-              section.settings.image
-              | image_url: width: 2400
-              | image_tag:
-                widths: '750, 1100, 1500, 1800, 2200, 2400',
-                sizes: '100vw',
-                alt: image_alt,
-                loading: 'lazy',
-                class: 'sp-image sp-quality-standards__lab-evidence-image'
-            }}
-          </div>
-        </div>
-      {%- endif -%}
+          {%- if section.settings.body != blank -%}
+            <div class="sp-quality-standards__dossier-intro-body rte">
+              {{ section.settings.body }}
+            </div>
+          {%- endif -%}
 
-      {%- if section.blocks.size > 0 -%}
-        <ol
-          class="sp-quality-standards__process-checkpoints"
-        >
-          {%- for block in section.blocks -%}
-            {%- liquid
-              assign title_stripped = block.settings.value | strip
-              assign text_stripped = block.settings.label | strip
-              assign meta_stripped = block.settings.detail | strip
-            -%}
-            {%- if title_stripped != blank or text_stripped != blank -%}
-              <li
-                class="sp-quality-standards__process-step{% render 'sp-motion-class', type: 'fade-in-quiet' %}"
-                {{ block.shopify_attributes }}
-              >
-                {%- if section.settings.show_process_numbers -%}
-                  <span class="sp-quality-standards__process-index" aria-hidden="true">
-                    {%- if forloop.index < 10 -%}0{%- endif -%}{{ forloop.index }}
-                  </span>
-                {%- endif -%}
-                <div class="sp-quality-standards__process-copy">
-                  {%- if title_stripped != blank -%}
-                    <h3 class="sp-quality-standards__process-title">{{ title_stripped | escape }}</h3>
+          {%- if section.settings.show_metadata -%}
+            <dl class="sp-quality-standards__dossier-metadata">
+              {%- if section.settings.metadata_doc_label != blank or section.settings.metadata_doc_value != blank -%}
+                <div class="sp-quality-standards__dossier-metadata-item">
+                  {%- if section.settings.metadata_doc_label != blank -%}
+                    <dt class="sp-quality-standards__dossier-metadata-label">
+                      {{ section.settings.metadata_doc_label | escape }}
+                    </dt>
                   {%- endif -%}
-                  {%- if text_stripped != blank -%}
-                    <p class="sp-quality-standards__process-text">{{ text_stripped | escape }}</p>
-                  {%- endif -%}
-                  {%- if meta_stripped != blank -%}
-                    <p class="sp-quality-standards__process-meta">{{ meta_stripped | escape }}</p>
+                  {%- if section.settings.metadata_doc_value != blank -%}
+                    <dd class="sp-quality-standards__dossier-metadata-value">
+                      {{ section.settings.metadata_doc_value | escape }}
+                    </dd>
                   {%- endif -%}
                 </div>
-              </li>
-            {%- endif -%}
-          {%- endfor -%}
-        </ol>
+              {%- endif -%}
+              {%- if section.settings.metadata_updated_label != blank or section.settings.metadata_updated_value != blank -%}
+                <div class="sp-quality-standards__dossier-metadata-item">
+                  {%- if section.settings.metadata_updated_label != blank -%}
+                    <dt class="sp-quality-standards__dossier-metadata-label">
+                      {{ section.settings.metadata_updated_label | escape }}
+                    </dt>
+                  {%- endif -%}
+                  {%- if section.settings.metadata_updated_value != blank -%}
+                    <dd class="sp-quality-standards__dossier-metadata-value">
+                      {{ section.settings.metadata_updated_value | escape }}
+                    </dd>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+              {%- if section.settings.metadata_standards_label != blank or section.settings.metadata_standards_value != blank -%}
+                <div class="sp-quality-standards__dossier-metadata-item">
+                  {%- if section.settings.metadata_standards_label != blank -%}
+                    <dt class="sp-quality-standards__dossier-metadata-label">
+                      {{ section.settings.metadata_standards_label | escape }}
+                    </dt>
+                  {%- endif -%}
+                  {%- if section.settings.metadata_standards_value != blank -%}
+                    <dd class="sp-quality-standards__dossier-metadata-value">
+                      {{ section.settings.metadata_standards_value | escape }}
+                    </dd>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            </dl>
+          {%- endif -%}
+        </header>
+
+        {%- if section.settings.image != blank -%}
+          <figure class="sp-quality-standards__dossier-media">
+            <div class="sp-quality-standards__dossier-media-frame">
+              {{
+                section.settings.image
+                | image_url: width: 2400
+                | image_tag:
+                  widths: '550, 750, 1100, 1500, 1800, 2200, 2400',
+                  sizes: '(min-width: 990px) 52vw, 100vw',
+                  alt: image_alt,
+                  loading: 'lazy',
+                  class: 'sp-image sp-quality-standards__dossier-media-image'
+              }}
+            </div>
+          </figure>
+        {%- endif -%}
+      </div>
+
+      {%- assign ledger_index = 0 -%}
+      {%- assign has_ledger = false -%}
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'evidence_ledger' -%}
+          {%- assign has_ledger = true -%}
+          {%- break -%}
+        {%- endif -%}
+      {%- endfor -%}
+
+      {%- if has_ledger -%}
+        <section
+          class="sp-quality-standards__ledger{% render 'sp-motion-class', type: 'fade-in-quiet' %}"
+          {% if ledger_label_stripped != blank %}
+            aria-labelledby="{{ ledger_label_id }}"
+          {% else %}
+            aria-label="Evidence ledger"
+          {% endif %}
+        >
+          {%- if ledger_label_stripped != blank -%}
+            <p id="{{ ledger_label_id }}" class="sp-quality-standards__ledger-label caption-with-letter-spacing">
+              {{ ledger_label_stripped | escape }}
+            </p>
+          {%- endif -%}
+
+          <ol class="sp-quality-standards__ledger-list">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'evidence_ledger' -%}
+                {%- liquid
+                  assign ledger_index = ledger_index | plus: 1
+                  assign ledger_title_stripped = block.settings.title | strip
+                  assign ledger_body_stripped = block.settings.description | strip_html | strip
+                -%}
+                {%- if ledger_title_stripped != blank or ledger_body_stripped != blank -%}
+                  <li
+                    class="sp-quality-standards__ledger-item"
+                    {{ block.shopify_attributes }}
+                  >
+                    <span class="sp-quality-standards__ledger-index" aria-hidden="true">
+                      {%- if ledger_index < 10 -%}0{%- endif -%}{{ ledger_index }}
+                    </span>
+                    <div class="sp-quality-standards__ledger-copy">
+                      {%- if ledger_title_stripped != blank -%}
+                        <h3 class="sp-quality-standards__ledger-title">
+                          {{ ledger_title_stripped | escape }}
+                        </h3>
+                      {%- endif -%}
+                      {%- if ledger_body_stripped != blank -%}
+                        <div class="sp-quality-standards__ledger-body rte">
+                          {{ block.settings.description }}
+                        </div>
+                      {%- endif -%}
+                    </div>
+                  </li>
+                {%- endif -%}
+              {%- endif -%}
+            {%- endfor -%}
+          </ol>
+        </section>
       {%- endif -%}
 
-      {%- if section.settings.supporting_text != blank -%}
-        <div class="sp-quality-standards__evidence-note rte{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
-          {{ section.settings.supporting_text }}
-        </div>
+      {%- assign has_refusals = false -%}
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'refusal_statement' and block.settings.statement != blank -%}
+          {%- assign has_refusals = true -%}
+          {%- break -%}
+        {%- endif -%}
+      {%- endfor -%}
+
+      {%- if has_refusals -%}
+        <section
+          class="sp-quality-standards__refusals{% render 'sp-motion-class', type: 'fade-in-quiet' %}"
+          {% if refusals_label_stripped != blank %}
+            aria-labelledby="{{ refusals_label_id }}"
+          {% else %}
+            aria-label="What we refuse"
+          {% endif %}
+        >
+          {%- if refusals_label_stripped != blank -%}
+            <p id="{{ refusals_label_id }}" class="sp-quality-standards__refusals-label caption-with-letter-spacing">
+              {{ refusals_label_stripped | escape }}
+            </p>
+          {%- endif -%}
+
+          <div class="sp-quality-standards__refusals-manifesto" role="list">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'refusal_statement' -%}
+                {%- assign refusal_stripped = block.settings.statement | strip -%}
+                {%- if refusal_stripped != blank -%}
+                  <p class="sp-quality-standards__refusals-item" role="listitem" {{ block.shopify_attributes }}>
+                    {{ refusal_stripped | escape }}
+                  </p>
+                {%- endif -%}
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </section>
       {%- endif -%}
 
-      {%- if show_cta -%}
-        <div class="sp-quality-standards__footer sp-quality-standards__footer--quiet{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
-          <a href="{{ section.settings.button_link }}" class="sp-quality-standards__button sp-editorial-cta sp-editorial-cta--quiet-link{% render 'sp-motion-class', type: 'hover-button-quiet' %}">
-            <span>{{ section.settings.button_label | escape }}</span>
-            <span class="sp-editorial-cta__arrow" aria-hidden="true">→</span>
-          </a>
-        </div>
+      {%- if section.settings.show_closure and section.settings.closure_heading != blank -%}
+        <footer class="sp-quality-standards__dossier-closure{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
+          {%- if section.settings.show_closure_shield -%}
+            <span class="sp-quality-standards__dossier-shield" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 2.5 4.5 5.5v6.2c0 4.5 2.8 8.6 7.5 9.8 4.7-1.2 7.5-5.3 7.5-9.8V5.5z"></path>
+              </svg>
+            </span>
+          {%- endif -%}
+
+          <div class="sp-quality-standards__dossier-closure-statement rte">
+            {{ section.settings.closure_heading }}
+          </div>
+
+          {%- if closure_tagline_stripped != blank -%}
+            <p class="sp-quality-standards__dossier-tagline">
+              {{ closure_tagline_stripped | escape }}
+            </p>
+          {%- endif -%}
+        </footer>
       {%- endif -%}
     </div>
   {%- else -%}
@@ -296,7 +422,7 @@
   "name": "SP Quality Standards",
   "tag": "section",
   "class": "section",
-  "max_blocks": 6,
+  "max_blocks": 10,
   "disabled_on": {
     "groups": ["header", "footer"]
   },
@@ -310,34 +436,94 @@
         { "value": "split_editorial", "label": "Split editorial" },
         { "value": "scientific_confidence", "label": "Scientific confidence" }
       ],
-      "info": "Scientific confidence is designed for manufacturing and testing chapters — documentary layout with process checkpoints."
+      "info": "Scientific confidence — The Evidence Dossier chapter."
     },
     {
       "type": "text",
       "id": "eyebrow",
       "default": "Lab grade quality",
-      "label": "Eyebrow"
+      "label": "Editorial label",
+      "info": "Scientific confidence: chapter label (e.g. Scientific confidence)."
     },
     {
       "type": "richtext",
       "id": "heading",
       "default": "<p>Quality without compromise.</p>",
-      "label": "Heading"
+      "label": "Headline"
+    },
+    {
+      "type": "text",
+      "id": "subheadline",
+      "label": "Supporting headline",
+      "info": "Scientific confidence presentation only."
     },
     {
       "type": "richtext",
       "id": "body",
       "default": "<p>Every batch is produced with strict quality controls, manufacturing discipline, and standards designed to support long-term trust.</p>",
-      "label": "Intro body"
+      "label": "Intro paragraph"
     },
     {
       "type": "header",
-      "content": "Supporting media"
+      "content": "Document metadata"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_metadata",
+      "label": "Show metadata row",
+      "default": true,
+      "info": "Scientific confidence presentation only."
+    },
+    {
+      "type": "text",
+      "id": "metadata_doc_label",
+      "label": "Document number label",
+      "default": "Document No.",
+      "info": "Scientific confidence presentation only."
+    },
+    {
+      "type": "text",
+      "id": "metadata_doc_value",
+      "label": "Document number value",
+      "default": "SC-01",
+      "info": "Scientific confidence presentation only."
+    },
+    {
+      "type": "text",
+      "id": "metadata_updated_label",
+      "label": "Updated label",
+      "default": "Updated",
+      "info": "Scientific confidence presentation only."
+    },
+    {
+      "type": "text",
+      "id": "metadata_updated_value",
+      "label": "Updated value",
+      "default": "Quarterly",
+      "info": "Scientific confidence presentation only."
+    },
+    {
+      "type": "text",
+      "id": "metadata_standards_label",
+      "label": "Verification standards label",
+      "default": "Verification standards",
+      "info": "Scientific confidence presentation only."
+    },
+    {
+      "type": "text",
+      "id": "metadata_standards_value",
+      "label": "Verification standards value",
+      "default": "ISO 17025 · GMP · NSF",
+      "info": "Scientific confidence presentation only."
+    },
+    {
+      "type": "header",
+      "content": "Documentary photography"
     },
     {
       "type": "image_picker",
       "id": "image",
-      "label": "Editorial image"
+      "label": "Documentary image"
     },
     {
       "type": "text",
@@ -345,11 +531,64 @@
       "label": "Image alt text"
     },
     {
+      "type": "header",
+      "content": "Evidence ledger"
+    },
+    {
+      "type": "text",
+      "id": "ledger_label",
+      "label": "Ledger label",
+      "default": "Evidence ledger",
+      "info": "Scientific confidence presentation only."
+    },
+    {
+      "type": "header",
+      "content": "What we refuse"
+    },
+    {
+      "type": "text",
+      "id": "refusals_label",
+      "label": "Refusals label",
+      "default": "What we refuse",
+      "info": "Scientific confidence presentation only."
+    },
+    {
       "type": "richtext",
       "id": "supporting_text",
       "default": "<p>From sourcing to production, every step is designed to maintain consistency, transparency, and quality.</p>",
       "label": "Supporting copy",
-      "info": "Evidence note in scientific confidence presentation."
+      "info": "Split editorial presentation only."
+    },
+    {
+      "type": "header",
+      "content": "Chapter closure"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_closure",
+      "label": "Show closing statement",
+      "default": true,
+      "info": "Scientific confidence presentation only."
+    },
+    {
+      "type": "richtext",
+      "id": "closure_heading",
+      "label": "Closing statement",
+      "info": "Scientific confidence presentation only."
+    },
+    {
+      "type": "text",
+      "id": "closure_tagline",
+      "label": "Footer tagline",
+      "default": "Documented. Verified. Always.",
+      "info": "Scientific confidence presentation only."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_closure_shield",
+      "label": "Show closure shield icon",
+      "default": true,
+      "info": "Scientific confidence presentation only."
     },
     {
       "type": "header",
@@ -359,7 +598,8 @@
       "type": "text",
       "id": "button_label",
       "default": "Shop now",
-      "label": "Button label"
+      "label": "Button label",
+      "info": "Split editorial presentation only."
     },
     {
       "type": "url",
@@ -375,13 +615,6 @@
     {
       "type": "header",
       "content": "Chapter layout"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_process_numbers",
-      "label": "Show process step numbers",
-      "default": true,
-      "info": "Scientific confidence presentation only."
     },
     {
       "type": "select",
@@ -513,21 +746,49 @@
           "type": "text",
           "id": "value",
           "default": "92%",
-          "label": "Primary value",
-          "info": "Checkpoint title in scientific confidence presentation."
+          "label": "Primary value"
         },
         {
           "type": "text",
           "id": "label",
           "default": "Customer satisfaction",
-          "label": "Label",
-          "info": "Process description in scientific confidence presentation."
+          "label": "Label"
         },
         {
           "type": "text",
           "id": "detail",
           "label": "Supporting detail",
-          "info": "Optional evidence meta in scientific confidence presentation."
+          "info": "Split editorial presentation only."
+        }
+      ]
+    },
+    {
+      "type": "evidence_ledger",
+      "name": "Evidence ledger item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Ledger title",
+          "default": "Third-party testing"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Ledger description",
+          "default": "<p>Every batch is independently verified for purity, potency, and safety before release.</p>"
+        }
+      ]
+    },
+    {
+      "type": "refusal_statement",
+      "name": "Refusal statement",
+      "settings": [
+        {
+          "type": "text",
+          "id": "statement",
+          "label": "Statement",
+          "default": "No proprietary blends"
         }
       ]
     }
