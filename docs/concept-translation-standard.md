@@ -18,6 +18,8 @@ A concept explains the idea.
 
 A mockup expresses the idea.
 
+**Downstream, Approved Annotated Desktop Mockup (Image) and Approved Annotated Mobile Mockup (Image) become the implementation contract.** Concept Translation and Blueprint preserve intent before that contract exists; they do not replace annotated mockups during Cursor implementation.
+
 Concept Translation ensures the original idea survives that journey.
 
 ---
@@ -49,6 +51,10 @@ Blueprint
 ↓
 
 Annotated Mockups
+
+↓
+
+Implementation Specification
 
 ↓
 
@@ -98,7 +104,7 @@ Creative decisions belong here.
 
 Visual decisions belong in mockups.
 
-Implementation decisions belong in Blueprint and Annotated Mockups.
+Implementation decisions belong in Blueprint, Annotated Mockups, and Implementation Specification.
 
 ---
 

@@ -10,6 +10,13 @@ Status: In Review
 
 Mockups are the primary source of truth for implementation.
 
+**Approved Annotated Desktop Mockup (Image) and Approved Annotated Mobile Mockup (Image) are the implementation contract** — not implementation guidance alone.
+
+- **Approved Blueprint** explains intent and resolves design decisions upstream.
+- **Approved Annotated Mockups** define what Cursor must reproduce: composition, spacing, rhythm, proportions, typography hierarchy, and photography ownership.
+
+Cursor must implement annotated mockups faithfully. Blueprint supports annotation quality; it is not a substitute for direct visual comparison during implementation and review.
+
 The objective of annotation is to remove ambiguity.
 
 Cursor should implement approved designs rather than interpreting them.
@@ -17,6 +24,8 @@ Cursor should implement approved designs rather than interpreting them.
 A successful annotated mockup answers implementation questions before implementation begins.
 
 Every annotation should reduce implementation iterations.
+
+Annotations feed the **Implementation Specification** — the structural contract that defines region hierarchy, grid ownership, and responsive mapping. See **PulseOps Implementation Specification Standard**.
 
 ---
 
@@ -31,6 +40,14 @@ Production Playbook
 ↓
 
 Annotated Mockup Standard
+
+↓
+
+Implementation Specification Standard
+
+↓
+
+Cursor Implementation Standard
 
 ↓
 
@@ -422,6 +439,52 @@ Freeze Hygiene required.
 
 ---
 
+## Rule 7 — Editorial rhythm and visual pauses (Scientific Confidence / GV-3)
+
+Annotate editorial rhythm explicitly.
+
+Specify:
+
+- where typography should lead
+- where imagery should lead
+- where visual breathing space is intentional
+- where a visual pause separates narrative beats
+
+Do not leave whitespace rhythm to implementation inference.
+
+---
+
+## Rule 8 — Photography budget (Scientific Confidence / GV-3)
+
+Annotate the chapter photography budget.
+
+Specify:
+
+- how many dominant photographs belong to the chapter
+- which frame is the memory anchor
+- which supporting images have narrative purpose
+- which regions should remain typography-led after the anchor is established
+
+Avoid implying unlimited photography. Editorial chapters are not photo galleries.
+
+---
+
+## Rule 9 — Dominant visual ownership (Scientific Confidence / GV-3)
+
+Annotate dominant visual ownership per region.
+
+For each major region, state whether typography or photography leads.
+
+Examples:
+
+- Hero: photography owns trust; typography introduces the chapter.
+- Pillar grid: typography owns proof structure; photography supports specific pillars only.
+- Closure: typography owns the handoff; photography steps back or disappears.
+
+Cursor should not need to infer ownership from composition alone.
+
+---
+
 # Deliverables
 
 Every flagship chapter should produce:
@@ -436,9 +499,13 @@ Annotated Mobile Mockup
 
 Blueprint
 
-Cursor Prompt
+Implementation Specification
 
-No implementation begins without these deliverables.
+Implementation Brief
+
+Phase 1 Composition Build Prompt
+
+No Phase 1 begins without these deliverables.
 
 ---
 
@@ -452,6 +519,33 @@ If Cursor still needs to ask:
 
 The annotations are incomplete.
 
+An annotated mockup is also incomplete when Cursor would still need to infer any of the following:
+
+- editorial rhythm
+- visual pacing
+- photography ownership
+- image budget
+- mobile reading cadence
+
+These must be annotated explicitly. Approved mockups alone are not sufficient for implementation-complete annotation.
+
+After annotation approval, produce an **Implementation Specification**, then an **Implementation Brief** derived from it.
+
+---
+
+# Formulation Philosophy Learnings (GV-5)
+
+The Formulation Philosophy sprint showed that high-quality annotations still left room for DOM interpretation.
+
+### Required response
+
+1. Annotations must explicitly state composition ownership and reading order — not only visual relationships.
+2. Every flagship chapter requires an Implementation Specification before Phase 1.
+3. Region hierarchy must never be left to Cursor inference.
+4. When annotations define what but not how (DOM structure), the specification must complete the contract.
+
+Update annotation categories when specification gaps are discovered during implementation retrospectives.
+
 ---
 
 # Continuous Improvement
@@ -464,6 +558,7 @@ Determine whether the problem originated from:
 - Mockup
 - Annotation
 - Prompt
+- Implementation Specification
 - Implementation
 
 If the cause is annotation quality,

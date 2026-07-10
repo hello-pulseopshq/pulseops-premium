@@ -27,6 +27,10 @@ The Cursor Prompt Standard explains how implementation prompts should be written
 
 This document defines the quality expected from the implementation itself.
 
+**Most rules in this document apply to Phase 2 — Production Hardening.**
+
+Phase 1 — Composition Build is governed by visual fidelity and Implementation Specification compliance. Engineering quality validation begins after composition approval.
+
 ---
 
 # Relationship to Governance
@@ -43,7 +47,7 @@ Implementation Quality Rules
 
 ↓
 
-Cursor Prompt Standard
+Cursor Prompt Standard (Phase 2 focus)
 
 ↓
 
@@ -137,9 +141,29 @@ Implementation should begin by identifying:
 
 Scope should not expand silently during implementation.
 
-Unexpected cross-owner changes require explicit justification.
+## Principle 7
 
-Local implementation is preferred over platform-wide modification.
+Composition before engineering quality.
+
+Phase 1 must achieve visual fidelity before Phase 2 engineering standards apply.
+
+CSS polishing cannot compensate for incorrect DOM composition.
+
+When structural mismatch persists, rebuild presentation DOM — do not continue cascade refinement.
+
+---
+
+# Phase Applicability
+
+| Concern | Phase 1 | Phase 2 |
+|---------|---------|---------|
+| Composition fidelity | Required | Preserved — no changes |
+| Region hierarchy | Required | Frozen |
+| Merchant configurability | Deferred | Required |
+| Accessibility | Basic semantics only | Full validation |
+| Theme Check | Deferred | Required |
+| CSS cascade audit | Minimal | Required |
+| Freeze Hygiene | Deferred | Required |
 
 ---
 
@@ -451,7 +475,17 @@ Never:
 
 Implement before approved mockups.
 
+Implement Phase 1 without Implementation Specification.
+
+Combine Phase 1 and Phase 2 in a single sprint.
+
+Begin Production Hardening before composition approval.
+
 Redesign during implementation.
+
+Preserve incorrect DOM for convenience.
+
+Use CSS polishing to fix structural mismatch.
 
 Hardcode merchant content.
 
@@ -506,6 +540,62 @@ Visual parity should be maintained during implementation cleanup.
 8.
 
 Every implementation report should document remaining technical debt.
+
+---
+
+# Scientific Confidence Chapter Learnings
+
+The Scientific Confidence chapter established that engineering correctness and visual correctness are independent acceptance gates.
+
+1.
+
+Implementation is not considered complete until the rendered desktop and mobile implementations have been directly compared against the **Approved Annotated Desktop Mockup (Image)** and **Approved Annotated Mobile Mockup (Image)**.
+
+Passing Theme Check, accessibility review, merchant configurability validation, architecture validation, and runtime validation does **not** replace **Visual Fidelity Review**.
+
+Visual acceptance must confirm:
+
+- composition
+
+- typography hierarchy
+
+- photography ownership
+
+- editorial rhythm
+
+- spacing
+
+- proportions
+
+match the approved annotated mockups.
+
+Implementation may pass engineering validation and still fail implementation quality if visual fidelity is not achieved.
+
+---
+
+# Formulation Philosophy Chapter Learnings (GV-5)
+
+The Formulation Philosophy sprint established permanent implementation quality rules.
+
+1.
+
+Composition fidelity takes precedence over DOM reuse.
+
+2.
+
+CSS changes cannot fix incorrect region hierarchy — rebuild presentation DOM instead.
+
+3.
+
+When implementation remains materially different after one refinement sprint, rebuild — do not continue CSS polishing.
+
+4.
+
+Engineering validation (Theme Check, accessibility, merchant configurability) belongs in Phase 2 — not Phase 1.
+
+5.
+
+Screenshot comparison against annotated mockups is mandatory before Phase 2 begins.
 
 ---
 

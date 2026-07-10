@@ -33,6 +33,8 @@ Creative Standards
 Production Standards
 
     Annotated Mockup Standard
+    Implementation Specification Standard
+    Implementation Brief Standard
     Cursor Prompt Standard
     Cursor Implementation Standard
     Implementation Quality Rules
@@ -88,9 +90,12 @@ These documents define the permanent PulseOps design languages.
 
 | Document | Purpose |
 |----------|---------|
-| Cursor Prompt Standard | Canonical implementation prompt |
-| Cursor Implementation Standard | Cursor implementation workflow |
-| Implementation Quality Rules | Engineering craftsmanship |
+| Annotated Mockup Standard | Annotation methodology (design-side) |
+| Implementation Specification Standard | Full structural contract (governance) |
+| Implementation Brief Standard | Concise execution package for Cursor |
+| Cursor Prompt Standard | Phase 1 and Phase 2 prompts |
+| Cursor Implementation Standard | Two-phase workflow and fidelity rules |
+| Implementation Quality Rules | Engineering craftsmanship (Phase 2) |
 | Chapter Quality Checklist | Final review checklist |
 
 ---
@@ -147,11 +152,23 @@ Annotated Mockups
 
 ↓
 
-Cursor Implementation Package
+Implementation Specification
 
 ↓
 
-Cursor Implementation
+Implementation Brief
+
+↓
+
+Phase 1 — Composition Build
+
+↓
+
+Composition Approval Gate
+
+↓
+
+Phase 2 — Production Hardening
 
 ↓
 

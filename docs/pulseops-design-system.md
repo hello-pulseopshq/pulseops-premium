@@ -265,6 +265,8 @@ Design Conformance QA verifies that pages, sections, components, merchant experi
 
 Use [`design-conformance-qa.md`](design-conformance-qa.md) after language decisions are frozen and before remediation begins. QA identifies deviations; implementation fixes happen in later remediation sprints.
 
+**Flagship chapter implementation** additionally requires Visual Fidelity Review against Approved Annotated Desktop Mockup (Image) and Approved Annotated Mobile Mockup (Image). See Production Playbook Stage 10. Architecture correctness alone is insufficient for chapter completion.
+
 ---
 
 ## 12. Definition Of Done

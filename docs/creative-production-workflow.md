@@ -43,18 +43,32 @@ and implementation constraints.
 
 Approve desktop and mobile mockups.
 
-## 6. Cursor Implementation
+## 6. Implementation Specification
 
-Follow the Cursor Implementation Standard.
+Translate annotated mockups into structural contract per **PulseOps Implementation Specification Standard**.
 
-## 7. Review
+## 7. Phase 1 — Composition Build
+
+Follow the Cursor Implementation Standard. Composition fidelity only.
+
+## 8. Composition Approval
+
+Screenshot comparison against annotated mockups. Human visual approval required.
+
+## 9. Phase 2 — Production Hardening
+
+Merchant configurability, accessibility, Theme Check, implementation quality.
+
+## 10. Review
 
 Compare implementation to approved mockups.
 
-## 8. Refinement
+## 11. Refinement
 
-Maximum one polish sprint.
+Maximum one polish sprint. Rebuild DOM if structural mismatch persists.
 
-## 9. Freeze
+## 12. Freeze
 
 Verification → Commit → Tag → Push.
+
+For the canonical workflow, see **PulseOps Production Playbook**.

@@ -395,6 +395,26 @@ Anti-patterns matter because they define the edge of the language. PulseOps phot
 
 ---
 
+## Chapter Photography Budget
+
+Each flagship chapter should establish a photography budget before implementation begins.
+
+This budget governs how many images the chapter may carry and what each image is allowed to own narratively.
+
+### Principles
+
+- **One dominant visual memory anchor.** Each chapter should establish one dominant visual memory anchor. Additional photography must have a narrative purpose.
+- **Typography takes the lead after the anchor.** Once the memory anchor is established, typography should increasingly own the chapter. Proof, structure, and handoff should not compete with repeated hero-scale photography.
+- **Editorial chapters are not photo galleries.** Avoid turning editorial chapters into photo galleries. More images do not create more trust.
+- **Chapter-owned photography only.** Photography should belong to the chapter narrative. Do not borrow imagery from another chapter simply because assets already exist elsewhere.
+- **Supporting images earn their place.** Pillar, transition, and evidence images must support a specific buyer question beat. If an image cannot be named to a narrative role, it does not belong in the chapter budget.
+
+### Relationship to annotation
+
+The chapter photography budget should be annotated in the flagship mockup package before Cursor implementation. Implementation should verify conformance against that budget (see Photography Conformance checklist in [`pulseops-cursor-prompt-standard.md`](pulseops-cursor-prompt-standard.md)).
+
+---
+
 ## Related Documents
 
 - [`pulseops-design-system.md`](pulseops-design-system.md) - Constitutional overview and craftsmanship lifecycle

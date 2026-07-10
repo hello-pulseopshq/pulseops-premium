@@ -58,6 +58,9 @@ Creative Standards
 
 Implementation Standards
 
+• Implementation Specification Standard
+• Implementation Brief Standard
+• Cursor Implementation Standard
 • Cursor Prompt Standard
 • Implementation Quality Rules
 
@@ -133,11 +136,47 @@ Implementation should never be used as a design exploration tool.
 
 Mockups before code.
 
-Desktop and mobile mockups are the source of truth.
+Desktop and mobile mockups are the source of truth for design approval.
 
-Implementation reproduces approved mockups.
+**Approved Annotated Desktop Mockup (Image) and Approved Annotated Mobile Mockup (Image) are the implementation contract.**
+
+Blueprint explains intent. Annotated mockups define what implementation must reproduce.
+
+The **Implementation Specification** translates annotated mockups into a structural contract — region hierarchy, grid ownership, responsive mapping, and merchant mapping — so Cursor does not interpret visual mockups.
+
+Implementation reproduces approved annotated mockups faithfully — not reinterpretation of blueprint or design language alone.
+
+Annotated mockups are implementation specifications, not inspiration.
 
 It does not reinterpret them.
+
+---
+
+## Principle 3a
+
+Composition before hardening.
+
+Implementation is split into two distinct phases.
+
+**Phase 1 — Composition Build** has one objective: faithfully reproduce the approved desktop and mobile compositions.
+
+**Phase 2 — Production Hardening** makes the approved composition production-ready.
+
+Human visual approval is required after Phase 1 and before Phase 2.
+
+Production Hardening must never begin before composition approval.
+
+---
+
+## Principle 3b
+
+Composition fidelity over DOM reuse.
+
+When implementation conflicts with approved composition, rebuild the presentation DOM.
+
+Do not preserve incorrect existing markup for architectural convenience.
+
+CSS polishing cannot compensate for incorrect DOM composition.
 
 ---
 
@@ -243,7 +282,7 @@ Concept Selection
 
 ↓
 
-Blueprint
+Concept Translation
 
 ↓
 
@@ -255,7 +294,7 @@ Desktop Review
 
 ↓
 
-Desktop Freeze
+Desktop Approval
 
 ↓
 
@@ -267,11 +306,35 @@ Mobile Review
 
 ↓
 
-Mobile Freeze
+Mobile Approval
 
 ↓
 
-Implementation
+Blueprint
+
+↓
+
+Annotated Mockups
+
+↓
+
+Implementation Specification
+
+↓
+
+Implementation Brief
+
+↓
+
+Phase 1 — Composition Build
+
+↓
+
+Composition Approval
+
+↓
+
+Phase 2 — Production Hardening
 
 ↓
 
@@ -283,19 +346,11 @@ Refinement Sprint
 
 ↓
 
-Freeze Hygiene Sprint
+Freeze Hygiene
 
 ↓
 
 Freeze
-
-↓
-
-Commit
-
-↓
-
-Tag
 
 ↓
 
@@ -307,6 +362,8 @@ Governance Update
 
 No stage should begin until the previous stage has been approved.
 
+For stage detail, see **PulseOps Production Playbook**.
+
 ---
 
 # Stage Gates
@@ -315,7 +372,13 @@ Each production stage concludes with an approval gate.
 
 The purpose of stage gates is to prevent downstream work from compensating for upstream uncertainty.
 
-No implementation begins without approved mockups.
+No implementation begins without approved mockups, approved annotated mockups, approved Implementation Specification, and approved Implementation Brief.
+
+No Production Hardening begins without Composition Approval (both desktop and mobile: YES).
+
+No chapter passes Visual Review on architecture correctness alone — visual fidelity to annotated mockups is required.
+
+Screenshot comparison against annotated mockups is mandatory before implementation proceeds from Phase 1 to Phase 2.
 
 No freeze occurs without implementation hygiene.
 

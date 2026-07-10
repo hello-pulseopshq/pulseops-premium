@@ -16,62 +16,123 @@ Cursor should be treated as a production frontend engineer implementing an appro
 
 ---
 
-## 2. Required inputs before writing a Cursor prompt
+## 2. Production Prerequisites
 
-Do not start implementation until all four inputs exist:
+Before implementation can begin, the following production artifacts must already exist in the production workflow:
 
-1. Approved desktop mockup
-2. Approved mobile mockup
-3. Approved chapter blueprint
-4. Relevant PulseOps language documents
+1. Approved Desktop Mockup (Image)
+2. Approved Mobile Mockup (Image)
+3. Approved Blueprint
+4. Approved Annotated Desktop Mockup (Image)
+5. Approved Annotated Mobile Mockup (Image)
 
-If any of these are missing, stop and create them first.
+If any prerequisite is missing, stop and complete the upstream production stage first.
+
+**Approved Desktop Mockup (Image) and Approved Mobile Mockup (Image) establish the design.**
+
+**Approved Blueprint resolves implementation intent.**
+
+**Approved Annotated Desktop Mockup (Image) and Approved Annotated Mobile Mockup (Image) remove implementation ambiguity.**
+
+These artifacts belong to the production workflow. They are not all supplied to Cursor during normal implementation.
 
 ---
 
-## 3. Source-of-truth hierarchy
+## 3. Cursor Implementation Package
+
+The **Cursor Implementation Package** differs by phase.
+
+### Phase 1 — Composition Build Package
+
+1. Approved Annotated Desktop Mockup (Image)
+2. Approved Annotated Mobile Mockup (Image)
+3. Approved Implementation Brief
+4. Phase 1 Composition Build Prompt
+
+### Phase 2 — Production Hardening Package
+
+1. Approved Implementation Brief
+2. Phase 2 Production Hardening Prompt
+
+Do not attach the full Implementation Specification, Blueprint, or upstream mockups unless escalation is required.
+
+Design Language documents exist in the repository. Reference them from the codebase.
+
+**Phase 1 and Phase 2 must never be combined in a single prompt.**
+
+---
+
+## 4. Source-of-truth hierarchy
 
 Every Cursor implementation prompt must include this hierarchy.
 
 ```text
 SOURCE OF TRUTH
 
-1. Desktop mockup
-2. Mobile mockup
-3. Chapter blueprint
-4. PulseOps Design System
-5. Frozen PulseOps Design Languages
-6. Existing PulseOps Architecture
-7. Existing design tokens
-8. Existing implementation
+1. Approved Annotated Desktop Mockup (Image)
+2. Approved Annotated Mobile Mockup (Image)
+3. Approved Desktop Acceptance Screenshot
+4. Approved Mobile Acceptance Screenshot
+5. Approved Implementation Brief
 
-If anything is ambiguous, the approved mockups win.
+Mockups and acceptance screenshots are the visual contract.
+
+The Implementation Brief is the execution contract.
+
+Do not open the Implementation Specification or other governance documents during normal implementation.
 ```
 
 ---
 
-## 4. Required Cursor prompt structure
+## 5. Two-phase implementation model
 
-Every implementation prompt should follow this structure:
+Every flagship chapter implementation uses two distinct Cursor sprints.
 
-1. Sprint name
-2. Mission
-3. Source of truth
-4. Design language compliance
-5. Desktop implementation
-6. Tablet implementation
-7. Mobile implementation
-8. Merchant configurability
-9. Accessibility
-10. Scope boundaries
-11. Visual acceptance criteria
-12. Validation
-13. Report requirement
-14. Stop condition
+### Phase 1 — Composition Build
+
+**Objective:** Faithfully reproduce the approved desktop and mobile compositions.
+
+Merchant configurability, Theme Check, and accessibility certification belong in Phase 2.
+
+### Phase 2 — Production Hardening
+
+**Objective:** Make the composition-approved implementation production-ready.
+
+**Prerequisite:** Composition Approval gate — both desktop and mobile must be YES.
+
+### Rules
+
+- Follow the Implementation Brief — do not open the full specification.
+- Composition fidelity takes precedence over DOM reuse.
+- Rebuild presentation DOM when structural mismatch persists.
+- Compare screenshots to Approved Acceptance Screenshots before requesting composition approval.
 
 ---
 
-## 5. Canonical implementation prompt template
+## 6. Required Cursor prompt structure
+
+### Phase 1 — Composition Build prompt
+
+1. Sprint name
+2. Phase 1 objective (one sentence)
+3. Implementation Brief reference
+4. Architecture pre-flight
+5. Activation verification
+6. Scope (from Brief)
+7. Screenshot checklist
+8. Stop condition
+
+### Phase 2 — Production Hardening prompt
+
+1. Sprint name
+2. Composition preservation rule
+3. Implementation Brief (merchant mapping)
+4. Accessibility and validation
+5. Stop condition
+
+---
+
+## 7. Phase 1 — Composition Build prompt template
 
 Copy this and replace the bracketed values.
 
@@ -80,7 +141,8 @@ You are working in the PulseOps Premium Shopify repository.
 
 SPRINT
 
-[PHASE / CHAPTER / IMPLEMENTATION NAME]
+Phase 1 — Composition Build
+[CHAPTER NAME]
 
 Model:
 Cursor Composer 2.5 Fast / Auto Agent
@@ -89,15 +151,32 @@ Cursor Composer 2.5 Fast / Auto Agent
 MISSION
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Implement the approved [CHAPTER NAME] design shown in the attached Desktop and Mobile mockups.
+Phase 1 — Composition Build.
 
-Do NOT redesign.
-Do NOT reinterpret.
-Do NOT invent a new composition.
+**Faithfully reproduce the approved desktop and mobile compositions.**
 
-Treat the supplied mockups exactly like an approved Figma design.
+Do NOT redesign. Do NOT reinterpret. Do NOT preserve incorrect DOM for convenience.
 
-Your job is to faithfully reproduce those mockups using the existing PulseOps architecture, design system, and design tokens.
+Use demo placeholders for merchant content. Defer Theme Check, accessibility, and schema to Phase 2.
+
+If existing markup conflicts with the Brief, rebuild the presentation DOM.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMPLEMENTATION BRIEF
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Follow the attached Approved Implementation Brief.
+
+It contains everything you need:
+- region hierarchy summary
+- breakpoint summary
+- allowed and prohibited files
+- do-not rules
+- implementation budget
+- acceptance criteria
+- screenshot checklist
+
+Do not open the Implementation Specification or other governance documents.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ARCHITECTURE PRE-FLIGHT
@@ -105,366 +184,126 @@ ARCHITECTURE PRE-FLIGHT
 
 Before editing code:
 
-1. Identify the implementation owner(s).
-
-2. List every file you intend to modify.
-
-3. Explain why each file requires modification.
-
-4. Confirm that each modified file is within its architectural ownership.
-
-5. If implementation requires modifying a shared system or another chapter's owner, explain why before making changes.
-
-Default assumption:
-
-Implementation should remain local.
-
-Cross-owner changes are exceptions.
-
-If more than one presentation owner is required, justify it explicitly before implementation.
+1. List files you intend to modify (must match Brief allowed files).
+2. Confirm each file is within architectural ownership.
+3. If scope exceeds the Brief implementation budget, stop and explain.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ACTIVATION VERIFICATION
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Before visual review, confirm that the implementation is actually active.
+Confirm: correct theme, template, section, stylesheet loaded.
 
-Verify:
-
-1. The correct Shopify preview theme.
-
-2. The correct template.
-
-3. The correct section is rendered.
-
-4. The correct stylesheet is loaded.
-
-5. The previous implementation is no longer present.
-
-Report:
-
-• Preview URL
-
-• Section root selector
-
-• Stylesheet owner
-
-• Files pushed (or running via `shopify theme dev`)
-
-Do not begin visual review until Activation Verification passes.
+Report: Preview URL, section root selector, stylesheet owner.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SOURCE OF TRUTH
+SCREENSHOT CHECKLIST
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Follow this order of authority:
+Capture at 1440px and 390px.
 
-1. Desktop Mockup
-2. Mobile Mockup
-3. [CHAPTER BLUEPRINT FILE]
-4. pulseops-design-system.md
-5. Frozen PulseOps Design Languages
-6. Existing PulseOps Architecture
-7. Existing Design Tokens
-8. Existing Implementation
+Compare side-by-side with:
+- Approved Desktop Acceptance Screenshot
+- Approved Mobile Acceptance Screenshot
 
-If anything is ambiguous:
-
-THE MOCKUPS WIN.
-
-Do not optimize for implementation convenience if it reduces visual fidelity.
+Report gaps. Do not self-approve composition.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PULSEOPS DESIGN LANGUAGE COMPLIANCE
+VALIDATION (MINIMAL)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-PulseOps Design System is frozen.
-
-This implementation must express the existing PulseOps Design Languages.
-
-Do NOT create a new design language.
-Do NOT bypass the existing design system.
-
-Architecture Language:
-- Preserve existing section ownership.
-- Preserve reusable architecture.
-- Preserve merchant configurability.
-- Do not hardcode demo-specific content.
-- Do not create duplicate components unless explicitly approved.
-
-Narrative Language:
-- Preserve the chapter's role in the buyer journey.
-- Respect previous and next chapter handoffs.
-- Maintain the chapter's emotional purpose.
-- Do not change section order unless explicitly instructed.
-
-Composition Language:
-- Implement the approved desktop and mobile compositions.
-- Desktop and mobile are independent editorial compositions.
-- Desktop must not become a stretched mobile layout.
-- Maintain the intended memory anchor and eye flow.
-- Avoid accidental whitespace, equal visual weight, clutter, overlap, and generic card/grid behavior.
-
-Typography Language:
-- Use existing typography tokens and editorial classes.
-- Do not invent new font families or global type scales.
-- Do not hardcode arbitrary typography unless a local override is explicitly required by the approved design.
-- Preserve the intended hierarchy from the mockups.
-
-Surface Language:
-- Use existing surface tokens.
-- Do not introduce new colors, gradients, shadows, borders, or radii.
-- Use restraint.
-- Avoid card styling unless the approved mockup clearly requires it.
-
-Photography Language:
-- Photography carries emotional truth.
-- Preserve the intended image owner and crop.
-- Do not add decorative overlays or unnecessary frames.
-- Respect focal points and premium editorial cropping.
-
-Interaction Language:
-- Interactions must clarify behavior.
-- Do not add sliders, carousels, hover gimmicks, or extra UI unless explicitly shown in the mockup or blueprint.
-- Keep behavior calm and merchant-safe.
-
-Motion Language:
-- Do not introduce new motion.
-- Use existing motion utilities only when appropriate.
-- Respect reduced motion.
-- Motion must remain secondary to the chapter's reading experience.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DESKTOP IMPLEMENTATION
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Breakpoint:
-≥ 990px
-
-Implement the attached desktop mockup faithfully.
-
-[DESCRIBE EXACT DESKTOP STRUCTURE]
-
-Must confirm:
-- Desktop uses horizontal space intentionally.
-- Desktop does not behave like a stretched mobile layout.
-- Memory anchor is obvious.
-- Eye flow matches the mockup.
-- Adjacent chapter transitions remain intact.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-TABLET IMPLEMENTATION
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Breakpoint:
-750–989px
-
-Implement a clean intermediate layout derived from the approved desktop and mobile mockups.
-
-Do not introduce a third concept.
-
-[DESCRIBE TABLET RULES]
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-MOBILE IMPLEMENTATION
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Breakpoint:
-≤ 749px
-
-Implement the attached mobile mockup faithfully.
-
-[DESCRIBE EXACT MOBILE ORDER]
-
-Must confirm:
-- Mobile is intentionally designed.
-- No horizontal overflow.
-- No accidental hidden content.
-- Reading order is natural.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-MERCHANT CONFIGURABILITY
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Preserve merchant configurability.
-
-Use existing blocks/settings where possible.
-
-Do not hardcode:
-- product names
-- testimonials
-- customer names
-- image URLs
-- vertical-specific copy
-
-If new settings are required, add them using existing schema conventions.
-
-Preserve existing fallback layouts when required.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-ACCESSIBILITY
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Preserve accessibility.
-
-Use semantic structure.
-
-Images must retain alt behavior.
-
-Interactive controls must remain keyboard accessible.
-
-Reduced motion must remain correct.
-
-No hidden inaccessible content.
-
-No focus traps.
-
-Do not regress FAQ, header, cart, sticky ATC, or hero behavior.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SCOPE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Allowed files:
-[LIST ALLOWED FILES]
-
-Avoid editing:
-[LIST FILES TO AVOID]
-
-Do NOT touch:
-- unrelated homepage chapters
-- global design tokens
-- architecture documents
-- performance work
-- accessibility infrastructure
-- unrelated CSS
-
-Do not modify additional files during implementation unless they were declared in the Architecture Pre-flight.
-
-If additional files become necessary during implementation:
-
-• stop
-• explain why
-• update the file list
-• then continue
-
-Do not silently expand implementation scope.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-VISUAL ACCEPTANCE CRITERIA
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Before finishing, compare the implementation against both supplied mockups.
-
-Desktop:
-- Does it immediately match the approved desktop mockup?
-- Does it use desktop space intentionally?
-- Is it clearly not a stretched mobile layout?
-- Is the memory anchor obvious?
-- Is the eye flow the same?
-
-Mobile:
-- Does it immediately match the approved mobile mockup?
-- Is the reading order correct?
-- Is the layout calm and premium?
-- Is there no overflow or accidental overlap?
-
-Cross-device:
-- If mobile feels stronger than desktop, identify why and correct desktop before closing.
-- Desktop and mobile should feel like the same chapter expressed appropriately for each viewport.
-
-Do not stop at technical correctness.
-Stop only when visual fidelity is high.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-ARCHITECTURE VALIDATION
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Before finishing, confirm:
-
-- No duplicate presentation ownership introduced.
-
-- Existing ownership preserved.
-
-- Shared systems modified only when justified.
-
-- Merchant configurability preserved.
-
-- No chapter leaked styling into another chapter.
-
-- No implementation convenience changes were made outside the approved scope.
-
-Report:
-
-Files Modified
-
-Owner
-
-Reason
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-VALIDATION
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Run:
 
 git diff --check
 
-shopify theme check --fail-level error
+Playwright: 390, 1440 — no overflow, no broken images.
 
-Playwright homepage sanity:
-- 390
-- 430
-- 768
-- 1440
-
-Confirm:
-- no broken images
-- no horizontal overflow
-- no theme-owned console errors
-- hero unchanged
-- FAQ unchanged
-- navigation unchanged
-- accessibility invariants unchanged
-- merchant configurability preserved
+Do NOT run Theme Check.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 REPORT
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Create:
-
 [REPORT PATH]
 
-Include:
-- Executive Summary
-- Visual References Used
-- Design Language Compliance
-- Files Changed
-- Desktop Review
-- Tablet Review
-- Mobile Review
-- Merchant Configurability Review
-- Accessibility Review
-- Validation Results
-- Remaining Improvements
-- Freeze Recommendation
+Include: Brief compliance, region hierarchy built, screenshot comparison, composition gaps.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 STOP CONDITION
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Stop after implementation and validation.
+Stop. Do NOT commit. Do NOT begin Phase 2.
 
-Do NOT commit.
-Do NOT push.
-
-Wait for visual review.
+Wait for Composition Approval gate (desktop YES, mobile YES).
 ```
 
 ---
 
-## 6. Common failure patterns to prevent
+## 8. Phase 2 — Production Hardening prompt template
+
+Copy this and replace the bracketed values.
+
+**Prerequisite:** Composition Approval gate passed (desktop YES, mobile YES).
+
+```text
+You are working in the PulseOps Premium Shopify repository.
+
+SPRINT
+
+Phase 2 — Production Hardening
+[CHAPTER NAME]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+MISSION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Make the composition-approved [CHAPTER NAME] implementation production-ready.
+
+Composition is frozen. Do NOT change DOM structure or visual output.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMPLEMENTATION BRIEF
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Follow the attached Approved Implementation Brief for:
+- merchant mapping summary
+- allowed and prohibited files
+- implementation budget
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+COMPOSITION PRESERVATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Any visual change requires human re-approval. If drift detected, stop and report.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+MERCHANT CONFIGURABILITY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Wire settings per Brief merchant mapping. Use existing schema conventions.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ACCESSIBILITY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Preserve semantics, keyboard access, reduced motion, alt text. No regressions.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VALIDATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+git diff --check
+shopify theme check --fail-level error
+Playwright: 390, 430, 768, 1440
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STOP CONDITION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Stop. Do NOT commit. Wait for freeze review.
+```
+
+---
+
+## 9. Common failure patterns to prevent
 
 ### Failure: Cursor builds a checklist but misses the design
 Prevention:
@@ -491,13 +330,30 @@ Prevention:
 
 ### Failure: Infinite polish loop
 Prevention:
-- One implementation sprint.
-- One refinement sprint.
-- Then freeze or revisit design.
+- Use two-phase implementation: composition approval before hardening.
+- If structural mismatch persists after one refinement sprint, rebuild presentation DOM — do not continue CSS tweaks.
+- Follow post-implementation workflow with narrow refinement scope.
+- Micro Pass is optional and for subtle craftsmanship only.
+
+### Failure: CSS polishing wrong DOM
+Prevention:
+- Implementation Brief must include region hierarchy summary.
+- Rebuild DOM when structural mismatch persists.
+
+### Failure: Too many documents during implementation
+Prevention:
+- Cursor receives Brief only — not the full specification.
+- Brief must be complete enough to execute without opening governance docs.
+
+### Failure: Too many concerns in one sprint
+Prevention:
+- Phase 1: composition only.
+- Phase 2: production hardening only.
+- Never combine phases in a single prompt.
 
 ---
 
-## 7. When not to use this prompt
+## 10. When not to use this prompt
 
 Do not use this template for:
 - Pure audits
@@ -512,24 +368,28 @@ Use it only when implementing an approved creative/design concept into the theme
 
 ---
 
-## 8. Freeze rule
+## 11. Freeze rule
 
 A chapter is freeze-ready only after:
 
-1. Desktop visual review passes.
-2. Mobile visual review passes.
-3. One refinement sprint is complete.
-4. Merchant configurability is verified.
-5. Accessibility is verified.
-6. Runtime validation passes.
-7. Theme Check has 0 errors.
-8. The chapter no longer has obvious visual objections.
+1. Composition Approval gate passed (desktop YES, mobile YES).
+2. Phase 2 Production Hardening complete.
+3. Visual Fidelity Review passes on desktop and mobile.
+4. Refinement cycle(s) complete — scope narrowing each sprint; optional Micro Pass only for subtle craftsmanship.
+5. Freeze Hygiene Sprint complete (no visual output change).
+6. Merchant configurability is verified.
+7. Accessibility is verified.
+8. Runtime validation passes.
+9. Theme Check has 0 errors.
+10. The chapter no longer has obvious visual objections against annotated mockups.
+
+Production Hardening must never begin before composition approval.
 
 Then commit, tag, push, and move on.
 
 ---
 
-## 9. CSS Cascade Hygiene Rule
+## 12. CSS Cascade Hygiene Rule
 
 When editing CSS, do not change a base selector or base custom property unless you verify it is not overridden later by:
 
@@ -561,3 +421,139 @@ For every CSS refinement report, include:
 - whether any obsolete override was removed
 
 Never assume a CSS value changed visually just because it was edited.
+
+---
+
+## 13. Photography Conformance checklist
+
+Before finishing any flagship chapter **Phase 1** implementation, Cursor must verify photography conformance against the Approved Annotated Desktop Mockup (Image) and Approved Annotated Mobile Mockup (Image).
+
+Required checks:
+
+- [ ] Chapter-specific photography is assigned (not inferred from adjacent chapters)
+- [ ] Image ownership matches Approved Annotated Desktop Mockup (Image) and Approved Annotated Mobile Mockup (Image) intent (hero, pillar, transition, closure)
+- [ ] Crop behaviour matches annotated focal points and aspect expectations
+- [ ] No reuse of unrelated chapter imagery because assets already exist elsewhere
+- [ ] Photography matches Approved Annotated Desktop Mockup (Image) and Approved Annotated Mobile Mockup (Image) at desktop and mobile breakpoints
+
+If approved chapter photography is unavailable, stop and report the gap. Do not substitute photography from another chapter without explicit approval.
+
+---
+
+## 14. Scientific Confidence retrospective learnings (GV-3)
+
+The Scientific Confidence flagship chapter (SC-1 / SC-2) confirmed that implementation fidelity depends on Approved Annotated Desktop Mockup (Image) and Approved Annotated Mobile Mockup (Image), not only approved design images.
+
+**Primary implementation contract:** Approved Annotated Desktop Mockup (Image) + Approved Annotated Mobile Mockup (Image).
+
+**Upstream production artifacts:** Approved Desktop Mockup (Image), Approved Mobile Mockup (Image), and Approved Blueprint (design and intent resolution only).
+
+Implementation sprints should treat approved annotated mockups as the executable contract for spacing, rhythm, photography ownership, responsive behaviour, and editorial pacing. Approved mockup images remain the design authority; approved annotated mockup images remove the interpretation that caused SC-1 refinement work.
+
+If Cursor still infers editorial rhythm, visual pauses, photography budget, or mobile reading cadence, the Approved Annotated Desktop Mockup (Image) and Approved Annotated Mobile Mockup (Image) are incomplete — not the implementation sprint.
+
+---
+
+## 15. GV-4 — Implementation Package Simplification
+
+The Scientific Confidence retrospective clarified that **Production Workflow** and **Cursor Implementation Package** are different concepts.
+
+**Production Workflow** defines the complete design process from Review through Annotated Mockups.
+
+**Cursor Implementation Package (Phase 1):**
+
+- Approved Annotated Desktop Mockup (Image)
+- Approved Annotated Mobile Mockup (Image)
+- Approved Implementation Brief
+- Phase 1 Composition Build Prompt
+
+**Cursor Implementation Package (Phase 2):**
+
+- Approved Implementation Brief
+- Phase 2 Production Hardening Prompt
+
+Production learnings:
+
+- Blueprint exists to create annotated mockups.
+- Approved Desktop Mockup (Image) and Approved Mobile Mockup (Image) approve design.
+- Approved Annotated Desktop Mockup (Image) and Approved Annotated Mobile Mockup (Image) remove implementation ambiguity.
+- Cursor should implement from approved annotated mockup images.
+- The implementation package should remain as small as possible while preserving deterministic implementation.
+
+---
+
+## 16. Scientific Confidence freeze learnings (Governance Integration)
+
+Scientific Confidence (`pulseops-scientific-confidence-v1`) confirmed durable production learnings. This section integrates them without replacing Sections 12–13.
+
+### Cursor responsibility
+
+**Faithful implementation — not design interpretation.**
+
+When conflicts arise between code, tokens, and annotated mockups: report and escalate. Do not invent layouts, rebalance compositions, reinterpret mockups, or redesign hierarchy.
+
+### Visual Fidelity Review
+
+Formal gate after implementation. Complete only when composition, spacing, rhythm, proportions, typography hierarchy, and photography ownership match approved annotated mockups. Architecture correctness alone is insufficient.
+
+### Visual validation requirement
+
+Never declare "matches mockup" without direct visual comparison to Approved Annotated Desktop Mockup (Image) and Approved Annotated Mobile Mockup (Image).
+
+### Standard review order
+
+1. Composition
+2. Typography
+3. Photography
+4. Spacing and editorial rhythm
+5. Surface
+6. Interaction
+7. Merchant configurability
+8. Accessibility
+9. Architecture
+
+Visual issues should surface before engineering-only investigation.
+
+### Post-implementation workflow
+
+```text
+Implementation Specification
+↓
+Implementation Brief
+↓
+Phase 1 — Composition Build
+↓
+Composition Approval Gate (desktop YES / mobile YES)
+↓
+Phase 2 — Production Hardening
+↓
+Freeze
+```
+
+---
+
+## 17. Formulation Philosophy learnings (GV-5)
+
+GV-5 introduced the two-phase model and Implementation Specification. See Production Playbook.
+
+---
+
+## 18. GV-6 — Implementation Brief (Governance Refinement)
+
+GV-6 stabilises execution without adding governance volume.
+
+### Changes
+
+1. **Implementation Brief** — concise execution package; Cursor reads Brief, not specification.
+2. **Phase 1 objective** — one sentence: faithfully reproduce approved desktop and mobile compositions.
+3. **Composition Approval Gate** — explicit YES/NO pass/fail; both must be YES for Phase 2.
+4. **Implementation Budget** — declared in specification and Brief; discourages scope expansion.
+5. **Acceptance Screenshots** — named comparison targets in specification and Brief.
+
+### Principle
+
+Governance documents define the system.
+
+The Implementation Brief executes it.
+
+If Cursor opens multiple documents, the Brief is incomplete.
