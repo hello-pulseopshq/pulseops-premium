@@ -41,6 +41,24 @@
   endif
 
   assign philosophy_closing_stripped = section.settings.philosophy_closing_line | strip
+  assign governing_question_stripped = section.settings.governing_question | strip
+  assign refusals_label_stripped = section.settings.refusals_label | strip
+  assign refusals_intro_stripped = section.settings.refusals_intro | strip
+  assign closing_eyebrow_stripped = section.settings.closing_eyebrow | strip
+  assign closing_emphasis_stripped = section.settings.closing_emphasis | strip
+  if closing_emphasis_stripped == blank
+    assign closing_emphasis_stripped = philosophy_closing_stripped
+  endif
+  assign next_chapter_label_stripped = section.settings.next_chapter_label | strip
+  assign hero_anchor_label_stripped = section.settings.hero_anchor_label | strip
+  assign hero_anchor_link = section.settings.hero_anchor_link
+  if hero_anchor_link == blank
+    assign hero_anchor_link = '#sp-differentiation-closing'
+  endif
+  assign next_chapter_link = section.settings.next_chapter_link
+  if next_chapter_link == blank
+    assign next_chapter_link = section.settings.button_link
+  endif
 -%}
 
 {%- style -%}
@@ -60,9 +78,29 @@
 {% render 'sp-section-hierarchy-open', section: section, anchor_id: 'sp-differentiation', extra_class: shell_class %}
   {%- if presentation == 'philosophy_manifesto' -%}
     {%- liquid
-      assign philosophy_root_class = 'sp-editorial-differentiation sp-composition sp-composition--linear-manifesto sp-editorial-differentiation--philosophy-manifesto sp-editorial-chapter sp-editorial-chapter--spacing-standard sp-editorial-chapter--handoff-in sp-editorial-chapter--handoff-out'
-      if section.settings.show_cta_divider
-        assign philosophy_root_class = philosophy_root_class | append: ' sp-editorial-differentiation--show-cta-divider'
+      assign philosophy_root_class = 'sp-editorial-differentiation sp-editorial-differentiation--philosophy-manifesto'
+      assign has_refusal_blocks = false
+      for block in section.blocks
+        if block.type == 'refusal_principle'
+          assign title_stripped = block.settings.title | strip
+          assign text_stripped = block.settings.text | strip
+          if title_stripped != blank or text_stripped != blank
+            assign has_refusal_blocks = true
+            break
+          endif
+        endif
+      endfor
+      assign show_closing = false
+      if closing_eyebrow_stripped != blank or section.settings.closing_headline != blank or closing_emphasis_stripped != blank or section.settings.closing_body != blank
+        assign show_closing = true
+      endif
+      assign show_next_chapter = false
+      if next_chapter_label_stripped != blank and next_chapter_link != blank
+        assign show_next_chapter = true
+      endif
+      assign show_hero_anchor = false
+      if hero_anchor_label_stripped != blank and hero_anchor_link != blank
+        assign show_hero_anchor = true
       endif
     -%}
     <div
@@ -77,89 +115,175 @@
         <div class="sp-editorial-differentiation__chapter-divider" aria-hidden="true"></div>
       {%- endif -%}
 
-      <header class="sp-editorial-differentiation__manifesto-intro{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
-        {%- if section.settings.eyebrow != blank -%}
-          <p class="sp-editorial-differentiation__eyebrow sp-editorial-type--caption caption-with-letter-spacing">
-            {{ section.settings.eyebrow | escape }}
-          </p>
-        {%- endif -%}
-
-        {%- if section.settings.heading != blank -%}
-          <h2 class="sp-editorial-differentiation__statement sp-editorial-type--statement sp-editorial-type--statement--manifesto{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
-            {{ section.settings.heading }}
-          </h2>
-        {%- endif -%}
-
-        {%- if section.settings.body != blank -%}
-          <div class="sp-editorial-differentiation__manifesto-body rte">
-            {{ section.settings.body }}
-          </div>
-        {%- endif -%}
-      </header>
-
-      {%- if section.settings.show_philosophy_image and section.settings.image != blank -%}
-        <div class="sp-editorial-differentiation__visual-interruption{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
-          <div class="sp-editorial-differentiation__visual-interruption-frame">
-            {{
-              section.settings.image
-              | image_url: width: 2400
-              | image_tag:
-                widths: '750, 1100, 1500, 1800, 2200, 2400',
-                sizes: '100vw',
-                alt: image_alt,
-                loading: 'lazy',
-                class: 'sp-image sp-editorial-differentiation__visual-interruption-image'
-            }}
-          </div>
-        </div>
-      {%- endif -%}
-
-      {%- if section.blocks.size > 0 -%}
-        <ul
-          class="sp-editorial-differentiation__principles"
-          role="list"
-        >
-          {%- for block in section.blocks -%}
-            {%- liquid
-              assign title_stripped = block.settings.title | strip
-              assign text_stripped = block.settings.text | strip
-            -%}
-            {%- if title_stripped != blank or text_stripped != blank -%}
-              <li
-                class="sp-editorial-differentiation__principle{% render 'sp-motion-class', type: 'fade-in-quiet' %}"
-                {{ block.shopify_attributes }}
-              >
-                {%- if title_stripped != blank -%}
-                  <h3 class="sp-editorial-differentiation__principle-title">{{ title_stripped | escape }}</h3>
+      <div class="sp-editorial-differentiation__fp-frame">
+        <div class="sp-editorial-differentiation__fp-content">
+          <section class="sp-editorial-differentiation__fp-spread{% render 'sp-motion-class', type: 'fade-in-quiet' %}" aria-label="Opening statement">
+            <div class="sp-editorial-differentiation__fp-spread-grid">
+              <header class="sp-editorial-differentiation__fp-spread-declaration">
+                {%- if section.settings.eyebrow != blank -%}
+                  <p class="sp-editorial-differentiation__fp-eyebrow">
+                    <span class="sp-editorial-differentiation__fp-eyebrow-text">{{ section.settings.eyebrow | escape }}</span>
+                    <span class="sp-editorial-differentiation__fp-eyebrow-line" aria-hidden="true"></span>
+                  </p>
                 {%- endif -%}
-                {%- if text_stripped != blank -%}
-                  <p class="sp-editorial-differentiation__principle-text">{{ text_stripped | escape }}</p>
+
+                {%- if section.settings.heading != blank -%}
+                  <h2 class="sp-editorial-differentiation__fp-headline">
+                    {{ section.settings.heading }}
+                  </h2>
                 {%- endif -%}
-              </li>
-            {%- endif -%}
-          {%- endfor -%}
-        </ul>
-      {%- endif -%}
+              </header>
 
-      {%- if philosophy_closing_stripped != blank -%}
-        <p class="sp-editorial-differentiation__philosophy-closer{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
-          {{ section.settings.philosophy_closing_line | escape }}
-        </p>
-      {%- endif -%}
+              <div class="sp-editorial-differentiation__fp-spread-editorial">
+                {%- if governing_question_stripped != blank -%}
+                  <p class="sp-editorial-differentiation__fp-governing">
+                    {{ governing_question_stripped | escape }}
+                  </p>
+                {%- endif -%}
 
-      {%- if show_cta -%}
-        <div class="sp-editorial-differentiation__cta-shell{% render 'sp-motion-class', type: 'fade-in-quiet' %}">
-          {%- if section.settings.show_cta_divider -%}
-            <div class="sp-editorial-differentiation__cta-divider" aria-hidden="true"></div>
+                {%- if section.settings.body != blank -%}
+                  <div class="sp-editorial-differentiation__fp-body">
+                    {{ section.settings.body }}
+                  </div>
+                {%- endif -%}
+
+                {%- if show_hero_anchor -%}
+                  <p class="sp-editorial-differentiation__fp-hero-anchor">
+                    <a href="{{ hero_anchor_link }}" class="sp-editorial-differentiation__fp-anchor-link">
+                      <span>{{ hero_anchor_label_stripped | escape }}</span>
+                      <span class="sp-editorial-differentiation__fp-anchor-arrow" aria-hidden="true">→</span>
+                    </a>
+                  </p>
+                {%- endif -%}
+              </div>
+
+              {%- if section.settings.show_philosophy_image and section.settings.image != blank -%}
+                <figure class="sp-editorial-differentiation__fp-spread-media">
+                  <div class="sp-editorial-differentiation__fp-spread-media-frame">
+                    {{
+                      section.settings.image
+                      | image_url: width: 2400
+                      | image_tag:
+                        widths: '550, 750, 1100, 1500, 1800, 2200, 2400',
+                        sizes: '(min-width: 990px) 42vw, 100vw',
+                        alt: image_alt,
+                        loading: 'lazy',
+                        class: 'sp-editorial-differentiation__fp-spread-media-image'
+                    }}
+                  </div>
+                </figure>
+              {%- endif -%}
+            </div>
+          </section>
+
+          {%- if has_refusal_blocks -%}
+            <section
+              class="sp-editorial-differentiation__fp-refusals{% render 'sp-motion-class', type: 'fade-in-quiet' %}"
+              {% if refusals_label_stripped != blank %}
+                aria-labelledby="{{ section.id }}-refusals-label"
+              {% else %}
+                aria-label="Refusal principles"
+              {% endif %}
+            >
+              {%- if refusals_label_stripped != blank -%}
+                <p id="{{ section.id }}-refusals-label" class="sp-editorial-differentiation__fp-refusals-label">
+                  {{ refusals_label_stripped | escape }}
+                </p>
+              {%- endif -%}
+
+              <div class="sp-editorial-differentiation__fp-refusals-band">
+                {%- if refusals_intro_stripped != blank -%}
+                  <p class="sp-editorial-differentiation__fp-refusals-intro">
+                    {{ refusals_intro_stripped | escape }}
+                  </p>
+                {%- endif -%}
+
+                <ol class="sp-editorial-differentiation__fp-refusals-list">
+                  {%- assign refusal_index = 0 -%}
+                  {%- for block in section.blocks -%}
+                    {%- if block.type == 'refusal_principle' -%}
+                      {%- liquid
+                        assign title_stripped = block.settings.title | strip
+                        assign text_stripped = block.settings.text | strip
+                        assign refusal_index = refusal_index | plus: 1
+                      -%}
+                      {%- if title_stripped != blank or text_stripped != blank -%}
+                        <li
+                          class="sp-editorial-differentiation__fp-refusal{% if block.settings.emphasize %} sp-editorial-differentiation__fp-refusal--emphasize{% endif %}"
+                          {{ block.shopify_attributes }}
+                        >
+                          <span class="sp-editorial-differentiation__fp-refusal-index" aria-hidden="true">
+                            {{ refusal_index | prepend: '0' | slice: -2, 2 }}
+                          </span>
+                          <span class="sp-editorial-differentiation__fp-refusal-icon" aria-hidden="true">
+                            {% render 'sp-philosophy-refusal-icon', icon: block.settings.icon %}
+                          </span>
+                          {%- if title_stripped != blank -%}
+                            <h3 class="sp-editorial-differentiation__fp-refusal-title">{{ title_stripped | escape }}</h3>
+                          {%- endif -%}
+                          <span class="sp-editorial-differentiation__fp-refusal-divider" aria-hidden="true"></span>
+                          {%- if text_stripped != blank -%}
+                            <p class="sp-editorial-differentiation__fp-refusal-text">{{ text_stripped | escape }}</p>
+                          {%- endif -%}
+                        </li>
+                      {%- endif -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+                </ol>
+              </div>
+            </section>
           {%- endif -%}
-          <div class="sp-editorial-differentiation__footer">
-            <a href="{{ section.settings.button_link }}" class="sp-editorial-differentiation__button sp-editorial-cta sp-editorial-cta--quiet-link{% render 'sp-motion-class', type: 'hover-button-quiet' %}">
-              <span>{{ section.settings.button_label | escape }}</span>
-              <span class="sp-editorial-cta__arrow" aria-hidden="true">→</span>
-            </a>
-          </div>
+
+          {%- if show_closing -%}
+            <section
+              id="sp-differentiation-closing"
+              class="sp-editorial-differentiation__fp-closing{% render 'sp-motion-class', type: 'fade-in-quiet' %}"
+              {% if closing_eyebrow_stripped != blank %}
+                aria-labelledby="{{ section.id }}-closing-label"
+              {% else %}
+                aria-label="Closing statement"
+              {% endif %}
+            >
+              <div class="sp-editorial-differentiation__fp-closing-grid">
+                <div class="sp-editorial-differentiation__fp-closing-statement">
+                  {%- if closing_eyebrow_stripped != blank -%}
+                    <p id="{{ section.id }}-closing-label" class="sp-editorial-differentiation__fp-closing-eyebrow">
+                      {{ closing_eyebrow_stripped | escape }}
+                    </p>
+                  {%- endif -%}
+
+                  {%- if section.settings.closing_headline != blank -%}
+                    <h2 class="sp-editorial-differentiation__fp-closing-headline">
+                      {{ section.settings.closing_headline }}
+                    </h2>
+                  {%- endif -%}
+
+                  {%- if closing_emphasis_stripped != blank -%}
+                    <p class="sp-editorial-differentiation__fp-closing-emphasis">
+                      <em>{{ closing_emphasis_stripped | escape }}</em>
+                    </p>
+                  {%- endif -%}
+                </div>
+
+                {%- if section.settings.closing_body != blank -%}
+                  <div class="sp-editorial-differentiation__fp-closing-support">
+                    {{ section.settings.closing_body }}
+                  </div>
+                {%- endif -%}
+              </div>
+            </section>
+          {%- endif -%}
+
+          {%- if show_next_chapter -%}
+            <nav class="sp-editorial-differentiation__fp-transition{% render 'sp-motion-class', type: 'fade-in-quiet' %}" aria-label="Next chapter">
+              <a href="{{ next_chapter_link }}" class="sp-editorial-differentiation__fp-transition-link">
+                <span>{{ next_chapter_label_stripped | escape }}</span>
+                <span class="sp-editorial-differentiation__fp-transition-arrow" aria-hidden="true">↓</span>
+              </a>
+            </nav>
+          {%- endif -%}
         </div>
-      {%- endif -%}
+      </div>
     </div>
   {%- else -%}
     {%- liquid
@@ -303,7 +427,7 @@
         { "value": "split_proof", "label": "Split image + proof" },
         { "value": "philosophy_manifesto", "label": "Philosophy manifesto" }
       ],
-      "info": "Philosophy manifesto is designed for formulation philosophy chapters — single-column narrative with optional visual interruption."
+      "info": "Philosophy manifesto is designed for formulation philosophy chapters — annotated desktop and mobile editorial compositions."
     },
     {
       "type": "image_picker",
@@ -335,9 +459,79 @@
     },
     {
       "type": "text",
+      "id": "governing_question",
+      "label": "Governing question",
+      "info": "Philosophy manifesto presentation only."
+    },
+    {
+      "type": "text",
+      "id": "refusals_label",
+      "label": "Refusals label",
+      "default": "The refusals we live by",
+      "info": "Philosophy manifesto presentation only."
+    },
+    {
+      "type": "textarea",
+      "id": "refusals_intro",
+      "label": "Refusals intro statement",
+      "info": "Philosophy manifesto presentation only."
+    },
+    {
+      "type": "text",
+      "id": "closing_eyebrow",
+      "label": "Closing eyebrow",
+      "default": "Our standard of enough",
+      "info": "Philosophy manifesto presentation only."
+    },
+    {
+      "type": "richtext",
+      "id": "closing_headline",
+      "label": "Closing headline",
+      "info": "Philosophy manifesto presentation only."
+    },
+    {
+      "type": "text",
+      "id": "closing_emphasis",
+      "label": "Closing emphasis line",
+      "info": "Philosophy manifesto presentation only."
+    },
+    {
+      "type": "richtext",
+      "id": "closing_body",
+      "label": "Closing supporting copy",
+      "info": "Philosophy manifesto presentation only."
+    },
+    {
+      "type": "text",
+      "id": "hero_anchor_label",
+      "label": "Hero anchor link label",
+      "default": "Our standard of enough",
+      "info": "Philosophy manifesto presentation only. Mobile composition."
+    },
+    {
+      "type": "url",
+      "id": "hero_anchor_link",
+      "label": "Hero anchor link",
+      "info": "Philosophy manifesto presentation only. Defaults to closing band anchor."
+    },
+    {
+      "type": "text",
+      "id": "next_chapter_label",
+      "label": "Next chapter label",
+      "default": "Next: Scientific confidence",
+      "info": "Philosophy manifesto presentation only."
+    },
+    {
+      "type": "url",
+      "id": "next_chapter_link",
+      "label": "Next chapter link",
+      "info": "Philosophy manifesto presentation only. Falls back to button link when blank."
+    },
+    {
+      "type": "text",
       "id": "philosophy_closing_line",
       "label": "Philosophy closing line",
-      "info": "Optional quiet manifesto closer. Philosophy manifesto presentation only."
+      "info": "Legacy fallback for closing emphasis. Philosophy manifesto presentation only."
     },
     {
       "type": "checkbox",
@@ -518,6 +712,44 @@
     }
   ],
   "blocks": [
+    {
+      "type": "refusal_principle",
+      "name": "Refusal principle",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "default": "We don't chase trends.",
+          "label": "Principle title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "default": "Trends fade. Our responsibility is to last.",
+          "label": "Supporting copy"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "prohibited",
+          "options": [
+            { "value": "prohibited", "label": "Prohibited" },
+            { "value": "not_equal", "label": "Not equal" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "megaphone", "label": "Megaphone" },
+            { "value": "package", "label": "Package" }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "id": "emphasize",
+          "label": "Emphasize item",
+          "default": false,
+          "info": "Applies surface emphasis treatment on mobile."
+        }
+      ]
+    },
     {
       "type": "proof_point",
       "name": "Proof point",

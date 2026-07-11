@@ -478,334 +478,850 @@
 
 /* ── Philosophy manifesto presentation (Formulation Philosophy) ── */
 
-/* ── AC-5 owner block — supplement Formulation Philosophy (browser-winning behaviour) ──
-   Migrated from sp-editorial-system.css + sp-composition-system.css (linear-manifesto).
+/* ── AC-5 owner block — supplement Formulation Philosophy (annotated mockup contract)
+   Desktop and mobile are independent editorial compositions.
    Inserted before responsive overrides; do not append at file end. ── */
 
-.sp-supplement #sp-differentiation {
-  padding-top: clamp(1.15rem, 1.6vw, 1.45rem);
+/* ── Canvas alignment — philosophy manifesto presentation only ── */
+
+.sp-editorial-differentiation-shell:has(.sp-editorial-differentiation--philosophy-manifesto) {
+  --sp-fp-bg: #f8f3ef;
+  background: var(--sp-fp-bg);
+  background-image: none;
 }
 
-.sp-composition--linear-manifesto.sp-editorial-differentiation--philosophy-manifesto {
-  gap: clamp(1.35rem, 2vw, 1.85rem);
-}
-
-.sp-composition--linear-manifesto .sp-editorial-differentiation__manifesto-intro {
-  max-width: min(100%, 52rem);
-}
-
-.sp-composition--linear-manifesto .sp-editorial-differentiation__visual-interruption {
-  max-width: min(100%, 54rem);
-  width: 100%;
-}
-
-.sp-composition--linear-manifesto .sp-editorial-differentiation__visual-interruption-frame {
-  aspect-ratio: 16 / 9;
-}
-
-.sp-composition--linear-manifesto .sp-editorial-differentiation__principles {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: clamp(1.65rem, 2.4vw, 2.2rem);
-  margin-top: clamp(0.35rem, 0.6vw, 0.55rem);
-  padding-top: clamp(1.35rem, 2vw, 1.65rem);
-  border-top: 0.1rem solid var(--sp-comp-ledger-rule);
-}
-
-.sp-composition--linear-manifesto .sp-editorial-differentiation__principle {
-  padding: clamp(1rem, 1.4vw, 1.25rem) 0 clamp(1rem, 1.4vw, 1.25rem)
-    clamp(1.5rem, 2.4vw, 2.6rem);
-  border-left: 0.24rem solid var(--sp-comp-ledger-rule);
-}
-
-.sp-composition--linear-manifesto .sp-editorial-differentiation__principle-title {
-  font-size: clamp(1.65rem, 1.55vw, 1.95rem);
-}
-
-.sp-composition--linear-manifesto .sp-editorial-differentiation__principle-text {
-  max-width: 38ch;
-  font-size: clamp(1.28rem, 1.2vw, 1.42rem);
-  line-height: 1.55;
-}
-
-.sp-composition--linear-manifesto .sp-editorial-differentiation__principle + .sp-editorial-differentiation__principle {
-  border-left-width: 0.24rem;
-  border-top: none;
-  padding-left: clamp(2.75rem, 4.5vw, 5rem);
-}
-
-.sp-composition--linear-manifesto .sp-editorial-differentiation__philosophy-closer {
-  margin-top: clamp(0.35rem, 0.6vw, 0.55rem);
-  padding-top: clamp(1.15rem, 1.6vw, 1.45rem);
-  max-width: min(100%, 46rem);
-}
-
-.sp-supplement .sp-editorial-differentiation--philosophy-manifesto {
-  gap: clamp(1.15rem, 1.6vw, 1.45rem);
-}
-
-.sp-supplement .sp-composition--linear-manifesto.sp-editorial-differentiation--philosophy-manifesto {
-  gap: clamp(1.35rem, 2vw, 1.85rem);
-}
-
-.sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__manifesto-intro {
-  max-width: min(100%, 62rem);
-}
-
-.sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__statement,
-.sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__statement p {
-  font-family: var(--sp-font-heading, var(--font-heading-family));
-}
-
-.sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__manifesto-body {
-  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.8);
-}
-
-.sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__visual-interruption-frame {
-  border-radius: 0;
-}
-
-.sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__visual-interruption-image,
-.sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__visual-interruption-frame img {
-  object-position: center 38%;
-}
-
-.sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__principles {
-  border-top-color: var(--sp-surface-material-manifesto-rule, rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.1));
-}
-
-.sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__principle-title {
-  font-family: var(--sp-font-heading, var(--font-heading-family));
-  color: rgb(var(--sp-supplement-green-deep, var(--color-foreground)));
-}
-
-.sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__principle-text {
-  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.74);
-}
-
-.sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__principle + .sp-editorial-differentiation__principle {
-  border-left: none;
-  padding-left: 0;
-}
-
-.sp-supplement .sp-composition--linear-manifesto .sp-editorial-differentiation__principle + .sp-editorial-differentiation__principle {
-  border-left: 0.24rem solid var(--sp-surface-material-manifesto-rule, rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.12));
-  padding-left: clamp(2.75rem, 4.5vw, 5rem);
-}
-
-.sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__philosophy-closer {
-  border-top-color: var(--sp-surface-material-manifesto-rule-soft, rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.08));
-  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.64);
-}
-
-.sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-cta--quiet-link {
-  margin-bottom: 0;
-}
-
-@media screen and (min-width: 750px) {
-  .sp-composition--linear-manifesto .sp-editorial-differentiation__visual-interruption-frame {
-    aspect-ratio: 16 / 9;
-    max-width: none;
-    min-height: clamp(22rem, 28vw, 30rem);
-  }
-
-  .sp-composition--linear-manifesto .sp-editorial-differentiation__principles {
-    max-width: min(100%, 58rem);
-  }
-
-  .sp-composition--linear-manifesto .sp-editorial-differentiation__principle + .sp-editorial-differentiation__principle {
-    border-left: 0.24rem solid var(--sp-comp-ledger-rule);
-    padding-top: clamp(1rem, 1.4vw, 1.25rem);
-  }
-
-  .sp-composition--linear-manifesto .sp-editorial-differentiation__principle:nth-child(even) {
-    margin-left: clamp(2.5rem, 6vw, 6.5rem);
-    max-width: calc(100% - clamp(2.5rem, 6vw, 6.5rem));
-  }
-}
-
-@media screen and (max-width: 749px) {
-  .sp-composition--linear-manifesto .sp-editorial-differentiation__visual-interruption-frame {
-    aspect-ratio: 16 / 10;
-    min-height: clamp(14rem, 42vw, 18rem);
-  }
-
-  .sp-composition--linear-manifesto .sp-editorial-differentiation__principle + .sp-editorial-differentiation__principle {
-    padding-left: clamp(1.75rem, 5vw, 2.25rem);
-  }
-
-  .sp-composition--linear-manifesto .sp-editorial-differentiation__principle:nth-child(even) {
-    margin-left: clamp(1rem, 4vw, 1.75rem);
-    max-width: calc(100% - clamp(1rem, 4vw, 1.75rem));
-  }
-
-  .sp-composition--linear-manifesto .sp-editorial-differentiation__principle-text {
-    max-width: none;
-  }
-
-  .sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__principle:nth-child(n + 2) {
-    border-top-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.08);
-  }
+.sp-editorial-differentiation-shell:has(.sp-editorial-differentiation--philosophy-manifesto) .sp-section__inner--wide {
+  max-width: 100%;
+  padding-inline: 0;
 }
 
 .sp-editorial-differentiation--philosophy-manifesto {
-  --sp-ed-manifesto-gap: clamp(1.75rem, 2.6vw, 2.45rem);
-  --sp-ed-manifesto-gap-tight: var(--sp-rhythm-gap-intro, clamp(0.85rem, 1.2vw, 1.1rem));
-  --sp-ed-principle-title-size: clamp(1.38rem, 1.26vw, 1.62rem);
-  --sp-ed-visual-ratio: 16 / 7;
-  display: grid;
-  gap: var(--sp-ed-manifesto-gap);
-}
-
-.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__manifesto-intro {
-  display: grid;
-  gap: var(--sp-ed-manifesto-gap-tight);
-  max-width: min(100%, 54rem);
-}
-
-.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__eyebrow {
-  margin: 0;
-}
-
-.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__statement {
-  margin: 0;
-  max-width: var(--sp-voice-manifesto-measure, 18ch);
-  font-size: var(--sp-voice-manifesto-size);
-  font-weight: var(--sp-voice-manifesto-weight);
-  line-height: var(--sp-voice-manifesto-lh);
-  letter-spacing: var(--sp-voice-manifesto-track);
-  color: var(--sp-voice-manifesto-ink);
-}
-
-.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__statement p {
-  margin: 0;
-}
-
-.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__manifesto-body {
-  margin: 0;
-  max-width: 46ch;
-  font-size: clamp(1.45rem, 1.35vw, 1.72rem);
-  line-height: 1.62;
-  font-weight: 500;
-  color: rgba(var(--color-foreground), 0.78);
-}
-
-.sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__manifesto-body {
-  max-width: var(--sp-rhythm-measure-manifesto);
-  line-height: var(--sp-rhythm-lh-manifesto);
-}
-
-.sp-editorial-differentiation__visual-interruption {
+  --sp-fp-text: #1a1a1a;
+  --sp-fp-muted: #5b5b5b;
+  --sp-fp-muted-copy: #5b5b5b;
+  --sp-fp-accent: #7a4a3a;
+  --sp-fp-line: #e4dfd7;
+  --sp-fp-bg: #f8f3ef;
+  --sp-fp-surface: #eee8e3;
+  --sp-fp-closing-surface: #f8f3ef;
+  --sp-fp-grid-gap: 2.4rem;
+  --sp-fp-content-max: 132rem;
+  --sp-fp-content-pad: clamp(2.4rem, 5vw, 8rem);
+  --sp-fp-block-gap: 4.8rem;
+  --sp-fp-element-gap: 1.6rem;
+  --sp-fp-chapter-gap: clamp(5.6rem, 7vw, 12rem);
+  --sp-fp-headline-trail: 2.4rem;
+  --sp-fp-governing-trail: 2rem;
+  --sp-fp-spread-copy-gap: 2rem;
+  --sp-fp-spread-declaration-gap: 0;
+  --sp-fp-refusal-stack-gap: 1.2rem;
+  --sp-fp-refusal-divider-gap: 1.2rem;
+  --sp-fp-closing-pad-block: 4.8rem;
+  --sp-fp-closing-statement-gap: 1.2rem;
+  --sp-fp-closing-headline-emphasis-gap: 0.8rem;
+  --sp-fp-eyebrow-size: 1.2rem;
+  --sp-fp-eyebrow-lh: 1.4;
+  --sp-fp-eyebrow-track: 0.12em;
+  --sp-fp-headline-size: 4rem;
+  --sp-fp-headline-lh: 1.1;
+  --sp-fp-governing-size: 1.8rem;
+  --sp-fp-governing-lh: 1.5;
+  --sp-fp-body-size: 1.6rem;
+  --sp-fp-body-lh: 1.6;
+  --sp-fp-refusal-title-size: 2rem;
+  --sp-fp-refusal-title-lh: 1.3;
+  --sp-fp-refusal-text-size: 1.5rem;
+  --sp-fp-refusal-text-lh: 1.6;
+  --sp-fp-refusal-intro-size: 2rem;
+  --sp-fp-refusal-intro-lh: 1.35;
+  --sp-fp-closing-headline-size: 2.8rem;
+  --sp-fp-closing-headline-lh: 1.15;
+  --sp-fp-icon-size: 2rem;
+  --sp-fp-label-lh: 1.4;
+  --sp-fp-transition-pad-top: 3.6rem;
+  --sp-fp-transition-pad-bottom: 4rem;
+  --sp-fp-spread-media-ratio: 4 / 5;
+  display: block;
+  gap: 0;
   width: 100%;
-  margin-inline: 0;
+  color: var(--sp-fp-text);
 }
 
-.sp-editorial-differentiation__visual-interruption-frame {
+.sp-supplement .sp-editorial-differentiation.sp-editorial-differentiation--philosophy-manifesto {
+  --sp-ed-gap-xs: 0;
+  --sp-ed-gap-sm: 0;
+  --sp-ed-gap-md: 0;
+  --sp-ed-gap-lg: 0;
+  --sp-fp-muted-copy: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.76);
+  gap: 0;
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-frame {
+  position: relative;
+  width: 100%;
+  padding-block: 0;
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-content {
+  display: grid;
+  gap: var(--sp-fp-chapter-gap);
+  width: 100%;
+  max-width: min(100%, calc(var(--sp-fp-content-max) + (var(--sp-fp-content-pad) * 2)));
+  margin-inline: auto;
+  padding-inline: var(--sp-fp-content-pad);
+  box-sizing: border-box;
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin: 0 0 var(--sp-fp-element-gap);
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  font-size: var(--sp-fp-eyebrow-size);
+  font-weight: 500;
+  line-height: var(--sp-fp-eyebrow-lh);
+  letter-spacing: var(--sp-fp-eyebrow-track);
+  text-transform: uppercase;
+  color: var(--sp-fp-muted);
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-eyebrow-line {
+  flex: 1 1 auto;
+  height: 0.1rem;
+  background: var(--sp-fp-line);
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-headline,
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-headline p {
+  margin: 0 0 var(--sp-fp-headline-trail);
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  font-size: var(--sp-fp-headline-size);
+  font-weight: 500;
+  line-height: var(--sp-fp-headline-lh);
+  letter-spacing: -0.025em;
+  color: var(--sp-fp-text);
+  text-wrap: balance;
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-headline em,
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-headline p em {
+  font-style: italic;
+  color: var(--sp-fp-accent);
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-governing {
+  margin: 0 0 var(--sp-fp-governing-trail);
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  font-size: var(--sp-fp-governing-size);
+  font-weight: 500;
+  line-height: var(--sp-fp-governing-lh);
+  color: var(--sp-fp-text);
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-body,
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-body p {
+  margin: 0;
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  font-size: var(--sp-fp-body-size);
+  font-weight: 400;
+  line-height: var(--sp-fp-body-lh);
+  letter-spacing: normal;
+  color: var(--sp-fp-muted-copy);
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-hero-anchor {
+  margin: var(--sp-fp-element-gap) 0 0;
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-anchor-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--sp-fp-accent);
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-anchor-arrow {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+/* ── Opening editorial spread ── */
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread {
+  display: block;
+  min-width: 0;
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-grid {
+  display: grid;
+  gap: var(--sp-fp-block-gap);
+  align-items: start;
+  min-width: 0;
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-declaration {
+  display: grid;
+  gap: var(--sp-fp-spread-declaration-gap);
+  min-width: 0;
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-editorial {
+  display: grid;
+  gap: var(--sp-fp-spread-copy-gap);
+  min-width: 0;
+}
+
+/* Hero micro-pass — A1 eyebrow ornament (spread declaration only) */
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-declaration .sp-editorial-differentiation__fp-eyebrow {
+  display: grid;
+  grid-template-columns: 2.4rem auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: 1.2rem;
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-declaration .sp-editorial-differentiation__fp-eyebrow::before {
+  content: '';
+  display: block;
+  height: 0.1rem;
+  background: var(--sp-fp-line);
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-declaration .sp-editorial-differentiation__fp-eyebrow-text {
+  grid-column: 2;
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-declaration .sp-editorial-differentiation__fp-eyebrow-line {
+  grid-column: 3;
+  flex: none;
+  width: auto;
+  height: 0.1rem;
+  background: var(--sp-fp-line);
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-media {
+  margin: 0;
+  min-width: 0;
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-media-frame {
   position: relative;
   display: block;
   width: 100%;
-  aspect-ratio: var(--sp-ed-visual-ratio);
+  aspect-ratio: var(--sp-fp-spread-media-ratio);
   overflow: hidden;
-  border-radius: 0;
 }
 
-.sp-editorial-differentiation__visual-interruption-image,
-.sp-editorial-differentiation__visual-interruption-frame img {
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-media-image,
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-media-frame img {
   position: absolute;
   inset: 0;
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 40%;
+  object-position: center center;
 }
 
-.sp-editorial-differentiation__principles {
-  display: grid;
-  gap: clamp(1.1rem, 1.6vw, 1.55rem);
-  margin: 0;
-  padding: clamp(1.45rem, 2vw, 1.85rem) 0 0;
-  list-style: none;
-  border-top: 0.1rem solid rgba(var(--color-foreground), 0.07);
-}
+/* ── Refusal manifesto ── */
 
-.sp-editorial-differentiation__principle {
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-refusals {
   display: grid;
-  gap: 0.45rem;
-  align-content: start;
+  gap: var(--sp-fp-element-gap);
   min-width: 0;
-  padding: 0;
 }
 
-.sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__principle {
-  gap: var(--sp-rhythm-gap-rail);
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-refusals-label {
+  margin: 0 0 var(--sp-fp-element-gap);
 }
 
-.sp-editorial-differentiation__principle-title {
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-refusals-label,
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-closing-eyebrow {
   margin: 0;
-  font-size: var(--sp-ed-principle-title-size);
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.025em;
-  color: var(--sp-ed-ink);
-}
-
-.sp-editorial-differentiation__principle-text {
-  margin: 0;
-  font-size: clamp(1.14rem, 1.04vw, 1.28rem);
-  line-height: 1.55;
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  font-size: var(--sp-fp-eyebrow-size);
   font-weight: 500;
-  color: rgba(var(--color-foreground), 0.72);
-  max-width: 34ch;
+  line-height: var(--sp-fp-label-lh);
+  letter-spacing: var(--sp-fp-eyebrow-track);
+  text-transform: uppercase;
+  color: var(--sp-fp-muted);
 }
 
-.sp-supplement .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__principle-text {
-  max-width: var(--sp-rhythm-measure-manifesto-rail);
-  line-height: var(--sp-rhythm-lh-manifesto);
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-refusals-band {
+  display: grid;
+  gap: var(--sp-fp-block-gap);
+  min-width: 0;
 }
 
-.sp-editorial-differentiation__philosophy-closer {
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-refusals-intro {
   margin: 0;
-  padding-top: clamp(1rem, 1.35vw, 1.3rem);
-  border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
-  font-size: clamp(1.32rem, 1.25vw, 1.55rem);
-  font-weight: 650;
-  line-height: 1.35;
-  letter-spacing: -0.01em;
-  color: rgba(var(--color-foreground), 0.78);
-  max-width: 30ch;
+  max-width: 36ch;
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  font-size: var(--sp-fp-refusal-intro-size);
+  font-weight: 500;
+  line-height: var(--sp-fp-refusal-intro-lh);
+  letter-spacing: -0.015em;
+  color: var(--sp-fp-text);
 }
 
-.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__cta-shell {
-  margin-top: clamp(0.35rem, 0.8vw, 0.65rem);
-}
-
-.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__footer {
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-refusals-list {
+  display: grid;
   gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-@media screen and (min-width: 750px) {
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-refusal {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-rows: auto auto auto;
+  column-gap: 1.6rem;
+  row-gap: 1.2rem;
+  align-items: start;
+  padding: 2rem 0;
+  border-top: 0.1rem solid var(--sp-fp-line);
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-refusal-index {
+  grid-column: 1;
+  grid-row: 1;
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  color: var(--sp-fp-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-refusal-icon {
+  grid-column: 1;
+  grid-row: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--sp-fp-icon-size);
+  height: var(--sp-fp-icon-size);
+  color: var(--sp-fp-accent);
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-refusal-title {
+  grid-column: 2;
+  grid-row: 1;
+  margin: 0;
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  font-size: var(--sp-fp-refusal-title-size);
+  font-weight: 500;
+  line-height: var(--sp-fp-refusal-title-lh);
+  letter-spacing: -0.015em;
+  color: var(--sp-fp-text);
+  text-wrap: balance;
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-refusal-divider {
+  grid-column: 2;
+  grid-row: 2;
+  display: block;
+  width: min(100%, 4.8rem);
+  height: 0.1rem;
+  background: var(--sp-fp-line);
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-refusal-text {
+  grid-column: 2;
+  grid-row: 3;
+  margin: 0;
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  font-size: var(--sp-fp-refusal-text-size);
+  font-weight: 400;
+  line-height: var(--sp-fp-refusal-text-lh);
+  letter-spacing: normal;
+  color: var(--sp-fp-muted-copy);
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-refusal:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__refusal-icon-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Closing epilogue ── */
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-closing {
+  display: block;
+  padding: var(--sp-fp-closing-pad-block) var(--sp-fp-content-pad);
+  margin-inline: calc(var(--sp-fp-content-pad) * -1);
+  background: var(--sp-fp-closing-surface);
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-closing-grid {
+  display: grid;
+  gap: var(--sp-fp-element-gap);
+  min-width: 0;
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-closing-statement {
+  display: grid;
+  gap: var(--sp-fp-closing-statement-gap);
+  min-width: 0;
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-closing-headline,
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-closing-headline p {
+  margin: 0;
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  font-size: var(--sp-fp-closing-headline-size);
+  font-weight: 500;
+  line-height: var(--sp-fp-closing-headline-lh);
+  letter-spacing: -0.025em;
+  color: var(--sp-fp-text);
+  text-wrap: balance;
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-closing-emphasis {
+  margin: var(--sp-fp-closing-headline-emphasis-gap) 0 0;
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  font-size: var(--sp-fp-closing-headline-size);
+  font-weight: 500;
+  line-height: var(--sp-fp-closing-headline-lh);
+  letter-spacing: -0.02em;
+  color: var(--sp-fp-accent);
+  text-wrap: balance;
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-closing-emphasis em {
+  font-style: italic;
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-closing-support,
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-closing-support p {
+  margin: 0;
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  font-size: var(--sp-fp-body-size);
+  font-weight: 400;
+  line-height: var(--sp-fp-body-lh);
+  letter-spacing: normal;
+  color: var(--sp-fp-muted-copy);
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-transition {
+  display: grid;
+  justify-items: center;
+  padding: var(--sp-fp-transition-pad-top) 0 var(--sp-fp-transition-pad-bottom);
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-transition-link {
+  display: grid;
+  gap: 0.8rem;
+  justify-items: center;
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--sp-fp-muted);
+  transition: color 0.18s ease;
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-transition-link:hover {
+  color: var(--sp-fp-accent);
+}
+
+.sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-transition-arrow {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+@media screen and (min-width: 990px) {
   .sp-editorial-differentiation--philosophy-manifesto {
-    --sp-ed-visual-ratio: 21 / 8;
+    --sp-fp-content-max: 132rem;
+    --sp-fp-content-pad: 8rem;
+    --sp-fp-chapter-gap: 12rem;
+    --sp-fp-block-gap: 4.8rem;
+    --sp-fp-closing-surface: #eeeee3;
+    --sp-fp-eyebrow-size: 1.2rem;
+    --sp-fp-eyebrow-track: 0.18em;
+    --sp-fp-label-lh: 2rem;
+    --sp-fp-headline-size: 6.4rem;
+    --sp-fp-headline-lh: 1.05;
+    --sp-fp-headline-trail: 3.2rem;
+    --sp-fp-governing-trail: 1.6rem;
+    --sp-fp-spread-copy-gap: 1.6rem;
+    --sp-fp-governing-size: 2.2rem;
+    --sp-fp-governing-lh: 1.45;
+    --sp-fp-body-size: 1.8rem;
+    --sp-fp-body-lh: 1.667;
+    --sp-fp-refusal-title-size: 2.2rem;
+    --sp-fp-refusal-title-lh: 1.3;
+    --sp-fp-refusal-text-size: 1.6rem;
+    --sp-fp-refusal-text-lh: 1.625;
+    --sp-fp-refusal-stack-gap: 1.6rem;
+    --sp-fp-refusal-divider-gap: 1.4rem;
+    --sp-fp-refusal-intro-size: 2.4rem;
+    --sp-fp-refusal-intro-lh: 1.32;
+    --sp-fp-closing-headline-size: 4rem;
+    --sp-fp-closing-headline-lh: 1.1;
+    --sp-fp-closing-pad-block: 5.6rem;
+    --sp-fp-closing-statement-gap: 1.6rem;
+    --sp-fp-closing-headline-emphasis-gap: 0.6rem;
+    --sp-fp-icon-size: 2.4rem;
+    --sp-fp-transition-pad-top: 4rem;
+    --sp-fp-transition-pad-bottom: 2.4rem;
+    --sp-fp-spread-media-ratio: 5 / 6;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-content {
+    padding-inline: var(--sp-fp-content-pad);
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--sp-fp-grid-gap);
+    row-gap: var(--sp-fp-block-gap);
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-declaration {
+    grid-column: 1 / span 7;
+    grid-row: 1;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-declaration .sp-editorial-differentiation__fp-eyebrow {
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    line-height: 2rem;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-declaration .sp-editorial-differentiation__fp-eyebrow::before {
+    grid-column: 1;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-declaration .sp-editorial-differentiation__fp-headline,
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-declaration .sp-editorial-differentiation__fp-headline p {
+    margin-bottom: var(--sp-fp-headline-trail);
+    max-width: none;
+    text-wrap: pretty;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-editorial {
+    grid-column: 1 / span 7;
+    grid-row: 2;
+    max-width: none;
+    width: 100%;
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-media {
+    grid-column: 8 / span 5;
+    grid-row: 1 / span 2;
+    align-self: start;
+    padding-top: 0;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-media-frame {
+    aspect-ratio: var(--sp-fp-spread-media-ratio);
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-media-image,
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-media-frame img {
+    object-position: center 45%;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-hero-anchor {
+    display: none;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-refusals-band {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--sp-fp-grid-gap);
+    row-gap: 0;
+    align-items: start;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-refusals-intro {
+    grid-column: 1 / span 4;
+    grid-row: 1;
+    align-self: start;
+    max-width: none;
+    font-size: var(--sp-fp-refusal-intro-size);
+    line-height: 1.35;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-refusals-list {
+    grid-column: 5 / -1;
+    grid-row: 1;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 2.8rem;
+    align-items: start;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-refusal {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+    gap: var(--sp-fp-refusal-stack-gap);
+    padding: 0;
+    border-top: none;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-refusal-index,
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-refusal-icon {
+    margin-bottom: 0.2rem;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-refusal-divider {
+    width: min(100%, 4.8rem);
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-refusal-text {
+    margin-top: 0;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-refusal--emphasize {
+    margin-top: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-refusal-index,
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-refusal-icon,
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-refusal-title,
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-refusal-divider,
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-refusal-text {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-closing {
+    padding: var(--sp-fp-closing-pad-block) var(--sp-fp-content-pad);
+    margin-inline: calc(var(--sp-fp-content-pad) * -1);
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-closing-grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--sp-fp-grid-gap);
+    row-gap: 0;
+    align-items: center;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-closing-statement {
+    grid-column: 1 / span 7;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-closing-support {
+    grid-column: 8 / span 5;
+    align-self: center;
+    max-width: 38ch;
+    padding-left: 0.8rem;
+  }
+}
+
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .sp-editorial-differentiation--philosophy-manifesto {
+    --sp-fp-content-max: 72rem;
+    --sp-fp-content-pad: clamp(3.2rem, 5vw, 5.6rem);
+    --sp-fp-chapter-gap: 6.4rem;
+    --sp-fp-block-gap: 3.6rem;
+    --sp-fp-headline-size: 4.4rem;
+    --sp-fp-headline-lh: 1.08;
+    --sp-fp-governing-size: 1.9rem;
+    --sp-fp-body-size: 1.65rem;
+    --sp-fp-refusal-title-size: 2.1rem;
+    --sp-fp-refusal-text-size: 1.55rem;
+    --sp-fp-refusal-intro-size: 2.1rem;
+    --sp-fp-closing-headline-size: 3.2rem;
+    --sp-fp-closing-surface: #f8f3ef;
+    --sp-fp-spread-media-ratio: 4 / 5;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--sp-fp-block-gap);
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-media {
+    max-width: min(100%, 36rem);
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-refusals-intro {
+    max-width: none;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-closing {
+    padding: 2.8rem var(--sp-fp-content-pad);
+    margin-inline: calc(var(--sp-fp-content-pad) * -1);
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-closing-support {
+    padding-top: 2rem;
+    border-top: 0.1rem solid var(--sp-fp-line);
   }
 }
 
 @media screen and (max-width: 749px) {
   .sp-editorial-differentiation--philosophy-manifesto {
-    --sp-ed-visual-ratio: 4 / 3;
+    --sp-fp-content-max: 64rem;
+    --sp-fp-content-pad: 2.4rem;
+    --sp-fp-chapter-gap: 5.6rem;
+    --sp-fp-block-gap: 3.2rem;
+    --sp-fp-headline-size: 4rem;
+    --sp-fp-headline-lh: 1.1;
+    --sp-fp-headline-trail: 2.4rem;
+    --sp-fp-governing-trail: 2rem;
+    --sp-fp-spread-copy-gap: 2rem;
+    --sp-fp-governing-size: 1.8rem;
+    --sp-fp-governing-lh: 1.5;
+    --sp-fp-body-size: 1.6rem;
+    --sp-fp-body-lh: 1.6;
+    --sp-fp-refusal-title-size: 2rem;
+    --sp-fp-refusal-title-lh: 1.3;
+    --sp-fp-refusal-text-size: 1.5rem;
+    --sp-fp-refusal-text-lh: 1.6;
+    --sp-fp-refusal-intro-size: 2rem;
+    --sp-fp-refusal-intro-lh: 1.35;
+    --sp-fp-closing-headline-size: 2.8rem;
+    --sp-fp-closing-headline-lh: 1.15;
+    --sp-fp-closing-pad-block: 2.8rem;
+    --sp-fp-closing-statement-gap: 1.2rem;
+    --sp-fp-closing-headline-emphasis-gap: 0.6rem;
+    --sp-fp-icon-size: 2rem;
+    --sp-fp-spread-media-ratio: 4 / 5;
+    --sp-fp-closing-surface: #f8f3ef;
+    --sp-fp-transition-pad-top: 4rem;
+    --sp-fp-transition-pad-bottom: 4.8rem;
   }
 
-  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__statement {
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--sp-fp-spread-copy-gap);
+    align-items: stretch;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-declaration .sp-editorial-differentiation__fp-eyebrow {
+    display: grid;
+    grid-template-columns: 1.2rem 1.2rem auto;
+    column-gap: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-declaration .sp-editorial-differentiation__fp-eyebrow::before {
+    grid-column: 1;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-declaration .sp-editorial-differentiation__fp-eyebrow-line {
+    grid-column: 2;
+    width: 1.2rem;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-declaration .sp-editorial-differentiation__fp-eyebrow-text {
+    grid-column: 3;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-declaration .sp-editorial-differentiation__fp-headline,
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-declaration .sp-editorial-differentiation__fp-headline p {
+    text-wrap: pretty;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-declaration,
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-editorial,
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-media {
+    grid-column: 1;
+    grid-row: auto;
+    align-self: auto;
+    width: 100%;
     max-width: none;
-    font-size: var(--sp-voice-manifesto-size-mobile);
+    margin-top: 0;
+    padding-top: 0;
   }
 
-  .sp-editorial-differentiation__principle + .sp-editorial-differentiation__principle {
-    padding-top: 0.35rem;
-    border-top: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-media {
+    margin-top: var(--sp-fp-block-gap);
   }
 
-  .sp-editorial-differentiation__principle-text {
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-media-image,
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-media-frame img {
+    object-position: center 42%;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-spread-media-frame {
+    width: 100%;
     max-width: none;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-refusals-intro {
+    max-width: none;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-refusal {
+    padding: 2rem 0;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-refusal--emphasize {
+    padding: 2rem 1.6rem;
+    border: 0.1rem solid var(--sp-fp-line);
+    background: var(--sp-fp-surface);
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-refusal--emphasize:first-child {
+    border-top: 0.1rem solid var(--sp-fp-line);
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-closing {
+    padding: var(--sp-fp-closing-pad-block) var(--sp-fp-content-pad);
+    margin-inline: calc(var(--sp-fp-content-pad) * -1);
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-closing-grid {
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+    column-gap: 1.6rem;
+    row-gap: 0;
+    align-items: stretch;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-closing-statement {
+    display: grid;
+    gap: var(--sp-fp-closing-statement-gap);
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-closing-headline,
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-closing-headline p {
+    margin: 0;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-closing-emphasis {
+    font-size: var(--sp-fp-closing-headline-size);
+    margin: var(--sp-fp-closing-headline-emphasis-gap) 0 0;
+  }
+
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-closing-support {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 0;
+    padding-left: 1.6rem;
+    border-top: none;
+    border-left: 0.1rem solid var(--sp-fp-line);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sp-editorial-differentiation--philosophy-manifesto .sp-editorial-differentiation__fp-transition-link {
+    transition: none;
   }
 }
