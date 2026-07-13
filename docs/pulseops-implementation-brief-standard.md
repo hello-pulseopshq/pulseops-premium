@@ -1,6 +1,6 @@
 # PulseOps Implementation Brief Standard
 
-Version: 1.0 (Foundation Draft)
+Version: 1.1 (GV-7 Refinement)
 
 Status: In Review
 
@@ -43,11 +43,13 @@ One page. Implementation-critical information only.
 ```text
 Annotated Mockups
 ↓
+Composition Notes (optional — flagship editorial)
+↓
 Implementation Specification (governance — human authors)
 ↓
 Implementation Brief (execution — derived, concise)
 ↓
-Cursor Phase 1 / Phase 2
+Cursor Phase 1 (region-by-region for flagship editorial) / Phase 2
 ```
 
 The Implementation Specification is the governing structural reference.
@@ -105,6 +107,30 @@ They are the approved annotated mockup images designated for side-by-side compar
 ## 3. Phase 1 Objective
 
 **Faithfully reproduce the approved desktop and mobile compositions.**
+
+For flagship editorial chapters, Phase 1 is region-based:
+
+```text
+Region A → Region Approval → Region B → Region Approval → … → Composition Approval
+```
+
+One region per Cursor sprint unless the Brief explicitly scopes otherwise.
+
+---
+
+## 3b. Composition Notes Reference (Optional)
+
+When Composition Notes exist for this chapter, reference the artifact path.
+
+Composition Notes carry qualitative intent:
+
+- visual dominance
+- editorial balance
+- optical hierarchy
+- perceived rhythm
+- narrative composition
+
+They supplement annotated mockups. They do not replace measurements in the Implementation Specification.
 
 ---
 
@@ -189,8 +215,10 @@ Expected failure mode
 [what typically goes wrong]
 
 Recommended first response
-[narrow refinement or DOM rebuild]
+[narrow refinement, Region Reconstruction, or DOM rebuild]
 ```
+
+**Platform risk:** If the same visual issue may affect multiple chapters, note it here. Phase 1 must not compensate for platform defects with chapter CSS.
 
 ---
 
@@ -201,6 +229,13 @@ Recommended first response
 - Desktop composition matches Approved Desktop Acceptance Screenshot
 - Mobile composition matches Approved Mobile Acceptance Screenshot
 - Region hierarchy matches Brief section 4
+- Visual Delta Review completed for in-scope region(s)
+
+### Visual Delta Review Format
+
+| Region | Status | Notes |
+|--------|--------|-------|
+| [e.g. A2] | Matched / Remaining Difference | [explain if difference remains] |
 
 ### Phase 2
 
@@ -219,13 +254,27 @@ Capture and compare at:
 
 Side-by-side comparison is mandatory before composition approval.
 
+Report Visual Delta Review per region — not PASS/FAIL alone.
+
 ---
 
 ## 14. Stop Condition
 
-**Phase 1:** Stop after composition build. Do not commit. Wait for composition approval.
+**Phase 1:** Stop after composition build for the scoped region. Do not commit. Wait for region or composition approval.
 
 **Phase 2:** Stop after production hardening. Do not commit. Wait for freeze review.
+
+---
+
+# GV-7 Brief Additions
+
+When authoring Briefs for flagship editorial chapters, include:
+
+1. **Region scope** for each Phase 1 sprint
+2. **Composition Notes reference** (when produced)
+3. **Visual Delta Review** table in acceptance criteria
+4. **Platform risk** flag when typography or shared activation may be involved
+5. **Recommended first response** — refinement vs Region Reconstruction vs DOM rebuild
 
 ---
 
@@ -330,6 +379,7 @@ Never:
 - Omit implementation risks
 - Treat the Brief as a replacement for the Implementation Specification
 - Expand the Brief into a governance essay
+- Omit Visual Delta Review from acceptance criteria
 
 ---
 

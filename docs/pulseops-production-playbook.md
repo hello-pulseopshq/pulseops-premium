@@ -1,6 +1,6 @@
 # PulseOps Production Playbook
 
-Version: 1.3
+Version: 1.4
 Status: Draft
 
 ---
@@ -112,6 +112,10 @@ Annotated Mockups
 
 ↓
 
+Composition Notes (optional — flagship editorial chapters)
+
+↓
+
 Implementation Specification
 
 ↓
@@ -120,11 +124,15 @@ Implementation Brief
 
 ↓
 
-Phase 1 — Composition Build
+Phase 1 — Composition Build (region-by-region for flagship editorial chapters)
 
 ↓
 
 Activation Verification
+
+↓
+
+Region Approval(s) — Visual Delta Review (flagship editorial)
 
 ↓
 
@@ -436,6 +444,47 @@ They explain implementation intent rather than design rationale.
 
 ---
 
+# Stage 7a — Composition Notes (Optional)
+
+## Purpose
+
+Capture qualitative composition intent that measurements alone cannot communicate.
+
+Composition Notes supplement annotated mockups. They do not replace them.
+
+## When Required
+
+Recommended for flagship editorial chapters.
+
+Optional for generic reusable sections.
+
+## Inputs
+
+- Approved Annotated Desktop Mockup (Image)
+- Approved Annotated Mobile Mockup (Image)
+- Approved Blueprint
+
+## Outputs
+
+- Composition Notes (optional artifact)
+
+Document qualitative intent only:
+
+- visual dominance
+- editorial balance
+- optical hierarchy
+- perceived rhythm
+- narrative composition
+
+Do not duplicate measurements already captured in the Implementation Specification.
+
+## Approval Criteria
+
+- Qualitative composition is explicit enough that Cursor does not need to infer optical balance.
+- Notes reference annotated mockup regions — not implementation code.
+
+---
+
 # Stage 7b — Implementation Specification
 
 ## Purpose
@@ -509,19 +558,34 @@ The Brief replaces reading multiple documents during implementation.
 
 Phase 1 does not solve merchant configurability, accessibility, Theme Check, or implementation hygiene.
 
+## Region-Based Phase 1 (Flagship Editorial Chapters)
+
+For flagship editorial chapters, Phase 1 proceeds region-by-region:
+
+```text
+Region A → Region Approval → Region B → Region Approval → Region C → Region Approval
+↓
+Composition Approval → Phase 2
+```
+
+Each region approval uses Visual Delta Review (see Stage 10).
+
+Generic reusable sections may continue whole-chapter Phase 1 implementation.
+
 ## Production Prerequisites
 
 - Approved Annotated Desktop Mockup (Image)
 - Approved Annotated Mobile Mockup (Image)
 - Approved Implementation Specification
 - **Approved Implementation Brief**
+- Composition Notes (when produced for flagship editorial chapters)
 
 ## Cursor Implementation Package (Phase 1)
 
 1. Approved Annotated Desktop Mockup (Image)
 2. Approved Annotated Mobile Mockup (Image)
 3. Approved Implementation Brief
-4. Phase 1 Composition Build Prompt
+4. Phase 1 Composition Build Prompt (one region per sprint for flagship editorial chapters)
 
 ## Inputs
 
@@ -532,10 +596,11 @@ Phase 1 does not solve merchant configurability, accessibility, Theme Check, or 
 - Composition-faithful presentation DOM
 - Phase 1 implementation report
 - Screenshots at 1440px and 390px
+- Visual Delta Review table per region (flagship editorial)
 
 ## Approval Criteria
 
-- Ready for Composition Approval gate (Stage 10).
+- Ready for Composition Approval gate (Stage 10) after all required regions pass Visual Delta Review.
 
 ---
 
@@ -582,9 +647,25 @@ no legacy implementation remains active
 
 ## Purpose
 
-Explicit pass/fail gate before Production Hardening.
+Explicit gate before Production Hardening.
 
-Production Hardening must never begin before both answers are YES.
+Production Hardening must never begin before composition is approved.
+
+## Visual Delta Review (Required)
+
+Composition Approval requires Visual Delta Review — not PASS/FAIL alone.
+
+For each region, record:
+
+| Region | Status | Notes |
+|--------|--------|-------|
+| [A1…] | **Matched** / **Remaining Difference** | Explain any remaining difference |
+
+If any difference remains, explain **why** — not "approximately matches."
+
+Apply per region during region-based Phase 1. Apply chapter-wide at final Composition Approval.
+
+**Authority rule:** Approved annotated mockups are the visual source of truth. Current implementation is never the authority. Implementation moves toward mockups — never toward previous implementation.
 
 ## Mandatory Questions
 
@@ -594,43 +675,38 @@ Human reviewer must answer:
 
 □ Does it immediately look like the approved annotated desktop mockup?
 
-**YES / NO**
-
 Compare implementation screenshot (1440px) side-by-side with **Approved Desktop Acceptance Screenshot**.
 
 ### Mobile
 
 □ Does it immediately look like the approved annotated mobile mockup?
 
-**YES / NO**
-
 Compare implementation screenshot (390px) side-by-side with **Approved Mobile Acceptance Screenshot**.
 
 ## Gate Result
 
-| Desktop | Mobile | Result |
-|---------|--------|--------|
-| YES | YES | **PASS** — Phase 2 may begin |
-| NO | YES | **FAIL** — Phase 1 continues |
-| YES | NO | **FAIL** — Phase 1 continues |
-| NO | NO | **FAIL** — Phase 1 continues |
+| Desktop | Mobile | Visual Delta | Result |
+|---------|--------|--------------|--------|
+| Approved | Approved | No unexplained differences | **PASS** — Phase 2 may begin |
+| Any mismatch | — | — | **FAIL** — Phase 1 continues |
 
-**If either answer is NO:**
+**If composition is not approved:**
 
-- Phase 1 fails.
 - Do not begin Phase 2.
 - Do not continue broad CSS polishing.
 
 **Next action (choose one):**
 
-1. **One narrow refinement sprint** — targeted fix for the specific mismatch
-2. **Rebuild presentation DOM** — when structural mismatch persists
+1. **Narrow refinement sprint** — when drift is minor and region structure is correct
+2. **Region Reconstruction** — when implementation has drifted significantly from approved mockups
+3. **Rebuild presentation DOM** — when structural mismatch persists after reconstruction
 
-After one failed refinement sprint with either answer still NO: **rebuild presentation DOM**.
+After one failed refinement sprint with material drift remaining: **Region Reconstruction** or **rebuild presentation DOM** — do not continue incremental polish.
 
 ## Approval Criteria
 
-- Both answers recorded as YES.
+- Visual Delta Review completed for all regions.
+- Desktop and mobile composition approved.
 - Composition approval explicitly documented before Phase 2 begins.
 
 ---
@@ -726,7 +802,7 @@ Structural fidelity alone is insufficient. A chapter that is technically correct
 
 ## Purpose
 
-Resolve implementation deviations identified in Visual Fidelity Review.
+Resolve minor implementation deviations identified in Visual Fidelity Review.
 
 The Refinement Sprint improves fidelity.
 
@@ -734,10 +810,26 @@ It never introduces new creative ideas.
 
 **Refinement prompts should become progressively narrower** — for example: Visual Fidelity → Editorial Composition → Editorial Rhythm → Micro Pass → Freeze. Avoid repeated broad "improve the design" prompts.
 
+## Region Reconstruction
+
+When implementation has drifted significantly from approved mockups, use **Region Reconstruction** instead of repeated refinement passes.
+
+Region Reconstruction:
+
+- Rebuilds one region directly from annotated mockups
+- Ignores current visual composition as authority
+- Does not preserve incorrect spacing because it already exists
+- Stops after the reconstructed region — does not continue into adjacent regions
+
+Use Refinement when structure is correct and gaps are narrow.
+
+Use Region Reconstruction when composition is materially wrong.
+
 ## Outputs
 
 - Visual parity
 - Updated validation
+- Visual Delta Review table
 
 ## Approval Criteria
 
@@ -868,10 +960,33 @@ Implementation uncertainty should be eliminated before Freeze.
 
 ---
 
+# Platform-First Investigation
+
+When the same visual issue appears across multiple chapters:
+
+**STOP chapter refinement.**
+
+Investigate platform architecture first:
+
+- shared typography activation
+- token ownership
+- pack-registry class contracts
+- shared CSS load order
+
+Only after platform validation and correction should chapter refinement resume.
+
+Chapter-level tuning must not compensate for platform defects.
+
+---
+
 # Anti-Patterns
 
 Avoid:
 
+- Chapter refinement when a platform defect affects multiple chapters
+- Token-only typography validation without computed-value verification
+- Repeated refinement passes when Region Reconstruction is required
+- Treating current implementation as visual authority
 - Designing during implementation
 - Skipping Review
 - Skipping Concept Translation
@@ -899,22 +1014,28 @@ Avoid:
 
 ---
 
-# Formulation Philosophy Learnings (GV-5) / GV-6 Refinement
+# GV-5 / GV-6 / GV-7 Governance Refinements
 
-GV-5 introduced two-phase implementation. GV-6 added the Implementation Brief and explicit Composition Approval gate.
+GV-5 introduced two-phase implementation. GV-6 added the Implementation Brief and Composition Approval gate. GV-7 incorporates Formulation Philosophy Phase 1 and Supplement Typography Activation learnings.
 
-### Permanent rules
+### GV-7 permanent rules
+
+1. **Platform-first investigation** — cross-chapter visual issues require platform audit before chapter refinement.
+2. **Typography validation** — verify token ownership **and** computed font-family, weight, and line-height.
+3. **Region-based Phase 1** — flagship editorial chapters: Region A → Approval → Region B → … → Composition Approval → Phase 2.
+4. **Region Reconstruction** — supported workflow when mockup drift is significant; distinct from refinement and micro pass.
+5. **Mockup authority** — approved annotated mockups remain visual source of truth; implementation never is.
+6. **Composition Notes** — optional qualitative artifact between annotated mockups and Implementation Specification.
+7. **Cursor limitations** — explicit guidance required for optical composition, editorial asymmetry, visual hierarchy, narrative balance.
+8. **Visual Delta Review** — Matched / Remaining Difference per region at composition approval.
+
+### GV-5 / GV-6 rules (retained)
 
 1. Annotated mockups are implementation specifications, not inspiration.
 2. Phase 1 objective: faithfully reproduce approved desktop and mobile compositions.
-3. Composition Approval gate: desktop YES and mobile YES required before Phase 2.
-4. Cursor receives Implementation Brief — not the full specification.
-5. Implementation budget declared before Phase 1.
-6. Rebuild presentation DOM when structural mismatch persists — do not CSS polish.
-
-### Root cause (GV-5)
-
-Cursor solved too many concerns in one sprint. GV-6 reduces cognitive load with the Brief.
+3. Cursor receives Implementation Brief — not the full specification.
+4. Implementation budget declared before Phase 1.
+5. Rebuild presentation DOM when structural mismatch persists — do not CSS polish.
 
 ---
 

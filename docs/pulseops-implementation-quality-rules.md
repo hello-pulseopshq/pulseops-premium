@@ -1,6 +1,6 @@
 # PulseOps Implementation Quality Rules
 
-Version: 1.0 (Foundation Draft)
+Version: 1.1 (GV-7 Refinement)
 
 Status: In Review
 
@@ -151,6 +151,24 @@ CSS polishing cannot compensate for incorrect DOM composition.
 
 When structural mismatch persists, rebuild presentation DOM — do not continue cascade refinement.
 
+## Principle 8
+
+Platform before chapter.
+
+When the same visual issue appears across multiple chapters, stop chapter refinement and investigate platform architecture first.
+
+Chapter-level tuning must not compensate for platform defects.
+
+## Principle 9
+
+Mockup authority.
+
+Approved annotated mockups are the visual source of truth.
+
+Current implementation is never the authority.
+
+Implementation moves toward mockups — never toward previous implementation.
+
 ---
 
 # Phase Applicability
@@ -159,6 +177,8 @@ When structural mismatch persists, rebuild presentation DOM — do not continue 
 |---------|---------|---------|
 | Composition fidelity | Required | Preserved — no changes |
 | Region hierarchy | Required | Frozen |
+| Visual Delta Review | Required per region (flagship editorial) | N/A |
+| Platform investigation | Before cross-chapter chapter fixes | As needed |
 | Merchant configurability | Deferred | Required |
 | Accessibility | Basic semantics only | Full validation |
 | Theme Check | Deferred | Required |
@@ -293,6 +313,25 @@ Evaluate:
 
 Typography should harmonise across adjacent chapters.
 
+## Typography Validation (GV-7)
+
+Typography validation is incomplete if it checks tokens only.
+
+Every typography investigation or activation sprint must verify:
+
+1. **Token ownership** — which file and selector owns the token
+2. **Computed typography** — final rendered values in the browser
+
+Required computed checks:
+
+- `font-family`
+- `font-weight`
+- `line-height`
+
+Report computed values on representative heading and body/UI samples — not CSS variable declarations alone.
+
+When the same typography issue appears across multiple chapters, investigate platform activation architecture before chapter-level CSS tuning.
+
 ---
 
 # Responsive Behaviour
@@ -397,6 +436,26 @@ Implementation should not reinterpret:
 
 - responsive hierarchy
 
+## Visual Delta Review (GV-7)
+
+Composition approval requires Visual Delta Review.
+
+For each region, record **Matched** or **Remaining Difference**.
+
+If a difference remains, explain why — not "approximately matches."
+
+Binary PASS/FAIL alone is insufficient for flagship editorial chapters.
+
+## Region Reconstruction vs Refinement
+
+| Situation | Workflow |
+|-----------|----------|
+| Minor drift, correct structure | Refinement Sprint or Micro Pass |
+| Significant mockup drift | Region Reconstruction |
+| Wrong DOM hierarchy | Rebuild presentation DOM |
+
+Region Reconstruction rebuilds from annotated mockups. It does not preserve incorrect composition because it already exists.
+
 ---
 
 # Design Debt vs Implementation Debt
@@ -486,6 +545,12 @@ Redesign during implementation.
 Preserve incorrect DOM for convenience.
 
 Use CSS polishing to fix structural mismatch.
+
+Use repeated refinement when Region Reconstruction is required.
+
+Validate typography using token values without computed verification.
+
+Treat current implementation as visual authority.
 
 Hardcode merchant content.
 
@@ -596,6 +661,17 @@ Engineering validation (Theme Check, accessibility, merchant configurability) be
 5.
 
 Screenshot comparison against annotated mockups is mandatory before Phase 2 begins.
+
+---
+
+# GV-7 Learnings — Formulation Philosophy / Typography Activation
+
+1. **Platform-first investigation** — cross-chapter issues require platform audit before chapter CSS.
+2. **Computed typography validation** — token ownership plus computed font-family, weight, line-height.
+3. **Region-based Phase 1** — flagship editorial chapters approve one region at a time.
+4. **Region Reconstruction** — distinct from refinement when mockup drift is significant.
+5. **Composition Notes** — qualitative composition artifact when measurements are insufficient.
+6. **Visual Delta Review** — per-region Matched / Remaining Difference at approval gates.
 
 ---
 

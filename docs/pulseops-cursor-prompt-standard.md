@@ -92,6 +92,8 @@ Every flagship chapter implementation uses two distinct Cursor sprints.
 
 **Objective:** Faithfully reproduce the approved desktop and mobile compositions.
 
+**Flagship editorial chapters:** One region per sprint. Stop after each region for Visual Delta Review approval before continuing.
+
 Merchant configurability, Theme Check, and accessibility certification belong in Phase 2.
 
 ### Phase 2 — Production Hardening
@@ -105,7 +107,10 @@ Merchant configurability, Theme Check, and accessibility certification belong in
 - Follow the Implementation Brief — do not open the full specification.
 - Composition fidelity takes precedence over DOM reuse.
 - Rebuild presentation DOM when structural mismatch persists.
+- Use **Region Reconstruction** when composition has drifted significantly — not repeated refinement.
+- **Current implementation is never authority.** Approved annotated mockups are the visual target.
 - Compare screenshots to Approved Acceptance Screenshots before requesting composition approval.
+- Report Visual Delta Review per region: **Matched** / **Remaining Difference** with explanation.
 
 ---
 
@@ -115,12 +120,15 @@ Merchant configurability, Theme Check, and accessibility certification belong in
 
 1. Sprint name
 2. Phase 1 objective (one sentence)
-3. Implementation Brief reference
-4. Architecture pre-flight
-5. Activation verification
-6. Scope (from Brief)
-7. Screenshot checklist
-8. Stop condition
+3. Target region (flagship editorial) or whole chapter
+4. Implementation Brief reference
+5. Composition Notes reference (when produced)
+6. Architecture pre-flight
+7. Activation verification
+8. Scope (from Brief)
+9. Screenshot checklist
+10. Visual Delta Review table
+11. Stop condition
 
 ### Phase 2 — Production Hardening prompt
 
@@ -208,6 +216,10 @@ Compare side-by-side with:
 
 Report gaps. Do not self-approve composition.
 
+Report Visual Delta Review for each region in scope:
+
+| Region | Matched / Remaining Difference | Why (if difference remains) |
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 VALIDATION (MINIMAL)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -215,6 +227,8 @@ VALIDATION (MINIMAL)
 git diff --check
 
 Playwright: 390, 1440 — no overflow, no broken images.
+
+Typography: verify token ownership AND computed font-family, font-weight, line-height on heading and body samples.
 
 Do NOT run Theme Check.
 
@@ -521,14 +535,40 @@ Implementation Specification
 ↓
 Implementation Brief
 ↓
-Phase 1 — Composition Build
+Phase 1 — Composition Build (region-by-region for flagship editorial)
 ↓
-Composition Approval Gate (desktop YES / mobile YES)
+Region Approval(s) — Visual Delta Review
+↓
+Composition Approval Gate
 ↓
 Phase 2 — Production Hardening
 ↓
 Freeze
 ```
+
+### Failure: Too many concerns in one sprint
+Prevention:
+- Phase 1: composition only.
+- Phase 2: production hardening only.
+- Never combine phases in a single prompt.
+- Flagship editorial: one region per Phase 1 sprint.
+
+### Failure: Chapter tuning masks platform defect
+Prevention:
+- If the same visual issue appears across multiple chapters, stop chapter work.
+- Investigate platform architecture (typography activation, token ownership, pack-registry) first.
+- Resume chapter refinement only after platform validation.
+
+### Failure: Refinement loop on wrong composition
+Prevention:
+- Use Region Reconstruction when mockup drift is significant.
+- Do not preserve incorrect spacing because it already exists.
+- Current implementation is never the visual authority.
+
+### Failure: Token validation without computed verification
+Prevention:
+- Typography validation must confirm token ownership and computed output.
+- Report computed font-family, weight, and line-height — not CSS variable values alone.
 
 ---
 
@@ -546,7 +586,7 @@ GV-6 stabilises execution without adding governance volume.
 
 1. **Implementation Brief** — concise execution package; Cursor reads Brief, not specification.
 2. **Phase 1 objective** — one sentence: faithfully reproduce approved desktop and mobile compositions.
-3. **Composition Approval Gate** — explicit YES/NO pass/fail; both must be YES for Phase 2.
+3. **Composition Approval Gate** — Visual Delta Review per region; chapter approved before Phase 2.
 4. **Implementation Budget** — declared in specification and Brief; discourages scope expansion.
 5. **Acceptance Screenshots** — named comparison targets in specification and Brief.
 
@@ -557,3 +597,65 @@ Governance documents define the system.
 The Implementation Brief executes it.
 
 If Cursor opens multiple documents, the Brief is incomplete.
+
+---
+
+## 19. Cursor capability boundaries (GV-7)
+
+Cursor reliably reproduces:
+
+- measurements
+- tokens
+- DOM structure
+- CSS declarations
+- merchant configuration
+
+Cursor requires explicit guidance for:
+
+- optical composition
+- editorial asymmetry
+- visual hierarchy
+- narrative balance
+- visual dominance
+
+Governance compensates through:
+
+- **Composition Notes** (qualitative intent)
+- **Visual Delta Review** (per-region comparison)
+- **Region Reconstruction** (mockup-directed rebuild)
+- **Region-based Phase 1** (narrow scope per sprint)
+
+Do not ask Cursor to infer premium editorial balance from abstract adjectives alone.
+
+---
+
+## 20. Region Reconstruction prompt pattern (GV-7)
+
+Use when implementation has drifted significantly from approved mockups.
+
+```text
+This is NOT a refinement pass.
+This is NOT a polish pass.
+This is a controlled reconstruction of [REGION] only.
+
+Treat approved annotated mockups as the only visual authority.
+Do NOT preserve incorrect spacing because it already exists.
+Stop immediately after [REGION] reconstruction.
+```
+
+---
+
+## 21. GV-7 — Formulation Philosophy / Typography Activation learnings
+
+Production-proven learnings integrated into governance:
+
+1. Platform-first investigation before cross-chapter chapter refinement.
+2. Typography: token ownership + computed validation.
+3. Region-based Phase 1 for flagship editorial chapters.
+4. Region Reconstruction distinct from refinement and micro pass.
+5. Annotated mockups remain authority — implementation never is.
+6. Composition Notes as optional qualitative artifact.
+7. Cursor limitations documented — explicit optical guidance required.
+8. Visual Delta Review replaces binary PASS/FAIL at region approval.
+
+See Production Playbook GV-7 section.

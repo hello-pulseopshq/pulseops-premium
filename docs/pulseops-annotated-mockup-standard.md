@@ -27,6 +27,8 @@ Every annotation should reduce implementation iterations.
 
 Annotations feed the **Implementation Specification** — the structural contract that defines region hierarchy, grid ownership, and responsive mapping. See **PulseOps Implementation Specification Standard**.
 
+When measurements alone cannot communicate optical composition, produce **Composition Notes** as a companion qualitative artifact. See Production Playbook Stage 7a.
+
 ---
 
 # Relationship to Governance
@@ -82,6 +84,8 @@ Approved mockups are the visual source of truth.
 Implementation follows mockups.
 
 Implementation never redesigns mockups.
+
+**Current implementation is never the authority.** When implementation and mockup differ, implementation moves toward the mockup.
 
 ---
 
@@ -545,6 +549,27 @@ The Formulation Philosophy sprint showed that high-quality annotations still lef
 4. When annotations define what but not how (DOM structure), the specification must complete the contract.
 
 Update annotation categories when specification gaps are discovered during implementation retrospectives.
+
+---
+
+# GV-7 — Composition Notes Companion (Optional)
+
+When annotated mockups and specification measurements cannot fully communicate:
+
+- visual dominance
+- editorial balance
+- optical hierarchy
+- perceived rhythm
+- narrative composition
+
+Produce **Composition Notes** between annotation approval and Implementation Specification.
+
+Composition Notes:
+
+- Are qualitative — not a measurement duplicate
+- Reference mockup regions
+- Do not replace annotated mockups
+- Are recommended for flagship editorial chapters
 
 ---
 
