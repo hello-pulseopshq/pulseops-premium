@@ -8,7 +8,7 @@
  * Hero display scale → sp-supplement-hero.css (frozen)
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Inter:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:wght@500;600;700;800&display=swap');
 
 /* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
    1. TOKENS
@@ -62,19 +62,28 @@
   --sp-type-track-button: -0.01em;
 }
 
-/* Variant A (current system): theme-default families */
+/* Variant A (theme-default families): Assistant heading + Assistant body */
 html.sp-supplement.sp-font-variant-a {
   --sp-font-heading: var(--font-heading-family);
   --sp-font-body: var(--font-body-family);
 }
 
-/* Variant B: Fraunces headings + Inter body */
+/*
+ * Production heading voice — Fraunces editorial serif.
+ * Decoupled: overrides --sp-font-heading only; body/UI remain theme Assistant.
+ * Activated via sp-pack-registry html_class on the supplement vertical.
+ */
+html.sp-supplement.sp-font-heading-fraunces {
+  --sp-font-heading: 'Fraunces', Georgia, serif;
+}
+
+/* Variant B (experiment): Fraunces headings + Inter body — coupled, not production */
 html.sp-supplement.sp-font-variant-b {
   --sp-font-heading: 'Fraunces', Georgia, serif;
   --sp-font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-/* Variant C: Cormorant Garamond headings + Inter body */
+/* Variant C (experiment): Cormorant Garamond headings + Inter body — coupled, not production */
 html.sp-supplement.sp-font-variant-c {
   --sp-font-heading: 'Cormorant Garamond', Georgia, serif;
   --sp-font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
