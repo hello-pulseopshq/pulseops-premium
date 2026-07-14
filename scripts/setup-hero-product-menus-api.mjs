@@ -36,9 +36,9 @@ function getAccessToken() {
 
 function loadShellMenus(profileName) {
   const shell = JSON.parse(
-    fs.readFileSync(path.join(root, 'config', 'demo-shells', `${profileName}-shell.json`), 'utf8')
+    fs.readFileSync(path.join(root, 'demo-config', 'shells', `${profileName}-shell.json`), 'utf8')
   );
-  const load = (f) => JSON.parse(fs.readFileSync(path.join(root, 'config', 'menus', f), 'utf8'));
+  const load = (f) => JSON.parse(fs.readFileSync(path.join(root, 'demo-config', 'menus', f), 'utf8'));
   return { main: load(shell.menus.main), footer: load(shell.menus.footer) };
 }
 

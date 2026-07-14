@@ -16,7 +16,7 @@ SP Core is a **hero-product theme**. Navigation should reflect buyer entry point
 
 Avoid: Catalog, Search (as menu items), All products, generic Dawn menu defaults.
 
-Default menu definitions: `config/menus/`. Demo-specific shells: `config/demo-shells/`.
+Default menu definitions: `demo-config/menus/`. Demo-specific shells: `demo-config/shells/`.
 
 ## Readiness tiers
 

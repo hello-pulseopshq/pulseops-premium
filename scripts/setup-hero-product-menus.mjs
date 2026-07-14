@@ -19,7 +19,7 @@ const result = spawnSync(process.execPath, [path.join(__dirname, 'setup-hero-pro
 if (result.status !== 0) {
   console.error('\nMenu sync failed. Options:');
   console.error('  1. Create a custom app with write_online_store_navigation → set SHOPIFY_ADMIN_ACCESS_TOKEN');
-  console.error('  2. Update Online Store → Navigation manually from config/menus/');
+  console.error('  2. Update Online Store → Navigation manually from demo-config/menus/');
   console.error('  3. node .audit/setup-hero-product-menus-playwright.mjs', profile);
   process.exit(result.status || 1);
 }

@@ -10,7 +10,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
 const shellId = process.argv[2] || 'core';
 
-const shellPath = path.join(root, 'config', 'demo-shells', `${shellId}-shell.json`);
+const shellPath = path.join(root, 'demo-config', 'shells', `${shellId}-shell.json`);
 if (!fs.existsSync(shellPath)) {
   console.error(`Unknown shell: ${shellId}`);
   process.exit(1);

@@ -31,7 +31,7 @@ After install, set **Online Store → Navigation** to match the hero-product jou
 
 **Footer menu:** Shop · Benefits · Reviews · FAQ · Contact · Shipping & Returns
 
-Menu definitions ship in `config/menus/core-main-menu.json` and `config/menus/core-footer-menu.json`.
+Menu definitions ship in `demo-config/menus/core-main-menu.json` and `demo-config/menus/core-footer-menu.json`.
 
 Sync to your store — requires a **custom app** Admin API token with `write_online_store_navigation`:
 
@@ -39,7 +39,7 @@ Sync to your store — requires a **custom app** Admin API token with `write_onl
 SHOPIFY_ADMIN_ACCESS_TOKEN=shpat_xxx node scripts/setup-hero-product-menus-api.mjs core
 ```
 
-Definitions are in `config/menus/`. The Shopify CLI session token cannot write menus (scope limited).
+Definitions are in `demo-config/menus/`. The Shopify CLI session token cannot write menus (scope limited).
 
 Fallback: update **Online Store → Navigation** manually, or run `node .audit/setup-hero-product-menus-playwright.mjs core` (Chrome closed, logged into Admin).
 
@@ -64,7 +64,7 @@ Flagship demo stores can apply a vertical-specific **shell** (announcement bar, 
 
 ```bash
 node scripts/apply-demo-shell.mjs supplement
-node scripts/setup-hero-product-menus-api.mjs supplement   # or manual from config/menus/
+node scripts/setup-hero-product-menus-api.mjs supplement   # or manual from demo-config/menus/
 shopify theme push --theme 183028121915 --only sections/header-group.json sections/footer-group.json
 ```
 
