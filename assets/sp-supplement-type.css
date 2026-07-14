@@ -497,16 +497,4 @@ html.sp-supplement.sp-font-variant-c {
   color: rgba(var(--sp-type-body-ink), var(--sp-type-muted-opacity));
 }
 
-.sp-supplement .footer-block__heading {
-  font-size: var(--sp-type-ui);
-  font-weight: var(--sp-type-w-heading);
-  letter-spacing: var(--sp-type-track-title);
-  color: rgb(var(--sp-type-ink));
-}
-
-.sp-supplement .footer-block__details-content {
-  font-size: var(--sp-type-body-sm);
-  font-weight: var(--sp-type-w-body);
-  line-height: var(--sp-type-lh-body);
-  color: rgba(var(--sp-type-body-ink), var(--sp-type-muted-soft-opacity));
-}
+/* Footer typography → assets/sp-footer.css (AC-10) */

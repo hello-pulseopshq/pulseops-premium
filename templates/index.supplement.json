@@ -307,64 +307,6 @@
         "padding_bottom": 96
       }
     },
-    "sp-editorial-differentiation": {
-      "type": "sp-editorial-differentiation",
-      "blocks": {
-        "proof-1": {
-          "type": "proof_point",
-          "settings": {
-            "title": "Consistency over intensity",
-            "text": "Designed for the kind of morning that actually happens."
-          }
-        },
-        "proof-2": {
-          "type": "proof_point",
-          "settings": {
-            "title": "Restraint over accumulation",
-            "text": "Less to manage, fewer decisions, more room to stay consistent."
-          }
-        },
-        "proof-3": {
-          "type": "proof_point",
-          "settings": {
-            "title": "One system over a stack",
-            "text": "The formula earns its place by making the habit easier to keep."
-          }
-        }
-      },
-      "block_order": [
-        "proof-1",
-        "proof-2",
-        "proof-3"
-      ],
-      "settings": {
-        "presentation": "philosophy_manifesto",
-        "image": "shopify://shop_images/Formulation_Philosophy.png",
-        "image_alt": "Daily Vitality formulation philosophy",
-        "eyebrow": "Formulation philosophy",
-        "heading": "<p>Every choice serves the ritual—not the label.</p>",
-        "body": "<p>We did not set out to win the supplement facts panel. We set out to reduce supplement overload: fewer decisions, clearer roles, and a formula that feels calm enough to keep.</p>",
-        "philosophy_closing_line": "Not more to take. Less to think about.",
-        "show_philosophy_image": true,
-        "button_label": "",
-        "button_link": "#sp-ingredients",
-        "trust_text": "",
-        "image_position": "right",
-        "top_spacing": "small",
-        "bottom_spacing": "medium",
-        "show_top_divider": false,
-        "background_tone": "default",
-        "show_proof_numbers": false,
-        "show_cta_divider": false,
-        "sp_surface_style": "default",
-        "sp_width_mode": "wide",
-        "sp_section_emphasis": "normal",
-        "sp_divider_style": "none",
-        "color_scheme": "scheme-1",
-        "padding_top": 60,
-        "padding_bottom": 68
-      }
-    },
     "sp-quality-standards": {
       "type": "sp-quality-standards",
       "blocks": {
@@ -624,7 +566,6 @@
     "sp-editorial-outcomes",
     "sp-ingredients-spotlight",
     "sp-community-confidence",
-    "sp-editorial-differentiation",
     "sp-quality-standards",
     "sp-social-proof",
     "sp-faq",

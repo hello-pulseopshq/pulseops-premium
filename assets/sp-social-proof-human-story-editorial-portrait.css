@@ -6,9 +6,20 @@
 .sp-social-proof--human-story-editorial-portrait {
   --sp-hs-ep-gap: clamp(1.5rem, 2.2vw, 2.25rem);
   --sp-hs-ep-gap-tight: clamp(0.65rem, 0.95vw, 0.85rem);
-  --sp-hs-ep-quote-size: clamp(2.75rem, 3.6vw, 4.25rem);
-  --sp-hs-ep-quote-leading: 1.12;
-  --sp-hs-ep-quote-measure: min(100%, 34ch);
+  --sp-hs-ep-quote-size: clamp(3.15rem, 4vw, 4.85rem);
+  --sp-hs-ep-quote-leading: 1.08;
+  --sp-hs-ep-quote-weight: 650;
+  --sp-hs-ep-quote-opsz: 72;
+  --sp-hs-ep-quote-measure: min(100%, 24ch);
+  --sp-hs-ep-name-size: clamp(1.65rem, 1.55rem + 0.35vw, 1.875rem);
+  --sp-hs-ep-name-weight: 600;
+  --sp-hs-ep-context-size: clamp(1.35rem, 1.25rem + 0.22vw, 1.5rem);
+  --sp-hs-ep-fragment-name-size: clamp(1.28rem, 1.15vw, 1.42rem);
+  --sp-hs-ep-fragment-text-size: clamp(1.22rem, 1.05vw, 1.35rem);
+  --sp-hs-ep-fragment-name-weight: 600;
+  --sp-hs-ep-fragment-text-weight: 500;
+  --sp-hs-ep-fragment-name-leading: 1.35;
+  --sp-hs-ep-fragment-text-leading: 1.55;
   --sp-hs-ep-panel-pad: clamp(1.35rem, 4vw, 1.85rem);
   --sp-hs-ep-rule: rgba(var(--color-foreground), 0.12);
 }
@@ -91,14 +102,30 @@
 
 .sp-hs-ep-quote {
   position: relative;
-  margin: 0 0 clamp(1.25rem, 1.85vw, 1.65rem);
+  margin: 0 0 clamp(1.55rem, 2.35vw, 2.1rem);
   padding: 0;
   border: 0;
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  font-style: normal;
   font-size: var(--sp-hs-ep-quote-size);
+  font-weight: var(--sp-hs-ep-quote-weight);
   line-height: var(--sp-hs-ep-quote-leading);
-  letter-spacing: var(--sp-voice-emotional-quote-track, -0.03em);
+  letter-spacing: var(--sp-voice-emotional-lead-track, var(--sp-voice-emotional-quote-track, -0.035em));
+  font-optical-sizing: none;
+  font-variation-settings: 'opsz' var(--sp-hs-ep-quote-opsz);
   text-wrap: pretty;
   color: rgb(var(--color-foreground));
+}
+
+.sp-hs-ep-quote.sp-editorial-type--quote {
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  font-style: normal;
+  font-size: var(--sp-hs-ep-quote-size);
+  font-weight: var(--sp-hs-ep-quote-weight);
+  line-height: var(--sp-hs-ep-quote-leading);
+  letter-spacing: var(--sp-voice-emotional-lead-track, var(--sp-voice-emotional-quote-track, -0.035em));
+  font-optical-sizing: none;
+  font-variation-settings: 'opsz' var(--sp-hs-ep-quote-opsz);
 }
 
 .sp-hs-ep-quote-mark {
@@ -117,39 +144,50 @@
 
 .sp-hs-ep-quote-text p {
   margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  font-family: inherit;
+  font-optical-sizing: inherit;
+  font-variation-settings: inherit;
+  color: inherit;
 }
 
 .sp-hs-ep-attribution-block {
   display: grid;
-  gap: clamp(0.85rem, 1.15vw, 1rem);
+  gap: clamp(1rem, 1.35vw, 1.2rem);
 }
 
 .sp-hs-ep-divider {
   display: block;
-  width: clamp(2.6rem, 3.6vw, 3.2rem);
+  width: clamp(2.75rem, 3.8vw, 3.35rem);
   height: 0.1rem;
   background: var(--sp-hs-ep-rule);
 }
 
 .sp-hs-ep-attribution {
   display: grid;
-  gap: clamp(0.3rem, 0.45vw, 0.4rem);
+  gap: clamp(0.35rem, 0.5vw, 0.45rem);
 }
 
 .sp-hs-ep-name {
   margin: 0;
   font-style: normal;
-  font-size: clamp(1.08rem, 1.02vw, 1.22rem);
-  font-weight: 700;
-  line-height: 1.3;
-  letter-spacing: 0.005em;
+  font-size: var(--sp-hs-ep-name-size);
+  font-weight: var(--sp-hs-ep-name-weight);
+  line-height: 1.32;
+  letter-spacing: 0.01em;
   color: rgba(var(--color-foreground), 0.94);
 }
 
 .sp-hs-ep-context {
   margin: 0;
-  font-size: clamp(0.98rem, 0.93vw, 1.06rem);
-  line-height: 1.4;
+  font-size: var(--sp-hs-ep-context-size);
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: 0.005em;
   color: rgba(var(--color-foreground), 0.64);
 }
 
@@ -199,22 +237,29 @@
 
 .sp-hs-ep-fragment-name {
   margin: 0;
-  font-size: clamp(0.98rem, 0.92vw, 1.04rem);
-  font-weight: 600;
-  line-height: 1.35;
-  color: rgba(var(--color-foreground), 0.76);
+  font-family: var(--sp-font-body, var(--font-body-family));
+  font-size: var(--sp-hs-ep-fragment-name-size);
+  font-weight: var(--sp-hs-ep-fragment-name-weight);
+  line-height: var(--sp-hs-ep-fragment-name-leading);
+  letter-spacing: 0.005em;
+  color: rgba(var(--color-foreground), 0.84);
 }
 
 .sp-hs-ep-fragment-text {
   margin: 0;
-  font-size: clamp(0.98rem, 0.92vw, 1.04rem);
-  line-height: 1.55;
-  color: rgba(var(--color-foreground), 0.58);
+  font-family: var(--sp-font-body, var(--font-body-family));
+  font-size: var(--sp-hs-ep-fragment-text-size);
+  font-weight: var(--sp-hs-ep-fragment-text-weight);
+  line-height: var(--sp-hs-ep-fragment-text-leading);
+  letter-spacing: 0.005em;
+  color: rgba(var(--color-foreground), 0.72);
 }
 
 /* Supplement token consumption (local scope only) */
 .sp-supplement .sp-social-proof--human-story-editorial-portrait {
-  --sp-hs-ep-quote-size: clamp(2.65rem, 3.15vw, 3.75rem);
+  --sp-hs-ep-quote-size: clamp(3.45rem, 4.15vw, 5.625rem);
+  --sp-hs-ep-quote-leading: 1.08;
+  --sp-hs-ep-quote-measure: min(100%, 23ch);
 }
 
 .sp-supplement .sp-social-proof--human-story-editorial-portrait .sp-hs-ep-eyebrow,
@@ -223,18 +268,40 @@
 }
 
 .sp-supplement .sp-social-proof--human-story-editorial-portrait .sp-hs-ep-quote,
+.sp-supplement .sp-social-proof--human-story-editorial-portrait .sp-hs-ep-quote.sp-editorial-type--quote,
 .sp-supplement .sp-social-proof--human-story-editorial-portrait .sp-hs-ep-quote-text,
 .sp-supplement .sp-social-proof--human-story-editorial-portrait .sp-hs-ep-quote-text p {
   font-family: var(--sp-font-heading, var(--font-heading-family));
+  font-style: normal;
+  font-size: var(--sp-hs-ep-quote-size);
+  font-weight: var(--sp-hs-ep-quote-weight);
+  line-height: var(--sp-hs-ep-quote-leading);
+  letter-spacing: var(--sp-voice-emotional-lead-track, var(--sp-voice-emotional-quote-track, -0.035em));
+  font-optical-sizing: none;
+  font-variation-settings: 'opsz' var(--sp-hs-ep-quote-opsz);
   color: rgb(var(--sp-hero-headline-ink, var(--sp-type-ink, var(--color-foreground))));
+}
+
+.sp-supplement .sp-social-proof--human-story-editorial-portrait .sp-hs-ep-quote-text.rte,
+.sp-supplement .sp-social-proof--human-story-editorial-portrait .sp-hs-ep-quote-text.rte p {
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  font-optical-sizing: inherit;
+  font-variation-settings: inherit;
+  color: inherit;
 }
 
 .sp-supplement .sp-social-proof--human-story-editorial-portrait .sp-hs-ep-name {
   font-family: var(--sp-font-heading, var(--font-heading-family));
+  font-size: var(--sp-hs-ep-name-size);
+  font-weight: var(--sp-hs-ep-name-weight);
   color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.94);
 }
 
 .sp-supplement .sp-social-proof--human-story-editorial-portrait .sp-hs-ep-context {
+  font-size: var(--sp-hs-ep-context-size);
   color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.64);
 }
 
@@ -258,18 +325,29 @@
 }
 
 .sp-supplement .sp-social-proof--human-story-editorial-portrait .sp-hs-ep-fragment-name {
-  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.76);
+  font-family: var(--sp-font-body, var(--font-body-family));
+  font-size: var(--sp-hs-ep-fragment-name-size);
+  font-weight: var(--sp-hs-ep-fragment-name-weight);
+  line-height: var(--sp-hs-ep-fragment-name-leading);
+  letter-spacing: 0.005em;
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.84);
 }
 
 .sp-supplement .sp-social-proof--human-story-editorial-portrait .sp-hs-ep-fragment-text {
-  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.58);
+  font-family: var(--sp-font-body, var(--font-body-family));
+  font-size: var(--sp-hs-ep-fragment-text-size);
+  font-weight: var(--sp-hs-ep-fragment-text-weight);
+  line-height: var(--sp-hs-ep-fragment-text-leading);
+  letter-spacing: 0.005em;
+  color: rgba(var(--sp-hero-body-ink, var(--sp-type-body-ink, var(--color-foreground))), 0.72);
 }
 
 /* Desktop ≥990px — wide editorial spread */
 @media screen and (min-width: 990px) {
   .sp-social-proof--human-story-editorial-portrait {
-    --sp-hs-ep-quote-measure: min(100%, 32ch);
-    --sp-hs-ep-quote-size: clamp(2.6rem, 2.75vw, 3.55rem);
+    --sp-hs-ep-quote-measure: min(100%, 22ch);
+    --sp-hs-ep-quote-size: clamp(3.55rem, 4.15vw, 5.625rem);
+    --sp-hs-ep-quote-leading: 1.08;
   }
 
   /* Isolate from portrait carousel grid in sp-social-proof-human-story.css */
@@ -331,7 +409,9 @@
 /* Tablet 900–989px — two-column when wide enough */
 @media screen and (min-width: 900px) and (max-width: 989px) {
   .sp-social-proof--human-story-editorial-portrait {
-    --sp-hs-ep-quote-measure: min(100%, 34ch);
+    --sp-hs-ep-quote-measure: min(100%, 26ch);
+    --sp-hs-ep-quote-size: clamp(2.85rem, 4.55vw, 3.55rem);
+    --sp-hs-ep-quote-leading: 1.1;
   }
 
   .sp-hs-ep-spread {
@@ -363,7 +443,9 @@
 /* Tablet 750–899px — stack for readable quote width */
 @media screen and (min-width: 750px) and (max-width: 899px) {
   .sp-social-proof--human-story-editorial-portrait {
-    --sp-hs-ep-quote-measure: min(100%, 36ch);
+    --sp-hs-ep-quote-measure: min(100%, 28ch);
+    --sp-hs-ep-quote-size: clamp(2.65rem, 5.15vw, 3.55rem);
+    --sp-hs-ep-quote-leading: 1.1;
   }
 
   .sp-hs-ep-spread {
@@ -398,8 +480,13 @@
 /* Mobile ≤749px — mockup stack */
 @media screen and (max-width: 749px) {
   .sp-social-proof--human-story-editorial-portrait {
-    --sp-hs-ep-quote-size: clamp(2.2rem, 7vw, 3rem);
-    --sp-hs-ep-quote-measure: 100%;
+    --sp-hs-ep-quote-size: clamp(2.45rem, 8.75vw, 3.25rem);
+    --sp-hs-ep-quote-leading: 1.12;
+    --sp-hs-ep-quote-measure: min(100%, 16ch);
+    --sp-hs-ep-name-size: clamp(1.55rem, 1.45rem + 0.55vw, 1.75rem);
+    --sp-hs-ep-context-size: clamp(1.3rem, 1.2rem + 0.4vw, 1.4375rem);
+    --sp-hs-ep-fragment-name-size: clamp(1.22rem, 3.8vw, 1.35rem);
+    --sp-hs-ep-fragment-text-size: clamp(1.18rem, 3.55vw, 1.3rem);
     --sp-hs-ep-panel-pad: clamp(1.35rem, 4vw, 1.85rem);
   }
 
@@ -423,11 +510,11 @@
   }
 
   .sp-hs-ep-quote {
-    margin-bottom: clamp(1.05rem, 1.45vw, 1.2rem);
+    margin-bottom: clamp(1.2rem, 1.65vw, 1.45rem);
   }
 
   .sp-hs-ep-quote-text {
-    max-width: 100%;
+    max-width: min(100%, var(--sp-hs-ep-quote-measure));
   }
 
   .sp-hs-ep-fragments-heading {

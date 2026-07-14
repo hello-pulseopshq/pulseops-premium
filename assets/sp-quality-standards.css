@@ -429,6 +429,13 @@
   background-image: none;
 }
 
+/* HF-1 — Science → Human Story transition rhythm (supplement homepage) */
+@media screen and (min-width: 750px) {
+  .sp-supplement #sp-quality:has(.sp-quality-standards--scientific-confidence) {
+    padding-bottom: clamp(2.75rem, 2.65vw, 3.35rem);
+  }
+}
+
 .sp-quality-standards--scientific-confidence {
   --sp-sc-gap-chapter: clamp(4rem, 5.85vw, 6.5rem);
   --sp-sc-gap-block: clamp(2.85rem, 3.85vw, 4.15rem);

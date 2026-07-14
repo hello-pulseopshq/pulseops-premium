@@ -161,15 +161,26 @@
 /* ═══════════════════════════════════════════════════════════════════════════
    AC-8 — FAQ supplement presentation (browser-winning)
    Migrated from sp-editorial-system.css + sp-supplement-type.css
+   HF-4 — editorial refinement: calm conversation rhythm, premium accordion
    ═══════════════════════════════════════════════════════════════════════════ */
+
+.sp-supplement .sp-faq {
+  --sp-faq-gap-sm: clamp(0.85rem, 1.05vw, 1rem);
+  --sp-faq-gap-lg: clamp(1.75rem, 2.45vw, 2.55rem);
+  --sp-faq-item-padding-y: clamp(1.1rem, 1.4vw, 1.3rem);
+  --sp-faq-answer-pad-bottom: clamp(1.2rem, 1.55vw, 1.5rem);
+  --sp-faq-icon-size: 1.35rem;
+  --sp-faq-transition: 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+  --sp-faq-rule: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.055);
+}
 
 .sp-supplement .shopify-section:has(.sp-faq) {
   background: rgb(var(--sp-supplement-ivory, var(--color-background)));
 }
 
 .sp-supplement #sp-faq {
-  padding-top: clamp(0.55rem, 0.9vw, 0.75rem);
-  padding-bottom: clamp(0.25rem, 0.45vw, 0.4rem);
+  padding-top: clamp(1.15rem, 1.75vw, 1.65rem);
+  padding-bottom: clamp(0.85rem, 1.2vw, 1.05rem);
 }
 
 .sp-supplement .sp-faq__header--left {
@@ -177,14 +188,22 @@
 }
 
 .sp-supplement .sp-faq__header {
-  margin-bottom: clamp(1.1rem, 1.8vw, 1.45rem);
+  margin-bottom: var(--sp-faq-gap-lg);
 }
 
 .sp-supplement .sp-faq__heading {
+  font-family: var(--sp-font-heading, var(--font-heading-family));
   font-size: var(--sp-voice-quiet-size, clamp(1.55rem, 1.8vw, 1.85rem));
   font-weight: var(--sp-voice-quiet-weight, 600);
+  line-height: var(--sp-voice-quiet-lh, 1.2);
   letter-spacing: var(--sp-voice-quiet-track, -0.015em);
   max-width: var(--sp-voice-quiet-measure, 22ch);
+  color: rgb(var(--sp-type-ink));
+}
+
+.sp-supplement .sp-faq__subheading {
+  margin-top: clamp(0.75rem, 1vw, 0.95rem);
+  max-width: min(100%, 42ch);
 }
 
 .sp-supplement .sp-faq__list {
@@ -193,68 +212,135 @@
 }
 
 .sp-supplement .sp-faq__item {
-  background: transparent !important;
-  border-radius: 0 !important;
+  background: transparent;
+  border-radius: 0;
   border-inline: none;
   border-top: none;
   box-shadow: none;
-  border-bottom-color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.07);
+  border-bottom: 0.1rem solid var(--sp-faq-rule);
 }
 
 .sp-supplement .sp-faq__item.is-open {
-  border-color: rgba(var(--color-foreground), 0.22);
+  border-bottom-color: var(--sp-faq-rule);
 }
 
 .sp-supplement .sp-faq__trigger {
   border-radius: 0;
-  min-height: auto;
-  padding: 1.05rem 0;
+  min-height: 3.35rem;
+  padding: var(--sp-faq-item-padding-y) 0;
+  gap: clamp(1.15rem, 1.6vw, 1.45rem);
+  transition: color var(--sp-faq-transition);
 }
 
 .sp-supplement .sp-faq__item.is-open .sp-faq__trigger {
-  padding-bottom: 0.55rem;
+  padding-bottom: clamp(0.45rem, 0.65vw, 0.55rem);
+}
+
+.sp-supplement .sp-faq__question {
+  font-family: var(--sp-font-heading, var(--font-heading-family));
+  font-size: clamp(1.42rem, 1.28vw, 1.58rem);
+  font-weight: 600;
+  line-height: 1.28;
+  letter-spacing: -0.012em;
+  color: rgba(var(--sp-type-ink), 0.92);
+  transition: color var(--sp-faq-transition);
+}
+
+.sp-supplement .sp-faq__item.is-open .sp-faq__question {
+  color: rgb(var(--sp-type-ink));
 }
 
 .sp-supplement .sp-faq__icon {
-  color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.42);
-  opacity: 0.85;
+  width: var(--sp-faq-icon-size);
+  height: var(--sp-faq-icon-size);
+  color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.38);
+  opacity: 0.9;
+  transition:
+    color var(--sp-faq-transition),
+    opacity var(--sp-faq-transition),
+    transform var(--sp-faq-transition);
+}
+
+.sp-supplement .sp-faq__icon svg {
+  stroke-width: 1.5;
+}
+
+.sp-supplement .sp-faq__item.is-open .sp-faq__icon {
+  color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.48);
+  opacity: 1;
+}
+
+.sp-supplement .sp-faq__panel {
+  transition: grid-template-rows var(--sp-faq-transition);
+}
+
+.sp-supplement .sp-faq__icon-line--vertical {
+  transition:
+    transform var(--sp-faq-transition),
+    opacity var(--sp-faq-transition);
+}
+
+.sp-supplement .sp-faq__answer {
+  padding: 0 0 var(--sp-faq-answer-pad-bottom);
+  max-width: min(100%, 52ch);
+}
+
+.sp-supplement .sp-faq__answer,
+.sp-supplement .sp-faq__answer p {
+  font-size: clamp(1.32rem, 1.12vw, 1.48rem);
+  font-weight: var(--sp-type-w-body);
+  line-height: 1.62;
+  letter-spacing: 0.003em;
+  color: rgba(var(--sp-type-body-ink), 0.82);
+}
+
+@media (hover: hover) {
+  .sp-supplement .sp-faq__trigger:hover {
+    background: transparent;
+  }
+
+  .sp-supplement .sp-faq__item.is-open .sp-faq__trigger:hover {
+    background: transparent;
+  }
+
+  .sp-supplement .sp-faq__trigger:hover .sp-faq__question {
+    color: rgb(var(--sp-type-ink));
+  }
+
+  .sp-supplement .sp-faq__trigger:hover .sp-faq__icon {
+    color: rgba(var(--sp-supplement-green-deep, var(--color-foreground)), 0.52);
+    opacity: 1;
+  }
 }
 
 .sp-supplement .shopify-section:has(.sp-faq) + .shopify-section:has(.sp-cta-offer--future-self) {
   margin-top: 0;
 }
 
-/* Typography — wins over editorial narrative answer colour (source-order) */
-.sp-supplement .sp-faq__heading {
-  font-size: clamp(1.55rem, 1.8vw, 1.85rem);
-  font-weight: 600;
-  letter-spacing: -0.015em;
-  line-height: 1.2;
-  color: rgba(var(--sp-type-ink), 0.88);
-}
-
-.sp-supplement .sp-faq__question {
-  font-size: var(--sp-type-ui);
-  font-weight: 500;
-  line-height: var(--sp-type-lh-ui);
-  letter-spacing: var(--sp-type-track-title);
-  color: rgba(var(--sp-type-ink), 0.82);
-}
-
-.sp-supplement .sp-faq__answer,
-.sp-supplement .sp-faq__answer p {
-  font-size: var(--sp-type-body-sm);
-  font-weight: var(--sp-type-w-body);
-  line-height: var(--sp-type-lh-body);
-  color: rgba(var(--sp-type-body-ink), var(--sp-type-muted-opacity));
-}
-
 @media screen and (max-width: 749px) {
+  .sp-supplement .sp-faq {
+    --sp-faq-gap-lg: clamp(1.45rem, 4vw, 1.75rem);
+    --sp-faq-item-padding-y: clamp(1.05rem, 3.2vw, 1.2rem);
+  }
+
   .sp-supplement .sp-faq__heading {
+    font-size: var(--sp-voice-quiet-size-mobile, clamp(1.45rem, 4.8vw, 1.65rem));
     max-width: none;
   }
 
+  .sp-supplement .sp-faq__question {
+    font-size: clamp(1.38rem, 4.2vw, 1.5rem);
+    line-height: 1.32;
+  }
+
+  .sp-supplement .sp-faq__answer,
+  .sp-supplement .sp-faq__answer p {
+    font-size: clamp(1.28rem, 3.8vw, 1.4rem);
+    line-height: 1.6;
+  }
+
   .sp-supplement .sp-faq__trigger {
-    padding: 0.95rem 0;
+    min-height: 3.5rem;
+    padding: var(--sp-faq-item-padding-y) 0;
   }
 }

@@ -282,6 +282,7 @@ be understandable years later
 | ADR-007 | Accepted | Hero Ownership Simplification |
 | ADR-008 | Accepted | Editorial System Decomposition |
 | ADR-009 | Accepted | Dedicated Flagship Chapter Extraction |
+| ADR-010 | Accepted | Supplement Editorial Typography Activation |
 
 ---
 
@@ -668,6 +669,154 @@ Negative
 Keep Community Confidence as `sp-metrics` with `presentation: editorial_story` and improved preset labeling.
 
 Rejected — continued dual ownership and presentation branching.
+
+---
+
+---
+
+# ADR-010
+
+## Title
+
+Supplement Editorial Typography Activation
+
+### Decision Status
+
+Accepted
+
+### Implementation Status
+
+Complete
+
+### Context
+
+During the Formulation Philosophy Phase 1 implementation, multiple flagship chapters consistently failed to reproduce the approved editorial mockups despite correct chapter-level typography implementation.
+
+Investigation showed that every Supplement chapter correctly consumed the shared typography token:
+
+```
+--sp-font-heading
+```
+
+However, the token ultimately resolved to Shopify's default heading font (`Assistant`) because the Supplement editorial serif heading voice was never activated.
+
+The typography issue therefore originated at the platform architecture level rather than within individual chapters.
+
+Further investigation revealed that the existing experimental typography variants coupled heading and body typography together:
+
+- Variant B → Fraunces headings + Inter body
+- Variant C → Cormorant Garamond headings + Inter body
+
+This coupling prevented activation because heading typography and body typography are independent editorial decisions.
+
+### Decision
+
+Supplement heading typography is activated independently from body and UI typography.
+
+The canonical Supplement typography architecture is:
+
+| Role | Typography |
+|------|------------|
+| Editorial display headings | Fraunces |
+| Chapter headings | Fraunces |
+| Body typography | Assistant |
+| Merchant UI | Assistant |
+| Navigation | Assistant |
+| Buttons | Assistant |
+
+Heading activation occurs exclusively through the existing Pack Registry → HTML class → Supplement typography token architecture.
+
+The production activation class is:
+
+```
+sp-font-heading-fraunces
+```
+
+The activation modifies only:
+
+```
+--sp-font-heading
+```
+
+It must not modify:
+
+- `--sp-font-body`
+- button typography
+- navigation typography
+- merchant UI typography
+- chapter-local typography ownership
+
+Chapter CSS may consume typography tokens but must never own the editorial heading font family.
+
+### Consequences
+
+Positive
+
+- Platform typography now aligns with the approved editorial design language.
+- All Supplement chapters inherit the correct editorial heading voice automatically.
+- Heading typography and body typography become independently controllable.
+- Typography ownership remains centralized.
+- Existing chapter implementations require no local heading-family overrides.
+
+Negative
+
+- Serif heading metrics change the optical proportions of several flagship chapters.
+- Individual chapters may require small composition refinements after activation.
+- Existing experimental typography variants remain available but are no longer the recommended production activation path.
+
+### Alternatives Considered
+
+#### Activate existing Variant B
+
+Rejected.
+
+Although Variant B correctly activates Fraunces headings, it also replaces the established Assistant body/UI typography with Inter.
+
+Heading typography and body typography are independent editorial concerns and should not be coupled.
+
+#### Activate existing Variant C
+
+Rejected.
+
+Cormorant Garamond produced a more classical luxury aesthetic that did not match the approved Supplement editorial language as closely as Fraunces.
+
+#### Override heading fonts within individual chapters
+
+Rejected.
+
+This would violate the PulseOps ownership model by introducing chapter-level typography ownership and duplicate font-family definitions.
+
+Typography activation belongs to the platform typography system rather than individual chapter CSS.
+
+### Related Documents
+
+- PulseOps Design System
+- Typography Language Foundation
+- CSS Ownership Matrix
+- PulseOps Architecture
+- Formulation Philosophy Implementation Specification
+- Formulation Philosophy Implementation Brief
+
+### Related Commits
+
+Freeze supplement editorial typography activation
+
+### Related Tags
+
+pulseops-supplement-typography-v1
+
+### Notes
+
+This decision introduced an important production principle:
+
+Platform typography must be validated before chapter-level typography refinement begins.
+
+Future typography validation must verify both:
+
+- typography token ownership
+- final computed font family
+
+Token validation alone is insufficient because correctly wired typography tokens may still resolve to an unintended visual language.
 
 ---
 

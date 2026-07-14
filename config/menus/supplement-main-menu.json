@@ -2,9 +2,9 @@
   "handle": "main-menu",
   "title": "Main menu",
   "items": [
-    { "title": "Benefits", "url": "#sp-ingredients" },
+    { "title": "Benefits", "url": "#sp-outcomes" },
     { "title": "Ingredients", "url": "#sp-ingredients" },
-    { "title": "Science", "url": "#sp-science" },
+    { "title": "Science", "url": "#sp-quality" },
     { "title": "Reviews", "url": "#sp-reviews" },
     { "title": "FAQ", "url": "#sp-faq" }
   ]

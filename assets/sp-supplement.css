@@ -525,37 +525,7 @@ html.sp-supplement.sp-motion-active [data-sp-reveal]:not(.is-revealed):not(.sp-r
   border-radius: var(--sp-supplement-radius-pill);
 }
 
-/* Footer */
-.sp-supplement .footer {
-  background: rgb(var(--sp-supplement-cream));
-  border-top: 0.1rem solid rgba(var(--sp-supplement-green), 0.12);
-}
-
-.sp-supplement .footer__list-social,
-.sp-supplement .footer .list-social {
-  display: none !important;
-}
-
-.sp-supplement .footer .newsletter-form__field-wrapper .field__input {
-  border-radius: var(--sp-supplement-radius-sm);
-}
-
-.sp-supplement .footer .newsletter-form__button {
-  border-radius: var(--sp-supplement-radius-sm);
-}
-
-.sp-supplement .footer__copyright a {
-  font-size: 0;
-  line-height: 0;
-  color: transparent;
-}
-
-.sp-supplement .footer__copyright a::after {
-  content: 'Daily Vitality';
-  font-size: 1.2rem;
-  line-height: 1.5;
-  color: rgba(var(--color-foreground), 0.75);
-}
+/* Footer presentation → assets/sp-footer.css (AC-10) */
 
 /* Collapse hidden feature media so neutral preset does not reserve blank blocks */
 .sp-supplement .sp-features__media,

@@ -1,12 +1,27 @@
 /**
  * Smooth-scroll anchor navigation for single-product / vertical storefronts.
- * Supplement homepage: Benefits formerly targeted #sp-benefits; resolves to
- * #sp-ingredients when that section is absent (ingredients spotlight chapter).
+ * Supplement homepage chapter anchors: Editorial Outcomes (#sp-outcomes),
+ * Scientific Confidence (#sp-quality). Legacy hashes (#sp-benefits, #sp-science)
+ * resolve to those canonical targets.
  */
 (function () {
-  const ANCHOR_IDS = ['sp-benefits', 'sp-ingredients', 'sp-science', 'sp-reviews', 'sp-faq', 'sp-cta'];
+  const ANCHOR_IDS = [
+    'sp-outcomes',
+    'sp-benefits',
+    'sp-ingredients',
+    'sp-quality',
+    'sp-science',
+    'sp-reviews',
+    'sp-faq',
+    'sp-cta',
+  ];
   const ANCHOR_ALIASES = {
-    'sp-benefits': 'sp-ingredients',
+    'sp-benefits': 'sp-outcomes',
+    'sp-science': 'sp-quality',
+  };
+  const LINK_HANDLE_TARGETS = {
+    benefits: 'sp-outcomes',
+    science: 'sp-quality',
   };
   const HEADER_OFFSET = 96;
 
@@ -21,10 +36,12 @@
 
   function ensureAnchorIds() {
     const classMap = {
+      '.sp-editorial-outcomes': 'sp-outcomes',
       '.sp-benefits': 'sp-benefits',
       '.sp-ingredients-spotlight': 'sp-ingredients',
       '.sp-editorial-differentiation': 'sp-differentiation',
       '.sp-features': 'sp-ingredients',
+      '.sp-quality-standards--scientific-confidence': 'sp-quality',
       '.sp-scientific-proof': 'sp-science',
       '.sp-social-proof': 'sp-reviews',
       '.sp-faq': 'sp-faq',
@@ -50,6 +67,21 @@
     return target;
   }
 
+  function resolveNavLink(link) {
+    const handle = (link.id || '').replace(/^(HeaderMenu-|HeaderDrawer-)/i, '').toLowerCase();
+    const handleTarget = LINK_HANDLE_TARGETS[handle];
+    if (handleTarget) {
+      const byHandle = document.getElementById(handleTarget);
+      if (byHandle) return byHandle;
+    }
+    const title = link.textContent?.trim().toLowerCase();
+    if (title && LINK_HANDLE_TARGETS[title]) {
+      const byTitle = document.getElementById(LINK_HANDLE_TARGETS[title]);
+      if (byTitle) return byTitle;
+    }
+    return resolveTarget(normalizeHref(link.getAttribute('href')));
+  }
+
   function scrollToTarget(target) {
     if (!target) return;
     const top = target.getBoundingClientRect().top + window.scrollY - getHeaderOffset();
@@ -68,7 +100,7 @@
 
   function findNavLinks() {
     return [
-      ...document.querySelectorAll('.header__menu a, .header__inline-menu a'),
+      ...document.querySelectorAll('.header__menu a, .header__inline-menu a, .menu-drawer__menu a'),
       ...document.querySelectorAll('.footer-block__details-content a[href^="#"]'),
     ];
   }
@@ -108,15 +140,16 @@
   }
 
   function onLinkClick(event) {
-    const hash = normalizeHref(event.currentTarget.getAttribute('href'));
-    if (!hash) return;
-    const target = resolveTarget(hash);
+    const link = event.currentTarget;
+    const target = resolveNavLink(link);
     if (!target) return;
     event.preventDefault();
     scrollToTarget(target);
     const resolvedHash = `#${target.id}`;
     setActiveNav(resolvedHash);
     history.replaceState(null, '', `${window.location.pathname}${window.location.search}${resolvedHash}`);
+    link.closest('details.menu-drawer-container')?.removeAttribute('open');
+    link.closest('#Details-menu-drawer-container')?.removeAttribute('open');
   }
 
   function init() {

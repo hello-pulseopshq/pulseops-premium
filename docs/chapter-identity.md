@@ -4,6 +4,8 @@ Narrative blueprint for the supplement homepage as an **editorial conversation**
 
 **Architecture status:** **LOCKED** — see [`PULSEOPS-ARCHITECTURE-v1.md`](PULSEOPS-ARCHITECTURE-v1.md) (tag `pulseops-architecture-v1`)
 
+**Homepage status:** **✅ Frozen** — see [`.audit/homepage-freeze/HOMEPAGE-FREEZE-CERTIFICATION-v1.md`](../.audit/homepage-freeze/HOMEPAGE-FREEZE-CERTIFICATION-v1.md) (tag `pulseops-homepage-v1`, pending approval)
+
 **System authority:** Start with [`pulseops-design-system.md`](pulseops-design-system.md) for the PulseOps language stack and ownership hierarchy.
 
 **Checkpoint:** `supplement-editorial-foundation-v1`  
