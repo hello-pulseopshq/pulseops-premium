@@ -1,0 +1,3121 @@
+{
+  "capturedAt": "2026-07-15T05:45:23.056Z",
+  "url": "http://127.0.0.1:9292/products/daily-vitality-complex?view=supplement",
+  "results": [
+    {
+      "name": "desktop-1440",
+      "width": 1440,
+      "height": 900,
+      "status": 200,
+      "consoleMessages": [
+        {
+          "type": "info",
+          "text": "[HotReload] Connected"
+        },
+        {
+          "type": "debug",
+          "text": "[HotReload] Event: {type: open, pid: 4996, themeId: 183028121915, version: 1}"
+        },
+        {
+          "type": "debug",
+          "text": "[HotReload] Event: {type: open, pid: 4996, themeId: 183028121915, version: 1}"
+        },
+        {
+          "type": "debug",
+          "text": "[HotReload] Event: {type: open, pid: 4996, themeId: 183028121915, version: 1}"
+        },
+        {
+          "type": "debug",
+          "text": "[HotReload] Event: {type: open, pid: 4996, themeId: 183028121915, version: 1}"
+        }
+      ],
+      "failedRequests": [
+        {
+          "url": "http://127.0.0.1:9292/api/collect",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:9292/web-pixels@943c7e9aw46caa9eep9e3adfb2m67d60423/custom/web-pixel-shopify-custom-pixel@0501/sandbox/modern/products/daily-vitality-complex?view=supplement",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://monorail-edge.shopifysvc.com/v1/produce",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://monorail-edge.shopifysvc.com/v1/produce",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://monorail-edge.shopifysvc.com/v1/produce",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://monorail-edge.shopifysvc.com/v1/produce",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://monorail-edge.shopifysvc.com/v1/produce",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://monorail-edge.shopifysvc.com/v1/produce",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:9292/api/event/collect",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:9292/api/event/collect",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://error-analytics-sessions-production.shopifysvc.com/observeonly",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:9292/api/collect",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://shop.app/pay/hop?analytics_trace_id=fb6a2c6e-ea97-48a3-bfb0-86f442270d12&target_origin=http%3A%2F%2F127.0.0.1%3A9292&client_handle=pulseops-labs.myshopify.com",
+          "error": "net::ERR_CONNECTION_TIMED_OUT"
+        },
+        {
+          "url": "http://127.0.0.1:9292/api/collect",
+          "error": "net::ERR_ABORTED"
+        }
+      ],
+      "snapshot": {
+        "title": "Daily Vitality Complex | Daily Vitality",
+        "bodyClass": "gradient animate--hover-default",
+        "htmlClass": "sp-vertical-visual-neutral sp-supplement sp-font-heading-fraunces js sp-motion-active sp-image-ready",
+        "pageHeight": 8415,
+        "mainText": "Skip to product information Open media 1 in modal Play video Open media 3 in modal Open media 4 in modal Play video Open media 6 in modal Play video Open media 8 in modal Open media 9 in modal Open media 10 in modal Open media 11 in modal Open media 12 in modal DAILY VITALITY Daily Vitality Complex Regular price $79.95 USD Sale price $49.95 USDSale Quantity Quantity Decrease quantity for Daily Vitality Complex Increase quantity for Daily Vitality Complex Add to cart Buy it now Daily Vitality Complex is a premium daily wellness formula designed to support energy, focus, recovery, and digestive health. Formulated with clinically studied ingredients and manufactured in GMP-certified facilities, Daily Vitality helps you build consistent healthy habits that support long-term wellbeing. Benefits: • Supports daily energy and focus • Promotes digestive and gut health • Helps maintain healthy recovery and resilience • Easy once-daily routine • Non-GMO and third-party tested Backed by 35,000+ customers and a 30-day money-back guarantee. 30-day guarantee Full refund if you are not completely satisfied. Free shipping Ships within 24 hours · arrives in 3–5 business days. Secure checkout 256-bit SSL encryption on every order. Why customers choose Daily Vitality Clean ingredients, transparent dosing, and a routine you can actually stick to. Science-backed formula Clinically studied adaptogens, B-vitamins, and probiotics in transparent doses. Ships within 24 hours Fresh batches fulfilled from our GMP-certified partner facility. 30-day satisfaction guarantee Try it for a full month. Not for you? Full refund, no hassle. 4.9★ customer approved Trusted by 35k+ customers and backed by 8.4k+ verified reviews. Key ingredients & daily support Two capsules each morning — built for energy, gut health, and recovery without the crash. Clean daily energy B-vitamin complex and rhodiola help support focus and stamina through your busiest days. No jitters or late-day slump Supports natural energy metabolism Pairs well with morning coffee or tea Gut + immune support 5B CFU probiotics plus prebiotic fiber to support digestion and nutrient absorption. Gentle on sensitive stomachs No artificial fillers or dyes Third-party tested every batch Recovery support Magnesium glycinate and L-theanine support calm focus, sleep quality, and daily recovery. Helps you wind down at night Supports stress resilience Easy once-daily routine Backed by quality standards Every bottle is manufactured under strict quality controls you can trust. 92% Of participants reported improved daily energy in an 8-week consumer study. INDEPENDENT CONSUMER STUDY GMP CERTIFIED Produced in a GMP-certified facility with batch-level testing. MANUFACTURING CERTIFICATION THIRD-PARTY TESTED Every batch tested for purity, potency, and heavy metals. INDEPENDENT LABORATORY 8.4k+ verified reviews · 4.9★ average Real feedback from customers who made Daily Vitality part of their morning routine. I finally have steady afternoon energy without extra coffee or jitters. S Sarah M. Verified Customer Austin, TX Gentle on my stomach and easy to stay consistent — digestion feels more balanced. J James T. Verified Customer Portland, OR Part of my morning routine now. Better recovery days and calmer evenings. E Emily R. Verified Customer Chicago, IL Questions before you start? Dosage, timing, daily use, and our 30-day guarantee explained. How do I take Daily Vitality? Take two capsules each morning with food and water. Consistency matters more than timing perfection. When should I take it? Morning with breakfast is ideal. If you prefer, take it with your first meal of the day. Is it suitable for daily use? Yes. Daily Vitality Complex is formulated for everyday use as part of a long-term wellness routine. Does it contain caffeine? No added caffeine. The formula supports natural energy metabolism without stimulant jitters. What if it doesn't work for me? Every order is covered by our 30-day money-back guarantee. Contact support for a full refund. What is the return policy? Try it for 30 days. If you are not satisfied, we will refund your order — no hassle. MOST POPULAR PLAN Ready to upgrade your daily routine? Join 35k+ customers who start their mornings with Daily Vitality Complex. $49.95 · Free shipping included Start your daily routine 30-day money-back guarantee",
+        "headings": [
+          {
+            "level": "H2",
+            "text": "",
+            "visible": true
+          },
+          {
+            "level": "H2",
+            "text": "Your cart",
+            "visible": false
+          },
+          {
+            "level": "H2",
+            "text": "Estimated total",
+            "visible": false
+          },
+          {
+            "level": "H2",
+            "text": "Country/region",
+            "visible": false
+          },
+          {
+            "level": "H2",
+            "text": "Country/region",
+            "visible": true
+          },
+          {
+            "level": "H1",
+            "text": "Daily Vitality Complex",
+            "visible": true
+          },
+          {
+            "level": "H2",
+            "text": "Daily Vitality Complex",
+            "visible": false
+          },
+          {
+            "level": "H3",
+            "text": "30-day guarantee",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "Free shipping",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "Secure checkout",
+            "visible": true
+          },
+          {
+            "level": "H2",
+            "text": "Why customers choose Daily Vitality",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "Science-backed formula",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "Ships within 24 hours",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "30-day satisfaction guarantee",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "4.9★ customer approved",
+            "visible": true
+          },
+          {
+            "level": "H2",
+            "text": "Key ingredients & daily support",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "Clean daily energy",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "Gut + immune support",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "Recovery support",
+            "visible": true
+          },
+          {
+            "level": "H2",
+            "text": "Backed by quality standards",
+            "visible": true
+          },
+          {
+            "level": "H2",
+            "text": "8.4k+ verified reviews · 4.9★ average",
+            "visible": true
+          },
+          {
+            "level": "H2",
+            "text": "Questions before you start?",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "How do I take Daily Vitality?",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "When should I take it?",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "Is it suitable for daily use?",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "Does it contain caffeine?",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "What if it doesn't work for me?",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "What is the return policy?",
+            "visible": true
+          },
+          {
+            "level": "H2",
+            "text": "Ready to upgrade your daily routine?",
+            "visible": true
+          },
+          {
+            "level": "H2",
+            "text": "NAVIGATE",
+            "visible": true
+          },
+          {
+            "level": "H2",
+            "text": "DAILY VITALITY",
+            "visible": true
+          }
+        ],
+        "forms": [
+          {
+            "id": "ref: <Node>",
+            "visible": true,
+            "controls": [
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "form_type",
+                "value": "product",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "utf8",
+                "value": "✓",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "id",
+                "value": "51361461043515",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "product-id",
+                "value": "10435879928123",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "section-id",
+                "value": "template--25946733969723__main",
+                "disabled": false,
+                "label": []
+              }
+            ]
+          },
+          {
+            "id": "ref: <Node>",
+            "visible": true,
+            "controls": [
+              {
+                "tag": "INPUT",
+                "type": "number",
+                "name": "quantity",
+                "value": "1",
+                "disabled": false,
+                "label": [
+                  "Quantity"
+                ]
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "form_type",
+                "value": "product",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "utf8",
+                "value": "✓",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "id",
+                "value": "51361461043515",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "BUTTON",
+                "type": "submit",
+                "name": "add",
+                "value": "",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "BUTTON",
+                "type": "button",
+                "name": "",
+                "value": "",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "product-id",
+                "value": "10435879928123",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "section-id",
+                "value": "template--25946733969723__main",
+                "disabled": false,
+                "label": []
+              }
+            ]
+          },
+          {
+            "id": "ref: <Node>",
+            "visible": true,
+            "controls": [
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "form_type",
+                "value": "product",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "utf8",
+                "value": "✓",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "id",
+                "value": "51361461043515",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "BUTTON",
+                "type": "submit",
+                "name": "add",
+                "value": "",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "product-id",
+                "value": "10435879928123",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "section-id",
+                "value": "template--25946733969723__sp-sticky-atc",
+                "disabled": false,
+                "label": []
+              }
+            ]
+          }
+        ],
+        "images": [
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/daily-vitality-product-front.png?v=1781856519&width=1100",
+            "alt": "",
+            "width": 715,
+            "height": 715,
+            "loading": "eager",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/preview_images/559524515e674bd8981653f8e234c186.thumbnail.0000000000.jpg?v=1781856639&width=823",
+            "alt": "",
+            "width": 715,
+            "height": 715,
+            "loading": "lazy",
+            "visible": false
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/preview_images/559524515e674bd8981653f8e234c186.thumbnail.0000000000.jpg?v=1781856639&width=823",
+            "alt": "",
+            "width": 715,
+            "height": 715,
+            "loading": "lazy",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/daily-vitality-product-angle.png?v=1781856519&width=1100",
+            "alt": "",
+            "width": 715,
+            "height": 715,
+            "loading": "lazy",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/daily-vitality-capsule-macro.png?v=1781856541&width=1100",
+            "alt": "",
+            "width": 715,
+            "height": 572,
+            "loading": "lazy",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/preview_images/084a52a4b07c4d4194399610f7372a59.thumbnail.0000000000.jpg?v=1781856639&width=823",
+            "alt": "",
+            "width": 715,
+            "height": 572,
+            "loading": "lazy",
+            "visible": false
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/preview_images/084a52a4b07c4d4194399610f7372a59.thumbnail.0000000000.jpg?v=1781856639&width=823",
+            "alt": "",
+            "width": 715,
+            "height": 572,
+            "loading": "lazy",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/daily-vitality-ingredients.png?v=1781856541&width=823",
+            "alt": "",
+            "width": 715,
+            "height": 572,
+            "loading": "lazy",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/preview_images/e4f8bd34b66248b097588f3e1d6f4713.thumbnail.0000000000.jpg?v=1781856639&width=823",
+            "alt": "",
+            "width": 715,
+            "height": 572,
+            "loading": "lazy",
+            "visible": false
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/preview_images/e4f8bd34b66248b097588f3e1d6f4713.thumbnail.0000000000.jpg?v=1781856639&width=823",
+            "alt": "",
+            "width": 715,
+            "height": 572,
+            "loading": "lazy",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/daily-vitality-capsules.png?v=1781856541&width=823",
+            "alt": "",
+            "width": 715,
+            "height": 572,
+            "loading": "lazy",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/daily-vitality-morning-routine.png?v=1781868445&width=823",
+            "alt": "",
+            "width": 715,
+            "height": 476,
+            "loading": "lazy",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/daily-vitality-lab-quality.png?v=1781868430&width=823",
+            "alt": "",
+            "width": 715,
+            "height": 381,
+            "loading": "lazy",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/daily-vitality-countertop.png?v=1781868431&width=823",
+            "alt": "",
+            "width": 715,
+            "height": 572,
+            "loading": "lazy",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/daily-vitality-product-in-hand.png?v=1781868430&width=1946",
+            "alt": "",
+            "width": 0,
+            "height": 0,
+            "loading": "lazy",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/daily-vitality-product-front.png?v=1781856519&width=88",
+            "alt": "Daily Vitality Complex",
+            "width": 88,
+            "height": 88,
+            "loading": "lazy",
+            "visible": true
+          }
+        ],
+        "details": [],
+        "focusables": [
+          {
+            "tag": "A",
+            "text": "Skip to content",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "DIV",
+            "text": "",
+            "aria": "Your cart",
+            "tabindex": "-1"
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "aria": "Close",
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "4.9★ rated · 8.4k+ reviews · 30-day guarantee",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Daily Vitality",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Benefits",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Ingredients",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Science",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Reviews",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "FAQ",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "United States | USD $",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "SUMMARY",
+            "text": "",
+            "aria": "Search",
+            "tabindex": null
+          },
+          {
+            "tag": "DIV",
+            "text": "",
+            "aria": null,
+            "tabindex": "-1"
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "aria": "Search",
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "aria": "Close",
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Cart",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "MAIN",
+            "text": "Skip to product information Open media 1 in modal Play video Open media 3 in modal Open media 4 in m",
+            "aria": null,
+            "tabindex": "-1"
+          },
+          {
+            "tag": "A",
+            "text": "Skip to product information",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open media 1 in modal",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Play video",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open media 3 in modal",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open media 4 in modal",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Play video",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open media 6 in modal",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Play video",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open media 8 in modal",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open media 9 in modal",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open media 10 in modal",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open media 11 in modal",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open media 12 in modal",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Decrease quantity for Daily Vitality Complex",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Increase quantity for Daily Vitality Complex",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Add to cart",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Buy it now",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "How do I take Daily Vitality?",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "When should I take it?",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Is it suitable for daily use?",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Does it contain caffeine?",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "What if it doesn't work for me?",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "What is the return policy?",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "aria": "Add to cart: Daily Vitality Complex",
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Benefits",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Ingredients",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Science",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Reviews",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "FAQ",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Contact",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Shipping & Returns",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Daily Vitality",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Powered by Shopify",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Privacy policy",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "DIV",
+            "text": "",
+            "aria": "Media gallery",
+            "tabindex": "-1"
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "aria": "Close",
+            "tabindex": null
+          },
+          {
+            "tag": "DIV",
+            "text": "",
+            "aria": "Media gallery",
+            "tabindex": "0"
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "DIV",
+            "text": "",
+            "aria": null,
+            "tabindex": "-1"
+          },
+          {
+            "tag": "IFRAME",
+            "text": "",
+            "aria": null,
+            "tabindex": "-1"
+          }
+        ],
+        "productRegion": "MainProduct-template--25946733969723__main",
+        "sections": [
+          {
+            "id": "shopify-section-template--25946733969723__main",
+            "className": "shopify-section section",
+            "text": "Skip to product information Open media 1 in modal Play video Open media 3 in modal Open media 4 in modal Play video Open media 6 in modal Play video Open media 8 in modal Open medi"
+          },
+          {
+            "id": "shopify-section-template--25946733969723__sp-trust-icons",
+            "className": "shopify-section section",
+            "text": "30-day guarantee Full refund if you are not completely satisfied. Free shipping Ships within 24 hours · arrives in 3–5 business days. Secure checkout 256-bit SSL encryption on ever"
+          },
+          {
+            "id": "sp-benefits",
+            "className": "shopify-section section",
+            "text": "Why customers choose Daily Vitality Clean ingredients, transparent dosing, and a routine you can actually stick to. Science-backed formula Clinically studied adaptogens, B-vitamins"
+          },
+          {
+            "id": "sp-ingredients",
+            "className": "shopify-section section",
+            "text": "Key ingredients & daily support Two capsules each morning — built for energy, gut health, and recovery without the crash. Clean daily energy B-vitamin complex and rhodiola help sup"
+          },
+          {
+            "id": "sp-science",
+            "className": "shopify-section section",
+            "text": "Backed by quality standards Every bottle is manufactured under strict quality controls you can trust. 92% Of participants reported improved daily energy in an 8-week consumer study"
+          },
+          {
+            "id": "sp-reviews",
+            "className": "shopify-section section",
+            "text": "8.4k+ verified reviews · 4.9★ average Real feedback from customers who made Daily Vitality part of their morning routine. I finally have steady afternoon energy without extra coffe"
+          },
+          {
+            "id": "sp-faq",
+            "className": "shopify-section section",
+            "text": "Questions before you start? Dosage, timing, daily use, and our 30-day guarantee explained. How do I take Daily Vitality? Take two capsules each morning with food and water. Consist"
+          },
+          {
+            "id": "sp-cta",
+            "className": "shopify-section section",
+            "text": "MOST POPULAR PLAN Ready to upgrade your daily routine? Join 35k+ customers who start their mornings with Daily Vitality Complex. $49.95 · Free shipping included Start your daily ro"
+          },
+          {
+            "id": "shopify-section-template--25946733969723__sp-sticky-atc",
+            "className": "shopify-section section section-sp-sticky-atc",
+            "text": ""
+          }
+        ],
+        "gallery": [
+          {
+            "id": "MediaGallery-template--25946733969723__main",
+            "visible": true,
+            "text": "Skip to product information Open media 1 in modal Play video Open media 3 in modal Open media 4 in modal Play video Open media 6 in modal Play video Open media 8 in modal Open media 9 in modal Open media 10 in modal Open media 11 in modal Open media 12 in modal"
+          }
+        ],
+        "sticky": [
+          {
+            "id": "sp-sticky-atc-template--25946733969723__sp-sticky-atc",
+            "className": "sp-sticky-atc sp-sticky-atc-template--25946733969723__sp-sticky-atc sp-sticky-atc--blur sp-surface--default color-scheme-1 gradient\n",
+            "visible": true,
+            "text": ""
+          }
+        ],
+        "dynamicCheckoutVisible": true,
+        "variantPickerVisible": false,
+        "quantityVisible": true,
+        "statusRegions": [
+          {
+            "role": "status",
+            "live": "polite",
+            "text": "",
+            "hidden": false
+          },
+          {
+            "role": "alert",
+            "live": null,
+            "text": "",
+            "hidden": false
+          },
+          {
+            "role": null,
+            "live": "polite",
+            "text": "",
+            "hidden": false
+          },
+          {
+            "role": null,
+            "live": "polite",
+            "text": "",
+            "hidden": false
+          },
+          {
+            "role": "alert",
+            "live": null,
+            "text": "",
+            "hidden": true
+          },
+          {
+            "role": "status",
+            "live": "polite",
+            "text": "",
+            "hidden": false
+          },
+          {
+            "role": "alert",
+            "live": null,
+            "text": "",
+            "hidden": true
+          },
+          {
+            "role": null,
+            "live": "polite",
+            "text": "",
+            "hidden": false
+          }
+        ]
+      },
+      "interactions": {
+        "galleryButtonCount": 3,
+        "galleryFirstButtonLabel": null,
+        "disclosureCount": 0,
+        "quantity": {
+          "before": "1",
+          "after": "2"
+        },
+        "stickyAfterScroll": 1
+      }
+    },
+    {
+      "name": "tablet-768",
+      "width": 768,
+      "height": 900,
+      "status": 200,
+      "consoleMessages": [
+        {
+          "type": "info",
+          "text": "[HotReload] Connected"
+        },
+        {
+          "type": "debug",
+          "text": "[HotReload] Event: {type: open, pid: 4996, themeId: 183028121915, version: 1}"
+        },
+        {
+          "type": "debug",
+          "text": "[HotReload] Event: {type: open, pid: 4996, themeId: 183028121915, version: 1}"
+        },
+        {
+          "type": "debug",
+          "text": "[HotReload] Event: {type: open, pid: 4996, themeId: 183028121915, version: 1}"
+        }
+      ],
+      "failedRequests": [
+        {
+          "url": "http://127.0.0.1:9292/web-pixels@943c7e9aw46caa9eep9e3adfb2m67d60423/custom/web-pixel-shopify-custom-pixel@0501/sandbox/modern/products/daily-vitality-complex?view=supplement",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:9292/api/collect",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://monorail-edge.shopifysvc.com/v1/produce",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://monorail-edge.shopifysvc.com/v1/produce",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://monorail-edge.shopifysvc.com/v1/produce",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://monorail-edge.shopifysvc.com/v1/produce",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://monorail-edge.shopifysvc.com/v1/produce",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://monorail-edge.shopifysvc.com/v1/produce",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://error-analytics-sessions-production.shopifysvc.com/observeonly",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:9292/api/collect",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://shop.app/pay/hop?analytics_trace_id=e98be68b-1fee-471b-afef-d2a17a1ec3ab&target_origin=http%3A%2F%2F127.0.0.1%3A9292&client_handle=pulseops-labs.myshopify.com",
+          "error": "net::ERR_CONNECTION_TIMED_OUT"
+        }
+      ],
+      "snapshot": {
+        "title": "Daily Vitality Complex | Daily Vitality",
+        "bodyClass": "gradient animate--hover-default",
+        "htmlClass": "sp-vertical-visual-neutral sp-supplement sp-font-heading-fraunces js sp-motion-active sp-image-ready",
+        "pageHeight": 7771,
+        "mainText": "Skip to product information Open media 1 in modal Play video Open media 3 in modal Open media 4 in modal Play video Open media 6 in modal Play video Open media 8 in modal Open media 9 in modal Open media 10 in modal Open media 11 in modal Open media 12 in modal DAILY VITALITY Daily Vitality Complex Regular price $79.95 USD Sale price $49.95 USDSale Quantity Quantity Decrease quantity for Daily Vitality Complex Increase quantity for Daily Vitality Complex Add to cart Buy it now Daily Vitality Complex is a premium daily wellness formula designed to support energy, focus, recovery, and digestive health. Formulated with clinically studied ingredients and manufactured in GMP-certified facilities, Daily Vitality helps you build consistent healthy habits that support long-term wellbeing. Benefits: • Supports daily energy and focus • Promotes digestive and gut health • Helps maintain healthy recovery and resilience • Easy once-daily routine • Non-GMO and third-party tested Backed by 35,000+ customers and a 30-day money-back guarantee. 30-day guarantee Full refund if you are not completely satisfied. Free shipping Ships within 24 hours · arrives in 3–5 business days. Secure checkout 256-bit SSL encryption on every order. Why customers choose Daily Vitality Clean ingredients, transparent dosing, and a routine you can actually stick to. Science-backed formula Clinically studied adaptogens, B-vitamins, and probiotics in transparent doses. Ships within 24 hours Fresh batches fulfilled from our GMP-certified partner facility. 30-day satisfaction guarantee Try it for a full month. Not for you? Full refund, no hassle. 4.9★ customer approved Trusted by 35k+ customers and backed by 8.4k+ verified reviews. Key ingredients & daily support Two capsules each morning — built for energy, gut health, and recovery without the crash. Clean daily energy B-vitamin complex and rhodiola help support focus and stamina through your busiest days. No jitters or late-day slump Supports natural energy metabolism Pairs well with morning coffee or tea Gut + immune support 5B CFU probiotics plus prebiotic fiber to support digestion and nutrient absorption. Gentle on sensitive stomachs No artificial fillers or dyes Third-party tested every batch Recovery support Magnesium glycinate and L-theanine support calm focus, sleep quality, and daily recovery. Helps you wind down at night Supports stress resilience Easy once-daily routine Backed by quality standards Every bottle is manufactured under strict quality controls you can trust. 92% Of participants reported improved daily energy in an 8-week consumer study. INDEPENDENT CONSUMER STUDY GMP CERTIFIED Produced in a GMP-certified facility with batch-level testing. MANUFACTURING CERTIFICATION THIRD-PARTY TESTED Every batch tested for purity, potency, and heavy metals. INDEPENDENT LABORATORY 8.4k+ verified reviews · 4.9★ average Real feedback from customers who made Daily Vitality part of their morning routine. I finally have steady afternoon energy without extra coffee or jitters. S Sarah M. Verified Customer Austin, TX Gentle on my stomach and easy to stay consistent — digestion feels more balanced. J James T. Verified Customer Portland, OR Part of my morning routine now. Better recovery days and calmer evenings. E Emily R. Verified Customer Chicago, IL Questions before you start? Dosage, timing, daily use, and our 30-day guarantee explained. How do I take Daily Vitality? Take two capsules each morning with food and water. Consistency matters more than timing perfection. When should I take it? Morning with breakfast is ideal. If you prefer, take it with your first meal of the day. Is it suitable for daily use? Yes. Daily Vitality Complex is formulated for everyday use as part of a long-term wellness routine. Does it contain caffeine? No added caffeine. The formula supports natural energy metabolism without stimulant jitters. What if it doesn't work for me? Every order is covered by our 30-day money-back guarantee. Contact support for a full refund. What is the return policy? Try it for 30 days. If you are not satisfied, we will refund your order — no hassle. MOST POPULAR PLAN Ready to upgrade your daily routine? Join 35k+ customers who start their mornings with Daily Vitality Complex. $49.95 · Free shipping included Start your daily routine 30-day money-back guarantee",
+        "headings": [
+          {
+            "level": "H2",
+            "text": "",
+            "visible": true
+          },
+          {
+            "level": "H2",
+            "text": "Your cart",
+            "visible": false
+          },
+          {
+            "level": "H2",
+            "text": "Estimated total",
+            "visible": false
+          },
+          {
+            "level": "H2",
+            "text": "",
+            "visible": true
+          },
+          {
+            "level": "H2",
+            "text": "Country/region",
+            "visible": false
+          },
+          {
+            "level": "H1",
+            "text": "Daily Vitality Complex",
+            "visible": true
+          },
+          {
+            "level": "H2",
+            "text": "Daily Vitality Complex",
+            "visible": false
+          },
+          {
+            "level": "H3",
+            "text": "30-day guarantee",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "Free shipping",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "Secure checkout",
+            "visible": true
+          },
+          {
+            "level": "H2",
+            "text": "Why customers choose Daily Vitality",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "Science-backed formula",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "Ships within 24 hours",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "30-day satisfaction guarantee",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "4.9★ customer approved",
+            "visible": true
+          },
+          {
+            "level": "H2",
+            "text": "Key ingredients & daily support",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "Clean daily energy",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "Gut + immune support",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "Recovery support",
+            "visible": true
+          },
+          {
+            "level": "H2",
+            "text": "Backed by quality standards",
+            "visible": true
+          },
+          {
+            "level": "H2",
+            "text": "8.4k+ verified reviews · 4.9★ average",
+            "visible": true
+          },
+          {
+            "level": "H2",
+            "text": "Questions before you start?",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "How do I take Daily Vitality?",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "When should I take it?",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "Is it suitable for daily use?",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "Does it contain caffeine?",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "What if it doesn't work for me?",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "What is the return policy?",
+            "visible": true
+          },
+          {
+            "level": "H2",
+            "text": "Ready to upgrade your daily routine?",
+            "visible": true
+          },
+          {
+            "level": "H2",
+            "text": "NAVIGATE",
+            "visible": true
+          },
+          {
+            "level": "H2",
+            "text": "DAILY VITALITY",
+            "visible": true
+          }
+        ],
+        "forms": [
+          {
+            "id": "ref: <Node>",
+            "visible": true,
+            "controls": [
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "form_type",
+                "value": "product",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "utf8",
+                "value": "✓",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "id",
+                "value": "51361461043515",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "product-id",
+                "value": "10435879928123",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "section-id",
+                "value": "template--25946733969723__main",
+                "disabled": false,
+                "label": []
+              }
+            ]
+          },
+          {
+            "id": "ref: <Node>",
+            "visible": true,
+            "controls": [
+              {
+                "tag": "INPUT",
+                "type": "number",
+                "name": "quantity",
+                "value": "1",
+                "disabled": false,
+                "label": [
+                  "Quantity"
+                ]
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "form_type",
+                "value": "product",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "utf8",
+                "value": "✓",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "id",
+                "value": "51361461043515",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "BUTTON",
+                "type": "submit",
+                "name": "add",
+                "value": "",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "BUTTON",
+                "type": "button",
+                "name": "",
+                "value": "",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "product-id",
+                "value": "10435879928123",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "section-id",
+                "value": "template--25946733969723__main",
+                "disabled": false,
+                "label": []
+              }
+            ]
+          },
+          {
+            "id": "ref: <Node>",
+            "visible": true,
+            "controls": [
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "form_type",
+                "value": "product",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "utf8",
+                "value": "✓",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "id",
+                "value": "51361461043515",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "BUTTON",
+                "type": "submit",
+                "name": "add",
+                "value": "",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "product-id",
+                "value": "10435879928123",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "section-id",
+                "value": "template--25946733969723__sp-sticky-atc",
+                "disabled": false,
+                "label": []
+              }
+            ]
+          }
+        ],
+        "images": [
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/daily-vitality-product-front.png?v=1781856519&width=493",
+            "alt": "",
+            "width": 292,
+            "height": 292,
+            "loading": "eager",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/preview_images/559524515e674bd8981653f8e234c186.thumbnail.0000000000.jpg?v=1781856639&width=493",
+            "alt": "",
+            "width": 292,
+            "height": 292,
+            "loading": "lazy",
+            "visible": false
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/preview_images/559524515e674bd8981653f8e234c186.thumbnail.0000000000.jpg?v=1781856639&width=493",
+            "alt": "",
+            "width": 292,
+            "height": 292,
+            "loading": "lazy",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/daily-vitality-product-angle.png?v=1781856519&width=493",
+            "alt": "",
+            "width": 292,
+            "height": 292,
+            "loading": "lazy",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/daily-vitality-capsule-macro.png?v=1781856541&width=493",
+            "alt": "",
+            "width": 292,
+            "height": 233,
+            "loading": "lazy",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/preview_images/084a52a4b07c4d4194399610f7372a59.thumbnail.0000000000.jpg?v=1781856639&width=493",
+            "alt": "",
+            "width": 292,
+            "height": 233,
+            "loading": "lazy",
+            "visible": false
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/preview_images/084a52a4b07c4d4194399610f7372a59.thumbnail.0000000000.jpg?v=1781856639&width=493",
+            "alt": "",
+            "width": 292,
+            "height": 233,
+            "loading": "lazy",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/daily-vitality-ingredients.png?v=1781856541&width=493",
+            "alt": "",
+            "width": 292,
+            "height": 233,
+            "loading": "lazy",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/preview_images/e4f8bd34b66248b097588f3e1d6f4713.thumbnail.0000000000.jpg?v=1781856639&width=493",
+            "alt": "",
+            "width": 292,
+            "height": 233,
+            "loading": "lazy",
+            "visible": false
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/preview_images/e4f8bd34b66248b097588f3e1d6f4713.thumbnail.0000000000.jpg?v=1781856639&width=493",
+            "alt": "",
+            "width": 292,
+            "height": 233,
+            "loading": "lazy",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/daily-vitality-capsules.png?v=1781856541&width=493",
+            "alt": "",
+            "width": 292,
+            "height": 233,
+            "loading": "lazy",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/daily-vitality-morning-routine.png?v=1781868445&width=493",
+            "alt": "",
+            "width": 292,
+            "height": 194,
+            "loading": "lazy",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/daily-vitality-lab-quality.png?v=1781868430&width=493",
+            "alt": "",
+            "width": 292,
+            "height": 155,
+            "loading": "lazy",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/daily-vitality-countertop.png?v=1781868431&width=493",
+            "alt": "",
+            "width": 292,
+            "height": 233,
+            "loading": "lazy",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/daily-vitality-product-in-hand.png?v=1781868430&width=493",
+            "alt": "",
+            "width": 292,
+            "height": 233,
+            "loading": "lazy",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/daily-vitality-product-front.png?v=1781856519&width=88",
+            "alt": "Daily Vitality Complex",
+            "width": 88,
+            "height": 88,
+            "loading": "lazy",
+            "visible": true
+          }
+        ],
+        "details": [],
+        "focusables": [
+          {
+            "tag": "A",
+            "text": "Skip to content",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "DIV",
+            "text": "",
+            "aria": "Your cart",
+            "tabindex": "-1"
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "aria": "Close",
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "4.9★ rated · 8.4k+ reviews · 30-day guarantee",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "SUMMARY",
+            "text": "",
+            "aria": "Menu",
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Daily Vitality",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "SUMMARY",
+            "text": "",
+            "aria": "Search",
+            "tabindex": null
+          },
+          {
+            "tag": "DIV",
+            "text": "",
+            "aria": null,
+            "tabindex": "-1"
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "aria": "Search",
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "aria": "Close",
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Cart",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "MAIN",
+            "text": "Skip to product information Open media 1 in modal Play video Open media 3 in modal Open media 4 in m",
+            "aria": null,
+            "tabindex": "-1"
+          },
+          {
+            "tag": "A",
+            "text": "Skip to product information",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open media 1 in modal",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Play video",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open media 3 in modal",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open media 4 in modal",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Play video",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open media 6 in modal",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Play video",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open media 8 in modal",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open media 9 in modal",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open media 10 in modal",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open media 11 in modal",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open media 12 in modal",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Decrease quantity for Daily Vitality Complex",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Increase quantity for Daily Vitality Complex",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Add to cart",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Buy it now",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "How do I take Daily Vitality?",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "When should I take it?",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Is it suitable for daily use?",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Does it contain caffeine?",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "What if it doesn't work for me?",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "What is the return policy?",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "aria": "Add to cart: Daily Vitality Complex",
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Benefits",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Ingredients",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Science",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Reviews",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "FAQ",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Contact",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Shipping & Returns",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Daily Vitality",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Powered by Shopify",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Privacy policy",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "DIV",
+            "text": "",
+            "aria": "Media gallery",
+            "tabindex": "-1"
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "aria": "Close",
+            "tabindex": null
+          },
+          {
+            "tag": "DIV",
+            "text": "",
+            "aria": "Media gallery",
+            "tabindex": "0"
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "DIV",
+            "text": "",
+            "aria": null,
+            "tabindex": "-1"
+          },
+          {
+            "tag": "IFRAME",
+            "text": "",
+            "aria": null,
+            "tabindex": "-1"
+          }
+        ],
+        "productRegion": "MainProduct-template--25946733969723__main",
+        "sections": [
+          {
+            "id": "shopify-section-template--25946733969723__main",
+            "className": "shopify-section section",
+            "text": "Skip to product information Open media 1 in modal Play video Open media 3 in modal Open media 4 in modal Play video Open media 6 in modal Play video Open media 8 in modal Open medi"
+          },
+          {
+            "id": "shopify-section-template--25946733969723__sp-trust-icons",
+            "className": "shopify-section section",
+            "text": "30-day guarantee Full refund if you are not completely satisfied. Free shipping Ships within 24 hours · arrives in 3–5 business days. Secure checkout 256-bit SSL encryption on ever"
+          },
+          {
+            "id": "sp-benefits",
+            "className": "shopify-section section",
+            "text": "Why customers choose Daily Vitality Clean ingredients, transparent dosing, and a routine you can actually stick to. Science-backed formula Clinically studied adaptogens, B-vitamins"
+          },
+          {
+            "id": "sp-ingredients",
+            "className": "shopify-section section",
+            "text": "Key ingredients & daily support Two capsules each morning — built for energy, gut health, and recovery without the crash. Clean daily energy B-vitamin complex and rhodiola help sup"
+          },
+          {
+            "id": "sp-science",
+            "className": "shopify-section section",
+            "text": "Backed by quality standards Every bottle is manufactured under strict quality controls you can trust. 92% Of participants reported improved daily energy in an 8-week consumer study"
+          },
+          {
+            "id": "sp-reviews",
+            "className": "shopify-section section",
+            "text": "8.4k+ verified reviews · 4.9★ average Real feedback from customers who made Daily Vitality part of their morning routine. I finally have steady afternoon energy without extra coffe"
+          },
+          {
+            "id": "sp-faq",
+            "className": "shopify-section section",
+            "text": "Questions before you start? Dosage, timing, daily use, and our 30-day guarantee explained. How do I take Daily Vitality? Take two capsules each morning with food and water. Consist"
+          },
+          {
+            "id": "sp-cta",
+            "className": "shopify-section section",
+            "text": "MOST POPULAR PLAN Ready to upgrade your daily routine? Join 35k+ customers who start their mornings with Daily Vitality Complex. $49.95 · Free shipping included Start your daily ro"
+          },
+          {
+            "id": "shopify-section-template--25946733969723__sp-sticky-atc",
+            "className": "shopify-section section section-sp-sticky-atc",
+            "text": ""
+          }
+        ],
+        "gallery": [
+          {
+            "id": "MediaGallery-template--25946733969723__main",
+            "visible": true,
+            "text": "Skip to product information Open media 1 in modal Play video Open media 3 in modal Open media 4 in modal Play video Open media 6 in modal Play video Open media 8 in modal Open media 9 in modal Open media 10 in modal Open media 11 in modal Open media 12 in modal"
+          }
+        ],
+        "sticky": [
+          {
+            "id": "sp-sticky-atc-template--25946733969723__sp-sticky-atc",
+            "className": "sp-sticky-atc sp-sticky-atc-template--25946733969723__sp-sticky-atc sp-sticky-atc--blur sp-surface--default color-scheme-1 gradient\n",
+            "visible": true,
+            "text": ""
+          }
+        ],
+        "dynamicCheckoutVisible": true,
+        "variantPickerVisible": false,
+        "quantityVisible": true,
+        "statusRegions": [
+          {
+            "role": "status",
+            "live": "polite",
+            "text": "",
+            "hidden": false
+          },
+          {
+            "role": "alert",
+            "live": null,
+            "text": "",
+            "hidden": false
+          },
+          {
+            "role": null,
+            "live": "polite",
+            "text": "",
+            "hidden": false
+          },
+          {
+            "role": null,
+            "live": "polite",
+            "text": "",
+            "hidden": false
+          },
+          {
+            "role": "alert",
+            "live": null,
+            "text": "",
+            "hidden": true
+          },
+          {
+            "role": "status",
+            "live": "polite",
+            "text": "",
+            "hidden": false
+          },
+          {
+            "role": "alert",
+            "live": null,
+            "text": "",
+            "hidden": true
+          },
+          {
+            "role": null,
+            "live": "polite",
+            "text": "",
+            "hidden": false
+          }
+        ]
+      },
+      "interactions": {
+        "galleryButtonCount": 3,
+        "galleryFirstButtonLabel": null,
+        "disclosureCount": 0,
+        "quantity": {
+          "before": "1",
+          "after": "2"
+        },
+        "stickyAfterScroll": 1
+      }
+    },
+    {
+      "name": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "consoleMessages": [
+        {
+          "type": "info",
+          "text": "[HotReload] Connected"
+        },
+        {
+          "type": "debug",
+          "text": "[HotReload] Event: {type: open, pid: 4996, themeId: 183028121915, version: 1}"
+        },
+        {
+          "type": "debug",
+          "text": "[HotReload] Event: {type: open, pid: 4996, themeId: 183028121915, version: 1}"
+        }
+      ],
+      "failedRequests": [
+        {
+          "url": "http://127.0.0.1:9292/api/collect",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:9292/web-pixels@943c7e9aw46caa9eep9e3adfb2m67d60423/custom/web-pixel-shopify-custom-pixel@0501/sandbox/modern/products/daily-vitality-complex?view=supplement",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://monorail-edge.shopifysvc.com/v1/produce",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://error-analytics-sessions-production.shopifysvc.com/observeonly",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "http://127.0.0.1:9292/api/collect",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://shop.app/pay/hop?analytics_trace_id=1b16a48d-2e51-4799-b0ef-61e2e21af161&target_origin=http%3A%2F%2F127.0.0.1%3A9292&client_handle=pulseops-labs.myshopify.com",
+          "error": "net::ERR_ABORTED"
+        }
+      ],
+      "snapshot": {
+        "title": "Daily Vitality Complex | Daily Vitality",
+        "bodyClass": "gradient animate--hover-default",
+        "htmlClass": "sp-vertical-visual-neutral sp-supplement sp-font-heading-fraunces js sp-motion-active sp-image-ready",
+        "pageHeight": 6090,
+        "mainText": "Skip to product information Open media 1 in modal Open media 2 in modal Open media 3 in modal Open media 4 in modal Open media 5 in modal Open media 6 in modal Open media 7 in modal Open media 8 in modal Open media 9 in modal Open media 10 in modal Open media 11 in modal Open media 12 in modal 1 / of 12 DAILY VITALITY Daily Vitality Complex Regular price $79.95 USD Sale price $49.95 USDSale Quantity Quantity Decrease quantity for Daily Vitality Complex Increase quantity for Daily Vitality Complex Add to cart Buy it now Daily Vitality Complex is a premium daily wellness formula designed to support energy, focus, recovery, and digestive health. Formulated with clinically studied ingredients and manufactured in GMP-certified facilities, Daily Vitality helps you build consistent healthy habits that support long-term wellbeing. Benefits: • Supports daily energy and focus • Promotes digestive and gut health • Helps maintain healthy recovery and resilience • Easy once-daily routine • Non-GMO and third-party tested Backed by 35,000+ customers and a 30-day money-back guarantee. 30-day guarantee Full refund if you are not completely satisfied. Free shipping Ships within 24 hours · arrives in 3–5 business days. Secure checkout 256-bit SSL encryption on every order. Why customers choose Daily Vitality Clean ingredients, transparent dosing, and a routine you can actually stick to. Science-backed formula Clinically studied adaptogens, B-vitamins, and probiotics in transparent doses. Ships within 24 hours Fresh batches fulfilled from our GMP-certified partner facility. 30-day satisfaction guarantee Try it for a full month. Not for you? Full refund, no hassle. 4.9★ customer approved Trusted by 35k+ customers and backed by 8.4k+ verified reviews. Key ingredients & daily support Two capsules each morning — built for energy, gut health, and recovery without the crash. Clean daily energy B-vitamin complex and rhodiola help support focus and stamina through your busiest days. No jitters or late-day slump Supports natural energy metabolism Pairs well with morning coffee or tea Gut + immune support 5B CFU probiotics plus prebiotic fiber to support digestion and nutrient absorption. Gentle on sensitive stomachs No artificial fillers or dyes Third-party tested every batch Recovery support Magnesium glycinate and L-theanine support calm focus, sleep quality, and daily recovery. Helps you wind down at night Supports stress resilience Easy once-daily routine Backed by quality standards Every bottle is manufactured under strict quality controls you can trust. 92% Of participants reported improved daily energy in an 8-week consumer study. INDEPENDENT CONSUMER STUDY GMP CERTIFIED Produced in a GMP-certified facility with batch-level testing. MANUFACTURING CERTIFICATION THIRD-PARTY TESTED Every batch tested for purity, potency, and heavy metals. INDEPENDENT LABORATORY 8.4k+ verified reviews · 4.9★ average Real feedback from customers who made Daily Vitality part of their morning routine. I finally have steady afternoon energy without extra coffee or jitters. S Sarah M. Verified Customer Austin, TX Gentle on my stomach and easy to stay consistent — digestion feels more balanced. J James T. Verified Customer Portland, OR Part of my morning routine now. Better recovery days and calmer evenings. E Emily R. Verified Customer Chicago, IL Questions before you start? Dosage, timing, daily use, and our 30-day guarantee explained. How do I take Daily Vitality? Take two capsules each morning with food and water. Consistency matters more than timing perfection. When should I take it? Morning with breakfast is ideal. If you prefer, take it with your first meal of the day. Is it suitable for daily use? Yes. Daily Vitality Complex is formulated for everyday use as part of a long-term wellness routine. Does it contain caffeine? No added caffeine. The formula supports natural energy metabolism without stimulant jitters. What if it doesn't work for me? Every order is covered by our 30-day money-back guarantee. Contact support for a full refund. What is the return policy? Try it for 30 days. If you are not satisfied, we will refund your order — no hassle. MOST POPULAR PLAN Ready to upgrade your daily routine? Join 35k+ customers who start their mornings with Daily Vitality Complex. $49.95 · Free shipping included Start your daily routine 30-day money-back guarantee",
+        "headings": [
+          {
+            "level": "H2",
+            "text": "",
+            "visible": true
+          },
+          {
+            "level": "H2",
+            "text": "Your cart",
+            "visible": false
+          },
+          {
+            "level": "H2",
+            "text": "Estimated total",
+            "visible": false
+          },
+          {
+            "level": "H2",
+            "text": "",
+            "visible": true
+          },
+          {
+            "level": "H2",
+            "text": "Country/region",
+            "visible": false
+          },
+          {
+            "level": "H1",
+            "text": "Daily Vitality Complex",
+            "visible": true
+          },
+          {
+            "level": "H2",
+            "text": "Daily Vitality Complex",
+            "visible": false
+          },
+          {
+            "level": "H3",
+            "text": "30-day guarantee",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "Free shipping",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "Secure checkout",
+            "visible": true
+          },
+          {
+            "level": "H2",
+            "text": "Why customers choose Daily Vitality",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "Science-backed formula",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "Ships within 24 hours",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "30-day satisfaction guarantee",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "4.9★ customer approved",
+            "visible": true
+          },
+          {
+            "level": "H2",
+            "text": "Key ingredients & daily support",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "Clean daily energy",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "Gut + immune support",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "Recovery support",
+            "visible": true
+          },
+          {
+            "level": "H2",
+            "text": "Backed by quality standards",
+            "visible": true
+          },
+          {
+            "level": "H2",
+            "text": "8.4k+ verified reviews · 4.9★ average",
+            "visible": true
+          },
+          {
+            "level": "H2",
+            "text": "Questions before you start?",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "How do I take Daily Vitality?",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "When should I take it?",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "Is it suitable for daily use?",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "Does it contain caffeine?",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "What if it doesn't work for me?",
+            "visible": true
+          },
+          {
+            "level": "H3",
+            "text": "What is the return policy?",
+            "visible": true
+          },
+          {
+            "level": "H2",
+            "text": "Ready to upgrade your daily routine?",
+            "visible": true
+          },
+          {
+            "level": "H2",
+            "text": "NAVIGATE",
+            "visible": true
+          },
+          {
+            "level": "H2",
+            "text": "DAILY VITALITY",
+            "visible": true
+          }
+        ],
+        "forms": [
+          {
+            "id": "ref: <Node>",
+            "visible": true,
+            "controls": [
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "form_type",
+                "value": "product",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "utf8",
+                "value": "✓",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "id",
+                "value": "51361461043515",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "product-id",
+                "value": "10435879928123",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "section-id",
+                "value": "template--25946733969723__main",
+                "disabled": false,
+                "label": []
+              }
+            ]
+          },
+          {
+            "id": "ref: <Node>",
+            "visible": true,
+            "controls": [
+              {
+                "tag": "INPUT",
+                "type": "number",
+                "name": "quantity",
+                "value": "1",
+                "disabled": false,
+                "label": [
+                  "Quantity"
+                ]
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "form_type",
+                "value": "product",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "utf8",
+                "value": "✓",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "id",
+                "value": "51361461043515",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "BUTTON",
+                "type": "submit",
+                "name": "add",
+                "value": "",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "BUTTON",
+                "type": "button",
+                "name": "",
+                "value": "",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "product-id",
+                "value": "10435879928123",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "section-id",
+                "value": "template--25946733969723__main",
+                "disabled": false,
+                "label": []
+              }
+            ]
+          },
+          {
+            "id": "ref: <Node>",
+            "visible": true,
+            "controls": [
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "form_type",
+                "value": "product",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "utf8",
+                "value": "✓",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "id",
+                "value": "51361461043515",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "BUTTON",
+                "type": "submit",
+                "name": "add",
+                "value": "",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "product-id",
+                "value": "10435879928123",
+                "disabled": false,
+                "label": []
+              },
+              {
+                "tag": "INPUT",
+                "type": "hidden",
+                "name": "section-id",
+                "value": "template--25946733969723__sp-sticky-atc",
+                "disabled": false,
+                "label": []
+              }
+            ]
+          }
+        ],
+        "images": [
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/daily-vitality-product-front.png?v=1781856519&width=493",
+            "alt": "",
+            "width": 325,
+            "height": 325,
+            "loading": "eager",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/preview_images/559524515e674bd8981653f8e234c186.thumbnail.0000000000.jpg?v=1781856639&width=493",
+            "alt": "",
+            "width": 325,
+            "height": 325,
+            "loading": "lazy",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/preview_images/559524515e674bd8981653f8e234c186.thumbnail.0000000000.jpg?v=1781856639&width=493",
+            "alt": "",
+            "width": 325,
+            "height": 325,
+            "loading": "lazy",
+            "visible": false
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/daily-vitality-product-angle.png?v=1781856519&width=493",
+            "alt": "",
+            "width": 325,
+            "height": 325,
+            "loading": "lazy",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/daily-vitality-capsule-macro.png?v=1781856541&width=493",
+            "alt": "",
+            "width": 325,
+            "height": 261,
+            "loading": "lazy",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/preview_images/084a52a4b07c4d4194399610f7372a59.thumbnail.0000000000.jpg?v=1781856639&width=493",
+            "alt": "",
+            "width": 325,
+            "height": 261,
+            "loading": "lazy",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/preview_images/084a52a4b07c4d4194399610f7372a59.thumbnail.0000000000.jpg?v=1781856639&width=493",
+            "alt": "",
+            "width": 325,
+            "height": 261,
+            "loading": "lazy",
+            "visible": false
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/daily-vitality-ingredients.png?v=1781856541&width=493",
+            "alt": "",
+            "width": 325,
+            "height": 261,
+            "loading": "lazy",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/preview_images/e4f8bd34b66248b097588f3e1d6f4713.thumbnail.0000000000.jpg?v=1781856639&width=1946",
+            "alt": "",
+            "width": 0,
+            "height": 0,
+            "loading": "lazy",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/preview_images/e4f8bd34b66248b097588f3e1d6f4713.thumbnail.0000000000.jpg?v=1781856639&width=1946",
+            "alt": "",
+            "width": 0,
+            "height": 0,
+            "loading": "lazy",
+            "visible": false
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/daily-vitality-capsules.png?v=1781856541&width=1946",
+            "alt": "",
+            "width": 0,
+            "height": 0,
+            "loading": "lazy",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/daily-vitality-morning-routine.png?v=1781868445&width=1946",
+            "alt": "",
+            "width": 0,
+            "height": 0,
+            "loading": "lazy",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/daily-vitality-lab-quality.png?v=1781868430&width=1946",
+            "alt": "",
+            "width": 0,
+            "height": 0,
+            "loading": "lazy",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/daily-vitality-countertop.png?v=1781868431&width=1946",
+            "alt": "",
+            "width": 0,
+            "height": 0,
+            "loading": "lazy",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/daily-vitality-product-in-hand.png?v=1781868430&width=1946",
+            "alt": "",
+            "width": 0,
+            "height": 0,
+            "loading": "lazy",
+            "visible": true
+          },
+          {
+            "src": "http://127.0.0.1:9292/cdn/shop/files/daily-vitality-product-front.png?v=1781856519&width=88",
+            "alt": "Daily Vitality Complex",
+            "width": 88,
+            "height": 88,
+            "loading": "lazy",
+            "visible": true
+          }
+        ],
+        "details": [],
+        "focusables": [
+          {
+            "tag": "A",
+            "text": "Skip to content",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "DIV",
+            "text": "",
+            "aria": "Your cart",
+            "tabindex": "-1"
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "aria": "Close",
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "4.9★ rated · 8.4k+ reviews · 30-day guarantee",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "SUMMARY",
+            "text": "",
+            "aria": "Menu",
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Daily Vitality",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "SUMMARY",
+            "text": "",
+            "aria": "Search",
+            "tabindex": null
+          },
+          {
+            "tag": "DIV",
+            "text": "",
+            "aria": null,
+            "tabindex": "-1"
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "aria": "Search",
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "aria": "Close",
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Cart",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "MAIN",
+            "text": "Skip to product information Open media 1 in modal Open media 2 in modal Open media 3 in modal Open m",
+            "aria": null,
+            "tabindex": "-1"
+          },
+          {
+            "tag": "A",
+            "text": "Skip to product information",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open media 1 in modal",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open media 2 in modal",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open media 3 in modal",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open media 4 in modal",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open media 5 in modal",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open media 6 in modal",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open media 7 in modal",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open media 8 in modal",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open media 9 in modal",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open media 10 in modal",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open media 11 in modal",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Open media 12 in modal",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "aria": "Slide left",
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "aria": "Slide right",
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Decrease quantity for Daily Vitality Complex",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "INPUT",
+            "text": "",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Increase quantity for Daily Vitality Complex",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Add to cart",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Buy it now",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "How do I take Daily Vitality?",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "When should I take it?",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Is it suitable for daily use?",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "Does it contain caffeine?",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "What if it doesn't work for me?",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "What is the return policy?",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "aria": "Add to cart: Daily Vitality Complex",
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Benefits",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Ingredients",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Science",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Reviews",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "FAQ",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Contact",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Shipping & Returns",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Daily Vitality",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Powered by Shopify",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "A",
+            "text": "Privacy policy",
+            "aria": null,
+            "tabindex": null
+          },
+          {
+            "tag": "DIV",
+            "text": "",
+            "aria": "Media gallery",
+            "tabindex": "-1"
+          },
+          {
+            "tag": "BUTTON",
+            "text": "",
+            "aria": "Close",
+            "tabindex": null
+          },
+          {
+            "tag": "DIV",
+            "text": "",
+            "aria": "Media gallery",
+            "tabindex": "0"
+          },
+          {
+            "tag": "DIV",
+            "text": "",
+            "aria": null,
+            "tabindex": "-1"
+          },
+          {
+            "tag": "IFRAME",
+            "text": "",
+            "aria": null,
+            "tabindex": "-1"
+          }
+        ],
+        "productRegion": "MainProduct-template--25946733969723__main",
+        "sections": [
+          {
+            "id": "shopify-section-template--25946733969723__main",
+            "className": "shopify-section section",
+            "text": "Skip to product information Open media 1 in modal Open media 2 in modal Open media 3 in modal Open media 4 in modal Open media 5 in modal Open media 6 in modal Open media 7 in moda"
+          },
+          {
+            "id": "shopify-section-template--25946733969723__sp-trust-icons",
+            "className": "shopify-section section",
+            "text": "30-day guarantee Full refund if you are not completely satisfied. Free shipping Ships within 24 hours · arrives in 3–5 business days. Secure checkout 256-bit SSL encryption on ever"
+          },
+          {
+            "id": "sp-benefits",
+            "className": "shopify-section section",
+            "text": "Why customers choose Daily Vitality Clean ingredients, transparent dosing, and a routine you can actually stick to. Science-backed formula Clinically studied adaptogens, B-vitamins"
+          },
+          {
+            "id": "sp-ingredients",
+            "className": "shopify-section section",
+            "text": "Key ingredients & daily support Two capsules each morning — built for energy, gut health, and recovery without the crash. Clean daily energy B-vitamin complex and rhodiola help sup"
+          },
+          {
+            "id": "sp-science",
+            "className": "shopify-section section",
+            "text": "Backed by quality standards Every bottle is manufactured under strict quality controls you can trust. 92% Of participants reported improved daily energy in an 8-week consumer study"
+          },
+          {
+            "id": "sp-reviews",
+            "className": "shopify-section section",
+            "text": "8.4k+ verified reviews · 4.9★ average Real feedback from customers who made Daily Vitality part of their morning routine. I finally have steady afternoon energy without extra coffe"
+          },
+          {
+            "id": "sp-faq",
+            "className": "shopify-section section",
+            "text": "Questions before you start? Dosage, timing, daily use, and our 30-day guarantee explained. How do I take Daily Vitality? Take two capsules each morning with food and water. Consist"
+          },
+          {
+            "id": "sp-cta",
+            "className": "shopify-section section",
+            "text": "MOST POPULAR PLAN Ready to upgrade your daily routine? Join 35k+ customers who start their mornings with Daily Vitality Complex. $49.95 · Free shipping included Start your daily ro"
+          },
+          {
+            "id": "shopify-section-template--25946733969723__sp-sticky-atc",
+            "className": "shopify-section section section-sp-sticky-atc",
+            "text": ""
+          }
+        ],
+        "gallery": [
+          {
+            "id": "MediaGallery-template--25946733969723__main",
+            "visible": true,
+            "text": "Skip to product information Open media 1 in modal Open media 2 in modal Open media 3 in modal Open media 4 in modal Open media 5 in modal Open media 6 in modal Open media 7 in modal Open media 8 in modal Open media 9 in modal Open media 10 in modal Open media 11 in modal Open media 12 in modal 1 / of 12"
+          }
+        ],
+        "sticky": [
+          {
+            "id": "sp-sticky-atc-template--25946733969723__sp-sticky-atc",
+            "className": "sp-sticky-atc sp-sticky-atc-template--25946733969723__sp-sticky-atc sp-sticky-atc--blur sp-surface--default color-scheme-1 gradient\n",
+            "visible": true,
+            "text": ""
+          }
+        ],
+        "dynamicCheckoutVisible": true,
+        "variantPickerVisible": false,
+        "quantityVisible": true,
+        "statusRegions": [
+          {
+            "role": "status",
+            "live": "polite",
+            "text": "",
+            "hidden": false
+          },
+          {
+            "role": "alert",
+            "live": null,
+            "text": "",
+            "hidden": false
+          },
+          {
+            "role": null,
+            "live": "polite",
+            "text": "",
+            "hidden": false
+          },
+          {
+            "role": null,
+            "live": "polite",
+            "text": "",
+            "hidden": false
+          },
+          {
+            "role": "alert",
+            "live": null,
+            "text": "",
+            "hidden": true
+          },
+          {
+            "role": "status",
+            "live": "polite",
+            "text": "Regular price $49.95 USD Regular price $79.95 USD Sale price $49.95 USD",
+            "hidden": false
+          },
+          {
+            "role": "alert",
+            "live": null,
+            "text": "",
+            "hidden": true
+          },
+          {
+            "role": null,
+            "live": "polite",
+            "text": "",
+            "hidden": false
+          }
+        ]
+      },
+      "interactions": {
+        "galleryButtonCount": 2,
+        "galleryFirstButtonLabel": "Slide left",
+        "disclosureCount": 0,
+        "quantity": {
+          "before": "1",
+          "after": "2"
+        },
+        "stickyAfterScroll": 0
+      }
+    }
+  ]
+}

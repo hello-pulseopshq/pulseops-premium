@@ -1,0 +1,261 @@
+{
+  "faq": {
+    "buttonCount": 6,
+    "beforeExpanded": "true",
+    "beforeHidden": "false",
+    "afterExpanded": "false",
+    "afterHidden": "true"
+  },
+  "stickyStates": [
+    {
+      "fraction": 0,
+      "className": "sp-sticky-atc sp-sticky-atc-template--25946733969723__sp-sticky-atc sp-sticky-atc--blur sp-surface--default color-scheme-1 gradient\n",
+      "ariaHidden": "true"
+    },
+    {
+      "fraction": 0.1,
+      "className": "sp-sticky-atc sp-sticky-atc-template--25946733969723__sp-sticky-atc sp-sticky-atc--blur sp-surface--default color-scheme-1 gradient\n",
+      "ariaHidden": "true"
+    },
+    {
+      "fraction": 0.25,
+      "className": "sp-sticky-atc sp-sticky-atc-template--25946733969723__sp-sticky-atc sp-sticky-atc--blur sp-surface--default color-scheme-1 gradient is-visible",
+      "ariaHidden": "false"
+    },
+    {
+      "fraction": 0.5,
+      "className": "sp-sticky-atc sp-sticky-atc-template--25946733969723__sp-sticky-atc sp-sticky-atc--blur sp-surface--default color-scheme-1 gradient is-visible",
+      "ariaHidden": "false"
+    },
+    {
+      "fraction": 0.75,
+      "className": "sp-sticky-atc sp-sticky-atc-template--25946733969723__sp-sticky-atc sp-sticky-atc--blur sp-surface--default color-scheme-1 gradient",
+      "ariaHidden": "true"
+    },
+    {
+      "fraction": 0.9,
+      "className": "sp-sticky-atc sp-sticky-atc-template--25946733969723__sp-sticky-atc sp-sticky-atc--blur sp-surface--default color-scheme-1 gradient",
+      "ariaHidden": "true"
+    }
+  ],
+  "focusOrder": [
+    {
+      "tag": "BUTTON",
+      "text": "When should I take it?",
+      "aria": null,
+      "id": "SpFaq-trigger-template--25946733969723__sp-faq-faq-2",
+      "className": "sp-faq__trigger"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Is it suitable for daily use?",
+      "aria": null,
+      "id": "SpFaq-trigger-template--25946733969723__sp-faq-faq-3",
+      "className": "sp-faq__trigger"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Does it contain caffeine?",
+      "aria": null,
+      "id": "SpFaq-trigger-template--25946733969723__sp-faq-faq-4",
+      "className": "sp-faq__trigger"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "What if it doesn't work for me?",
+      "aria": null,
+      "id": "SpFaq-trigger-template--25946733969723__sp-faq-faq-5",
+      "className": "sp-faq__trigger"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "What is the return policy?",
+      "aria": null,
+      "id": "SpFaq-trigger-template--25946733969723__sp-faq-faq-6",
+      "className": "sp-faq__trigger"
+    },
+    {
+      "tag": "A",
+      "text": "Benefits",
+      "aria": null,
+      "id": "",
+      "className": "link link--text list-menu__item list-menu__item--link"
+    },
+    {
+      "tag": "A",
+      "text": "Ingredients",
+      "aria": null,
+      "id": "",
+      "className": "link link--text list-menu__item list-menu__item--link"
+    },
+    {
+      "tag": "A",
+      "text": "Science",
+      "aria": null,
+      "id": "",
+      "className": "link link--text list-menu__item list-menu__item--link"
+    },
+    {
+      "tag": "A",
+      "text": "Reviews",
+      "aria": null,
+      "id": "",
+      "className": "link link--text list-menu__item list-menu__item--link"
+    },
+    {
+      "tag": "A",
+      "text": "FAQ",
+      "aria": null,
+      "id": "",
+      "className": "link link--text list-menu__item list-menu__item--link"
+    },
+    {
+      "tag": "A",
+      "text": "Contact",
+      "aria": null,
+      "id": "",
+      "className": "link link--text list-menu__item list-menu__item--link"
+    },
+    {
+      "tag": "A",
+      "text": "Shipping & Returns",
+      "aria": null,
+      "id": "",
+      "className": "link link--text list-menu__item list-menu__item--link"
+    },
+    {
+      "tag": "A",
+      "text": "Daily Vitality",
+      "aria": null,
+      "id": "",
+      "className": ""
+    },
+    {
+      "tag": "A",
+      "text": "Powered by Shopify",
+      "aria": null,
+      "id": "",
+      "className": ""
+    },
+    {
+      "tag": "A",
+      "text": "Privacy policy",
+      "aria": null,
+      "id": "",
+      "className": ""
+    },
+    {
+      "tag": "BODY",
+      "text": "Skip to content 4.9★ rated · 8.4k+ reviews · 30-day guarantee Daily Vitality Car",
+      "aria": null,
+      "id": "",
+      "className": "gradient animate--hover-default"
+    },
+    {
+      "tag": "A",
+      "text": "Skip to content",
+      "aria": null,
+      "id": "",
+      "className": "skip-to-content-link button visually-hidden"
+    },
+    {
+      "tag": "A",
+      "text": "4.9★ rated · 8.4k+ reviews · 30-day guarantee",
+      "aria": null,
+      "id": "",
+      "className": "announcement-bar__link link link--text focus-inset animate-arrow"
+    },
+    {
+      "tag": "SUMMARY",
+      "text": "",
+      "aria": "Menu",
+      "id": "",
+      "className": "header__icon header__icon--menu header__icon--summary link focus-inset"
+    },
+    {
+      "tag": "A",
+      "text": "Daily Vitality",
+      "aria": null,
+      "id": "",
+      "className": "header__heading-link link link--text focus-inset"
+    },
+    {
+      "tag": "SUMMARY",
+      "text": "",
+      "aria": "Search",
+      "id": "",
+      "className": "header__icon header__icon--search header__icon--summary link focus-inset modal__toggle"
+    },
+    {
+      "tag": "A",
+      "text": "Cart",
+      "aria": null,
+      "id": "cart-icon-bubble",
+      "className": "header__icon header__icon--cart link focus-inset"
+    },
+    {
+      "tag": "A",
+      "text": "Skip to product information",
+      "aria": null,
+      "id": "",
+      "className": "skip-to-content-link button visually-hidden quick-add-hidden"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Open media 1 in modal",
+      "aria": null,
+      "id": "",
+      "className": "product__media-toggle quick-add-hidden product__media-zoom-lightbox"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Open media 2 in modal",
+      "aria": null,
+      "id": "",
+      "className": "product__media-toggle quick-add-hidden product__media-zoom-lightbox"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Open media 3 in modal",
+      "aria": null,
+      "id": "",
+      "className": "product__media-toggle quick-add-hidden product__media-zoom-lightbox"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Open media 4 in modal",
+      "aria": null,
+      "id": "",
+      "className": "product__media-toggle quick-add-hidden product__media-zoom-lightbox"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Open media 5 in modal",
+      "aria": null,
+      "id": "",
+      "className": "product__media-toggle quick-add-hidden product__media-zoom-lightbox"
+    }
+  ],
+  "addToCart": {
+    "buttonCount": 1,
+    "beforeText": "Add to cart",
+    "afterText": "Add to cart",
+    "cartDrawerActive": 1,
+    "error": [],
+    "cartBubble": "Cart\n1\n1 item"
+  },
+  "messages": [
+    {
+      "type": "info",
+      "text": "[HotReload] Connected"
+    },
+    {
+      "type": "debug",
+      "text": "[HotReload] Event: {type: open, pid: 4996, themeId: 183028121915, version: 1}"
+    },
+    {
+      "type": "info",
+      "text": "Clear-Site-Data header on 'http://127.0.0.1:9292/cart/add': Cleared data types: \"prefetchCache\", \"prerenderCache\"."
+    }
+  ]
+}
